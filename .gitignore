@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Unreal Engine generated files
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# Generated folders inside plugins
+**/Binaries/
+**/Intermediate/
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# Xcode generated user data
+*.xcuserdata/
+xcuserdata/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Crash reports
+crashinfo-*.txt
+
+# Generated Xcode workspace
+*.xcworkspace/
+
+# Rider user-specific settings
+*.DotSettings.user
+
+# RiderLink development integration
+Plugins/Developer/RiderLink/
