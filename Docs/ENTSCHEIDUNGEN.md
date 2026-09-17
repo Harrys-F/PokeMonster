@@ -207,7 +207,7 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Physical/Special/Status wird je Attacke konfiguriert. Effekte, Priorität und Beschreibungen wurden zunächst nur vorbereitet. Die Aussage zur fehlenden Rundensteuerung ist durch „Einfacher 1-gegen-1-Battle-Flow“ unten ersetzt; Statusveränderungen bleiben unimplementiert.
 - Trefferprüfung und Schadensberechnung sind getrennte C++-Funktionen ohne Veränderung der beteiligten Kreaturen. Der Aufrufer liefert einen Wurf von 0–99; PP-Verbrauch erfolgt ausdrücklich über eine separate Funktion.
 - Eine vorläufige Schadensformel verwendet Level, Basisstärke, passende aktuelle Statuswerte und Typmultiplikatoren. Die 17 Typen verwenden als technische Arbeitsgrundlage die zentral gepflegten Matchups der zweiten Generation. Dies konkretisiert das bisher offene Typensystem für den Prototyp; endgültige Anpassungen bleiben möglich.
-- Es gibt noch keine Status-Effektausführung, STAB-Boni, kritischen Treffer, Kampfmodifikatoren, Lernlogik, Battle-UI oder Animationen. Die Aussage zur fehlenden HP-Anwendung ist durch die neue Battle-Session unten ersetzt. Die bestehenden Welt- und Playersysteme bleiben unverändert.
+- Es gibt noch keine Status-Effektausführung, STAB-Boni, kritischen Treffer, Kampfmodifikatoren, Lernlogik oder Kampfanimationen. Die Aussagen zur fehlenden HP-Anwendung und Battle-UI sind durch die Battle-Session beziehungsweise „Erste funktionale Battle-Testoberfläche“ unten ersetzt. Die bestehenden Welt- und Playersysteme bleiben unverändert.
 - Drei neue Platzhalter-Attacken unter `/Game/Data/Moves` dienen den automatisierten Tests. Die Details und Formeln sind in `Docs/TECHNIK.md` beschrieben.
 
 ## 2026-09-17 – Einfacher 1-gegen-1-Battle-Flow
@@ -221,6 +221,17 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Geordnete Events berichten Auswahl, Ausführung, Fehlschlag, Schaden, Effektivität/Resistenz/Immunität, K.O. und Kampfende. Status-Platzhalter führen weiterhin keine Statuslogik aus.
 - Ohne beidseitig gültige Auswahl erfolgt kein Rundenfortschritt. Eine Ersatzattacke bei null PP oder ein erzwungenes Ende von Status-/Immunitätsschleifen wird nicht hinzugefügt.
 - Player, Kamera, Interaktion, Maps, Grafik, Progression und bisherige Attacken-/Kampfbausteine bleiben unverändert. Neue Gameplay-Systeme wie Teams, Wechsel, Items, Trainer oder Fangmechanik werden nicht ergänzt. API und Eventdetails stehen in `Docs/TECHNIK.md`.
+
+## 2026-09-17 – Erste funktionale Battle-Testoberfläche
+
+**Status: Separate technische Testoberfläche umgesetzt; finale Gestaltung bleibt offen**
+
+- Die neue `Dev_BattleTestMap` verwendet ausschließlich ihren eigenen Battle-Test-GameMode und Controller. Die normale Testmap, Player-Kamera und bisherigen Spielsysteme bleiben unverändert.
+- Eine getrennte C++-Presenter-Schicht verbindet die vorhandene BattleSession mit UMG. BattleSession, Schadensberechnung, Kreaturen-, Progressions- und Attackendaten werden nicht verändert. Der Gegner wählt zunächst den ersten gültigen Slot mit PP.
+- Das native UMG-Widget zeigt zwei einfache farbige Kreaturen-Platzhalter, Namen, Level, numerische HP und Balken, vier Attackenbuttons mit Typ/PP sowie ein begrenztes Kampflog. Für diesen ausdrücklich funktionalen Test entstehen keine finalen Grafiken und keine zusätzlichen Textur-/Sprite-Assets. Die verbindliche Welt-Stilrichtung bleibt bestehen.
+- Verwendet werden TestWater und TestGrass auf Level 20 sowie die drei vorhandenen Testattacken. Der vierte Spielerslot wiederholt die Normal-Attacke mit eigenen PP; es wird keine Lernregel festgelegt.
+- Die Eingabe wird sofort bei Auswahl gesperrt und nach einer kurzen Verzögerung und Rundenauflösung freigegeben. Nach K.O./Kampfende bleiben Attacken deaktiviert. Ein Testneustart erzeugt eine neue Session. Ohne gültige Attacken meldet die UI den Zustand, ohne eine Ersatzattacke oder neue Kampfregel einzuführen.
+- Lesemodelle und vollständige BattleEvents bleiben von der Darstellung getrennt. Widget-Blueprint-Unterklassen, visuelle Ereignisse und ein expliziter Präsentationsabschluss ermöglichen spätere Animationen, Sprites, Sound und Menüs ohne Neuschreiben der BattleSession. Details stehen in `Docs/TECHNIK.md`.
 
 ## Aktuell offene Entscheidungen
 
