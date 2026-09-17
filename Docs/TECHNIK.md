@@ -82,10 +82,21 @@ Systeme sollen nicht unnötig doppelt in C++ und Blueprints implementiert werden
 - mehrere visuelle Tiefenebenen
 - modulare Paper2D-Assets
 - technische Kameraart wird in der Stil-Testszene geprüft
+- kleine Figuren im Verhältnis zu einer dichten, detailreichen Umgebung
+- Layer für Hintergrund, Boden, begehbare Ebene, Dekoration, Figuren/Kreaturen, Überdachungen und Vordergrund
+- wiederverwendbare Module für Außenbereiche, Innenräume, Höhlen, Ruinen, Brücken, Treppen, Terrassen und Wasserfälle
+- kontrollierte Sortierung und Überlagerung, damit Figuren korrekt vor und hinter Umgebungselementen erscheinen
+- Vordergrundelemente müssen bei längerer Verdeckung transparent oder ausgeblendet werden können
 - hochauflösende, sauber gezeichnete Grafiken
 - moderne 2D-Darstellung statt absichtlich unscharfer Retro-Grafik
 - übersichtliche und gut lesbare Spielwelt
 - stimmungsvolle Beleuchtung und Effekte nur in einem für das MacBook sinnvollen Umfang
+
+Die 2.5D-Wirkung entsteht vorrangig durch Paper2D-Sprites, Layering, Skalierung, Sortierung, Farbperspektive, weiche Kontaktschatten und sparsame Effekte. Dreidimensionale Hilfsgeometrie darf für Kollisionen, Höhen, Brücken oder Beleuchtung eingesetzt werden, wenn sie sich der gezeichneten Darstellung unterordnet.
+
+Die technische Kameraart, Sortierregeln, begehbaren Höhenebenen und Übergänge zwischen Innen- und Außenbereichen werden zunächst in kleinen Tests festgelegt. Orthografische, nahezu orthografische und perspektivische Varianten werden nach ihrer visuellen Übereinstimmung mit den Referenzen, ihrer Lesbarkeit und ihrer technischen Stabilität bewertet.
+
+Hohe Umgebungsdichte wird über geteilte Texturen, modulare Assets, Instanzvarianten, begrenzte Materialvielfalt und sichtbarkeitsabhängige Effekte umgesetzt. Transparenzen, große Texturen, dynamische Beleuchtung, Wasserfälle, Nebel und Partikel müssen auf dem MacBook Air M4 mit 16 GB RAM gezielt profiliert werden.
 
 ## Grafikprofile
 

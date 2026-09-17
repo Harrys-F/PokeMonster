@@ -16,6 +16,10 @@ Vor Änderungen an Kamera, Levelgestaltung, Sprites, Beleuchtung oder visuellen 
 
 Größere Abweichungen von der festgelegten Perspektive und Figurengröße benötigen vorher Harrys Zustimmung.
 
+Visuelle Arbeiten müssen außerdem die verbindliche hohe Umgebungsdichte, die kleinen Figuren im Verhältnis zur Welt, die malerische 2D/2.5D-Tiefenwirkung und die klare Lesbarkeit begehbarer Wege berücksichtigen. Das gilt für Außenbereiche, Innenräume, Höhlen und Ruinen gleichermaßen.
+
+Neue visuelle Entwürfe sollen die in `Docs/GRAFIKSTIL.md` beschriebenen Szenentypen, Layer und Höhenstrukturen wiederverwenden. Eine Vereinfachung zu Pixel-Art, einer weitgehend leeren Prototypumgebung oder einer vorwiegend dreidimensionalen Darstellung benötigt vorher Harrys Zustimmung.
+
 ## Zusammenarbeit
 
 Harry plant, entscheidet und testet das Spiel. Codex soll möglichst viel der technischen Umsetzung übernehmen.

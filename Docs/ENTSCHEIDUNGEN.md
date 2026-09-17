@@ -172,6 +172,21 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Die Weg- und Wassermaterialien enthalten die Koordinaten dieses Testareals. Für andere Maps benötigen sie eigene Verlaufsvorgaben; sie stellen noch kein allgemeines Landschaftssystem dar.
 - Kamera, C++, Input und Spielsysteme bleiben unverändert. Bestehende Kollisionskörper und Brückengeometrie werden beibehalten.
 
+## 2026-09-17 – Verbindliche erweiterte visuelle Stilrichtung
+
+**Status: Beschlossen**
+
+- Alle bereitgestellten visuellen Referenzen bilden gemeinsam die verbindliche Stilgrundlage. Die erste Hügelland-Szene bleibt maßgeblich für Perspektive, sichtbaren Ausschnitt und relative Figurengröße.
+- Verwendet wird hochwertiges, hochauflösend gezeichnetes 2D ohne Pixel-Art, mit leicht schräger Top-Down- beziehungsweise isometrisch wirkender Perspektive und moderner 2D/2.5D-Tiefenwirkung.
+- Figuren bleiben relativ klein gegenüber einer sehr dichten, detailreichen und vollständig inszenierten Umgebung.
+- Natürliche Vegetation, Layering, Vordergrundelemente, weiche malerische Beleuchtung und atmosphärische Farbgestaltung gehören verbindlich zum Stil.
+- Mittelalterlich und fantastisch geprägte Architektur erhält einen deutlichen Tolkien-/Mittelerde-Einfluss. Konkrete geschützte Orte, Bauwerke, Symbole und Designs werden nicht kopiert.
+- Brücken, Treppen, Terrassen, Höhenunterschiede, Klippen, Wasserläufe und Wasserfälle sind wiederkehrende Elemente der Weltgestaltung.
+- Ländliche Dörfer und Höfe, größere mittelalterliche Städte, helle akademische oder magische Innenräume, alte Ruinen bei Nacht, Bergwerke und Höhlensysteme, wohnliche Innenräume sowie wasserreiche terrassierte Siedlungen sind gewünschte Szenentypen.
+- Innenräume werden ebenso dicht und vollständig gestaltet wie Außenbereiche. Ruinen, Höhlen und unterirdische Orte verwenden dieselbe visuelle Sprache.
+- Kreaturen sind sichtbar und natürlich in ihre Lebensräume integriert. Wege, Eingänge, Figuren, Kreaturen und interaktive Objekte bleiben trotz hoher Detaildichte klar lesbar.
+- Die technische Kameraart und exakten Pixelgrößen bleiben Gegenstand der Stil-Testszene; die geforderte visuelle Wirkung ist unabhängig davon verbindlich.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname
