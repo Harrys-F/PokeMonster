@@ -43,10 +43,10 @@ Vorläufige Merkmale:
 
 Noch nicht entschieden:
 
-- Anzahl gleichzeitig kämpfender Kreaturen
+- spätere Erweiterungen über den technischen 1-gegen-1-Kampf hinaus
 - genaue Schadensformel
 - endgültige Anpassungen des Typensystems (technische 17-Typen-Grundlage siehe unten)
-- Initiative und Zugreihenfolge
+- spätere Änderungen der vorläufigen Reihenfolge aus Priorität, Initiative und Gleichstandregel
 - Schwierigkeitsgrad
 - Erfahrungskurve
 - Verlustbedingungen
@@ -54,7 +54,7 @@ Noch nicht entschieden:
 
 Codex darf zunächst nur eine kleine erweiterbare Grundlage erstellen und keine komplexe vollständige Kampfmathematik festlegen.
 
-Technischer Prototypstand: Vier individuelle Moveslots, getrennte Attacken-Data-Assets, expliziter PP-Verbrauch sowie eine erste Treffer- und Schadensberechnung sind vorhanden. Die zentral gepflegte Typentabelle verwendet vorerst die 17 Typen und Matchups der zweiten Generation; Physical/Special/Status wird unabhängig davon je Attacke festgelegt. Dies ersetzt die vollständig offene Typengrundlage für den Prototyp. Endgültiges Balancing, Lernregeln, Effekte und Rundensteuerung bleiben offen. Technische Details stehen in `Docs/TECHNIK.md`.
+Technischer Prototypstand: Vier individuelle Moveslots, getrennte Attacken-Data-Assets, PP-Verbrauch sowie Treffer- und Schadensberechnung sind vorhanden. Die zentral gepflegte Typentabelle verwendet vorerst die 17 Typen und Matchups der zweiten Generation; Physical/Special/Status wird unabhängig davon je Attacke festgelegt. Eine getrennte Battle-Session führt inzwischen 1-gegen-1-Runden bis zum K.O. aus: Priorität vor Initiative, bei Gleichstand Seite A zuerst. Eine besiegte Kreatur greift nicht mehr an. Fehlerhafte Auswahlen werden ohne Rundenfortschritt abgewiesen. Endgültiges Balancing, Lernregeln, Status-Effekte und erweiterte Kampfregeln bleiben offen. Technische Details stehen in `Docs/TECHNIK.md`.
 
 ## Sammeln und Fangen
 

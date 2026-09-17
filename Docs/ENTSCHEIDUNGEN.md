@@ -204,11 +204,23 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 **Status: Technische Grundlage; endgültige Kampfregeln und Balancing bleiben offen**
 
 - Attacken verwenden eigene `CreatureMove`-Primary-Data-Assets. Kreatureninstanzen erhalten vier eigene Moveslots mit weicher Attackenreferenz und separaten PP. Speziesdaten und Progression bleiben erhalten.
-- Physical/Special/Status wird je Attacke konfiguriert. Effekte, Priorität und Beschreibungen sind vorbereitete Daten; Statusveränderungen und Rundensteuerung werden noch nicht ausgeführt.
+- Physical/Special/Status wird je Attacke konfiguriert. Effekte, Priorität und Beschreibungen wurden zunächst nur vorbereitet. Die Aussage zur fehlenden Rundensteuerung ist durch „Einfacher 1-gegen-1-Battle-Flow“ unten ersetzt; Statusveränderungen bleiben unimplementiert.
 - Trefferprüfung und Schadensberechnung sind getrennte C++-Funktionen ohne Veränderung der beteiligten Kreaturen. Der Aufrufer liefert einen Wurf von 0–99; PP-Verbrauch erfolgt ausdrücklich über eine separate Funktion.
 - Eine vorläufige Schadensformel verwendet Level, Basisstärke, passende aktuelle Statuswerte und Typmultiplikatoren. Die 17 Typen verwenden als technische Arbeitsgrundlage die zentral gepflegten Matchups der zweiten Generation. Dies konkretisiert das bisher offene Typensystem für den Prototyp; endgültige Anpassungen bleiben möglich.
-- Es gibt noch keine Status-Effektausführung, STAB-Boni, kritischen Treffer, Kampfmodifikatoren, Lernlogik, Battle-UI, Animationen oder automatische HP-Anwendung. Die bestehenden Welt- und Playersysteme bleiben unverändert.
+- Es gibt noch keine Status-Effektausführung, STAB-Boni, kritischen Treffer, Kampfmodifikatoren, Lernlogik, Battle-UI oder Animationen. Die Aussage zur fehlenden HP-Anwendung ist durch die neue Battle-Session unten ersetzt. Die bestehenden Welt- und Playersysteme bleiben unverändert.
 - Drei neue Platzhalter-Attacken unter `/Game/Data/Moves` dienen den automatisierten Tests. Die Details und Formeln sind in `Docs/TECHNIK.md` beschrieben.
+
+## 2026-09-17 – Einfacher 1-gegen-1-Battle-Flow
+
+**Status: Technischer Battle Flow umgesetzt; weiterführende Kampfregeln bleiben offen**
+
+- Eine getrennte C++-Battle-Session verwaltet eigene Kampfkopien von genau einer aktiven Kreatur pro Seite. Der Zustand ist von der Ausführung getrennt und für spätere UI/Animationen lesbar. Eine automatische Rückübertragung auf Welt-/Inventardaten findet noch nicht statt.
+- Jede Runde erhält beide Attackenauswahlen gemeinsam. Höhere Priorität beginnt, danach entscheidet Initiative; bei vollständigem Gleichstand beginnt deterministisch Seite A. Treffer verwenden einen eigenen, per Seed reproduzierbaren Zufallsstrom.
+- Beide Auswahlen werden vor Beginn geprüft. Fehlerhafte Runden verändern weder HP, PP, Rundenzähler noch Zufallszustand. Ausgeführte Angriffsversuche kosten eine PP, auch bei Fehlschlag, Immunität oder Status-Platzhalter.
+- HP-Anwendung verwendet die vorhandene Schadensberechnung unverändert. Ein K.O. beendet die Runde und den Kampf sofort; die besiegte Kreatur führt keinen ausstehenden Angriff mehr aus. Weitere Aufrufe melden den beendeten Kampf, ohne zusätzliche PP oder HP zu verändern.
+- Geordnete Events berichten Auswahl, Ausführung, Fehlschlag, Schaden, Effektivität/Resistenz/Immunität, K.O. und Kampfende. Status-Platzhalter führen weiterhin keine Statuslogik aus.
+- Ohne beidseitig gültige Auswahl erfolgt kein Rundenfortschritt. Eine Ersatzattacke bei null PP oder ein erzwungenes Ende von Status-/Immunitätsschleifen wird nicht hinzugefügt.
+- Player, Kamera, Interaktion, Maps, Grafik, Progression und bisherige Attacken-/Kampfbausteine bleiben unverändert. Neue Gameplay-Systeme wie Teams, Wechsel, Items, Trainer oder Fangmechanik werden nicht ergänzt. API und Eventdetails stehen in `Docs/TECHNIK.md`.
 
 ## Aktuell offene Entscheidungen
 
