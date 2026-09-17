@@ -6,6 +6,7 @@
 
 #include "../Creatures/PokeMonsterCreatureInstance.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
+#include "../Creatures/PokeMonsterCreatureProgression.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(
 	FPokeMonsterCreatureDataTest,
@@ -48,18 +49,21 @@ bool FPokeMonsterCreatureDataTest::RunTest(const FString& Parameters)
 	FPokeMonsterCreatureInstance SecondCreature = FPokeMonsterCreatureInstance::CreateFromSpecies(GrassSpecies, 7);
 	TestTrue(TEXT("A runtime creature instance can be created from species data"), FirstCreature.IsValid());
 	TestEqual(TEXT("The requested instance level is stored"), FirstCreature.Level, 7);
-	TestEqual(TEXT("A new instance starts with the species base HP placeholder"),
-		FirstCreature.CurrentHP, GrassSpecies->GetBaseStats().HP);
+	TestEqual(TEXT("A new instance starts with calculated full HP"),
+		FirstCreature.CurrentHP, UPokeMonsterCreatureProgression::CalculateStats(GrassSpecies->GetBaseStats(), 7).MaxHP);
 	TestTrue(TEXT("Each runtime creature receives an independent identity"),
 		FirstCreature.InstanceId != SecondCreature.InstanceId);
 
 	const int32 SharedBaseHP = GrassSpecies->GetBaseStats().HP;
+	const int32 InitialMaxHP = SecondCreature.GetMaxHP();
+	const int64 InitialXP = SecondCreature.Experience;
 	FirstCreature.CurrentHP = FMath::Max(0, FirstCreature.CurrentHP - 3);
-	FirstCreature.Experience = 25;
+	TestTrue(TEXT("Experience can be added to one instance"), FirstCreature.AddExperience(25).bSucceeded);
 	TestEqual(TEXT("Changing current HP does not alter shared species base HP"),
 		GrassSpecies->GetBaseStats().HP, SharedBaseHP);
-	TestEqual(TEXT("Another instance keeps its own current HP"), SecondCreature.CurrentHP, SharedBaseHP);
-	TestEqual(TEXT("Individual experience remains on the runtime instance"), FirstCreature.Experience, static_cast<int64>(25));
+	TestEqual(TEXT("Another instance keeps its own current HP"), SecondCreature.CurrentHP, InitialMaxHP);
+	TestEqual(TEXT("Individual experience remains on the runtime instance"), FirstCreature.Experience, InitialXP + 25);
+	TestEqual(TEXT("Another instance keeps its experience"), SecondCreature.Experience, InitialXP);
 
 	return true;
 }

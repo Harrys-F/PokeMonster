@@ -41,7 +41,7 @@ enum class EPokeMonsterGenderSystem : uint8
 	FemaleOnly
 };
 
-/** Growth categories are data labels only; experience formulas will be added with progression gameplay. */
+/** Experience curves implemented by UPokeMonsterCreatureProgression. */
 UENUM(BlueprintType)
 enum class EPokeMonsterGrowthRate : uint8
 {
@@ -101,7 +101,7 @@ struct POKEMONSTER_API FPokeMonsterGenderData
 	float FemaleRatio = 0.5f;
 };
 
-/** One possible future evolution. RequirementId can name an item, place, event, or other rule later. */
+/** One evolution route. Populated requirements are ANDed, separate routes are alternatives. */
 USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterEvolutionData
 {
@@ -118,6 +118,75 @@ struct POKEMONSTER_API FPokeMonsterEvolutionData
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Evolution")
 	FName RequirementId = NAME_None;
+
+	/** Legacy RequirementId still applies to Item, Location or SpecialInteraction triggers. */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Evolution")
+	FName RequiredItemId = NAME_None;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Evolution")
+	FName RequiredLocationId = NAME_None;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Evolution")
+	FName RequiredActionId = NAME_None;
+
+	/** Zero disables the extra friendship gate; Friendship routes require a positive threshold. */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Evolution", meta = (ClampMin = "0", ClampMax = "255"))
+	int32 MinimumFriendship = 0;
+};
+
+/** Supplied by the caller at the event being evaluated. Does not consume items or execute actions. */
+USTRUCT(BlueprintType)
+struct POKEMONSTER_API FPokeMonsterEvolutionContext
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Evolution")
+	EPokeMonsterEvolutionTrigger Trigger = EPokeMonsterEvolutionTrigger::Level;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Evolution")
+	FName UsedItemId = NAME_None;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Evolution")
+	FName LocationId = NAME_None;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Evolution")
+	FName ActionId = NAME_None;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Evolution", meta = (ClampMin = "0", ClampMax = "255"))
+	int32 Friendship = 0;
+};
+
+/** Calculated per-instance values, distinct from immutable species base stats. */
+USTRUCT(BlueprintType)
+struct POKEMONSTER_API FPokeMonsterCreatureStats
+{
+	GENERATED_BODY()
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stats")
+	int32 MaxHP = 0;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stats")
+	int32 Attack = 0;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stats")
+	int32 Defense = 0;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stats")
+	int32 SpecialAttack = 0;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stats")
+	int32 SpecialDefense = 0;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stats")
+	int32 Speed = 0;
+};
+
+USTRUCT(BlueprintType)
+struct POKEMONSTER_API FPokeMonsterExperienceResult
+{
+	GENERATED_BODY()
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Progression")
+	bool bSucceeded = false;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Progression")
+	int64 ExperienceAdded = 0;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Progression")
+	int32 LevelsGained = 0;
 };
 
 /** Soft references keep the species catalog lightweight until its visuals are actually needed. */

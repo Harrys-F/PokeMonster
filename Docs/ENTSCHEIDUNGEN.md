@@ -129,7 +129,7 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Individuelle Kreaturen verwenden eine getrennte Runtime-Struktur mit eigener Instanz-ID, Level, aktuellen HP und Erfahrung. Sie referenzieren ihre Spezies, duplizieren deren Basisdaten aber nicht.
 - Die 17 Typen der Generationen 1 und 2 sind als C++-Enum vorbereitet; `None` kennzeichnet einen fehlenden Sekundärtyp.
 - Basiswerte, Geschlechtssystem, Startlevel, Wachstumsgruppe, vorbereitete Entwicklungsbedingungen und weiche Paper2D-Flipbook-Referenzen gehören zu den Speziesdaten.
-- Entwicklungs- und Wachstumsfelder legen noch keine Formeln oder endgültigen Spielregeln fest.
+- Ursprünglich legten Entwicklungs- und Wachstumsfelder noch keine Formeln fest. Dieser Teil ist durch „Level-, Erfahrungs- und Entwicklungsgrundlage“ unten ersetzt; endgültiges Balancing bleibt offen.
 - Für den Systemtest werden ausschließlich die Platzhalter-Spezies `TestGrass`, `TestFire` und `TestWater` verwendet.
 
 ## 2026-09-17 – Visueller Vertical Slice in Dev_TestMap
@@ -186,6 +186,18 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Innenräume werden ebenso dicht und vollständig gestaltet wie Außenbereiche. Ruinen, Höhlen und unterirdische Orte verwenden dieselbe visuelle Sprache.
 - Kreaturen sind sichtbar und natürlich in ihre Lebensräume integriert. Wege, Eingänge, Figuren, Kreaturen und interaktive Objekte bleiben trotz hoher Detaildichte klar lesbar.
 - Die technische Kameraart und exakten Pixelgrößen bleiben Gegenstand der Stil-Testszene; die geforderte visuelle Wirkung ist unabhängig davon verbindlich.
+
+## 2026-09-17 – Level-, Erfahrungs- und Entwicklungsgrundlage
+
+**Status: Technische Grundlage umgesetzt; endgültiges Balancing offen**
+
+- Spezies-/Instanztrennung bleibt bestehen. Gemeinsame Basiswerte und Entwicklungswege gehören zur Spezies; Level, kumulative Erfahrung, aktuelle HP und berechnete Statuswerte zur Instanz.
+- Die zentrale C++-Berechnung verwendet vorerst Level 1–100 und alle sechs vorbereiteten Wachstumsgruppen. Die Rest-Erfahrung zum nächsten Level wird abgeleitet. XP-Vergabe unterstützt mehrere Level-Ups, begrenzt am Höchstlevel und weist negative oder inkonsistente Eingaben ohne Änderung ab.
+- Die vorläufige Statusberechnung verwendet Basiswerte und Level ohne IVs, EVs, Wesen oder Kampfmodifikatoren. Neue Instanzen starten mit vollen berechneten HP; Level-Ups erhalten fehlende HP und beleben Kreaturen mit null HP nicht wieder. Dies ersetzt den bisherigen Basis-HP-Platzhalter.
+- Entwicklungswege unterstützen die Auslöser Level, Item, Freundschaft, Ort und besondere Handlung. Zusätzliche Anforderungen werden innerhalb eines Wegs mit UND verknüpft; mehrere Wege sind Alternativen. Mindestlevel plus passender Ort plus besondere Handlung unterstützt ausdrücklich die geplanten ehemaligen Tauschentwicklungen.
+- Die Prüfung liefert ausschließlich Eignung beziehungsweise mögliche Ziel-IDs. Sie ändert keine Spezies, verbraucht keine Items und enthält keine visuelle Entwicklung, UI oder neue Gameplay-Anbindung. `Custom` bleibt reserviert und ergibt bis zu einer späteren Implementierung keine Eignung.
+- Bestehende Spezies-Assets und ihre bisherigen Entwicklungsfelder bleiben erhalten. Player, Kamera, Interaktion, Maps und Grafik werden durch diese Erweiterung nicht verändert.
+- Formeln, HP-Verhalten und konkrete Entwicklungswerte bleiben austauschbare technische Arbeitsregeln. Einzelne Kreaturen, Orte, Prüfungen und endgültige Levelschwellen werden damit nicht festgelegt. API-Details stehen in `Docs/TECHNIK.md`.
 
 ## Aktuell offene Entscheidungen
 

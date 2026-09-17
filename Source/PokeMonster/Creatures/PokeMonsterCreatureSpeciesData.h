@@ -71,7 +71,7 @@ private:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Gender", meta = (AllowPrivateAccess = "true"))
 	FPokeMonsterGenderData Gender;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Growth", meta = (AllowPrivateAccess = "true", ClampMin = "1"))
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Growth", meta = (AllowPrivateAccess = "true", ClampMin = "1", ClampMax = "100"))
 	int32 StartingLevel = 1;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Growth", meta = (AllowPrivateAccess = "true"))
