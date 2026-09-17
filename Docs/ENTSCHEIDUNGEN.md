@@ -132,6 +132,15 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Entwicklungs- und Wachstumsfelder legen noch keine Formeln oder endgültigen Spielregeln fest.
 - Für den Systemtest werden ausschließlich die Platzhalter-Spezies `TestGrass`, `TestFire` und `TestWater` verwendet.
 
+## 2026-09-17 – Visueller Vertical Slice in Dev_TestMap
+
+**Status: Vorläufige visuelle Arbeitsrichtung**
+
+- Das bestehende Testareal wird mit gedämpften Naturfarben, dichterem Waldrand, einer einfachen Fachwerkhütte und einem Bach mit Holzbrücke ausgestaltet.
+- Die Szene nutzt Engine-Grundformen, ein selbst erstelltes Dreiecksprisma für den Dachgiebel und zehn eigene Materialinstanzen unter `/Game/Environment/Prototype/Materials`. Es werden keine externen Assets benötigt. Die Giebel-Quelldatei liegt unter `/Game/Environment/Prototype/Source`.
+- Begehbare Flächen, blockierende Stämme/Felsen/Gebäude und rein dekorative Baumkronen/Büsche sind getrennt. Wasser erhält einfache unsichtbare Kollisionskörper mit freier Brückenpassage.
+- Player, Gameplay-Systeme und Kamera bleiben unverändert. Diese Szene ist ein visueller Prototyp; finale Grafiken und der endgültige Stil bleiben offen.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname
