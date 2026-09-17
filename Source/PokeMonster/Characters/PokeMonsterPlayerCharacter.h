@@ -8,6 +8,7 @@
 #include "PokeMonsterPlayerCharacter.generated.h"
 
 class UCameraComponent;
+class AActor;
 class UInputAction;
 class UInputMappingContext;
 class UPaperFlipbook;
@@ -87,6 +88,21 @@ public:
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Visual")
 	UPaperFlipbookComponent* GetCharacterFlipbookComponent() const { return GetSprite(); }
 
+	/** World-space direction used for interaction, derived from the last visual facing direction. */
+	UFUNCTION(BlueprintPure, Category = "PokeMonster|Interaction")
+	FVector GetInteractionWorldDirection() const;
+
+	/** Finds the first unobstructed interactable in the short area in front of the player. */
+	UFUNCTION(BlueprintPure, Category = "PokeMonster|Interaction")
+	AActor* FindInteractableInRange() const;
+
+	/** Attempts to interact with the current target and reports whether it succeeded. */
+	UFUNCTION(BlueprintCallable, Category = "PokeMonster|Interaction")
+	bool TryInteract();
+
+	UFUNCTION(BlueprintPure, Category = "PokeMonster|Interaction")
+	float GetInteractionRange() const { return InteractionRange; }
+
 protected:
 	virtual void BeginPlay() override;
 
@@ -117,6 +133,12 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "PokeMonster|Visual", meta = (ClampMin = "0.0", ClampMax = "1.0"))
 	float FacingInputThreshold = 0.1f;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "PokeMonster|Interaction", meta = (ClampMin = "1.0"))
+	float InteractionRange = 150.0f;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "PokeMonster|Interaction", meta = (ClampMin = "1.0"))
+	float InteractionTraceRadius = 32.0f;
+
 	/** Lets a later Blueprint select directional flipbooks without replacing movement code. */
 	UFUNCTION(BlueprintImplementableEvent, Category = "PokeMonster|Visual")
 	void OnMovementInputChanged(FVector2D NewMovementInput);
@@ -125,6 +147,10 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent, Category = "PokeMonster|Visual")
 	void OnVisualStateChanged(EPokeMonsterFacingDirection NewDirection, EPokeMonsterLocomotionState NewState);
 
+	/** Optional presentation hook for later prompts, sounds, or Blueprint effects. */
+	UFUNCTION(BlueprintImplementableEvent, Category = "PokeMonster|Interaction")
+	void OnInteractionAttempt(AActor* Target, bool bSucceeded);
+
 private:
 #if WITH_DEV_AUTOMATION_TESTS
 	friend class FPokeMonsterPlayerFoundationTest;
@@ -132,6 +158,7 @@ private:
 
 	void Move(const FInputActionValue& Value);
 	void StopMoving(const FInputActionValue& Value);
+	void Interact(const FInputActionValue& Value);
 	void UpdateMovementInput(FVector2D NewMovementInput);
 	void RefreshCharacterVisual();
 	static FVector CalculateCameraRelativeMovement(FVector2D Input, float CameraYawDegrees);
@@ -145,6 +172,9 @@ private:
 
 	UPROPERTY(Transient)
 	TObjectPtr<UInputAction> MoveAction;
+
+	UPROPERTY(Transient)
+	TObjectPtr<UInputAction> InteractAction;
 
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = "PokeMonster|Movement", meta = (AllowPrivateAccess = "true"))
 	FVector2D MovementInput = FVector2D::ZeroVector;

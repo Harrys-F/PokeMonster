@@ -14,8 +14,10 @@
 #include "InputAction.h"
 #include "InputMappingContext.h"
 #include "InputModifiers.h"
+#include "../Interaction/PokeMonsterInteractable.h"
 #include "PaperFlipbook.h"
 #include "PaperFlipbookComponent.h"
+#include "Engine/World.h"
 #include "UObject/ConstructorHelpers.h"
 
 UPaperFlipbook* FPokeMonsterDirectionalFlipbookSet::GetFlipbook(const EPokeMonsterFacingDirection Direction) const
@@ -133,6 +135,11 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 	MapDigitalKey(EKeys::Down, true, true);
 	MapDigitalKey(EKeys::Right, false, false);
 	MapDigitalKey(EKeys::Left, true, false);
+
+	InteractAction = CreateDefaultSubobject<UInputAction>(TEXT("InteractAction"));
+	InteractAction->ValueType = EInputActionValueType::Boolean;
+	DefaultMappingContext->MapKey(InteractAction, EKeys::E);
+	DefaultMappingContext->MapKey(InteractAction, EKeys::Enter);
 }
 
 void APokeMonsterPlayerCharacter::BeginPlay()
@@ -165,6 +172,7 @@ void APokeMonsterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* Pla
 	UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent);
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &APokeMonsterPlayerCharacter::Move);
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Completed, this, &APokeMonsterPlayerCharacter::StopMoving);
+	EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &APokeMonsterPlayerCharacter::Interact);
 }
 
 void APokeMonsterPlayerCharacter::Move(const FInputActionValue& Value)
@@ -180,6 +188,73 @@ void APokeMonsterPlayerCharacter::Move(const FInputActionValue& Value)
 void APokeMonsterPlayerCharacter::StopMoving(const FInputActionValue& Value)
 {
 	UpdateMovementInput(FVector2D::ZeroVector);
+}
+
+void APokeMonsterPlayerCharacter::Interact(const FInputActionValue& Value)
+{
+	TryInteract();
+}
+
+FVector APokeMonsterPlayerCharacter::GetInteractionWorldDirection() const
+{
+	FVector2D FacingInput = FVector2D::ZeroVector;
+	switch (FacingDirection)
+	{
+	case EPokeMonsterFacingDirection::Up:
+		FacingInput.Y = 1.0f;
+		break;
+	case EPokeMonsterFacingDirection::Down:
+		FacingInput.Y = -1.0f;
+		break;
+	case EPokeMonsterFacingDirection::Left:
+		FacingInput.X = -1.0f;
+		break;
+	case EPokeMonsterFacingDirection::Right:
+		FacingInput.X = 1.0f;
+		break;
+	}
+
+	return CalculateCameraRelativeMovement(FacingInput, FollowCamera->GetComponentRotation().Yaw);
+}
+
+AActor* APokeMonsterPlayerCharacter::FindInteractableInRange() const
+{
+	const UWorld* World = GetWorld();
+	if (!World)
+	{
+		return nullptr;
+	}
+
+	const FVector Start = GetActorLocation();
+	const FVector End = Start + GetInteractionWorldDirection() * InteractionRange;
+	FCollisionQueryParams QueryParams(SCENE_QUERY_STAT(PokeMonsterInteraction), false, this);
+	FHitResult Hit;
+	const bool bHit = World->SweepSingleByChannel(
+		Hit,
+		Start,
+		End,
+		FQuat::Identity,
+		ECC_Visibility,
+		FCollisionShape::MakeSphere(InteractionTraceRadius),
+		QueryParams);
+
+	AActor* HitActor = bHit ? Hit.GetActor() : nullptr;
+	return HitActor && HitActor->Implements<UPokeMonsterInteractable>() ? HitActor : nullptr;
+}
+
+bool APokeMonsterPlayerCharacter::TryInteract()
+{
+	AActor* Target = FindInteractableInRange();
+	const bool bCanInteract = Target
+		&& IPokeMonsterInteractable::Execute_CanInteract(Target, this);
+
+	if (bCanInteract)
+	{
+		IPokeMonsterInteractable::Execute_Interact(Target, this);
+	}
+
+	OnInteractionAttempt(Target, bCanInteract);
+	return bCanInteract;
 }
 
 void APokeMonsterPlayerCharacter::UpdateMovementInput(const FVector2D NewMovementInput)

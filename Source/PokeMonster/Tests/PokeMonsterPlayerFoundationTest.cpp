@@ -6,11 +6,14 @@
 
 #include "../Characters/PokeMonsterPlayerCharacter.h"
 #include "../Game/PokeMonsterGameMode.h"
+#include "../Interaction/PokeMonsterInteractable.h"
+#include "../Interaction/PokeMonsterInteractionTestActor.h"
 #include "Camera/CameraComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "Engine/Engine.h"
 #include "Engine/LocalPlayer.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "InputAction.h"
@@ -31,8 +34,27 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 
 	TestNotNull(TEXT("The runtime input mapping context exists"), Character->DefaultMappingContext.Get());
 	TestNotNull(TEXT("The 2D move input action exists"), Character->MoveAction.Get());
+	TestNotNull(TEXT("The interaction input action exists"), Character->InteractAction.Get());
 	TestEqual(TEXT("The move action uses a two-dimensional value"), Character->MoveAction->ValueType, EInputActionValueType::Axis2D);
-	TestEqual(TEXT("WASD and arrow keys provide eight mappings"), Character->DefaultMappingContext->GetMappings().Num(), 8);
+	TestEqual(TEXT("The interaction action uses a boolean value"), Character->InteractAction->ValueType, EInputActionValueType::Boolean);
+	TestEqual(TEXT("Movement and interaction provide ten mappings"), Character->DefaultMappingContext->GetMappings().Num(), 10);
+
+	bool bHasEInteraction = false;
+	bool bHasEnterInteraction = false;
+	for (const FEnhancedActionKeyMapping& Mapping : Character->DefaultMappingContext->GetMappings())
+	{
+		if (Mapping.Action == Character->InteractAction)
+		{
+			bHasEInteraction |= Mapping.Key == EKeys::E;
+			bHasEnterInteraction |= Mapping.Key == EKeys::Enter;
+		}
+	}
+	TestTrue(TEXT("E triggers the interaction action"), bHasEInteraction);
+	TestTrue(TEXT("Enter triggers the interaction action"), bHasEnterInteraction);
+	TestTrue(TEXT("The interaction range remains short"), Character->InteractionRange > 0.0f && Character->InteractionRange <= 250.0f);
+	TestTrue(TEXT("The interaction trace has a useful radius"), Character->InteractionTraceRadius > 0.0f);
+	TestTrue(TEXT("The test actor implements the generic interaction interface"),
+		APokeMonsterInteractionTestActor::StaticClass()->ImplementsInterface(UPokeMonsterInteractable::StaticClass()));
 
 	const FVector DiagonalMovement = APokeMonsterPlayerCharacter::CalculateCameraRelativeMovement(FVector2D(1.0f, 1.0f), -45.0f);
 	TestTrue(TEXT("Diagonal input produces a movement direction"), !DiagonalMovement.IsNearlyZero());
@@ -117,6 +139,51 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 				LiveCharacter->GetFacingDirection(), EPokeMonsterFacingDirection::Left);
 			LiveCharacter->ConsumeMovementInputVector();
 			LiveCharacter->StopMoving(FInputActionValue(FVector2D::ZeroVector));
+
+			APokeMonsterInteractionTestActor* InteractionTarget = nullptr;
+			TActorIterator<APokeMonsterInteractionTestActor> InteractionActorIt(PlayWorld);
+			if (InteractionActorIt)
+			{
+				InteractionTarget = *InteractionActorIt;
+			}
+
+			if (TestNotNull(TEXT("Dev_TestMap contains the interaction test actor"), InteractionTarget))
+			{
+				const FTransform OriginalTransform = InteractionTarget->GetActorTransform();
+				const FVector FacingDirection = LiveCharacter->GetInteractionWorldDirection();
+				const int32 InitialInteractionCount = InteractionTarget->GetInteractionCount();
+
+				InteractionTarget->SetActorLocation(
+					LiveCharacter->GetActorLocation() + FacingDirection * 105.0f,
+					false,
+					nullptr,
+					ETeleportType::TeleportPhysics);
+				TestEqual(TEXT("The trace selects an interactable directly in front"),
+					LiveCharacter->FindInteractableInRange(), static_cast<AActor*>(InteractionTarget));
+				TestTrue(TEXT("A nearby target in front can be interacted with"), LiveCharacter->TryInteract());
+				TestEqual(TEXT("The interaction reaches the target exactly once"),
+					InteractionTarget->GetInteractionCount(), InitialInteractionCount + 1);
+
+				InteractionTarget->SetActorLocation(
+					LiveCharacter->GetActorLocation() + FacingDirection * (LiveCharacter->GetInteractionRange() + 150.0f),
+					false,
+					nullptr,
+					ETeleportType::TeleportPhysics);
+				TestFalse(TEXT("A target outside the configured range cannot be interacted with"), LiveCharacter->TryInteract());
+				TestEqual(TEXT("An out-of-range attempt does not reach the target"),
+					InteractionTarget->GetInteractionCount(), InitialInteractionCount + 1);
+
+				InteractionTarget->SetActorLocation(
+					LiveCharacter->GetActorLocation() - FacingDirection * 105.0f,
+					false,
+					nullptr,
+					ETeleportType::TeleportPhysics);
+				TestFalse(TEXT("A nearby target behind the player cannot be interacted with"), LiveCharacter->TryInteract());
+				TestEqual(TEXT("A behind-the-player attempt does not reach the target"),
+					InteractionTarget->GetInteractionCount(), InitialInteractionCount + 1);
+
+				InteractionTarget->SetActorTransform(OriginalTransform, false, nullptr, ETeleportType::TeleportPhysics);
+			}
 		}
 	}
 
