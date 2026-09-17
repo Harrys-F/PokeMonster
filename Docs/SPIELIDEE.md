@@ -46,6 +46,8 @@ Eigenständige Gebiete dürfen atmosphärisch an folgende Vorbilder erinnern:
 
 Diese Vorbilder dienen nur als Stimmung und Orientierung. Architektur, Namen, Kartenaufbau und Geschichte werden eigenständig gestaltet.
 
+Die vier Referenzrichtungen für Hügelland, uralten Wald, monumentale helle Stadt und dunkles Endgebiet dienen als zusammengehörige visuelle Grundlage. Trotz ihrer unterschiedlichen Farben, Architektur und Atmosphäre müssen sie erkennbar dieselbe Spielwelt und denselben Grafikstil bilden.
+
 ## Möglicher Reiseverlauf
 
 Der vorläufige Reisebogen kann folgendermaßen aufgebaut werden:

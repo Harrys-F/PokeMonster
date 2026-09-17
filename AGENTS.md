@@ -10,6 +10,11 @@ Vor größeren Änderungen müssen die passenden Dokumente im Ordner `Docs` gele
 - `Docs/SPIELIDEE.md`
 - `Docs/SPIELREGELN.md`
 - `Docs/ENTSCHEIDUNGEN.md`
+- `Docs/GRAFIKSTIL.md`
+
+Vor Änderungen an Kamera, Levelgestaltung, Sprites, Beleuchtung oder visuellen Effekten muss `Docs/GRAFIKSTIL.md` gelesen werden.
+
+Größere Abweichungen von der festgelegten Perspektive und Figurengröße benötigen vorher Harrys Zustimmung.
 
 ## Zusammenarbeit
 

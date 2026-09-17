@@ -76,6 +76,12 @@ Systeme sollen nicht unnötig doppelt in C++ und Blueprints implementiert werden
 
 - 2D-Top-Down-Perspektive
 - Paper2D als technische Grundlage
+- moderne handgezeichnete 2D-Grafik
+- leicht schräge 3/4-Top-Down-Perspektive
+- Perspektive und Figurengröße orientieren sich an der ersten Referenzszene
+- mehrere visuelle Tiefenebenen
+- modulare Paper2D-Assets
+- technische Kameraart wird in der Stil-Testszene geprüft
 - hochauflösende, sauber gezeichnete Grafiken
 - moderne 2D-Darstellung statt absichtlich unscharfer Retro-Grafik
 - übersichtliche und gut lesbare Spielwelt

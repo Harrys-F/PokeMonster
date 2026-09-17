@@ -141,6 +141,28 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Begehbare Flächen, blockierende Stämme/Felsen/Gebäude und rein dekorative Baumkronen/Büsche sind getrennt. Wasser erhält einfache unsichtbare Kollisionskörper mit freier Brückenpassage.
 - Player, Gameplay-Systeme und Kamera bleiben unverändert. Diese Szene ist ein visueller Prototyp; finale Grafiken und der endgültige Stil bleiben offen.
 
+## 2026-09-17 – Illustrierter Paper2D-Vertical-Slice
+
+**Status: Vorläufige visuelle Arbeitsrichtung**
+
+- Sichtbare Baum-, Busch-, Fels- und Hüttenformen werden durch eigene generierte, illustrierte Paper2D-Sprites unter `/Game/Environment/Prototype2D` ersetzt. Keine Marketplace-Assets oder externen Downloads. Finale Gestaltung bleibt offen.
+- Statische Sprite-Flächen sind auf die vorhandene feste Kamera ausgerichtet; keine Tick- oder Billboard-Gameplay-Logik. Maskierte unbeleuchtete Sprites behalten ihre gemalten Schattierungen.
+- Outliner-Ordner trennen Boden, Wege, Wasser, Vegetation, Gebäude, Vordergrund und Kollision. Bodenflächen verwenden eigene kostengünstige Materialien mit weichen Rändern; Kontaktflächen ersetzen harte Umgebungsschatten.
+- Vorherige 3D-Actors bleiben unsichtbar erhalten, inklusive bestehender Kollisionskörper. Neue Grafikflächen kollidieren nicht. Player, Enhanced Input, GameMode, Interaktion und Kreaturendaten bleiben unverändert.
+- Kameraabstand 1400 cm, Winkel und Camera Lag bleiben unverändert. Vier Texturen werden mit maximal 1024 Pixeln importiert und zwischen allen Instanzen geteilt.
+
+## 2026-09-17 – Grafikstil, Kamera und Figurengröße
+
+**Status: Beschlossen**
+
+- Hauptreferenz ist die erste bereitgestellte Hügelland-Szene.
+- Verwendet wird ein moderner, handgezeichneter, hochauflösender 2D-Stil.
+- Die Kamera verwendet eine leicht schräge 3/4-Top-Down-Ansicht.
+- Perspektive, sichtbarer Ausschnitt und relative Figurengröße orientieren sich am ersten Referenzbild.
+- Die weiteren Referenzen bestimmen die Stimmung für uralten Wald, monumentale helle Stadt und dunkles Endgebiet.
+- Vor der umfangreichen Asset-Produktion wird eine kleine Stil-Testszene erstellt.
+- Die genaue technische Kameraeinstellung und Pixelgröße werden durch diese Testszene bestimmt.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname
@@ -155,15 +177,5 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - genaue Demo-Kreaturen
 - endgültige Attackenverwaltung
 - genaue Schnellreise- und Weltfähigkeiten
-- konkreter Grafikstil und Auflösung
+- endgültige Zielauflösung und exakte Pixelgrößen
 - Musik- und Soundkonzept
-
-## 2026-09-17 – Illustrierter Paper2D-Vertical-Slice
-
-**Status: Vorläufige visuelle Arbeitsrichtung**
-
-- Sichtbare Baum-, Busch-, Fels- und Hüttenformen werden durch eigene generierte, illustrierte Paper2D-Sprites unter `/Game/Environment/Prototype2D` ersetzt. Keine Marketplace-Assets oder externen Downloads. Finale Gestaltung bleibt offen.
-- Statische Sprite-Flächen sind auf die vorhandene feste Kamera ausgerichtet; keine Tick- oder Billboard-Gameplay-Logik. Maskierte unbeleuchtete Sprites behalten ihre gemalten Schattierungen.
-- Outliner-Ordner trennen Boden, Wege, Wasser, Vegetation, Gebäude, Vordergrund und Kollision. Bodenflächen verwenden eigene kostengünstige Materialien mit weichen Rändern; Kontaktflächen ersetzen harte Umgebungsschatten.
-- Vorherige 3D-Actors bleiben unsichtbar erhalten, inklusive bestehender Kollisionskörper. Neue Grafikflächen kollidieren nicht. Player, Enhanced Input, GameMode, Interaktion und Kreaturendaten bleiben unverändert.
-- Kameraabstand 1400 cm, Winkel und Camera Lag bleiben unverändert. Vier Texturen werden mit maximal 1024 Pixeln importiert und zwischen allen Instanzen geteilt.
