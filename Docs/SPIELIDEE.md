@@ -136,5 +136,5 @@ Die Demo dient zuerst dem Nachweis, dass Bewegung, Welt, Dialog, Kreaturen und K
 - Arenen, Prüfungen oder ein vollständig eigenes Fortschrittssystem
 - linearer Weltaufbau oder mehrere Wege
 - endgültige Auswahl der Demo-Kreaturen
-- genauer Grafik- und Zeichenstil
+- konkrete Ausgestaltung einzelner Regionen innerhalb des beschlossenen Grafikstils
 - Musik- und Klangstil
