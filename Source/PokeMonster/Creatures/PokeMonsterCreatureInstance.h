@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "PokeMonsterCreatureTypes.h"
+#include "../Moves/PokeMonsterMoveSlot.h"
 #include "PokeMonsterCreatureInstance.generated.h"
 
 class UPokeMonsterCreatureSpeciesData;
@@ -15,6 +16,19 @@ struct POKEMONSTER_API FPokeMonsterCreatureInstance
 	GENERATED_BODY()
 
 public:
+	static constexpr int32 MoveSlotCount = 4;
+	FPokeMonsterCreatureInstance() { MoveSlots.SetNum(MoveSlotCount); }
+
+	const TArray<FPokeMonsterMoveSlot>& GetMoveSlots() const { return MoveSlots; }
+	bool AssignMove(int32 SlotIndex, UPokeMonsterMoveData* Move)
+	{
+		return SlotIndex < MoveSlotCount && MoveSlots.IsValidIndex(SlotIndex) && MoveSlots[SlotIndex].AssignMove(Move);
+	}
+	bool ConsumeMovePP(int32 SlotIndex, int32 Amount = 1)
+	{
+		return SlotIndex < MoveSlotCount && MoveSlots.IsValidIndex(SlotIndex) && MoveSlots[SlotIndex].ConsumePP(Amount);
+	}
+
 	static FPokeMonsterCreatureInstance CreateFromSpecies(
 		UPokeMonsterCreatureSpeciesData* InSpecies,
 		int32 RequestedLevel = 0);
@@ -44,4 +58,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Creature")
 	FPokeMonsterCreatureStats CalculatedStats;
+
+private:
+	/** Exactly four individually owned slots; no learning or automatic assignment. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Creature", meta = (AllowPrivateAccess = "true"))
+	TArray<FPokeMonsterMoveSlot> MoveSlots;
 };

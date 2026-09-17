@@ -45,7 +45,7 @@ Noch nicht entschieden:
 
 - Anzahl gleichzeitig kämpfender Kreaturen
 - genaue Schadensformel
-- Typensystem
+- endgültige Anpassungen des Typensystems (technische 17-Typen-Grundlage siehe unten)
 - Initiative und Zugreihenfolge
 - Schwierigkeitsgrad
 - Erfahrungskurve
@@ -53,6 +53,8 @@ Noch nicht entschieden:
 - Darstellung des Übergangs zwischen Welt und Kampf
 
 Codex darf zunächst nur eine kleine erweiterbare Grundlage erstellen und keine komplexe vollständige Kampfmathematik festlegen.
+
+Technischer Prototypstand: Vier individuelle Moveslots, getrennte Attacken-Data-Assets, expliziter PP-Verbrauch sowie eine erste Treffer- und Schadensberechnung sind vorhanden. Die zentral gepflegte Typentabelle verwendet vorerst die 17 Typen und Matchups der zweiten Generation; Physical/Special/Status wird unabhängig davon je Attacke festgelegt. Dies ersetzt die vollständig offene Typengrundlage für den Prototyp. Endgültiges Balancing, Lernregeln, Effekte und Rundensteuerung bleiben offen. Technische Details stehen in `Docs/TECHNIK.md`.
 
 ## Sammeln und Fangen
 

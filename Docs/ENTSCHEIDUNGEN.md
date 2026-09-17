@@ -199,6 +199,17 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Bestehende Spezies-Assets und ihre bisherigen Entwicklungsfelder bleiben erhalten. Player, Kamera, Interaktion, Maps und Grafik werden durch diese Erweiterung nicht verändert.
 - Formeln, HP-Verhalten und konkrete Entwicklungswerte bleiben austauschbare technische Arbeitsregeln. Einzelne Kreaturen, Orte, Prüfungen und endgültige Levelschwellen werden damit nicht festgelegt. API-Details stehen in `Docs/TECHNIK.md`.
 
+## 2026-09-17 – Datengetriebene Attacken- und Kampfgrundlage
+
+**Status: Technische Grundlage; endgültige Kampfregeln und Balancing bleiben offen**
+
+- Attacken verwenden eigene `CreatureMove`-Primary-Data-Assets. Kreatureninstanzen erhalten vier eigene Moveslots mit weicher Attackenreferenz und separaten PP. Speziesdaten und Progression bleiben erhalten.
+- Physical/Special/Status wird je Attacke konfiguriert. Effekte, Priorität und Beschreibungen sind vorbereitete Daten; Statusveränderungen und Rundensteuerung werden noch nicht ausgeführt.
+- Trefferprüfung und Schadensberechnung sind getrennte C++-Funktionen ohne Veränderung der beteiligten Kreaturen. Der Aufrufer liefert einen Wurf von 0–99; PP-Verbrauch erfolgt ausdrücklich über eine separate Funktion.
+- Eine vorläufige Schadensformel verwendet Level, Basisstärke, passende aktuelle Statuswerte und Typmultiplikatoren. Die 17 Typen verwenden als technische Arbeitsgrundlage die zentral gepflegten Matchups der zweiten Generation. Dies konkretisiert das bisher offene Typensystem für den Prototyp; endgültige Anpassungen bleiben möglich.
+- Es gibt noch keine Status-Effektausführung, STAB-Boni, kritischen Treffer, Kampfmodifikatoren, Lernlogik, Battle-UI, Animationen oder automatische HP-Anwendung. Die bestehenden Welt- und Playersysteme bleiben unverändert.
+- Drei neue Platzhalter-Attacken unter `/Game/Data/Moves` dienen den automatisierten Tests. Die Details und Formeln sind in `Docs/TECHNIK.md` beschrieben.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname

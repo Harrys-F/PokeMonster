@@ -100,6 +100,25 @@ Die Prüfung führt keine Entwicklung aus, verbraucht keine Items und persistier
 
 Automatisierte Tests unter `PokeMonster.Creatures` decken Asset-Laden, Spezies-/Instanztrennung, alle Wachstumsgruppen, Grenzwerte, Mehrfach-Level-Ups, HP und kombinierte Entwicklungsbedingungen ab. `PokeMonster.Player.Foundation` bleibt als bestehender Regressionstest erhalten.
 
+### Attacken und Kampfgrundlage
+
+`Moves/PokeMonsterMoveData` definiert gemeinsame Attackendaten als `UPrimaryDataAsset` mit dem Primary-Asset-Typ `CreatureMove`. ID, Anzeigename, Kreaturentyp, Kategorie Physical/Special/Status, Basisstärke, Genauigkeit in Prozent, maximale PP und Priorität sind im Editor konfigurierbar. `FPokeMonsterMoveEffect` bereitet Effekt-ID, Beschreibung und Chance vor; Effekte werden noch nicht ausgeführt. Der Asset Manager scannt `/Game/Data/Moves` und berücksichtigt die Assets beim Cooken.
+
+Jede Kreatureninstanz besitzt genau vier zunächst leere `FPokeMonsterMoveSlot`-Einträge. Ein Slot enthält eine weiche Attackenreferenz sowie eigene aktuelle und maximale PP. Gemeinsame Attackendaten enthalten keine verbrauchbaren PP. C++-Zuweisung beziehungsweise `UPokeMonsterBattleLibrary::AssignMove` füllt die PP; dies ist eine technische Konfigurationsfunktion, keine Lern- oder Kampfregel. `ConsumeMovePP` verweigert leere Slots, ungültige Indizes, nichtpositive Kosten und Überziehungen ohne Änderung. Level-Ups lassen Slots und PP unverändert. Eine spätere Änderung der maximalen PP im Data Asset erfordert eine ausdrückliche Migration bereits bestehender Instanzen; inkonsistente Slots werden abgewiesen.
+
+`Battle/PokeMonsterBattleLibrary` bietet getrennte, Blueprint-freundliche Funktionen:
+
+- `CheckHit`: Ein vom Aufrufer gelieferter gleichverteilter ganzzahliger Wurf von 0 bis 99 trifft genau dann, wenn er kleiner als die Genauigkeit ist. 0 Prozent trifft nie, 100 Prozent trifft immer bei gültigem Wurf. Ungültige Daten/Würfe ergeben `false`. Der explizite Wurf erlaubt deterministische Tests; eine spätere Kampfsteuerung liefert den Zufall.
+- `CalculateDamage`: Berechnet ausschließlich den Schaden eines bereits getroffenen Angriffs. Physical verwendet Angriff/Verteidigung, Special verwendet Spezial-Angriff/Spezial-Verteidigung. Die Kategorie gehört zur Attacke und wird nicht aus ihrem Typ abgeleitet.
+- Vorläufige Formel: `Basis = floor((floor(2 * Level / 5) + 2) * Stärke * Offensive / Defensive / 50) + 2`; anschließend `floor(Basis * Typmultiplikator)`. Wirksame Treffer verursachen mindestens 1 HP, Immunität exakt 0. Extreme positive Werte werden auf `int32` begrenzt; ungültige Daten und nichtpositive relevante Statuswerte liefern ein ungültiges Ergebnis statt einer Division durch null.
+- Statusattacken besitzen Stärke 0 und verursachen hier keinen direkten Schaden. Ihre späteren Ziel-, Effekt- und Immunitätsregeln sind nicht implementiert. Die Typentabelle beschreibt die Wirkung direkter Schadensattacken.
+- `GetTypeMultiplier` verwendet eine zentral gepflegte Tabelle unter `Battle/PokeMonsterTypeChart.cpp`. Sie umfasst alle 17 Typen mit den Matchups der zweiten Generation, einschließlich der damaligen Stahl-Resistenzen gegen Geist und Unlicht. Die Fakten wurden gegen die [öffentlich einsehbare Typentabelle des pokecrystal-Projekts](https://github.com/pret/pokecrystal/blob/master/data/types/type_matchups.asm) geprüft; es wurden keine ROM-Dateien oder Grafik-/Audio-Assets übernommen.
+- Zwei Zieltypen multiplizieren ihre Faktoren: 0, 0,25, 0,5, 1, 2 oder 4. Immunität dominiert. `None` bedeutet ausschließlich fehlender Sekundärtyp; doppelt eingetragene Zieltypen werden nur einmal berücksichtigt. Ungültige Typangaben liefern `-1` und machen eine Schadensberechnung ungültig.
+
+Die Berechnung verändert weder HP noch PP, Speziesdaten oder Progression. Eine spätere Kampfsteuerung muss PP einmal je akzeptiertem Angriffsversuch verbrauchen, auch bei Fehlschlag oder Immunität, danach Treffer und gegebenenfalls Schaden prüfen und anwenden. Diese Reihenfolge wird noch nicht als Rundensteuerung implementiert. Es gibt keine STAB-Boni, kritischen Treffer, zufällige Schadensstreuung, Statusveränderungen, Initiative-Sortierung, Lernlogik, Trainer, Battle-UI oder Animationen. Priorität ist vorerst nur ein Datenfeld. Das endgültige Balancing bleibt offen.
+
+Testdaten unter `/Game/Data/Moves`: `DA_TestNormalPhysical` (Normal/Physical, Stärke 40, Genauigkeit 100, PP 35), `DA_TestFireSpecial` (Feuer/Special, Stärke 50, Genauigkeit 95, PP 25) und `DA_TestStatus` (Normal/Status, Stärke 0, Genauigkeit 100, PP 20). Alle haben Priorität 0. Tests unter `PokeMonster.Moves` und `PokeMonster.Battle` prüfen Laden/Asset-Manager, PP-Trennung und Verbrauch, Treffergrenzen, Schadensformel, alle 289 einfachen Typenpaarungen, Doppeltypen und Immunitäten.
+
 ## Darstellung
 
 - 2D-Top-Down-Perspektive
@@ -182,7 +201,7 @@ Vor dem Abschluss eines Arbeitsschrittes soll Codex, soweit möglich:
 ## Noch offene technische Entscheidungen
 
 - genaue Struktur des Kampfsystems
-- genaue Datenhaltung für Kreaturen und Attacken
+- erweiterte Kreaturen-/Attackendaten, Lernregeln und Persistenz
 - Speichersystem und Anzahl der Speicherstände
 - konkrete Auflösungen und Bildraten der Grafikprofile
 - Umfang der Unreal- und Blender-MCP-Automatisierung
