@@ -12,6 +12,12 @@ Sprites: MaskedUnlitSpriteMaterial aus Paper2D, keine Kollision oder geworfenen 
 
 Outliner: Prototype2D/Boden, Wege, Wasser, Vegetation, Gebaeude, Vordergrund, Felsen, Collision, Archived3D. Archived3D enthält die erhaltenen bisherigen Actors; unsichtbare Meshes behalten ihre ursprünglichen Kollisionen. Brücke und begehbare Höhenstufen bleiben einfache Geometrie. Neue Oberflächen und Kontaktflächen sind rein visuell.
 
+## Verfeinerung der Testumgebung
+
+Zusätzliche selbst erstellte Materialien: `M_OrganicPath`, `M_OrganicWater`, `M_WeatheredWood` und `M_GrassTuft`. `M_PaintedGround` erhält unregelmäßige Farb- und Erdvariationen. Die ursprünglichen Weg-/Wasserflächen bleiben ausgeblendet in der Map erhalten. Die neuen Flächen sowie 54 Grasbüschel und neun zusätzliche Instanzen des vorhandenen Busch-Sprites sind kollisionsfrei.
+
+Weg und Wasser verwenden Weltkoordinaten der bestehenden Dev_TestMap, sodass zwischen Teilflächen keine rechteckigen Nähte entstehen. Die Wasseranimation läuft ausschließlich im Material. Es gibt keine neue Tick-, Blueprint- oder Gameplay-Logik. Die Materialien enthalten eigene mathematische Strukturen; für diesen Schritt wurden keine weiteren Bilder generiert oder heruntergeladen.
+
 ## Generierungsprompts
 
 ### Oak
@@ -29,4 +35,3 @@ Use case: stylized-concept. Single transparent game sprite for modern painted 2D
 ### Hut
 
 Use case: stylized-concept. Single transparent game sprite for modern painted 2D/2.5D fantasy top-down RPG: one entire small medieval fantasy cottage, warm cream plaster and aged oak timber frame, muted blue slate gabled roof, small chimney, wooden front door and two windows, charming modest proportions, no surroundings. Clean sophisticated hand-painted illustration, soft blended gradients, naturally muted colors, subtle shaded underside. Elevated 55-degree view, three-quarter view if building. Complete silhouette centered with 5 percent clear margins, ground contact at bottom center. True transparent alpha background, no ground or cast shadow. No text, no pixel art, no 3D rendering. 1024x1024.
-

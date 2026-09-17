@@ -163,6 +163,15 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Vor der umfangreichen Asset-Produktion wird eine kleine Stil-Testszene erstellt.
 - Die genaue technische Kameraeinstellung und Pixelgröße werden durch diese Testszene bestimmt.
 
+## 2026-09-17 – Verfeinerung des bestehenden Vertical Slice
+
+**Status: Umsetzung innerhalb der beschlossenen Stilrichtung**
+
+- Die vorhandenen Illustrationen bleiben erhalten. Größenvariation, gespiegelte Silhouetten, geringe Ausrichtungsvariation und zusätzliche kleine Pflanzen lockern die Vegetation auf; die Bodenkontakte kollidierender Bäume bleiben bestehen.
+- Eigene Materialien unter `/Game/Environment/Prototype2D/Materials` ergänzen Bodenflecken, zusammenhängende organische Wege, natürliche Ufer mit Tiefenfarben und dezenter Wasserbewegung sowie verwittertes Brückenholz. Neue dekorative Flächen besitzen keine Kollision.
+- Die Weg- und Wassermaterialien enthalten die Koordinaten dieses Testareals. Für andere Maps benötigen sie eigene Verlaufsvorgaben; sie stellen noch kein allgemeines Landschaftssystem dar.
+- Kamera, C++, Input und Spielsysteme bleiben unverändert. Bestehende Kollisionskörper und Brückengeometrie werden beibehalten.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname
