@@ -47,6 +47,25 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 	TestTrue(TEXT("Camera uses an angled yaw"), !FMath::IsNearlyZero(Character->CameraBoom->GetRelativeRotation().Yaw));
 	TestTrue(TEXT("Camera boom keeps visible distance from the player"), Character->CameraBoom->TargetArmLength >= 500.0f);
 	TestNotNull(TEXT("The character owns a perspective follow camera"), Character->FollowCamera.Get());
+	TestNotNull(TEXT("The character owns a Paper2D flipbook component"), Character->GetCharacterFlipbookComponent());
+	TestEqual(TEXT("The default visual state is idle"), Character->GetLocomotionState(), EPokeMonsterLocomotionState::Idle);
+	TestEqual(TEXT("The default facing direction is down"), Character->GetFacingDirection(), EPokeMonsterFacingDirection::Down);
+
+	TestEqual(TEXT("A vertical-dominant diagonal faces up"),
+		APokeMonsterPlayerCharacter::CalculateFacingDirection(FVector2D(0.4f, 1.0f), EPokeMonsterFacingDirection::Left, 0.1f),
+		EPokeMonsterFacingDirection::Up);
+	TestEqual(TEXT("A horizontal-dominant diagonal faces left"),
+		APokeMonsterPlayerCharacter::CalculateFacingDirection(FVector2D(-1.0f, 0.4f), EPokeMonsterFacingDirection::Up, 0.1f),
+		EPokeMonsterFacingDirection::Left);
+	TestEqual(TEXT("A rightward input faces right"),
+		APokeMonsterPlayerCharacter::CalculateFacingDirection(FVector2D(1.0f, 0.0f), EPokeMonsterFacingDirection::Down, 0.1f),
+		EPokeMonsterFacingDirection::Right);
+	TestEqual(TEXT("A downward input faces down"),
+		APokeMonsterPlayerCharacter::CalculateFacingDirection(FVector2D(0.0f, -1.0f), EPokeMonsterFacingDirection::Up, 0.1f),
+		EPokeMonsterFacingDirection::Down);
+	TestEqual(TEXT("An equal diagonal keeps the current horizontal axis"),
+		APokeMonsterPlayerCharacter::CalculateFacingDirection(FVector2D(1.0f, 1.0f), EPokeMonsterFacingDirection::Left, 0.1f),
+		EPokeMonsterFacingDirection::Right);
 
 	const APokeMonsterGameMode* GameModeDefaults = GetDefault<APokeMonsterGameMode>();
 	TestEqual(TEXT("The game mode selects the player character as default pawn"),
@@ -76,14 +95,28 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 			TestTrue(TEXT("PIE has the movement mapping context active"),
 				InputSubsystem && InputSubsystem->HasMappingContext(LiveCharacter->DefaultMappingContext));
 
-			LiveCharacter->Move(FInputActionValue(FVector2D(1.0f, 1.0f)));
+			LiveCharacter->Move(FInputActionValue(FVector2D(0.4f, 1.0f)));
 			TestTrue(TEXT("PIE movement input reaches the character movement pipeline"),
 				!LiveCharacter->GetPendingMovementInputVector().IsNearlyZero());
+			TestEqual(TEXT("Movement changes the visual state to walking"),
+				LiveCharacter->GetLocomotionState(), EPokeMonsterLocomotionState::Walking);
+			TestEqual(TEXT("A vertical-dominant PIE input faces up"),
+				LiveCharacter->GetFacingDirection(), EPokeMonsterFacingDirection::Up);
 			LiveCharacter->ConsumeMovementInputVector();
 
 			LiveCharacter->StopMoving(FInputActionValue(FVector2D::ZeroVector));
-			TestTrue(TEXT("Stopping input resets the exposed animation direction"),
+			TestTrue(TEXT("Stopping input resets the exposed movement input"),
 				LiveCharacter->GetMovementInput().IsNearlyZero());
+			TestEqual(TEXT("Stopping changes the visual state to idle"),
+				LiveCharacter->GetLocomotionState(), EPokeMonsterLocomotionState::Idle);
+			TestEqual(TEXT("Idle retains the last relevant facing direction"),
+				LiveCharacter->GetFacingDirection(), EPokeMonsterFacingDirection::Up);
+
+			LiveCharacter->Move(FInputActionValue(FVector2D(-1.0f, 0.25f)));
+			TestEqual(TEXT("A horizontal-dominant PIE input faces left"),
+				LiveCharacter->GetFacingDirection(), EPokeMonsterFacingDirection::Left);
+			LiveCharacter->ConsumeMovementInputVector();
+			LiveCharacter->StopMoving(FInputActionValue(FVector2D::ZeroVector));
 		}
 	}
 

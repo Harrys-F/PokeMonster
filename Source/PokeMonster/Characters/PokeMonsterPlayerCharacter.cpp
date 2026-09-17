@@ -14,8 +14,31 @@
 #include "InputAction.h"
 #include "InputMappingContext.h"
 #include "InputModifiers.h"
+#include "PaperFlipbook.h"
 #include "PaperFlipbookComponent.h"
 #include "UObject/ConstructorHelpers.h"
+
+UPaperFlipbook* FPokeMonsterDirectionalFlipbookSet::GetFlipbook(const EPokeMonsterFacingDirection Direction) const
+{
+	switch (Direction)
+	{
+	case EPokeMonsterFacingDirection::Up:
+		return Up;
+	case EPokeMonsterFacingDirection::Down:
+		return Down;
+	case EPokeMonsterFacingDirection::Left:
+		return Left;
+	case EPokeMonsterFacingDirection::Right:
+		return Right;
+	default:
+		return nullptr;
+	}
+}
+
+bool FPokeMonsterDirectionalFlipbookSet::HasAnyFlipbook() const
+{
+	return Up || Down || Left || Right;
+}
 
 APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 {
@@ -44,10 +67,22 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 	PlaceholderMesh->SetRelativeScale3D(FVector(0.4f, 0.12f, 0.85f));
 	PlaceholderMesh->SetRelativeRotation(FRotator(0.0f, 45.0f, 0.0f));
 
+	FacingMarkerMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("FacingMarkerMesh"));
+	FacingMarkerMesh->SetupAttachment(GetCapsuleComponent());
+	FacingMarkerMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	FacingMarkerMesh->SetCastShadow(false);
+	FacingMarkerMesh->SetRelativeScale3D(FVector(0.12f));
+
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> PlaceholderMeshAsset(TEXT("/Engine/BasicShapes/Cube.Cube"));
 	if (PlaceholderMeshAsset.Succeeded())
 	{
 		PlaceholderMesh->SetStaticMesh(PlaceholderMeshAsset.Object);
+	}
+
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> FacingMarkerAsset(TEXT("/Engine/BasicShapes/Sphere.Sphere"));
+	if (FacingMarkerAsset.Succeeded())
+	{
+		FacingMarkerMesh->SetStaticMesh(FacingMarkerAsset.Object);
 	}
 
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
@@ -103,9 +138,7 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 void APokeMonsterPlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
-	const bool bHasFlipbook = GetSprite()->GetFlipbook() != nullptr;
-	PlaceholderMesh->SetVisibility(bShowPlaceholderWithoutFlipbook && !bHasFlipbook, true);
+	RefreshCharacterVisual();
 }
 
 void APokeMonsterPlayerCharacter::PawnClientRestart()
@@ -151,13 +184,85 @@ void APokeMonsterPlayerCharacter::StopMoving(const FInputActionValue& Value)
 
 void APokeMonsterPlayerCharacter::UpdateMovementInput(const FVector2D NewMovementInput)
 {
-	if (MovementInput.Equals(NewMovementInput, KINDA_SMALL_NUMBER))
+	const FVector2D ClampedInput = NewMovementInput.GetClampedToMaxSize(1.0f);
+	const bool bInputChanged = !MovementInput.Equals(ClampedInput, KINDA_SMALL_NUMBER);
+	const EPokeMonsterLocomotionState NewLocomotionState = ClampedInput.IsNearlyZero(FacingInputThreshold)
+		? EPokeMonsterLocomotionState::Idle
+		: EPokeMonsterLocomotionState::Walking;
+	const EPokeMonsterFacingDirection NewFacingDirection = NewLocomotionState == EPokeMonsterLocomotionState::Walking
+		? CalculateFacingDirection(ClampedInput, FacingDirection, FacingInputThreshold)
+		: FacingDirection;
+	const bool bVisualStateChanged = NewLocomotionState != LocomotionState || NewFacingDirection != FacingDirection;
+
+	if (!bInputChanged && !bVisualStateChanged)
 	{
 		return;
 	}
 
-	MovementInput = NewMovementInput;
-	OnMovementInputChanged(MovementInput);
+	MovementInput = ClampedInput;
+	FacingDirection = NewFacingDirection;
+	LocomotionState = NewLocomotionState;
+
+	if (bInputChanged)
+	{
+		OnMovementInputChanged(MovementInput);
+	}
+
+	if (bVisualStateChanged)
+	{
+		RefreshCharacterVisual();
+		OnVisualStateChanged(FacingDirection, LocomotionState);
+	}
+}
+
+void APokeMonsterPlayerCharacter::RefreshCharacterVisual()
+{
+	UPaperFlipbookComponent* SpriteComponent = GetSprite();
+	const FPokeMonsterDirectionalFlipbookSet& DesiredSet = LocomotionState == EPokeMonsterLocomotionState::Walking
+		? WalkingFlipbooks
+		: IdleFlipbooks;
+	UPaperFlipbook* DesiredFlipbook = DesiredSet.GetFlipbook(FacingDirection);
+
+	// A missing walking animation falls back to the matching idle pose. This makes
+	// partial Blueprint setups useful while the final art is still being produced.
+	if (!DesiredFlipbook && LocomotionState == EPokeMonsterLocomotionState::Walking)
+	{
+		DesiredFlipbook = IdleFlipbooks.GetFlipbook(FacingDirection);
+	}
+
+	const bool bUsesDirectionalSets = IdleFlipbooks.HasAnyFlipbook() || WalkingFlipbooks.HasAnyFlipbook();
+	if (DesiredFlipbook || bUsesDirectionalSets)
+	{
+		SpriteComponent->SetFlipbook(DesiredFlipbook);
+	}
+
+	const bool bHasFlipbook = SpriteComponent->GetFlipbook() != nullptr;
+	SpriteComponent->SetVisibility(bHasFlipbook, true);
+
+	const bool bShowPlaceholder = bShowPlaceholderWithoutFlipbook && !bHasFlipbook;
+	PlaceholderMesh->SetVisibility(bShowPlaceholder, true);
+	FacingMarkerMesh->SetVisibility(bShowPlaceholder, true);
+
+	float FacingYaw = 135.0f;
+	switch (FacingDirection)
+	{
+	case EPokeMonsterFacingDirection::Up:
+		FacingYaw = -45.0f;
+		break;
+	case EPokeMonsterFacingDirection::Down:
+		FacingYaw = 135.0f;
+		break;
+	case EPokeMonsterFacingDirection::Left:
+		FacingYaw = -135.0f;
+		break;
+	case EPokeMonsterFacingDirection::Right:
+		FacingYaw = 45.0f;
+		break;
+	}
+
+	PlaceholderMesh->SetRelativeRotation(FRotator(0.0f, FacingYaw, 0.0f));
+	const FVector FacingVector = FRotationMatrix(FRotator(0.0f, FacingYaw, 0.0f)).GetUnitAxis(EAxis::X);
+	FacingMarkerMesh->SetRelativeLocation(FacingVector * 28.0f + FVector(0.0f, 0.0f, 20.0f));
 }
 
 FVector APokeMonsterPlayerCharacter::CalculateCameraRelativeMovement(const FVector2D Input, const float CameraYawDegrees)
@@ -167,4 +272,29 @@ FVector APokeMonsterPlayerCharacter::CalculateCameraRelativeMovement(const FVect
 	const FVector ForwardDirection = FRotationMatrix(CameraYaw).GetUnitAxis(EAxis::X);
 	const FVector RightDirection = FRotationMatrix(CameraYaw).GetUnitAxis(EAxis::Y);
 	return (ForwardDirection * ClampedInput.Y + RightDirection * ClampedInput.X).GetSafeNormal();
+}
+
+EPokeMonsterFacingDirection APokeMonsterPlayerCharacter::CalculateFacingDirection(
+	const FVector2D Input,
+	const EPokeMonsterFacingDirection CurrentDirection,
+	const float InputThreshold)
+{
+	if (Input.IsNearlyZero(InputThreshold))
+	{
+		return CurrentDirection;
+	}
+
+	const float HorizontalStrength = FMath::Abs(Input.X);
+	const float VerticalStrength = FMath::Abs(Input.Y);
+	const bool bCurrentDirectionIsHorizontal = CurrentDirection == EPokeMonsterFacingDirection::Left
+		|| CurrentDirection == EPokeMonsterFacingDirection::Right;
+	const bool bUseHorizontal = HorizontalStrength > VerticalStrength
+		|| (FMath::IsNearlyEqual(HorizontalStrength, VerticalStrength) && bCurrentDirectionIsHorizontal);
+
+	if (bUseHorizontal)
+	{
+		return Input.X >= 0.0f ? EPokeMonsterFacingDirection::Right : EPokeMonsterFacingDirection::Left;
+	}
+
+	return Input.Y >= 0.0f ? EPokeMonsterFacingDirection::Up : EPokeMonsterFacingDirection::Down;
 }
