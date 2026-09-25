@@ -1,4 +1,5 @@
 #include "PokeMonsterEncounterSubsystem.h"
+#include "PokeMonsterEncounterProfile.h"
 
 #include "../Characters/PokeMonsterPlayerCharacter.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
@@ -50,6 +51,46 @@ bool UPokeMonsterEncounterSubsystem::StartTestEncounter(APokeMonsterPlayerCharac
 	Start.PlayerTeam = PlayerParty.IsEmpty() ? MoveTemp(InitialParty) : PlayerParty;
 	Start.OpponentTeam = MoveTemp(Opponents);
 	Start.SourceActor = SourceActor;
+	return StartEncounter(Start, Player);
+}
+
+bool UPokeMonsterEncounterSubsystem::EnsureDevPlayerParty()
+{
+	if (!PlayerParty.IsEmpty()) return true;
+	TArray<FPokeMonsterCreatureInstance> InitialParty, UnusedOpponents;
+	if (!BuildTestTeams(InitialParty, UnusedOpponents)) return false;
+	PlayerParty = MoveTemp(InitialParty);
+	return true;
+}
+
+bool UPokeMonsterEncounterSubsystem::PrepareWildEncounter(const UPokeMonsterEncounterProfile* Profile,
+	const FPokeMonsterEncounterContext& Context, EPokeMonsterEncounterSource Source,
+	AActor* SourceActor, int32 Seed, FName EncounterId, FPokeMonsterEncounterStartData& OutStart)
+{
+	OutStart = FPokeMonsterEncounterStartData();
+	if (!IsValid(Profile)) return false;
+	FRandomStream Random(Seed);
+	FPokeMonsterCreatureInstance WildCreature;
+	if (!Profile->Roll(Context, Random, WildCreature)) return false;
+	OutStart.EncounterId = EncounterId;
+	OutStart.Kind = EPokeMonsterEncounterKind::Wild;
+	OutStart.Source = Source;
+	OutStart.OpponentTeam.Add(MoveTemp(WildCreature));
+	OutStart.RandomSeed = Seed;
+	OutStart.SourceActor = SourceActor;
+	return true;
+}
+
+bool UPokeMonsterEncounterSubsystem::StartWildEncounter(const UPokeMonsterEncounterProfile* Profile,
+	const FPokeMonsterEncounterContext& Context, EPokeMonsterEncounterSource Source,
+	APokeMonsterPlayerCharacter* Player, AActor* SourceActor, int32 Seed, FName EncounterId)
+{
+	FPokeMonsterEncounterStartData Start;
+	if (!PrepareWildEncounter(Profile, Context, Source, SourceActor, Seed, EncounterId, Start))
+	{
+		UE_LOG(LogPokeMonsterEncounter, Warning, TEXT("Wild encounter '%s' has no valid profile entry."), *EncounterId.ToString());
+		return false;
+	}
 	return StartEncounter(Start, Player);
 }
 
@@ -120,6 +161,7 @@ FPokeMonsterEncounterEndData UPokeMonsterEncounterSubsystem::BuildEndData(
 	FPokeMonsterEncounterEndData End;
 	End.EncounterId = Start.EncounterId;
 	End.Kind = Start.Kind;
+	End.Source = Start.Source;
 	End.Outcome = State.Winner == EPokeMonsterBattleSide::A
 		? EPokeMonsterEncounterOutcome::Victory : EPokeMonsterEncounterOutcome::Defeat;
 	End.PlayerTeam = State.TeamA;

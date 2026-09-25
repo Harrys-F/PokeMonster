@@ -10,6 +10,8 @@ class APlayerController;
 class APokeMonsterPlayerCharacter;
 class UPokeMonsterBattlePresenter;
 class UPokeMonsterBattleWidget;
+class UPokeMonsterEncounterProfile;
+struct FPokeMonsterEncounterContext;
 struct FPokeMonsterBattleState;
 
 UENUM(BlueprintType)
@@ -18,6 +20,9 @@ enum class EPokeMonsterEncounterKind : uint8 { Test, Wild, Trainer };
 UENUM(BlueprintType)
 enum class EPokeMonsterEncounterOutcome : uint8 { Victory, Defeat, Fled, Cancelled };
 
+UENUM(BlueprintType)
+enum class EPokeMonsterEncounterSource : uint8 { Scripted, VisibleCreature, Zone, Random };
+
 /** Independent of the visual transition; future wild/trainer encounters use the same contract. */
 USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterEncounterStartData
@@ -25,6 +30,7 @@ struct POKEMONSTER_API FPokeMonsterEncounterStartData
 	GENERATED_BODY()
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") FName EncounterId;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") EPokeMonsterEncounterKind Kind = EPokeMonsterEncounterKind::Test;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") EPokeMonsterEncounterSource Source = EPokeMonsterEncounterSource::Scripted;
 	/** Empty uses the persistent overworld party. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") TArray<FPokeMonsterCreatureInstance> PlayerTeam;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") TArray<FPokeMonsterCreatureInstance> OpponentTeam;
@@ -38,6 +44,7 @@ struct POKEMONSTER_API FPokeMonsterEncounterEndData
 	GENERATED_BODY()
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") FName EncounterId;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") EPokeMonsterEncounterKind Kind = EPokeMonsterEncounterKind::Test;
+	UPROPERTY(BlueprintReadOnly, Category="Encounter") EPokeMonsterEncounterSource Source = EPokeMonsterEncounterSource::Scripted;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") EPokeMonsterEncounterOutcome Outcome = EPokeMonsterEncounterOutcome::Cancelled;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") TArray<FPokeMonsterCreatureInstance> PlayerTeam;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") TArray<FPokeMonsterCreatureInstance> OpponentTeam;
@@ -59,6 +66,15 @@ public:
 	/** Uses existing test species/moves; only the first encounter creates a default player party. */
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Encounter")
 	bool StartTestEncounter(APokeMonsterPlayerCharacter* Player, AActor* SourceActor);
+
+	/** Creates the existing development party once. Never revives a defeated party. */
+	bool EnsureDevPlayerParty();
+	bool StartWildEncounter(const UPokeMonsterEncounterProfile* Profile,
+		const FPokeMonsterEncounterContext& Context, EPokeMonsterEncounterSource Source,
+		APokeMonsterPlayerCharacter* Player, AActor* SourceActor, int32 Seed, FName EncounterId);
+	static bool PrepareWildEncounter(const UPokeMonsterEncounterProfile* Profile,
+		const FPokeMonsterEncounterContext& Context, EPokeMonsterEncounterSource Source,
+		AActor* SourceActor, int32 Seed, FName EncounterId, FPokeMonsterEncounterStartData& OutStart);
 
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter") bool IsEncounterActive() const { return bActive; }
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter") const TArray<FPokeMonsterCreatureInstance>& GetPlayerParty() const { return PlayerParty; }

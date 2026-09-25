@@ -185,6 +185,16 @@ Der einzelne `PokeMonsterBattleEncounterActor` in `Dev_TestMap` nutzt die besteh
 
 `PokeMonster.Encounter.OverworldIntegration` prüft die Testdaten auch ohne PIE und in PIE zusätzlich echten Kampfstart, Eingabesperre, Team-IDs, Sieg/Niederlage, HP-/PP-Rückgabe und erneute Steuerbarkeit. Den vollständigen manuellen Ablauf in `Dev_TestMap` mit dem Testmarker, sichtbarer UI und Rückkehr ebenfalls in PIE prüfen.
 
+### Datengetriebene Wildbegegnungen
+
+`UPokeMonsterEncounterProfile` ist ein `UPrimaryDataAsset` unter `/Game/Data/Encounters` (Asset-Manager-Typ `EncounterProfile`). Ein Eintrag enthält eine weiche Speziesreferenz, Mindest-/Höchstlevel, ein positives Gewicht, bis zu vier Startattacken sowie optional Tageszeit, Gebiets-ID und eine erforderliche Bedingungs-ID. Diese einfachen `FName`-Kennungen sind noch keine fertige Uhr-, Regionen- oder Questlogik. Ein `FPokeMonsterEncounterContext` liefert die aktuellen Werte; nicht passende oder ungültige Einträge nehmen nicht an der Auswahl teil. Ein fest gesetzter `FRandomStream` wählt gewichtet Spezies und Level reproduzierbar aus. Das Ergebnis ist ein neues individuelles Exemplar mit eigenen HP, Erfahrung und Moveslot-PP; die Profildaten bleiben unverändert.
+
+`UPokeMonsterEncounterSubsystem::PrepareWildEncounter` formt dieses Exemplar zu den vorhandenen `FPokeMonsterEncounterStartData` mit `Kind=Wild` und genau einem Gegner. `StartWildEncounter` ruft anschließend unverändert `StartEncounter` auf. `EPokeMonsterEncounterSource` unterscheidet sichtbare Kreatur, Zone, Script/Story und eine spätere Zufallsquelle; die Quellenkennung wird bis zum Endergebnis weitergereicht. BattleSession, Presenter, UMG-Overlay, Eingabesperre und HP-/PP-Rückgabe sind dieselben wie beim bisherigen Weltkampf. Der bisherige `PokeMonsterBattleEncounterActor` bleibt für seinen separaten Techniktest bestehen.
+
+`DA_DevWild` enthält vorläufig `TestGrass` (Gewicht 3) und `TestFire` (Gewicht 1), jeweils Level 5–7 und vorhandene Testattacken. In `Dev_TestMap` startet `PokeMonsterVisibleWildCreatureActor` den Kampf bei kurzem Kontakt oder über die bestehende `E`-/`Enter`-Interaktion. Sein vorhandenes Paper2D-Busch-Sprite und die Beschriftung sind reine Platzhalter. Nach einem Sieg wird der Actor standardmäßig für diese Spielsitzung ausgeblendet und seine Kollision abgeschaltet; nach einer Niederlage bleibt er verwendbar. `PokeMonsterWildEncounterZone` ist eine kleine markierte Overlap-Fläche; sie löst mit festem Seed pro PIE-Sitzung höchstens einmal aus und erzeugt keine laufenden Zufallskämpfe. Beide Dev-Actors legen bei leerem Spielerteam einmalig das bereits vorhandene Testteam an; ein besiegtes Team wird dabei nicht geheilt. Für spätere reguläre Begegnungen wird das echte Team an denselben Startvertrag übergeben.
+
+`PokeMonster.Encounter.WildProfileAndSources` prüft Profil-Laden, Gewichtung, Levelbereich, optionale Filter, neue Instanzdaten und die gemeinsame Datenübergabe beider Quellen. Die bestehenden Encounter- und Battle-Tests bleiben dafür unverändert.
+
 ## Darstellung
 
 - 2D-Top-Down-Perspektive

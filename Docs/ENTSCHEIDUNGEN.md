@@ -268,6 +268,14 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Ein Game-Instance-Subsystem sperrt während der Begegnung Weltbewegung und -interaktion, bewahrt den Weltzustand, hält das individuelle Spielerteam innerhalb der laufenden Spielsitzung und überträgt HP/PP nach Kampfende zurück. Es meldet Sieg oder Niederlage strukturiert an die Overworld; Abbrechen und Flucht sind vorerst nur reservierte Ergebniswerte ohne Spielmechanik.
 - Dieser Schritt verwendet ausschließlich bestehende Test-Spezies, Testattacken und die vorhandene Battle-UI. Er ergänzt weder Zufallsbegegnungen noch Trainerlogik, Items, Fangmechanik oder dauerhafte Speicherung.
 
+## 2026-09-25 – Datengetriebener Wildbegegnungs-Prototyp
+
+**Status: Zwei kontrollierte Testquellen umgesetzt; endgültige Begegnungshäufigkeit und Weltlogik offen**
+
+- Wildbegegnungen verwenden ein eigenes Primary-Data-Asset mit gewichtetem Speziespool, Levelspanne, Startattacken und optionalen Tageszeit-, Gebiets- und Bedingungsfiltern. Ein Seed erlaubt reproduzierbare Tests. Das Profil beschreibt gemeinsame Vorgaben; jeder Kampf erzeugt ein individuelles Exemplar.
+- Sichtbare Kreatur und einmalig auslösende Testzone in `Dev_TestMap` übergeben ihre Gegner an das bestehende `PokeMonsterEncounterSubsystem`. Es unterscheidet Quellen strukturiert, während BattleSession, UI und Overworld-Rückkehr gemeinsam bleiben. Script-/Story- und spätere Zufallsquellen sind technisch vorgesehen, aber noch nicht als Gameplay umgesetzt.
+- Der sichtbare Actor verwendet vorerst ein vorhandenes Paper2D-Platzhalter-Sprite und kann nach Sieg deaktiviert werden. Die Zone löst nur kontrolliert und mit festem Seed aus. Beide nutzen vorläufig das vorhandene Testteam, wenn noch kein Spielerteam existiert. Das ist keine Entscheidung über spätere Spawn-, Tageszeit-, Fang- oder Zufallsregeln.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname
@@ -277,7 +285,7 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Arenen oder eigenes Prüfungssystem
 - endgültige Fangmechanik
 - endgültiges Kampfsystem
-- sichtbare oder zufällige Begegnungen
+- endgültige Verteilung sichtbarer, Zonen- und möglicher Zufallsbegegnungen
 - linearer Weg oder alternative Routen
 - genaue Demo-Kreaturen
 - endgültige Attackenverwaltung
