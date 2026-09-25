@@ -23,6 +23,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Battle UI") void SetPresenter(UPokeMonsterBattlePresenter* InPresenter);
 	UFUNCTION(BlueprintPure, Category="Battle UI") UButton* GetAttackButton(int32 SlotIndex) const;
 	UFUNCTION(BlueprintPure, Category="Battle UI") UButton* GetSwitchButton(int32 TeamIndex) const;
+	/** Reuses this presentation in the loaded overworld, without the test-map restart control. */
+	void SetEncounterOverlay(bool bEnabled);
 protected:
 	virtual TSharedRef<SWidget> RebuildWidget() override;
 	virtual void NativeConstruct() override;
@@ -37,6 +39,7 @@ private:
 	void BindControls();
 	void Choose(int32 Slot);
 	void ChooseSwitch(int32 TeamIndex);
+	void ResolveOverlaySelection();
 	void BeginAction();
 	void BeginPhase(EPresentationPhase NewPhase);
 	void TickPresentation();
@@ -90,6 +93,8 @@ private:
 	TArray<FPokeMonsterPresentationAction> PresentationActions;
 	FString PresentedLog;
 	FTimerHandle PresentationTimer;
+	FTimerHandle OverlayRoundTimer;
+	bool bEncounterOverlay = false;
 	EPresentationPhase PresentationPhase = EPresentationPhase::Windup;
 	float PhaseElapsed = 0.0f;
 	int32 ActionIndex = INDEX_NONE;

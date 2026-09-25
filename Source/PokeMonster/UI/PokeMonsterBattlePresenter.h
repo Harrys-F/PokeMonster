@@ -77,6 +77,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Battle UI") void FinishPresentation();
 	UFUNCTION(BlueprintPure, Category="Battle UI") const FPokeMonsterBattleView& GetView() const { return View; }
 	UFUNCTION(BlueprintPure, Category="Battle UI") const FPokeMonsterBattleResult& GetLastResult() const { return LastResult; }
+	/** Read-only battle copies for returning each team member's HP and PP to the caller. */
+	const FPokeMonsterBattleState* GetBattleState() const { return Session ? &Session->GetState() : nullptr; }
 	UPROPERTY(BlueprintAssignable, Category="Battle UI") FPokeMonsterBattleViewChanged OnChanged;
 	UPROPERTY(BlueprintAssignable, Category="Battle UI") FPokeMonsterBattleRoundPresented OnRoundResolved;
 private:

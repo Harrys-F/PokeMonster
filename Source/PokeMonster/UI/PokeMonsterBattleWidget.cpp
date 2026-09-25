@@ -226,13 +226,23 @@ void UPokeMonsterBattleWidget::NativeConstruct()
 
 void UPokeMonsterBattleWidget::NativeDestruct()
 {
-	if (GetWorld()) GetWorld()->GetTimerManager().ClearTimer(PresentationTimer);
+	if (GetWorld())
+	{
+		GetWorld()->GetTimerManager().ClearTimer(PresentationTimer);
+		GetWorld()->GetTimerManager().ClearTimer(OverlayRoundTimer);
+	}
 	if(Presenter)
 	{
 		Presenter->OnChanged.RemoveDynamic(this,&UPokeMonsterBattleWidget::Refresh);
 		Presenter->OnRoundResolved.RemoveDynamic(this,&UPokeMonsterBattleWidget::RoundResolved);
 	}
 	Super::NativeDestruct();
+}
+
+void UPokeMonsterBattleWidget::SetEncounterOverlay(const bool bEnabled)
+{
+	bEncounterOverlay = bEnabled;
+	if (RestartButton) RestartButton->SetVisibility(bEncounterOverlay ? ESlateVisibility::Collapsed : ESlateVisibility::Visible);
 }
 
 void UPokeMonsterBattleWidget::SetPresenter(UPokeMonsterBattlePresenter* InPresenter)
@@ -283,7 +293,11 @@ void UPokeMonsterBattleWidget::Refresh()
 		DisplayedOpponentHP=View.Opponent.CurrentHP;
 		PresentedLog=View.Log.ToString();
 	}
-	if(RestartButton) RestartButton->SetIsEnabled(!View.bBusy);
+	if(RestartButton)
+	{
+		RestartButton->SetVisibility(bEncounterOverlay ? ESlateVisibility::Collapsed : ESlateVisibility::Visible);
+		RestartButton->SetIsEnabled(!View.bBusy && !bEncounterOverlay);
+	}
 	for(int32 I=0;I<6;++I)
 	{
 		if (TeamButtons.IsValidIndex(I) && TeamButtons[I])
@@ -358,6 +372,18 @@ void UPokeMonsterBattleWidget::RoundResolved(const FPokeMonsterBattleResult& Res
 
 void UPokeMonsterBattleWidget::Choose(int32 Slot)
 {
+	if (bEncounterOverlay)
+	{
+		if (Presenter && Presenter->TrySelectMove(Slot) && GetWorld())
+		{
+			if (StatusLabel && Presenter->GetView().Moves.IsValidIndex(Slot))
+				StatusLabel->SetText(FText::Format(NSLOCTEXT("PokeMonster", "MoveSelected", "{0} gewählt …"),
+					Presenter->GetView().Moves[Slot].Name));
+			GetWorld()->GetTimerManager().SetTimer(OverlayRoundTimer, this,
+				&UPokeMonsterBattleWidget::ResolveOverlaySelection, 0.22f, false);
+		}
+		return;
+	}
 	if (auto* PC = Cast<APokeMonsterBattleTestController>(GetOwningPlayer()))
 	{
 		if (PC->ChooseMove(Slot) && StatusLabel && Presenter && Presenter->GetView().Moves.IsValidIndex(Slot))
@@ -368,9 +394,24 @@ void UPokeMonsterBattleWidget::Choose(int32 Slot)
 
 void UPokeMonsterBattleWidget::ChooseSwitch(int32 TeamIndex)
 {
+	if (bEncounterOverlay)
+	{
+		if (Presenter && Presenter->TrySelectSwitch(TeamIndex) && GetWorld())
+		{
+			if (StatusLabel) StatusLabel->SetText(FText::FromString(TEXT("Wechsel gewählt …")));
+			GetWorld()->GetTimerManager().SetTimer(OverlayRoundTimer, this,
+				&UPokeMonsterBattleWidget::ResolveOverlaySelection, 0.22f, false);
+		}
+		return;
+	}
 	if (auto* PC = Cast<APokeMonsterBattleTestController>(GetOwningPlayer()))
 		if (PC->ChooseSwitch(TeamIndex) && StatusLabel)
 			StatusLabel->SetText(FText::FromString(TEXT("Wechsel gewählt …")));
+}
+
+void UPokeMonsterBattleWidget::ResolveOverlaySelection()
+{
+	if (Presenter && !Presenter->ResolveSelection()) Presenter->FinishPresentation();
 }
 
 UWidget* UPokeMonsterBattleWidget::FigureFor(EPokeMonsterBattleSide Side) const

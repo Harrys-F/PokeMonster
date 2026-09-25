@@ -18,6 +18,7 @@ class UStaticMeshComponent;
 
 #if WITH_DEV_AUTOMATION_TESTS
 class FPokeMonsterPlayerFoundationTest;
+class FPokeMonsterEncounterIntegrationTest;
 #endif
 
 UENUM(BlueprintType)
@@ -100,6 +101,13 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "PokeMonster|Interaction")
 	bool TryInteract();
 
+	/** Suspends exploration controls while an encounter owns the screen. */
+	UFUNCTION(BlueprintCallable, Category = "PokeMonster|Interaction")
+	void SetOverworldInputLocked(bool bLocked);
+
+	UFUNCTION(BlueprintPure, Category = "PokeMonster|Interaction")
+	bool IsOverworldInputLocked() const { return bOverworldInputLocked; }
+
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Interaction")
 	float GetInteractionRange() const { return InteractionRange; }
 
@@ -154,6 +162,7 @@ protected:
 private:
 #if WITH_DEV_AUTOMATION_TESTS
 	friend class FPokeMonsterPlayerFoundationTest;
+	friend class FPokeMonsterEncounterIntegrationTest;
 #endif
 
 	void Move(const FInputActionValue& Value);
@@ -184,4 +193,7 @@ private:
 
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = "PokeMonster|Visual", meta = (AllowPrivateAccess = "true"))
 	EPokeMonsterLocomotionState LocomotionState = EPokeMonsterLocomotionState::Idle;
+
+	UPROPERTY(Transient)
+	bool bOverworldInputLocked = false;
 };

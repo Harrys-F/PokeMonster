@@ -214,7 +214,7 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 
 **Status: Technischer Battle Flow umgesetzt; weiterführende Kampfregeln bleiben offen**
 
-- Eine getrennte C++-Battle-Session verwaltet eigene Kampfkopien von genau einer aktiven Kreatur pro Seite. Der Zustand ist von der Ausführung getrennt und für spätere UI/Animationen lesbar. Eine automatische Rückübertragung auf Welt-/Inventardaten findet noch nicht statt.
+- Eine getrennte C++-Battle-Session verwaltet eigene Kampfkopien von genau einer aktiven Kreatur pro Seite. Der Zustand ist von der Ausführung getrennt und für spätere UI/Animationen lesbar. **Der damalige Stand ohne Rückübertragung wurde durch die Overworld-Begegnungskoordination vom 2026-09-25 unten ersetzt.**
 - Jede Runde erhält beide Attackenauswahlen gemeinsam. Höhere Priorität beginnt, danach entscheidet Initiative; bei vollständigem Gleichstand beginnt deterministisch Seite A. Treffer verwenden einen eigenen, per Seed reproduzierbaren Zufallsstrom.
 - Beide Auswahlen werden vor Beginn geprüft. Fehlerhafte Runden verändern weder HP, PP, Rundenzähler noch Zufallszustand. Ausgeführte Angriffsversuche kosten eine PP, auch bei Fehlschlag, Immunität oder Status-Platzhalter.
 - HP-Anwendung verwendet die vorhandene Schadensberechnung unverändert. Für die damalige reine 1-gegen-1-Session beendete ein K.O. Runde und Kampf sofort; **die allgemeine Kampfende-Regel wurde am 2026-09-25 durch die Teamregel unten ersetzt**. Die besiegte Kreatur führt keinen ausstehenden Angriff mehr aus.
@@ -259,6 +259,14 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Ein freiwilliger Wechsel ist die Aktion der wechselnden Seite für diese Runde. Wechsel werden vor Attacken ausgeführt; eine gegnerische Attacke trifft deshalb die eingewechselte Kreatur. Bei K.O. ohne verbleibendes kampffähiges Teammitglied endet der Kampf. Andernfalls ist ein Ersatzwechsel nötig; dieser Pflichtwechsel kostet keinen zusätzlichen Zug. Die Testgegnerseite nimmt den nächsten kampffähigen Teamplatz automatisch.
 - `SwitchChosen` und `SwitchedIn` ergänzen die geordneten BattleEvents. Die vorhandene Präsentationsschicht zeigt den Wechsel als eigene Aktion und hält die Eingabe bis zum Abschluss gesperrt. Die Battle-Testmap zeigt beide Teams und ermöglicht dem Spieler freiwillige und erzwungene Wechsel. Sie verwendet für Teammitglieder vorhandene Test-Spezies und Platzhaltergrafiken; finale Artworks und Team-Menüs sind offen.
 - Schadensformel, Attackendaten, Typentabelle, Status-Platzhalter sowie Player-, Weltkamera- und Map-Systeme werden nicht geändert. Items, Fangmechanik und Statuszustände bleiben ausgenommen.
+
+## 2026-09-25 – Erster Overworld-Kampfübergang
+
+**Status: Technischer Testablauf umgesetzt; endgültige Begegnungsinszenierung offen**
+
+- Ein einzelnes interagierbares Testobjekt in `Dev_TestMap` startet die vorhandene BattleSession und UMG-Präsentation als Overlay, ohne die Weltmap zu wechseln. `Dev_BattleTestMap` bleibt als eigenständiger Test erhalten. Damit ist die bisher offene Frage nach dem endgültigen Welt-Kampf-Übergang noch nicht entschieden; andere Inszenierungen können später an denselben Start-/End-Datenvertrag anschließen.
+- Ein Game-Instance-Subsystem sperrt während der Begegnung Weltbewegung und -interaktion, bewahrt den Weltzustand, hält das individuelle Spielerteam innerhalb der laufenden Spielsitzung und überträgt HP/PP nach Kampfende zurück. Es meldet Sieg oder Niederlage strukturiert an die Overworld; Abbrechen und Flucht sind vorerst nur reservierte Ergebniswerte ohne Spielmechanik.
+- Dieser Schritt verwendet ausschließlich bestehende Test-Spezies, Testattacken und die vorhandene Battle-UI. Er ergänzt weder Zufallsbegegnungen noch Trainerlogik, Items, Fangmechanik oder dauerhafte Speicherung.
 
 ## Aktuell offene Entscheidungen
 

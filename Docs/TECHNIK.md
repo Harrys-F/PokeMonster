@@ -175,6 +175,16 @@ Das Widget hält während der Darstellung zunächst die bisher sichtbaren HP, PP
 
 `PokeMonster.Battle.Team.SwitchAndKO` prüft Teamgrößen, manuelle Wechsel als Zug, Erhalt von HP/PP, Pflichtwechsel, automatischen Gegnerersatz und Kampfende erst nach vollständigem Team-K.O. Die vorhandenen 1-gegen-1-Tests verwenden weiter `Initialize` beziehungsweise `StartDemo`.
 
+### Overworld-Begegnungen
+
+`Encounter/PokeMonsterEncounterSubsystem` ist die zentrale Koordination für Kämpfe aus einer geladenen Spielwelt. `FPokeMonsterEncounterStartData` enthält Begegnungs-ID, Art (`Test`, `Wild`, `Trainer`), optionales Spielerteam, Gegnerteam, Seed und Quell-Actor. `FPokeMonsterEncounterEndData` liefert ID, Art, Ergebnis (`Victory`, `Defeat`; `Fled` und `Cancelled` sind für spätere Regeln reserviert), beide individuellen Teams mit HP/PP und Rundenzahl zurück. Es gibt noch keine Fluchtaktion, Fangmechanik, Items oder Trainer-KI.
+
+Der einzelne `PokeMonsterBattleEncounterActor` in `Dev_TestMap` nutzt die bestehende `PokeMonsterInteractable`-Schnittstelle. Bei `E` oder `Enter` legt er nur für den ersten Test ein zweiköpfiges Team aus den vorhandenen Test-Spezies und -Attacken an. Das Spielerteam bleibt im Game-Instance-Subsystem über spätere Begegnungen derselben Spielsitzung erhalten; es ist noch kein Speichersystem. Eine bereits besiegte Gruppe wird nicht stillschweigend geheilt. Weitere Begegnungen können stattdessen eigene Startdaten übergeben.
+
+`StartEncounter` initialisiert die vorhandene Battle-Session über den Presenter, bevor es die Overworld sperrt. Während des Kampfs ignoriert der Character Bewegungs- und Interaktionsversuche, stoppt seine laufende Bewegung und die UMG-Oberfläche besitzt den UI-Fokus. Das Widget verwendet in der Overworld dieselbe Darstellung und Ereignisfolge wie in `Dev_BattleTestMap`, ohne deren Neustartknopf. Es löst die Auswahl zeitversetzt über den Presenter aus; die Map bleibt geladen, die Weltkamera und Welt-Actors bleiben erhalten. Nach der letzten sichtbaren Kampfaktion übernimmt das Subsystem `TeamA` als Spielerteam, entfernt das Overlay, aktiviert die Weltsteuerung und sendet `OnEncounterEnded` mit dem strukturierten Ergebnis. `Dev_BattleTestMap` und ihr eigener Controller bleiben ein unabhängiger technischer Testpfad.
+
+`PokeMonster.Encounter.OverworldIntegration` prüft die Testdaten auch ohne PIE und in PIE zusätzlich echten Kampfstart, Eingabesperre, Team-IDs, Sieg/Niederlage, HP-/PP-Rückgabe und erneute Steuerbarkeit. Den vollständigen manuellen Ablauf in `Dev_TestMap` mit dem Testmarker, sichtbarer UI und Rückkehr ebenfalls in PIE prüfen.
+
 ## Darstellung
 
 - 2D-Top-Down-Perspektive

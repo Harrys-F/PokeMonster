@@ -177,6 +177,7 @@ void APokeMonsterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* Pla
 
 void APokeMonsterPlayerCharacter::Move(const FInputActionValue& Value)
 {
+	if (bOverworldInputLocked) return;
 	FVector2D Input = Value.Get<FVector2D>();
 	Input = Input.GetClampedToMaxSize(1.0f);
 	UpdateMovementInput(Input);
@@ -244,6 +245,7 @@ AActor* APokeMonsterPlayerCharacter::FindInteractableInRange() const
 
 bool APokeMonsterPlayerCharacter::TryInteract()
 {
+	if (bOverworldInputLocked) return false;
 	AActor* Target = FindInteractableInRange();
 	const bool bCanInteract = Target
 		&& IPokeMonsterInteractable::Execute_CanInteract(Target, this);
@@ -255,6 +257,17 @@ bool APokeMonsterPlayerCharacter::TryInteract()
 
 	OnInteractionAttempt(Target, bCanInteract);
 	return bCanInteract;
+}
+
+void APokeMonsterPlayerCharacter::SetOverworldInputLocked(const bool bLocked)
+{
+	if (bOverworldInputLocked == bLocked) return;
+	bOverworldInputLocked = bLocked;
+	if (bLocked)
+	{
+		UpdateMovementInput(FVector2D::ZeroVector);
+		GetCharacterMovement()->StopMovementImmediately();
+	}
 }
 
 void APokeMonsterPlayerCharacter::UpdateMovementInput(const FVector2D NewMovementInput)

@@ -10,8 +10,8 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPokeMonsterTeamBattleTest, "PokeMonster.Battle
 
 bool FPokeMonsterTeamBattleTest::RunTest(const FString& Parameters)
 {
-	using S = EPokeMonsterBattleSide;
-	using E = EPokeMonsterBattleEventType;
+	using TeamSide = EPokeMonsterBattleSide;
+	using TeamEvent = EPokeMonsterBattleEventType;
 	TStrongObjectPtr<UPokeMonsterCreatureSpeciesData> Species(NewObject<UPokeMonsterCreatureSpeciesData>());
 	TStrongObjectPtr<UPokeMonsterMoveData> Move(NewObject<UPokeMonsterMoveData>());
 	Move->InternalId = TEXT("TeamTest");
@@ -25,7 +25,7 @@ bool FPokeMonsterTeamBattleTest::RunTest(const FString& Parameters)
 		Creature.AssignMove(0, Move.Get());
 		return Creature;
 	};
-	const auto Count = [](const FPokeMonsterBattleResult& Result, E Type)
+	const auto Count = [](const FPokeMonsterBattleResult& Result, TeamEvent Type)
 	{
 		int32 Total = 0;
 		for (const auto& Event : Result.Events) if (Event.Type == Type) ++Total;
@@ -54,8 +54,8 @@ bool FPokeMonsterTeamBattleTest::RunTest(const FString& Parameters)
 	TestTrue(TEXT("Manual switch succeeds"), Changed.bSucceeded);
 	TestEqual(TEXT("Switch takes one round"), Session->GetState().RoundNumber, 1);
 	TestEqual(TEXT("Incoming member active"), Session->GetState().ActiveIndexA, 1);
-	TestEqual(TEXT("Switch event emitted"), Count(Changed, E::SwitchedIn), 1);
-	TestEqual(TEXT("Switching member does not attack"), Count(Changed, E::MoveExecuted), 1);
+	TestEqual(TEXT("Switch event emitted"), Count(Changed, TeamEvent::SwitchedIn), 1);
+	TestEqual(TEXT("Switching member does not attack"), Count(Changed, TeamEvent::MoveExecuted), 1);
 	TestEqual(TEXT("Opponent spends PP on switch turn"), Session->GetState().TeamB[0].GetMoveSlots()[0].GetCurrentPP(), 9);
 	TestEqual(TEXT("Benched player's PP unchanged"), Session->GetState().TeamA[0].GetMoveSlots()[0].GetCurrentPP(), 10);
 	TestEqual(TEXT("Benched player's HP unchanged"), Session->GetState().TeamA[0].CurrentHP, A0.CurrentHP);
@@ -72,11 +72,11 @@ bool FPokeMonsterTeamBattleTest::RunTest(const FString& Parameters)
 	if (!TestTrue(TEXT("Forced-player battle starts"), ForcedPlayer->InitializeTeams({FrailA, A1}, {FastB}, 5).bSucceeded)) return false;
 	const auto PlayerKO = ForcedPlayer->ResolveRound(0, 0);
 	TestEqual(TEXT("Faint awaits mandatory switch"), ForcedPlayer->GetState().Phase, EPokeMonsterBattlePhase::AwaitingSwitch);
-	TestEqual(TEXT("Team still has no winner"), ForcedPlayer->GetState().Winner, S::None);
-	TestEqual(TEXT("No premature battle end event"), Count(PlayerKO, E::BattleEnded), 0);
+	TestEqual(TEXT("Team still has no winner"), ForcedPlayer->GetState().Winner, TeamSide::None);
+	TestEqual(TEXT("No premature battle end event"), Count(PlayerKO, TeamEvent::BattleEnded), 0);
 	TestEqual(TEXT("Cannot continue before switch"), ForcedPlayer->ResolveRound(0, 0).Error, EPokeMonsterBattleError::SwitchRequired);
-	TestEqual(TEXT("Cannot switch to fainted member"), ForcedPlayer->ForceSwitch(S::A, 0).Error, EPokeMonsterBattleError::InvalidSwitch);
-	const auto Forced = ForcedPlayer->ForceSwitch(S::A, 1);
+	TestEqual(TEXT("Cannot switch to fainted member"), ForcedPlayer->ForceSwitch(TeamSide::A, 0).Error, EPokeMonsterBattleError::InvalidSwitch);
+	const auto Forced = ForcedPlayer->ForceSwitch(TeamSide::A, 1);
 	TestTrue(TEXT("Mandatory switch succeeds"), Forced.bSucceeded);
 	TestEqual(TEXT("Mandatory switch costs no extra round"), ForcedPlayer->GetState().RoundNumber, 1);
 	TestEqual(TEXT("Battle resumes after mandatory switch"), ForcedPlayer->GetState().Phase, EPokeMonsterBattlePhase::AwaitingChoices);
@@ -88,13 +88,13 @@ bool FPokeMonsterTeamBattleTest::RunTest(const FString& Parameters)
 	if (!TestTrue(TEXT("Opponent-team battle starts"), ForcedOpponent->InitializeTeams({A0}, {FrailB0, FrailB1}, 7).bSucceeded)) return false;
 	const auto FirstKO = ForcedOpponent->ResolveRound(0, 0);
 	TestEqual(TEXT("First opponent KO does not finish team battle"), ForcedOpponent->GetState().Phase, EPokeMonsterBattlePhase::AwaitingSwitch);
-	TestEqual(TEXT("No first-KO battle end"), Count(FirstKO, E::BattleEnded), 0);
-	TestTrue(TEXT("Opponent replacement succeeds"), ForcedOpponent->ForceSwitch(S::B, 1).bSucceeded);
+	TestEqual(TEXT("No first-KO battle end"), Count(FirstKO, TeamEvent::BattleEnded), 0);
+	TestTrue(TEXT("Opponent replacement succeeds"), ForcedOpponent->ForceSwitch(TeamSide::B, 1).bSucceeded);
 	TestEqual(TEXT("Next opponent active"), ForcedOpponent->GetState().ActiveIndexB, 1);
 	const auto FinalKO = ForcedOpponent->ResolveRound(0, 0);
 	TestEqual(TEXT("All opponent members KO ends battle"), ForcedOpponent->GetState().Phase, EPokeMonsterBattlePhase::Finished);
-	TestEqual(TEXT("Player wins only after whole team KO"), ForcedOpponent->GetState().Winner, S::A);
-	TestEqual(TEXT("Final end event"), Count(FinalKO, E::BattleEnded), 1);
+	TestEqual(TEXT("Player wins only after whole team KO"), ForcedOpponent->GetState().Winner, TeamSide::A);
+	TestEqual(TEXT("Final end event"), Count(FinalKO, TeamEvent::BattleEnded), 1);
 	TestEqual(TEXT("Both opponent members retain KO state"), ForcedOpponent->GetState().TeamB[0].CurrentHP + ForcedOpponent->GetState().TeamB[1].CurrentHP, 0);
 
 	TStrongObjectPtr<UPokeMonsterBattlePresenter> Presenter(NewObject<UPokeMonsterBattlePresenter>());
