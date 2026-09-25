@@ -10,6 +10,7 @@ class UTextBlock;
 class UProgressBar;
 class UScrollBox;
 class UCanvasPanel;
+class UImage;
 
 /** Native UMG fallback view. A Blueprint subclass can supply matching named widgets and visual hooks. */
 UCLASS(Blueprintable)
@@ -39,6 +40,9 @@ private:
 	UPROPERTY(Transient) TObjectPtr<UPokeMonsterBattlePresenter> Presenter;
 	UPROPERTY(Transient) TArray<TObjectPtr<UButton>> Buttons;
 	UPROPERTY(Transient) TArray<TObjectPtr<UTextBlock>> MoveLabels;
+	UPROPERTY(Transient) TArray<TObjectPtr<UTextBlock>> MoveTypeLabels;
+	UPROPERTY(Transient) TArray<TObjectPtr<UTextBlock>> MovePPLabels;
+	UPROPERTY(Transient) TArray<TObjectPtr<UImage>> MoveTypeAccents;
 	UPROPERTY(Transient) TObjectPtr<UTextBlock> PlayerName;
 	UPROPERTY(Transient) TObjectPtr<UTextBlock> OpponentName;
 	UPROPERTY(Transient) TObjectPtr<UTextBlock> PlayerHP;

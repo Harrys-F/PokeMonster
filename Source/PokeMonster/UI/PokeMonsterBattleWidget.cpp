@@ -3,6 +3,7 @@
 #include "Blueprint/WidgetTree.h"
 #include "Components/Border.h"
 #include "Components/Button.h"
+#include "Components/ButtonSlot.h"
 #include "Components/CanvasPanel.h"
 #include "Components/CanvasPanelSlot.h"
 #include "Components/Image.h"
@@ -16,8 +17,9 @@
 
 namespace
 {
-	const FLinearColor Ink(0.85f, 0.89f, 0.81f);
-	const FLinearColor Muted(0.47f, 0.59f, 0.53f);
+	const FLinearColor Ink(0.93f, 0.91f, 0.79f);
+	const FLinearColor Muted(0.65f, 0.72f, 0.60f);
+	const FLinearColor DarkInk(0.10f, 0.16f, 0.15f);
 	void Place(UCanvasPanel* Canvas, UWidget* Widget, float X, float Y, float W, float H)
 	{
 		auto* Slot = Canvas->AddChildToCanvas(Widget);
@@ -32,40 +34,41 @@ namespace
 		Widget->SetVisibility(ESlateVisibility::HitTestInvisible);
 		return Widget;
 	}
-	UImage* Shape(UWidgetTree* Tree, UCanvasPanel* Canvas, float X, float Y, float W, float H, FLinearColor Color, float Radius)
+	UImage* Shape(UWidgetTree* Tree, UCanvasPanel* Canvas, float X, float Y, float W, float H,
+		FLinearColor Color, float Radius, FName Name = NAME_None)
 	{
-		auto* Image = Tree->ConstructWidget<UImage>();
+		auto* Image = Tree->ConstructWidget<UImage>(UImage::StaticClass(), Name);
 		Image->SetBrush(FSlateRoundedBoxBrush(Color, Radius));
 		Image->SetVisibility(ESlateVisibility::HitTestInvisible);
 		Place(Canvas, Image, X,Y,W,H);
 		return Image;
 	}
-	UCanvasPanel* Figure(UWidgetTree* Tree, FName Name, FLinearColor Body, bool bLeaf)
+	UImage* Artwork(UWidgetTree* Tree, UCanvasPanel* Canvas, FName Name, const TCHAR* AssetPath,
+		float X, float Y, float W, float H)
 	{
-		auto* Canvas = Tree->ConstructWidget<UCanvasPanel>(UCanvasPanel::StaticClass(), Name);
-		Canvas->SetVisibility(ESlateVisibility::HitTestInvisible);
-		Shape(Tree,Canvas,10,133,160,22,FLinearColor(0.008f,0.018f,0.017f,0.55f),11);
-		Shape(Tree,Canvas,22,115,44,26,Body*0.65f,13);
-		Shape(Tree,Canvas,114,115,44,26,Body*0.65f,13);
-		Shape(Tree,Canvas,22,36,138,100,Body,46);
-		Shape(Tree,Canvas,39,78,105,48,Body*1.4f,24);
-		Shape(Tree,Canvas,53,60,16,22,FLinearColor(0.018f,0.034f,0.04f),8);
-		Shape(Tree,Canvas,114,60,16,22,FLinearColor(0.018f,0.034f,0.04f),8);
-		Shape(Tree,Canvas,57,63,5,6,Ink,3);
-		Shape(Tree,Canvas,118,63,5,6,Ink,3);
-		if (bLeaf)
-		{
-			auto* Leaf = Shape(Tree,Canvas,60,4,28,50,FLinearColor(0.24f,0.40f,0.13f),14);
-			Leaf->SetRenderTransformAngle(-28);
-			Leaf = Shape(Tree,Canvas,92,0,24,50,FLinearColor(0.39f,0.52f,0.19f),12);
-			Leaf->SetRenderTransformAngle(30);
-		}
-		else
-		{
-			Shape(Tree,Canvas,9,48,33,42,Body*0.8f,16)->SetRenderTransformAngle(-25);
-			Shape(Tree,Canvas,142,48,33,42,Body*0.8f,16)->SetRenderTransformAngle(25);
-		}
-		return Canvas;
+		auto* Image = Tree->ConstructWidget<UImage>(UImage::StaticClass(), Name);
+		if (auto* Texture = LoadObject<UTexture2D>(nullptr, AssetPath)) Image->SetBrushFromTexture(Texture, true);
+		Image->SetVisibility(ESlateVisibility::HitTestInvisible);
+		Place(Canvas, Image, X, Y, W, H);
+		return Image;
+	}
+	FLinearColor TypeTint(const FString& Type)
+	{
+		if (Type == TEXT("Feuer")) return FLinearColor(0.49f, 0.23f, 0.16f);
+		if (Type == TEXT("Wasser")) return FLinearColor(0.18f, 0.36f, 0.43f);
+		if (Type == TEXT("Pflanze")) return FLinearColor(0.25f, 0.40f, 0.25f);
+		if (Type == TEXT("Elektro")) return FLinearColor(0.52f, 0.41f, 0.16f);
+		if (Type == TEXT("Eis")) return FLinearColor(0.26f, 0.43f, 0.47f);
+		return FLinearColor(0.33f, 0.36f, 0.30f);
+	}
+	void TintButton(UButton* Button, const FLinearColor& Tint)
+	{
+		FButtonStyle Style;
+		Style.SetNormal(FSlateRoundedBoxBrush(FLinearColor(0.15f, 0.22f, 0.20f, 0.96f), 18.0f));
+		Style.SetHovered(FSlateRoundedBoxBrush(FLinearColor(0.20f, 0.30f, 0.26f, 0.98f) + Tint * 0.12f, 18.0f));
+		Style.SetPressed(FSlateRoundedBoxBrush(FLinearColor(0.23f, 0.34f, 0.29f, 0.98f) + Tint * 0.15f, 18.0f));
+		Style.SetDisabled(FSlateRoundedBoxBrush(FLinearColor(0.10f, 0.14f, 0.13f, 0.86f), 18.0f));
+		Button->SetStyle(Style);
 	}
 }
 
@@ -79,61 +82,74 @@ TSharedRef<SWidget> UPokeMonsterBattleWidget::RebuildWidget()
 void UPokeMonsterBattleWidget::BuildDefaultTree()
 {
 	auto* Back = WidgetTree->ConstructWidget<UBorder>();
-	Back->SetBrushColor(FLinearColor(0.012f,0.022f,0.026f)); Back->SetPadding(FMargin(0));
+	Back->SetBrushColor(FLinearColor(0.06f,0.10f,0.08f)); Back->SetPadding(FMargin(0));
 	WidgetTree->RootWidget = Back;
 	auto* Scale = WidgetTree->ConstructWidget<UScaleBox>(); Scale->SetStretch(EStretch::ScaleToFit); Back->SetContent(Scale);
 	auto* Size = WidgetTree->ConstructWidget<USizeBox>(); Size->SetWidthOverride(1280); Size->SetHeightOverride(800); Scale->SetContent(Size);
 	auto* Canvas = WidgetTree->ConstructWidget<UCanvasPanel>(); Size->SetContent(Canvas);
-	Shape(WidgetTree,Canvas,0,0,1280,800,FLinearColor(0.016f,0.030f,0.034f),0);
-	Place(Canvas,Text(WidgetTree,TEXT("Title"),TEXT("POKEMONSTER  /  KAMPFTEST"),17,Muted),40,25,650,26);
-	Place(Canvas,Text(WidgetTree,TEXT("StatusLabel"),TEXT("Battle wird vorbereitet …"),24),40,61,990,34);
+	Shape(WidgetTree,Canvas,0,0,1280,800,FLinearColor(0.07f,0.12f,0.09f),0);
+	Artwork(WidgetTree,Canvas,TEXT("BattleGlen"),TEXT("/Game/Battle/Textures/T_BattleGlen.T_BattleGlen"),0,0,1280,720);
+	// Soft overlays preserve text contrast while the painted clearing remains visible.
+	Shape(WidgetTree,Canvas,0,0,1280,111,FLinearColor(0.025f,0.055f,0.045f,0.70f),0);
+	Shape(WidgetTree,Canvas,0,515,1280,285,FLinearColor(0.045f,0.073f,0.063f,0.98f),0);
+	Shape(WidgetTree,Canvas,0,514,1280,3,FLinearColor(0.45f,0.45f,0.30f,0.55f),0);
+	Shape(WidgetTree,Canvas,19,23,224,35,FLinearColor(0.08f,0.16f,0.13f,0.86f),17);
+	Place(Canvas,Text(WidgetTree,TEXT("Title"),TEXT("POKEMONSTER  ·  DUELL"),16,Ink),38,28,260,28);
+	auto* Status = Text(WidgetTree,TEXT("StatusLabel"),TEXT("Battle wird vorbereitet …"),23,Ink);
+	Status->SetJustification(ETextJustify::Center);
+	Place(Canvas,Status,319,38,642,38);
 	RestartButton = WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(), TEXT("RestartButton"));
-	RestartButton->AddChild(Text(WidgetTree,NAME_None,TEXT("Neu starten"),16)); Place(Canvas,RestartButton,1090,31,150,38);
-	Shape(WidgetTree,Canvas,40,118,1200,379,FLinearColor(0.043f,0.087f,0.078f),24);
-	// Flat layered scenery and contact areas; no new world camera or external textures.
-	Shape(WidgetTree,Canvas,57,255,1166,225,FLinearColor(0.066f,0.117f,0.084f),90);
-	Shape(WidgetTree,Canvas,92,334,476,114,FLinearColor(0.12f,0.17f,0.12f),55);
-	Shape(WidgetTree,Canvas,768,255,330,71,FLinearColor(0.12f,0.17f,0.12f),35);
-	for (int32 I=0; I<12; ++I)
+	TintButton(RestartButton,FLinearColor(0.35f,0.39f,0.30f));
+	RestartButton->AddChild(Text(WidgetTree,NAME_None,TEXT("Neu beginnen"),15,Ink));
+	Place(Canvas,RestartButton,1087,27,165,43);
+
+	Shape(WidgetTree,Canvas,185,448,387,44,FLinearColor(0.02f,0.04f,0.03f,0.27f),22);
+	Shape(WidgetTree,Canvas,865,368,224,27,FLinearColor(0.02f,0.04f,0.03f,0.25f),14);
+	Artwork(WidgetTree,Canvas,TEXT("OpponentFigure"),TEXT("/Game/Battle/Textures/T_TestGrass.T_TestGrass"),830,133,274,253);
+	Artwork(WidgetTree,Canvas,TEXT("PlayerFigure"),TEXT("/Game/Battle/Textures/T_TestWater.T_TestWater"),137,148,450,350);
+	Place(Canvas,Text(WidgetTree,TEXT("PlayerKO"),TEXT("K.O."),32,Ink),302,315,120,48);
+	Place(Canvas,Text(WidgetTree,TEXT("OpponentKO"),TEXT("K.O."),29,Ink),916,264,120,48);
+	const auto Card = [&](bool bPlayer, float X, float Y, float Width)
 	{
-		const float X=63+I*100;
-		Shape(WidgetTree,Canvas,X,128+(I%3)*12,50+(I%2)*25,90,FLinearColor(0.055f,0.105f,0.084f),36);
-	}
-	Place(Canvas,Figure(WidgetTree,TEXT("PlayerFigure"),FLinearColor(0.16f,0.46f,0.49f),false),248,284,180,160);
-	Place(Canvas,Figure(WidgetTree,TEXT("OpponentFigure"),FLinearColor(0.39f,0.49f,0.20f),true),853,185,155,140);
-	Place(Canvas,Text(WidgetTree,TEXT("PlayerKO"),TEXT("K.O."),30),295,338,120,48);
-	Place(Canvas,Text(WidgetTree,TEXT("OpponentKO"),TEXT("K.O."),30),900,235,120,48);
-	const auto Card = [&](bool bPlayer, float X, float Y)
-	{
-		Shape(WidgetTree,Canvas,X,Y,330,104,FLinearColor(0.023f,0.046f,0.047f,0.97f),12);
-		Place(Canvas,Text(WidgetTree,bPlayer?TEXT("PlayerName"):TEXT("OpponentName"),TEXT("—"),20),X+18,Y+12,300,30);
-		Place(Canvas,Text(WidgetTree,bPlayer?TEXT("PlayerHP"):TEXT("OpponentHP"),TEXT("HP —"),16,Muted),X+18,Y+43,300,26);
+		Shape(WidgetTree,Canvas,X+3,Y+6,Width,96,FLinearColor(0.02f,0.04f,0.03f,0.36f),24);
+		Shape(WidgetTree,Canvas,X,Y,Width,96,FLinearColor(0.83f,0.80f,0.67f,0.94f),23);
+		Shape(WidgetTree,Canvas,X+7,Y+7,5,82,bPlayer?FLinearColor(0.15f,0.43f,0.47f):FLinearColor(0.34f,0.44f,0.20f),3);
+		Place(Canvas,Text(WidgetTree,bPlayer?TEXT("PlayerName"):TEXT("OpponentName"),TEXT("—"),20,DarkInk),X+23,Y+10,Width-42,30);
+		Place(Canvas,Text(WidgetTree,bPlayer?TEXT("PlayerHP"):TEXT("OpponentHP"),TEXT("HP —"),17,DarkInk),X+23,Y+42,Width-42,26);
+		Shape(WidgetTree,Canvas,X+22,Y+74,Width-45,10,FLinearColor(0.27f,0.32f,0.27f,0.50f),5);
 		auto* Bar=WidgetTree->ConstructWidget<UProgressBar>(UProgressBar::StaticClass(),bPlayer?TEXT("PlayerBar"):TEXT("OpponentBar"));
-		Bar->SetFillColorAndOpacity(FLinearColor(0.35f,0.67f,0.43f));
-		Place(Canvas,Bar,X+18,Y+76,294,12);
+		Bar->SetFillColorAndOpacity(FLinearColor(0.19f,0.48f,0.28f));
+		Place(Canvas,Bar,X+23,Y+74,Width-47,10);
 	};
-	Card(true,71,158); Card(false,867,353);
-	Place(Canvas,Text(WidgetTree,NAME_None,TEXT("DEINE ATTACKEN"),15,Muted),40,520,650,24);
-	Place(Canvas,Text(WidgetTree,NAME_None,TEXT("KAMPFVERLAUF"),15,Muted),794,520,420,24);
+	Card(true,58,410,400); Card(false,869,96,370);
+	Place(Canvas,Text(WidgetTree,NAME_None,TEXT("DEINE ATTACKEN"),15,Muted),37,539,650,24);
+	Place(Canvas,Text(WidgetTree,NAME_None,TEXT("KAMPFVERLAUF"),15,Muted),806,539,420,24);
 	for (int32 Index=0; Index<4; ++Index)
 	{
 		auto* Button=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),FName(*FString::Printf(TEXT("MoveButton%d"),Index)));
-		FButtonStyle Style;
-		Style.SetNormal(FSlateRoundedBoxBrush(FLinearColor(0.055f,0.11f,0.12f),12.0f));
-		Style.SetHovered(FSlateRoundedBoxBrush(FLinearColor(0.09f,0.20f,0.20f),12.0f));
-		Style.SetPressed(FSlateRoundedBoxBrush(FLinearColor(0.12f,0.27f,0.24f),12.0f));
-		Style.SetDisabled(FSlateRoundedBoxBrush(FLinearColor(0.028f,0.044f,0.045f),12.0f));
-		Button->SetStyle(Style);
-		auto* Label=Text(WidgetTree,FName(*FString::Printf(TEXT("MoveLabel%d"),Index)),TEXT("—"),18);
-		Label->SetJustification(ETextJustify::Center);
-		Button->AddChild(Label);
-		Place(Canvas,Button,40+(Index%2)*366,553+(Index/2)*101,350,89);
+		TintButton(Button,FLinearColor(0.33f,0.36f,0.30f));
+		auto* Inner=WidgetTree->ConstructWidget<UCanvasPanel>();
+		Inner->SetVisibility(ESlateVisibility::SelfHitTestInvisible);
+		if(auto* ButtonSlot=Cast<UButtonSlot>(Button->AddChild(Inner)))
+		{
+			ButtonSlot->SetHorizontalAlignment(HAlign_Fill);
+			ButtonSlot->SetVerticalAlignment(VAlign_Fill);
+		}
+		Shape(WidgetTree,Inner,13,41,92,25,FLinearColor(0.33f,0.36f,0.30f),12,
+			FName(*FString::Printf(TEXT("MoveTypeAccent%d"),Index)));
+		Place(Inner,Text(WidgetTree,FName(*FString::Printf(TEXT("MoveLabel%d"),Index)),TEXT("—"),19,Ink),20,8,310,30);
+		Place(Inner,Text(WidgetTree,FName(*FString::Printf(TEXT("MoveType%d"),Index)),TEXT("—"),14,Ink),23,44,83,22);
+		auto* PP=Text(WidgetTree,FName(*FString::Printf(TEXT("MovePP%d"),Index)),TEXT("PP —"),15,Muted);
+		PP->SetJustification(ETextJustify::Right);
+		Place(Inner,PP,217,44,113,22);
+		Place(Canvas,Button,37+(Index%2)*367,570+(Index/2)*91,350,78);
 	}
-	Shape(WidgetTree,Canvas,790,553,450,190,FLinearColor(0.021f,0.042f,0.045f),12);
+	Shape(WidgetTree,Canvas,793,571,449,170,FLinearColor(0.10f,0.16f,0.14f,0.96f),23);
+	Shape(WidgetTree,Canvas,807,583,3,145,FLinearColor(0.48f,0.48f,0.33f,0.65f),2);
 	auto* Scroll=WidgetTree->ConstructWidget<UScrollBox>(UScrollBox::StaticClass(),TEXT("LogScroll"));
-	auto* Log=Text(WidgetTree,TEXT("LogLabel"),TEXT(""),17);
-	Log->SetAutoWrapText(true); Scroll->AddChild(Log); Place(Canvas,Scroll,806,563,420,169);
-	Place(Canvas,Text(WidgetTree,NAME_None,TEXT("1 GEGEN 1   ·   TESTDATEN   ·   STATUSATTACKEN NOCH OHNE EFFEKT"),13,Muted),40,768,1120,24);
+	auto* Log=Text(WidgetTree,TEXT("LogLabel"),TEXT(""),15,Ink);
+	Log->SetAutoWrapText(true); Scroll->AddChild(Log); Place(Canvas,Scroll,824,581,399,146);
+	Place(Canvas,Text(WidgetTree,NAME_None,TEXT("1 GEGEN 1   ·   TESTDATEN   ·   STATUSATTACKEN NOCH OHNE EFFEKT"),12,Muted),38,764,1080,24);
 }
 
 void UPokeMonsterBattleWidget::BindControls()
@@ -146,11 +162,14 @@ void UPokeMonsterBattleWidget::BindControls()
 	PlayerKO=Cast<UTextBlock>(GetWidgetFromName(TEXT("PlayerKO"))); OpponentKO=Cast<UTextBlock>(GetWidgetFromName(TEXT("OpponentKO")));
 	PlayerFigure=GetWidgetFromName(TEXT("PlayerFigure")); OpponentFigure=GetWidgetFromName(TEXT("OpponentFigure"));
 	RestartButton=Cast<UButton>(GetWidgetFromName(TEXT("RestartButton")));
-	Buttons.Reset(); MoveLabels.Reset();
+	Buttons.Reset(); MoveLabels.Reset(); MoveTypeLabels.Reset(); MovePPLabels.Reset(); MoveTypeAccents.Reset();
 	for(int32 I=0;I<4;++I)
 	{
 		Buttons.Add(Cast<UButton>(GetWidgetFromName(FName(*FString::Printf(TEXT("MoveButton%d"),I)))));
 		MoveLabels.Add(Cast<UTextBlock>(GetWidgetFromName(FName(*FString::Printf(TEXT("MoveLabel%d"),I)))));
+		MoveTypeLabels.Add(Cast<UTextBlock>(GetWidgetFromName(FName(*FString::Printf(TEXT("MoveType%d"),I)))));
+		MovePPLabels.Add(Cast<UTextBlock>(GetWidgetFromName(FName(*FString::Printf(TEXT("MovePP%d"),I)))));
+		MoveTypeAccents.Add(Cast<UImage>(GetWidgetFromName(FName(*FString::Printf(TEXT("MoveTypeAccent%d"),I)))));
 	}
 	if(Buttons[0]) Buttons[0]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Move0);
 	if(Buttons[1]) Buttons[1]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Move1);
@@ -204,7 +223,13 @@ void UPokeMonsterBattleWidget::Refresh()
 	{
 		if(Name) Name->SetText(FText::FromString(FString::Printf(TEXT("%s   ·   Lv. %d"),*Data.Name.ToString(),Data.Level)));
 		if(HP) HP->SetText(FText::FromString(FString::Printf(TEXT("HP  %d / %d"),Data.CurrentHP,Data.MaxHP)));
-		if(Bar) Bar->SetPercent(Data.MaxHP>0 ? FMath::Clamp(float(Data.CurrentHP)/Data.MaxHP,0.0f,1.0f):0);
+		if(Bar)
+		{
+			const float Ratio=Data.MaxHP>0 ? FMath::Clamp(float(Data.CurrentHP)/Data.MaxHP,0.0f,1.0f):0;
+			Bar->SetPercent(Ratio);
+			Bar->SetFillColorAndOpacity(Ratio>0.5f ? FLinearColor(0.19f,0.48f,0.28f)
+				: Ratio>0.25f ? FLinearColor(0.65f,0.48f,0.18f) : FLinearColor(0.65f,0.24f,0.18f));
+		}
 		if(KO) KO->SetVisibility(Data.bKO?ESlateVisibility::HitTestInvisible:ESlateVisibility::Collapsed);
 		if(Figure) Figure->SetRenderOpacity(Data.bKO?0.3f:1.0f);
 	};
@@ -218,7 +243,12 @@ void UPokeMonsterBattleWidget::Refresh()
 	{
 		const auto& Move=View.Moves[I];
 		if(Buttons.IsValidIndex(I) && Buttons[I]) Buttons[I]->SetIsEnabled(Move.bEnabled);
-		if(MoveLabels.IsValidIndex(I) && MoveLabels[I]) MoveLabels[I]->SetText(FText::FromString(FString::Printf(TEXT("%s\n%s   ·   PP %d / %d"),*Move.Name.ToString(),*Move.Type.ToString(),Move.CurrentPP,Move.MaxPP)));
+		if(MoveLabels.IsValidIndex(I) && MoveLabels[I]) MoveLabels[I]->SetText(Move.Name);
+		if(MoveTypeLabels.IsValidIndex(I) && MoveTypeLabels[I]) MoveTypeLabels[I]->SetText(Move.Type);
+		if(MovePPLabels.IsValidIndex(I) && MovePPLabels[I])
+			MovePPLabels[I]->SetText(FText::FromString(FString::Printf(TEXT("PP %d / %d"),Move.CurrentPP,Move.MaxPP)));
+		if(MoveTypeAccents.IsValidIndex(I) && MoveTypeAccents[I])
+			MoveTypeAccents[I]->SetBrush(FSlateRoundedBoxBrush(TypeTint(Move.Type.ToString()),12.0f));
 	}
 	OnBattleViewUpdated(View);
 }

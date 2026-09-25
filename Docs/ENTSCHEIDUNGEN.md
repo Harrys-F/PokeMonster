@@ -224,14 +224,23 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 
 ## 2026-09-17 – Erste funktionale Battle-Testoberfläche
 
-**Status: Separate technische Testoberfläche umgesetzt; finale Gestaltung bleibt offen**
+**Status: Technische Testoberfläche umgesetzt; die einfachen UMG-Formen wurden durch die visuelle Überarbeitung vom 2026-09-25 ersetzt. Finale Kreaturen- und UI-Gestaltung bleibt offen.**
 
 - Die neue `Dev_BattleTestMap` verwendet ausschließlich ihren eigenen Battle-Test-GameMode und Controller. Die normale Testmap, Player-Kamera und bisherigen Spielsysteme bleiben unverändert.
 - Eine getrennte C++-Presenter-Schicht verbindet die vorhandene BattleSession mit UMG. BattleSession, Schadensberechnung, Kreaturen-, Progressions- und Attackendaten werden nicht verändert. Der Gegner wählt zunächst den ersten gültigen Slot mit PP.
-- Das native UMG-Widget zeigt zwei einfache farbige Kreaturen-Platzhalter, Namen, Level, numerische HP und Balken, vier Attackenbuttons mit Typ/PP sowie ein begrenztes Kampflog. Für diesen ausdrücklich funktionalen Test entstehen keine finalen Grafiken und keine zusätzlichen Textur-/Sprite-Assets. Die verbindliche Welt-Stilrichtung bleibt bestehen.
+- Das native UMG-Widget zeigt Namen, Level, numerische HP und Balken, vier Attackenbuttons mit Typ/PP sowie ein begrenztes Kampflog. Die ursprünglich rein aus UMG-Formen bestehenden Kreaturen-Platzhalter ohne zusätzliche Texturen wurden am 2026-09-25 durch eigene Testgrafiken ersetzt. Die verbindliche Welt-Stilrichtung bleibt bestehen.
 - Verwendet werden TestWater und TestGrass auf Level 20 sowie die drei vorhandenen Testattacken. Der vierte Spielerslot wiederholt die Normal-Attacke mit eigenen PP; es wird keine Lernregel festgelegt.
 - Die Eingabe wird sofort bei Auswahl gesperrt und nach einer kurzen Verzögerung und Rundenauflösung freigegeben. Nach K.O./Kampfende bleiben Attacken deaktiviert. Ein Testneustart erzeugt eine neue Session. Ohne gültige Attacken meldet die UI den Zustand, ohne eine Ersatzattacke oder neue Kampfregel einzuführen.
 - Lesemodelle und vollständige BattleEvents bleiben von der Darstellung getrennt. Widget-Blueprint-Unterklassen, visuelle Ereignisse und ein expliziter Präsentationsabschluss ermöglichen spätere Animationen, Sprites, Sound und Menüs ohne Neuschreiben der BattleSession. Details stehen in `Docs/TECHNIK.md`.
+
+## 2026-09-25 – Visuelle Richtung der Battle-Testoberfläche
+
+**Status: Präsentationsprototyp umgesetzt; finale Battle-Grafiken und UI-Gestaltung offen**
+
+- Die Battle-Testmap zeigt eine selbst erstellte, handgemalte Naturkulisse mit Weg, Bach und Steinbrücke. Sie verwendet eine leicht erhöhte Blickrichtung, malerische Beleuchtung und mehrere Tiefenebenen als Echo der beschlossenen Weltoptik. Die Battle-Kulisse legt weder Weltkamera noch Begegnungsübergang endgültig fest.
+- Zwei eigens erzeugte Kreaturen-Platzhalter stehen auf der Kulisse: die eigene Kreatur groß und nah unten links, die gegnerische kleiner und weiter oben rechts. Die Platzhalter sind keine endgültigen Kreaturendesigns.
+- Namens- und HP-Bereiche werden als ruhige, organisch gerundete Tafeln gestaltet. Attacken zeigen Name, dezent typgefärbte Kennzeichnung und PP getrennt; das kompakte Log sitzt im unteren Bedienfeld. Sättigung, Kontrast und Dekoration ordnen sich der Lesbarkeit unter.
+- Grafiken werden als kleine wiederverwendbare UI-Texturen importiert und in der bestehenden UMG-Widgetklasse angezeigt. Die technische Verbindung zur BattleSession, der Presenter, Testdaten und Kampfregeln bleiben bestehen. Es werden keine fremden Assets oder neuen Plugins eingebunden.
 
 ## Aktuell offene Entscheidungen
 
