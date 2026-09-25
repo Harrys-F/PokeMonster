@@ -129,7 +129,19 @@ void UPokeMonsterBattleWidget::BuildDefaultTree()
 		Place(Canvas,Bar,X+23,Y+74,Width-47,10);
 	};
 	Card(true,58,410,400); Card(false,869,96,370);
-	Place(Canvas,Text(WidgetTree,NAME_None,TEXT("DEINE ATTACKEN"),15,Muted),37,539,650,24);
+	Place(Canvas,Text(WidgetTree,NAME_None,TEXT("TEAM"),14,Muted),37,531,55,24);
+	for (int32 Index=0; Index<6; ++Index)
+	{
+		auto* Button=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),FName(*FString::Printf(TEXT("TeamButton%d"),Index)));
+		TintButton(Button,FLinearColor(0.31f,0.38f,0.30f));
+		auto* Label=Text(WidgetTree,FName(*FString::Printf(TEXT("TeamLabel%d"),Index)),TEXT("—"),12,Ink);
+		Label->SetJustification(ETextJustify::Center);
+		Button->AddChild(Label);
+		Place(Canvas,Button,91+Index*113,520,108,38);
+		Shape(WidgetTree,Canvas,1119,235+Index*37,133,33,FLinearColor(0.08f,0.15f,0.12f,0.76f),12,
+			FName(*FString::Printf(TEXT("OpponentTeamPlate%d"),Index)));
+		Place(Canvas,Text(WidgetTree,FName(*FString::Printf(TEXT("OpponentTeamLabel%d"),Index)),TEXT(""),12,Ink),1126,242+Index*37,122,24);
+	}
 	Place(Canvas,Text(WidgetTree,NAME_None,TEXT("KAMPFVERLAUF"),15,Muted),806,539,420,24);
 	for (int32 Index=0; Index<4; ++Index)
 	{
@@ -172,6 +184,7 @@ void UPokeMonsterBattleWidget::BindControls()
 	BattleEffect=Cast<UImage>(GetWidgetFromName(TEXT("BattleEffect")));
 	FeedbackLabel=Cast<UTextBlock>(GetWidgetFromName(TEXT("FeedbackLabel")));
 	Buttons.Reset(); MoveLabels.Reset(); MoveTypeLabels.Reset(); MovePPLabels.Reset(); MoveTypeAccents.Reset();
+	TeamButtons.Reset(); TeamLabels.Reset(); OpponentTeamLabels.Reset(); OpponentTeamPlates.Reset();
 	for(int32 I=0;I<4;++I)
 	{
 		Buttons.Add(Cast<UButton>(GetWidgetFromName(FName(*FString::Printf(TEXT("MoveButton%d"),I)))));
@@ -180,10 +193,23 @@ void UPokeMonsterBattleWidget::BindControls()
 		MovePPLabels.Add(Cast<UTextBlock>(GetWidgetFromName(FName(*FString::Printf(TEXT("MovePP%d"),I)))));
 		MoveTypeAccents.Add(Cast<UImage>(GetWidgetFromName(FName(*FString::Printf(TEXT("MoveTypeAccent%d"),I)))));
 	}
+	for(int32 I=0;I<6;++I)
+	{
+		TeamButtons.Add(Cast<UButton>(GetWidgetFromName(FName(*FString::Printf(TEXT("TeamButton%d"),I)))));
+		TeamLabels.Add(Cast<UTextBlock>(GetWidgetFromName(FName(*FString::Printf(TEXT("TeamLabel%d"),I)))));
+		OpponentTeamLabels.Add(Cast<UTextBlock>(GetWidgetFromName(FName(*FString::Printf(TEXT("OpponentTeamLabel%d"),I)))));
+		OpponentTeamPlates.Add(Cast<UImage>(GetWidgetFromName(FName(*FString::Printf(TEXT("OpponentTeamPlate%d"),I)))));
+	}
 	if(Buttons[0]) Buttons[0]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Move0);
 	if(Buttons[1]) Buttons[1]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Move1);
 	if(Buttons[2]) Buttons[2]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Move2);
 	if(Buttons[3]) Buttons[3]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Move3);
+	if(TeamButtons[0]) TeamButtons[0]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Team0);
+	if(TeamButtons[1]) TeamButtons[1]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Team1);
+	if(TeamButtons[2]) TeamButtons[2]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Team2);
+	if(TeamButtons[3]) TeamButtons[3]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Team3);
+	if(TeamButtons[4]) TeamButtons[4]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Team4);
+	if(TeamButtons[5]) TeamButtons[5]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Team5);
 	if(RestartButton) RestartButton->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Restart);
 }
 
@@ -230,7 +256,7 @@ void UPokeMonsterBattleWidget::Refresh()
 	if(!Presenter || !PlayerName) return;
 	const auto& View=Presenter->GetView();
 	if (!View.bBusy && View.Round == 0 && DisplayedRound != 0) ResetVisuals();
-	const bool bHoldVisuals = bPresenting || (View.bBusy && View.Round > DisplayedRound);
+	const bool bHoldVisuals = bPresenting || View.bPresentationPending;
 	const auto SetCreature=[](const FPokeMonsterBattleCreatureView& Data,UTextBlock* Name,UTextBlock* HP,UProgressBar* Bar,UTextBlock* KO,UWidget* Figure)
 	{
 		if(Name) Name->SetText(FText::FromString(FString::Printf(TEXT("%s   ·   Lv. %d"),*Data.Name.ToString(),Data.Level)));
@@ -258,6 +284,38 @@ void UPokeMonsterBattleWidget::Refresh()
 		PresentedLog=View.Log.ToString();
 	}
 	if(RestartButton) RestartButton->SetIsEnabled(!View.bBusy);
+	for(int32 I=0;I<6;++I)
+	{
+		if (TeamButtons.IsValidIndex(I) && TeamButtons[I])
+		{
+			TeamButtons[I]->SetIsEnabled(!bHoldVisuals && View.PlayerTeam.IsValidIndex(I)
+				&& View.PlayerTeam[I].bCanSwitch);
+			if (!bHoldVisuals) TeamButtons[I]->SetVisibility(View.PlayerTeam.IsValidIndex(I)
+				? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
+		}
+		if (bHoldVisuals) continue;
+		if (TeamLabels.IsValidIndex(I) && TeamLabels[I] && View.PlayerTeam.IsValidIndex(I))
+		{
+			const auto& Member = View.PlayerTeam[I];
+			TeamLabels[I]->SetText(FText::FromString(FString::Printf(TEXT("%s%s\nLv%d  %d/%d"),
+				Member.bActive?TEXT("▶ "):Member.bKO?TEXT("K.O. "):TEXT(""),
+				*Member.Name.ToString(),Member.Level,Member.CurrentHP,Member.MaxHP)));
+			TeamLabels[I]->SetColorAndOpacity(FSlateColor(Member.bKO?FLinearColor(0.61f,0.62f,0.58f):Ink));
+		}
+		if (OpponentTeamLabels.IsValidIndex(I) && OpponentTeamLabels[I])
+		{
+			const bool bExists = View.OpponentTeam.IsValidIndex(I);
+			OpponentTeamLabels[I]->SetVisibility(bExists?ESlateVisibility::HitTestInvisible:ESlateVisibility::Collapsed);
+			if (OpponentTeamPlates.IsValidIndex(I) && OpponentTeamPlates[I])
+				OpponentTeamPlates[I]->SetVisibility(bExists?ESlateVisibility::HitTestInvisible:ESlateVisibility::Collapsed);
+			if (bExists)
+			{
+				const auto& Member=View.OpponentTeam[I];
+				OpponentTeamLabels[I]->SetText(FText::FromString(FString::Printf(TEXT("%s %s  Lv%d"),
+					Member.bKO?TEXT("×"):Member.bActive?TEXT("▶"):TEXT("○"),*Member.Name.ToString(),Member.Level)));
+			}
+		}
+	}
 	for(int32 I=0;I<4 && View.Moves.IsValidIndex(I);++I)
 	{
 		const auto& Move=View.Moves[I];
@@ -274,6 +332,7 @@ void UPokeMonsterBattleWidget::Refresh()
 }
 
 UButton* UPokeMonsterBattleWidget::GetAttackButton(int32 Slot) const { return Buttons.IsValidIndex(Slot)?Buttons[Slot].Get():nullptr; }
+UButton* UPokeMonsterBattleWidget::GetSwitchButton(int32 Index) const { return TeamButtons.IsValidIndex(Index)?TeamButtons[Index].Get():nullptr; }
 void UPokeMonsterBattleWidget::RoundResolved(const FPokeMonsterBattleResult& Result)
 {
 	OnBattleRoundResolved(Result);
@@ -285,7 +344,13 @@ void UPokeMonsterBattleWidget::RoundResolved(const FPokeMonsterBattleResult& Res
 	}
 	bPresenting = true;
 	ActionIndex = 0;
-	AppendPresentationLog(FString::Printf(TEXT("— Runde %d —"), Result.RoundNumber));
+	for (const auto& Event : Result.Events)
+		if (Event.Type == EPokeMonsterBattleEventType::MoveChosen
+			|| Event.Type == EPokeMonsterBattleEventType::SwitchChosen)
+		{
+			AppendPresentationLog(FString::Printf(TEXT("— Runde %d —"), Result.RoundNumber));
+			break;
+		}
 	BeginAction();
 	if (GetWorld()) GetWorld()->GetTimerManager().SetTimer(PresentationTimer, this,
 		&UPokeMonsterBattleWidget::TickPresentation, 1.0f / 30.0f, true);
@@ -299,6 +364,13 @@ void UPokeMonsterBattleWidget::Choose(int32 Slot)
 			StatusLabel->SetText(FText::Format(NSLOCTEXT("PokeMonster", "MoveSelected", "{0} gewählt …"),
 				Presenter->GetView().Moves[Slot].Name));
 	}
+}
+
+void UPokeMonsterBattleWidget::ChooseSwitch(int32 TeamIndex)
+{
+	if (auto* PC = Cast<APokeMonsterBattleTestController>(GetOwningPlayer()))
+		if (PC->ChooseSwitch(TeamIndex) && StatusLabel)
+			StatusLabel->SetText(FText::FromString(TEXT("Wechsel gewählt …")));
 }
 
 UWidget* UPokeMonsterBattleWidget::FigureFor(EPokeMonsterBattleSide Side) const
@@ -358,6 +430,14 @@ void UPokeMonsterBattleWidget::BeginAction()
 {
 	if (!PresentationActions.IsValidIndex(ActionIndex)) { EndPresentation(); return; }
 	const auto& Action = PresentationActions[ActionIndex];
+	if (Action.bSwitch)
+	{
+		const FString Line = NameFor(Action.Source) + TEXT(" wird eingewechselt.");
+		AppendPresentationLog(Line);
+		if (StatusLabel) StatusLabel->SetText(FText::FromString(Line));
+		BeginPhase(EPresentationPhase::Windup);
+		return;
+	}
 	AppendPresentationLog(NameFor(Action.Source) + TEXT(" setzt ") + MoveNameFor(Action) + TEXT(" ein."));
 	if (StatusLabel) StatusLabel->SetText(FText::FromString(NameFor(Action.Source) + TEXT(" setzt ") + MoveNameFor(Action) + TEXT(" ein …")));
 	BeginPhase(EPresentationPhase::Windup);
@@ -371,7 +451,11 @@ void UPokeMonsterBattleWidget::BeginPhase(EPresentationPhase NewPhase)
 	static const FName Names[] = {TEXT("Windup"), TEXT("Travel"), TEXT("Impact"), TEXT("HP"),
 		TEXT("Message"), TEXT("KO"), TEXT("Gap")};
 	OnBattlePresentationStep(Action, Names[static_cast<uint8>(NewPhase)]);
-	if (NewPhase == EPresentationPhase::Travel && BattleEffect)
+	if (NewPhase == EPresentationPhase::Travel && Action.bSwitch)
+	{
+		if (BattleEffect) BattleEffect->SetVisibility(ESlateVisibility::Collapsed);
+	}
+	else if (NewPhase == EPresentationPhase::Travel && BattleEffect)
 	{
 		const bool bPhysical = Action.Category == EPokeMonsterMoveCategory::Physical;
 		const bool bStatus = Action.Category == EPokeMonsterMoveCategory::Status;
@@ -385,6 +469,25 @@ void UPokeMonsterBattleWidget::BeginPhase(EPresentationPhase NewPhase)
 	if (NewPhase == EPresentationPhase::Impact)
 	{
 		if (BattleEffect) BattleEffect->SetVisibility(ESlateVisibility::Collapsed);
+		if (Action.bSwitch && Presenter)
+		{
+			const auto& View=Presenter->GetView();
+			const auto& Team=Action.Source==EPokeMonsterBattleSide::A?View.PlayerTeam:View.OpponentTeam;
+			if (Team.IsValidIndex(Action.TeamIndex))
+			{
+				auto* Name=Action.Source==EPokeMonsterBattleSide::A?PlayerName.Get():OpponentName.Get();
+				auto* KO=Action.Source==EPokeMonsterBattleSide::A?PlayerKO.Get():OpponentKO.Get();
+				const auto& Member=Team[Action.TeamIndex];
+				if (Name) Name->SetText(FText::FromString(FString::Printf(TEXT("%s   ·   Lv. %d"),*Member.Name.ToString(),Member.Level)));
+				if (KO) KO->SetVisibility(ESlateVisibility::Collapsed);
+				SetPresentedHP(Action.Source,Action.HPBefore);
+			}
+			if (auto* Figure=FigureFor(Action.Source))
+			{
+				Figure->SetRenderTranslation(FVector2D::ZeroVector);
+				Figure->SetRenderOpacity(1.0f);
+			}
+		}
 		if (Action.Outcome == EPokeMonsterPresentationOutcome::Miss || Action.Outcome == EPokeMonsterPresentationOutcome::Immune)
 		{
 			if (FeedbackLabel)
@@ -399,7 +502,7 @@ void UPokeMonsterBattleWidget::BeginPhase(EPresentationPhase NewPhase)
 				? TEXT("Die Attacke verfehlt ihr Ziel.") : TEXT("Keine Wirkung: Das Ziel ist immun.")));
 		}
 	}
-	if (NewPhase == EPresentationPhase::Message)
+	if (NewPhase == EPresentationPhase::Message && !Action.bSwitch)
 	{
 		if (FeedbackLabel) FeedbackLabel->SetVisibility(ESlateVisibility::Collapsed);
 		if (auto* Target = FigureFor(Action.Target)) Target->SetRenderTranslation(FVector2D::ZeroVector);
@@ -439,8 +542,12 @@ void UPokeMonsterBattleWidget::TickPresentation()
 	{
 		if (auto* Source = FigureFor(Action.Source))
 		{
-			const float Pulse = FMath::Sin(PI * Alpha);
-			Source->SetRenderTranslation(FVector2D(Action.Source == EPokeMonsterBattleSide::A ? 20*Pulse : -15*Pulse, -6*Pulse));
+			if (Action.bSwitch) Source->SetRenderOpacity(1.0f - 0.75f*Alpha);
+			else
+			{
+				const float Pulse = FMath::Sin(PI * Alpha);
+				Source->SetRenderTranslation(FVector2D(Action.Source == EPokeMonsterBattleSide::A ? 20*Pulse : -15*Pulse, -6*Pulse));
+			}
 		}
 	}
 	else if (PresentationPhase == EPresentationPhase::Travel && BattleEffect)
@@ -450,6 +557,10 @@ void UPokeMonsterBattleWidget::TickPresentation()
 		if (auto* Slot = Cast<UCanvasPanelSlot>(BattleEffect->Slot)) Slot->SetPosition(FMath::Lerp(Start,End,Alpha));
 		BattleEffect->SetRenderOpacity(FMath::Sin(PI * Alpha));
 		if (auto* Source = FigureFor(Action.Source)) Source->SetRenderTranslation(FVector2D::ZeroVector);
+	}
+	else if (PresentationPhase == EPresentationPhase::Impact && Action.bSwitch)
+	{
+		if (auto* Figure=FigureFor(Action.Source)) Figure->SetRenderOpacity(0.25f+0.75f*Alpha);
 	}
 	else if (PresentationPhase == EPresentationPhase::Impact && Action.Outcome == EPokeMonsterPresentationOutcome::Hit)
 	{
@@ -540,4 +651,7 @@ void UPokeMonsterBattleWidget::ResetVisuals()
 }
 void UPokeMonsterBattleWidget::Move0(){Choose(0);} void UPokeMonsterBattleWidget::Move1(){Choose(1);}
 void UPokeMonsterBattleWidget::Move2(){Choose(2);} void UPokeMonsterBattleWidget::Move3(){Choose(3);}
+void UPokeMonsterBattleWidget::Team0(){ChooseSwitch(0);} void UPokeMonsterBattleWidget::Team1(){ChooseSwitch(1);}
+void UPokeMonsterBattleWidget::Team2(){ChooseSwitch(2);} void UPokeMonsterBattleWidget::Team3(){ChooseSwitch(3);}
+void UPokeMonsterBattleWidget::Team4(){ChooseSwitch(4);} void UPokeMonsterBattleWidget::Team5(){ChooseSwitch(5);}
 void UPokeMonsterBattleWidget::Restart(){if(auto* PC=Cast<APokeMonsterBattleTestController>(GetOwningPlayer())) PC->RestartBattle();}

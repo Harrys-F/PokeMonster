@@ -9,20 +9,35 @@ UENUM(BlueprintType)
 enum class EPokeMonsterBattleSide : uint8 { None, A, B };
 
 UENUM(BlueprintType)
-enum class EPokeMonsterBattlePhase : uint8 { Uninitialized, AwaitingChoices, Finished };
+enum class EPokeMonsterBattlePhase : uint8 { Uninitialized, AwaitingChoices, AwaitingSwitch, Finished };
 
 UENUM(BlueprintType)
 enum class EPokeMonsterBattleError : uint8
 {
 	None, NotInitialized, AlreadyInitialized, BattleFinished, InvalidCreature, DuplicateCreature,
 	MissingSpecies, CreatureFainted, InvalidStats, InvalidSlot, MissingMove, InvalidMove,
-	NoPP, InvalidPP, InvalidDamage, RoundLimitReached
+	NoPP, InvalidPP, InvalidDamage, RoundLimitReached, InvalidTeam, InvalidSwitch, SwitchRequired
 };
 
 UENUM(BlueprintType)
 enum class EPokeMonsterBattleEventType : uint8
 {
-	MoveChosen, MoveExecuted, Missed, Damage, SuperEffective, NotVeryEffective, Immune, KnockedOut, BattleEnded
+	MoveChosen, MoveExecuted, Missed, Damage, SuperEffective, NotVeryEffective, Immune, KnockedOut, BattleEnded,
+	SwitchChosen, SwitchedIn
+};
+
+UENUM(BlueprintType)
+enum class EPokeMonsterBattleChoiceType : uint8 { Move, Switch };
+
+USTRUCT(BlueprintType)
+struct POKEMONSTER_API FPokeMonsterBattleChoice
+{
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
+	EPokeMonsterBattleChoiceType Type = EPokeMonsterBattleChoiceType::Move;
+	/** Move slot (0-3) or team index (0-5), depending on Type. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
+	int32 Index = INDEX_NONE;
 };
 
 /** Ordered, self-contained event data for a future presentation layer. No UObject/world dependency. */
@@ -46,6 +61,9 @@ struct POKEMONSTER_API FPokeMonsterBattleEvent
 	FGuid TargetInstanceId;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
 	int32 SlotIndex = INDEX_NONE;
+	/** For switch events, the selected team index. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
+	int32 TeamIndex = INDEX_NONE;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
 	FPrimaryAssetId MoveId;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
@@ -78,6 +96,15 @@ struct POKEMONSTER_API FPokeMonsterBattleState
 	FPokeMonsterCreatureInstance SideA;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
 	FPokeMonsterCreatureInstance SideB;
+	/** Canonical copies of all individual team members, including the active one. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
+	TArray<FPokeMonsterCreatureInstance> TeamA;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
+	TArray<FPokeMonsterCreatureInstance> TeamB;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
+	int32 ActiveIndexA = INDEX_NONE;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
+	int32 ActiveIndexB = INDEX_NONE;
 	/** Number of successfully resolved rounds; rejected choices do not increment it. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
 	int32 RoundNumber = 0;
@@ -104,7 +131,7 @@ struct POKEMONSTER_API FPokeMonsterBattleResult
 	TArray<FPokeMonsterBattleEvent> Events;
 };
 
-/** One active creature per side. Owns battle copies; never implicitly writes back to external creatures. */
+/** Up to six creatures per side, exactly one active. Owns battle copies. */
 UCLASS(BlueprintType)
 class POKEMONSTER_API UPokeMonsterBattleSession : public UObject
 {
@@ -116,9 +143,22 @@ public:
 	FPokeMonsterBattleResult Initialize(const FPokeMonsterCreatureInstance& SideA,
 		const FPokeMonsterCreatureInstance& SideB, int32 RandomSeed = 0);
 
+	UFUNCTION(BlueprintCallable, Category = "PokeMonster|Battle")
+	FPokeMonsterBattleResult InitializeTeams(const TArray<FPokeMonsterCreatureInstance>& TeamA,
+		const TArray<FPokeMonsterCreatureInstance>& TeamB, int32 RandomSeed = 0);
+
 	/** Both selections are validated before committing a round. No external delegates run during resolution. */
 	UFUNCTION(BlueprintCallable, Category = "PokeMonster|Battle")
 	FPokeMonsterBattleResult ResolveRound(int32 SlotA, int32 SlotB);
+
+	/** A voluntary switch takes this turn; the other side may still use its move. */
+	UFUNCTION(BlueprintCallable, Category = "PokeMonster|Battle")
+	FPokeMonsterBattleResult ResolveTurn(const FPokeMonsterBattleChoice& ChoiceA,
+		const FPokeMonsterBattleChoice& ChoiceB);
+
+	/** Replaces a fainted active creature without consuming another turn. */
+	UFUNCTION(BlueprintCallable, Category = "PokeMonster|Battle")
+	FPokeMonsterBattleResult ForceSwitch(EPokeMonsterBattleSide Side, int32 TeamIndex);
 
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Battle")
 	const FPokeMonsterBattleState& GetState() const { return State; }

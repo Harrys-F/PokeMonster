@@ -217,10 +217,10 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Eine getrennte C++-Battle-Session verwaltet eigene Kampfkopien von genau einer aktiven Kreatur pro Seite. Der Zustand ist von der Ausführung getrennt und für spätere UI/Animationen lesbar. Eine automatische Rückübertragung auf Welt-/Inventardaten findet noch nicht statt.
 - Jede Runde erhält beide Attackenauswahlen gemeinsam. Höhere Priorität beginnt, danach entscheidet Initiative; bei vollständigem Gleichstand beginnt deterministisch Seite A. Treffer verwenden einen eigenen, per Seed reproduzierbaren Zufallsstrom.
 - Beide Auswahlen werden vor Beginn geprüft. Fehlerhafte Runden verändern weder HP, PP, Rundenzähler noch Zufallszustand. Ausgeführte Angriffsversuche kosten eine PP, auch bei Fehlschlag, Immunität oder Status-Platzhalter.
-- HP-Anwendung verwendet die vorhandene Schadensberechnung unverändert. Ein K.O. beendet die Runde und den Kampf sofort; die besiegte Kreatur führt keinen ausstehenden Angriff mehr aus. Weitere Aufrufe melden den beendeten Kampf, ohne zusätzliche PP oder HP zu verändern.
+- HP-Anwendung verwendet die vorhandene Schadensberechnung unverändert. Für die damalige reine 1-gegen-1-Session beendete ein K.O. Runde und Kampf sofort; **die allgemeine Kampfende-Regel wurde am 2026-09-25 durch die Teamregel unten ersetzt**. Die besiegte Kreatur führt keinen ausstehenden Angriff mehr aus.
 - Geordnete Events berichten Auswahl, Ausführung, Fehlschlag, Schaden, Effektivität/Resistenz/Immunität, K.O. und Kampfende. Status-Platzhalter führen weiterhin keine Statuslogik aus.
 - Ohne beidseitig gültige Auswahl erfolgt kein Rundenfortschritt. Eine Ersatzattacke bei null PP oder ein erzwungenes Ende von Status-/Immunitätsschleifen wird nicht hinzugefügt.
-- Player, Kamera, Interaktion, Maps, Grafik, Progression und bisherige Attacken-/Kampfbausteine bleiben unverändert. Neue Gameplay-Systeme wie Teams, Wechsel, Items, Trainer oder Fangmechanik werden nicht ergänzt. API und Eventdetails stehen in `Docs/TECHNIK.md`.
+- Player, Kamera, Interaktion, Maps, Grafik, Progression und bisherige Attacken-/Kampfbausteine blieben bei diesem damaligen Schritt unverändert. Teams und Wechsel waren **zu diesem Zeitpunkt noch nicht enthalten; dieser Stand wurde durch die Teamentscheidung vom 2026-09-25 unten ersetzt**. Items, Trainer und Fangmechanik bleiben weiterhin offen. API und Eventdetails stehen in `Docs/TECHNIK.md`.
 
 ## 2026-09-17 – Erste funktionale Battle-Testoberfläche
 
@@ -250,6 +250,15 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Ein kurzer Impuls markiert den Angreifer. Physical nutzt eine kurze Stoßspur, Special ein einfaches Energiegeschoss, Status einen dezenten Schimmer. Treffer, Fehlschlag und Immunität erhalten unterschiedliche visuelle Rückmeldungen; nur tatsächlicher Schaden führt zu einer weichen HP-Anzeigeänderung. K.O. blendet die betroffene Kreatur ab und senkt sie leicht ab.
 - Die Spielereingabe bleibt bis zum Ende der sichtbaren Ereignisfolge gesperrt. Das Kampflog wird mit den einzelnen Aktionen fortgeschrieben. Die visuellen Zeiten sind Testwerte und legen das spätere Kampftempo nicht endgültig fest.
 - Die bestehende Naturkulisse und Kreaturen-Platzhalter bleiben erhalten. Die neuen UMG-Effekte benötigen keine zusätzlichen externen Assets. Ereignis- und Schritt-Hooks sind für spätere Blueprint-Animationen, VFX und Sound vorbereitet; Kampfregeln bleiben unverändert.
+
+## 2026-09-25 – Erste Team- und Wechselmechanik
+
+**Status: Technische Grundlage und funktionale Battle-Test-UI; endgültige Team- und Trainerregeln offen**
+
+- Die BattleSession hält bis zu sechs individuelle Kreaturen je Seite und genau eine aktive. Der bisherige `Initialize`-/`ResolveRound`-Pfad bleibt als Ein-Kreaturen-Fall gültig. HP, PP und Level gehören weiter zum jeweiligen Exemplar und bleiben beim Wechsel erhalten.
+- Ein freiwilliger Wechsel ist die Aktion der wechselnden Seite für diese Runde. Wechsel werden vor Attacken ausgeführt; eine gegnerische Attacke trifft deshalb die eingewechselte Kreatur. Bei K.O. ohne verbleibendes kampffähiges Teammitglied endet der Kampf. Andernfalls ist ein Ersatzwechsel nötig; dieser Pflichtwechsel kostet keinen zusätzlichen Zug. Die Testgegnerseite nimmt den nächsten kampffähigen Teamplatz automatisch.
+- `SwitchChosen` und `SwitchedIn` ergänzen die geordneten BattleEvents. Die vorhandene Präsentationsschicht zeigt den Wechsel als eigene Aktion und hält die Eingabe bis zum Abschluss gesperrt. Die Battle-Testmap zeigt beide Teams und ermöglicht dem Spieler freiwillige und erzwungene Wechsel. Sie verwendet für Teammitglieder vorhandene Test-Spezies und Platzhaltergrafiken; finale Artworks und Team-Menüs sind offen.
+- Schadensformel, Attackendaten, Typentabelle, Status-Platzhalter sowie Player-, Weltkamera- und Map-Systeme werden nicht geändert. Items, Fangmechanik und Statuszustände bleiben ausgenommen.
 
 ## Aktuell offene Entscheidungen
 

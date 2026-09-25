@@ -19,6 +19,8 @@ struct POKEMONSTER_API FPokeMonsterPresentationAction
 
 	UPROPERTY(BlueprintReadOnly, Category="Battle Presentation") EPokeMonsterBattleSide Source = EPokeMonsterBattleSide::None;
 	UPROPERTY(BlueprintReadOnly, Category="Battle Presentation") EPokeMonsterBattleSide Target = EPokeMonsterBattleSide::None;
+	UPROPERTY(BlueprintReadOnly, Category="Battle Presentation") bool bSwitch = false;
+	UPROPERTY(BlueprintReadOnly, Category="Battle Presentation") int32 TeamIndex = INDEX_NONE;
 	UPROPERTY(BlueprintReadOnly, Category="Battle Presentation") EPokeMonsterMoveCategory Category = EPokeMonsterMoveCategory::Physical;
 	UPROPERTY(BlueprintReadOnly, Category="Battle Presentation") FPrimaryAssetId MoveId;
 	UPROPERTY(BlueprintReadOnly, Category="Battle Presentation") int32 SlotIndex = INDEX_NONE;

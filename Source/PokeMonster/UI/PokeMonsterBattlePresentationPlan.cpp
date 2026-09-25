@@ -6,6 +6,17 @@ TArray<FPokeMonsterPresentationAction> UPokeMonsterBattlePresentationPlan::Build
 	if (!Result.bSucceeded) return Actions;
 	for (const FPokeMonsterBattleEvent& Event : Result.Events)
 	{
+		if (Event.Type == EPokeMonsterBattleEventType::SwitchedIn)
+		{
+			FPokeMonsterPresentationAction& Action = Actions.AddDefaulted_GetRef();
+			Action.bSwitch = true;
+			Action.Source = Event.Source;
+			Action.Target = Event.Source;
+			Action.TeamIndex = Event.TeamIndex;
+			Action.HPBefore = Event.HPBefore;
+			Action.HPAfter = Event.HPAfter;
+			continue;
+		}
 		if (Event.Type == EPokeMonsterBattleEventType::MoveExecuted)
 		{
 			FPokeMonsterPresentationAction& Action = Actions.AddDefaulted_GetRef();

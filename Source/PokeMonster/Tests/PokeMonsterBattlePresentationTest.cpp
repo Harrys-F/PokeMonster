@@ -95,6 +95,24 @@ bool FPokeMonsterBattlePresentationEventsTest::RunTest(const FString& Parameters
 	Round.bSucceeded = false;
 	TestEqual(TEXT("Rejected rounds have no presentation actions"),
 		UPokeMonsterBattlePresentationPlan::BuildActions(Round).Num(), 0);
+	Round.bSucceeded = true;
+	Round.Events.Reset();
+	FPokeMonsterBattleEvent Switched;
+	Switched.Type = EPokeMonsterBattleEventType::SwitchedIn;
+	Switched.Source = EPokeMonsterBattleSide::A;
+	Switched.TeamIndex = 2;
+	Switched.HPBefore = Switched.HPAfter = 27;
+	Round.Events.Add(Switched);
+	Round.Events.Add(Executed);
+	const auto WithSwitch = UPokeMonsterBattlePresentationPlan::BuildActions(Round);
+	TestEqual(TEXT("Switch is presented before opponent attack"), WithSwitch.Num(), 2);
+	if (WithSwitch.Num() == 2)
+	{
+		TestTrue(TEXT("First cue is the switch"), WithSwitch[0].bSwitch);
+		TestEqual(TEXT("Switch target index retained"), WithSwitch[0].TeamIndex, 2);
+		TestEqual(TEXT("Incoming HP retained"), WithSwitch[0].HPBefore, 27);
+		TestFalse(TEXT("Second cue is an attack"), WithSwitch[1].bSwitch);
+	}
 	return true;
 }
 #endif

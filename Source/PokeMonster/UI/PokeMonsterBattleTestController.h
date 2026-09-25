@@ -14,6 +14,7 @@ class POKEMONSTER_API APokeMonsterBattleTestController : public APlayerControlle
 	GENERATED_BODY()
 public:
 	UFUNCTION(BlueprintCallable, Category="Battle Test") bool ChooseMove(int32 Slot);
+	UFUNCTION(BlueprintCallable, Category="Battle Test") bool ChooseSwitch(int32 TeamIndex);
 	UFUNCTION(BlueprintCallable, Category="Battle Test") void RestartBattle();
 	UFUNCTION(BlueprintPure, Category="Battle Test") UPokeMonsterBattlePresenter* GetPresenter() const { return Presenter; }
 	UFUNCTION(BlueprintPure, Category="Battle Test") UPokeMonsterBattleWidget* GetBattleWidget() const { return BattleWidget; }

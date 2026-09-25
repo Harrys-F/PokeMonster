@@ -22,6 +22,7 @@ class POKEMONSTER_API UPokeMonsterBattleWidget : public UUserWidget
 public:
 	UFUNCTION(BlueprintCallable, Category="Battle UI") void SetPresenter(UPokeMonsterBattlePresenter* InPresenter);
 	UFUNCTION(BlueprintPure, Category="Battle UI") UButton* GetAttackButton(int32 SlotIndex) const;
+	UFUNCTION(BlueprintPure, Category="Battle UI") UButton* GetSwitchButton(int32 TeamIndex) const;
 protected:
 	virtual TSharedRef<SWidget> RebuildWidget() override;
 	virtual void NativeConstruct() override;
@@ -35,6 +36,7 @@ private:
 	void BuildDefaultTree();
 	void BindControls();
 	void Choose(int32 Slot);
+	void ChooseSwitch(int32 TeamIndex);
 	void BeginAction();
 	void BeginPhase(EPresentationPhase NewPhase);
 	void TickPresentation();
@@ -52,10 +54,20 @@ private:
 	UFUNCTION() void Move1();
 	UFUNCTION() void Move2();
 	UFUNCTION() void Move3();
+	UFUNCTION() void Team0();
+	UFUNCTION() void Team1();
+	UFUNCTION() void Team2();
+	UFUNCTION() void Team3();
+	UFUNCTION() void Team4();
+	UFUNCTION() void Team5();
 	UFUNCTION() void Restart();
 	UPROPERTY(Transient) TObjectPtr<UPokeMonsterBattlePresenter> Presenter;
 	UPROPERTY(Transient) TArray<TObjectPtr<UButton>> Buttons;
 	UPROPERTY(Transient) TArray<TObjectPtr<UTextBlock>> MoveLabels;
+	UPROPERTY(Transient) TArray<TObjectPtr<UButton>> TeamButtons;
+	UPROPERTY(Transient) TArray<TObjectPtr<UTextBlock>> TeamLabels;
+	UPROPERTY(Transient) TArray<TObjectPtr<UTextBlock>> OpponentTeamLabels;
+	UPROPERTY(Transient) TArray<TObjectPtr<UImage>> OpponentTeamPlates;
 	UPROPERTY(Transient) TArray<TObjectPtr<UTextBlock>> MoveTypeLabels;
 	UPROPERTY(Transient) TArray<TObjectPtr<UTextBlock>> MovePPLabels;
 	UPROPERTY(Transient) TArray<TObjectPtr<UImage>> MoveTypeAccents;

@@ -14,7 +14,7 @@ void APokeMonsterBattleTestController::BeginPlay()
 	Super::BeginPlay();
 	if (!IsLocalController()) return;
 	Presenter = NewObject<UPokeMonsterBattlePresenter>(this);
-	Presenter->StartDemo();
+	Presenter->StartTeamDemo();
 	BattleWidget = CreateWidget<UPokeMonsterBattleWidget>(this, WidgetClass ? WidgetClass.Get() : UPokeMonsterBattleWidget::StaticClass());
 	if (BattleWidget)
 	{
@@ -35,6 +35,13 @@ bool APokeMonsterBattleTestController::ChooseMove(const int32 Slot)
 	return true;
 }
 
+bool APokeMonsterBattleTestController::ChooseSwitch(const int32 TeamIndex)
+{
+	if (!Presenter || !Presenter->TrySelectSwitch(TeamIndex)) return false;
+	GetWorldTimerManager().SetTimer(RoundTimer, this, &APokeMonsterBattleTestController::ResolvePending, 0.22f, false);
+	return true;
+}
+
 void APokeMonsterBattleTestController::ResolvePending()
 {
 	if (!Presenter) return;
@@ -45,7 +52,7 @@ void APokeMonsterBattleTestController::ResolvePending()
 
 void APokeMonsterBattleTestController::RestartBattle()
 {
-	if (Presenter && !Presenter->GetView().bBusy) Presenter->StartDemo();
+	if (Presenter && !Presenter->GetView().bBusy) Presenter->StartTeamDemo();
 }
 
 void APokeMonsterBattleTestController::EndPlay(const EEndPlayReason::Type Reason)
