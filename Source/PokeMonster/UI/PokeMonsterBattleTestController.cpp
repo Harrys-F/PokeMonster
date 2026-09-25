@@ -31,15 +31,16 @@ void APokeMonsterBattleTestController::BeginPlay()
 bool APokeMonsterBattleTestController::ChooseMove(const int32 Slot)
 {
 	if (!Presenter || !Presenter->TrySelectMove(Slot)) return false;
-	GetWorldTimerManager().SetTimer(RoundTimer, this, &APokeMonsterBattleTestController::ResolvePending, 0.35f, false);
+	GetWorldTimerManager().SetTimer(RoundTimer, this, &APokeMonsterBattleTestController::ResolvePending, 0.22f, false);
 	return true;
 }
 
 void APokeMonsterBattleTestController::ResolvePending()
 {
 	if (!Presenter) return;
-	Presenter->ResolveSelection();
-	Presenter->FinishPresentation();
+	const bool bResolved = Presenter->ResolveSelection();
+	// The widget consumes the emitted events and releases the presenter's input lock after the last cue.
+	if (!bResolved || !BattleWidget) Presenter->FinishPresentation();
 }
 
 void APokeMonsterBattleTestController::RestartBattle()

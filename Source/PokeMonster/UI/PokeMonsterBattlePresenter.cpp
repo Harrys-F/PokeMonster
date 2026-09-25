@@ -163,8 +163,9 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
 {
 	LogLines.Add(FString::Printf(TEXT("— Runde %d —"), Result.RoundNumber));
 	const auto& State = Session->GetState();
-	for (const auto& Event : Result.Events)
+	for (int32 EventIndex = 0; EventIndex < Result.Events.Num(); ++EventIndex)
 	{
+		const auto& Event = Result.Events[EventIndex];
 		const auto& Source = Event.Source == EPokeMonsterBattleSide::A ? State.SideA : State.SideB;
 		const auto& Target = Event.Target == EPokeMonsterBattleSide::A ? State.SideA : State.SideB;
 		const FString Who = CreatureView(Source).Name.ToString();
@@ -177,7 +178,11 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
 		case EPokeMonsterBattleEventType::MoveChosen: break; // Execution describes the choice in the compact log.
 		case EPokeMonsterBattleEventType::MoveExecuted:
 			LogLines.Add(Who + TEXT(" setzt ") + MoveName + TEXT(" ein."));
-			if (Event.Category == EPokeMonsterMoveCategory::Status) LogLines.Add(TEXT("Status-Platzhalter: noch ohne Effekt."));
+			// A missed status move has no effect; the following Missed event explains it instead.
+			if (Event.Category == EPokeMonsterMoveCategory::Status
+				&& !(Result.Events.IsValidIndex(EventIndex + 1)
+					&& Result.Events[EventIndex + 1].Type == EPokeMonsterBattleEventType::Missed))
+				LogLines.Add(TEXT("Status-Platzhalter: noch ohne Effekt."));
 			break;
 		case EPokeMonsterBattleEventType::Missed: LogLines.Add(TEXT("Die Attacke verfehlt ihr Ziel.")); break;
 		case EPokeMonsterBattleEventType::Damage: LogLines.Add(FString::Printf(TEXT("%s verliert %d HP."), *Other, Event.Damage)); break;

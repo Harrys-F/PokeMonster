@@ -96,4 +96,37 @@ bool FPokeMonsterBattleUIInvalidTest::RunTest(const FString& Parameters)
 	for(const auto& Item:Presenter->GetView().Moves) TestFalse(TEXT("Failed initialization enables no attack"),Item.bEnabled);
 	return true;
 }
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPokeMonsterBattleUIMissedStatusTest, "PokeMonster.Battle.UI.MissedStatusLog",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FPokeMonsterBattleUIMissedStatusTest::RunTest(const FString& Parameters)
+{
+	TStrongObjectPtr<UPokeMonsterCreatureSpeciesData> Species(NewObject<UPokeMonsterCreatureSpeciesData>());
+	TStrongObjectPtr<UPokeMonsterMoveData> Status(NewObject<UPokeMonsterMoveData>());
+	TStrongObjectPtr<UPokeMonsterMoveData> Attack(NewObject<UPokeMonsterMoveData>());
+	Status->InternalId = TEXT("MissedStatus");
+	Status->DisplayName = FText::FromString(TEXT("Missed status"));
+	Status->Category = EPokeMonsterMoveCategory::Status;
+	Status->BasePower = 0;
+	Status->Accuracy = 0;
+	Status->MaxPP = 10;
+	Attack->InternalId = TEXT("OpponentAttack");
+	Attack->DisplayName = FText::FromString(TEXT("Opponent attack"));
+	Attack->Accuracy = 100;
+	Attack->MaxPP = 10;
+	auto A = FPokeMonsterCreatureInstance::CreateFromSpecies(Species.Get(), 20);
+	auto B = FPokeMonsterCreatureInstance::CreateFromSpecies(Species.Get(), 20);
+	TestTrue(TEXT("Player status move assigned"), A.AssignMove(0, Status.Get()));
+	TestTrue(TEXT("Opponent attack assigned"), B.AssignMove(0, Attack.Get()));
+	TStrongObjectPtr<UPokeMonsterBattlePresenter> Presenter(NewObject<UPokeMonsterBattlePresenter>());
+	if (!TestTrue(TEXT("Battle initializes"), Presenter->InitializeBattle(A, B, 2026))) return false;
+	if (!TestTrue(TEXT("Missed status selected"), Presenter->TrySelectMove(0))) return false;
+	if (!TestTrue(TEXT("Missed status round resolves"), Presenter->ResolveSelection())) return false;
+	const FString Log = Presenter->GetView().Log.ToString();
+	TestTrue(TEXT("Miss is explained"), Log.Contains(TEXT("verfehlt")));
+	TestFalse(TEXT("Miss is not also described as a successful status effect"),
+		Log.Contains(TEXT("Status-Platzhalter")));
+	return true;
+}
 #endif

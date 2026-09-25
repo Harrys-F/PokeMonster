@@ -230,7 +230,7 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Eine getrennte C++-Presenter-Schicht verbindet die vorhandene BattleSession mit UMG. BattleSession, Schadensberechnung, Kreaturen-, Progressions- und Attackendaten werden nicht verändert. Der Gegner wählt zunächst den ersten gültigen Slot mit PP.
 - Das native UMG-Widget zeigt Namen, Level, numerische HP und Balken, vier Attackenbuttons mit Typ/PP sowie ein begrenztes Kampflog. Die ursprünglich rein aus UMG-Formen bestehenden Kreaturen-Platzhalter ohne zusätzliche Texturen wurden am 2026-09-25 durch eigene Testgrafiken ersetzt. Die verbindliche Welt-Stilrichtung bleibt bestehen.
 - Verwendet werden TestWater und TestGrass auf Level 20 sowie die drei vorhandenen Testattacken. Der vierte Spielerslot wiederholt die Normal-Attacke mit eigenen PP; es wird keine Lernregel festgelegt.
-- Die Eingabe wird sofort bei Auswahl gesperrt und nach einer kurzen Verzögerung und Rundenauflösung freigegeben. Nach K.O./Kampfende bleiben Attacken deaktiviert. Ein Testneustart erzeugt eine neue Session. Ohne gültige Attacken meldet die UI den Zustand, ohne eine Ersatzattacke oder neue Kampfregel einzuführen.
+- Die Eingabe wird sofort bei Auswahl gesperrt. Die ursprüngliche Freigabe direkt nach der Rundenauflösung wurde am 2026-09-25 durch eine Freigabe nach abgeschlossener Kampfinszenierung ersetzt. Nach K.O./Kampfende bleiben Attacken deaktiviert. Ein Testneustart erzeugt eine neue Session. Ohne gültige Attacken meldet die UI den Zustand, ohne eine Ersatzattacke oder neue Kampfregel einzuführen.
 - Lesemodelle und vollständige BattleEvents bleiben von der Darstellung getrennt. Widget-Blueprint-Unterklassen, visuelle Ereignisse und ein expliziter Präsentationsabschluss ermöglichen spätere Animationen, Sprites, Sound und Menüs ohne Neuschreiben der BattleSession. Details stehen in `Docs/TECHNIK.md`.
 
 ## 2026-09-25 – Visuelle Richtung der Battle-Testoberfläche
@@ -241,6 +241,15 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Zwei eigens erzeugte Kreaturen-Platzhalter stehen auf der Kulisse: die eigene Kreatur groß und nah unten links, die gegnerische kleiner und weiter oben rechts. Die Platzhalter sind keine endgültigen Kreaturendesigns.
 - Namens- und HP-Bereiche werden als ruhige, organisch gerundete Tafeln gestaltet. Attacken zeigen Name, dezent typgefärbte Kennzeichnung und PP getrennt; das kompakte Log sitzt im unteren Bedienfeld. Sättigung, Kontrast und Dekoration ordnen sich der Lesbarkeit unter.
 - Grafiken werden als kleine wiederverwendbare UI-Texturen importiert und in der bestehenden UMG-Widgetklasse angezeigt. Die technische Verbindung zur BattleSession, der Presenter, Testdaten und Kampfregeln bleiben bestehen. Es werden keine fremden Assets oder neuen Plugins eingebunden.
+
+## 2026-09-25 – Erste Kampfinszenierung aus BattleEvents
+
+**Status: Technischer Präsentationsablauf für die Battle-Testmap; finale Animationen und Effekte offen**
+
+- Die vorhandene BattleSession entscheidet weiterhin sofort und vollständig über Zugreihenfolge, Treffer, Schaden, PP und K.O. Eine reine Präsentationsschicht liest anschließend die geordneten Events und zeigt die tatsächlich ausgeführten Aktionen nacheinander. Ausgewählte, aber wegen K.O. nicht ausgeführte Attacken erhalten keine Animation.
+- Ein kurzer Impuls markiert den Angreifer. Physical nutzt eine kurze Stoßspur, Special ein einfaches Energiegeschoss, Status einen dezenten Schimmer. Treffer, Fehlschlag und Immunität erhalten unterschiedliche visuelle Rückmeldungen; nur tatsächlicher Schaden führt zu einer weichen HP-Anzeigeänderung. K.O. blendet die betroffene Kreatur ab und senkt sie leicht ab.
+- Die Spielereingabe bleibt bis zum Ende der sichtbaren Ereignisfolge gesperrt. Das Kampflog wird mit den einzelnen Aktionen fortgeschrieben. Die visuellen Zeiten sind Testwerte und legen das spätere Kampftempo nicht endgültig fest.
+- Die bestehende Naturkulisse und Kreaturen-Platzhalter bleiben erhalten. Die neuen UMG-Effekte benötigen keine zusätzlichen externen Assets. Ereignis- und Schritt-Hooks sind für spätere Blueprint-Animationen, VFX und Sound vorbereitet; Kampfregeln bleiben unverändert.
 
 ## Aktuell offene Entscheidungen
 

@@ -3,6 +3,8 @@
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "PokeMonsterBattlePresenter.h"
+#include "PokeMonsterBattlePresentationPlan.h"
+#include "TimerManager.h"
 #include "PokeMonsterBattleWidget.generated.h"
 
 class UButton;
@@ -26,10 +28,24 @@ protected:
 	virtual void NativeDestruct() override;
 	UFUNCTION(BlueprintImplementableEvent, Category="Battle UI") void OnBattleViewUpdated(const FPokeMonsterBattleView& View);
 	UFUNCTION(BlueprintImplementableEvent, Category="Battle UI") void OnBattleRoundResolved(const FPokeMonsterBattleResult& Result);
+	/** Replace placeholder motion/VFX/sound per step without changing the BattleSession. */
+	UFUNCTION(BlueprintImplementableEvent, Category="Battle UI") void OnBattlePresentationStep(const FPokeMonsterPresentationAction& Action, FName Step);
 private:
+	enum class EPresentationPhase : uint8 { Windup, Travel, Impact, HP, Message, KO, Gap };
 	void BuildDefaultTree();
 	void BindControls();
 	void Choose(int32 Slot);
+	void BeginAction();
+	void BeginPhase(EPresentationPhase NewPhase);
+	void TickPresentation();
+	void AdvancePhase();
+	void EndPresentation();
+	void ResetVisuals();
+	void AppendPresentationLog(const FString& Line);
+	void SetPresentedHP(EPokeMonsterBattleSide Side, float HP);
+	UWidget* FigureFor(EPokeMonsterBattleSide Side) const;
+	FString NameFor(EPokeMonsterBattleSide Side) const;
+	FString MoveNameFor(const FPokeMonsterPresentationAction& Action) const;
 	UFUNCTION() void Refresh();
 	UFUNCTION() void RoundResolved(const FPokeMonsterBattleResult& Result);
 	UFUNCTION() void Move0();
@@ -57,4 +73,16 @@ private:
 	UPROPERTY(Transient) TObjectPtr<UWidget> PlayerFigure;
 	UPROPERTY(Transient) TObjectPtr<UWidget> OpponentFigure;
 	UPROPERTY(Transient) TObjectPtr<UButton> RestartButton;
+	UPROPERTY(Transient) TObjectPtr<UImage> BattleEffect;
+	UPROPERTY(Transient) TObjectPtr<UTextBlock> FeedbackLabel;
+	TArray<FPokeMonsterPresentationAction> PresentationActions;
+	FString PresentedLog;
+	FTimerHandle PresentationTimer;
+	EPresentationPhase PresentationPhase = EPresentationPhase::Windup;
+	float PhaseElapsed = 0.0f;
+	int32 ActionIndex = INDEX_NONE;
+	int32 DisplayedRound = 0;
+	int32 DisplayedPlayerHP = 0;
+	int32 DisplayedOpponentHP = 0;
+	bool bPresenting = false;
 };
