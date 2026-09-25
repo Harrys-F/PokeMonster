@@ -86,7 +86,9 @@ bool APokeMonsterVisibleWildCreatureActor::TryStart(APokeMonsterPlayerCharacter*
 
 void APokeMonsterVisibleWildCreatureActor::OnEncounterFinished(const FPokeMonsterEncounterEndData& Result)
 {
-	if (Result.SourceActor != this || Result.Outcome != EPokeMonsterEncounterOutcome::Victory || !bDeactivateAfterVictory) return;
+	if (Result.SourceActor != this || !bDeactivateAfterVictory
+		|| (Result.Outcome != EPokeMonsterEncounterOutcome::Victory
+			&& Result.Outcome != EPokeMonsterEncounterOutcome::Captured)) return;
 	bDeactivated = true;
 	SetActorHiddenInGame(true);
 	SetActorEnableCollision(false);

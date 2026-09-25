@@ -53,8 +53,11 @@ struct POKEMONSTER_API FPokeMonsterBattleView
 	UPROPERTY(BlueprintReadOnly, Category="Battle") int32 Round = 0;
 	UPROPERTY(BlueprintReadOnly, Category="Battle") bool bBusy = false;
 	UPROPERTY(BlueprintReadOnly, Category="Battle") bool bFinished = false;
+	UPROPERTY(BlueprintReadOnly, Category="Battle") bool bCaptured = false;
 	UPROPERTY(BlueprintReadOnly, Category="Battle") bool bMustSwitch = false;
 	UPROPERTY(BlueprintReadOnly, Category="Battle") bool bPresentationPending = false;
+	UPROPERTY(BlueprintReadOnly, Category="Battle") bool bCaptureEnabled = false;
+	UPROPERTY(BlueprintReadOnly, Category="Battle") FText CaptureDeviceName;
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPokeMonsterBattleViewChanged);
@@ -70,8 +73,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool StartTeamDemo();
 	bool InitializeBattle(const FPokeMonsterCreatureInstance& Player, const FPokeMonsterCreatureInstance& Opponent, int32 Seed);
 	bool InitializeTeamBattle(const TArray<FPokeMonsterCreatureInstance>& Player,
-		const TArray<FPokeMonsterCreatureInstance>& Opponent, int32 Seed);
+		const TArray<FPokeMonsterCreatureInstance>& Opponent, int32 Seed, bool bAllowCapture = false);
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectMove(int32 Slot);
+	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectCapture();
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectSwitch(int32 TeamIndex);
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool ResolveSelection();
 	UFUNCTION(BlueprintCallable, Category="Battle UI") void FinishPresentation();
@@ -88,12 +92,14 @@ private:
 	int32 ChooseOpponentMove() const;
 	int32 NextOpponentSwitch() const;
 	UPROPERTY(Transient) TObjectPtr<UPokeMonsterBattleSession> Session;
+	UPROPERTY(Transient) TObjectPtr<UPokeMonsterCaptureDeviceData> TestCaptureDevice;
 	UPROPERTY(Transient) FPokeMonsterBattleView View;
 	UPROPERTY(Transient) FPokeMonsterBattleResult LastResult;
 	TArray<FString> LogLines;
 	FString Problem;
 	int32 PendingSlot = INDEX_NONE;
 	bool bPendingSwitch = false;
+	bool bPendingCapture = false;
 	bool bBusy = false;
 	bool bResolved = false;
 };

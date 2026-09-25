@@ -18,7 +18,10 @@ UENUM(BlueprintType)
 enum class EPokeMonsterEncounterKind : uint8 { Test, Wild, Trainer };
 
 UENUM(BlueprintType)
-enum class EPokeMonsterEncounterOutcome : uint8 { Victory, Defeat, Fled, Cancelled };
+enum class EPokeMonsterEncounterOutcome : uint8 { Victory, Defeat, Fled, Cancelled, Captured };
+
+UENUM(BlueprintType)
+enum class EPokeMonsterCaptureTransfer : uint8 { None, AddedToTeam, TeamFull };
 
 UENUM(BlueprintType)
 enum class EPokeMonsterEncounterSource : uint8 { Scripted, VisibleCreature, Zone, Random };
@@ -46,6 +49,9 @@ struct POKEMONSTER_API FPokeMonsterEncounterEndData
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") EPokeMonsterEncounterKind Kind = EPokeMonsterEncounterKind::Test;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") EPokeMonsterEncounterSource Source = EPokeMonsterEncounterSource::Scripted;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") EPokeMonsterEncounterOutcome Outcome = EPokeMonsterEncounterOutcome::Cancelled;
+	/** TeamFull is a structured handoff for a future storage system; no creature is discarded. */
+	UPROPERTY(BlueprintReadOnly, Category="Encounter") EPokeMonsterCaptureTransfer CaptureTransfer = EPokeMonsterCaptureTransfer::None;
+	UPROPERTY(BlueprintReadOnly, Category="Encounter") FPokeMonsterCreatureInstance CapturedCreature;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") TArray<FPokeMonsterCreatureInstance> PlayerTeam;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") TArray<FPokeMonsterCreatureInstance> OpponentTeam;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") int32 Rounds = 0;
@@ -88,6 +94,7 @@ public:
 private:
 #if WITH_DEV_AUTOMATION_TESTS
 	friend class FPokeMonsterEncounterIntegrationTest;
+	friend class FPokeMonsterCaptureTest;
 #endif
 	static bool BuildTestTeams(TArray<FPokeMonsterCreatureInstance>& Player,
 		TArray<FPokeMonsterCreatureInstance>& Opponent);

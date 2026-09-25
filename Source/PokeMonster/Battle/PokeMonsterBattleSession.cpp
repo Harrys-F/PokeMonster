@@ -1,6 +1,7 @@
 #include "PokeMonsterBattleSession.h"
 #include "PokeMonsterTypeChart.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
+#include "../Capture/PokeMonsterCaptureLibrary.h"
 
 namespace
 {
@@ -99,7 +100,7 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::Initialize(const FPokeMonste
 
 FPokeMonsterBattleResult UPokeMonsterBattleSession::InitializeTeams(
 	const TArray<FPokeMonsterCreatureInstance>& TeamA,
-	const TArray<FPokeMonsterCreatureInstance>& TeamB, int32 RandomSeed)
+	const TArray<FPokeMonsterCreatureInstance>& TeamB, int32 RandomSeed, bool bAllowCapture)
 {
 	if (State.Phase != EPhase::Uninitialized) return Reject(EError::AlreadyInitialized);
 	if (TeamA.IsEmpty() || TeamB.IsEmpty() || TeamA.Num() > 6 || TeamB.Num() > 6)
@@ -123,6 +124,7 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::InitializeTeams(
 	State.SideA = TeamA[0];
 	State.SideB = TeamB[0];
 	State.Phase = EPhase::AwaitingChoices;
+	State.bCaptureAllowed = bAllowCapture;
 	Random.Initialize(RandomSeed);
 	for (const auto* Team : {&State.TeamA, &State.TeamB})
 		for (const auto& Creature : *Team)
@@ -152,6 +154,7 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
 	if (State.RoundNumber == MAX_int32) return Reject(EError::RoundLimitReached);
 	const FPokeMonsterBattleChoice Choices[2] = {ChoiceA, ChoiceB};
 	UPokeMonsterMoveData* Moves[2] = {nullptr, nullptr};
+	UPokeMonsterCaptureDeviceData* Device = nullptr;
 	for (int32 Index = 0; Index < 2; ++Index)
 	{
 		const ESide Side = Index == 0 ? ESide::A : ESide::B;
@@ -167,6 +170,16 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
 			Error = Team.IsValidIndex(Choices[Index].Index) && Choices[Index].Index != ActiveIndex
 				&& Team[Choices[Index].Index].CurrentHP > 0 ? EError::None : EError::InvalidSwitch;
 		}
+		else if (Choices[Index].Type == EPokeMonsterBattleChoiceType::Capture)
+		{
+			if (Side != ESide::A || !State.bCaptureAllowed) Error = EError::CaptureNotAllowed;
+			else
+			{
+				Device = Choices[Index].CaptureDevice.LoadSynchronous();
+				Error = IsValid(Device) && Device->IsConfigured()
+					? EError::None : EError::InvalidCaptureDevice;
+			}
+		}
 		else Error = EError::InvalidSlot;
 		if (Error != EError::None) return Reject(Error, Side);
 	}
@@ -178,9 +191,11 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
 	{
 		const ESide Side = Index == 0 ? ESide::A : ESide::B;
 		auto& Event = AddEvent(Result, Next,
-			Choices[Index].Type == EPokeMonsterBattleChoiceType::Switch ? EEvent::SwitchChosen : EEvent::MoveChosen,
+			Choices[Index].Type == EPokeMonsterBattleChoiceType::Switch ? EEvent::SwitchChosen
+				: Choices[Index].Type == EPokeMonsterBattleChoiceType::Capture ? EEvent::CaptureChosen : EEvent::MoveChosen,
 			Side, Moves[Index] ? Choices[Index].Index : INDEX_NONE, Moves[Index]);
-		if (!Moves[Index]) Event.TeamIndex = Choices[Index].Index;
+		if (Choices[Index].Type == EPokeMonsterBattleChoiceType::Switch) Event.TeamIndex = Choices[Index].Index;
+		if (Choices[Index].Type == EPokeMonsterBattleChoiceType::Capture) Event.CaptureDeviceId = Device->GetPrimaryAssetId();
 	}
 	// Switching takes precedence over attacks; the remaining attack targets the incoming creature.
 	for (int32 Index = 0; Index < 2; ++Index)
@@ -207,6 +222,33 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
 		: Next.SideA.CalculatedStats.Speed >= Next.SideB.CalculatedStats.Speed);
 	const int32 Order[2] = {bAFirst ? 0 : 1, bAFirst ? 1 : 0};
 	FRandomStream NextRandom = Random;
+	// A capture attempt is the player's entire turn and resolves before the wild creature attacks.
+	if (ChoiceA.Type == EPokeMonsterBattleChoiceType::Capture)
+	{
+		const auto* Species = Next.SideB.Species.LoadSynchronous();
+		const float Chance = FPokeMonsterCaptureLibrary::CalculateChance(Next.SideB.CurrentHP,
+			Next.SideB.GetMaxHP(), Species->GetBaseCaptureRate(), Device->GetCaptureBonus());
+		const int32 Roll = NextRandom.RandRange(0, 9999);
+		const bool bCaught = FPokeMonsterCaptureLibrary::CheckCapture(Chance, Roll);
+		auto& Event = AddEvent(Result, Next, bCaught ? EEvent::CaptureSucceeded : EEvent::CaptureFailed, ESide::A);
+		Event.CaptureDeviceId = Device->GetPrimaryAssetId();
+		Event.CaptureChance = Chance;
+		Event.CaptureRoll = Roll;
+		if (bCaught)
+		{
+			Next.CapturedCreature = Next.SideB;
+			Next.Phase = EPhase::Finished;
+			Next.Winner = ESide::A;
+			Next.EndReason = EPokeMonsterBattleEndReason::Captured;
+			AddEvent(Result, Next, EEvent::BattleEnded, ESide::A);
+			SyncActive(Next);
+			State = MoveTemp(Next);
+			Random = NextRandom;
+			Result.bSucceeded = true;
+			Result.Winner = State.Winner;
+			return Result;
+		}
+	}
 	for (const int32 Index : Order)
 	{
 		if (!Moves[Index]) continue;
@@ -252,6 +294,7 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
 			{
 				Next.Phase = EPhase::Finished;
 				Next.Winner = Side;
+				Next.EndReason = EPokeMonsterBattleEndReason::Knockout;
 				AddEvent(Result, Next, EEvent::BattleEnded, Side);
 			}
 			else Next.Phase = EPhase::AwaitingSwitch;

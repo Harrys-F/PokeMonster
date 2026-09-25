@@ -276,6 +276,15 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Sichtbare Kreatur und einmalig auslösende Testzone in `Dev_TestMap` übergeben ihre Gegner an das bestehende `PokeMonsterEncounterSubsystem`. Es unterscheidet Quellen strukturiert, während BattleSession, UI und Overworld-Rückkehr gemeinsam bleiben. Script-/Story- und spätere Zufallsquellen sind technisch vorgesehen, aber noch nicht als Gameplay umgesetzt.
 - Der sichtbare Actor verwendet vorerst ein vorhandenes Paper2D-Platzhalter-Sprite und kann nach Sieg deaktiviert werden. Die Zone löst nur kontrolliert und mit festem Seed aus. Beide nutzen vorläufig das vorhandene Testteam, wenn noch kein Spielerteam existiert. Das ist keine Entscheidung über spätere Spawn-, Tageszeit-, Fang- oder Zufallsregeln.
 
+## 2026-09-25 – Erster Fangprototyp für Wildkämpfe
+
+**Status: Funktionaler Testablauf; Fangbalancing, Inventar und Reserve bleiben offen**
+
+- Die bisherige Aussage „keine Fangmechanik“ in den Entscheidungen zu Battle Flow, Team und Overworld-Begegnung ist durch diesen Prototyp **ersetzt**. `Capture` ist eine eigene BattleSession-Zugwahl ausschließlich für Wildkämpfe. Ein gültiger Versuch kostet den Zug; bei Erfolg endet der Kampf sofort, bei Fehlschlag darf der Gegner angreifen.
+- Spezies erhalten einen gemeinsamen Basis-Fangwert, das eigenständige `TestCaptureDevice` einen konfigurierbaren Bonus. Aktuelle/maximale HP und ein Seed bestimmen die technische Testchance. Diese Formel und der vorläufig unbegrenzt verfügbare Testgegenstand legen keine endgültige Fang- oder Inventarökonomie fest.
+- `Captured` ist ein eigenständiger Kampf- und Encounter-Ausgang. Das gefangene individuelle Exemplar geht mit Level, HP und PP in ein Team mit freiem Platz über. Bei sechs Mitgliedern meldet das Ergebnis `TeamFull` und trägt die Kreatur für eine spätere Reserveübergabe; ein dauerhaftes Storage-System gibt es noch nicht. Der sichtbare Wildactor wird nach Fang deaktiviert.
+- Die bestehende Battle-UI erhält nur eine kleine `Fangen`-Aktion und Ereignispräsentation. Weltkamera, Map, Kampf-Schadensberechnung und andere Spielsysteme bleiben unverändert.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname

@@ -89,13 +89,22 @@ bool UPokeMonsterBattlePresenter::InitializeBattle(const FPokeMonsterCreatureIns
 }
 
 bool UPokeMonsterBattlePresenter::InitializeTeamBattle(const TArray<FPokeMonsterCreatureInstance>& Player,
-	const TArray<FPokeMonsterCreatureInstance>& Opponent, const int32 Seed)
+	const TArray<FPokeMonsterCreatureInstance>& Opponent, const int32 Seed, bool bAllowCapture)
 {
 	if (bBusy) return false;
+	TestCaptureDevice = bAllowCapture ? LoadObject<UPokeMonsterCaptureDeviceData>(nullptr,
+		TEXT("/Game/Data/Capture/DA_TestCaptureDevice.DA_TestCaptureDevice")) : nullptr;
+	if (bAllowCapture && (!TestCaptureDevice || !TestCaptureDevice->IsConfigured()))
+	{
+		Problem = TEXT("Test-Fangitem fehlt oder ist ungültig.");
+		Refresh();
+		return false;
+	}
 	Session = NewObject<UPokeMonsterBattleSession>(this);
-	LastResult = Session->InitializeTeams(Player, Opponent, Seed);
+	LastResult = Session->InitializeTeams(Player, Opponent, Seed, bAllowCapture);
 	PendingSlot = INDEX_NONE;
 	bPendingSwitch = false;
+	bPendingCapture = false;
 	bResolved = false;
 	LogLines.Reset();
 	Problem.Reset();
@@ -139,9 +148,25 @@ bool UPokeMonsterBattlePresenter::TrySelectMove(const int32 Slot)
 		|| !CanUse(Session->GetState().SideA, Slot) || ChooseOpponentMove() == INDEX_NONE) return false;
 	PendingSlot = Slot;
 	bPendingSwitch = false;
+	bPendingCapture = false;
 	bBusy = true;
 	bResolved = false;
 	Refresh(); // Close the input gate before the controller schedules presentation.
+	return true;
+}
+
+bool UPokeMonsterBattlePresenter::TrySelectCapture()
+{
+	if (bBusy || !Session || !TestCaptureDevice || !TestCaptureDevice->IsConfigured()
+		|| !Session->GetState().bCaptureAllowed
+		|| Session->GetState().Phase != EPokeMonsterBattlePhase::AwaitingChoices
+		|| ChooseOpponentMove() == INDEX_NONE) return false;
+	PendingSlot = 0;
+	bPendingCapture = true;
+	bPendingSwitch = false;
+	bBusy = true;
+	bResolved = false;
+	Refresh();
 	return true;
 }
 
@@ -157,6 +182,7 @@ bool UPokeMonsterBattlePresenter::TrySelectSwitch(const int32 TeamIndex)
 		return false;
 	PendingSlot = TeamIndex;
 	bPendingSwitch = true;
+	bPendingCapture = false;
 	bBusy = true;
 	bResolved = false;
 	Refresh();
@@ -167,7 +193,15 @@ bool UPokeMonsterBattlePresenter::ResolveSelection()
 {
 	if (!bBusy || bResolved || !Session || PendingSlot == INDEX_NONE) return false;
 	bResolved = true; // Reject re-entry from callbacks and duplicate resolution.
-	if (bPendingSwitch)
+	if (bPendingCapture)
+	{
+		FPokeMonsterBattleChoice A, B;
+		A.Type = EPokeMonsterBattleChoiceType::Capture;
+		A.CaptureDevice = TestCaptureDevice;
+		B.Index = ChooseOpponentMove();
+		LastResult = Session->ResolveTurn(A, B);
+	}
+	else if (bPendingSwitch)
 	{
 		if (Session->GetState().Phase == EPokeMonsterBattlePhase::AwaitingSwitch)
 			LastResult = Session->ForceSwitch(EPokeMonsterBattleSide::A, PendingSlot);
@@ -213,6 +247,7 @@ void UPokeMonsterBattlePresenter::FinishPresentation()
 	bBusy = false;
 	PendingSlot = INDEX_NONE;
 	bPendingSwitch = false;
+	bPendingCapture = false;
 	Refresh();
 }
 
@@ -230,6 +265,11 @@ void UPokeMonsterBattlePresenter::Refresh()
 		View.Opponent = CreatureView(State.SideB);
 		View.Round = State.RoundNumber;
 		View.bFinished = State.Phase == EPokeMonsterBattlePhase::Finished;
+		View.bCaptured = State.EndReason == EPokeMonsterBattleEndReason::Captured;
+		View.bCaptureEnabled = State.bCaptureAllowed && TestCaptureDevice && !bBusy
+			&& !View.bFinished && State.Phase == EPokeMonsterBattlePhase::AwaitingChoices
+			&& ChooseOpponentMove() != INDEX_NONE;
+		View.CaptureDeviceName = TestCaptureDevice ? TestCaptureDevice->GetDisplayName() : FText::GetEmpty();
 		View.bMustSwitch = State.Phase == EPokeMonsterBattlePhase::AwaitingSwitch && State.SideA.CurrentHP == 0;
 		for (int32 SideIndex = 0; SideIndex < 2; ++SideIndex)
 		{
@@ -264,11 +304,14 @@ void UPokeMonsterBattlePresenter::Refresh()
 			bAnyPlayerMove |= bUsable;
 			MoveView.bEnabled = bUsable && bEnemyReady && !bBusy && !View.bFinished && !View.bMustSwitch;
 		}
-		if (View.bFinished) View.Status = FText::FromString(State.Winner == EPokeMonsterBattleSide::A ? TEXT("Gewonnen! Der Kampf ist beendet.") : TEXT("Besiegt. Der Kampf ist beendet."));
+		if (View.bFinished) View.Status = FText::FromString(State.EndReason == EPokeMonsterBattleEndReason::Captured
+			? TEXT("Gefangen! Der Kampf ist beendet.")
+			: State.Winner == EPokeMonsterBattleSide::A ? TEXT("Gewonnen! Der Kampf ist beendet.") : TEXT("Besiegt. Der Kampf ist beendet."));
 		else if (bBusy) View.Status = FText::FromString(TEXT("Runde wird aufgelöst …"));
 		else if (View.bMustSwitch) View.Status = FText::FromString(TEXT("K.O. – wähle ein kampffähiges Teammitglied."));
 		else if (!bEnemyReady || !bAnyPlayerMove) View.Status = FText::FromString(TEXT("Keine gültige Attacke mehr verfügbar. Test neu starten."));
-		else if (Problem.IsEmpty()) View.Status = FText::FromString(TEXT("Wähle eine Attacke."));
+		else if (Problem.IsEmpty()) View.Status = FText::FromString(State.bCaptureAllowed
+			? TEXT("Wähle eine Aktion.") : TEXT("Wähle eine Attacke."));
 	}
 	if (LogLines.Num() > 80) LogLines.RemoveAt(0, LogLines.Num() - 80);
 	View.Log = FText::FromString(FString::Join(LogLines, TEXT("\n")));
@@ -280,7 +323,8 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
 	bool bNewRound = false;
 	for (const auto& Event : Result.Events)
 		bNewRound |= Event.Type == EPokeMonsterBattleEventType::MoveChosen
-			|| Event.Type == EPokeMonsterBattleEventType::SwitchChosen;
+			|| Event.Type == EPokeMonsterBattleEventType::SwitchChosen
+			|| Event.Type == EPokeMonsterBattleEventType::CaptureChosen;
 	if (bNewRound) LogLines.Add(FString::Printf(TEXT("— Runde %d —"), Result.RoundNumber));
 	const auto& State = Session->GetState();
 	for (int32 EventIndex = 0; EventIndex < Result.Events.Num(); ++EventIndex)
@@ -297,6 +341,9 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
 		{
 		case EPokeMonsterBattleEventType::MoveChosen: break; // Execution describes the choice in the compact log.
 		case EPokeMonsterBattleEventType::SwitchChosen: break;
+		case EPokeMonsterBattleEventType::CaptureChosen: LogLines.Add(TEXT("Fangversuch gestartet.")); break;
+		case EPokeMonsterBattleEventType::CaptureSucceeded: LogLines.Add(Other + TEXT(" wurde gefangen!")); break;
+		case EPokeMonsterBattleEventType::CaptureFailed: LogLines.Add(TEXT("Die wilde Kreatur entkommt!")); break;
 		case EPokeMonsterBattleEventType::SwitchedIn:
 			LogLines.Add(Who + TEXT(" wird eingewechselt."));
 			break;
@@ -314,7 +361,9 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
 		case EPokeMonsterBattleEventType::NotVeryEffective: LogLines.Add(TEXT("Nicht sehr effektiv.")); break;
 		case EPokeMonsterBattleEventType::Immune: LogLines.Add(Other + TEXT(" ist immun.")); break;
 		case EPokeMonsterBattleEventType::KnockedOut: LogLines.Add(Other + TEXT(" ist K.O.!")); break;
-		case EPokeMonsterBattleEventType::BattleEnded: LogLines.Add(Event.Source == EPokeMonsterBattleSide::A ? TEXT("Gewonnen! Kampf beendet.") : TEXT("Besiegt. Kampf beendet.")); break;
+		case EPokeMonsterBattleEventType::BattleEnded: LogLines.Add(State.EndReason == EPokeMonsterBattleEndReason::Captured
+			? TEXT("Gefangen! Kampf beendet.") : Event.Source == EPokeMonsterBattleSide::A
+				? TEXT("Gewonnen! Kampf beendet.") : TEXT("Besiegt. Kampf beendet.")); break;
 		}
 	}
 }

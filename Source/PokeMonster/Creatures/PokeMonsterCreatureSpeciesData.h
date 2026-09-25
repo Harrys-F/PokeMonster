@@ -26,6 +26,9 @@ public:
 	int32 GetPokedexNumber() const { return PokedexNumber; }
 
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Creature")
+	int32 GetBaseCaptureRate() const { return BaseCaptureRate; }
+
+	UFUNCTION(BlueprintPure, Category = "PokeMonster|Creature")
 	EPokeMonsterCreatureType GetPrimaryType() const { return PrimaryType; }
 
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Creature")
@@ -58,6 +61,10 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Identity", meta = (AllowPrivateAccess = "true", ClampMin = "1"))
 	int32 PokedexNumber = 1;
+
+	/** Prototype capture rate (1-255); species-wide, never stored on an individual creature. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Capture", meta = (AllowPrivateAccess = "true", ClampMin = "1", ClampMax = "255"))
+	int32 BaseCaptureRate = 120;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Typing", meta = (AllowPrivateAccess = "true"))
 	EPokeMonsterCreatureType PrimaryType = EPokeMonsterCreatureType::Normal;

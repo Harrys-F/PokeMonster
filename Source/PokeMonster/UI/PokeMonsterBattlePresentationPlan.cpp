@@ -6,6 +6,17 @@ TArray<FPokeMonsterPresentationAction> UPokeMonsterBattlePresentationPlan::Build
 	if (!Result.bSucceeded) return Actions;
 	for (const FPokeMonsterBattleEvent& Event : Result.Events)
 	{
+		if (Event.Type == EPokeMonsterBattleEventType::CaptureSucceeded
+			|| Event.Type == EPokeMonsterBattleEventType::CaptureFailed)
+		{
+			FPokeMonsterPresentationAction& Action = Actions.AddDefaulted_GetRef();
+			Action.bCapture = true;
+			Action.bCaptureSucceeded = Event.Type == EPokeMonsterBattleEventType::CaptureSucceeded;
+			Action.CaptureDeviceId = Event.CaptureDeviceId;
+			Action.Source = Event.Source;
+			Action.Target = Event.Target;
+			continue;
+		}
 		if (Event.Type == EPokeMonsterBattleEventType::SwitchedIn)
 		{
 			FPokeMonsterPresentationAction& Action = Actions.AddDefaulted_GetRef();

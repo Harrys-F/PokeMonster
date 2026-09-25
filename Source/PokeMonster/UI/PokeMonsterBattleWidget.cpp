@@ -104,6 +104,11 @@ void UPokeMonsterBattleWidget::BuildDefaultTree()
 	TintButton(RestartButton,FLinearColor(0.35f,0.39f,0.30f));
 	RestartButton->AddChild(Text(WidgetTree,NAME_None,TEXT("Neu beginnen"),15,Ink));
 	Place(Canvas,RestartButton,1087,27,165,43);
+	CaptureButton = WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(), TEXT("CaptureButton"));
+	TintButton(CaptureButton,FLinearColor(0.32f,0.43f,0.38f));
+	CaptureButton->AddChild(Text(WidgetTree,NAME_None,TEXT("Fangen"),16,Ink));
+	Place(Canvas,CaptureButton,1087,27,165,43);
+	CaptureButton->SetVisibility(ESlateVisibility::Collapsed);
 
 	Shape(WidgetTree,Canvas,185,448,387,44,FLinearColor(0.02f,0.04f,0.03f,0.27f),22);
 	Shape(WidgetTree,Canvas,865,368,224,27,FLinearColor(0.02f,0.04f,0.03f,0.25f),14);
@@ -181,6 +186,7 @@ void UPokeMonsterBattleWidget::BindControls()
 	PlayerKO=Cast<UTextBlock>(GetWidgetFromName(TEXT("PlayerKO"))); OpponentKO=Cast<UTextBlock>(GetWidgetFromName(TEXT("OpponentKO")));
 	PlayerFigure=GetWidgetFromName(TEXT("PlayerFigure")); OpponentFigure=GetWidgetFromName(TEXT("OpponentFigure"));
 	RestartButton=Cast<UButton>(GetWidgetFromName(TEXT("RestartButton")));
+	CaptureButton=Cast<UButton>(GetWidgetFromName(TEXT("CaptureButton")));
 	BattleEffect=Cast<UImage>(GetWidgetFromName(TEXT("BattleEffect")));
 	FeedbackLabel=Cast<UTextBlock>(GetWidgetFromName(TEXT("FeedbackLabel")));
 	Buttons.Reset(); MoveLabels.Reset(); MoveTypeLabels.Reset(); MovePPLabels.Reset(); MoveTypeAccents.Reset();
@@ -211,6 +217,7 @@ void UPokeMonsterBattleWidget::BindControls()
 	if(TeamButtons[4]) TeamButtons[4]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Team4);
 	if(TeamButtons[5]) TeamButtons[5]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Team5);
 	if(RestartButton) RestartButton->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Restart);
+	if(CaptureButton) CaptureButton->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Capture);
 }
 
 void UPokeMonsterBattleWidget::NativeConstruct()
@@ -243,6 +250,7 @@ void UPokeMonsterBattleWidget::SetEncounterOverlay(const bool bEnabled)
 {
 	bEncounterOverlay = bEnabled;
 	if (RestartButton) RestartButton->SetVisibility(bEncounterOverlay ? ESlateVisibility::Collapsed : ESlateVisibility::Visible);
+	if (CaptureButton) CaptureButton->SetVisibility(ESlateVisibility::Collapsed);
 }
 
 void UPokeMonsterBattleWidget::SetPresenter(UPokeMonsterBattlePresenter* InPresenter)
@@ -285,6 +293,11 @@ void UPokeMonsterBattleWidget::Refresh()
 	{
 		SetCreature(View.Player,PlayerName,PlayerHP,PlayerBar,PlayerKO,PlayerFigure);
 		SetCreature(View.Opponent,OpponentName,OpponentHP,OpponentBar,OpponentKO,OpponentFigure);
+		if (View.bCaptured)
+		{
+			if (OpponentFigure) OpponentFigure->SetRenderOpacity(0.0f);
+			if (OpponentKO) OpponentKO->SetVisibility(ESlateVisibility::Collapsed);
+		}
 		if(StatusLabel) StatusLabel->SetText(View.Status);
 		if(LogLabel) LogLabel->SetText(View.Log);
 		if(LogScroll) LogScroll->ScrollToEnd();
@@ -297,6 +310,12 @@ void UPokeMonsterBattleWidget::Refresh()
 	{
 		RestartButton->SetVisibility(bEncounterOverlay ? ESlateVisibility::Collapsed : ESlateVisibility::Visible);
 		RestartButton->SetIsEnabled(!View.bBusy && !bEncounterOverlay);
+	}
+	if (CaptureButton)
+	{
+		CaptureButton->SetVisibility(bEncounterOverlay && View.CaptureDeviceName.IsEmpty() == false
+			? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
+		CaptureButton->SetIsEnabled(View.bCaptureEnabled && !bHoldVisuals);
 	}
 	for(int32 I=0;I<6;++I)
 	{
@@ -360,7 +379,8 @@ void UPokeMonsterBattleWidget::RoundResolved(const FPokeMonsterBattleResult& Res
 	ActionIndex = 0;
 	for (const auto& Event : Result.Events)
 		if (Event.Type == EPokeMonsterBattleEventType::MoveChosen
-			|| Event.Type == EPokeMonsterBattleEventType::SwitchChosen)
+			|| Event.Type == EPokeMonsterBattleEventType::SwitchChosen
+			|| Event.Type == EPokeMonsterBattleEventType::CaptureChosen)
 		{
 			AppendPresentationLog(FString::Printf(TEXT("— Runde %d —"), Result.RoundNumber));
 			break;
@@ -407,6 +427,14 @@ void UPokeMonsterBattleWidget::ChooseSwitch(int32 TeamIndex)
 	if (auto* PC = Cast<APokeMonsterBattleTestController>(GetOwningPlayer()))
 		if (PC->ChooseSwitch(TeamIndex) && StatusLabel)
 			StatusLabel->SetText(FText::FromString(TEXT("Wechsel gewählt …")));
+}
+
+void UPokeMonsterBattleWidget::ChooseCapture()
+{
+	if (!bEncounterOverlay || !Presenter || !GetWorld() || !Presenter->TrySelectCapture()) return;
+	if (StatusLabel) StatusLabel->SetText(FText::FromString(TEXT("Fangversuch gewählt …")));
+	GetWorld()->GetTimerManager().SetTimer(OverlayRoundTimer, this,
+		&UPokeMonsterBattleWidget::ResolveOverlaySelection, 0.22f, false);
 }
 
 void UPokeMonsterBattleWidget::ResolveOverlaySelection()
@@ -479,6 +507,13 @@ void UPokeMonsterBattleWidget::BeginAction()
 		BeginPhase(EPresentationPhase::Windup);
 		return;
 	}
+	if (Action.bCapture)
+	{
+		AppendPresentationLog(TEXT("Fangversuch gestartet."));
+		if (StatusLabel) StatusLabel->SetText(FText::FromString(TEXT("Fangversuch …")));
+		BeginPhase(EPresentationPhase::Windup);
+		return;
+	}
 	AppendPresentationLog(NameFor(Action.Source) + TEXT(" setzt ") + MoveNameFor(Action) + TEXT(" ein."));
 	if (StatusLabel) StatusLabel->SetText(FText::FromString(NameFor(Action.Source) + TEXT(" setzt ") + MoveNameFor(Action) + TEXT(" ein …")));
 	BeginPhase(EPresentationPhase::Windup);
@@ -498,11 +533,12 @@ void UPokeMonsterBattleWidget::BeginPhase(EPresentationPhase NewPhase)
 	}
 	else if (NewPhase == EPresentationPhase::Travel && BattleEffect)
 	{
-		const bool bPhysical = Action.Category == EPokeMonsterMoveCategory::Physical;
+		const bool bPhysical = Action.Category == EPokeMonsterMoveCategory::Physical && !Action.bCapture;
 		const bool bStatus = Action.Category == EPokeMonsterMoveCategory::Status;
 		if (auto* Slot = Cast<UCanvasPanelSlot>(BattleEffect->Slot))
 			Slot->SetSize(bPhysical ? FVector2D(84,18) : bStatus ? FVector2D(74,74) : FVector2D(56,56));
-		const FLinearColor Color = bPhysical ? FLinearColor(0.90f,0.81f,0.58f,0.88f)
+		const FLinearColor Color = Action.bCapture ? FLinearColor(0.71f,0.80f,0.58f,0.91f)
+			: bPhysical ? FLinearColor(0.90f,0.81f,0.58f,0.88f)
 			: bStatus ? FLinearColor(0.50f,0.71f,0.53f,0.52f) : FLinearColor(0.92f,0.51f,0.29f,0.85f);
 		BattleEffect->SetBrush(FSlateRoundedBoxBrush(Color,bPhysical ? 9.0f : 37.0f));
 		BattleEffect->SetVisibility(ESlateVisibility::HitTestInvisible);
@@ -529,6 +565,12 @@ void UPokeMonsterBattleWidget::BeginPhase(EPresentationPhase NewPhase)
 				Figure->SetRenderOpacity(1.0f);
 			}
 		}
+		if (Action.bCapture && FeedbackLabel)
+		{
+			FeedbackLabel->SetText(FText::FromString(Action.bCaptureSucceeded ? TEXT("GEFANGEN") : TEXT("ENTKOMMEN")));
+			if (auto* Slot = Cast<UCanvasPanelSlot>(FeedbackLabel->Slot)) Slot->SetPosition(FVector2D(856,225));
+			FeedbackLabel->SetVisibility(ESlateVisibility::HitTestInvisible);
+		}
 		if (Action.Outcome == EPokeMonsterPresentationOutcome::Miss || Action.Outcome == EPokeMonsterPresentationOutcome::Immune)
 		{
 			if (FeedbackLabel)
@@ -543,7 +585,14 @@ void UPokeMonsterBattleWidget::BeginPhase(EPresentationPhase NewPhase)
 				? TEXT("Die Attacke verfehlt ihr Ziel.") : TEXT("Keine Wirkung: Das Ziel ist immun.")));
 		}
 	}
-	if (NewPhase == EPresentationPhase::Message && !Action.bSwitch)
+	if (NewPhase == EPresentationPhase::Message && Action.bCapture)
+	{
+		const FString Line = Action.bCaptureSucceeded ? NameFor(Action.Target) + TEXT(" wurde gefangen!")
+			: TEXT("Die wilde Kreatur entkommt!");
+		AppendPresentationLog(Line);
+		if (StatusLabel) StatusLabel->SetText(FText::FromString(Line));
+	}
+	else if (NewPhase == EPresentationPhase::Message && !Action.bSwitch)
 	{
 		if (FeedbackLabel) FeedbackLabel->SetVisibility(ESlateVisibility::Collapsed);
 		if (auto* Target = FigureFor(Action.Target)) Target->SetRenderTranslation(FVector2D::ZeroVector);
@@ -623,7 +672,7 @@ void UPokeMonsterBattleWidget::TickPresentation()
 			Target->SetRenderTranslation(FVector2D(0,30*Alpha));
 			Target->SetRenderOpacity(1.0f-0.70f*Alpha);
 		}
-		if (Alpha > 0.6f)
+		if (Alpha > 0.6f && !Action.bCapture)
 		{
 			auto* KO = Action.Target == EPokeMonsterBattleSide::A ? PlayerKO.Get() : OpponentKO.Get();
 			if (KO) KO->SetVisibility(ESlateVisibility::HitTestInvisible);
@@ -645,9 +694,9 @@ void UPokeMonsterBattleWidget::AdvancePhase()
 		SetPresentedHP(Action.Target,Action.HPAfter);
 		BeginPhase(EPresentationPhase::Message); break;
 	case EPresentationPhase::Message:
-		BeginPhase(Action.bKnockedOut ? EPresentationPhase::KO : EPresentationPhase::Gap); break;
+		BeginPhase(Action.bKnockedOut || Action.bCaptureSucceeded ? EPresentationPhase::KO : EPresentationPhase::Gap); break;
 	case EPresentationPhase::KO:
-		AppendPresentationLog(NameFor(Action.Target) + TEXT(" ist K.O.!"));
+		if (!Action.bCapture) AppendPresentationLog(NameFor(Action.Target) + TEXT(" ist K.O.!"));
 		BeginPhase(EPresentationPhase::Gap); break;
 	case EPresentationPhase::Gap:
 		++ActionIndex;
@@ -664,8 +713,8 @@ void UPokeMonsterBattleWidget::EndPresentation()
 	if (!PresentationActions.IsEmpty())
 	{
 		const auto& Last = PresentationActions.Last();
-		if (Last.bBattleEnded) AppendPresentationLog(Last.Source == EPokeMonsterBattleSide::A
-			? TEXT("Gewonnen! Kampf beendet.") : TEXT("Besiegt. Kampf beendet."));
+		if (Last.bBattleEnded) AppendPresentationLog(Last.bCaptureSucceeded ? TEXT("Gefangen! Kampf beendet.")
+			: Last.Source == EPokeMonsterBattleSide::A ? TEXT("Gewonnen! Kampf beendet.") : TEXT("Besiegt. Kampf beendet."));
 		OnBattlePresentationStep(Last,TEXT("Complete"));
 	}
 	bPresenting = false;
@@ -696,3 +745,4 @@ void UPokeMonsterBattleWidget::Team0(){ChooseSwitch(0);} void UPokeMonsterBattle
 void UPokeMonsterBattleWidget::Team2(){ChooseSwitch(2);} void UPokeMonsterBattleWidget::Team3(){ChooseSwitch(3);}
 void UPokeMonsterBattleWidget::Team4(){ChooseSwitch(4);} void UPokeMonsterBattleWidget::Team5(){ChooseSwitch(5);}
 void UPokeMonsterBattleWidget::Restart(){if(auto* PC=Cast<APokeMonsterBattleTestController>(GetOwningPlayer())) PC->RestartBattle();}
+void UPokeMonsterBattleWidget::Capture(){ChooseCapture();}

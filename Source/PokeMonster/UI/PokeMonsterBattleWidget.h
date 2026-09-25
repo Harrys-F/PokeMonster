@@ -23,6 +23,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Battle UI") void SetPresenter(UPokeMonsterBattlePresenter* InPresenter);
 	UFUNCTION(BlueprintPure, Category="Battle UI") UButton* GetAttackButton(int32 SlotIndex) const;
 	UFUNCTION(BlueprintPure, Category="Battle UI") UButton* GetSwitchButton(int32 TeamIndex) const;
+	UFUNCTION(BlueprintPure, Category="Battle UI") UButton* GetCaptureButton() const { return CaptureButton; }
 	/** Reuses this presentation in the loaded overworld, without the test-map restart control. */
 	void SetEncounterOverlay(bool bEnabled);
 protected:
@@ -39,6 +40,7 @@ private:
 	void BindControls();
 	void Choose(int32 Slot);
 	void ChooseSwitch(int32 TeamIndex);
+	void ChooseCapture();
 	void ResolveOverlaySelection();
 	void BeginAction();
 	void BeginPhase(EPresentationPhase NewPhase);
@@ -64,6 +66,7 @@ private:
 	UFUNCTION() void Team4();
 	UFUNCTION() void Team5();
 	UFUNCTION() void Restart();
+	UFUNCTION() void Capture();
 	UPROPERTY(Transient) TObjectPtr<UPokeMonsterBattlePresenter> Presenter;
 	UPROPERTY(Transient) TArray<TObjectPtr<UButton>> Buttons;
 	UPROPERTY(Transient) TArray<TObjectPtr<UTextBlock>> MoveLabels;
@@ -88,6 +91,7 @@ private:
 	UPROPERTY(Transient) TObjectPtr<UWidget> PlayerFigure;
 	UPROPERTY(Transient) TObjectPtr<UWidget> OpponentFigure;
 	UPROPERTY(Transient) TObjectPtr<UButton> RestartButton;
+	UPROPERTY(Transient) TObjectPtr<UButton> CaptureButton;
 	UPROPERTY(Transient) TObjectPtr<UImage> BattleEffect;
 	UPROPERTY(Transient) TObjectPtr<UTextBlock> FeedbackLabel;
 	TArray<FPokeMonsterPresentationAction> PresentationActions;

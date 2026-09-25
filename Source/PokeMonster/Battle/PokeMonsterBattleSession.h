@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "PokeMonsterBattleLibrary.h"
+#include "../Capture/PokeMonsterCaptureDeviceData.h"
 #include "PokeMonsterBattleSession.generated.h"
 
 UENUM(BlueprintType)
@@ -16,18 +17,22 @@ enum class EPokeMonsterBattleError : uint8
 {
 	None, NotInitialized, AlreadyInitialized, BattleFinished, InvalidCreature, DuplicateCreature,
 	MissingSpecies, CreatureFainted, InvalidStats, InvalidSlot, MissingMove, InvalidMove,
-	NoPP, InvalidPP, InvalidDamage, RoundLimitReached, InvalidTeam, InvalidSwitch, SwitchRequired
+	NoPP, InvalidPP, InvalidDamage, RoundLimitReached, InvalidTeam, InvalidSwitch, SwitchRequired,
+	CaptureNotAllowed, InvalidCaptureDevice
 };
 
 UENUM(BlueprintType)
 enum class EPokeMonsterBattleEventType : uint8
 {
 	MoveChosen, MoveExecuted, Missed, Damage, SuperEffective, NotVeryEffective, Immune, KnockedOut, BattleEnded,
-	SwitchChosen, SwitchedIn
+	SwitchChosen, SwitchedIn, CaptureChosen, CaptureSucceeded, CaptureFailed
 };
 
 UENUM(BlueprintType)
-enum class EPokeMonsterBattleChoiceType : uint8 { Move, Switch };
+enum class EPokeMonsterBattleChoiceType : uint8 { Move, Switch, Capture };
+
+UENUM(BlueprintType)
+enum class EPokeMonsterBattleEndReason : uint8 { None, Knockout, Captured };
 
 USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterBattleChoice
@@ -38,6 +43,8 @@ struct POKEMONSTER_API FPokeMonsterBattleChoice
 	/** Move slot (0-3) or team index (0-5), depending on Type. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
 	int32 Index = INDEX_NONE;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
+	TSoftObjectPtr<UPokeMonsterCaptureDeviceData> CaptureDevice;
 };
 
 /** Ordered, self-contained event data for a future presentation layer. No UObject/world dependency. */
@@ -83,6 +90,12 @@ struct POKEMONSTER_API FPokeMonsterBattleEvent
 	int32 PPAfter = INDEX_NONE;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
 	int32 HitRoll = INDEX_NONE;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
+	FPrimaryAssetId CaptureDeviceId;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
+	float CaptureChance = 0.0f;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
+	int32 CaptureRoll = INDEX_NONE;
 };
 
 USTRUCT(BlueprintType)
@@ -110,6 +123,13 @@ struct POKEMONSTER_API FPokeMonsterBattleState
 	int32 RoundNumber = 0;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
 	EPokeMonsterBattleSide Winner = EPokeMonsterBattleSide::None;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
+	EPokeMonsterBattleEndReason EndReason = EPokeMonsterBattleEndReason::None;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
+	bool bCaptureAllowed = false;
+	/** Preserves the exact wild individual at capture time, including HP, PP and level. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
+	FPokeMonsterCreatureInstance CapturedCreature;
 };
 
 USTRUCT(BlueprintType)
@@ -145,7 +165,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "PokeMonster|Battle")
 	FPokeMonsterBattleResult InitializeTeams(const TArray<FPokeMonsterCreatureInstance>& TeamA,
-		const TArray<FPokeMonsterCreatureInstance>& TeamB, int32 RandomSeed = 0);
+		const TArray<FPokeMonsterCreatureInstance>& TeamB, int32 RandomSeed = 0,
+		bool bAllowCapture = false);
 
 	/** Both selections are validated before committing a round. No external delegates run during resolution. */
 	UFUNCTION(BlueprintCallable, Category = "PokeMonster|Battle")

@@ -104,7 +104,8 @@ bool UPokeMonsterEncounterSubsystem::StartEncounter(const FPokeMonsterEncounterS
 
 	const TArray<FPokeMonsterCreatureInstance>& Team = Start.PlayerTeam.IsEmpty() ? PlayerParty : Start.PlayerTeam;
 	UPokeMonsterBattlePresenter* NewPresenter = NewObject<UPokeMonsterBattlePresenter>(this);
-	if (!NewPresenter->InitializeTeamBattle(Team, Start.OpponentTeam, Start.RandomSeed)) return false;
+	if (!NewPresenter->InitializeTeamBattle(Team, Start.OpponentTeam, Start.RandomSeed,
+		Start.Kind == EPokeMonsterEncounterKind::Wild)) return false;
 	UPokeMonsterBattleWidget* NewWidget = CreateWidget<UPokeMonsterBattleWidget>(Controller, UPokeMonsterBattleWidget::StaticClass());
 	if (!NewWidget) return false;
 
@@ -150,7 +151,8 @@ void UPokeMonsterEncounterSubsystem::CompleteEncounter()
 	ReleaseOverworld();
 	UE_LOG(LogPokeMonsterEncounter, Display, TEXT("Encounter '%s' ended: %s, rounds: %d, party: %d."),
 		*LastResult.EncounterId.ToString(),
-		LastResult.Outcome == EPokeMonsterEncounterOutcome::Victory ? TEXT("Victory") : TEXT("Defeat"),
+		LastResult.Outcome == EPokeMonsterEncounterOutcome::Captured ? TEXT("Captured")
+			: LastResult.Outcome == EPokeMonsterEncounterOutcome::Victory ? TEXT("Victory") : TEXT("Defeat"),
 		LastResult.Rounds, PlayerParty.Num());
 	OnEncounterEnded.Broadcast(LastResult);
 }
@@ -162,10 +164,23 @@ FPokeMonsterEncounterEndData UPokeMonsterEncounterSubsystem::BuildEndData(
 	End.EncounterId = Start.EncounterId;
 	End.Kind = Start.Kind;
 	End.Source = Start.Source;
-	End.Outcome = State.Winner == EPokeMonsterBattleSide::A
-		? EPokeMonsterEncounterOutcome::Victory : EPokeMonsterEncounterOutcome::Defeat;
+	End.Outcome = State.EndReason == EPokeMonsterBattleEndReason::Captured
+		&& Start.Kind == EPokeMonsterEncounterKind::Wild
+		? EPokeMonsterEncounterOutcome::Captured
+		: State.Winner == EPokeMonsterBattleSide::A
+			? EPokeMonsterEncounterOutcome::Victory : EPokeMonsterEncounterOutcome::Defeat;
 	End.PlayerTeam = State.TeamA;
 	End.OpponentTeam = State.TeamB;
+	if (End.Outcome == EPokeMonsterEncounterOutcome::Captured)
+	{
+		End.CapturedCreature = State.CapturedCreature;
+		if (End.PlayerTeam.Num() < 6)
+		{
+			End.PlayerTeam.Add(End.CapturedCreature);
+			End.CaptureTransfer = EPokeMonsterCaptureTransfer::AddedToTeam;
+		}
+		else End.CaptureTransfer = EPokeMonsterCaptureTransfer::TeamFull;
+	}
 	End.Rounds = State.RoundNumber;
 	End.SourceActor = Start.SourceActor;
 	return End;
