@@ -35,12 +35,14 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 	TestNotNull(TEXT("The runtime input mapping context exists"), Character->DefaultMappingContext.Get());
 	TestNotNull(TEXT("The 2D move input action exists"), Character->MoveAction.Get());
 	TestNotNull(TEXT("The interaction input action exists"), Character->InteractAction.Get());
+	TestNotNull(TEXT("The overworld menu input action exists"), Character->MenuAction.Get());
 	TestEqual(TEXT("The move action uses a two-dimensional value"), Character->MoveAction->ValueType, EInputActionValueType::Axis2D);
 	TestEqual(TEXT("The interaction action uses a boolean value"), Character->InteractAction->ValueType, EInputActionValueType::Boolean);
-	TestEqual(TEXT("Movement and interaction provide ten mappings"), Character->DefaultMappingContext->GetMappings().Num(), 10);
+	TestEqual(TEXT("Movement, interaction and menu provide eleven mappings"), Character->DefaultMappingContext->GetMappings().Num(), 11);
 
 	bool bHasEInteraction = false;
 	bool bHasEnterInteraction = false;
+	bool bHasTabMenu = false;
 	for (const FEnhancedActionKeyMapping& Mapping : Character->DefaultMappingContext->GetMappings())
 	{
 		if (Mapping.Action == Character->InteractAction)
@@ -48,9 +50,12 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 			bHasEInteraction |= Mapping.Key == EKeys::E;
 			bHasEnterInteraction |= Mapping.Key == EKeys::Enter;
 		}
+		if (Mapping.Action == Character->MenuAction)
+			bHasTabMenu |= Mapping.Key == EKeys::Tab;
 	}
 	TestTrue(TEXT("E triggers the interaction action"), bHasEInteraction);
 	TestTrue(TEXT("Enter triggers the interaction action"), bHasEnterInteraction);
+	TestTrue(TEXT("Tab triggers the overworld menu"), bHasTabMenu);
 	TestTrue(TEXT("The interaction range remains short"), Character->InteractionRange > 0.0f && Character->InteractionRange <= 250.0f);
 	TestTrue(TEXT("The interaction trace has a useful radius"), Character->InteractionTraceRadius > 0.0f);
 	TestTrue(TEXT("The test actor implements the generic interaction interface"),

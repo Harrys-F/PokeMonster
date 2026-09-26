@@ -257,7 +257,7 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 
 - Die BattleSession hält bis zu sechs individuelle Kreaturen je Seite und genau eine aktive. Der bisherige `Initialize`-/`ResolveRound`-Pfad bleibt als Ein-Kreaturen-Fall gültig. HP, PP und Level gehören weiter zum jeweiligen Exemplar und bleiben beim Wechsel erhalten.
 - Ein freiwilliger Wechsel ist die Aktion der wechselnden Seite für diese Runde. Wechsel werden vor Attacken ausgeführt; eine gegnerische Attacke trifft deshalb die eingewechselte Kreatur. Bei K.O. ohne verbleibendes kampffähiges Teammitglied endet der Kampf. Andernfalls ist ein Ersatzwechsel nötig; dieser Pflichtwechsel kostet keinen zusätzlichen Zug. Die Testgegnerseite nimmt den nächsten kampffähigen Teamplatz automatisch.
-- `SwitchChosen` und `SwitchedIn` ergänzen die geordneten BattleEvents. Die vorhandene Präsentationsschicht zeigt den Wechsel als eigene Aktion und hält die Eingabe bis zum Abschluss gesperrt. Die Battle-Testmap zeigt beide Teams und ermöglicht dem Spieler freiwillige und erzwungene Wechsel. Sie verwendet für Teammitglieder vorhandene Test-Spezies und Platzhaltergrafiken; finale Artworks und Team-Menüs sind offen.
+- `SwitchChosen` und `SwitchedIn` ergänzen die geordneten BattleEvents. Die vorhandene Präsentationsschicht zeigt den Wechsel als eigene Aktion und hält die Eingabe bis zum Abschluss gesperrt. Die Battle-Testmap zeigt beide Teams und ermöglicht dem Spieler freiwillige und erzwungene Wechsel. Sie verwendet für Teammitglieder vorhandene Test-Spezies und Platzhaltergrafiken; finale Artworks und komplexe Team-Menüs sind offen. **Ersetzt:** Eine erste einfache Team-Ansicht in der Overworld ist seit der UI-Entscheidung unten vorhanden.
 - Schadensformel, Attackendaten, Typentabelle, Status-Platzhalter sowie Player-, Weltkamera- und Map-Systeme werden nicht geändert. Items, Fangmechanik und Statuszustände bleiben ausgenommen.
 
 ## 2026-09-25 – Erster Overworld-Kampfübergang
@@ -309,6 +309,14 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Die bisherigen Aussagen „noch kein Speichersystem“ bei Kreaturenfortschritt, Inventar und Trainerstatus sind für diesen ersten Test **ersetzt**. Ein zentrales Unreal-`USaveGame` mit Schema-Version 1 und ein Game-Instance-Save-Subsystem speichern in `PokeMonster_Dev` Teamzustand, XP, HP, Moveslots/PP, Inventarstapel, besiegte Trainer-IDs und abgeschlossene sichtbare bzw. zonenbasierte Testbegegnungen.
 - Assetdefinitionen bleiben datengetrieben. Der Spielstand enthält nur stabile Primary Asset IDs; beim Laden werden die Assets aufgelöst und individuelle Werte validiert. Fehlende Assets und unbekannte/inkompatible Versionen führen zu einer klaren Ablehnung ohne teilweisen Austausch des Runtime-Zustands. Spätere Migrationen sind an der Schema-Prüfung vorgesehen, aber noch nicht entschieden.
 - Ein einzelner Dev-Slot und Konsolenbefehle dienen der Prüfung. Mehrere Spielstände, Speicheroberfläche, Autosave, Cloud-Synchronisation und endgültige Regeln für Weltzustände sind nicht beschlossen. Save-Dateien liegen außerhalb der Git-Historie unter `Saved/SaveGames`.
+
+## 2026-09-26 – Erste Overworld-UI
+
+**Status: Funktionales HUD und Ansichtsmenü; finale Menügestaltung und Item-Bedienung offen**
+
+- Die normale Test-Overworld erhält einen eigenen PlayerController für das HUD. Die Battle-Testmap bleibt unabhängig. Team und Inventar werden ausschließlich aus den vorhandenen Subsystemen gelesen; ihre Gameplay-Logik wird nicht in Widgets kopiert. Ein vorhandenes Entwicklungsteam macht das HUD in `Dev_TestMap` sofort prüfbar.
+- Das kleine HUD zeigt Team-Name, Level, HP und K.O. sowie einen Zugang zur Tasche. Ein einfaches Menü zeigt Team und Inventar inklusive Kategorie und Menge. Die Darstellung nutzt zunächst UMG-Formen in ruhigen Wald- und Pergamentfarben; diese Entscheidung legt keine finalen Icons oder Menüillustrationen fest.
+- `Tab` öffnet das Menü; `Tab`, `Esc` oder der Button schließen es. Währenddessen sind Weltbewegung und Interaktion gesperrt und die UI erhält Maus-/Tastaturfokus. Während eines Encounters bleibt das Overworld-Menü geschlossen und das HUD verborgen, damit die vorhandene Battle-Präsentation allein sichtbar ist. Item-Nutzung, Team-Sortierung, Detailseiten und ein endgültiges Menüsystem bleiben offen.
 
 ## Aktuell offene Entscheidungen
 

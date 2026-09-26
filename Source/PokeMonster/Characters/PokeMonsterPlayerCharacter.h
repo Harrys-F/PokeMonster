@@ -175,6 +175,7 @@ private:
 	void Move(const FInputActionValue& Value);
 	void StopMoving(const FInputActionValue& Value);
 	void Interact(const FInputActionValue& Value);
+	void ToggleOverworldMenu(const FInputActionValue& Value);
 	void UpdateMovementInput(FVector2D NewMovementInput);
 	void RefreshCharacterVisual();
 	static FVector CalculateCameraRelativeMovement(FVector2D Input, float CameraYawDegrees);
@@ -191,6 +192,9 @@ private:
 
 	UPROPERTY(Transient)
 	TObjectPtr<UInputAction> InteractAction;
+
+	UPROPERTY(Transient)
+	TObjectPtr<UInputAction> MenuAction;
 
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = "PokeMonster|Movement", meta = (AllowPrivateAccess = "true"))
 	FVector2D MovementInput = FVector2D::ZeroVector;

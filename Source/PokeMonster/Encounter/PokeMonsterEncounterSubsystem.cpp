@@ -196,6 +196,7 @@ bool UPokeMonsterEncounterSubsystem::StartEncounter(const FPokeMonsterEncounterS
 	Controller->bShowMouseCursor = true;
 	UE_LOG(LogPokeMonsterEncounter, Display, TEXT("Encounter '%s' started in %s."),
 		*Start.EncounterId.ToString(), *World->GetName());
+	OnEncounterStarted.Broadcast();
 	return true;
 }
 

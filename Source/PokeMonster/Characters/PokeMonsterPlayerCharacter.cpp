@@ -20,6 +20,7 @@
 #include "Engine/World.h"
 #include "UObject/ConstructorHelpers.h"
 #include "../Save/PokeMonsterSaveSubsystem.h"
+#include "../UI/PokeMonsterOverworldPlayerController.h"
 
 UPaperFlipbook* FPokeMonsterDirectionalFlipbookSet::GetFlipbook(const EPokeMonsterFacingDirection Direction) const
 {
@@ -141,6 +142,10 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 	InteractAction->ValueType = EInputActionValueType::Boolean;
 	DefaultMappingContext->MapKey(InteractAction, EKeys::E);
 	DefaultMappingContext->MapKey(InteractAction, EKeys::Enter);
+
+	MenuAction = CreateDefaultSubobject<UInputAction>(TEXT("MenuAction"));
+	MenuAction->ValueType = EInputActionValueType::Boolean;
+	DefaultMappingContext->MapKey(MenuAction, EKeys::Tab);
 }
 
 void APokeMonsterPlayerCharacter::BeginPlay()
@@ -174,6 +179,7 @@ void APokeMonsterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* Pla
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &APokeMonsterPlayerCharacter::Move);
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Completed, this, &APokeMonsterPlayerCharacter::StopMoving);
 	EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &APokeMonsterPlayerCharacter::Interact);
+	EnhancedInputComponent->BindAction(MenuAction, ETriggerEvent::Started, this, &APokeMonsterPlayerCharacter::ToggleOverworldMenu);
 }
 
 void APokeMonsterPlayerCharacter::Move(const FInputActionValue& Value)
@@ -195,6 +201,12 @@ void APokeMonsterPlayerCharacter::StopMoving(const FInputActionValue& Value)
 void APokeMonsterPlayerCharacter::Interact(const FInputActionValue& Value)
 {
 	TryInteract();
+}
+
+void APokeMonsterPlayerCharacter::ToggleOverworldMenu(const FInputActionValue& Value)
+{
+	if (auto* OverworldController = Cast<APokeMonsterOverworldPlayerController>(GetController()))
+		OverworldController->ToggleMenu();
 }
 
 FVector APokeMonsterPlayerCharacter::GetInteractionWorldDirection() const

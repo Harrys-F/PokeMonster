@@ -64,6 +64,7 @@ struct POKEMONSTER_API FPokeMonsterEncounterEndData
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPokeMonsterEncounterEnded, const FPokeMonsterEncounterEndData&, Result);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPokeMonsterEncounterStarted);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPokeMonsterPersistentStateRestored);
 
 /** Keeps the loaded overworld intact while a BattleSession is presented in UMG. */
@@ -116,6 +117,7 @@ public:
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter") UPokeMonsterBattlePresenter* GetPresenter() const { return Presenter; }
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter") UPokeMonsterBattleWidget* GetBattleWidget() const { return BattleWidget; }
 	UPROPERTY(BlueprintAssignable, Category="PokeMonster|Encounter") FPokeMonsterEncounterEnded OnEncounterEnded;
+	UPROPERTY(BlueprintAssignable, Category="PokeMonster|Encounter") FPokeMonsterEncounterStarted OnEncounterStarted;
 	UPROPERTY(BlueprintAssignable, Category="PokeMonster|Encounter") FPokeMonsterPersistentStateRestored OnPersistentStateRestored;
 
 	virtual void Deinitialize() override;
@@ -125,6 +127,7 @@ private:
 	friend class FPokeMonsterEncounterIntegrationTest;
 	friend class FPokeMonsterCaptureTest;
 	friend class FPokeMonsterTrainerEncounterTest;
+	friend class FPokeMonsterOverworldUITest;
 #endif
 	static bool BuildTestTeams(TArray<FPokeMonsterCreatureInstance>& Player,
 		TArray<FPokeMonsterCreatureInstance>& Opponent);
