@@ -25,6 +25,7 @@ public:
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Wild Encounter") TSoftObjectPtr<UPokeMonsterEncounterProfile> Profile;
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Wild Encounter") FPokeMonsterEncounterContext Context;
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Wild Encounter") int32 Seed = 3817;
+	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Wild Encounter") FName EncounterId = TEXT("Dev_VisibleWild");
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Wild Encounter") bool bDeactivateAfterVictory = true;
 protected:
 	virtual void BeginPlay() override;
@@ -33,6 +34,7 @@ private:
 	UFUNCTION() void OnContact(UPrimitiveComponent* Overlapped, AActor* OtherActor,
 		UPrimitiveComponent* OtherComponent, int32 BodyIndex, bool bFromSweep, const FHitResult& Hit);
 	UFUNCTION() void OnEncounterFinished(const FPokeMonsterEncounterEndData& Result);
+	UFUNCTION() void RefreshPersistentState();
 	UPROPERTY(VisibleAnywhere) TObjectPtr<UCapsuleComponent> Body;
 	UPROPERTY(VisibleAnywhere) TObjectPtr<USphereComponent> ContactRange;
 	UPROPERTY(VisibleAnywhere) TObjectPtr<UPaperSpriteComponent> Sprite;

@@ -287,20 +287,28 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 
 ## 2026-09-26 – Erste Trainerkampf-Grundlage
 
-**Status: Funktionaler Testtrainer; dauerhafte Speicherung und weitere Trainerregeln offen**
+**Status: Funktionaler Testtrainer; die Aussage zur fehlenden dauerhaften Speicherung ist durch die Save-Entscheidung unten ersetzt. Weitere Trainerregeln offen.**
 
 - Die bisherige Aussage „keine Trainerlogik“ beim Overworld-Kampfübergang und Wildbegegnungs-Prototyp ist für diesen Testtrainer **ersetzt**. Trainerdaten liegen in einem eigenen Primary Data Asset mit stabiler ID, Name, Klasse, Team, Leveln, Startattacken und optionalen Vor-/Nachkampftexten. Ein Trainerkampf verwendet dieselbe BattleSession, Teamlogik und Overlay-Präsentation wie andere Begegnungen. Fangaktionen bleiben gesperrt.
 - Ein platzierter Paper2D-Test-NPC in `Dev_TestMap` spricht den Spieler zunächst über einen einfachen Welt-Textplatzhalter an und startet danach den Kampf. Nach Spieler-Sieg zeigt er einen anderen Text und bietet keinen unmittelbaren Rückkampf. Nach Niederlage ist ein erneuter Versuch möglich. Dies legt kein späteres Dialogsystem, NPC-Verhalten oder endgültige Trainerinszenierung fest.
-- Der besiegte Zustand wird anhand der Trainer-ID nur im Game-Instance-Subsystem dieser Spielsitzung gehalten. IDs können für spätere Savegames ausgelesen und wiederhergestellt werden; ein tatsächliches Savegame sowie Geld und Belohnungen werden hier nicht eingeführt.
+- Der besiegte Zustand wird anhand der Trainer-ID im Game-Instance-Subsystem gehalten. **Ersetzt:** Seit der Save-Entscheidung unten werden diese IDs auch dauerhaft im Dev-Slot gespeichert. Geld und Belohnungen werden weiterhin nicht eingeführt.
 
 ## 2026-09-26 – Erste Item- und Inventargrundlage
 
-**Status: Technische Sitzungsgrundlage; Savegame, Ökonomie und umfassende Item-Nutzung bleiben offen**
+**Status: Technische Sitzungsgrundlage; die Savegame-Aussage ist durch die Entscheidung unten ersetzt. Ökonomie und umfassende Item-Nutzung bleiben offen.**
 
 - Allgemeine Itemdaten liegen als eigene Primary Data Assets vor und sind von Inventarmengen getrennt. Die Kategorien Capture, Healing, Battle, Evolution, KeyItem und Misc sind vorbereitet. Die bestehenden Fangbonus-Daten bleiben erhalten; das neue Capture-Item referenziert das vorhandene `TestCaptureDevice`.
-- Ein Game-Instance-Subsystem hält mehrere mengenbegrenzte Stapel je Item über Encounter hinweg. Die Stapelliste lässt sich für spätere Savegames auslesen und validiert wiederherstellen. Für den Entwicklungstest beginnt eine neue Spielsitzung einmalig mit fünf Fangitems; diese Vorgabe ist kein endgültiges Startinventar.
+- Ein Game-Instance-Subsystem hält mehrere mengenbegrenzte Stapel je Item über Encounter hinweg. **Ersetzt:** Die Stapelliste wird seit der Save-Entscheidung unten im Dev-Slot gespeichert und validiert wiederhergestellt. Für den Entwicklungstest beginnt eine neue Spielsitzung einmalig mit fünf Fangitems; diese Vorgabe ist kein endgültiges Startinventar.
 - Der vorhandene Fangbutton setzt nun Bestand voraus. Jeder durch die BattleSession angenommene Fangversuch verbraucht ein Item, bei Erfolg wie Fehlschlag. Trainerkämpfe behalten das Fangverbot. Die BattleSession und Fangchance bleiben unverändert; der Presenter übernimmt die Inventarprüfung an der UI-Grenze.
 - Ein Test-Heilitem stellt außerhalb des Kampfs HP wieder her, jedoch nicht bei K.O. oder vollen HP. Ein Test-Entwicklungsitem liefert seine ID an die bestehende reine Entwicklungsprüfung; eine tatsächliche Entwicklung samt Verbrauch bleibt offen. Shops, Geld, Inventarmenü und weitere Kampfitems sind nicht beschlossen.
+
+## 2026-09-26 – Erster versionierter Dev-Spielstand
+
+**Status: Technischer Testslot; Umfang späterer Savegames bleibt offen**
+
+- Die bisherigen Aussagen „noch kein Speichersystem“ bei Kreaturenfortschritt, Inventar und Trainerstatus sind für diesen ersten Test **ersetzt**. Ein zentrales Unreal-`USaveGame` mit Schema-Version 1 und ein Game-Instance-Save-Subsystem speichern in `PokeMonster_Dev` Teamzustand, XP, HP, Moveslots/PP, Inventarstapel, besiegte Trainer-IDs und abgeschlossene sichtbare bzw. zonenbasierte Testbegegnungen.
+- Assetdefinitionen bleiben datengetrieben. Der Spielstand enthält nur stabile Primary Asset IDs; beim Laden werden die Assets aufgelöst und individuelle Werte validiert. Fehlende Assets und unbekannte/inkompatible Versionen führen zu einer klaren Ablehnung ohne teilweisen Austausch des Runtime-Zustands. Spätere Migrationen sind an der Schema-Prüfung vorgesehen, aber noch nicht entschieden.
+- Ein einzelner Dev-Slot und Konsolenbefehle dienen der Prüfung. Mehrere Spielstände, Speicheroberfläche, Autosave, Cloud-Synchronisation und endgültige Regeln für Weltzustände sind nicht beschlossen. Save-Dateien liegen außerhalb der Git-Historie unter `Saved/SaveGames`.
 
 ## Aktuell offene Entscheidungen
 

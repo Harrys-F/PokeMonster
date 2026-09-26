@@ -132,6 +132,25 @@ void UPokeMonsterEncounterSubsystem::RestoreDefeatedTrainerIds(const TArray<FNam
 	for (FName Id : TrainerIds) if (!Id.IsNone()) DefeatedTrainerIds.Add(Id);
 }
 
+bool UPokeMonsterEncounterSubsystem::RestorePersistentState(
+	const TArray<FPokeMonsterCreatureInstance>& Team, const TArray<FName>& TrainerIds,
+	const TArray<FName>& EncounterIds)
+{
+	if (bActive || Team.Num() > 6) return false;
+	TSet<FGuid> Seen;
+	for (const FPokeMonsterCreatureInstance& Creature : Team)
+	{
+		if (!Creature.IsValid() || Seen.Contains(Creature.InstanceId)) return false;
+		Seen.Add(Creature.InstanceId);
+	}
+	PlayerParty = Team;
+	RestoreDefeatedTrainerIds(TrainerIds);
+	CompletedEncounterIds.Reset();
+	for (FName Id : EncounterIds) if (!Id.IsNone()) CompletedEncounterIds.Add(Id);
+	OnPersistentStateRestored.Broadcast();
+	return true;
+}
+
 void UPokeMonsterEncounterSubsystem::RecordTrainerOutcome(const FPokeMonsterEncounterEndData& Result)
 {
 	if (Result.Kind == EPokeMonsterEncounterKind::Trainer && !Result.TrainerId.IsNone()
@@ -197,6 +216,12 @@ void UPokeMonsterEncounterSubsystem::CompleteEncounter()
 	LastResult = BuildEndData(ActiveStart, *State);
 	PlayerParty = LastResult.PlayerTeam;
 	RecordTrainerOutcome(LastResult);
+	if (LastResult.Kind == EPokeMonsterEncounterKind::Wild
+		&& LastResult.Source == EPokeMonsterEncounterSource::VisibleCreature
+		&& !LastResult.EncounterId.IsNone()
+		&& (LastResult.Outcome == EPokeMonsterEncounterOutcome::Victory
+			|| LastResult.Outcome == EPokeMonsterEncounterOutcome::Captured))
+		CompletedEncounterIds.Add(LastResult.EncounterId);
 	ReleaseOverworld();
 	UE_LOG(LogPokeMonsterEncounter, Display, TEXT("Encounter '%s' ended: %s, rounds: %d, party: %d."),
 		*LastResult.EncounterId.ToString(),

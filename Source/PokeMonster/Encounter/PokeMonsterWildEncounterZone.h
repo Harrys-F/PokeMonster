@@ -19,8 +19,12 @@ public:
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Wild Encounter") TSoftObjectPtr<UPokeMonsterEncounterProfile> Profile;
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Wild Encounter") FPokeMonsterEncounterContext Context;
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Wild Encounter") int32 Seed = 5719;
+	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Wild Encounter") FName EncounterId = TEXT("Dev_ZoneWild");
 	bool HasTriggered() const { return bTriggered; }
+protected:
+	virtual void BeginPlay() override;
 private:
+	UFUNCTION() void RefreshPersistentState();
 	UFUNCTION() void OnEntered(UPrimitiveComponent* Overlapped, AActor* OtherActor,
 		UPrimitiveComponent* OtherComponent, int32 BodyIndex, bool bFromSweep, const FHitResult& Hit);
 	UPROPERTY(VisibleAnywhere) TObjectPtr<UBoxComponent> Trigger;

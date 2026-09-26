@@ -14,6 +14,8 @@ public:
 	/** Assigning a configured move fills its PP; invalid assignments leave the slot unchanged. */
 	bool AssignMove(UPokeMonsterMoveData* InMove);
 	bool ConsumePP(int32 Amount = 1);
+	/** Restore an individual PP value after the move asset has been validated. */
+	bool RestoreCurrentPP(int32 InCurrentPP);
 	const TSoftObjectPtr<UPokeMonsterMoveData>& GetMove() const { return Move; }
 	int32 GetCurrentPP() const { return CurrentPP; }
 	int32 GetMaxPP() const { return MaxPP; }

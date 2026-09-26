@@ -64,6 +64,7 @@ struct POKEMONSTER_API FPokeMonsterEncounterEndData
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPokeMonsterEncounterEnded, const FPokeMonsterEncounterEndData&, Result);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPokeMonsterPersistentStateRestored);
 
 /** Keeps the loaded overworld intact while a BattleSession is presented in UMG. */
 UCLASS()
@@ -100,6 +101,14 @@ public:
 	TArray<FName> GetDefeatedTrainerIds() const { return DefeatedTrainerIds.Array(); }
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Encounter")
 	void RestoreDefeatedTrainerIds(const TArray<FName>& TrainerIds);
+	/** Restore a complete, prevalidated overworld state outside an active battle. */
+	bool RestorePersistentState(const TArray<FPokeMonsterCreatureInstance>& Team,
+		const TArray<FName>& TrainerIds, const TArray<FName>& EncounterIds);
+	TArray<FName> GetCompletedEncounterIds() const { return CompletedEncounterIds.Array(); }
+	bool IsEncounterCompleted(FName EncounterId) const
+	{ return !EncounterId.IsNone() && CompletedEncounterIds.Contains(EncounterId); }
+	void MarkEncounterCompleted(FName EncounterId)
+	{ if (!EncounterId.IsNone()) CompletedEncounterIds.Add(EncounterId); }
 
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter") bool IsEncounterActive() const { return bActive; }
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter") const TArray<FPokeMonsterCreatureInstance>& GetPlayerParty() const { return PlayerParty; }
@@ -107,6 +116,7 @@ public:
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter") UPokeMonsterBattlePresenter* GetPresenter() const { return Presenter; }
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter") UPokeMonsterBattleWidget* GetBattleWidget() const { return BattleWidget; }
 	UPROPERTY(BlueprintAssignable, Category="PokeMonster|Encounter") FPokeMonsterEncounterEnded OnEncounterEnded;
+	UPROPERTY(BlueprintAssignable, Category="PokeMonster|Encounter") FPokeMonsterPersistentStateRestored OnPersistentStateRestored;
 
 	virtual void Deinitialize() override;
 
@@ -127,6 +137,7 @@ private:
 
 	UPROPERTY(Transient) TArray<FPokeMonsterCreatureInstance> PlayerParty;
 	UPROPERTY(Transient) TSet<FName> DefeatedTrainerIds;
+	UPROPERTY(Transient) TSet<FName> CompletedEncounterIds;
 	UPROPERTY(Transient) TObjectPtr<UPokeMonsterBattlePresenter> Presenter;
 	UPROPERTY(Transient) TObjectPtr<UPokeMonsterBattleWidget> BattleWidget;
 	UPROPERTY(Transient) FPokeMonsterEncounterStartData ActiveStart;

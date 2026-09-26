@@ -33,6 +33,7 @@ private:
 	void ShowDialogue(const FText& Text);
 	void StartPendingBattle();
 	UFUNCTION() void OnEncounterFinished(const FPokeMonsterEncounterEndData& Result);
+	UFUNCTION() void RefreshPersistentState();
 	UPROPERTY(VisibleAnywhere) TObjectPtr<UCapsuleComponent> Body;
 	UPROPERTY(VisibleAnywhere) TObjectPtr<UTextRenderComponent> NameLabel;
 	UPROPERTY(VisibleAnywhere) TObjectPtr<UTextRenderComponent> DialogueLabel;

@@ -51,7 +51,20 @@ void APokeMonsterVisibleWildCreatureActor::BeginPlay()
 	ContactRange->OnComponentBeginOverlap.AddDynamic(this, &APokeMonsterVisibleWildCreatureActor::OnContact);
 	if (UGameInstance* Instance = GetGameInstance())
 		if (UPokeMonsterEncounterSubsystem* Encounters = Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>())
+		{
 			Encounters->OnEncounterEnded.AddUniqueDynamic(this, &APokeMonsterVisibleWildCreatureActor::OnEncounterFinished);
+			Encounters->OnPersistentStateRestored.AddUniqueDynamic(this, &APokeMonsterVisibleWildCreatureActor::RefreshPersistentState);
+			RefreshPersistentState();
+		}
+}
+
+void APokeMonsterVisibleWildCreatureActor::RefreshPersistentState()
+{
+	const UGameInstance* Instance = GetGameInstance();
+	const auto* Encounters = Instance ? Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
+	bDeactivated = bDeactivateAfterVictory && Encounters && Encounters->IsEncounterCompleted(EncounterId);
+	SetActorHiddenInGame(bDeactivated);
+	SetActorEnableCollision(!bDeactivated);
 }
 
 bool APokeMonsterVisibleWildCreatureActor::CanInteract_Implementation(APawn* Interactor) const
@@ -81,7 +94,7 @@ bool APokeMonsterVisibleWildCreatureActor::TryStart(APokeMonsterPlayerCharacter*
 	UPokeMonsterEncounterProfile* LoadedProfile = Profile.LoadSynchronous();
 	return LoadedProfile && Encounters->EnsureDevPlayerParty()
 		&& Encounters->StartWildEncounter(LoadedProfile, Context, EPokeMonsterEncounterSource::VisibleCreature,
-			Player, this, Seed, TEXT("Dev_VisibleWild"));
+			Player, this, Seed, EncounterId);
 }
 
 void APokeMonsterVisibleWildCreatureActor::OnEncounterFinished(const FPokeMonsterEncounterEndData& Result)

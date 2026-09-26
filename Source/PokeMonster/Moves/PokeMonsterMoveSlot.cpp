@@ -18,3 +18,12 @@ bool FPokeMonsterMoveSlot::ConsumePP(const int32 Amount)
 	CurrentPP -= Amount;
 	return true;
 }
+
+bool FPokeMonsterMoveSlot::RestoreCurrentPP(const int32 InCurrentPP)
+{
+	const UPokeMonsterMoveData* Data = Move.LoadSynchronous();
+	if (!IsValid(Data) || !Data->IsConfigured() || MaxPP != Data->MaxPP
+		|| InCurrentPP < 0 || InCurrentPP > MaxPP) return false;
+	CurrentPP = InCurrentPP;
+	return true;
+}

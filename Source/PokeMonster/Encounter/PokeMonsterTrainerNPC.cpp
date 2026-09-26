@@ -52,10 +52,18 @@ void APokeMonsterTrainerNPC::BeginPlay()
 		if (UPokeMonsterEncounterSubsystem* Encounters = Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>())
 		{
 			Encounters->OnEncounterEnded.AddUniqueDynamic(this, &APokeMonsterTrainerNPC::OnEncounterFinished);
-			if (const UPokeMonsterTrainerProfile* Loaded = Profile.LoadSynchronous())
-				if (Encounters->IsTrainerDefeated(Loaded->InternalId))
-					NameLabel->SetText(FText::FromString(TEXT("Besiegt · E")));
+			Encounters->OnPersistentStateRestored.AddUniqueDynamic(this, &APokeMonsterTrainerNPC::RefreshPersistentState);
+			RefreshPersistentState();
 		}
+}
+
+void APokeMonsterTrainerNPC::RefreshPersistentState()
+{
+	const UGameInstance* Instance = GetGameInstance();
+	const auto* Encounters = Instance ? Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
+	const auto* Loaded = Profile.LoadSynchronous();
+	NameLabel->SetText(FText::FromString(Encounters && Loaded && Encounters->IsTrainerDefeated(Loaded->InternalId)
+		? TEXT("Besiegt · E") : TEXT("Trainer · E")));
 }
 
 void APokeMonsterTrainerNPC::EndPlay(const EEndPlayReason::Type EndPlayReason)

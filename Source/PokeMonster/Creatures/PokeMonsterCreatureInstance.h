@@ -28,6 +28,9 @@ public:
 	{
 		return SlotIndex < MoveSlotCount && MoveSlots.IsValidIndex(SlotIndex) && MoveSlots[SlotIndex].ConsumePP(Amount);
 	}
+	/** Restore only mutable data; species stats are recalculated from the asset. */
+	bool RestoreIndividualState(const FGuid& InId, int32 InLevel, int64 InExperience,
+		int32 InCurrentHP, const TArray<FPokeMonsterMoveSlot>& InSlots);
 
 	static FPokeMonsterCreatureInstance CreateFromSpecies(
 		UPokeMonsterCreatureSpeciesData* InSpecies,

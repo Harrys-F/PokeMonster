@@ -4,6 +4,7 @@
 
 #include "PokeMonsterCreatureSpeciesData.h"
 #include "PokeMonsterCreatureProgression.h"
+#include "../Moves/PokeMonsterMoveData.h"
 
 FPokeMonsterCreatureInstance FPokeMonsterCreatureInstance::CreateFromSpecies(
 	UPokeMonsterCreatureSpeciesData* InSpecies,
@@ -30,6 +31,41 @@ bool FPokeMonsterCreatureInstance::IsValid() const
 {
 	return InstanceId.IsValid() && !Species.IsNull()
 		&& Level >= UPokeMonsterCreatureProgression::MinLevel && Level <= UPokeMonsterCreatureProgression::MaxLevel;
+}
+
+bool FPokeMonsterCreatureInstance::RestoreIndividualState(const FGuid& InId, const int32 InLevel,
+	const int64 InExperience, const int32 InCurrentHP, const TArray<FPokeMonsterMoveSlot>& InSlots)
+{
+	const UPokeMonsterCreatureSpeciesData* Data = Species.LoadSynchronous();
+	if (!InId.IsValid() || !::IsValid(Data) || InLevel < UPokeMonsterCreatureProgression::MinLevel
+		|| InLevel > UPokeMonsterCreatureProgression::MaxLevel || InSlots.Num() != MoveSlotCount) return false;
+	const int64 Floor = UPokeMonsterCreatureProgression::ExperienceForLevel(Data->GetGrowthRate(), InLevel);
+	const int64 Ceiling = InLevel == UPokeMonsterCreatureProgression::MaxLevel
+		? Floor + 1 : UPokeMonsterCreatureProgression::ExperienceForLevel(Data->GetGrowthRate(), InLevel + 1);
+	const FPokeMonsterCreatureStats Stats = UPokeMonsterCreatureProgression::CalculateStats(Data->GetBaseStats(), InLevel);
+	if (Floor < 0 || InExperience < Floor || InExperience >= Ceiling
+		|| InCurrentHP < 0 || InCurrentHP > Stats.MaxHP) return false;
+	for (const FPokeMonsterMoveSlot& Slot : InSlots)
+	{
+		if (Slot.GetMove().IsNull())
+		{
+			if (Slot.GetCurrentPP() != 0 || Slot.GetMaxPP() != 0) return false;
+		}
+		else
+		{
+			const UPokeMonsterMoveData* MoveData = Slot.GetMove().LoadSynchronous();
+			if (!::IsValid(MoveData) || !MoveData->IsConfigured()
+				|| Slot.GetMaxPP() != MoveData->MaxPP
+				|| Slot.GetCurrentPP() < 0 || Slot.GetCurrentPP() > Slot.GetMaxPP()) return false;
+		}
+	}
+	InstanceId = InId;
+	Level = InLevel;
+	Experience = InExperience;
+	CalculatedStats = Stats;
+	CurrentHP = InCurrentHP;
+	MoveSlots = InSlots;
+	return true;
 }
 
 int64 FPokeMonsterCreatureInstance::GetExperienceToNextLevel() const

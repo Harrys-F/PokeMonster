@@ -19,6 +19,7 @@
 #include "PaperFlipbookComponent.h"
 #include "Engine/World.h"
 #include "UObject/ConstructorHelpers.h"
+#include "../Save/PokeMonsterSaveSubsystem.h"
 
 UPaperFlipbook* FPokeMonsterDirectionalFlipbookSet::GetFlipbook(const EPokeMonsterFacingDirection Direction) const
 {
@@ -268,6 +269,32 @@ void APokeMonsterPlayerCharacter::SetOverworldInputLocked(const bool bLocked)
 		UpdateMovementInput(FVector2D::ZeroVector);
 		GetCharacterMovement()->StopMovementImmediately();
 	}
+}
+
+void APokeMonsterPlayerCharacter::PMSave()
+{
+	if (auto* Save = GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>()) Save->SaveCurrentGame();
+}
+
+void APokeMonsterPlayerCharacter::PMLoad()
+{
+	if (auto* Save = GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>()) Save->LoadGame();
+}
+
+void APokeMonsterPlayerCharacter::PMHasSave()
+{
+	if (auto* Save = GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>())
+		UE_LOG(LogTemp, Display, TEXT("PokeMonster_Dev save exists: %s"), Save->HasSaveGame() ? TEXT("yes") : TEXT("no"));
+}
+
+void APokeMonsterPlayerCharacter::PMDeleteDevSave()
+{
+	if (auto* Save = GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>()) Save->DeleteDevSave();
+}
+
+void APokeMonsterPlayerCharacter::PMDevSaveRoundTrip()
+{
+	if (auto* Save = GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>()) Save->RunDevRoundTripTest();
 }
 
 void APokeMonsterPlayerCharacter::UpdateMovementInput(const FVector2D NewMovementInput)

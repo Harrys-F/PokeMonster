@@ -41,6 +41,24 @@ APokeMonsterWildEncounterZone::APokeMonsterWildEncounterZone()
 	Tags.Add(TEXT("WildEncounterZone"));
 }
 
+void APokeMonsterWildEncounterZone::BeginPlay()
+{
+	Super::BeginPlay();
+	if (UGameInstance* Instance = GetGameInstance())
+		if (UPokeMonsterEncounterSubsystem* Encounters = Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>())
+		{
+			Encounters->OnPersistentStateRestored.AddUniqueDynamic(this, &APokeMonsterWildEncounterZone::RefreshPersistentState);
+			RefreshPersistentState();
+		}
+}
+
+void APokeMonsterWildEncounterZone::RefreshPersistentState()
+{
+	const UGameInstance* Instance = GetGameInstance();
+	const auto* Encounters = Instance ? Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
+	bTriggered = Encounters && Encounters->IsEncounterCompleted(EncounterId);
+}
+
 void APokeMonsterWildEncounterZone::OnEntered(UPrimitiveComponent*, AActor* OtherActor,
 	UPrimitiveComponent*, int32, bool, const FHitResult&)
 {
@@ -53,6 +71,9 @@ void APokeMonsterWildEncounterZone::OnEntered(UPrimitiveComponent*, AActor* Othe
 	UPokeMonsterEncounterProfile* LoadedProfile = Profile.LoadSynchronous();
 	if (LoadedProfile && Encounters->EnsureDevPlayerParty()
 		&& Encounters->StartWildEncounter(LoadedProfile, Context, EPokeMonsterEncounterSource::Zone,
-			Player, this, Seed, TEXT("Dev_ZoneWild")))
+			Player, this, Seed, EncounterId))
+	{
 		bTriggered = true;
+		Encounters->MarkEncounterCompleted(EncounterId);
+	}
 }

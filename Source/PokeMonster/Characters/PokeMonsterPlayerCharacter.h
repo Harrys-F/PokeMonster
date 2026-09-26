@@ -108,6 +108,13 @@ public:
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Interaction")
 	bool IsOverworldInputLocked() const { return bOverworldInputLocked; }
 
+	/** Development console commands; no permanent save UI or key bindings. */
+	UFUNCTION(Exec) void PMSave();
+	UFUNCTION(Exec) void PMLoad();
+	UFUNCTION(Exec) void PMHasSave();
+	UFUNCTION(Exec) void PMDeleteDevSave();
+	UFUNCTION(Exec) void PMDevSaveRoundTrip();
+
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Interaction")
 	float GetInteractionRange() const { return InteractionRange; }
 
