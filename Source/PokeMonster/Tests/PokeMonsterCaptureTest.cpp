@@ -10,6 +10,7 @@
 #include "../Moves/PokeMonsterMoveData.h"
 #include "../UI/PokeMonsterBattlePresenter.h"
 #include "../UI/PokeMonsterBattleWidget.h"
+#include "../Items/PokeMonsterInventorySubsystem.h"
 #include "Components/Button.h"
 #include "Engine/AssetManager.h"
 #include "Engine/Engine.h"
@@ -161,14 +162,31 @@ bool FPokeMonsterCaptureTest::RunTest(const FString& Parameters)
 		Wild.GetMoveSlots()[0].GetCurrentPP() - 1);
 
 	auto* Presenter = NewObject<UPokeMonsterBattlePresenter>();
-	TestTrue(TEXT("Wild presenter initializes"), Presenter->InitializeTeamBattle({Player}, {Wild}, SuccessSeed, true));
+	auto* TestGameInstance = NewObject<UGameInstance>();
+	auto* Inventory = NewObject<UPokeMonsterInventorySubsystem>(TestGameInstance);
+	const auto* CaptureItem = LoadObject<UPokeMonsterItemData>(nullptr,
+		TEXT("/Game/Data/Items/DA_TestCaptureItem.DA_TestCaptureItem"));
+	if (!TestNotNull(TEXT("Capture inventory item"), CaptureItem)) return false;
+	TestTrue(TEXT("Test capture item added"), Inventory->AddItem(CaptureItem, 1));
+	TestTrue(TEXT("Wild presenter initializes"), Presenter->InitializeTeamBattle({Player}, {Wild}, SuccessSeed, true, Inventory));
 	TestTrue(TEXT("Capture UI action available for wild battle"), Presenter->GetView().bCaptureEnabled);
 	TestTrue(TEXT("Capture UI selection locks input"), Presenter->TrySelectCapture());
 	TestFalse(TEXT("Duplicate capture selection rejected"), Presenter->TrySelectCapture());
 	TestTrue(TEXT("Presenter forwards capture to session"), Presenter->ResolveSelection());
+	TestEqual(TEXT("Presenter consumed exactly one item"), Inventory->GetQuantity(CaptureItem), 0);
 	TestFalse(TEXT("Capture input stays locked during presentation"), Presenter->GetView().bCaptureEnabled);
 	Presenter->FinishPresentation();
 	TestTrue(TEXT("Presenter shows battle finished"), Presenter->GetView().bFinished);
+	TestTrue(TEXT("Restock one item for failure path"), Inventory->AddItem(CaptureItem, 1));
+	auto* FailedPresenter = NewObject<UPokeMonsterBattlePresenter>();
+	TestTrue(TEXT("Failed-capture presenter initializes"),
+		FailedPresenter->InitializeTeamBattle({Player}, {Wild}, FailureSeed, true, Inventory));
+	TestTrue(TEXT("Failed-capture action selected"), FailedPresenter->TrySelectCapture());
+	TestTrue(TEXT("Failed-capture action resolves"), FailedPresenter->ResolveSelection());
+	TestFalse(TEXT("Failure does not end as captured"),
+		FailedPresenter->GetBattleState()->EndReason == EPokeMonsterBattleEndReason::Captured);
+	TestEqual(TEXT("Failed capture also consumes exactly one item"), Inventory->GetQuantity(CaptureItem), 0);
+	FailedPresenter->FinishPresentation();
 
 	UWorld* PlayWorld = nullptr;
 	for (const FWorldContext& Context : GEngine->GetWorldContexts())
@@ -180,6 +198,10 @@ bool FPokeMonsterCaptureTest::RunTest(const FString& Parameters)
 	if (!TestNotNull(TEXT("PIE player exists"), WorldPlayer)
 		|| !TestNotNull(TEXT("PIE encounter subsystem exists"), Encounters)
 		|| !TestFalse(TEXT("PIE starts outside battle"), Encounters->IsEncounterActive())) return false;
+	auto* WorldInventory = PlayWorld->GetGameInstance()->GetSubsystem<UPokeMonsterInventorySubsystem>();
+	if (!TestNotNull(TEXT("PIE inventory exists"), WorldInventory)) return false;
+	if (!WorldInventory->HasItem(CaptureItem)) WorldInventory->AddItem(CaptureItem, 1);
+	const int32 WorldCaptureBefore = WorldInventory->GetQuantity(CaptureItem);
 	APokeMonsterVisibleWildCreatureActor* VisibleActor = nullptr;
 	for (TActorIterator<APokeMonsterVisibleWildCreatureActor> It(PlayWorld); It; ++It)
 		if (!VisibleActor) VisibleActor = *It;
@@ -204,6 +226,7 @@ bool FPokeMonsterCaptureTest::RunTest(const FString& Parameters)
 	WorldWidget->GetCaptureButton()->OnClicked.Broadcast();
 	TestTrue(TEXT("UI click locks the capture choice"), WorldPresenter->GetView().bBusy);
 	if (!TestTrue(TEXT("UI capture resolves"), WorldPresenter->ResolveSelection())) return false;
+	TestEqual(TEXT("PIE consumes one capture item"), WorldInventory->GetQuantity(CaptureItem), WorldCaptureBefore - 1);
 	TestEqual(TEXT("PIE session captures the wild creature"), WorldPresenter->GetBattleState()->EndReason,
 		EPokeMonsterBattleEndReason::Captured);
 	WorldPresenter->FinishPresentation();

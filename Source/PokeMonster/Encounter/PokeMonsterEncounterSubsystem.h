@@ -12,6 +12,7 @@ class UPokeMonsterBattlePresenter;
 class UPokeMonsterBattleWidget;
 class UPokeMonsterEncounterProfile;
 class UPokeMonsterTrainerProfile;
+class UPokeMonsterItemData;
 struct FPokeMonsterEncounterContext;
 struct FPokeMonsterBattleState;
 
@@ -91,6 +92,9 @@ public:
 		AActor* SourceActor, int32 Seed, FPokeMonsterEncounterStartData& OutStart);
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter")
 	bool IsTrainerDefeated(FName TrainerId) const { return !TrainerId.IsNone() && DefeatedTrainerIds.Contains(TrainerId); }
+	/** Direct gameplay hook until a party/inventory menu exists. */
+	UFUNCTION(BlueprintCallable, Category="PokeMonster|Encounter")
+	bool UseHealingItemOnPartyMember(const UPokeMonsterItemData* Item, int32 TeamIndex);
 	/** Savegame handoff: copy these IDs into a future save object and restore them on load. */
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter")
 	TArray<FName> GetDefeatedTrainerIds() const { return DefeatedTrainerIds.Array(); }

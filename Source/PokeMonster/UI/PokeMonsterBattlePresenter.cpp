@@ -1,5 +1,7 @@
 #include "PokeMonsterBattlePresenter.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
+#include "../Items/PokeMonsterInventorySubsystem.h"
+#include "../Items/PokeMonsterItemData.h"
 
 namespace
 {
@@ -89,12 +91,17 @@ bool UPokeMonsterBattlePresenter::InitializeBattle(const FPokeMonsterCreatureIns
 }
 
 bool UPokeMonsterBattlePresenter::InitializeTeamBattle(const TArray<FPokeMonsterCreatureInstance>& Player,
-	const TArray<FPokeMonsterCreatureInstance>& Opponent, const int32 Seed, bool bAllowCapture)
+	const TArray<FPokeMonsterCreatureInstance>& Opponent, const int32 Seed, bool bAllowCapture,
+	UPokeMonsterInventorySubsystem* InInventory)
 {
 	if (bBusy) return false;
-	TestCaptureDevice = bAllowCapture ? LoadObject<UPokeMonsterCaptureDeviceData>(nullptr,
-		TEXT("/Game/Data/Capture/DA_TestCaptureDevice.DA_TestCaptureDevice")) : nullptr;
-	if (bAllowCapture && (!TestCaptureDevice || !TestCaptureDevice->IsConfigured()))
+	Inventory = InInventory;
+	CaptureItem = bAllowCapture ? LoadObject<UPokeMonsterItemData>(nullptr,
+		TEXT("/Game/Data/Items/DA_TestCaptureItem.DA_TestCaptureItem")) : nullptr;
+	TestCaptureDevice = CaptureItem ? CaptureItem->GetCaptureDevice() : nullptr;
+	if (bAllowCapture && (!TestCaptureDevice || !TestCaptureDevice->IsConfigured()
+		|| !CaptureItem || !CaptureItem->IsConfigured()
+		|| CaptureItem->GetCategory() != EPokeMonsterItemCategory::Capture))
 	{
 		Problem = TEXT("Test-Fangitem fehlt oder ist ungültig.");
 		Refresh();
@@ -158,6 +165,7 @@ bool UPokeMonsterBattlePresenter::TrySelectMove(const int32 Slot)
 bool UPokeMonsterBattlePresenter::TrySelectCapture()
 {
 	if (bBusy || !Session || !TestCaptureDevice || !TestCaptureDevice->IsConfigured()
+		|| !Inventory || !CaptureItem || !Inventory->HasItem(CaptureItem)
 		|| !Session->GetState().bCaptureAllowed
 		|| Session->GetState().Phase != EPokeMonsterBattlePhase::AwaitingChoices
 		|| ChooseOpponentMove() == INDEX_NONE) return false;
@@ -195,11 +203,19 @@ bool UPokeMonsterBattlePresenter::ResolveSelection()
 	bResolved = true; // Reject re-entry from callbacks and duplicate resolution.
 	if (bPendingCapture)
 	{
+		if (!Inventory || !Inventory->RemoveItem(CaptureItem, 1))
+		{
+			Problem = TEXT("Kein Fangitem mehr im Inventar.");
+			bBusy = false; bResolved = false; PendingSlot = INDEX_NONE; bPendingCapture = false;
+			Refresh();
+			return false;
+		}
 		FPokeMonsterBattleChoice A, B;
 		A.Type = EPokeMonsterBattleChoiceType::Capture;
 		A.CaptureDevice = TestCaptureDevice;
 		B.Index = ChooseOpponentMove();
 		LastResult = Session->ResolveTurn(A, B);
+		if (!LastResult.bSucceeded) Inventory->AddItem(CaptureItem, 1);
 	}
 	else if (bPendingSwitch)
 	{
@@ -266,10 +282,11 @@ void UPokeMonsterBattlePresenter::Refresh()
 		View.Round = State.RoundNumber;
 		View.bFinished = State.Phase == EPokeMonsterBattlePhase::Finished;
 		View.bCaptured = State.EndReason == EPokeMonsterBattleEndReason::Captured;
-		View.bCaptureEnabled = State.bCaptureAllowed && TestCaptureDevice && !bBusy
+		View.bCaptureEnabled = State.bCaptureAllowed && TestCaptureDevice && CaptureItem
+			&& Inventory && Inventory->HasItem(CaptureItem) && !bBusy
 			&& !View.bFinished && State.Phase == EPokeMonsterBattlePhase::AwaitingChoices
 			&& ChooseOpponentMove() != INDEX_NONE;
-		View.CaptureDeviceName = TestCaptureDevice ? TestCaptureDevice->GetDisplayName() : FText::GetEmpty();
+		View.CaptureDeviceName = CaptureItem ? CaptureItem->GetDisplayName() : FText::GetEmpty();
 		View.bMustSwitch = State.Phase == EPokeMonsterBattlePhase::AwaitingSwitch && State.SideA.CurrentHP == 0;
 		for (int32 SideIndex = 0; SideIndex < 2; ++SideIndex)
 		{

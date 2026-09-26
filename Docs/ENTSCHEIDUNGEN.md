@@ -278,10 +278,10 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 
 ## 2026-09-25 – Erster Fangprototyp für Wildkämpfe
 
-**Status: Funktionaler Testablauf; Fangbalancing, Inventar und Reserve bleiben offen**
+**Status: Funktionaler Testablauf; der damals unbegrenzte Testgegenstand wurde durch die Inventarentscheidung vom 2026-09-26 ersetzt. Fangbalancing und Reserve bleiben offen.**
 
 - Die bisherige Aussage „keine Fangmechanik“ in den Entscheidungen zu Battle Flow, Team und Overworld-Begegnung ist durch diesen Prototyp **ersetzt**. `Capture` ist eine eigene BattleSession-Zugwahl ausschließlich für Wildkämpfe. Ein gültiger Versuch kostet den Zug; bei Erfolg endet der Kampf sofort, bei Fehlschlag darf der Gegner angreifen.
-- Spezies erhalten einen gemeinsamen Basis-Fangwert, das eigenständige `TestCaptureDevice` einen konfigurierbaren Bonus. Aktuelle/maximale HP und ein Seed bestimmen die technische Testchance. Diese Formel und der vorläufig unbegrenzt verfügbare Testgegenstand legen keine endgültige Fang- oder Inventarökonomie fest.
+- Spezies erhalten einen gemeinsamen Basis-Fangwert, das eigenständige `TestCaptureDevice` einen konfigurierbaren Bonus. Aktuelle/maximale HP und ein Seed bestimmen die technische Testchance. Diese Formel legt kein endgültiges Fangbalancing fest. **Ersetzt:** Die damals unbegrenzte Verfügbarkeit des Testgegenstands gilt seit der Inventarentscheidung unten nicht mehr.
 - `Captured` ist ein eigenständiger Kampf- und Encounter-Ausgang. Das gefangene individuelle Exemplar geht mit Level, HP und PP in ein Team mit freiem Platz über. Bei sechs Mitgliedern meldet das Ergebnis `TeamFull` und trägt die Kreatur für eine spätere Reserveübergabe; ein dauerhaftes Storage-System gibt es noch nicht. Der sichtbare Wildactor wird nach Fang deaktiviert.
 - Die bestehende Battle-UI erhält nur eine kleine `Fangen`-Aktion und Ereignispräsentation. Weltkamera, Map, Kampf-Schadensberechnung und andere Spielsysteme bleiben unverändert.
 
@@ -292,6 +292,15 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Die bisherige Aussage „keine Trainerlogik“ beim Overworld-Kampfübergang und Wildbegegnungs-Prototyp ist für diesen Testtrainer **ersetzt**. Trainerdaten liegen in einem eigenen Primary Data Asset mit stabiler ID, Name, Klasse, Team, Leveln, Startattacken und optionalen Vor-/Nachkampftexten. Ein Trainerkampf verwendet dieselbe BattleSession, Teamlogik und Overlay-Präsentation wie andere Begegnungen. Fangaktionen bleiben gesperrt.
 - Ein platzierter Paper2D-Test-NPC in `Dev_TestMap` spricht den Spieler zunächst über einen einfachen Welt-Textplatzhalter an und startet danach den Kampf. Nach Spieler-Sieg zeigt er einen anderen Text und bietet keinen unmittelbaren Rückkampf. Nach Niederlage ist ein erneuter Versuch möglich. Dies legt kein späteres Dialogsystem, NPC-Verhalten oder endgültige Trainerinszenierung fest.
 - Der besiegte Zustand wird anhand der Trainer-ID nur im Game-Instance-Subsystem dieser Spielsitzung gehalten. IDs können für spätere Savegames ausgelesen und wiederhergestellt werden; ein tatsächliches Savegame sowie Geld und Belohnungen werden hier nicht eingeführt.
+
+## 2026-09-26 – Erste Item- und Inventargrundlage
+
+**Status: Technische Sitzungsgrundlage; Savegame, Ökonomie und umfassende Item-Nutzung bleiben offen**
+
+- Allgemeine Itemdaten liegen als eigene Primary Data Assets vor und sind von Inventarmengen getrennt. Die Kategorien Capture, Healing, Battle, Evolution, KeyItem und Misc sind vorbereitet. Die bestehenden Fangbonus-Daten bleiben erhalten; das neue Capture-Item referenziert das vorhandene `TestCaptureDevice`.
+- Ein Game-Instance-Subsystem hält mehrere mengenbegrenzte Stapel je Item über Encounter hinweg. Die Stapelliste lässt sich für spätere Savegames auslesen und validiert wiederherstellen. Für den Entwicklungstest beginnt eine neue Spielsitzung einmalig mit fünf Fangitems; diese Vorgabe ist kein endgültiges Startinventar.
+- Der vorhandene Fangbutton setzt nun Bestand voraus. Jeder durch die BattleSession angenommene Fangversuch verbraucht ein Item, bei Erfolg wie Fehlschlag. Trainerkämpfe behalten das Fangverbot. Die BattleSession und Fangchance bleiben unverändert; der Presenter übernimmt die Inventarprüfung an der UI-Grenze.
+- Ein Test-Heilitem stellt außerhalb des Kampfs HP wieder her, jedoch nicht bei K.O. oder vollen HP. Ein Test-Entwicklungsitem liefert seine ID an die bestehende reine Entwicklungsprüfung; eine tatsächliche Entwicklung samt Verbrauch bleibt offen. Shops, Geld, Inventarmenü und weitere Kampfitems sind nicht beschlossen.
 
 ## Aktuell offene Entscheidungen
 

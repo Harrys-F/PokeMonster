@@ -4,6 +4,9 @@
 #include "../Battle/PokeMonsterBattleSession.h"
 #include "PokeMonsterBattlePresenter.generated.h"
 
+class UPokeMonsterInventorySubsystem;
+class UPokeMonsterItemData;
+
 USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterBattleMoveView
 {
@@ -73,7 +76,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool StartTeamDemo();
 	bool InitializeBattle(const FPokeMonsterCreatureInstance& Player, const FPokeMonsterCreatureInstance& Opponent, int32 Seed);
 	bool InitializeTeamBattle(const TArray<FPokeMonsterCreatureInstance>& Player,
-		const TArray<FPokeMonsterCreatureInstance>& Opponent, int32 Seed, bool bAllowCapture = false);
+		const TArray<FPokeMonsterCreatureInstance>& Opponent, int32 Seed, bool bAllowCapture = false,
+		UPokeMonsterInventorySubsystem* InInventory = nullptr);
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectMove(int32 Slot);
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectCapture();
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectSwitch(int32 TeamIndex);
@@ -93,6 +97,8 @@ private:
 	int32 NextOpponentSwitch() const;
 	UPROPERTY(Transient) TObjectPtr<UPokeMonsterBattleSession> Session;
 	UPROPERTY(Transient) TObjectPtr<UPokeMonsterCaptureDeviceData> TestCaptureDevice;
+	UPROPERTY(Transient) TObjectPtr<UPokeMonsterItemData> CaptureItem;
+	UPROPERTY(Transient) TObjectPtr<UPokeMonsterInventorySubsystem> Inventory;
 	UPROPERTY(Transient) FPokeMonsterBattleView View;
 	UPROPERTY(Transient) FPokeMonsterBattleResult LastResult;
 	TArray<FString> LogLines;

@@ -5,6 +5,7 @@
 #include "../Characters/PokeMonsterPlayerCharacter.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
 #include "../Moves/PokeMonsterMoveData.h"
+#include "../Items/PokeMonsterInventorySubsystem.h"
 #include "../UI/PokeMonsterBattlePresenter.h"
 #include "../UI/PokeMonsterBattleWidget.h"
 #include "Blueprint/UserWidget.h"
@@ -62,6 +63,13 @@ bool UPokeMonsterEncounterSubsystem::EnsureDevPlayerParty()
 	if (!BuildTestTeams(InitialParty, UnusedOpponents)) return false;
 	PlayerParty = MoveTemp(InitialParty);
 	return true;
+}
+
+bool UPokeMonsterEncounterSubsystem::UseHealingItemOnPartyMember(const UPokeMonsterItemData* Item, int32 TeamIndex)
+{
+	if (bActive || !PlayerParty.IsValidIndex(TeamIndex) || !GetGameInstance()) return false;
+	UPokeMonsterInventorySubsystem* Inventory = GetGameInstance()->GetSubsystem<UPokeMonsterInventorySubsystem>();
+	return Inventory && Inventory->UseHealingItem(Item, PlayerParty[TeamIndex]);
 }
 
 bool UPokeMonsterEncounterSubsystem::PrepareWildEncounter(const UPokeMonsterEncounterProfile* Profile,
@@ -143,8 +151,9 @@ bool UPokeMonsterEncounterSubsystem::StartEncounter(const FPokeMonsterEncounterS
 
 	const TArray<FPokeMonsterCreatureInstance>& Team = Start.PlayerTeam.IsEmpty() ? PlayerParty : Start.PlayerTeam;
 	UPokeMonsterBattlePresenter* NewPresenter = NewObject<UPokeMonsterBattlePresenter>(this);
+	UPokeMonsterInventorySubsystem* Inventory = GetGameInstance()->GetSubsystem<UPokeMonsterInventorySubsystem>();
 	if (!NewPresenter->InitializeTeamBattle(Team, Start.OpponentTeam, Start.RandomSeed,
-		Start.Kind == EPokeMonsterEncounterKind::Wild)) return false;
+		Start.Kind == EPokeMonsterEncounterKind::Wild, Inventory)) return false;
 	UPokeMonsterBattleWidget* NewWidget = CreateWidget<UPokeMonsterBattleWidget>(Controller, UPokeMonsterBattleWidget::StaticClass());
 	if (!NewWidget) return false;
 
