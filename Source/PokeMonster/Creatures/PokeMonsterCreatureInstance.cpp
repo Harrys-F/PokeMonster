@@ -68,6 +68,20 @@ bool FPokeMonsterCreatureInstance::RestoreIndividualState(const FGuid& InId, con
 	return true;
 }
 
+bool FPokeMonsterCreatureInstance::RestoreFully()
+{
+	const UPokeMonsterCreatureSpeciesData* Data = Species.LoadSynchronous();
+	if (!IsValid() || !::IsValid(Data)) return false;
+	TArray<FPokeMonsterMoveSlot> RestoredSlots = MoveSlots;
+	for (FPokeMonsterMoveSlot& Slot : RestoredSlots)
+	{
+		if (!Slot.GetMove().IsNull() && !Slot.RestoreCurrentPP(Slot.GetMaxPP())) return false;
+	}
+	const int32 FullHP = UPokeMonsterCreatureProgression::CalculateStats(
+		Data->GetBaseStats(), Level).MaxHP;
+	return RestoreIndividualState(InstanceId, Level, Experience, FullHP, RestoredSlots);
+}
+
 int64 FPokeMonsterCreatureInstance::GetExperienceToNextLevel() const
 {
 	if (!IsValid() || Level == UPokeMonsterCreatureProgression::MaxLevel) return 0;

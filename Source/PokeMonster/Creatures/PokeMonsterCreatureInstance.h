@@ -31,6 +31,8 @@ public:
 	/** Restore only mutable data; species stats are recalculated from the asset. */
 	bool RestoreIndividualState(const FGuid& InId, int32 InLevel, int64 InExperience,
 		int32 InCurrentHP, const TArray<FPokeMonsterMoveSlot>& InSlots);
+	/** Fully restores HP and the PP of assigned moves, including a fainted creature. */
+	bool RestoreFully();
 
 	static FPokeMonsterCreatureInstance CreateFromSpecies(
 		UPokeMonsterCreatureSpeciesData* InSpecies,

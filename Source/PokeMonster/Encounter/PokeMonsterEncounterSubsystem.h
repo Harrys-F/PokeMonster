@@ -97,6 +97,8 @@ public:
 	/** Direct gameplay hook until a party/inventory menu exists. */
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Encounter")
 	bool UseHealingItemOnPartyMember(const UPokeMonsterItemData* Item, int32 TeamIndex);
+	/** Restores the whole persistent party outside battle; no item is consumed. */
+	bool RestorePlayerPartyAtRestPoint();
 	/** Savegame handoff: copy these IDs into a future save object and restore them on load. */
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter")
 	TArray<FName> GetDefeatedTrainerIds() const { return DefeatedTrainerIds.Array(); }

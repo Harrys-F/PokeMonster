@@ -111,7 +111,9 @@ void UPokeMonsterDialogueWidget::ShowPage(const FPokeMonsterDialoguePage& Page,
 	if (BodyLabel) BodyLabel->SetText(Page.Text);
 	if (PageLabel) PageLabel->SetText(FText::Format(FText::FromString(TEXT("{0} / {1}")),
 		FText::AsNumber(PageIndex + 1), FText::AsNumber(PageCount)));
-	if (AdvanceLabel) AdvanceLabel->SetText(FText::FromString(PageIndex + 1 == PageCount
+	const bool bClosesWithoutAction = PageIndex + 1 == PageCount
+		&& Page.FollowUp == EPokeMonsterDialogueAction::None;
+	if (AdvanceLabel) AdvanceLabel->SetText(FText::FromString(bClosesWithoutAction
 		? TEXT("Schließen  ↵") : TEXT("Weiter  ↵")));
 	if (PortraitImage)
 	{

@@ -72,6 +72,16 @@ bool UPokeMonsterEncounterSubsystem::UseHealingItemOnPartyMember(const UPokeMons
 	return Inventory && Inventory->UseHealingItem(Item, PlayerParty[TeamIndex]);
 }
 
+bool UPokeMonsterEncounterSubsystem::RestorePlayerPartyAtRestPoint()
+{
+	if (bActive || PlayerParty.IsEmpty()) return false;
+	TArray<FPokeMonsterCreatureInstance> RestoredParty = PlayerParty;
+	for (FPokeMonsterCreatureInstance& Creature : RestoredParty)
+		if (!Creature.RestoreFully()) return false;
+	PlayerParty = MoveTemp(RestoredParty);
+	return true;
+}
+
 bool UPokeMonsterEncounterSubsystem::PrepareWildEncounter(const UPokeMonsterEncounterProfile* Profile,
 	const FPokeMonsterEncounterContext& Context, EPokeMonsterEncounterSource Source,
 	AActor* SourceActor, int32 Seed, FName EncounterId, FPokeMonsterEncounterStartData& OutStart)

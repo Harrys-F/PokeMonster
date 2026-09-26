@@ -326,6 +326,14 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Ein allgemeiner Paper2D-fähiger NPC-Actor verwendet die bestehende Interaktionsschnittstelle. Ein Game-Instance-Subsystem führt jeweils ein Gespräch und sperrt währenddessen die vorhandene Overworld-Steuerung. Die UMG-Dialogbox übernimmt den UI-Fokus; das Overworld-Menü kann nicht parallel geöffnet werden. Nach Abschluss oder Schließen erhält der Spieler die Steuerung zurück.
 - `Dev_TestMap` enthält einen dreiseitigen Test-NPC und einen Test-NPC, dessen Text nach Setzen des Testflags `Dev_NPCMet` wechselt. Dieses Flag wird über die bereits vom Dev-Save erfassten abgeschlossenen World-/Encounter-IDs gespeichert; damit ändert sich das Save-Schema nicht. Die vorhandene Trainer-Ansprache bleibt vorerst ihr Welt-Textplatzhalter und ist **noch nicht** auf das neue Dialogsystem migriert. Die allgemeine Quell-Actor-/Folgeaktionsschnittstelle bereitet den Anschluss vor. Endgültige NPC-Grafiken, Portraits, Dialoglayout, Quests und Entscheidungen bleiben offen.
 
+## 2026-09-26 – Erster Heil- und Speicherort
+
+**Status: Wiederverwendbarer Test-Schrein; endgültige Ruhepunkt-Gestaltung und Speicherregeln offen**
+
+- Ein interaktiver RestPoint nutzt die bestehende Dialogfolgeaktion: Der Einstiegstext wird bestätigt, danach werden alle Teammitglieder einschließlich K.O.-Mitgliedern auf volle HP und alle belegten Moveslots auf volle PP gesetzt. Bei leerem Team findet keine Heilung oder Speicherung statt. Abbruch vor der Bestätigung verändert den Zustand nicht.
+- Speichern ist pro RestPoint optional und geschieht nach erfolgreicher Heilung über den bestehenden Dev-Slot. Ein Speicherfehler lässt die Heilung bestehen und erzeugt eine eigene Rückmeldung. Der in `Dev_TestMap` platzierte Test-Schrein speichert standardmäßig nicht automatisch, damit vorhandene Entwicklungsspielstände nicht durch bloße Interaktion überschrieben werden. Dies ersetzt die bisherige Aussage „kein Autosave“ **nicht**: Es gibt weiterhin kein allgemeines Autosave-System und keine endgültige Speicherort-Regel.
+- Die erste Darstellung ist ein austauschbarer Stein-/Kristall-Platzhalter mit optionaler Paper2D-Sprite-Komponente. Andere Arten von Heilorten können denselben Actor mit anderem Text, Sprite und Save-Schalter verwenden. Das Save-Schema und die übrigen Team-, Inventar- und Encounter-Regeln bleiben unverändert.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname
