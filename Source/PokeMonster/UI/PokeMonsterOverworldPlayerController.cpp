@@ -1,7 +1,9 @@
 #include "PokeMonsterOverworldPlayerController.h"
 
 #include "PokeMonsterOverworldView.h"
+#include "PokeMonsterDialogueWidget.h"
 #include "../Characters/PokeMonsterPlayerCharacter.h"
+#include "../Dialogue/PokeMonsterDialogueSubsystem.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "../Interaction/PokeMonsterInteractable.h"
 #include "../Items/PokeMonsterInventorySubsystem.h"
@@ -40,7 +42,15 @@ void APokeMonsterOverworldPlayerController::BeginPlay()
 	if (!OverworldWidget) return;
 	OverworldWidget->SetOwnerController(this);
 	OverworldWidget->AddToViewport(20);
+	DialogueWidget = CreateWidget<UPokeMonsterDialogueWidget>(this,
+		UPokeMonsterDialogueWidget::StaticClass());
+	if (DialogueWidget)
+	{
+		DialogueWidget->SetOwnerController(this);
+		DialogueWidget->AddToViewport(30);
+	}
 	if (UGameInstance* Instance = GetGameInstance())
+	{
 		if (UPokeMonsterEncounterSubsystem* Encounter = Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>())
 		{
 			Encounter->EnsureDevPlayerParty();
@@ -49,17 +59,23 @@ void APokeMonsterOverworldPlayerController::BeginPlay()
 			Encounter->OnEncounterEnded.AddUniqueDynamic(this,
 				&APokeMonsterOverworldPlayerController::OnEncounterEnded);
 		}
+		if (UPokeMonsterDialogueSubsystem* Dialogues = Instance->GetSubsystem<UPokeMonsterDialogueSubsystem>())
+			Dialogues->OnDialogueChanged.AddUniqueDynamic(this,
+				&APokeMonsterOverworldPlayerController::OnDialogueChanged);
+	}
 	bShowMouseCursor = true;
 	SetInputMode(FInputModeGameAndUI());
 	GetWorldTimerManager().SetTimer(RefreshTimer, this,
 		&APokeMonsterOverworldPlayerController::RefreshHUD, 0.25f, true);
 	RefreshHUD();
+	OnDialogueChanged();
 }
 
 void APokeMonsterOverworldPlayerController::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	GetWorldTimerManager().ClearTimer(RefreshTimer);
 	if (UGameInstance* Instance = GetGameInstance())
+	{
 		if (UPokeMonsterEncounterSubsystem* Encounter = Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>())
 		{
 			Encounter->OnEncounterStarted.RemoveDynamic(this,
@@ -67,8 +83,16 @@ void APokeMonsterOverworldPlayerController::EndPlay(const EEndPlayReason::Type E
 			Encounter->OnEncounterEnded.RemoveDynamic(this,
 				&APokeMonsterOverworldPlayerController::OnEncounterEnded);
 		}
+		if (UPokeMonsterDialogueSubsystem* Dialogues = Instance->GetSubsystem<UPokeMonsterDialogueSubsystem>())
+		{
+			Dialogues->OnDialogueChanged.RemoveDynamic(this,
+				&APokeMonsterOverworldPlayerController::OnDialogueChanged);
+			Dialogues->CloseDialogue();
+		}
+	}
 	if (bMenuOpen) UnlockMenu(Cast<APokeMonsterPlayerCharacter>(GetPawn()));
 	if (OverworldWidget) OverworldWidget->RemoveFromParent();
+	if (DialogueWidget) DialogueWidget->RemoveFromParent();
 	Super::EndPlay(EndPlayReason);
 }
 
@@ -108,6 +132,49 @@ void APokeMonsterOverworldPlayerController::ToggleMenu()
 	else OpenMenu();
 }
 
+bool APokeMonsterOverworldPlayerController::AdvanceDialogue()
+{
+	if (UGameInstance* Instance = GetGameInstance())
+		if (UPokeMonsterDialogueSubsystem* Dialogues = Instance->GetSubsystem<UPokeMonsterDialogueSubsystem>())
+			return Dialogues->AdvanceDialogue();
+	return false;
+}
+
+void APokeMonsterOverworldPlayerController::CloseDialogue()
+{
+	if (UGameInstance* Instance = GetGameInstance())
+		if (UPokeMonsterDialogueSubsystem* Dialogues = Instance->GetSubsystem<UPokeMonsterDialogueSubsystem>())
+			Dialogues->CloseDialogue();
+}
+
+void APokeMonsterOverworldPlayerController::OnDialogueChanged()
+{
+	if (!DialogueWidget) return;
+	const UGameInstance* Instance = GetGameInstance();
+	const auto* Dialogues = Instance ? Instance->GetSubsystem<UPokeMonsterDialogueSubsystem>() : nullptr;
+	const auto* Encounter = Instance ? Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
+	const FPokeMonsterDialoguePage* Page = Dialogues ? Dialogues->GetCurrentPage() : nullptr;
+	if (Page)
+	{
+		DialogueWidget->ShowPage(*Page, Dialogues->GetPageIndex(), Dialogues->GetPageCount());
+		FInputModeUIOnly Input;
+		Input.SetWidgetToFocus(DialogueWidget->TakeWidget());
+		SetInputMode(Input);
+		bShowMouseCursor = true;
+		DialogueWidget->SetKeyboardFocus();
+	}
+	else
+	{
+		DialogueWidget->HideDialogue();
+		if (!bMenuOpen && !(Encounter && Encounter->IsEncounterActive()))
+		{
+			SetInputMode(FInputModeGameAndUI());
+			bShowMouseCursor = true;
+		}
+	}
+	RefreshHUD();
+}
+
 void APokeMonsterOverworldPlayerController::RefreshHUD()
 {
 	if (!OverworldWidget) return;
@@ -117,7 +184,8 @@ void APokeMonsterOverworldPlayerController::RefreshHUD()
 	OverworldWidget->SetBattleVisible(Encounter && Encounter->IsEncounterActive());
 	OverworldWidget->UpdateView(FPokeMonsterOverworldViewBuilder::Build(Encounter, Inventory));
 	auto* Player = Cast<APokeMonsterPlayerCharacter>(GetPawn());
-	AActor* Target = Player && !bMenuOpen && !(Encounter && Encounter->IsEncounterActive())
+	AActor* Target = Player && !Player->IsOverworldInputLocked() && !bMenuOpen
+		&& !(Encounter && Encounter->IsEncounterActive())
 		? Player->FindInteractableInRange() : nullptr;
 	OverworldWidget->SetInteractionAvailable(Target &&
 		IPokeMonsterInteractable::Execute_CanInteract(Target, Player));

@@ -55,8 +55,8 @@ bool FPokeMonsterOverworldUITest::RunTest(const FString& Parameters)
 	Widget->SetMenuOpen(true, EPokeMonsterOverworldMenuSection::Inventory);
 	TestTrue(TEXT("Menu opens"), Widget->IsMenuOpen());
 	TestEqual(TEXT("Inventory view selectable"), Widget->GetSection(), EPokeMonsterOverworldMenuSection::Inventory);
-	if (auto* Rows = Cast<UVerticalBox>(Widget->GetWidgetFromName(TEXT("MenuRows"))))
-		TestEqual(TEXT("Inventory row rendered"), Rows->GetChildrenCount(), 1);
+	if (auto* InventoryRows = Cast<UVerticalBox>(Widget->GetWidgetFromName(TEXT("MenuRows"))))
+		TestEqual(TEXT("Inventory row rendered"), InventoryRows->GetChildrenCount(), 1);
 	else AddError(TEXT("Inventory rows widget missing"));
 	Widget->SetBattleVisible(true);
 	TestEqual(TEXT("Overworld UI hidden behind battle"), Widget->GetVisibility(), ESlateVisibility::Collapsed);

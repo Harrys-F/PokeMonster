@@ -318,6 +318,14 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Das kleine HUD zeigt Team-Name, Level, HP und K.O. sowie einen Zugang zur Tasche. Ein einfaches Menü zeigt Team und Inventar inklusive Kategorie und Menge. Die Darstellung nutzt zunächst UMG-Formen in ruhigen Wald- und Pergamentfarben; diese Entscheidung legt keine finalen Icons oder Menüillustrationen fest.
 - `Tab` öffnet das Menü; `Tab`, `Esc` oder der Button schließen es. Währenddessen sind Weltbewegung und Interaktion gesperrt und die UI erhält Maus-/Tastaturfokus. Während eines Encounters bleibt das Overworld-Menü geschlossen und das HUD verborgen, damit die vorhandene Battle-Präsentation allein sichtbar ist. Item-Nutzung, Team-Sortierung, Detailseiten und ein endgültiges Menüsystem bleiben offen.
 
+## 2026-09-26 – Wiederverwendbare NPC- und Dialoggrundlage
+
+**Status: Funktionaler linearer Dialog mit optionalen Zustandsbedingungen; Story-/Questregeln offen**
+
+- Die frühere Aussage, Dialoge seien nur ein späteres System, ist für einfache mehrseitige Overworld-Gespräche **ersetzt**. Geordnete Seiten stehen in eigenen Primary Data Assets; sie enthalten Sprecher, Text und eine optionale Portraitreferenz. Bedingungen können vorhandene World-Flags oder besiegte Trainer prüfen. Eine Seite kann ein Flag setzen oder eine benannte Folgeaktion an den Quell-Actor melden. Daraus entstehen noch keine verzweigten Entscheidungen oder Questketten.
+- Ein allgemeiner Paper2D-fähiger NPC-Actor verwendet die bestehende Interaktionsschnittstelle. Ein Game-Instance-Subsystem führt jeweils ein Gespräch und sperrt währenddessen die vorhandene Overworld-Steuerung. Die UMG-Dialogbox übernimmt den UI-Fokus; das Overworld-Menü kann nicht parallel geöffnet werden. Nach Abschluss oder Schließen erhält der Spieler die Steuerung zurück.
+- `Dev_TestMap` enthält einen dreiseitigen Test-NPC und einen Test-NPC, dessen Text nach Setzen des Testflags `Dev_NPCMet` wechselt. Dieses Flag wird über die bereits vom Dev-Save erfassten abgeschlossenen World-/Encounter-IDs gespeichert; damit ändert sich das Save-Schema nicht. Die vorhandene Trainer-Ansprache bleibt vorerst ihr Welt-Textplatzhalter und ist **noch nicht** auf das neue Dialogsystem migriert. Die allgemeine Quell-Actor-/Folgeaktionsschnittstelle bereitet den Anschluss vor. Endgültige NPC-Grafiken, Portraits, Dialoglayout, Quests und Entscheidungen bleiben offen.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname

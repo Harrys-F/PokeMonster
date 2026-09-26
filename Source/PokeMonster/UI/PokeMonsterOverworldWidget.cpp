@@ -13,15 +13,15 @@
 
 namespace
 {
-	const FLinearColor Ink(0.91f, 0.90f, 0.79f);
-	const FLinearColor SoftInk(0.67f, 0.73f, 0.63f);
-	const FLinearColor DarkInk(0.11f, 0.20f, 0.17f);
-	const FLinearColor Pine(0.09f, 0.17f, 0.14f, 0.94f);
-	const FLinearColor Leaf(0.21f, 0.35f, 0.27f);
-	const FLinearColor Parchment(0.83f, 0.80f, 0.66f, 0.98f);
+	const FLinearColor OverworldInk(0.91f, 0.90f, 0.79f);
+	const FLinearColor OverworldSoftInk(0.67f, 0.73f, 0.63f);
+	const FLinearColor OverworldDarkInk(0.11f, 0.20f, 0.17f);
+	const FLinearColor OverworldPine(0.09f, 0.17f, 0.14f, 0.94f);
+	const FLinearColor OverworldLeaf(0.21f, 0.35f, 0.27f);
+	const FLinearColor OverworldParchment(0.83f, 0.80f, 0.66f, 0.98f);
 
 	UTextBlock* MakeText(UWidgetTree* Tree, const FName Name, const FString& Value, const int32 Size,
-		const FLinearColor Color = Ink)
+		const FLinearColor Color = OverworldInk)
 	{
 		auto* Text = Tree->ConstructWidget<UTextBlock>(UTextBlock::StaticClass(), Name);
 		Text->SetText(FText::FromString(Value));
@@ -57,7 +57,7 @@ namespace
 	{
 		auto* Button = Tree->ConstructWidget<UButton>(UButton::StaticClass(), Name);
 		FButtonStyle Style;
-		Style.SetNormal(FSlateRoundedBoxBrush(Pine, 16.f));
+		Style.SetNormal(FSlateRoundedBoxBrush(OverworldPine, 16.f));
 		Style.SetHovered(FSlateRoundedBoxBrush(FLinearColor(0.16f, 0.27f, 0.20f, 0.98f), 16.f));
 		Style.SetPressed(FSlateRoundedBoxBrush(FLinearColor(0.24f, 0.37f, 0.27f, 0.98f), 16.f));
 		Button->SetStyle(Style);
@@ -95,15 +95,15 @@ void UPokeMonsterOverworldWidget::BuildDefaultTree()
 	if (auto* Slot = Cast<UCanvasPanelSlot>(HudLayer->Slot)) Slot->SetOffsets(FMargin(0));
 	Shape(WidgetTree, HudLayer, TEXT("HudShadow"), FVector2D(24,28), FVector2D(320,275),
 		FLinearColor(0.01f,0.04f,0.03f,0.40f), 22.f);
-	Shape(WidgetTree, HudLayer, TEXT("HudPlate"), FVector2D(20,24), FVector2D(320,275), Pine, 20.f);
-	Shape(WidgetTree, HudLayer, TEXT("HudAccent"), FVector2D(20,24), FVector2D(6,275), Leaf, 3.f);
-	Place(HudLayer, MakeText(WidgetTree,TEXT("HudTitle"),TEXT("DEIN TEAM"),16,SoftInk),
+	Shape(WidgetTree, HudLayer, TEXT("HudPlate"), FVector2D(20,24), FVector2D(320,275), OverworldPine, 20.f);
+	Shape(WidgetTree, HudLayer, TEXT("HudAccent"), FVector2D(20,24), FVector2D(6,275), OverworldLeaf, 3.f);
+	Place(HudLayer, MakeText(WidgetTree,TEXT("HudTitle"),TEXT("DEIN TEAM"),16,OverworldSoftInk),
 		FVector2D(43,40),FVector2D(260,25));
 	HudTeamRows = WidgetTree->ConstructWidget<UVerticalBox>(UVerticalBox::StaticClass(),TEXT("HudTeamRows"));
 	Place(HudLayer,HudTeamRows,FVector2D(40,72),FVector2D(280,210));
 	InventoryButton = MakeButton(WidgetTree,HudLayer,TEXT("InventoryButton"),TEXT("TASCHE  ·  TAB"),
 		FVector2D(-224,24),FVector2D(198,50),FAnchors(1.f,0.f));
-	InteractionLabel = MakeText(WidgetTree,TEXT("InteractionPrompt"),TEXT("E  ·  INTERAGIEREN"),16,Ink);
+	InteractionLabel = MakeText(WidgetTree,TEXT("InteractionPrompt"),TEXT("E  ·  INTERAGIEREN"),16,OverworldInk);
 	Place(HudLayer,InteractionLabel,FVector2D(-125,-67),FVector2D(250,30),FAnchors(0.5f,1.f));
 	InteractionLabel->SetVisibility(ESlateVisibility::Collapsed);
 
@@ -115,10 +115,10 @@ void UPokeMonsterOverworldWidget::BuildDefaultTree()
 	Shape(WidgetTree,MenuLayer,TEXT("MenuShadow"),FVector2D(-416,-280),FVector2D(832,580),
 		FLinearColor(0.01f,0.035f,0.025f,0.53f),28.f,FAnchors(0.5f,0.5f));
 	Shape(WidgetTree,MenuLayer,TEXT("MenuPlate"),FVector2D(-420,-288),FVector2D(832,580),
-		Parchment,27.f,FAnchors(0.5f,0.5f));
+		OverworldParchment,27.f,FAnchors(0.5f,0.5f));
 	Shape(WidgetTree,MenuLayer,TEXT("MenuHeader"),FVector2D(-420,-288),FVector2D(832,92),
-		Pine,25.f,FAnchors(0.5f,0.5f));
-	Place(MenuLayer,MakeText(WidgetTree,TEXT("MenuTitle"),TEXT("REISEBUCH"),28,Ink),
+		OverworldPine,25.f,FAnchors(0.5f,0.5f));
+	Place(MenuLayer,MakeText(WidgetTree,TEXT("MenuTitle"),TEXT("REISEBUCH"),28,OverworldInk),
 		FVector2D(-384,-263),FVector2D(280,42),FAnchors(0.5f,0.5f));
 	CloseButton = MakeButton(WidgetTree,MenuLayer,TEXT("CloseButton"),TEXT("Schließen  ×"),
 		FVector2D(224,-269),FVector2D(150,48),FAnchors(0.5f,0.5f));
@@ -126,11 +126,11 @@ void UPokeMonsterOverworldWidget::BuildDefaultTree()
 		FVector2D(-383,-173),FVector2D(170,49),FAnchors(0.5f,0.5f));
 	InventoryTab = MakeButton(WidgetTree,MenuLayer,TEXT("InventoryTab"),TEXT("Inventar"),
 		FVector2D(-201,-173),FVector2D(170,49),FAnchors(0.5f,0.5f));
-	SectionTitle = MakeText(WidgetTree,TEXT("SectionTitle"),TEXT("Team"),23,DarkInk);
+	SectionTitle = MakeText(WidgetTree,TEXT("SectionTitle"),TEXT("Team"),23,OverworldDarkInk);
 	Place(MenuLayer,SectionTitle,FVector2D(-378,-102),FVector2D(500,36),FAnchors(0.5f,0.5f));
 	MenuRows = WidgetTree->ConstructWidget<UVerticalBox>(UVerticalBox::StaticClass(),TEXT("MenuRows"));
 	Place(MenuLayer,MenuRows,FVector2D(-380,-51),FVector2D(748,296),FAnchors(0.5f,0.5f));
-	Place(MenuLayer,MakeText(WidgetTree,TEXT("MenuHint"),TEXT("T: Team  ·  I: Inventar  ·  TAB/ESC: Schließen"),14,DarkInk),
+	Place(MenuLayer,MakeText(WidgetTree,TEXT("MenuHint"),TEXT("T: Team  ·  I: Inventar  ·  TAB/ESC: Schließen"),14,OverworldDarkInk),
 		FVector2D(-378,255),FVector2D(600,26),FAnchors(0.5f,0.5f));
 	MenuLayer->SetVisibility(ESlateVisibility::Collapsed);
 }
@@ -222,14 +222,14 @@ void UPokeMonsterOverworldWidget::Render()
 		Slot->SetSize(FVector2D(280.f, HudHeight - 72.f));
 	HudTeamRows->ClearChildren();
 	if (View.Team.IsEmpty())
-		HudTeamRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,TEXT("Noch kein Team"),17,SoftInk));
+		HudTeamRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,TEXT("Noch kein Team"),17,OverworldSoftInk));
 	for (const auto& Row : View.Team)
 	{
 		const FString Line = FString::Printf(TEXT("%s  ·  Lv %d  ·  %s"), *Row.Name.ToString(),
 			Row.Level, Row.bKnockedOut ? TEXT("K.O.")
 				: *FString::Printf(TEXT("%d/%d HP"),Row.CurrentHP,Row.MaxHP));
 		HudTeamRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,Line,16,
-			Row.bKnockedOut ? FLinearColor(0.83f,0.56f,0.49f) : Ink));
+			Row.bKnockedOut ? FLinearColor(0.83f,0.56f,0.49f) : OverworldInk));
 	}
 	if (SectionTitle) SectionTitle->SetText(FText::FromString(Section == EPokeMonsterOverworldMenuSection::Team
 		? TEXT("Deine Kreaturen") : TEXT("Deine Gegenstände")));
@@ -237,25 +237,25 @@ void UPokeMonsterOverworldWidget::Render()
 	if (Section == EPokeMonsterOverworldMenuSection::Team)
 	{
 		if (View.Team.IsEmpty())
-			MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,TEXT("Noch keine Kreaturen im Team."),19,DarkInk));
+			MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,TEXT("Noch keine Kreaturen im Team."),19,OverworldDarkInk));
 		for (const auto& Row : View.Team)
 		{
 			const FString Line = FString::Printf(TEXT("%s     ·     Level %d     ·     %s"), *Row.Name.ToString(),
 				Row.Level, Row.bKnockedOut ? TEXT("K.O.")
 					: *FString::Printf(TEXT("%d / %d HP"),Row.CurrentHP,Row.MaxHP));
 			MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,Line,21,
-				Row.bKnockedOut ? FLinearColor(0.52f,0.25f,0.20f) : DarkInk));
+				Row.bKnockedOut ? FLinearColor(0.52f,0.25f,0.20f) : OverworldDarkInk));
 		}
 	}
 	else
 	{
 		if (View.Inventory.IsEmpty())
-			MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,TEXT("Die Tasche ist leer."),19,DarkInk));
+			MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,TEXT("Die Tasche ist leer."),19,OverworldDarkInk));
 		for (const auto& Row : View.Inventory)
 		{
 			const FString Line = FString::Printf(TEXT("%s     ·     %s     ·     × %d"),
 				*Row.Name.ToString(),*Row.Category.ToString(),Row.Quantity);
-			MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,Line,21,DarkInk));
+			MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,Line,21,OverworldDarkInk));
 		}
 	}
 }
