@@ -33,6 +33,8 @@ struct POKEMONSTER_API FPokeMonsterRestResult
 	EPokeMonsterRestOutcome Outcome = EPokeMonsterRestOutcome::Unavailable;
 	UPROPERTY(BlueprintReadOnly, Category="Rest Point")
 	int32 TeamCount = 0;
+	UPROPERTY(BlueprintReadOnly, Category="Rest Point")
+	bool bCheckpointActivated = false;
 };
 
 /** Configurable Overworld rest point using the common interaction and dialogue flow. */
@@ -47,7 +49,8 @@ public:
 
 	/** The save callback is invoked only after a successful heal and only when enabled. */
 	static FPokeMonsterRestResult PerformRest(UPokeMonsterEncounterSubsystem* Encounter,
-		bool bSaveAfterRest, TFunctionRef<bool()> AttemptSave);
+		bool bSaveAfterRest, TFunctionRef<bool()> AttemptSave,
+		TFunction<bool()> ActivateCheckpoint = {});
 
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category="Rest Point")
 	FText DisplayName;
@@ -56,6 +59,13 @@ public:
 	/** Off by default so a development visit cannot overwrite an existing save unexpectedly. */
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category="Rest Point|Save")
 	bool bSaveAfterRest = false;
+	/** A placed rest point can also become the defeat return location. */
+	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category="Rest Point|Checkpoint")
+	bool bActivateCheckpoint = false;
+	/** Stable across sessions and map loads; configure a unique ID per placed checkpoint. */
+	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category="Rest Point|Checkpoint",
+		meta=(EditCondition="bActivateCheckpoint"))
+	FName CheckpointId;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Rest Point")
 	TObjectPtr<UPaperSpriteComponent> Sprite;
 

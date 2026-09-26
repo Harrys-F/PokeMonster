@@ -204,7 +204,10 @@ void APokeMonsterOverworldPlayerController::OnEncounterStarted()
 void APokeMonsterOverworldPlayerController::OnEncounterEnded(const FPokeMonsterEncounterEndData& Result)
 {
 	if (OverworldWidget) OverworldWidget->SetBattleVisible(false);
-	SetInputMode(FInputModeGameAndUI());
-	bShowMouseCursor = true;
+	if (Result.Outcome != EPokeMonsterEncounterOutcome::Defeat)
+	{
+		SetInputMode(FInputModeGameAndUI());
+		bShowMouseCursor = true;
+	}
 	RefreshHUD();
 }

@@ -3,6 +3,7 @@
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "../Encounter/PokeMonsterBattleEncounterActor.h"
 #include "../Characters/PokeMonsterPlayerCharacter.h"
+#include "../Checkpoint/PokeMonsterCheckpointSubsystem.h"
 #include "../UI/PokeMonsterBattlePresenter.h"
 #include "../UI/PokeMonsterBattleWidget.h"
 #include "Engine/Engine.h"
@@ -135,8 +136,10 @@ bool FPokeMonsterEncounterIntegrationTest::RunTest(const FString& Parameters)
 	TestTrue(TEXT("Defeat is decided by session"), Presenter->GetView().bFinished);
 	Encounters->CompleteEncounter();
 	TestEqual(TEXT("Defeat returned to world"), Encounters->GetLastResult().Outcome, EPokeMonsterEncounterOutcome::Defeat);
-	TestEqual(TEXT("Fainted HP stays with player party"), Encounters->GetPlayerParty()[0].CurrentHP, 0);
-	TestFalse(TEXT("Control returns after defeat"), Player->IsOverworldInputLocked());
+	TestEqual(TEXT("Fainted HP retained until return"), Encounters->GetPlayerParty()[0].CurrentHP, 0);
+	TestTrue(TEXT("Control stays locked during blackout"), Player->IsOverworldInputLocked());
+	const auto* Checkpoints = PlayWorld->GetGameInstance()->GetSubsystem<UPokeMonsterCheckpointSubsystem>();
+	TestTrue(TEXT("Defeat return starts"), Checkpoints && Checkpoints->IsReturningFromDefeat());
 	return true;
 }
 #endif

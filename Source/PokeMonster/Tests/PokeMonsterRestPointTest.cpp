@@ -1,6 +1,7 @@
 #if WITH_DEV_AUTOMATION_TESTS
 #include "Misc/AutomationTest.h"
 #include "../Interaction/PokeMonsterRestPoint.h"
+#include "../Checkpoint/PokeMonsterCheckpointSubsystem.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "../Items/PokeMonsterInventorySubsystem.h"
 #include "../Save/PokeMonsterSaveSubsystem.h"
@@ -25,6 +26,11 @@ bool FPokeMonsterRestPointTest::RunTest(const FString& Parameters)
 	TStrongObjectPtr<UGameInstance> GI(NewObject<UGameInstance>());
 	auto* Encounter = NewObject<UPokeMonsterEncounterSubsystem>(GI.Get());
 	auto* Inventory = NewObject<UPokeMonsterInventorySubsystem>(GI.Get());
+	auto* Checkpoints = NewObject<UPokeMonsterCheckpointSubsystem>(GI.Get());
+	FPokeMonsterCheckpointData Site;
+	Site.CheckpointId = TEXT("RestTest");
+	Site.MapPackage = TEXT("/Game/Maps/Dev_TestMap");
+	Site.Location = FVector(-700.f, -1200.f, 100.f);
 	auto First = FPokeMonsterCreatureInstance::CreateFromSpecies(Species, 20);
 	auto Second = FPokeMonsterCreatureInstance::CreateFromSpecies(Species, 12);
 	if (!TestTrue(TEXT("First move assigned"), First.AssignMove(0, Attack))
@@ -40,16 +46,20 @@ bool FPokeMonsterRestPointTest::RunTest(const FString& Parameters)
 	TestTrue(TEXT("Team installed"), Encounter->RestorePersistentState({First, Second},
 		{TEXT("DevTrainer_RestTest")}, {TEXT("Dev_FlagRestTest")}));
 	int32 SaveCalls = 0;
+	int32 CheckpointCalls = 0;
 	const FPokeMonsterRestResult Saved = APokeMonsterRestPoint::PerformRest(Encounter, true,
 		[&]
 		{
 			++SaveCalls;
-			auto* Snapshot = UPokeMonsterSaveSubsystem::CaptureSnapshot(Encounter, Inventory, GI.Get());
+			auto* Snapshot = UPokeMonsterSaveSubsystem::CaptureSnapshot(Encounter, Inventory, GI.Get(), Checkpoints);
 			return Snapshot && Snapshot->PlayerTeam.Num() == 2
+				&& Snapshot->ActiveCheckpoint.CheckpointId == Site.CheckpointId
 				&& Snapshot->PlayerTeam[0].CurrentHP == Encounter->GetPlayerParty()[0].GetMaxHP()
 				&& Snapshot->PlayerTeam[0].Moves[0].CurrentPP == Attack->MaxPP;
-		});
+		}, [&] { ++CheckpointCalls; return Checkpoints->RestoreCheckpoint(Site); });
 	TestEqual(TEXT("Successful save reported"), Saved.Outcome, EPokeMonsterRestOutcome::HealedAndSaved);
+	TestTrue(TEXT("Checkpoint activated before save"), Saved.bCheckpointActivated);
+	TestEqual(TEXT("Checkpoint activation invoked once"), CheckpointCalls, 1);
 	TestEqual(TEXT("Save called exactly once after healing"), SaveCalls, 1);
 	TestEqual(TEXT("Two members restored"), Saved.TeamCount, 2);
 	const auto& Party = Encounter->GetPlayerParty();

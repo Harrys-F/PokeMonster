@@ -114,6 +114,8 @@ public:
 	UFUNCTION(Exec) void PMHasSave();
 	UFUNCTION(Exec) void PMDeleteDevSave();
 	UFUNCTION(Exec) void PMDevSaveRoundTrip();
+	/** Starts a deterministic one-turn loss to exercise the checkpoint return in PIE. */
+	UFUNCTION(Exec) void PMDevDefeatReturn();
 
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Interaction")
 	float GetInteractionRange() const { return InteractionRange; }

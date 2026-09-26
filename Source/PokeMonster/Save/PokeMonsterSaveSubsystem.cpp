@@ -2,6 +2,7 @@
 
 #include "../Creatures/PokeMonsterCreatureProgression.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
+#include "../Checkpoint/PokeMonsterCheckpointSubsystem.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "../Items/PokeMonsterInventorySubsystem.h"
 #include "../Moves/PokeMonsterMoveData.h"
@@ -57,9 +58,11 @@ namespace
 }
 
 UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
-	const UPokeMonsterEncounterSubsystem* Encounter, const UPokeMonsterInventorySubsystem* Inventory, UObject* Outer)
+	const UPokeMonsterEncounterSubsystem* Encounter, const UPokeMonsterInventorySubsystem* Inventory,
+	UObject* Outer, const UPokeMonsterCheckpointSubsystem* Checkpoint)
 {
-	if (!IsValid(Encounter) || !IsValid(Inventory) || Encounter->IsEncounterActive()) return nullptr;
+	if (!IsValid(Encounter) || !IsValid(Inventory) || Encounter->IsEncounterActive()
+		|| (IsValid(Checkpoint) && Checkpoint->IsReturningFromDefeat())) return nullptr;
 	if (Encounter->GetPlayerParty().Num() > 6) return nullptr;
 	auto* Save = NewObject<UPokeMonsterSaveGame>(Outer ? Outer : GetTransientPackage());
 	for (const FPokeMonsterCreatureInstance& Creature : Encounter->GetPlayerParty())
@@ -100,19 +103,34 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 	Save->CompletedEncounterIds = Encounter->GetCompletedEncounterIds();
 	Save->DefeatedTrainerIds.Sort(FNameLexicalLess());
 	Save->CompletedEncounterIds.Sort(FNameLexicalLess());
+	if (IsValid(Checkpoint)) Save->ActiveCheckpoint = Checkpoint->GetActiveCheckpoint();
 	return Save;
 }
 
 bool UPokeMonsterSaveSubsystem::RestoreSnapshot(const UPokeMonsterSaveGame* Save,
-	UPokeMonsterEncounterSubsystem* Encounter, UPokeMonsterInventorySubsystem* Inventory)
+	UPokeMonsterEncounterSubsystem* Encounter, UPokeMonsterInventorySubsystem* Inventory,
+	UPokeMonsterCheckpointSubsystem* Checkpoint)
 {
-	if (!IsValid(Save) || !IsValid(Encounter) || !IsValid(Inventory) || Encounter->IsEncounterActive()) return false;
-	// Version 1 is the only understood schema. Future migrations belong here before decoding.
-	if (Save->SaveVersion != UPokeMonsterSaveGame::CurrentVersion)
+	if (!IsValid(Save) || !IsValid(Encounter) || !IsValid(Inventory) || Encounter->IsEncounterActive()
+		|| (IsValid(Checkpoint) && Checkpoint->IsReturningFromDefeat())) return false;
+	// Version 1 had no checkpoint. It migrates to an unset return location.
+	if (Save->SaveVersion != 1 && Save->SaveVersion != UPokeMonsterSaveGame::CurrentVersion)
 	{
-		UE_LOG(LogPokeMonsterSave, Error, TEXT("Unsupported save version %d (expected %d)."),
+		UE_LOG(LogPokeMonsterSave, Error, TEXT("Unsupported save version %d (supported: 1 or %d)."),
 			Save->SaveVersion, UPokeMonsterSaveGame::CurrentVersion);
 		return false;
+	}
+	FPokeMonsterCheckpointData SavedCheckpoint;
+	if (Save->SaveVersion >= 2)
+	{
+		SavedCheckpoint = Save->ActiveCheckpoint;
+		if ((!SavedCheckpoint.CheckpointId.IsNone() && !SavedCheckpoint.IsValid())
+			|| (SavedCheckpoint.CheckpointId.IsNone() && (!SavedCheckpoint.MapPackage.IsNone()
+				|| !SavedCheckpoint.Location.IsNearlyZero() || !SavedCheckpoint.Rotation.IsNearlyZero())))
+		{
+			UE_LOG(LogPokeMonsterSave, Error, TEXT("Invalid checkpoint in save."));
+			return false;
+		}
 	}
 	if (Save->PlayerTeam.Num() > 6) return false;
 	TArray<FPokeMonsterCreatureInstance> Team;
@@ -150,6 +168,7 @@ bool UPokeMonsterSaveSubsystem::RestoreSnapshot(const UPokeMonsterSaveGame* Save
 		Inventory->RestoreStacks(PreviousStacks);
 		return false;
 	}
+	if (IsValid(Checkpoint)) Checkpoint->RestoreCheckpoint(SavedCheckpoint);
 	return true;
 }
 
@@ -158,7 +177,8 @@ bool UPokeMonsterSaveSubsystem::SaveCurrentGame()
 	UGameInstance* Instance = GetGameInstance();
 	if (!Instance) return false;
 	UPokeMonsterSaveGame* Save = CaptureSnapshot(Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
-		Instance->GetSubsystem<UPokeMonsterInventorySubsystem>(), this);
+		Instance->GetSubsystem<UPokeMonsterInventorySubsystem>(), this,
+		Instance->GetSubsystem<UPokeMonsterCheckpointSubsystem>());
 	if (!Save) return false;
 	const bool bSaved = UGameplayStatics::SaveGameToSlot(Save, DevSlotName, 0);
 	if (bSaved) { UE_LOG(LogPokeMonsterSave, Display, TEXT("Save written: %s"), *DevSlotName); }
@@ -181,7 +201,8 @@ bool UPokeMonsterSaveSubsystem::LoadGame()
 		return false;
 	}
 	const bool bLoaded = RestoreSnapshot(Save, Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
-		Instance->GetSubsystem<UPokeMonsterInventorySubsystem>());
+		Instance->GetSubsystem<UPokeMonsterInventorySubsystem>(),
+		Instance->GetSubsystem<UPokeMonsterCheckpointSubsystem>());
 	if (bLoaded) { UE_LOG(LogPokeMonsterSave, Display, TEXT("Load completed: %s"), *DevSlotName); }
 	else { UE_LOG(LogPokeMonsterSave, Error, TEXT("Load rejected: %s"), *DevSlotName); }
 	return bLoaded;

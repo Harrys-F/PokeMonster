@@ -20,6 +20,9 @@
 #include "Engine/World.h"
 #include "UObject/ConstructorHelpers.h"
 #include "../Save/PokeMonsterSaveSubsystem.h"
+#include "../Encounter/PokeMonsterEncounterSubsystem.h"
+#include "../Creatures/PokeMonsterCreatureSpeciesData.h"
+#include "../Moves/PokeMonsterMoveData.h"
 #include "../UI/PokeMonsterOverworldPlayerController.h"
 
 UPaperFlipbook* FPokeMonsterDirectionalFlipbookSet::GetFlipbook(const EPokeMonsterFacingDirection Direction) const
@@ -307,6 +310,32 @@ void APokeMonsterPlayerCharacter::PMDeleteDevSave()
 void APokeMonsterPlayerCharacter::PMDevSaveRoundTrip()
 {
 	if (auto* Save = GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>()) Save->RunDevRoundTripTest();
+}
+
+void APokeMonsterPlayerCharacter::PMDevDefeatReturn()
+{
+#if !UE_BUILD_SHIPPING
+	auto* Encounters = GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>();
+	auto* Species = LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,
+		TEXT("/Game/Data/Creatures/DA_TestGrass.DA_TestGrass"));
+	auto* Move = LoadObject<UPokeMonsterMoveData>(nullptr,
+		TEXT("/Game/Data/Moves/DA_TestNormalPhysical.DA_TestNormalPhysical"));
+	if (!Encounters || !Encounters->EnsureDevPlayerParty() || !Species || !Move
+		|| Encounters->IsEncounterActive() || Encounters->GetPlayerParty().IsEmpty()) return;
+	FPokeMonsterEncounterStartData Start;
+	Start.EncounterId = TEXT("Dev_ForcedDefeat");
+	Start.Kind = EPokeMonsterEncounterKind::Wild;
+	Start.PlayerTeam.Add(Encounters->GetPlayerParty()[0]);
+	Start.PlayerTeam[0].CurrentHP = 1;
+	Start.PlayerTeam[0].CalculatedStats.Speed = 1;
+	auto Opponent = FPokeMonsterCreatureInstance::CreateFromSpecies(Species, 100);
+	if (!Opponent.AssignMove(0, Move)) return;
+	Opponent.CalculatedStats.Attack = 1000;
+	Opponent.CalculatedStats.Speed = 1000;
+	Start.OpponentTeam.Add(MoveTemp(Opponent));
+	if (Encounters->StartEncounter(Start, this))
+		UE_LOG(LogTemp, Display, TEXT("Dev defeat battle started. Select any move to test checkpoint return."));
+#endif
 }
 
 void APokeMonsterPlayerCharacter::UpdateMovementInput(const FVector2D NewMovementInput)

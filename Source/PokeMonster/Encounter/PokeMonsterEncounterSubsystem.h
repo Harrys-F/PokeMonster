@@ -138,7 +138,7 @@ private:
 	void RecordTrainerOutcome(const FPokeMonsterEncounterEndData& Result);
 	UFUNCTION() void HandlePresenterChanged();
 	void CompleteEncounter();
-	void ReleaseOverworld();
+	void ReleaseOverworld(bool bKeepInputLocked = false);
 
 	UPROPERTY(Transient) TArray<FPokeMonsterCreatureInstance> PlayerParty;
 	UPROPERTY(Transient) TSet<FName> DefeatedTrainerIds;

@@ -3,6 +3,7 @@
 #include "PokeMonsterTrainerProfile.h"
 
 #include "../Characters/PokeMonsterPlayerCharacter.h"
+#include "../Checkpoint/PokeMonsterCheckpointSubsystem.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
 #include "../Moves/PokeMonsterMoveData.h"
 #include "../Items/PokeMonsterInventorySubsystem.h"
@@ -233,7 +234,21 @@ void UPokeMonsterEncounterSubsystem::CompleteEncounter()
 		&& (LastResult.Outcome == EPokeMonsterEncounterOutcome::Victory
 			|| LastResult.Outcome == EPokeMonsterEncounterOutcome::Captured))
 		CompletedEncounterIds.Add(LastResult.EncounterId);
-	ReleaseOverworld();
+	const bool bDefeated = LastResult.Outcome == EPokeMonsterEncounterOutcome::Defeat;
+	APokeMonsterPlayerCharacter* Player = ActivePlayer.Get();
+	APlayerController* Controller = ActiveController.Get();
+	ReleaseOverworld(bDefeated);
+	if (bDefeated)
+	{
+		auto* Checkpoints = GetGameInstance()
+			? GetGameInstance()->GetSubsystem<UPokeMonsterCheckpointSubsystem>() : nullptr;
+		if (!Checkpoints || !Checkpoints->BeginDefeatRecovery(Player, Controller))
+		{
+			UE_LOG(LogPokeMonsterEncounter, Error, TEXT("Defeat recovery could not start; releasing input."));
+			if (IsValid(Player)) Player->SetOverworldInputLocked(false);
+			if (IsValid(Controller)) Controller->SetInputMode(FInputModeGameAndUI());
+		}
+	}
 	UE_LOG(LogPokeMonsterEncounter, Display, TEXT("Encounter '%s' ended: %s, rounds: %d, party: %d."),
 		*LastResult.EncounterId.ToString(),
 		LastResult.Outcome == EPokeMonsterEncounterOutcome::Captured ? TEXT("Captured")
@@ -272,17 +287,21 @@ FPokeMonsterEncounterEndData UPokeMonsterEncounterSubsystem::BuildEndData(
 	return End;
 }
 
-void UPokeMonsterEncounterSubsystem::ReleaseOverworld()
+void UPokeMonsterEncounterSubsystem::ReleaseOverworld(const bool bKeepInputLocked)
 {
 	if (UWorld* World = GetGameInstance() ? GetGameInstance()->GetWorld() : nullptr)
 		World->GetTimerManager().ClearTimer(CompletionTimer);
 	if (Presenter) Presenter->OnChanged.RemoveDynamic(this, &UPokeMonsterEncounterSubsystem::HandlePresenterChanged);
 	if (BattleWidget) BattleWidget->RemoveFromParent();
-	if (APokeMonsterPlayerCharacter* Player = ActivePlayer.Get()) Player->SetOverworldInputLocked(false);
+	if (!bKeepInputLocked)
+		if (APokeMonsterPlayerCharacter* Player = ActivePlayer.Get()) Player->SetOverworldInputLocked(false);
 	if (APlayerController* Controller = ActiveController.Get())
 	{
-		Controller->SetInputMode(FInputModeGameOnly());
-		Controller->bShowMouseCursor = bPreviousMouseCursor;
+		if (!bKeepInputLocked)
+		{
+			Controller->SetInputMode(FInputModeGameOnly());
+			Controller->bShowMouseCursor = bPreviousMouseCursor;
+		}
 	}
 	BattleWidget = nullptr;
 	Presenter = nullptr;

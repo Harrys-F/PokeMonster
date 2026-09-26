@@ -1,6 +1,7 @@
 #include "PokeMonsterRestPoint.h"
 
 #include "../Characters/PokeMonsterPlayerCharacter.h"
+#include "../Checkpoint/PokeMonsterCheckpointSubsystem.h"
 #include "../Dialogue/PokeMonsterDialogueData.h"
 #include "../Dialogue/PokeMonsterDialogueSubsystem.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
@@ -136,7 +137,7 @@ bool APokeMonsterRestPoint::ShowMessage(APokeMonsterPlayerCharacter* Player,
 
 FPokeMonsterRestResult APokeMonsterRestPoint::PerformRest(
 	UPokeMonsterEncounterSubsystem* Encounter, const bool bSaveAfterRest,
-	TFunctionRef<bool()> AttemptSave)
+	TFunctionRef<bool()> AttemptSave, TFunction<bool()> ActivateCheckpoint)
 {
 	FPokeMonsterRestResult Result;
 	if (!IsValid(Encounter) || Encounter->IsEncounterActive()) return Result;
@@ -152,6 +153,7 @@ FPokeMonsterRestResult APokeMonsterRestPoint::PerformRest(
 		return Result;
 	}
 	Result.Outcome = EPokeMonsterRestOutcome::Healed;
+	if (ActivateCheckpoint) Result.bCheckpointActivated = ActivateCheckpoint();
 	if (bSaveAfterRest)
 		Result.Outcome = AttemptSave() ? EPokeMonsterRestOutcome::HealedAndSaved
 			: EPokeMonsterRestOutcome::HealedSaveFailed;
@@ -186,11 +188,25 @@ void APokeMonsterRestPoint::HandleDialogueAction(AActor* Source, const FName Act
 	UGameInstance* Instance = Player->GetGameInstance();
 	auto* Encounter = Instance ? Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
 	auto* Save = Instance ? Instance->GetSubsystem<UPokeMonsterSaveSubsystem>() : nullptr;
+	auto* Checkpoints = Instance ? Instance->GetSubsystem<UPokeMonsterCheckpointSubsystem>() : nullptr;
 	const FPokeMonsterRestResult Result = PerformRest(Encounter, bSaveAfterRest,
-		[Save] { return IsValid(Save) && Save->SaveCurrentGame(); });
+		[Save] { return IsValid(Save) && Save->SaveCurrentGame(); },
+		bActivateCheckpoint ? TFunction<bool()>([this, Player, Checkpoints]
+		{
+			return IsValid(Checkpoints) && Checkpoints->ActivateCheckpoint(
+				CheckpointId, Player->GetWorld(), Player->GetActorTransform());
+		}) : TFunction<bool()>());
 	if (Result.Outcome == EPokeMonsterRestOutcome::HealedSaveFailed)
 		UE_LOG(LogPokeMonsterRestPoint, Error, TEXT("Party healed, but the Dev save failed."));
-	if (!ShowMessage(Player, MessageForOutcome(Result.Outcome), false))
+	if (bActivateCheckpoint && !Result.bCheckpointActivated)
+		UE_LOG(LogPokeMonsterRestPoint, Warning, TEXT("Rest point '%s' could not activate checkpoint '%s'."),
+			*GetName(), *CheckpointId.ToString());
+	FText ResultMessage = MessageForOutcome(Result.Outcome);
+	if (Result.bCheckpointActivated)
+		ResultMessage = FText::Format(FText::FromString(TEXT("{0} Dieser Ruhepunkt ist jetzt dein Rückkehrort.")), ResultMessage);
+	else if (bActivateCheckpoint && Result.TeamCount > 0)
+		ResultMessage = FText::Format(FText::FromString(TEXT("{0} Der Rückkehrort konnte nicht gesetzt werden.")), ResultMessage);
+	if (!ShowMessage(Player, ResultMessage, false))
 		UE_LOG(LogPokeMonsterRestPoint, Warning, TEXT("Could not display rest result: %d"),
 			static_cast<int32>(Result.Outcome));
 }

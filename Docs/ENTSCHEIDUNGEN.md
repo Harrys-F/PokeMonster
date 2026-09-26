@@ -334,6 +334,14 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Speichern ist pro RestPoint optional und geschieht nach erfolgreicher Heilung über den bestehenden Dev-Slot. Ein Speicherfehler lässt die Heilung bestehen und erzeugt eine eigene Rückmeldung. Der in `Dev_TestMap` platzierte Test-Schrein speichert standardmäßig nicht automatisch, damit vorhandene Entwicklungsspielstände nicht durch bloße Interaktion überschrieben werden. Dies ersetzt die bisherige Aussage „kein Autosave“ **nicht**: Es gibt weiterhin kein allgemeines Autosave-System und keine endgültige Speicherort-Regel.
 - Die erste Darstellung ist ein austauschbarer Stein-/Kristall-Platzhalter mit optionaler Paper2D-Sprite-Komponente. Andere Arten von Heilorten können denselben Actor mit anderem Text, Sprite und Save-Schalter verwenden. Das Save-Schema und die übrigen Team-, Inventar- und Encounter-Regeln bleiben unverändert.
 
+## 2026-09-26 – Checkpoint und Niederlagenrückkehr
+
+**Status: Erster Rückkehrablauf für Testkämpfe; Strafen und endgültige Inszenierung offen**
+
+- Ein RestPoint kann nach bestätigter Heilung optional einen stabil benannten Checkpoint setzen. Gespeichert werden Map-Paket, die beim Aktivieren freie Position des Spielers und seine Blickrichtung. Der Testschrein in `Dev_TestMap` setzt einen Checkpoint, speichert den Dev-Slot aber weiterhin nicht automatisch.
+- Die bisherige Rückkehr an derselben Weltposition nach einem vollständigen Kampfverlust ist **ersetzt**. Trainer- und Wildniederlagen führen über denselben Encounter-Abschluss zu einer kurzen Ohnmachtsanzeige, gesperrter Steuerung, Rückkehr zum Checkpoint beziehungsweise zum sicheren PlayerStart-Fallback, vollständiger HP-/PP-Heilung und erneuter Freigabe der Overworld. Besiegte Trainer- und World-Flags werden dabei nicht zurückgesetzt; eine Niederlage markiert keinen Trainer als besiegt.
+- Das Dev-Save-Schema steigt von Version 1 auf Version 2. Version-1-Spielstände werden ohne aktiven Checkpoint geladen, während ungültige Checkpoint-Daten vor der Übernahme abgewiesen werden. Eine Geldstrafe, Itemverlust, endgültiger Blackout-Screen oder allgemeines Autosave sind nicht beschlossen.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname

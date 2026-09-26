@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "Engine/AssetManager.h"
 #include "GameFramework/SaveGame.h"
+#include "../Checkpoint/PokeMonsterCheckpointSubsystem.h"
 #include "PokeMonsterSaveGame.generated.h"
 
 /** Only stable asset identities and mutable PP are stored, never move definitions. */
@@ -40,10 +41,11 @@ class POKEMONSTER_API UPokeMonsterSaveGame : public USaveGame
 {
 	GENERATED_BODY()
 public:
-	static constexpr int32 CurrentVersion = 1;
+	static constexpr int32 CurrentVersion = 2;
 	UPROPERTY() int32 SaveVersion = CurrentVersion;
 	UPROPERTY() TArray<FPokeMonsterSavedCreature> PlayerTeam;
 	UPROPERTY() TArray<FPokeMonsterSavedItemStack> InventoryStacks;
 	UPROPERTY() TArray<FName> DefeatedTrainerIds;
 	UPROPERTY() TArray<FName> CompletedEncounterIds;
+	UPROPERTY() FPokeMonsterCheckpointData ActiveCheckpoint;
 };
