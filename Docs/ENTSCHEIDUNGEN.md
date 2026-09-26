@@ -285,6 +285,14 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - `Captured` ist ein eigenständiger Kampf- und Encounter-Ausgang. Das gefangene individuelle Exemplar geht mit Level, HP und PP in ein Team mit freiem Platz über. Bei sechs Mitgliedern meldet das Ergebnis `TeamFull` und trägt die Kreatur für eine spätere Reserveübergabe; ein dauerhaftes Storage-System gibt es noch nicht. Der sichtbare Wildactor wird nach Fang deaktiviert.
 - Die bestehende Battle-UI erhält nur eine kleine `Fangen`-Aktion und Ereignispräsentation. Weltkamera, Map, Kampf-Schadensberechnung und andere Spielsysteme bleiben unverändert.
 
+## 2026-09-26 – Erste Trainerkampf-Grundlage
+
+**Status: Funktionaler Testtrainer; dauerhafte Speicherung und weitere Trainerregeln offen**
+
+- Die bisherige Aussage „keine Trainerlogik“ beim Overworld-Kampfübergang und Wildbegegnungs-Prototyp ist für diesen Testtrainer **ersetzt**. Trainerdaten liegen in einem eigenen Primary Data Asset mit stabiler ID, Name, Klasse, Team, Leveln, Startattacken und optionalen Vor-/Nachkampftexten. Ein Trainerkampf verwendet dieselbe BattleSession, Teamlogik und Overlay-Präsentation wie andere Begegnungen. Fangaktionen bleiben gesperrt.
+- Ein platzierter Paper2D-Test-NPC in `Dev_TestMap` spricht den Spieler zunächst über einen einfachen Welt-Textplatzhalter an und startet danach den Kampf. Nach Spieler-Sieg zeigt er einen anderen Text und bietet keinen unmittelbaren Rückkampf. Nach Niederlage ist ein erneuter Versuch möglich. Dies legt kein späteres Dialogsystem, NPC-Verhalten oder endgültige Trainerinszenierung fest.
+- Der besiegte Zustand wird anhand der Trainer-ID nur im Game-Instance-Subsystem dieser Spielsitzung gehalten. IDs können für spätere Savegames ausgelesen und wiederhergestellt werden; ein tatsächliches Savegame sowie Geld und Belohnungen werden hier nicht eingeführt.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname

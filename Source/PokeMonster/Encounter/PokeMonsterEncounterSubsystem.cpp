@@ -1,5 +1,6 @@
 #include "PokeMonsterEncounterSubsystem.h"
 #include "PokeMonsterEncounterProfile.h"
+#include "PokeMonsterTrainerProfile.h"
 
 #include "../Characters/PokeMonsterPlayerCharacter.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
@@ -94,10 +95,48 @@ bool UPokeMonsterEncounterSubsystem::StartWildEncounter(const UPokeMonsterEncoun
 	return StartEncounter(Start, Player);
 }
 
+bool UPokeMonsterEncounterSubsystem::PrepareTrainerEncounter(const UPokeMonsterTrainerProfile* Profile,
+	AActor* SourceActor, int32 Seed, FPokeMonsterEncounterStartData& OutStart)
+{
+	OutStart = FPokeMonsterEncounterStartData();
+	if (!IsValid(Profile) || !Profile->BuildTeam(OutStart.OpponentTeam)) return false;
+	OutStart.EncounterId = Profile->InternalId;
+	OutStart.TrainerId = Profile->InternalId;
+	OutStart.Kind = EPokeMonsterEncounterKind::Trainer;
+	OutStart.Source = EPokeMonsterEncounterSource::Scripted;
+	OutStart.RandomSeed = Seed;
+	OutStart.SourceActor = SourceActor;
+	return true;
+}
+
+bool UPokeMonsterEncounterSubsystem::StartTrainerEncounter(const UPokeMonsterTrainerProfile* Profile,
+	APokeMonsterPlayerCharacter* Player, AActor* SourceActor, int32 Seed)
+{
+	FPokeMonsterEncounterStartData Start;
+	if (!PrepareTrainerEncounter(Profile, SourceActor, Seed, Start)
+		|| IsTrainerDefeated(Start.TrainerId) || !EnsureDevPlayerParty()) return false;
+	return StartEncounter(Start, Player);
+}
+
+void UPokeMonsterEncounterSubsystem::RestoreDefeatedTrainerIds(const TArray<FName>& TrainerIds)
+{
+	DefeatedTrainerIds.Reset();
+	for (FName Id : TrainerIds) if (!Id.IsNone()) DefeatedTrainerIds.Add(Id);
+}
+
+void UPokeMonsterEncounterSubsystem::RecordTrainerOutcome(const FPokeMonsterEncounterEndData& Result)
+{
+	if (Result.Kind == EPokeMonsterEncounterKind::Trainer && !Result.TrainerId.IsNone()
+		&& Result.Outcome == EPokeMonsterEncounterOutcome::Victory)
+		DefeatedTrainerIds.Add(Result.TrainerId);
+}
+
 bool UPokeMonsterEncounterSubsystem::StartEncounter(const FPokeMonsterEncounterStartData& Start,
 	APokeMonsterPlayerCharacter* Player)
 {
 	if (bActive || !IsValid(Player) || Player->IsOverworldInputLocked()) return false;
+	if (Start.Kind == EPokeMonsterEncounterKind::Trainer
+		&& (Start.TrainerId.IsNone() || IsTrainerDefeated(Start.TrainerId))) return false;
 	APlayerController* Controller = Cast<APlayerController>(Player->GetController());
 	UWorld* World = GetGameInstance() ? GetGameInstance()->GetWorld() : nullptr;
 	if (!Controller || !Controller->IsLocalController() || !World || Player->GetWorld() != World) return false;
@@ -148,6 +187,7 @@ void UPokeMonsterEncounterSubsystem::CompleteEncounter()
 	if (!State || State->Phase != EPokeMonsterBattlePhase::Finished) return;
 	LastResult = BuildEndData(ActiveStart, *State);
 	PlayerParty = LastResult.PlayerTeam;
+	RecordTrainerOutcome(LastResult);
 	ReleaseOverworld();
 	UE_LOG(LogPokeMonsterEncounter, Display, TEXT("Encounter '%s' ended: %s, rounds: %d, party: %d."),
 		*LastResult.EncounterId.ToString(),
@@ -162,6 +202,7 @@ FPokeMonsterEncounterEndData UPokeMonsterEncounterSubsystem::BuildEndData(
 {
 	FPokeMonsterEncounterEndData End;
 	End.EncounterId = Start.EncounterId;
+	End.TrainerId = Start.TrainerId;
 	End.Kind = Start.Kind;
 	End.Source = Start.Source;
 	End.Outcome = State.EndReason == EPokeMonsterBattleEndReason::Captured

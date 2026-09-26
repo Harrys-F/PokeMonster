@@ -11,6 +11,7 @@ class APokeMonsterPlayerCharacter;
 class UPokeMonsterBattlePresenter;
 class UPokeMonsterBattleWidget;
 class UPokeMonsterEncounterProfile;
+class UPokeMonsterTrainerProfile;
 struct FPokeMonsterEncounterContext;
 struct FPokeMonsterBattleState;
 
@@ -32,6 +33,8 @@ struct POKEMONSTER_API FPokeMonsterEncounterStartData
 {
 	GENERATED_BODY()
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") FName EncounterId;
+	/** Stable trainer identity for per-session defeat state; empty for other encounters. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") FName TrainerId;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") EPokeMonsterEncounterKind Kind = EPokeMonsterEncounterKind::Test;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") EPokeMonsterEncounterSource Source = EPokeMonsterEncounterSource::Scripted;
 	/** Empty uses the persistent overworld party. */
@@ -46,6 +49,7 @@ struct POKEMONSTER_API FPokeMonsterEncounterEndData
 {
 	GENERATED_BODY()
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") FName EncounterId;
+	UPROPERTY(BlueprintReadOnly, Category="Encounter") FName TrainerId;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") EPokeMonsterEncounterKind Kind = EPokeMonsterEncounterKind::Test;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") EPokeMonsterEncounterSource Source = EPokeMonsterEncounterSource::Scripted;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") EPokeMonsterEncounterOutcome Outcome = EPokeMonsterEncounterOutcome::Cancelled;
@@ -81,6 +85,17 @@ public:
 	static bool PrepareWildEncounter(const UPokeMonsterEncounterProfile* Profile,
 		const FPokeMonsterEncounterContext& Context, EPokeMonsterEncounterSource Source,
 		AActor* SourceActor, int32 Seed, FName EncounterId, FPokeMonsterEncounterStartData& OutStart);
+	bool StartTrainerEncounter(const UPokeMonsterTrainerProfile* Profile,
+		APokeMonsterPlayerCharacter* Player, AActor* SourceActor, int32 Seed);
+	static bool PrepareTrainerEncounter(const UPokeMonsterTrainerProfile* Profile,
+		AActor* SourceActor, int32 Seed, FPokeMonsterEncounterStartData& OutStart);
+	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter")
+	bool IsTrainerDefeated(FName TrainerId) const { return !TrainerId.IsNone() && DefeatedTrainerIds.Contains(TrainerId); }
+	/** Savegame handoff: copy these IDs into a future save object and restore them on load. */
+	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter")
+	TArray<FName> GetDefeatedTrainerIds() const { return DefeatedTrainerIds.Array(); }
+	UFUNCTION(BlueprintCallable, Category="PokeMonster|Encounter")
+	void RestoreDefeatedTrainerIds(const TArray<FName>& TrainerIds);
 
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter") bool IsEncounterActive() const { return bActive; }
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter") const TArray<FPokeMonsterCreatureInstance>& GetPlayerParty() const { return PlayerParty; }
@@ -95,16 +110,19 @@ private:
 #if WITH_DEV_AUTOMATION_TESTS
 	friend class FPokeMonsterEncounterIntegrationTest;
 	friend class FPokeMonsterCaptureTest;
+	friend class FPokeMonsterTrainerEncounterTest;
 #endif
 	static bool BuildTestTeams(TArray<FPokeMonsterCreatureInstance>& Player,
 		TArray<FPokeMonsterCreatureInstance>& Opponent);
 	static FPokeMonsterEncounterEndData BuildEndData(const FPokeMonsterEncounterStartData& Start,
 		const FPokeMonsterBattleState& State);
+	void RecordTrainerOutcome(const FPokeMonsterEncounterEndData& Result);
 	UFUNCTION() void HandlePresenterChanged();
 	void CompleteEncounter();
 	void ReleaseOverworld();
 
 	UPROPERTY(Transient) TArray<FPokeMonsterCreatureInstance> PlayerParty;
+	UPROPERTY(Transient) TSet<FName> DefeatedTrainerIds;
 	UPROPERTY(Transient) TObjectPtr<UPokeMonsterBattlePresenter> Presenter;
 	UPROPERTY(Transient) TObjectPtr<UPokeMonsterBattleWidget> BattleWidget;
 	UPROPERTY(Transient) FPokeMonsterEncounterStartData ActiveStart;

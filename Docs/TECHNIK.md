@@ -203,6 +203,14 @@ Nur eine als Wildkampf initialisierte BattleSession akzeptiert die Spielerwahl `
 
 Der Presenter zeigt die Aktion nur im Wildkampf an. Das bestehende UMG-Widget bietet dort `Fangen`, sperrt Eingaben während der Auflösung und zeigt eine kurze Flug-/Fangsequenz mit Erfolg- oder Fehlschlag-Feedback vor einem möglichen gegnerischen Zug. Das Encounter-Subsystem wandelt den Session-Ausgang in `Outcome=Captured` um und ergänzt die gefangene Instanz bei weniger als sechs Mitgliedern am Spielerteam. Bei vollem Team bleibt dieses unverändert; `CaptureTransfer=TeamFull` und `CapturedCreature` liefern eine strukturierte Übergabe an eine spätere Reserve/Storage, die noch nicht implementiert ist. Der sichtbare Wildactor wird nach Fang deaktiviert. `PokeMonster.Capture.WildBattleAndTeamTransfer` prüft Chancen, Seed, Wildbeschränkung, Zugablauf, Events, Teamübernahme und volles Team.
 
+### Trainerkampf-Prototyp
+
+`UPokeMonsterTrainerProfile` ist ein eigenes `TrainerProfile`-Primary-Data-Asset unter `/Game/Data/Trainers`. Eine stabile interne ID identifiziert den Trainer unabhängig von Actor und Map; Anzeigename und Trainerklasse sind Präsentationsdaten. Ein bis sechs Teameinträge referenzieren Spezies, Level 1–100 und jeweils ein bis vier Startattacken. `BuildTeam` erzeugt für jeden Kampf neue individuelle Exemplare mit eigenen HP, PP und Instanz-IDs. Drei optionale Texte decken die Ansprache vor dem Kampf sowie Reaktionen nach Spieler-Sieg und -Niederlage ab. `DA_DevTrainer` verwendet ausschließlich bestehende Test-Spezies und -Attacken.
+
+Der in `Dev_TestMap` platzierte `APokeMonsterTrainerNPC` nutzt die vorhandene Interaktionsschnittstelle. Auf `E`/`Enter` zeigt er den kurzen Dialogplatzhalter als Text in der Welt; währenddessen ist Overworld-Eingabe gesperrt. Danach startet `StartTrainerEncounter` über dasselbe EncounterSubsystem und Battle-Overlay wie die bisherigen Weltkämpfe. Der Trainer-Kampftyp übergibt `bAllowCapture=false` an die BattleSession; die Fangschaltfläche ist nicht verfügbar und ein direkt eingereichter Fangzug wird abgewiesen. Es gibt keine neue Schadens-, Team- oder UI-Kampfregel.
+
+Das Game-Instance-Subsystem führt `DefeatedTrainerIds` für die laufende Spielsitzung. Nur ein Spieler-Sieg über einen Trainerkampf trägt die Trainer-ID ein; eine Niederlage lässt den Trainer erneut herausforderbar. Ein besiegter NPC zeigt danach einen anderen Text und startet keinen weiteren Kampf. Beim erneuten Laden der Map liest er den Zustand aus demselben Subsystem. `GetDefeatedTrainerIds` und `RestoreDefeatedTrainerIds` bilden den Übergabepunkt für spätere Savegames; dauerhaftes Speichern ist noch nicht implementiert. Team-HP und -PP folgen weiterhin dem vorhandenen Encounter-Endvertrag. Geld, Belohnungen, NPC-KI und Cutscenes bleiben offen.
+
 ## Darstellung
 
 - 2D-Top-Down-Perspektive
