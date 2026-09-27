@@ -350,6 +350,14 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Die Trainerprüfung benutzt ein eigenes datengetriebenes Testprofil mit stabiler ID `Slice_Liora`. Ein Sieg wird vom vorhandenen EncounterSubsystem registriert. Der Archivstein prüft diese ID und setzt nach bestätigtem Ziel-Dialog das World-Flag `Slice_ArchiveSeal`. NPC-Seiten reagieren über die vorhandenen Dialogbedingungen auf dieses Flag. Es gibt hierfür keinen neuen Questmanager und keine neue Speicherstruktur.
 - Der bestehende Dev-Slot bewahrt Trainerstatus und Ziel-Flag. Der Testabschnitt soll in wenigen Minuten durchspielbar sein; optionale Wildbegegnung und Fangversuche bleiben für den Abschluss nicht erforderlich. Das Ereignis ist keine endgültige Story, Trainerfigur oder Speziesauswahl.
 
+## 2026-09-27 – Lesbarkeit des Mini-Vertical-Slice
+
+**Status: Verfeinerte Entwicklungsdarstellung; finale Figuren- und Ortsgrafiken bleiben offen.**
+
+- Der vorhandene Ablauf in `Dev_TestMap` bleibt erhalten. Zusätzliche, unregelmäßig gruppierte Paper2D-Bäume, Büsche und Steine rahmen Start, Wild-Abzweigung, Lioras Bereich und Archivstein. Die begehbare Wegmitte bleibt frei. Die vorhandene Boden-Kollisionsfläche reicht nun bis an den Rand der optionalen Abzweigung, damit dort kein unsichtbarer Bodenabbruch entsteht.
+- Die vorhandenen Interaktions-Actors verwenden bis zu eigenen Grafiken zugewiesene, farblich unterscheidbare Prototype2D-Sprites. Wenn dem Player noch keine Richtungs-Flipbooks zugewiesen wurden, verwendet er zur Laufzeit eine kleine vorhandene Trainer-Silhouette statt des weißen Testkubus. Zugewiesene spätere Flipbooks haben Vorrang.
+- Kamerawinkel und -abstand sowie sämtliche Kampf-, Dialog-, Fang-, Speicher- und Fortschrittsregeln bleiben unverändert. Die derzeitigen Motive sind austauschbare Platzhalter und legen keine endgültige Figurengestaltung fest.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname

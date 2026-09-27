@@ -17,6 +17,7 @@
 #include "../Interaction/PokeMonsterInteractable.h"
 #include "PaperFlipbook.h"
 #include "PaperFlipbookComponent.h"
+#include "PaperSprite.h"
 #include "Engine/World.h"
 #include "UObject/ConstructorHelpers.h"
 #include "../Save/PokeMonsterSaveSubsystem.h"
@@ -154,6 +155,25 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 void APokeMonsterPlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	// A small illustrated stand-in keeps the test map readable until directional
+	// flipbooks are supplied by a Blueprint. Authored flipbooks always take priority.
+	if (!IdleFlipbooks.HasAnyFlipbook() && !WalkingFlipbooks.HasAnyFlipbook())
+	{
+		if (UPaperSprite* StandIn = LoadObject<UPaperSprite>(nullptr,
+			TEXT("/Game/Characters/Prototype/S_TrainerPlaceholder.S_TrainerPlaceholder")))
+		{
+			UPaperFlipbook* StandInFlipbook = NewObject<UPaperFlipbook>(this);
+			{
+				FScopedFlipbookMutator FlipbookEdit(StandInFlipbook);
+				FPaperFlipbookKeyFrame& Frame = FlipbookEdit.KeyFrames.AddDefaulted_GetRef();
+				Frame.Sprite = StandIn;
+			}
+			GetSprite()->SetFlipbook(StandInFlipbook);
+			GetSprite()->SetRelativeRotation(FRotator(0.f, 45.f, -55.f));
+			GetSprite()->SetRelativeScale3D(FVector(0.32f));
+			GetSprite()->SetSpriteColor(FLinearColor(0.72f, 0.85f, 1.f));
+		}
+	}
 	RefreshCharacterVisual();
 }
 
