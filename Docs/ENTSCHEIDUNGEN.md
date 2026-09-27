@@ -342,6 +342,14 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Die bisherige Rückkehr an derselben Weltposition nach einem vollständigen Kampfverlust ist **ersetzt**. Trainer- und Wildniederlagen führen über denselben Encounter-Abschluss zu einer kurzen Ohnmachtsanzeige, gesperrter Steuerung, Rückkehr zum Checkpoint beziehungsweise zum sicheren PlayerStart-Fallback, vollständiger HP-/PP-Heilung und erneuter Freigabe der Overworld. Besiegte Trainer- und World-Flags werden dabei nicht zurückgesetzt; eine Niederlage markiert keinen Trainer als besiegt.
 - Das Dev-Save-Schema steigt von Version 1 auf Version 2. Version-1-Spielstände werden ohne aktiven Checkpoint geladen, während ungültige Checkpoint-Daten vor der Übernahme abgewiesen werden. Eine Geldstrafe, Itemverlust, endgültiger Blackout-Screen oder allgemeines Autosave sind nicht beschlossen.
 
+## 2026-09-26 – Zusammenhängender Overworld-Testabschnitt
+
+**Status: Kleiner spielbarer Entwicklungsschnitt; Handlung und Weltgestaltung bleiben Platzhalter.**
+
+- `Dev_TestMap` bleibt die gemeinsame technische Overworld-Testmap. Ein gruppierter Abschnitt führt vom bestehenden Ruhe-/Checkpoint-Schrein über den Hauptweg und eine markierte optionale Wildkreatur-Abzweigung zur Trainerprüfung und zum Archivstein. Zwei normale NPCs geben vor und nach dem Ziel unterschiedliche Hinweise. Bestehende visuelle Prototype2D-Assets werden wiederverwendet; weder Kamera noch Kern-Gameplayregeln ändern sich.
+- Die Trainerprüfung benutzt ein eigenes datengetriebenes Testprofil mit stabiler ID `Slice_Liora`. Ein Sieg wird vom vorhandenen EncounterSubsystem registriert. Der Archivstein prüft diese ID und setzt nach bestätigtem Ziel-Dialog das World-Flag `Slice_ArchiveSeal`. NPC-Seiten reagieren über die vorhandenen Dialogbedingungen auf dieses Flag. Es gibt hierfür keinen neuen Questmanager und keine neue Speicherstruktur.
+- Der bestehende Dev-Slot bewahrt Trainerstatus und Ziel-Flag. Der Testabschnitt soll in wenigen Minuten durchspielbar sein; optionale Wildbegegnung und Fangversuche bleiben für den Abschluss nicht erforderlich. Das Ereignis ist keine endgültige Story, Trainerfigur oder Speziesauswahl.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname

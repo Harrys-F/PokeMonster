@@ -323,6 +323,14 @@ Ordner wie `Binaries`, `DerivedDataCache`, `Intermediate` und `Saved` sollen nor
 
 Nach stabilen Meilensteinen soll ein Git-Commit erstellt und auf das Remote-Repository übertragen werden.
 
+## Mini-Vertical-Slice in `Dev_TestMap`
+
+Der abgegrenzte Testabschnitt nutzt die vorhandene Overworld und ihre Paper2D-Umgebung. Die Outliner-Ordner `MiniSlice/01_Start` bis `04_Ziel` ordnen Checkpoint, Hauptweg/Abzweigung, Trainerprüfung und Archivstein; flache Steinsprites markieren die optionale Abzweigung. Die bestehenden Begegnungs-, Dialog-, Kampf-, Fang-, Inventar-, HUD- und Save-Subsysteme bleiben die einzigen Träger des Spielzustands.
+
+Der Archivstein ist ein kleiner wiederverwendbarer C++-Actor (`Story/PokeMonsterStoryGoal`). Er liest die stabile Trainer-ID `Slice_Liora` und das Welt-Flag `Slice_ArchiveSeal` aus dem EncounterSubsystem. Vor dem Trainersieg ist das Ziel gesperrt; nach dem Sieg bestätigt eine Dialogseite das Ziel und setzt über die vorhandene Dialog-Folgeaktion das Flag. Die visuelle Zielanzeige aktualisiert sich auch nach dem Laden eines Spielstands. NPC-Dialogseiten prüfen dasselbe Flag. Der Dev-Save speichert das Flag über die bereits vorhandenen World-IDs und den Trainerstatus über besiegte Trainer-IDs; das Save-Schema wird dafür nicht erweitert.
+
+Für einen Testlauf: In `Dev_TestMap` am Schrein starten, den Wegweiser-NPC ansprechen, optional der sichtbaren Wildkreatur auf der Abzweigung begegnen, Liora besiegen, am Archivstein interagieren und anschließend die geänderten NPC-Texte prüfen. `PMSave` und `PMLoad` prüfen den persistierten Fortschritt. Diese Testhandlung legt keine endgültige Geschichte oder Questarchitektur fest.
+
 ## Qualitätsregeln
 
 Vor dem Abschluss eines Arbeitsschrittes soll Codex, soweit möglich:
