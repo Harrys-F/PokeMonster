@@ -32,12 +32,20 @@ UPaperFlipbook* FPokeMonsterDirectionalFlipbookSet::GetFlipbook(const EPokeMonst
 	{
 	case EPokeMonsterFacingDirection::Up:
 		return Up;
-	case EPokeMonsterFacingDirection::Down:
-		return Down;
-	case EPokeMonsterFacingDirection::Left:
-		return Left;
+	case EPokeMonsterFacingDirection::UpRight:
+		return UpRight ? UpRight.Get() : (Right ? Right.Get() : Up.Get());
 	case EPokeMonsterFacingDirection::Right:
 		return Right;
+	case EPokeMonsterFacingDirection::DownRight:
+		return DownRight ? DownRight.Get() : (Right ? Right.Get() : Down.Get());
+	case EPokeMonsterFacingDirection::Down:
+		return Down;
+	case EPokeMonsterFacingDirection::DownLeft:
+		return DownLeft ? DownLeft.Get() : (Left ? Left.Get() : Down.Get());
+	case EPokeMonsterFacingDirection::Left:
+		return Left;
+	case EPokeMonsterFacingDirection::UpLeft:
+		return UpLeft ? UpLeft.Get() : (Left ? Left.Get() : Up.Get());
 	default:
 		return nullptr;
 	}
@@ -45,7 +53,7 @@ UPaperFlipbook* FPokeMonsterDirectionalFlipbookSet::GetFlipbook(const EPokeMonst
 
 bool FPokeMonsterDirectionalFlipbookSet::HasAnyFlipbook() const
 {
-	return Up || Down || Left || Right;
+	return Up || UpRight || Right || DownRight || Down || DownLeft || Left || UpLeft;
 }
 
 APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
@@ -60,7 +68,7 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 
 	UCharacterMovementComponent* MovementComponent = GetCharacterMovement();
 	MovementComponent->bOrientRotationToMovement = false;
-	MovementComponent->MaxWalkSpeed = 420.0f;
+	MovementComponent->MaxWalkSpeed = 210.0f;
 	MovementComponent->MaxAcceleration = 1800.0f;
 	MovementComponent->BrakingDecelerationWalking = 1600.0f;
 	MovementComponent->GroundFriction = 8.0f;
@@ -141,6 +149,13 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 	MapDigitalKey(EKeys::Down, true, true);
 	MapDigitalKey(EKeys::Right, false, false);
 	MapDigitalKey(EKeys::Left, true, false);
+
+	// Match the existing 0.25 gamepad axis deadzone with a radial 2D mapping.
+	FEnhancedActionKeyMapping& StickMapping = DefaultMappingContext->MapKey(MoveAction, EKeys::Gamepad_Left2D);
+	UInputModifierDeadZone* StickDeadZone = NewObject<UInputModifierDeadZone>(DefaultMappingContext);
+	StickDeadZone->LowerThreshold = 0.25f;
+	StickDeadZone->Type = EDeadZoneType::Radial;
+	StickMapping.Modifiers.Add(StickDeadZone);
 
 	InteractAction = CreateDefaultSubobject<UInputAction>(TEXT("InteractAction"));
 	InteractAction->ValueType = EInputActionValueType::Boolean;
@@ -247,14 +262,26 @@ FVector APokeMonsterPlayerCharacter::GetInteractionWorldDirection() const
 	case EPokeMonsterFacingDirection::Up:
 		FacingInput.Y = 1.0f;
 		break;
+	case EPokeMonsterFacingDirection::UpRight:
+		FacingInput = FVector2D(1.0f, 1.0f);
+		break;
+	case EPokeMonsterFacingDirection::DownRight:
+		FacingInput = FVector2D(1.0f, -1.0f);
+		break;
 	case EPokeMonsterFacingDirection::Down:
 		FacingInput.Y = -1.0f;
+		break;
+	case EPokeMonsterFacingDirection::DownLeft:
+		FacingInput = FVector2D(-1.0f, -1.0f);
 		break;
 	case EPokeMonsterFacingDirection::Left:
 		FacingInput.X = -1.0f;
 		break;
 	case EPokeMonsterFacingDirection::Right:
 		FacingInput.X = 1.0f;
+		break;
+	case EPokeMonsterFacingDirection::UpLeft:
+		FacingInput = FVector2D(-1.0f, 1.0f);
 		break;
 	}
 
@@ -426,23 +453,7 @@ void APokeMonsterPlayerCharacter::RefreshCharacterVisual()
 	PlaceholderMesh->SetVisibility(bShowPlaceholder, true);
 	FacingMarkerMesh->SetVisibility(bShowPlaceholder, true);
 
-	float FacingYaw = 135.0f;
-	switch (FacingDirection)
-	{
-	case EPokeMonsterFacingDirection::Up:
-		FacingYaw = -45.0f;
-		break;
-	case EPokeMonsterFacingDirection::Down:
-		FacingYaw = 135.0f;
-		break;
-	case EPokeMonsterFacingDirection::Left:
-		FacingYaw = -135.0f;
-		break;
-	case EPokeMonsterFacingDirection::Right:
-		FacingYaw = 45.0f;
-		break;
-	}
-
+	const float FacingYaw = GetInteractionWorldDirection().Rotation().Yaw;
 	PlaceholderMesh->SetRelativeRotation(FRotator(0.0f, FacingYaw, 0.0f));
 	const FVector FacingVector = FRotationMatrix(FRotator(0.0f, FacingYaw, 0.0f)).GetUnitAxis(EAxis::X);
 	FacingMarkerMesh->SetRelativeLocation(FacingVector * 28.0f + FVector(0.0f, 0.0f, 20.0f));
@@ -467,17 +478,17 @@ EPokeMonsterFacingDirection APokeMonsterPlayerCharacter::CalculateFacingDirectio
 		return CurrentDirection;
 	}
 
-	const float HorizontalStrength = FMath::Abs(Input.X);
-	const float VerticalStrength = FMath::Abs(Input.Y);
-	const bool bCurrentDirectionIsHorizontal = CurrentDirection == EPokeMonsterFacingDirection::Left
-		|| CurrentDirection == EPokeMonsterFacingDirection::Right;
-	const bool bUseHorizontal = HorizontalStrength > VerticalStrength
-		|| (FMath::IsNearlyEqual(HorizontalStrength, VerticalStrength) && bCurrentDirectionIsHorizontal);
-
-	if (bUseHorizontal)
+	// Angle zero is screen-up; enum order then follows clockwise in 45-degree steps.
+	const float Angle = FMath::Fmod(
+		FMath::RadiansToDegrees(FMath::Atan2(Input.X, Input.Y)) + 360.0f, 360.0f);
+	const int32 CandidateIndex = FMath::FloorToInt((Angle + 22.5f) / 45.0f) % 8;
+	const int32 CurrentIndex = static_cast<int32>(CurrentDirection);
+	const float CurrentCenter = CurrentIndex * 45.0f;
+	const float DistanceFromCurrent = FMath::Abs(FMath::FindDeltaAngleDegrees(Angle, CurrentCenter));
+	// Eight extra degrees around a sector boundary stop small stick changes flickering.
+	if (CandidateIndex != CurrentIndex && DistanceFromCurrent <= 30.5f)
 	{
-		return Input.X >= 0.0f ? EPokeMonsterFacingDirection::Right : EPokeMonsterFacingDirection::Left;
+		return CurrentDirection;
 	}
-
-	return Input.Y >= 0.0f ? EPokeMonsterFacingDirection::Up : EPokeMonsterFacingDirection::Down;
+	return static_cast<EPokeMonsterFacingDirection>(CandidateIndex);
 }

@@ -25,9 +25,13 @@ UENUM(BlueprintType)
 enum class EPokeMonsterFacingDirection : uint8
 {
 	Up,
+	UpRight,
+	Right,
+	DownRight,
 	Down,
+	DownLeft,
 	Left,
-	Right
+	UpLeft
 };
 
 UENUM(BlueprintType)
@@ -45,15 +49,22 @@ struct POKEMONSTER_API FPokeMonsterDirectionalFlipbookSet
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Flipbooks")
 	TObjectPtr<UPaperFlipbook> Up;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Flipbooks")
+	TObjectPtr<UPaperFlipbook> UpRight;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Flipbooks")
+	TObjectPtr<UPaperFlipbook> Right;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Flipbooks")
+	TObjectPtr<UPaperFlipbook> DownRight;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Flipbooks")
 	TObjectPtr<UPaperFlipbook> Down;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Flipbooks")
+	TObjectPtr<UPaperFlipbook> DownLeft;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Flipbooks")
 	TObjectPtr<UPaperFlipbook> Left;
-
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Flipbooks")
-	TObjectPtr<UPaperFlipbook> Right;
+	TObjectPtr<UPaperFlipbook> UpLeft;
 
 	UPaperFlipbook* GetFlipbook(EPokeMonsterFacingDirection Direction) const;
 	bool HasAnyFlipbook() const;

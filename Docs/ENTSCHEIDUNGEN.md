@@ -336,11 +336,11 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 
 ## 2026-09-26 – Checkpoint und Niederlagenrückkehr
 
-**Status: Erster Rückkehrablauf für Testkämpfe; Strafen und endgültige Inszenierung offen**
+**Status: Erster Rückkehrablauf für Testkämpfe; frühere offene Strafen und Speicherregeln sind durch die Entscheidung vom 2026-09-28 unten ersetzt.**
 
 - Ein RestPoint kann nach bestätigter Heilung optional einen stabil benannten Checkpoint setzen. Gespeichert werden Map-Paket, die beim Aktivieren freie Position des Spielers und seine Blickrichtung. Der Testschrein in `Dev_TestMap` setzt einen Checkpoint, speichert den Dev-Slot aber weiterhin nicht automatisch.
 - Die bisherige Rückkehr an derselben Weltposition nach einem vollständigen Kampfverlust ist **ersetzt**. Trainer- und Wildniederlagen führen über denselben Encounter-Abschluss zu einer kurzen Ohnmachtsanzeige, gesperrter Steuerung, Rückkehr zum Checkpoint beziehungsweise zum sicheren PlayerStart-Fallback, vollständiger HP-/PP-Heilung und erneuter Freigabe der Overworld. Besiegte Trainer- und World-Flags werden dabei nicht zurückgesetzt; eine Niederlage markiert keinen Trainer als besiegt.
-- Das Dev-Save-Schema steigt von Version 1 auf Version 2. Version-1-Spielstände werden ohne aktiven Checkpoint geladen, während ungültige Checkpoint-Daten vor der Übernahme abgewiesen werden. Eine Geldstrafe, Itemverlust, endgültiger Blackout-Screen oder allgemeines Autosave sind nicht beschlossen.
+- Das Dev-Save-Schema steigt von Version 1 auf Version 2. Version-1-Spielstände werden ohne aktiven Checkpoint geladen, während ungültige Checkpoint-Daten vor der Übernahme abgewiesen werden. **Ersetzt als Designstand:** Die damalige offene Frage nach Strafen und allgemeinem Autosave ist durch die Entscheidung vom 2026-09-28 geklärt; der beschriebene technische Stand bleibt unverändert.
 
 ## 2026-09-26 – Zusammenhängender Overworld-Testabschnitt
 
@@ -365,6 +365,16 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Der bisherige einheitliche Trainer-Sprite als Player-Fallback ist **ersetzt** durch vier gezeichnete Paper2D-Richtungsansichten. Die vorhandenen C++-Blickrichtungen bleiben maßgeblich; spätere Blueprint-Flipbooks haben weiterhin Vorrang. Der kleine Figurenmaßstab und die feste Kamera bleiben erhalten.
 - Wanderer, Archivarin und Liora erhalten unterschiedliche Silhouetten und Kleidung; die sichtbare Wildbegegnung erhält eine eigene, ausdrücklich vorläufige Waldkreatur-Grafik. Permanente Welt-Testbeschriftungen sind in `Dev_TestMap` ausgeblendet, während die vorhandene Interaktionsanzeige im HUD bestehen bleibt.
 - Unregelmäßig gesetzte, kollisionsfreie Gras-, Blüten-, Wurzel- und Stein-Sprites verdichten die Ränder des Mini-Slice. Die Wegmitte und Interaktionspunkte bleiben frei. Das Overworld-HUD wird kompakter und typografisch ruhiger, ohne seine Funktionen zu ändern. Kampf-, Encounter-, Inventar-, Speicher- und Dialogregeln bleiben unverändert.
+
+## 2026-09-28 – Normale Niederlage, Rettung und Speicherfreiheit
+
+**Status: Verbindliche Designregel; die vorhandenen Systeme werden in diesem Schritt nicht neu gebaut.**
+
+- Bei einer normalen Niederlage wird der Spieler bewusstlos oder kampfunfähig, nicht getötet. Eine eigene Kreatur beschützt ihn oder holt Hilfe. Er erwacht an der zuletzt aktivierten Hüterstätte oder im zuständigen Heilhaus; dort wird das Team geheilt und der Fortschritt automatisch gespeichert. Die Rettung trägt das Thema Vertrauen statt Kontrolle und spiegelt den späteren Wendepunkt der Freund-/Gegenfigur.
+- Kreaturen, Erfahrung und wichtige Gegenstände bleiben erhalten. Verbrauchte Gegenstände bleiben verbraucht, zeitlich begrenzte Verstärkungen enden. Vorerst gibt es keinen Geldverlust. Vor wichtigen Story- und Bosskämpfen werden faire Kontrollpunkte vorgesehen.
+- Manuelles Speichern und weitere Autosaves sollen möglich sein. Hüterstätten sind nicht die einzige Speichermöglichkeit. Die früher als offen bezeichneten Verlust- und Autosave-Regeln sind damit **ersetzt**.
+- **Technisch bereits vorhanden:** gemeinsamer Niederlagenrückweg für Wild- und Trainerkämpfe mit Ohnmachtsanzeige, Checkpoint-/PlayerStart-Rückkehr und HP-/PP-Heilung; versionierter Dev-Slot für Team, Inventar, Welt- und Checkpointzustand; Konsolenbefehle für manuelles Save/Load; optionales Speichern am RestPoint. Der Testschrein aktiviert derzeit einen Checkpoint ohne Autosave.
+- **Nur beschlossen, noch nicht implementiert:** Kreaturen-Rettungsinszenierung, ausgestaltete Hüterstätte/Heilhaus, automatisches Speichern nach Niederlage, allgemeine Autosaves, reguläres Speichermenü, Story-/Boss-Kontrollpunkte und zeitlich begrenzte Verstärkungen. Die aktuelle Technik wird dadurch nicht fälschlich als vollständig ausgegeben.
 
 ## Aktuell offene Entscheidungen
 

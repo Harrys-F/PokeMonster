@@ -49,12 +49,21 @@ Noch nicht entschieden:
 - spätere Änderungen der vorläufigen Reihenfolge aus Priorität, Initiative und Gleichstandregel
 - Schwierigkeitsgrad
 - Erfahrungskurve
-- Verlustbedingungen
 - Darstellung des Übergangs zwischen Welt und Kampf
 
 Codex darf zunächst nur eine kleine erweiterbare Grundlage erstellen und keine komplexe vollständige Kampfmathematik festlegen.
 
 Technischer Prototypstand: Vier individuelle Moveslots, getrennte Attacken-Data-Assets, PP-Verbrauch sowie Treffer- und Schadensberechnung sind vorhanden. Die zentral gepflegte Typentabelle verwendet vorerst die 17 Typen und Matchups der zweiten Generation; Physical/Special/Status wird unabhängig davon je Attacke festgelegt. Die Battle-Session unterstützt weiterhin 1-gegen-1 und nun Teams mit bis zu sechs Kreaturen je Seite. Pro Seite ist genau eine aktiv. Priorität geht vor Initiative, bei Gleichstand beginnt Seite A. Ein freiwilliger Wechsel verbraucht den Zug; die Gegenseite kann die eingewechselte Kreatur angreifen. Nach K.O. ist ein kampffähiger Ersatz nötig, sofern vorhanden. Erst der Ausfall des ganzen Teams beendet den Kampf. Eine besiegte Kreatur greift nicht mehr an. Fehlerhafte Auswahlen werden ohne Rundenfortschritt abgewiesen. Endgültiges Balancing, Lernregeln, Status-Effekte und weitere Kampfregeln bleiben offen. Technische Details stehen in `Docs/TECHNIK.md`.
+
+## Niederlage, Rettung und Speichern
+
+**Beschlossene Spielregel:** Bei einer normalen Niederlage stirbt der Spieler nicht. Er wird bewusstlos beziehungsweise kampfunfähig; eine eigene Kreatur schützt ihn oder holt Hilfe. Er erwacht an der zuletzt aktivierten Hüterstätte oder im zuständigen Heilhaus. Das Team wird dort vollständig geheilt und der Fortschritt automatisch gespeichert. Kreaturen, Erfahrung und wichtige Gegenstände bleiben erhalten. Bereits verbrauchte Gegenstände werden nicht zurückgegeben, zeitlich begrenzte Verstärkungen enden. Vorerst wird kein Geld abgezogen. Vor wichtigen Story- und Bosskämpfen sind faire Kontrollpunkte vorzusehen. Manuelles Speichern und weitere Autosaves sind ebenfalls möglich; Hüterstätten sind nicht die einzige Speichermöglichkeit.
+
+Die Rettung durch eine eigene Kreatur macht Vertrauen statt Kontrolle spielerisch sichtbar und spiegelt den späteren Wendepunkt der wiederkehrenden Freund-/Gegenfigur.
+
+**Bereits technisch vorhanden:** Vollständige Teamniederlagen in Wild- und Trainerkämpfen führen nach einer Ohnmachtsanzeige zum aktivierten RestPoint-Checkpoint oder ersatzweise zum PlayerStart und heilen HP/PP. Ein Dev-Slot speichert und lädt Team, Inventar, Weltfortschritt und Checkpoint; `PMSave`/`PMLoad` erlauben manuelles Speichern per Konsole. RestPoints können optional nach dem Heilen speichern. Der Testschrein aktiviert einen Checkpoint, speichert aber derzeit nicht automatisch.
+
+**Noch nicht umgesetzt:** Die sichtbare Rettung durch eine Kreatur, Hüterstätten/Heilhäuser als ausgestaltete Orte, das automatische Speichern nach Niederlage, allgemeine Autosaves und ein reguläres manuelles Speichermenü, faire Story-/Boss-Kontrollpunkte sowie eine Verwaltung zeitlich begrenzter Verstärkungen. Die beschlossenen Verlustregeln dürfen nicht mit bereits implementierten Strafen verwechselt werden.
 
 ## Sammeln und Fangen
 
