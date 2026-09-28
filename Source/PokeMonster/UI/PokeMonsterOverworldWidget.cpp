@@ -53,7 +53,7 @@ namespace
 
 	UButton* MakeButton(UWidgetTree* Tree, UCanvasPanel* Canvas, const FName Name,
 		const FString& Label, const FVector2D Position, const FVector2D Size,
-		const FAnchors Anchors = FAnchors(0.f, 0.f))
+		const FAnchors Anchors = FAnchors(0.f, 0.f), const int32 FontSize = 18)
 	{
 		auto* Button = Tree->ConstructWidget<UButton>(UButton::StaticClass(), Name);
 		FButtonStyle Style;
@@ -61,7 +61,7 @@ namespace
 		Style.SetHovered(FSlateRoundedBoxBrush(FLinearColor(0.16f, 0.27f, 0.20f, 0.98f), 16.f));
 		Style.SetPressed(FSlateRoundedBoxBrush(FLinearColor(0.24f, 0.37f, 0.27f, 0.98f), 16.f));
 		Button->SetStyle(Style);
-		Button->AddChild(MakeText(Tree, NAME_None, Label, 18));
+		Button->AddChild(MakeText(Tree, NAME_None, Label, FontSize));
 		Place(Canvas, Button, Position, Size, Anchors);
 		return Button;
 	}
@@ -93,18 +93,18 @@ void UPokeMonsterOverworldWidget::BuildDefaultTree()
 	HudLayer = WidgetTree->ConstructWidget<UCanvasPanel>(UCanvasPanel::StaticClass(), TEXT("HudLayer"));
 	Place(Root, HudLayer, FVector2D::ZeroVector, FVector2D::ZeroVector, FAnchors(0.f,0.f,1.f,1.f));
 	if (auto* Slot = Cast<UCanvasPanelSlot>(HudLayer->Slot)) Slot->SetOffsets(FMargin(0));
-	Shape(WidgetTree, HudLayer, TEXT("HudShadow"), FVector2D(24,28), FVector2D(320,275),
-		FLinearColor(0.01f,0.04f,0.03f,0.40f), 22.f);
-	Shape(WidgetTree, HudLayer, TEXT("HudPlate"), FVector2D(20,24), FVector2D(320,275), OverworldPine, 20.f);
-	Shape(WidgetTree, HudLayer, TEXT("HudAccent"), FVector2D(20,24), FVector2D(6,275), OverworldLeaf, 3.f);
-	Place(HudLayer, MakeText(WidgetTree,TEXT("HudTitle"),TEXT("DEIN TEAM"),16,OverworldSoftInk),
-		FVector2D(43,40),FVector2D(260,25));
+	Shape(WidgetTree, HudLayer, TEXT("HudShadow"), FVector2D(23,27), FVector2D(296,250),
+		FLinearColor(0.01f,0.04f,0.03f,0.30f), 24.f);
+	Shape(WidgetTree, HudLayer, TEXT("HudPlate"), FVector2D(20,24), FVector2D(296,250), OverworldPine, 22.f);
+	Shape(WidgetTree, HudLayer, TEXT("HudAccent"), FVector2D(20,24), FVector2D(4,250), OverworldLeaf, 3.f);
+	Place(HudLayer, MakeText(WidgetTree,TEXT("HudTitle"),TEXT("REISEGEFÄHRTEN"),14,OverworldSoftInk),
+		FVector2D(38,35),FVector2D(260,22));
 	HudTeamRows = WidgetTree->ConstructWidget<UVerticalBox>(UVerticalBox::StaticClass(),TEXT("HudTeamRows"));
-	Place(HudLayer,HudTeamRows,FVector2D(40,72),FVector2D(280,210));
-	InventoryButton = MakeButton(WidgetTree,HudLayer,TEXT("InventoryButton"),TEXT("TASCHE  ·  TAB"),
-		FVector2D(-224,24),FVector2D(198,50),FAnchors(1.f,0.f));
-	InteractionLabel = MakeText(WidgetTree,TEXT("InteractionPrompt"),TEXT("E  ·  INTERAGIEREN"),16,OverworldInk);
-	Place(HudLayer,InteractionLabel,FVector2D(-125,-67),FVector2D(250,30),FAnchors(0.5f,1.f));
+	Place(HudLayer,HudTeamRows,FVector2D(38,62),FVector2D(258,190));
+	InventoryButton = MakeButton(WidgetTree,HudLayer,TEXT("InventoryButton"),TEXT("Tasche  ·  Tab"),
+		FVector2D(-190,24),FVector2D(164,42),FAnchors(1.f,0.f),15);
+	InteractionLabel = MakeText(WidgetTree,TEXT("InteractionPrompt"),TEXT("E  ·  Interagieren"),15,OverworldInk);
+	Place(HudLayer,InteractionLabel,FVector2D(-119,-61),FVector2D(238,28),FAnchors(0.5f,1.f));
 	InteractionLabel->SetVisibility(ESlateVisibility::Collapsed);
 
 	MenuLayer = WidgetTree->ConstructWidget<UCanvasPanel>(UCanvasPanel::StaticClass(),TEXT("MenuLayer"));
@@ -211,15 +211,15 @@ void UPokeMonsterOverworldWidget::Render()
 	const FString Key = RenderKey(View, Section);
 	if (Key == LastRenderKey || !WidgetTree || !HudTeamRows || !MenuRows) return;
 	LastRenderKey = Key;
-	const float HudHeight = 72.f + 29.f * FMath::Max(1, View.Team.Num());
+	const float HudHeight = 62.f + 27.f * FMath::Max(1, View.Team.Num());
 	if (auto* Shadow = Cast<UImage>(GetWidgetFromName(TEXT("HudShadow"))))
-		if (auto* Slot = Cast<UCanvasPanelSlot>(Shadow->Slot)) Slot->SetSize(FVector2D(320.f, HudHeight));
+		if (auto* Slot = Cast<UCanvasPanelSlot>(Shadow->Slot)) Slot->SetSize(FVector2D(296.f, HudHeight));
 	if (auto* Plate = Cast<UImage>(GetWidgetFromName(TEXT("HudPlate"))))
-		if (auto* Slot = Cast<UCanvasPanelSlot>(Plate->Slot)) Slot->SetSize(FVector2D(320.f, HudHeight));
+		if (auto* Slot = Cast<UCanvasPanelSlot>(Plate->Slot)) Slot->SetSize(FVector2D(296.f, HudHeight));
 	if (auto* Accent = Cast<UImage>(GetWidgetFromName(TEXT("HudAccent"))))
-		if (auto* Slot = Cast<UCanvasPanelSlot>(Accent->Slot)) Slot->SetSize(FVector2D(6.f, HudHeight));
+		if (auto* Slot = Cast<UCanvasPanelSlot>(Accent->Slot)) Slot->SetSize(FVector2D(4.f, HudHeight));
 	if (auto* Slot = Cast<UCanvasPanelSlot>(HudTeamRows->Slot))
-		Slot->SetSize(FVector2D(280.f, HudHeight - 72.f));
+		Slot->SetSize(FVector2D(258.f, HudHeight - 62.f));
 	HudTeamRows->ClearChildren();
 	if (View.Team.IsEmpty())
 		HudTeamRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,TEXT("Noch kein Team"),17,OverworldSoftInk));
@@ -228,7 +228,7 @@ void UPokeMonsterOverworldWidget::Render()
 		const FString Line = FString::Printf(TEXT("%s  ·  Lv %d  ·  %s"), *Row.Name.ToString(),
 			Row.Level, Row.bKnockedOut ? TEXT("K.O.")
 				: *FString::Printf(TEXT("%d/%d HP"),Row.CurrentHP,Row.MaxHP));
-		HudTeamRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,Line,16,
+		HudTeamRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,Line,15,
 			Row.bKnockedOut ? FLinearColor(0.83f,0.56f,0.49f) : OverworldInk));
 	}
 	if (SectionTitle) SectionTitle->SetText(FText::FromString(Section == EPokeMonsterOverworldMenuSection::Team

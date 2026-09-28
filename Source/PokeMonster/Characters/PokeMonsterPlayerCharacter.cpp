@@ -155,23 +155,30 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 void APokeMonsterPlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	// A small illustrated stand-in keeps the test map readable until directional
-	// flipbooks are supplied by a Blueprint. Authored flipbooks always take priority.
+	// Directional illustrated stand-ins remain replaceable by authored Blueprint flipbooks.
 	if (!IdleFlipbooks.HasAnyFlipbook() && !WalkingFlipbooks.HasAnyFlipbook())
 	{
-		if (UPaperSprite* StandIn = LoadObject<UPaperSprite>(nullptr,
-			TEXT("/Game/Characters/Prototype/S_TrainerPlaceholder.S_TrainerPlaceholder")))
+		auto MakeStillFlipbook = [this](const TCHAR* SpritePath) -> UPaperFlipbook*
 		{
+			UPaperSprite* StandIn = LoadObject<UPaperSprite>(nullptr, SpritePath);
+			if (!StandIn) return nullptr;
 			UPaperFlipbook* StandInFlipbook = NewObject<UPaperFlipbook>(this);
 			{
 				FScopedFlipbookMutator FlipbookEdit(StandInFlipbook);
 				FPaperFlipbookKeyFrame& Frame = FlipbookEdit.KeyFrames.AddDefaulted_GetRef();
 				Frame.Sprite = StandIn;
 			}
-			GetSprite()->SetFlipbook(StandInFlipbook);
+			return StandInFlipbook;
+		};
+		IdleFlipbooks.Down = MakeStillFlipbook(TEXT("/Game/Characters/Prototype2D/Sprites/S_PlayerDown.S_PlayerDown"));
+		IdleFlipbooks.Up = MakeStillFlipbook(TEXT("/Game/Characters/Prototype2D/Sprites/S_PlayerUp.S_PlayerUp"));
+		IdleFlipbooks.Left = MakeStillFlipbook(TEXT("/Game/Characters/Prototype2D/Sprites/S_PlayerLeft.S_PlayerLeft"));
+		IdleFlipbooks.Right = MakeStillFlipbook(TEXT("/Game/Characters/Prototype2D/Sprites/S_PlayerRight.S_PlayerRight"));
+		if (IdleFlipbooks.HasAnyFlipbook())
+		{
 			GetSprite()->SetRelativeRotation(FRotator(0.f, 45.f, -55.f));
-			GetSprite()->SetRelativeScale3D(FVector(0.32f));
-			GetSprite()->SetSpriteColor(FLinearColor(0.72f, 0.85f, 1.f));
+			GetSprite()->SetRelativeScale3D(FVector(0.36f));
+			GetSprite()->SetSpriteColor(FLinearColor::White);
 		}
 	}
 	RefreshCharacterVisual();

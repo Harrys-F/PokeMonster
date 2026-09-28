@@ -358,6 +358,14 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Die vorhandenen Interaktions-Actors verwenden bis zu eigenen Grafiken zugewiesene, farblich unterscheidbare Prototype2D-Sprites. Wenn dem Player noch keine Richtungs-Flipbooks zugewiesen wurden, verwendet er zur Laufzeit eine kleine vorhandene Trainer-Silhouette statt des weißen Testkubus. Zugewiesene spätere Flipbooks haben Vorrang.
 - Kamerawinkel und -abstand sowie sämtliche Kampf-, Dialog-, Fang-, Speicher- und Fortschrittsregeln bleiben unverändert. Die derzeitigen Motive sind austauschbare Platzhalter und legen keine endgültige Figurengestaltung fest.
 
+## 2026-09-27 – Figurenlesbarkeit und Welt-Details im Mini-Slice
+
+**Status: Austauschbare illustrierte Entwicklungs-Assets; keine finale Figur oder Kreatur festgelegt.**
+
+- Der bisherige einheitliche Trainer-Sprite als Player-Fallback ist **ersetzt** durch vier gezeichnete Paper2D-Richtungsansichten. Die vorhandenen C++-Blickrichtungen bleiben maßgeblich; spätere Blueprint-Flipbooks haben weiterhin Vorrang. Der kleine Figurenmaßstab und die feste Kamera bleiben erhalten.
+- Wanderer, Archivarin und Liora erhalten unterschiedliche Silhouetten und Kleidung; die sichtbare Wildbegegnung erhält eine eigene, ausdrücklich vorläufige Waldkreatur-Grafik. Permanente Welt-Testbeschriftungen sind in `Dev_TestMap` ausgeblendet, während die vorhandene Interaktionsanzeige im HUD bestehen bleibt.
+- Unregelmäßig gesetzte, kollisionsfreie Gras-, Blüten-, Wurzel- und Stein-Sprites verdichten die Ränder des Mini-Slice. Die Wegmitte und Interaktionspunkte bleiben frei. Das Overworld-HUD wird kompakter und typografisch ruhiger, ohne seine Funktionen zu ändern. Kampf-, Encounter-, Inventar-, Speicher- und Dialogregeln bleiben unverändert.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname
