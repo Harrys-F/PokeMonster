@@ -376,6 +376,15 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - **Technisch bereits vorhanden:** gemeinsamer Niederlagenrückweg für Wild- und Trainerkämpfe mit Ohnmachtsanzeige, Checkpoint-/PlayerStart-Rückkehr und HP-/PP-Heilung; versionierter Dev-Slot für Team, Inventar, Welt- und Checkpointzustand; Konsolenbefehle für manuelles Save/Load; optionales Speichern am RestPoint. Der Testschrein aktiviert derzeit einen Checkpoint ohne Autosave.
 - **Nur beschlossen, noch nicht implementiert:** Kreaturen-Rettungsinszenierung, ausgestaltete Hüterstätte/Heilhaus, automatisches Speichern nach Niederlage, allgemeine Autosaves, reguläres Speichermenü, Story-/Boss-Kontrollpunkte und zeitlich begrenzte Verstärkungen. Die aktuelle Technik wird dadurch nicht fälschlich als vollständig ausgegeben.
 
+## 2026-09-28 – Wege und Umgebung des Mini-Vertical-Slice
+
+**Status: Überarbeiteter Entwicklungsabschnitt in `Dev_TestMap`; vorhandene Prototype2D-Grafiken bleiben austauschbar.**
+
+- Der sichtbare Hauptweg folgt weichen Kurven vom Start über Wanderer und Liora, über die Brücke und durch die Felsenpassage zum Archivstein. Eine eigene geschwungene Abzweigung führt zur Wildkreatur. Die bisherigen geraden Weg-Rechtecke sind ausgeblendet; der durchgehende Boden bleibt begehbar. Die Wegbreite und die freien Zugänge sind auf die vorhandene freie 8-Wege-Bewegung ausgelegt.
+- Die Brücke ist im Verhältnis zur Playerfigur schmaler und kürzer. Deck und Geländer bleiben begehbar beziehungsweise begrenzend, während die Wassergrenzen an die neuen Brückenränder anschließen. Große Felsen in der Passage sind kleiner und versetzt, sodass diagonale Linien offen bleiben.
+- Zusätzliche vorhandene Gras-, Blüten-, Busch-, Wurzel-, Stein- und Baum-Sprites bilden unregelmäßige Gruppen. Hütte und Start wirken wohnlicher, die Wild-Abzweigung dichter, Lioras Prüfungsplatz klarer gefasst und der Archivstein älter und leicht verwildert. Dekorative Kronen und kleine Bodendetails blockieren den Player nicht; feste Hindernisse wie Stämme, Haus, Geländer und Wasser behalten ihre Funktion.
+- Kamera, Playerbewegung mit 210 cm/s, 8-Wege-Steuerung, Blickrichtungslogik und Input bleiben unverändert. Vier hochwertige diagonale Playeransichten sind weiterhin ein separater Grafikpunkt.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname
