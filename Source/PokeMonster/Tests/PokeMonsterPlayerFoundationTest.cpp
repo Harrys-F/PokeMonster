@@ -20,6 +20,8 @@
 #include "InputMappingContext.h"
 #include "InputModifiers.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "PaperFlipbook.h"
+#include "PaperFlipbookComponent.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(
 	FPokeMonsterPlayerFoundationTest,
@@ -110,6 +112,19 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 		TestEqual(TEXT("Each of the eight input sectors selects its facing"),
 			APokeMonsterPlayerCharacter::CalculateFacingDirection(
 				Direction.Input, EPokeMonsterFacingDirection::Down, 0.1f), Direction.Expected);
+		const UPaperFlipbook* WalkFlipbook = Character->WalkingFlipbooks.GetFlipbook(Direction.Expected);
+		const UPaperFlipbook* IdleFlipbook = Character->IdleFlipbooks.GetFlipbook(Direction.Expected);
+		if (TestNotNull(TEXT("Every direction has a walking flipbook"), WalkFlipbook))
+		{
+			TestEqual(TEXT("Every walking flipbook alternates two frames"), WalkFlipbook->GetNumFrames(), 2);
+			TestEqual(TEXT("Walking flipbooks play at eight frames per second"), WalkFlipbook->GetFramesPerSecond(), 8.0f);
+			TestTrue(TEXT("Each walking pair uses distinct sprites"),
+				WalkFlipbook->GetSpriteAtFrame(0) != WalkFlipbook->GetSpriteAtFrame(1));
+		}
+		if (TestNotNull(TEXT("Every direction has an idle flipbook"), IdleFlipbook))
+		{
+			TestEqual(TEXT("Idle flipbooks hold one frame"), IdleFlipbook->GetNumFrames(), 1);
+		}
 	}
 	TestEqual(TEXT("Stick noise inside the facing threshold retains the last direction"),
 		APokeMonsterPlayerCharacter::CalculateFacingDirection(
@@ -163,6 +178,14 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 					LiveCharacter->GetFacingDirection(), Direction.Expected);
 				TestEqual(TEXT("PIE movement enters walking state"),
 					LiveCharacter->GetLocomotionState(), EPokeMonsterLocomotionState::Walking);
+				const UPaperFlipbook* WalkFlipbook = LiveCharacter->GetCharacterFlipbookComponent()->GetFlipbook();
+				if (TestNotNull(TEXT("Each PIE direction has a walking flipbook"), WalkFlipbook))
+				{
+					TestEqual(TEXT("Each walking flipbook has two frames"), WalkFlipbook->GetNumFrames(), 2);
+					TestEqual(TEXT("Walking playback uses eight frames per second"), WalkFlipbook->GetFramesPerSecond(), 8.0f);
+					TestTrue(TEXT("Walking frames are visually distinct sprite assets"),
+						WalkFlipbook->GetSpriteAtFrame(0) != WalkFlipbook->GetSpriteAtFrame(1));
+				}
 				TestTrue(TEXT("PIE movement input has unit length, including diagonals"),
 					FMath::IsNearlyEqual(LiveCharacter->GetPendingMovementInputVector().Size2D(), 1.0f, 0.01f));
 				LiveCharacter->ConsumeMovementInputVector();
@@ -171,6 +194,12 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 					LiveCharacter->GetFacingDirection(), Direction.Expected);
 				TestEqual(TEXT("PIE input release enters idle state"),
 					LiveCharacter->GetLocomotionState(), EPokeMonsterLocomotionState::Idle);
+				const UPaperFlipbook* IdleFlipbook = LiveCharacter->GetCharacterFlipbookComponent()->GetFlipbook();
+				if (TestNotNull(TEXT("Each PIE direction has an idle flipbook"), IdleFlipbook))
+				{
+					TestEqual(TEXT("Idle holds a single frame"), IdleFlipbook->GetNumFrames(), 1);
+					TestTrue(TEXT("Idle replaces the walking flipbook"), IdleFlipbook != WalkFlipbook);
+				}
 			}
 
 			LiveCharacter->Move(FInputActionValue(FVector2D(0.6f, 1.0f)));

@@ -165,6 +165,32 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 	MenuAction = CreateDefaultSubobject<UInputAction>(TEXT("MenuAction"));
 	MenuAction->ValueType = EInputActionValueType::Boolean;
 	DefaultMappingContext->MapKey(MenuAction, EKeys::Tab);
+
+	// Keep the eight authored directions on the existing character class so the
+	// default pawn in Dev_TestMap needs no map or GameMode override.
+	auto FindPlayerFlipbook = [](const TCHAR* AssetName) -> UPaperFlipbook*
+	{
+		const FString Path = FString::Printf(
+			TEXT("/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/%s.%s"), AssetName, AssetName);
+		const ConstructorHelpers::FObjectFinder<UPaperFlipbook> Asset(*Path);
+		return Asset.Succeeded() ? Asset.Object : nullptr;
+	};
+	IdleFlipbooks.Down = FindPlayerFlipbook(TEXT("FB_PlayerIdleDown"));
+	IdleFlipbooks.DownRight = FindPlayerFlipbook(TEXT("FB_PlayerIdleDownRight"));
+	IdleFlipbooks.Right = FindPlayerFlipbook(TEXT("FB_PlayerIdleRight"));
+	IdleFlipbooks.UpRight = FindPlayerFlipbook(TEXT("FB_PlayerIdleUpRight"));
+	IdleFlipbooks.Up = FindPlayerFlipbook(TEXT("FB_PlayerIdleUp"));
+	IdleFlipbooks.UpLeft = FindPlayerFlipbook(TEXT("FB_PlayerIdleUpLeft"));
+	IdleFlipbooks.Left = FindPlayerFlipbook(TEXT("FB_PlayerIdleLeft"));
+	IdleFlipbooks.DownLeft = FindPlayerFlipbook(TEXT("FB_PlayerIdleDownLeft"));
+	WalkingFlipbooks.Down = FindPlayerFlipbook(TEXT("FB_PlayerWalkDown"));
+	WalkingFlipbooks.DownRight = FindPlayerFlipbook(TEXT("FB_PlayerWalkDownRight"));
+	WalkingFlipbooks.Right = FindPlayerFlipbook(TEXT("FB_PlayerWalkRight"));
+	WalkingFlipbooks.UpRight = FindPlayerFlipbook(TEXT("FB_PlayerWalkUpRight"));
+	WalkingFlipbooks.Up = FindPlayerFlipbook(TEXT("FB_PlayerWalkUp"));
+	WalkingFlipbooks.UpLeft = FindPlayerFlipbook(TEXT("FB_PlayerWalkUpLeft"));
+	WalkingFlipbooks.Left = FindPlayerFlipbook(TEXT("FB_PlayerWalkLeft"));
+	WalkingFlipbooks.DownLeft = FindPlayerFlipbook(TEXT("FB_PlayerWalkDownLeft"));
 }
 
 void APokeMonsterPlayerCharacter::BeginPlay()
@@ -189,12 +215,12 @@ void APokeMonsterPlayerCharacter::BeginPlay()
 		IdleFlipbooks.Up = MakeStillFlipbook(TEXT("/Game/Characters/Prototype2D/Sprites/S_PlayerUp.S_PlayerUp"));
 		IdleFlipbooks.Left = MakeStillFlipbook(TEXT("/Game/Characters/Prototype2D/Sprites/S_PlayerLeft.S_PlayerLeft"));
 		IdleFlipbooks.Right = MakeStillFlipbook(TEXT("/Game/Characters/Prototype2D/Sprites/S_PlayerRight.S_PlayerRight"));
-		if (IdleFlipbooks.HasAnyFlipbook())
-		{
-			GetSprite()->SetRelativeRotation(FRotator(0.f, 45.f, -55.f));
-			GetSprite()->SetRelativeScale3D(FVector(0.36f));
-			GetSprite()->SetSpriteColor(FLinearColor::White);
-		}
+	}
+	if (IdleFlipbooks.HasAnyFlipbook() || WalkingFlipbooks.HasAnyFlipbook())
+	{
+		GetSprite()->SetRelativeRotation(FRotator(0.f, 45.f, -55.f));
+		GetSprite()->SetRelativeScale3D(FVector(0.36f));
+		GetSprite()->SetSpriteColor(FLinearColor::White);
 	}
 	RefreshCharacterVisual();
 }
