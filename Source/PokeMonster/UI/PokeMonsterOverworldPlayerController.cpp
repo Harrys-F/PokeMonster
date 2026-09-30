@@ -7,6 +7,7 @@
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "../Interaction/PokeMonsterInteractable.h"
 #include "../Items/PokeMonsterInventorySubsystem.h"
+#include "../Quest/PokeMonsterQuestSubsystem.h"
 #include "Blueprint/UserWidget.h"
 #include "Engine/GameInstance.h"
 #include "TimerManager.h"
@@ -178,11 +179,13 @@ void APokeMonsterOverworldPlayerController::OnDialogueChanged()
 void APokeMonsterOverworldPlayerController::RefreshHUD()
 {
 	if (!OverworldWidget) return;
-	const UGameInstance* Instance = GetGameInstance();
-	const auto* Encounter = Instance ? Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
+	UGameInstance* Instance = GetGameInstance();
+	auto* Encounter = Instance ? Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
 	const auto* Inventory = Instance ? Instance->GetSubsystem<UPokeMonsterInventorySubsystem>() : nullptr;
+	auto* Quests = Instance ? Instance->GetSubsystem<UPokeMonsterQuestSubsystem>() : nullptr;
+	if (Quests) Quests->RefreshProgress(Encounter, Inventory);
 	OverworldWidget->SetBattleVisible(Encounter && Encounter->IsEncounterActive());
-	OverworldWidget->UpdateView(FPokeMonsterOverworldViewBuilder::Build(Encounter, Inventory));
+	OverworldWidget->UpdateView(FPokeMonsterOverworldViewBuilder::Build(Encounter, Inventory, Quests));
 	auto* Player = Cast<APokeMonsterPlayerCharacter>(GetPawn());
 	AActor* Target = Player && !Player->IsOverworldInputLocked() && !bMenuOpen
 		&& !(Encounter && Encounter->IsEncounterActive())

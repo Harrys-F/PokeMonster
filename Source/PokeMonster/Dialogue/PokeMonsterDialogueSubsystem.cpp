@@ -2,9 +2,11 @@
 
 #include "../Characters/PokeMonsterPlayerCharacter.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
+#include "../Quest/PokeMonsterQuestSubsystem.h"
+#include "Engine/GameInstance.h"
 
 bool UPokeMonsterDialogueSubsystem::IsConditionMet(const FPokeMonsterDialoguePage& Page,
-	const UPokeMonsterEncounterSubsystem* Encounter)
+	const UPokeMonsterEncounterSubsystem* Encounter, const UPokeMonsterQuestSubsystem* Quests)
 {
 	switch (Page.Condition)
 	{
@@ -20,17 +22,22 @@ bool UPokeMonsterDialogueSubsystem::IsConditionMet(const FPokeMonsterDialoguePag
 	case EPokeMonsterDialogueCondition::TrainerNotDefeated:
 		return Encounter && !Page.ConditionId.IsNone()
 			&& !Encounter->IsTrainerDefeated(Page.ConditionId);
+	case EPokeMonsterDialogueCondition::QuestActive:
+		return Quests && Quests->GetStatus(Page.ConditionId) == EPokeMonsterQuestStatus::Active;
+	case EPokeMonsterDialogueCondition::QuestCompleted:
+		return Quests && Quests->GetStatus(Page.ConditionId) == EPokeMonsterQuestStatus::Completed;
 	default: return false;
 	}
 }
 
 TArray<FPokeMonsterDialoguePage> UPokeMonsterDialogueSubsystem::SelectPages(
-	const UPokeMonsterDialogueData* Data, const UPokeMonsterEncounterSubsystem* Encounter)
+	const UPokeMonsterDialogueData* Data, const UPokeMonsterEncounterSubsystem* Encounter,
+	const UPokeMonsterQuestSubsystem* Quests)
 {
 	TArray<FPokeMonsterDialoguePage> Selected;
 	if (!IsValid(Data)) return Selected;
 	for (const FPokeMonsterDialoguePage& Page : Data->Pages)
-		if (!Page.Text.IsEmpty() && IsConditionMet(Page, Encounter)) Selected.Add(Page);
+		if (!Page.Text.IsEmpty() && IsConditionMet(Page, Encounter, Quests)) Selected.Add(Page);
 	return Selected;
 }
 
@@ -39,12 +46,14 @@ bool UPokeMonsterDialogueSubsystem::StartDialogue(APokeMonsterPlayerCharacter* P
 {
 	if (bActive || !IsValid(Player) || !IsValid(Source) || !IsValid(Encounter)
 		|| Encounter->IsEncounterActive() || Player->IsOverworldInputLocked()) return false;
-	TArray<FPokeMonsterDialoguePage> Pages = SelectPages(Data, Encounter);
+	TArray<FPokeMonsterDialoguePage> Pages = SelectPages(Data, Encounter,
+		GetGameInstance() ? GetGameInstance()->GetSubsystem<UPokeMonsterQuestSubsystem>() : nullptr);
 	if (Pages.IsEmpty()) return false;
 	ActivePages = MoveTemp(Pages);
 	ActivePlayer = Player;
 	ActiveSource = Source;
 	ActiveEncounter = Encounter;
+	ActiveDialogueId = Data->GetPrimaryAssetId().PrimaryAssetName;
 	PageIndex = 0;
 	bActive = true;
 	Player->SetOverworldInputLocked(true);
@@ -64,10 +73,14 @@ bool UPokeMonsterDialogueSubsystem::AdvanceDialogue()
 	const FPokeMonsterDialoguePage CompletedPage = *Current;
 	AActor* Source = ActiveSource.Get();
 	UPokeMonsterEncounterSubsystem* Encounter = ActiveEncounter.Get();
+	const FName DialogueId = ActiveDialogueId;
 	const bool bLastPage = PageIndex + 1 >= ActivePages.Num();
 	if (bLastPage) CloseDialogue();
 	else { ++PageIndex; OnDialogueChanged.Broadcast(); }
 	RunFollowUp(CompletedPage, Source, Encounter);
+	if (bLastPage && GetGameInstance())
+		if (auto* Quests = GetGameInstance()->GetSubsystem<UPokeMonsterQuestSubsystem>())
+			Quests->RecordDialogue(DialogueId);
 	return true;
 }
 
@@ -79,6 +92,9 @@ void UPokeMonsterDialogueSubsystem::RunFollowUp(const FPokeMonsterDialoguePage& 
 		Encounter->MarkEncounterCompleted(Page.FollowUpId);
 	else if (Page.FollowUp == EPokeMonsterDialogueAction::Custom && IsValid(Source))
 		OnCustomAction.Broadcast(Source, Page.FollowUpId);
+	else if (Page.FollowUp == EPokeMonsterDialogueAction::StartQuest && GetGameInstance())
+		if (auto* Quests = GetGameInstance()->GetSubsystem<UPokeMonsterQuestSubsystem>())
+			Quests->StartQuestById(Page.FollowUpId);
 }
 
 void UPokeMonsterDialogueSubsystem::CloseDialogue()
@@ -90,6 +106,7 @@ void UPokeMonsterDialogueSubsystem::CloseDialogue()
 	ActivePlayer.Reset();
 	ActiveSource.Reset();
 	ActiveEncounter.Reset();
+	ActiveDialogueId = NAME_None;
 	ActivePages.Reset();
 	PageIndex = 0;
 	OnDialogueChanged.Broadcast();

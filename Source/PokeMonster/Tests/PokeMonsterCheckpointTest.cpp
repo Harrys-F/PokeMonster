@@ -65,7 +65,7 @@ bool FPokeMonsterCheckpointTest::RunTest(const FString& Parameters)
 	TestTrue(TEXT("Checkpoint selected again"), Checkpoints->RestoreCheckpoint(Site));
 	auto* Save = UPokeMonsterSaveSubsystem::CaptureSnapshot(Encounter, Inventory, GI.Get(), Checkpoints);
 	if (!TestNotNull(TEXT("Snapshot"), Save)) return false;
-	TestEqual(TEXT("Schema upgraded"), Save->SaveVersion, 2);
+	TestEqual(TEXT("Schema upgraded"), Save->SaveVersion, UPokeMonsterSaveGame::CurrentVersion);
 	TestEqual(TEXT("Checkpoint stored"), Save->ActiveCheckpoint.CheckpointId, Site.CheckpointId);
 	const FString Slot = TEXT("PokeMonster_CheckpointAutomation_") + FGuid::NewGuid().ToString(EGuidFormats::Digits);
 	TestTrue(TEXT("Checkpoint save written"), UGameplayStatics::SaveGameToSlot(Save, Slot, 0));

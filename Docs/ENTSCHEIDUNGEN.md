@@ -385,6 +385,14 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Zusätzliche vorhandene Gras-, Blüten-, Busch-, Wurzel-, Stein- und Baum-Sprites bilden unregelmäßige Gruppen. Hütte und Start wirken wohnlicher, die Wild-Abzweigung dichter, Lioras Prüfungsplatz klarer gefasst und der Archivstein älter und leicht verwildert. Dekorative Kronen und kleine Bodendetails blockieren den Player nicht; feste Hindernisse wie Stämme, Haus, Geländer und Wasser behalten ihre Funktion.
 - Kamera, Playerbewegung mit 210 cm/s, 8-Wege-Steuerung, Blickrichtungslogik und Input bleiben unverändert. Vier hochwertige diagonale Playeransichten sind weiterhin ein separater Grafikpunkt.
 
+## 2026-09-30 – Erste Quest- und Story-Fortschrittsgrundlage
+
+**Status: Technische Grundlage und Mini-Slice-Testquest; keine endgültige Story oder Quest-Menüführung.**
+
+- `UPokeMonsterQuestData` definiert geordnete Ziele. `UPokeMonsterQuestSubsystem` verwaltet Start, aktiven Schritt und Abschluss. Trainer-, Welt- und Inventarziele lesen die vorhandenen Subsysteme; Dialog- und Fangereignisse werden explizit gemeldet. Die frühere Mini-Slice-Entscheidung „kein Questmanager“ ist durch diese Erweiterung überholt.
+- Der Wanderer startet „Das Siegel des Archivs“ per Dialog-Folgeaktion. Lioras vorhandene Trainer-ID und das vorhandene Archiv-Flag bestimmen die nächsten Schritte; die Wild-Abzweigung bleibt optional. Im Overworld-HUD erscheinen nur Questname und aktuelles Ziel, nicht ein vollständiges Questbuch.
+- SaveGame-Version 3 speichert ausschließlich stabilen Questfortschritt und Fangereignis-IDs. Versionen 1/2 werden kontrolliert gelesen; bereits belegte Trainer- und Archivmeilensteine werden daraus rekonstruiert. Früheres bloßes Sprechen mit dem Wanderer kann aus einem alten Save nicht erkannt werden. Kampf-, Fang-, Bewegung-, Kamera- und Checkpointregeln bleiben unverändert.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname

@@ -3,6 +3,7 @@
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "../Items/PokeMonsterInventorySubsystem.h"
+#include "../Quest/PokeMonsterQuestSubsystem.h"
 
 namespace
 {
@@ -21,7 +22,8 @@ namespace
 }
 
 FPokeMonsterOverworldView FPokeMonsterOverworldViewBuilder::Build(
-	const UPokeMonsterEncounterSubsystem* Encounter, const UPokeMonsterInventorySubsystem* Inventory)
+	const UPokeMonsterEncounterSubsystem* Encounter, const UPokeMonsterInventorySubsystem* Inventory,
+	const UPokeMonsterQuestSubsystem* Quests)
 {
 	FPokeMonsterOverworldView View;
 	if (IsValid(Encounter))
@@ -50,5 +52,15 @@ FPokeMonsterOverworldView FPokeMonsterOverworldViewBuilder::Build(
 			Row.Quantity = Stack.Quantity;
 		}
 	}
+	if (IsValid(Quests))
+		if (const auto* Quest = Quests->GetActiveMainQuest())
+		{
+			const int32 Step = Quests->GetCurrentStep(Quest->InternalId);
+			if (Quest->Objectives.IsValidIndex(Step))
+			{
+				View.ActiveQuestName = Quest->DisplayName;
+				View.ActiveQuestObjective = Quest->Objectives[Step].Description;
+			}
+		}
 	return View;
 }

@@ -49,6 +49,9 @@ private:
 	UPROPERTY(Transient) TObjectPtr<UTextBlock> EmptyTeamLabel;
 	UPROPERTY(Transient) TObjectPtr<UTextBlock> SectionTitle;
 	UPROPERTY(Transient) TObjectPtr<UTextBlock> InteractionLabel;
+	UPROPERTY(Transient) TObjectPtr<UTextBlock> QuestTitle;
+	UPROPERTY(Transient) TObjectPtr<UTextBlock> QuestObjective;
+	UPROPERTY(Transient) TObjectPtr<UCanvasPanel> QuestPanel;
 	UPROPERTY(Transient) TObjectPtr<UButton> InventoryButton;
 	UPROPERTY(Transient) TObjectPtr<UButton> TeamTab;
 	UPROPERTY(Transient) TObjectPtr<UButton> InventoryTab;

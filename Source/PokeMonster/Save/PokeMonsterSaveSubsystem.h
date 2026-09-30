@@ -9,6 +9,7 @@ struct FPokeMonsterCreatureInstance;
 class UPokeMonsterInventorySubsystem;
 class UPokeMonsterEncounterSubsystem;
 class UPokeMonsterCheckpointSubsystem;
+class UPokeMonsterQuestSubsystem;
 
 /** One development slot. Loading validates the complete snapshot before touching runtime state. */
 UCLASS()
@@ -27,9 +28,11 @@ public:
 	/** Exposed for precise tests and future save transports; no runtime mutation. */
 	static UPokeMonsterSaveGame* CaptureSnapshot(const UPokeMonsterEncounterSubsystem* Encounter,
 		const UPokeMonsterInventorySubsystem* Inventory, UObject* Outer,
-		const UPokeMonsterCheckpointSubsystem* Checkpoint = nullptr);
+		const UPokeMonsterCheckpointSubsystem* Checkpoint = nullptr,
+		const UPokeMonsterQuestSubsystem* Quests = nullptr);
 	/** Validates and commits a snapshot atomically outside an encounter. */
 	static bool RestoreSnapshot(const UPokeMonsterSaveGame* Save,
 		UPokeMonsterEncounterSubsystem* Encounter, UPokeMonsterInventorySubsystem* Inventory,
-		UPokeMonsterCheckpointSubsystem* Checkpoint = nullptr);
+		UPokeMonsterCheckpointSubsystem* Checkpoint = nullptr,
+		UPokeMonsterQuestSubsystem* Quests = nullptr);
 };

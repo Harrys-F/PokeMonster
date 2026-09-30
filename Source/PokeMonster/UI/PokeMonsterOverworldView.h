@@ -5,6 +5,7 @@
 
 class UPokeMonsterEncounterSubsystem;
 class UPokeMonsterInventorySubsystem;
+class UPokeMonsterQuestSubsystem;
 
 USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterOverworldTeamRow
@@ -33,11 +34,13 @@ struct POKEMONSTER_API FPokeMonsterOverworldView
 	GENERATED_BODY()
 	UPROPERTY(BlueprintReadOnly) TArray<FPokeMonsterOverworldTeamRow> Team;
 	UPROPERTY(BlueprintReadOnly) TArray<FPokeMonsterOverworldItemRow> Inventory;
+	UPROPERTY(BlueprintReadOnly) FText ActiveQuestName;
+	UPROPERTY(BlueprintReadOnly) FText ActiveQuestObjective;
 };
 
 class POKEMONSTER_API FPokeMonsterOverworldViewBuilder
 {
 public:
 	static FPokeMonsterOverworldView Build(const UPokeMonsterEncounterSubsystem* Encounter,
-		const UPokeMonsterInventorySubsystem* Inventory);
+		const UPokeMonsterInventorySubsystem* Inventory, const UPokeMonsterQuestSubsystem* Quests = nullptr);
 };

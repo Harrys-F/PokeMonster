@@ -7,6 +7,7 @@
 
 class APokeMonsterPlayerCharacter;
 class UPokeMonsterEncounterSubsystem;
+class UPokeMonsterQuestSubsystem;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPokeMonsterDialogueChanged);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FPokeMonsterDialogueCustomAction, AActor*, Source, FName, ActionId);
@@ -27,9 +28,9 @@ public:
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Dialogue") int32 GetPageCount() const { return ActivePages.Num(); }
 	const FPokeMonsterDialoguePage* GetCurrentPage() const;
 	static bool IsConditionMet(const FPokeMonsterDialoguePage& Page,
-		const UPokeMonsterEncounterSubsystem* Encounter);
+		const UPokeMonsterEncounterSubsystem* Encounter, const UPokeMonsterQuestSubsystem* Quests = nullptr);
 	static TArray<FPokeMonsterDialoguePage> SelectPages(const UPokeMonsterDialogueData* Data,
-		const UPokeMonsterEncounterSubsystem* Encounter);
+		const UPokeMonsterEncounterSubsystem* Encounter, const UPokeMonsterQuestSubsystem* Quests = nullptr);
 	UPROPERTY(BlueprintAssignable, Category="PokeMonster|Dialogue") FPokeMonsterDialogueChanged OnDialogueChanged;
 	/** Custom actions are deliberately left to the source actor or a later story system. */
 	UPROPERTY(BlueprintAssignable, Category="PokeMonster|Dialogue") FPokeMonsterDialogueCustomAction OnCustomAction;
@@ -41,6 +42,7 @@ private:
 	TWeakObjectPtr<APokeMonsterPlayerCharacter> ActivePlayer;
 	TWeakObjectPtr<AActor> ActiveSource;
 	TWeakObjectPtr<UPokeMonsterEncounterSubsystem> ActiveEncounter;
+	FName ActiveDialogueId;
 	int32 PageIndex = 0;
 	bool bActive = false;
 };

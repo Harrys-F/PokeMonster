@@ -13,7 +13,9 @@ enum class EPokeMonsterDialogueCondition : uint8
 	WorldFlagSet,
 	WorldFlagUnset,
 	TrainerDefeated,
-	TrainerNotDefeated
+	TrainerNotDefeated,
+	QuestActive,
+	QuestCompleted
 };
 
 UENUM(BlueprintType)
@@ -21,7 +23,8 @@ enum class EPokeMonsterDialogueAction : uint8
 {
 	None,
 	SetWorldFlag,
-	Custom
+	Custom,
+	StartQuest
 };
 
 /** A page is shown only when its optional condition matches the current session state. */

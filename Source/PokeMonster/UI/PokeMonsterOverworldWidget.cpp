@@ -72,9 +72,10 @@ namespace
 		for (const auto& Row : View.Team)
 			Key += FString::Printf(TEXT("|%s:%d:%d:%d:%d"), *Row.Name.ToString(), Row.Level,
 				Row.CurrentHP, Row.MaxHP, Row.bKnockedOut ? 1 : 0);
-		for (const auto& Row : View.Inventory)
+	for (const auto& Row : View.Inventory)
 			Key += FString::Printf(TEXT("|%s:%s:%d"), *Row.Name.ToString(),
 				*Row.Category.ToString(), Row.Quantity);
+		Key += TEXT("|Q:") + View.ActiveQuestName.ToString() + TEXT(":") + View.ActiveQuestObjective.ToString();
 		return Key;
 	}
 }
@@ -103,6 +104,16 @@ void UPokeMonsterOverworldWidget::BuildDefaultTree()
 	Place(HudLayer,HudTeamRows,FVector2D(38,62),FVector2D(258,190));
 	InventoryButton = MakeButton(WidgetTree,HudLayer,TEXT("InventoryButton"),TEXT("Tasche  ·  Tab"),
 		FVector2D(-190,24),FVector2D(164,42),FAnchors(1.f,0.f),15);
+	QuestPanel = WidgetTree->ConstructWidget<UCanvasPanel>(UCanvasPanel::StaticClass(), TEXT("QuestPanel"));
+	Place(HudLayer, QuestPanel, FVector2D(-330,78), FVector2D(304,83), FAnchors(1.f,0.f));
+	Shape(WidgetTree, QuestPanel, TEXT("QuestPlate"), FVector2D::ZeroVector, FVector2D(304,83),
+		FLinearColor(0.08f,0.17f,0.14f,0.83f), 17.f);
+	Shape(WidgetTree, QuestPanel, TEXT("QuestAccent"), FVector2D(0,0), FVector2D(3,83), OverworldLeaf, 2.f);
+	QuestTitle = MakeText(WidgetTree,TEXT("QuestTitle"),TEXT(""),16,OverworldInk);
+	QuestObjective = MakeText(WidgetTree,TEXT("QuestObjective"),TEXT(""),14,OverworldSoftInk);
+	Place(QuestPanel,QuestTitle,FVector2D(16,13),FVector2D(274,25));
+	Place(QuestPanel,QuestObjective,FVector2D(16,42),FVector2D(274,28));
+	QuestPanel->SetVisibility(ESlateVisibility::Collapsed);
 	InteractionLabel = MakeText(WidgetTree,TEXT("InteractionPrompt"),TEXT("E  ·  Interagieren"),15,OverworldInk);
 	Place(HudLayer,InteractionLabel,FVector2D(-119,-61),FVector2D(238,28),FAnchors(0.5f,1.f));
 	InteractionLabel->SetVisibility(ESlateVisibility::Collapsed);
@@ -146,6 +157,9 @@ void UPokeMonsterOverworldWidget::NativeConstruct()
 	MenuRows = Cast<UVerticalBox>(GetWidgetFromName(TEXT("MenuRows")));
 	SectionTitle = Cast<UTextBlock>(GetWidgetFromName(TEXT("SectionTitle")));
 	InteractionLabel = Cast<UTextBlock>(GetWidgetFromName(TEXT("InteractionPrompt")));
+	QuestPanel = Cast<UCanvasPanel>(GetWidgetFromName(TEXT("QuestPanel")));
+	QuestTitle = Cast<UTextBlock>(GetWidgetFromName(TEXT("QuestTitle")));
+	QuestObjective = Cast<UTextBlock>(GetWidgetFromName(TEXT("QuestObjective")));
 	HudLayer = Cast<UCanvasPanel>(GetWidgetFromName(TEXT("HudLayer")));
 	MenuLayer = Cast<UCanvasPanel>(GetWidgetFromName(TEXT("MenuLayer")));
 	if (InventoryButton) InventoryButton->OnClicked.AddUniqueDynamic(this,&UPokeMonsterOverworldWidget::OpenInventory);
@@ -211,6 +225,10 @@ void UPokeMonsterOverworldWidget::Render()
 	const FString Key = RenderKey(View, Section);
 	if (Key == LastRenderKey || !WidgetTree || !HudTeamRows || !MenuRows) return;
 	LastRenderKey = Key;
+	if (QuestPanel) QuestPanel->SetVisibility(View.ActiveQuestName.IsEmpty()
+		? ESlateVisibility::Collapsed : ESlateVisibility::HitTestInvisible);
+	if (QuestTitle) QuestTitle->SetText(View.ActiveQuestName);
+	if (QuestObjective) QuestObjective->SetText(View.ActiveQuestObjective);
 	const float HudHeight = 62.f + 27.f * FMath::Max(1, View.Team.Num());
 	if (auto* Shadow = Cast<UImage>(GetWidgetFromName(TEXT("HudShadow"))))
 		if (auto* Slot = Cast<UCanvasPanelSlot>(Shadow->Slot)) Slot->SetSize(FVector2D(296.f, HudHeight));
