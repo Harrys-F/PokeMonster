@@ -393,6 +393,15 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Der Wanderer startet „Das Siegel des Archivs“ per Dialog-Folgeaktion. Lioras vorhandene Trainer-ID und das vorhandene Archiv-Flag bestimmen die nächsten Schritte; die Wild-Abzweigung bleibt optional. Im Overworld-HUD erscheinen nur Questname und aktuelles Ziel, nicht ein vollständiges Questbuch.
 - SaveGame-Version 3 speichert ausschließlich stabilen Questfortschritt und Fangereignis-IDs. Versionen 1/2 werden kontrolliert gelesen; bereits belegte Trainer- und Archivmeilensteine werden daraus rekonstruiert. Früheres bloßes Sprechen mit dem Wanderer kann aus einem alten Save nicht erkannt werden. Kampf-, Fang-, Bewegung-, Kamera- und Checkpointregeln bleiben unverändert.
 
+## 2026-10-01 – Heilhaus als eigenständiger Function-Gate-Prototyp
+
+**Status: Begehbarer Gebäudeblockout; keine endgültige Architektur oder Grafik.**
+
+- Die neue `Dev_HealingHouseTestMap` nutzt einen offenen Eingang in derselben Welt. Kein Streaming, keine zweite Innenraum-Map und keine künstliche Türschwelle. `Dev_TestMap` bleibt unverändert.
+- Die Hüterin verwendet den vorhandenen RestPoint mit NPC-Sprite, Dialog, HP-/PP-Heilung, Checkpoint und Dev-Save. Der freie Benutzungsort wird vor dem Speichern zum Checkpoint. Es entsteht kein zweites Heil-, Save- oder Niederlagensystem. Der bestehende Dev-Slot wird bei bestätigter Rast gespeichert; der Dialog kündigt dies ausdrücklich an.
+- Eine kleine gebäudebezogene Cutaway-Box schaltet Dach und kameraseitige Fassade unsichtbar, ohne die Wandkollisionen zu verändern. Sie prüft die Spielerposition auch nach Spawn oder Niederlagenrückkehr. Das ist kein allgemeines Occlusion-Framework. Die vorhandene Kamera bleibt unverändert.
+- Gebäudekörper, Dach, Tür, Fenster, Einrichtung und funktionale Actors sind getrennte Bauteile. Der breite Hauptlaufweg und die offene Tür orientieren sich am vorhandenen Player mit 56 cm Kapseldurchmesser und 96 cm Kapselhöhe. Der Tresen blockiert Bewegung, lässt jedoch Interaktions-Traces zum Hüter durch. Kleine Deko bleibt nichtblockierend.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname

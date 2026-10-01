@@ -339,6 +339,18 @@ Die erste Definition `/Game/Data/Quests/DA_SliceArchiveQuest` beschreibt Wandere
 
 Das SaveGame-Schema ist Version 3: Es speichert Quest-ID, Status und Schritt sowie gemeldete Fangarten-IDs, aber keine Questdefinition. Beim Laden werden Quest-IDs gegen registrierte Quest-Assets validiert, bevor der Runtime-Zustand ersetzt wird. Versionen 1 und 2 bleiben lesbar: Aus `Slice_Liora` und `Slice_ArchiveSeal` wird bereits belegbarer Mini-Slice-Fortschritt rekonstruiert; ein bloßes früheres Wanderer-Gespräch ist in alten Saves nicht nachweisbar und wird nicht erfunden. Version 0 und künftige unbekannte Versionen werden abgewiesen.
 
+## Heilhaus-Function-Gate
+
+`/Game/Maps/Dev_HealingHouseTestMap` ist eine eigene funktionale Blockout-Map, nicht das endgültige Gebäudeasset. Außenbereich und Innenraum liegen auf derselben durchgehenden Boden-Collision; die 240 cm breite Türöffnung braucht weder Levelwechsel noch Türschwelle. Gebäudekörper, Dach, Türrahmen, Fenster, Innenraum und funktionale Actors sind getrennt im Outliner organisiert. `Tools/BuildHealingHouseTestMap.py` erzeugt ausschließlich die neue Map und verweigert das Überschreiben einer vorhandenen Map.
+
+Die Hüterin ist ein konfigurierter `PokeMonsterRestPoint` mit vorhandener Archivarin-Spritegrafik. Sie nutzt den bestehenden Dialog, vollständige Teamheilung und PP-Wiederherstellung. `bActivateCheckpoint` setzt `Dev_HealingHouse` an der freien Spielerposition bei Benutzung, bevor `bSaveAfterRest` den bestehenden Dev-Slot speichert. Der Dialog kündigt das Speichern an; ein Save-Fehler macht die Heilung nicht rückgängig. Niederlagen verwenden unverändert das CheckpointSubsystem, einschließlich Rückkehr aus einer anderen Map. Welt-, Trainer- und Questzustände bleiben bei ihren bisherigen Besitzern. Die Heilhaus-Map führt keine neue Kampf- oder Storylogik ein.
+
+`World/PokeMonsterBuildingCutaway` blendet alle 0,1 Sekunden ausschließlich konfigurierte Dach- und kameraseitige Fassaden-Actors aus, wenn der Spieler im Innenraum oder unmittelbar vor dem Eingang steht. Dadurch funktioniert die Sicht auch bei Spawn oder Niederlagenrückkehr im Gebäude. Beim Verlassen und beim Ende der Sitzung werden die ursprünglichen Sichtbarkeiten wiederhergestellt. Kollisionen bleiben erhalten; Kameraabstand, Winkel, Lag, Figurenmaßstab und Playergeschwindigkeit werden nicht geändert. Der Tresen blockiert Pawn-Collision, ignoriert jedoch Visibility-Traces, damit die bestehende kurze Interaktion die Hüterin erreicht. Kleine Dekorationen, Dach und Türrahmen haben keine Gameplay-Collision.
+
+Der Prototype verwendet bestehende Materialien und Sprites. Sein bewusst einfacher Gebäudeblockout ist durch den Function-Gate-Auftrag freigegeben; die verbindliche gezeichnete Grafikrichtung bleibt das spätere Gestaltungsziel. Die vollständige visuelle Laufprüfung in PIE muss getrennt von den automatisierten Layout-/Subsystemtests ausgewiesen werden.
+
+Prüfstand: 34 Automationstests erfolgreich, darunter drei Heilhaus-Tests für die gespeicherte Map, echte Kapsel-Sweeps in einer isolierten Physikwelt, Cutaway-Sichtbarkeitswechsel sowie Rast → Checkpoint → Save/Load → Niederlagenheilung mit Erhalt von Quest-, Welt- und Trainerzuständen. PIE wurde per lokaler Unreal-MCP-Verbindung mit dem normalen Außenstart gestartet; Player und Overworld-HUD sind sichtbar. Der vollständige Fußweg und die reale Hüter-Interaktion bleiben offen, weil die verfügbare UI-Fernsteuerung keine wirksamen Bewegungs-Eingaben liefert. Ein gesonderter Innenraumstart wurde von der automatischen Freigabeprüfung als Test-Teleport abgelehnt und nicht ausgeführt.
+
 ## Qualitätsregeln
 
 Vor dem Abschluss eines Arbeitsschrittes soll Codex, soweit möglich:
