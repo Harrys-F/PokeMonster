@@ -1,0 +1,799 @@
+{
+  "source": "Art/HealingHouse/Source/HealingHouse_V1.blend",
+  "export": "Art/HealingHouse/Exports/HealingHouse_V1.fbx",
+  "units": "metres; Unreal import 100 centimetres per metre",
+  "openings": [
+    {
+      "id": "main_door",
+      "wall": "HH_Walls_Front",
+      "kind": "door",
+      "width_m": 2.4,
+      "height_m": 2.3,
+      "threshold_m": 0,
+      "destination": "free central aisle",
+      "depth_m": 0.3
+    },
+    {
+      "id": "FrontWindow-3.1",
+      "wall": "HH_Walls_Front",
+      "kind": "window",
+      "width_m": 1.1,
+      "height_m": 1.05,
+      "sill_m": 1.15,
+      "depth_m": 0.3
+    },
+    {
+      "id": "FrontWindow3.1",
+      "wall": "HH_Walls_Front",
+      "kind": "window",
+      "width_m": 1.1,
+      "height_m": 1.05,
+      "sill_m": 1.15,
+      "depth_m": 0.3
+    },
+    {
+      "id": "CameraWindow-2.3",
+      "wall": "HH_Walls_CameraSide",
+      "kind": "window",
+      "width_m": 1.1,
+      "height_m": 1.05,
+      "sill_m": 1.15,
+      "depth_m": 0.3
+    },
+    {
+      "id": "FarWindow-2.3",
+      "wall": "FarWallSolid",
+      "kind": "window",
+      "width_m": 1.1,
+      "height_m": 1.05,
+      "sill_m": 1.15,
+      "depth_m": 0.3
+    },
+    {
+      "id": "CameraWindow2.3",
+      "wall": "HH_Walls_CameraSide",
+      "kind": "window",
+      "width_m": 1.1,
+      "height_m": 1.05,
+      "sill_m": 1.15,
+      "depth_m": 0.3
+    },
+    {
+      "id": "FarWindow2.3",
+      "wall": "FarWallSolid",
+      "kind": "window",
+      "width_m": 1.1,
+      "height_m": 1.05,
+      "sill_m": 1.15,
+      "depth_m": 0.3
+    }
+  ],
+  "material_slots": [
+    "Plaster",
+    "Wood",
+    "Timber",
+    "Stone",
+    "Roof",
+    "Metal",
+    "Glass"
+  ],
+  "modules": [
+    {
+      "name": "HH_Floor",
+      "triangles": 12,
+      "vertices": 8,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 13.502399136674423,
+      "bounds_min_m": [
+        -4.349999904632568,
+        -4.849999904632568,
+        -0.1599999964237213
+      ],
+      "bounds_max_m": [
+        4.349999904632568,
+        4.849999904632568,
+        0.0
+      ],
+      "unreal_bounds_min_m": [
+        -4.349999904632568,
+        -4.849999904632568,
+        -0.1599999964237213
+      ],
+      "unreal_bounds_max_m": [
+        4.349999904632568,
+        4.849999904632568,
+        0.0
+      ]
+    },
+    {
+      "name": "HH_Foundation",
+      "triangles": 12,
+      "vertices": 8,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 26.821202588325807,
+      "bounds_min_m": [
+        -4.650000095367432,
+        -5.150000095367432,
+        -0.36000001430511475
+      ],
+      "bounds_max_m": [
+        4.650000095367432,
+        5.150000095367432,
+        -0.07999999821186066
+      ],
+      "unreal_bounds_min_m": [
+        -4.650000095367432,
+        -5.150000095367432,
+        -0.36000001430511475
+      ],
+      "unreal_bounds_max_m": [
+        4.650000095367432,
+        5.150000095367432,
+        -0.07999999821186066
+      ]
+    },
+    {
+      "name": "HH_Walls_Front",
+      "triangles": 68,
+      "vertices": 32,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 5.451003010749523,
+      "bounds_min_m": [
+        -4.650000095367432,
+        -5.0,
+        0.0
+      ],
+      "bounds_max_m": [
+        -4.349999904632568,
+        5.0,
+        2.5999999046325684
+      ],
+      "unreal_bounds_min_m": [
+        -4.650000095367432,
+        -5.0,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        -4.349999904632568,
+        5.0,
+        2.5999999046325684
+      ]
+    },
+    {
+      "name": "HH_Walls_CameraSide",
+      "triangles": 52,
+      "vertices": 24,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 6.093003489017251,
+      "bounds_min_m": [
+        -4.349999904632568,
+        -5.150000095367432,
+        0.0
+      ],
+      "bounds_max_m": [
+        4.349999904632568,
+        -4.849999904632568,
+        2.5999999046325684
+      ],
+      "unreal_bounds_min_m": [
+        -4.349999904632568,
+        4.849999904632568,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        4.349999904632568,
+        5.150000095367432,
+        2.5999999046325684
+      ]
+    },
+    {
+      "name": "HH_Walls",
+      "triangles": 64,
+      "vertices": 32,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 13.893008162021216,
+      "bounds_min_m": [
+        -4.349999904632568,
+        -5.0,
+        0.0
+      ],
+      "bounds_max_m": [
+        4.650000095367432,
+        5.150000095367432,
+        2.5999999046325684
+      ],
+      "unreal_bounds_min_m": [
+        -4.349999904632568,
+        -5.150000095367432,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        4.650000095367432,
+        5.0,
+        2.5999999046325684
+      ]
+    },
+    {
+      "name": "HH_Glass_Front",
+      "triangles": 24,
+      "vertices": 16,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 0.06649971342085322,
+      "bounds_min_m": [
+        -4.517499923706055,
+        -3.5999999046325684,
+        1.2000000476837158
+      ],
+      "bounds_max_m": [
+        -4.482500076293945,
+        3.5999999046325684,
+        2.1500000953674316
+      ],
+      "unreal_bounds_min_m": [
+        -4.517499923706055,
+        -3.5999999046325684,
+        1.2000000476837158
+      ],
+      "unreal_bounds_max_m": [
+        -4.482500076293945,
+        3.5999999046325684,
+        2.1500000953674316
+      ]
+    },
+    {
+      "name": "HH_WindowFrames_Front",
+      "triangles": 120,
+      "vertices": 80,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 0.19607996047966314,
+      "bounds_min_m": [
+        -4.764999866485596,
+        -3.7799999713897705,
+        1.0199999809265137
+      ],
+      "bounds_max_m": [
+        -4.614999771118164,
+        3.7799999713897705,
+        2.3299999237060547
+      ],
+      "unreal_bounds_min_m": [
+        -4.764999866485596,
+        -3.7799999713897705,
+        1.0199999809265137
+      ],
+      "unreal_bounds_max_m": [
+        -4.614999771118164,
+        3.7799999713897705,
+        2.3299999237060547
+      ]
+    },
+    {
+      "name": "HH_Glass_CameraSide",
+      "triangles": 24,
+      "vertices": 16,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 0.06649971342085323,
+      "bounds_min_m": [
+        -2.799999952316284,
+        -5.017499923706055,
+        1.2000000476837158
+      ],
+      "bounds_max_m": [
+        2.799999952316284,
+        -4.982500076293945,
+        2.1500000953674316
+      ],
+      "unreal_bounds_min_m": [
+        -2.799999952316284,
+        4.982500076293945,
+        1.2000000476837158
+      ],
+      "unreal_bounds_max_m": [
+        2.799999952316284,
+        5.017499923706055,
+        2.1500000953674316
+      ]
+    },
+    {
+      "name": "HH_WindowFrames_CameraSide",
+      "triangles": 120,
+      "vertices": 80,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 0.19608008386136497,
+      "bounds_min_m": [
+        -2.9800000190734863,
+        -5.264999866485596,
+        1.0199999809265137
+      ],
+      "bounds_max_m": [
+        2.9800000190734863,
+        -5.114999771118164,
+        2.3299999237060547
+      ],
+      "unreal_bounds_min_m": [
+        -2.9800000190734863,
+        5.114999771118164,
+        1.0199999809265137
+      ],
+      "unreal_bounds_max_m": [
+        2.9800000190734863,
+        5.264999866485596,
+        2.3299999237060547
+      ]
+    },
+    {
+      "name": "HH_Glass_Back",
+      "triangles": 24,
+      "vertices": 16,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 0.06649971342085323,
+      "bounds_min_m": [
+        -2.799999952316284,
+        4.982500076293945,
+        1.2000000476837158
+      ],
+      "bounds_max_m": [
+        2.799999952316284,
+        5.017499923706055,
+        2.1500000953674316
+      ],
+      "unreal_bounds_min_m": [
+        -2.799999952316284,
+        -5.017499923706055,
+        1.2000000476837158
+      ],
+      "unreal_bounds_max_m": [
+        2.799999952316284,
+        -4.982500076293945,
+        2.1500000953674316
+      ]
+    },
+    {
+      "name": "HH_WindowFrames",
+      "triangles": 120,
+      "vertices": 80,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 0.19608008386136488,
+      "bounds_min_m": [
+        -2.9800000190734863,
+        5.114999771118164,
+        1.0199999809265137
+      ],
+      "bounds_max_m": [
+        2.9800000190734863,
+        5.264999866485596,
+        2.3299999237060547
+      ],
+      "unreal_bounds_min_m": [
+        -2.9800000190734863,
+        -5.264999866485596,
+        1.0199999809265137
+      ],
+      "unreal_bounds_max_m": [
+        2.9800000190734863,
+        -5.114999771118164,
+        2.3299999237060547
+      ]
+    },
+    {
+      "name": "HH_Gable_Front",
+      "triangles": 8,
+      "vertices": 6,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 4.439996109008459,
+      "bounds_min_m": [
+        -4.619999885559082,
+        -5.0,
+        2.5999999046325684
+      ],
+      "bounds_max_m": [
+        -4.380000114440918,
+        5.0,
+        6.300000190734863
+      ],
+      "unreal_bounds_min_m": [
+        -4.619999885559082,
+        -5.0,
+        2.5999999046325684
+      ],
+      "unreal_bounds_max_m": [
+        -4.380000114440918,
+        5.0,
+        6.300000190734863
+      ]
+    },
+    {
+      "name": "HH_Gable_Rear",
+      "triangles": 8,
+      "vertices": 6,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 4.4399961090084625,
+      "bounds_min_m": [
+        4.380000114440918,
+        -5.0,
+        2.5999999046325684
+      ],
+      "bounds_max_m": [
+        4.619999885559082,
+        5.0,
+        6.300000190734863
+      ],
+      "unreal_bounds_min_m": [
+        4.380000114440918,
+        -5.0,
+        2.5999999046325684
+      ],
+      "unreal_bounds_max_m": [
+        4.619999885559082,
+        5.0,
+        6.300000190734863
+      ]
+    },
+    {
+      "name": "HH_Roof_Main",
+      "triangles": 24,
+      "vertices": 16,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 14.285712516403168,
+      "bounds_min_m": [
+        -4.949999809265137,
+        -5.550000190734863,
+        2.549999952316284
+      ],
+      "bounds_max_m": [
+        4.949999809265137,
+        5.550000190734863,
+        6.400000095367432
+      ],
+      "unreal_bounds_min_m": [
+        -4.949999809265137,
+        -5.550000190734863,
+        2.549999952316284
+      ],
+      "unreal_bounds_max_m": [
+        4.949999809265137,
+        5.550000190734863,
+        6.400000095367432
+      ]
+    },
+    {
+      "name": "HH_Roof_Porch",
+      "triangles": 12,
+      "vertices": 8,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 0.6461003254980061,
+      "bounds_min_m": [
+        -3.450000047683716,
+        4.949999809265137,
+        1.9199999570846558
+      ],
+      "bounds_max_m": [
+        0.10000000149011612,
+        6.349999904632568,
+        2.680000066757202
+      ],
+      "unreal_bounds_min_m": [
+        -3.450000047683716,
+        -6.349999904632568,
+        1.9199999570846558
+      ],
+      "unreal_bounds_max_m": [
+        0.10000000149011612,
+        -4.949999809265137,
+        2.680000066757202
+      ]
+    },
+    {
+      "name": "HH_Timber_Porch",
+      "triangles": 36,
+      "vertices": 24,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 0.22973386699561388,
+      "bounds_min_m": [
+        -3.4000000953674316,
+        6.070000171661377,
+        0.0
+      ],
+      "bounds_max_m": [
+        0.019999980926513672,
+        6.25,
+        2.055000066757202
+      ],
+      "unreal_bounds_min_m": [
+        -3.4000000953674316,
+        -6.25,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        0.019999980926513672,
+        -6.070000171661377,
+        2.055000066757202
+      ]
+    },
+    {
+      "name": "HH_PorchFloor",
+      "triangles": 12,
+      "vertices": 8,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 0.9656001542985425,
+      "bounds_min_m": [
+        -3.450000047683716,
+        4.949999809265137,
+        -0.1599999964237213
+      ],
+      "bounds_max_m": [
+        0.10000000149011612,
+        6.650000095367432,
+        0.0
+      ],
+      "unreal_bounds_min_m": [
+        -3.450000047683716,
+        -6.650000095367432,
+        -0.1599999964237213
+      ],
+      "unreal_bounds_max_m": [
+        0.10000000149011612,
+        -4.949999809265137,
+        0.0
+      ]
+    },
+    {
+      "name": "HH_Timber_Front",
+      "triangles": 96,
+      "vertices": 64,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 1.2695070049051296,
+      "bounds_min_m": [
+        -4.794999599456787,
+        -5.099999904632568,
+        0.0
+      ],
+      "bounds_max_m": [
+        -4.605000019073486,
+        5.099999904632568,
+        6.379587173461914
+      ],
+      "unreal_bounds_min_m": [
+        -4.794999599456787,
+        -5.099999904632568,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        -4.605000019073486,
+        5.099999904632568,
+        6.379587173461914
+      ]
+    },
+    {
+      "name": "HH_Timber",
+      "triangles": 144,
+      "vertices": 96,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 1.8399060459382635,
+      "bounds_min_m": [
+        -4.400000095367432,
+        -5.099999904632568,
+        0.0
+      ],
+      "bounds_max_m": [
+        4.794999599456787,
+        5.294999599456787,
+        6.379587173461914
+      ],
+      "unreal_bounds_min_m": [
+        -4.400000095367432,
+        -5.294999599456787,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        4.794999599456787,
+        5.099999904632568,
+        6.379587173461914
+      ]
+    },
+    {
+      "name": "HH_Timber_CameraSide",
+      "triangles": 48,
+      "vertices": 32,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 0.5703990410331536,
+      "bounds_min_m": [
+        -4.400000095367432,
+        -5.294999599456787,
+        0.0
+      ],
+      "bounds_max_m": [
+        4.400000095367432,
+        -5.105000019073486,
+        2.6649999618530273
+      ],
+      "unreal_bounds_min_m": [
+        -4.400000095367432,
+        5.105000019073486,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        4.400000095367432,
+        5.294999599456787,
+        2.6649999618530273
+      ]
+    },
+    {
+      "name": "HH_DoorFrame",
+      "triangles": 36,
+      "vertices": 24,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 0.26999969873432605,
+      "bounds_min_m": [
+        -4.789999961853027,
+        -1.399999976158142,
+        0.0
+      ],
+      "bounds_max_m": [
+        -4.610000133514404,
+        1.399999976158142,
+        2.5399999618530273
+      ],
+      "unreal_bounds_min_m": [
+        -4.789999961853027,
+        -1.399999976158142,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        -4.610000133514404,
+        1.399999976158142,
+        2.5399999618530273
+      ]
+    },
+    {
+      "name": "HH_Chimney",
+      "triangles": 24,
+      "vertices": 16,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 3.7957313382134563,
+      "bounds_min_m": [
+        2.2850000858306885,
+        0.9100000262260437,
+        2.200000047683716
+      ],
+      "bounds_max_m": [
+        3.315000057220459,
+        1.9900000095367432,
+        6.949999809265137
+      ],
+      "unreal_bounds_min_m": [
+        2.2850000858306885,
+        -1.9900000095367432,
+        2.200000047683716
+      ],
+      "unreal_bounds_max_m": [
+        3.315000057220459,
+        -0.9100000262260437,
+        6.949999809265137
+      ]
+    },
+    {
+      "name": "HH_ChimneyCap",
+      "triangles": 12,
+      "vertices": 8,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 0.06988793404006843,
+      "bounds_min_m": [
+        2.3450000286102295,
+        0.9700000286102295,
+        6.940000057220459
+      ],
+      "bounds_max_m": [
+        3.255000114440918,
+        1.9299999475479126,
+        7.019999980926514
+      ],
+      "unreal_bounds_min_m": [
+        2.3450000286102295,
+        -1.9299999475479126,
+        6.940000057220459
+      ],
+      "unreal_bounds_max_m": [
+        3.255000114440918,
+        -0.9700000286102295,
+        7.019999980926514
+      ]
+    },
+    {
+      "name": "HH_Counter",
+      "triangles": 24,
+      "vertices": 16,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "volume_m3": 2.5479999291896935,
+      "bounds_min_m": [
+        1.7300000190734863,
+        -0.949999988079071,
+        0.0
+      ],
+      "bounds_max_m": [
+        2.6700000762939453,
+        2.549999952316284,
+        0.9200000166893005
+      ],
+      "unreal_bounds_min_m": [
+        1.7300000190734863,
+        -2.549999952316284,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        2.6700000762939453,
+        0.949999988079071,
+        0.9200000166893005
+      ]
+    }
+  ],
+  "review_only": [
+    "HH_ScaleReference_140cm"
+  ],
+  "walkable_floor_z_m": 0,
+  "reserved_creature_beds_m": [
+    [
+      -1.7,
+      -3.45
+    ],
+    [
+      0.2,
+      -3.45
+    ]
+  ],
+  "central_aisle_m": [
+    [
+      -6,
+      0
+    ],
+    [
+      -3.3,
+      0.45
+    ],
+    [
+      0.6,
+      0
+    ],
+    [
+      1.45,
+      -0.8
+    ]
+  ],
+  "reference": "Art/HealingHouse/Review/Concept_HealingHouse.png",
+  "bounds_min_m": [
+    -4.949999809265137,
+    -5.550000190734863,
+    -0.36000001430511475
+  ],
+  "bounds_max_m": [
+    4.949999809265137,
+    6.650000095367432,
+    7.019999980926514
+  ],
+  "total_triangles": 1124,
+  "coordinate_mapping": "Unreal X=Blender X; Unreal Y=-Blender Y; Unreal Z=Blender Z"
+}

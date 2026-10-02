@@ -402,6 +402,18 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Eine kleine gebäudebezogene Cutaway-Box schaltet Dach und kameraseitige Fassade unsichtbar, ohne die Wandkollisionen zu verändern. Sie prüft die Spielerposition auch nach Spawn oder Niederlagenrückkehr. Das ist kein allgemeines Occlusion-Framework. Die vorhandene Kamera bleibt unverändert.
 - Gebäudekörper, Dach, Tür, Fenster, Einrichtung und funktionale Actors sind getrennte Bauteile. Der breite Hauptlaufweg und die offene Tür orientieren sich am vorhandenen Player mit 56 cm Kapseldurchmesser und 96 cm Kapselhöhe. Der Tresen blockiert Bewegung, lässt jedoch Interaktions-Traces zum Hüter durch. Kleine Deko bleibt nichtblockierend.
 
+## 2026-10-02 – Blender-Heilhaus V1 als austauschbare Gebäudehülle
+
+**Status: Modularer lokaler Architekturprototyp; keine endgültige Spielgrafik.**
+
+- Blender wird für dieses Gebäude als Quelle außerhalb von `Content` genutzt. Meter im Quellmodell werden über FBX-Einheiten zu Unreal-Zentimetern; X/Z bleiben erhalten, die Y-Achse wird wegen der unterschiedlichen Koordinatenhändigkeit bewusst gespiegelt. Die Importgrenzen sämtlicher Module werden geprüft.
+- Der bestehende Heilhaus-Grundriss und die 2,40 × 2,30 m große, ebenerdige Eingangspassage bleiben die funktionale Referenz. Der neue Gebäudekörper ist 10,30 × 9,30 m groß, mit Vorbau/Überstand 12,20 × 9,90 m. Der First liegt bei 6,40 m. Es gibt weiterhin nur ein begehbares Erdgeschoss; das Konzept-Obergeschoss ist noch kein Feature.
+- 24 getrennte Module mit insgesamt 1.124 Dreiecken und sieben einfachen Material-Slots bilden die neue Hülle. Dach, vorderer Giebel und kameraseitige Fassadenteile sind unabhängig ausblendbar. Keine finalen Schindeln, Blumen, Ornamente oder hochauflösenden Texturen wurden produziert.
+- Der lokale Export-/Importweg verwendet FBX mit getrennten Static Meshes und ohne automatische Ganzhaus-Collision. Nach Prüfung neben dem Original wurde nur dessen Darstellung ersetzt. Der alte Blockout bleibt unsichtbar erhalten und liefert weiterhin einfache Gameplay-Collision. Hüterin, RestPoint, Checkpoint, Save/Load und die vorhandene Cutaway-Logik werden wiederverwendet; Player und Spielkamera bleiben unverändert.
+
+- Der aktuelle Player-Maßstab bleibt erhalten. Die gemessene Sprite-Flächenhöhe bei Scale 0,36 beträgt etwa 54,21 cm; der 1,40-m-Block ist ausschließlich eine Blender-Prüfhilfe. Eine spätere Änderung der Figurengröße ist nicht Teil dieses Architektur-Prototyps.
+- Der funktionale V1 wurde mit erfolgreichem Mac-Build, allen 34 PokeMonster-Automationstests und einem echten PIE-Fußweg von außen zur Hüterin und zurück überprüft. Der bestehende Dev-Slot wurde durch die reguläre Hüterinnen-Interaktion gespeichert; der vorherige Slot wurde zuvor temporär gesichert.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname

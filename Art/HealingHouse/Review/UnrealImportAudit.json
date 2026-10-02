@@ -1,0 +1,370 @@
+{
+  "fbx": "Art/HealingHouse/Exports/HealingHouse_V1.fbx",
+  "map": "/Game/Maps/Dev_HealingHouseTestMap",
+  "import_scale": 1.0,
+  "bounds": {
+    "HH_Chimney": {
+      "min_cm": [
+        228.50003051757812,
+        -198.99996948242188,
+        220.0
+      ],
+      "max_cm": [
+        331.5000305175781,
+        -90.99994659423828,
+        695.0
+      ]
+    },
+    "HH_ChimneyCap": {
+      "min_cm": [
+        234.50001525878906,
+        -192.9999542236328,
+        694.0
+      ],
+      "max_cm": [
+        325.5000305175781,
+        -96.99994659423828,
+        702.0
+      ]
+    },
+    "HH_Counter": {
+      "min_cm": [
+        172.99998474121094,
+        -254.99996948242188,
+        0.0
+      ],
+      "max_cm": [
+        267.00006103515625,
+        95.00004577636719,
+        92.0
+      ]
+    },
+    "HH_DoorFrame": {
+      "min_cm": [
+        -479.0000305175781,
+        -140.0000762939453,
+        0.0
+      ],
+      "max_cm": [
+        -461.0,
+        139.9999237060547,
+        254.0
+      ]
+    },
+    "HH_Floor": {
+      "min_cm": [
+        -435.00006103515625,
+        -485.00006103515625,
+        -16.0
+      ],
+      "max_cm": [
+        435.00006103515625,
+        485.00006103515625,
+        0.0
+      ]
+    },
+    "HH_Foundation": {
+      "min_cm": [
+        -465.0000915527344,
+        -515.0000610351562,
+        -36.0
+      ],
+      "max_cm": [
+        465.0000915527344,
+        515.0000610351562,
+        -8.0
+      ]
+    },
+    "HH_Gable_Front": {
+      "min_cm": [
+        -462.00006103515625,
+        -500.00006103515625,
+        260.0
+      ],
+      "max_cm": [
+        -437.99993896484375,
+        499.99993896484375,
+        630.0
+      ]
+    },
+    "HH_Gable_Rear": {
+      "min_cm": [
+        437.99993896484375,
+        -499.99993896484375,
+        260.0
+      ],
+      "max_cm": [
+        462.00006103515625,
+        500.00006103515625,
+        630.0
+      ]
+    },
+    "HH_Glass_Back": {
+      "min_cm": [
+        -279.9999084472656,
+        -501.7500305175781,
+        120.00000762939453
+      ],
+      "max_cm": [
+        280.0000915527344,
+        -498.2499694824219,
+        215.00001525878906
+      ]
+    },
+    "HH_Glass_CameraSide": {
+      "min_cm": [
+        -280.0000915527344,
+        498.2499694824219,
+        120.00000762939453
+      ],
+      "max_cm": [
+        279.9999084472656,
+        501.7500305175781,
+        215.00001525878906
+      ]
+    },
+    "HH_Glass_Front": {
+      "min_cm": [
+        -451.75006103515625,
+        -360.00006103515625,
+        120.00000762939453
+      ],
+      "max_cm": [
+        -448.24993896484375,
+        359.9999084472656,
+        215.00001525878906
+      ]
+    },
+    "HH_PorchFloor": {
+      "min_cm": [
+        -344.99993896484375,
+        -665.0000610351562,
+        -16.0
+      ],
+      "max_cm": [
+        10.00010871887207,
+        -494.9999694824219,
+        0.0
+      ]
+    },
+    "HH_Roof_Main": {
+      "min_cm": [
+        -495.00006103515625,
+        -555.0001220703125,
+        255.0
+      ],
+      "max_cm": [
+        495.00006103515625,
+        555.0001220703125,
+        640.0
+      ]
+    },
+    "HH_Roof_Porch": {
+      "min_cm": [
+        -344.99993896484375,
+        -635.0000610351562,
+        192.0
+      ],
+      "max_cm": [
+        10.000103950500488,
+        -494.9999694824219,
+        268.0
+      ]
+    },
+    "HH_Timber": {
+      "min_cm": [
+        -439.99993896484375,
+        -529.5000610351562,
+        0.0
+      ],
+      "max_cm": [
+        479.5000305175781,
+        510.00006103515625,
+        637.958740234375
+      ]
+    },
+    "HH_Timber_CameraSide": {
+      "min_cm": [
+        -440.0000915527344,
+        510.49993896484375,
+        0.0
+      ],
+      "max_cm": [
+        439.99993896484375,
+        529.5000610351562,
+        266.5
+      ]
+    },
+    "HH_Timber_Front": {
+      "min_cm": [
+        -479.5000305175781,
+        -510.00006103515625,
+        0.0
+      ],
+      "max_cm": [
+        -460.4999084472656,
+        509.9999084472656,
+        637.958740234375
+      ]
+    },
+    "HH_Timber_Porch": {
+      "min_cm": [
+        -339.9999084472656,
+        -625.0000610351562,
+        0.0
+      ],
+      "max_cm": [
+        2.0000998973846436,
+        -607.0,
+        205.5
+      ]
+    },
+    "HH_Walls": {
+      "min_cm": [
+        -434.9999084472656,
+        -515.0000610351562,
+        0.0
+      ],
+      "max_cm": [
+        465.0000915527344,
+        500.00006103515625,
+        260.0
+      ]
+    },
+    "HH_Walls_CameraSide": {
+      "min_cm": [
+        -435.00006103515625,
+        484.9999084472656,
+        0.0
+      ],
+      "max_cm": [
+        434.9999084472656,
+        515.0000610351562,
+        260.0
+      ]
+    },
+    "HH_Walls_Front": {
+      "min_cm": [
+        -465.0000915527344,
+        -500.00006103515625,
+        0.0
+      ],
+      "max_cm": [
+        -434.9999084472656,
+        499.99993896484375,
+        260.0
+      ]
+    },
+    "HH_WindowFrames": {
+      "min_cm": [
+        -297.9999084472656,
+        -526.5000610351562,
+        102.0
+      ],
+      "max_cm": [
+        298.0000915527344,
+        -511.49993896484375,
+        233.0
+      ]
+    },
+    "HH_WindowFrames_CameraSide": {
+      "min_cm": [
+        -298.0000915527344,
+        511.49993896484375,
+        102.0
+      ],
+      "max_cm": [
+        297.9999084472656,
+        526.5000610351562,
+        233.0
+      ]
+    },
+    "HH_WindowFrames_Front": {
+      "min_cm": [
+        -476.50006103515625,
+        -378.00006103515625,
+        102.0
+      ],
+      "max_cm": [
+        -461.4999084472656,
+        377.9999084472656,
+        233.0
+      ]
+    }
+  },
+  "assets": [
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Chimney",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_ChimneyCap",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Counter",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_DoorFrame",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Floor",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Foundation",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Gable_Front",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Gable_Rear",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Glass_Back",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Glass_CameraSide",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Glass_Front",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_PorchFloor",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Roof_Main",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Roof_Porch",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Timber",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Timber_CameraSide",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Timber_Front",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Timber_Porch",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Walls",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Walls_CameraSide",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_Walls_Front",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_WindowFrames",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_WindowFrames_CameraSide",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_WindowFrames_Front",
+    "/Game/Environment/HealingHouse/Materials/M_HH_Plaster",
+    "/Game/Environment/HealingHouse/Materials/M_HH_Wood",
+    "/Game/Environment/HealingHouse/Materials/M_HH_Timber",
+    "/Game/Environment/HealingHouse/Materials/M_HH_Stone",
+    "/Game/Environment/HealingHouse/Materials/M_HH_Roof",
+    "/Game/Environment/HealingHouse/Materials/M_HH_Metal",
+    "/Game/Environment/HealingHouse/Materials/M_HH_Glass"
+  ],
+  "healer_before": [
+    330.0,
+    -80.0,
+    62.0
+  ],
+  "comparison_offset_cm": [
+    1200,
+    0,
+    0
+  ],
+  "cutaway_modules": [
+    "HH_Walls_Front",
+    "HH_Walls_CameraSide",
+    "HH_Gable_Front",
+    "HH_Roof_Main",
+    "HH_Roof_Porch",
+    "HH_Timber_Front",
+    "HH_Timber_CameraSide",
+    "HH_DoorFrame",
+    "HH_WindowFrames_Front",
+    "HH_WindowFrames_CameraSide",
+    "HH_Glass_Front",
+    "HH_Glass_CameraSide",
+    "HH_Chimney",
+    "HH_ChimneyCap"
+  ],
+  "player_speed_cm_s": 210.0,
+  "healer_after": [
+    330.0,
+    -80.0,
+    62.0
+  ],
+  "player_source_size_cm": [
+    75.29411553511576,
+    150.58823107023153
+  ],
+  "player_sprite_plane_height_cm": 54.211763185283345,
+  "player_visual_scale": [
+    0.36,
+    0.36,
+    0.36
+  ]
+}

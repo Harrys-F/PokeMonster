@@ -87,6 +87,34 @@ bool FPokeMonsterHealingHouseLayoutTest::RunTest(const FString& Parameters)
 		TestTrue(TEXT("Cutaway targets only visual building meshes"), Cast<AStaticMeshActor>(Occluder) != nullptr);
 		TestTrue(TEXT("Cutaway never hides healer"), Occluder != Healer);
 	}
+	// Imported architecture is presentation only; the retained simple blockers
+	// remain authoritative. In particular, a convex whole-house hull must never
+	// seal the door or the room, and every near facade must participate in cutaway.
+	TMap<FName, AStaticMeshActor*> Imported;
+	for (AActor* Actor : World->PersistentLevel->Actors)
+	{
+		if (!Actor || !Actor->ActorHasTag(TEXT("HealingHouse_BlenderV1"))) continue;
+		auto* MeshActor = Cast<AStaticMeshActor>(Actor);
+		if (!TestNotNull(TEXT("Imported architecture is a mesh actor"), MeshActor)) continue;
+		Imported.Add(FName(*Actor->GetActorLabel()), MeshActor);
+		TestEqual(TEXT("Imported geometry never introduces whole-house collision"),
+			MeshActor->GetStaticMeshComponent()->GetCollisionEnabled(), ECollisionEnabled::NoCollision);
+		TestEqual(TEXT("Imported module uses unit scale"), Actor->GetActorScale3D(), FVector::OneVector);
+		TestEqual(TEXT("Imported module shares building origin"), Actor->GetActorLocation(), FVector::ZeroVector);
+	}
+	TestTrue(TEXT("Blender shell is installed"), Imported.Num() >= 9);
+	for (const FName Name : {FName(TEXT("HH_Roof_Main")), FName(TEXT("HH_Roof_Porch")),
+		FName(TEXT("HH_Walls_Front")), FName(TEXT("HH_Walls_CameraSide")), FName(TEXT("HH_Gable_Front"))})
+	{
+		auto* Module = Imported.FindRef(Name);
+		if (TestNotNull(TEXT("Required removable Blender module exists"), Module))
+			TestTrue(TEXT("Imported roof/near facade belongs to existing cutaway"), Cutaway->OccludingActors.Contains(Module));
+	}
+	if (auto* Roof = Imported.FindRef(TEXT("HH_Roof_Main")))
+	{
+		const FBox Bounds = Roof->GetStaticMeshComponent()->GetStaticMesh()->GetBoundingBox();
+		TestTrue(TEXT("FBX metre scale produces 6.4 metre ridge"), FMath::IsNearlyEqual(Bounds.Max.Z, 640.f, 0.3f));
+	}
 	return true;
 }
 

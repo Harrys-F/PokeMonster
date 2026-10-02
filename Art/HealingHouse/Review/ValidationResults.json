@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-02",
+  "starting_branch": "main",
+  "starting_head": "c7733e3",
+  "initial_git_status": "clean",
+  "build": "PokeMonsterEditor Mac Development: Succeeded",
+  "automation": {
+    "succeeded": 34,
+    "succeededWithWarnings": 0,
+    "failed": 0,
+    "notRun": 0
+  },
+  "tests": [
+    {
+      "name": "PokeMonster.Battle.Presentation.EventSequence",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Battle.Session.HitsAndTypes",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Battle.Session.KOAndFinish",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Battle.Session.OrderAndPP",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Battle.Session.ValidationAndReplay",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Battle.Team.SwitchAndKO",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Battle.UI.BindingAndInputLock",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Battle.UI.MissedStatusLog",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Battle.UI.UnavailableMoves",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Battle.Damage",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Battle.HitCheck",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Battle.TypeChart",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Capture.WildBattleAndTeamTransfer",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Creatures.DataSystem",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Creatures.EvolutionEligibility",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Creatures.GrowthCurves",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Creatures.Progression",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Dialogue.PagesAndState",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Encounter.OverworldIntegration",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Encounter.TrainerProfileAndDefeatState",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Encounter.WildProfileAndSources",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Items.InventoryAndUsage",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Moves.DataAssetsAndSlots",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Overworld.Checkpoint.DefeatAndSave",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Overworld.HealingHouse.CollisionAndCutaway",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Overworld.HealingHouse.Layout",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Overworld.HealingHouse.RestCheckpointSaveAndDefeat",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Overworld.MiniSlice.ProgressAndSave",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Overworld.RestPoint.HealAndSave",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Overworld.UI.Foundation",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Player.Foundation",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Quest.MiniSlice.FlowAndSave",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Save.RejectInvalidData",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Save.SnapshotAndDisk",
+      "state": "Success"
+    }
+  ],
+  "map_check": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "pie": {
+    "teleports": false,
+    "route": "Exterior PlayerStart -> entrance -> central aisle -> healer -> healing/checkpoint/save confirmation -> entrance -> exterior",
+    "observed": [
+      "Player walks and animates",
+      "roof and near facade hidden on entry",
+      "healer dialogue opens",
+      "healing/save/checkpoint confirmation displayed",
+      "walking released after closing dialogue",
+      "exit traversable",
+      "facade visible outside"
+    ],
+    "limitations": [
+      "No simultaneous non-modifier key chord through native CUA; diagonal clearance covered by capsule sweeps",
+      "Team began PIE with full HP; depleted HP/PP restoration covered by automation",
+      "Long existing healer introduction exceeds dialog panel height; dialogue layout unchanged"
+    ]
+  },
+  "player_sprite_plane_height_cm": 54.211763185283345,
+  "gameplay_cpp_changed": false,
+  "test_cpp_changed": true
+}
