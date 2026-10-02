@@ -149,7 +149,7 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Statische Sprite-Flächen sind auf die vorhandene feste Kamera ausgerichtet; keine Tick- oder Billboard-Gameplay-Logik. Maskierte unbeleuchtete Sprites behalten ihre gemalten Schattierungen.
 - Outliner-Ordner trennen Boden, Wege, Wasser, Vegetation, Gebäude, Vordergrund und Kollision. Bodenflächen verwenden eigene kostengünstige Materialien mit weichen Rändern; Kontaktflächen ersetzen harte Umgebungsschatten.
 - Vorherige 3D-Actors bleiben unsichtbar erhalten, inklusive bestehender Kollisionskörper. Neue Grafikflächen kollidieren nicht. Player, Enhanced Input, GameMode, Interaktion und Kreaturendaten bleiben unverändert.
-- Kameraabstand 1400 cm, Winkel und Camera Lag bleiben unverändert. Vier Texturen werden mit maximal 1024 Pixeln importiert und zwischen allen Instanzen geteilt.
+- Damals blieb der Kameraabstand bei 1400 cm; dieser Abstand ist durch die kontrollierte Anpassung vom 2026-10-02 unten ersetzt. Winkel und Camera Lag bleiben unverändert. Vier Texturen werden mit maximal 1024 Pixeln importiert und zwischen allen Instanzen geteilt.
 
 ## 2026-09-17 – Grafikstil, Kamera und Figurengröße
 
@@ -421,6 +421,13 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Der gemeinsame Fuß-Pivot liegt bei Quellpixel (128,488), an der sichtbaren Sohle. Pixels Per Unreal Unit wird pro Pose anhand ihrer Alpha-Körperhöhe normiert (3,4 × Körperpixel / 438). Das ergibt gleiche sichtbare Körperhöhe ohne Richtungs-/Frame-Sprünge. Die PNGs und Flipbook-Zuordnungen bleiben unverändert.
 - Die Sprite-Komponente wird rein visuell um die unveränderte Capsule-Halbhöhe nach unten versetzt. Actor-Scale 1, Capsule 28-cm-Radius/48-cm-Halbhöhe, Bewegung 210 cm/s, Kamera, Interaktion und alle Gameplay-Systeme bleiben unverändert. Vergleichsreferenzen sind kurzlebige Debug-Zeichnungen im PIE, keine gespeicherten Actors.
 - Vollständige Messwerte und Prüfung: `Docs/SCALE_CALIBRATION.md`.
+
+## 2026-10-02 – Kontrollierter Overworld-Kameraabstand
+
+- Der tatsächlich verwendete Perspektivabstand der SpringArm-Kamera wird von 1400 auf 2000 cm erhöht. In PIE wurden zuerst 1800 cm und danach 2000 cm bei gleichem Winkel/FOV verglichen. 2000 cm geben die bessere Übersicht; die kalibrierte 140-cm-Figur bleibt lesbar. Kein Abstand ab 2200 cm wurde getestet oder übernommen.
+- Außenansicht, Eingang/Vorplatz, offenes Gelände und Innenraum wurden in `Dev_HealingHouseTestMap` verglichen. Auch bei 2000 cm passt das große Heilhaus unmittelbar vor dem Eingang nicht vollständig ins Bild. Eine vollständige Referenzkomposition würde zusätzlich eine andere Bildausrichtung erfordern; diese Aufgabe ändert ausschließlich den Abstand.
+- Perspektive, Rotation (-55°, -45°, 0°), FOV 35°, Camera Lag mit Geschwindigkeit 6 und maximal 180 cm bleiben unverändert. Sprite-/Actor-Skalierung, 140 cm Körperhöhe, Capsule, 210 cm/s Bewegung, Input, Blickrichtungen und Gameplay werden nicht angepasst. Die Maps werden nicht gespeichert oder verändert.
+- Die bestehende Scale-Calibration-Testassertion prüft den neuen Kameraabstand; die Körpergrößen-Prüfungen bleiben unverändert. Mac-Development-Build erfolgreich; alle 35 vorhandenen PokeMonster-Automationstests erfolgreich, einschließlich Player Foundation, Scale Calibration und HealingHouse. Zusätzliche PIE-WASD-Prüfung in `Dev_TestMap`: tatsächliche Bewegung und Kamerafolgen bestätigt; im offenen Wegbereich bleiben Figur und NPCs lesbar. Vorhandene Vordergrund-Baumkronen können die Figur weiterhin verdecken; daran wird bei dieser reinen Abstandsanpassung nichts geändert.
 
 ## Aktuell offene Entscheidungen
 
