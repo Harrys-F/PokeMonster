@@ -80,11 +80,17 @@ bool FPokeMonsterHealingHouseLayoutTest::RunTest(const FString& Parameters)
 	TestFalse(TEXT("Roof visible at exterior spawn"), Cutaway->IsViewerInside(Start->GetActorLocation()));
 	TestFalse(TEXT("Approaching the house does not activate cutaway"), Cutaway->IsViewerInside(FVector(-570.f, 0.f, 48.f)));
 	Cutaway->DoorThreshold->UpdateComponentToWorld();
-	TestEqual(TEXT("Door threshold is centred on the actual doorway"), Cutaway->DoorThreshold->GetComponentLocation(), FVector(-450.f, 0.f, 115.f));
-	TestEqual(TEXT("Door threshold matches the 240 by 230 cm passage"), Cutaway->DoorThreshold->GetUnscaledBoxExtent(), FVector(20.f, 120.f, 115.f));
+	TestEqual(TEXT("Door threshold is centred on the actual doorway"), Cutaway->DoorThreshold->GetComponentLocation(), FVector(-450.f, 0.f, 107.5f));
+	TestEqual(TEXT("Door threshold matches the 170 by 215 cm passage"), Cutaway->DoorThreshold->GetUnscaledBoxExtent(), FVector(20.f, 85.f, 107.5f));
+	if (EntranceWalls.Num() == 2)
+	{
+		TestTrue(TEXT("Collision matches the narrowed 170 cm visual passage"),
+			FMath::IsNearlyEqual(EntranceWalls[1].Min.Y - EntranceWalls[0].Max.Y, 170.f, 0.1f));
+	}
 	TestEqual(TEXT("Door threshold never changes gameplay collision"), Cutaway->DoorThreshold->GetCollisionEnabled(), ECollisionEnabled::NoCollision);
 	TestFalse(TEXT("Forecourt is outside the small threshold"), Cutaway->IsViewerInDoorway(FVector(-570.f, 0.f, 48.f)));
-	TestTrue(TEXT("Diagonal position fits doorway transition"), Cutaway->IsViewerInDoorway(FVector(-450.f, 85.f, 48.f)));
+	TestTrue(TEXT("Diagonal position fits doorway transition"), Cutaway->IsViewerInDoorway(FVector(-450.f, 55.f, 48.f)));
+	TestFalse(TEXT("Old wide doorway edge does not trigger cutaway"), Cutaway->IsViewerInDoorway(FVector(-450.f, 100.f, 48.f)));
 	TestFalse(TEXT("Facade away from door does not form a transition"), Cutaway->IsViewerInDoorway(FVector(-450.f, 300.f, 48.f)));
 	TestEqual(TEXT("Fade duration is 0.4 seconds"), Cutaway->FadeDuration, 0.4f);
 	TestTrue(TEXT("Whole main aisle is inside cutaway"), Cutaway->IsViewerInside(FVector(140.f, -80.f, 48.f)));
@@ -186,6 +192,14 @@ bool FPokeMonsterHealingHouseCollisionTest::RunTest(const FString& Parameters)
 	Controller->Possess(Viewer);
 	TestEqual(TEXT("Cutaway can resolve the possessed viewer"), UGameplayStatics::GetPlayerPawn(Controller, 0), static_cast<APawn*>(Viewer));
 	auto* Cutaway = TestWorld->SpawnActor<APokeMonsterBuildingCutaway>(FVector(-40, 0, 150), FRotator::ZeroRotator);
+	// Exercise the map-authored dimensions, not the generic class defaults.
+	APokeMonsterBuildingCutaway* MapCutaway = nullptr;
+	for (AActor* Actor : Map->PersistentLevel->Actors)
+		if (auto* Candidate = Cast<APokeMonsterBuildingCutaway>(Actor)) MapCutaway = Candidate;
+	if (!TestNotNull(TEXT("Map-authored cutaway dimensions"), MapCutaway)) return false;
+	Cutaway->InteriorArea->SetBoxExtent(MapCutaway->InteriorArea->GetUnscaledBoxExtent());
+	Cutaway->DoorThreshold->SetRelativeLocation(MapCutaway->DoorThreshold->GetRelativeLocation());
+	Cutaway->DoorThreshold->SetBoxExtent(MapCutaway->DoorThreshold->GetUnscaledBoxExtent());
 	Cutaway->OccludingActors = FrontParts;
 	Cutaway->Tick(0.1f);
 	TestFalse(TEXT("Exterior does not activate cutaway"), Cutaway->IsCutawayActive());

@@ -1,0 +1,901 @@
+{
+  "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/HealingHouse/Source/HealingHouse_V2.blend",
+  "export": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/HealingHouse/Exports/HealingHouse_V2.fbx",
+  "module_count": 39,
+  "total_triangles": 15256,
+  "modules": [
+    {
+      "name": "HH_V2_Floor",
+      "triangles": 12,
+      "non_manifold_edges": 0,
+      "volume_m3": 13.502399136674423,
+      "unreal_bounds_min_m": [
+        -4.349999904632568,
+        -4.849999904632568,
+        -0.1599999964237213
+      ],
+      "unreal_bounds_max_m": [
+        4.349999904632568,
+        4.849999904632568,
+        0.0
+      ],
+      "materials": [
+        "HH_V2_Wood"
+      ]
+    },
+    {
+      "name": "HH_V2_Foundation",
+      "triangles": 12,
+      "non_manifold_edges": 0,
+      "volume_m3": 26.82120258832581,
+      "unreal_bounds_min_m": [
+        -4.650000095367432,
+        -5.150000095367432,
+        -0.36000001430511475
+      ],
+      "unreal_bounds_max_m": [
+        4.650000095367432,
+        5.150000095367432,
+        -0.07999999821186066
+      ],
+      "materials": [
+        "HH_V2_Stone"
+      ]
+    },
+    {
+      "name": "HH_V2_Walls_Front",
+      "triangles": 156,
+      "non_manifold_edges": 0,
+      "volume_m3": 5.3112887566017255,
+      "unreal_bounds_min_m": [
+        -4.650000095367432,
+        -5.0,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        -4.349999904632568,
+        5.0,
+        2.5999999046325684
+      ],
+      "materials": [
+        "HH_V2_Plaster"
+      ]
+    },
+    {
+      "name": "HH_V2_Walls_CameraSide",
+      "triangles": 60,
+      "non_manifold_edges": 0,
+      "volume_m3": 6.786003916740155,
+      "unreal_bounds_min_m": [
+        -4.349999904632568,
+        4.849999904632568,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        4.349999904632568,
+        5.150000095367432,
+        2.5999999046325684
+      ],
+      "materials": [
+        "HH_V2_Plaster"
+      ]
+    },
+    {
+      "name": "HH_V2_Walls_Rear",
+      "triangles": 12,
+      "non_manifold_edges": 0,
+      "volume_m3": 7.8000046730039685,
+      "unreal_bounds_min_m": [
+        4.349999904632568,
+        -5.0,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        4.650000095367432,
+        5.0,
+        2.5999999046325684
+      ],
+      "materials": [
+        "HH_V2_Plaster"
+      ]
+    },
+    {
+      "name": "HH_V2_Walls_Far",
+      "triangles": 60,
+      "non_manifold_edges": 0,
+      "volume_m3": 6.78600391674016,
+      "unreal_bounds_min_m": [
+        -4.349999904632568,
+        -5.150000095367432,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        4.349999904632568,
+        -4.849999904632568,
+        2.5999999046325684
+      ],
+      "materials": [
+        "HH_V2_Plaster"
+      ]
+    },
+    {
+      "name": "HH_V2_Glass_Front",
+      "triangles": 112,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.09714957843532307,
+      "unreal_bounds_min_m": [
+        -4.517499923706055,
+        -3.7249999046325684,
+        1.0
+      ],
+      "unreal_bounds_max_m": [
+        -4.482500076293945,
+        3.7249999046325684,
+        2.25
+      ],
+      "materials": [
+        "HH_V2_Glass"
+      ]
+    },
+    {
+      "name": "HH_V2_Windows_Front",
+      "triangles": 1584,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.401913593877189,
+      "unreal_bounds_min_m": [
+        -4.914999961853027,
+        -3.884999990463257,
+        0.8349999785423279
+      ],
+      "unreal_bounds_max_m": [
+        -4.565000057220459,
+        3.884999990463257,
+        2.3372721672058105
+      ],
+      "materials": [
+        "HH_V2_Wood",
+        "HH_V2_Stone"
+      ]
+    },
+    {
+      "name": "HH_V2_Glass_CameraSide",
+      "triangles": 40,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.09433158964967145,
+      "unreal_bounds_min_m": [
+        -2.9000000953674316,
+        4.982500076293945,
+        1.0800000429153442
+      ],
+      "unreal_bounds_max_m": [
+        2.9000000953674316,
+        5.017499923706055,
+        2.2300000190734863
+      ],
+      "materials": [
+        "HH_V2_Glass"
+      ]
+    },
+    {
+      "name": "HH_V2_Windows_CameraSide",
+      "triangles": 792,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.398537019993721,
+      "unreal_bounds_min_m": [
+        -3.059999942779541,
+        5.065000057220459,
+        0.9150000214576721
+      ],
+      "unreal_bounds_max_m": [
+        3.059999942779541,
+        5.414999961853027,
+        2.299999952316284
+      ],
+      "materials": [
+        "HH_V2_Wood",
+        "HH_V2_Stone"
+      ]
+    },
+    {
+      "name": "HH_V2_Glass_Far",
+      "triangles": 40,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.09433158964967145,
+      "unreal_bounds_min_m": [
+        -2.9000000953674316,
+        -5.017499923706055,
+        1.0800000429153442
+      ],
+      "unreal_bounds_max_m": [
+        2.9000000953674316,
+        -4.982500076293945,
+        2.2300000190734863
+      ],
+      "materials": [
+        "HH_V2_Glass"
+      ]
+    },
+    {
+      "name": "HH_V2_Windows_Far",
+      "triangles": 792,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.3985370199937206,
+      "unreal_bounds_min_m": [
+        -3.059999942779541,
+        -5.414999961853027,
+        0.9150000214576721
+      ],
+      "unreal_bounds_max_m": [
+        3.059999942779541,
+        -5.065000057220459,
+        2.299999952316284
+      ],
+      "materials": [
+        "HH_V2_Wood",
+        "HH_V2_Stone"
+      ]
+    },
+    {
+      "name": "HH_V2_Gable_Front",
+      "triangles": 92,
+      "non_manifold_edges": 0,
+      "volume_m3": 4.216167655180819,
+      "unreal_bounds_min_m": [
+        -4.619999885559082,
+        -5.0,
+        2.5999999046325684
+      ],
+      "unreal_bounds_max_m": [
+        -4.380000114440918,
+        5.0,
+        6.25
+      ],
+      "materials": [
+        "HH_V2_Plaster"
+      ]
+    },
+    {
+      "name": "HH_V2_Gable_Rear",
+      "triangles": 8,
+      "non_manifold_edges": 0,
+      "volume_m3": 4.379995937347303,
+      "unreal_bounds_min_m": [
+        4.380000114440918,
+        -5.0,
+        2.5999999046325684
+      ],
+      "unreal_bounds_max_m": [
+        4.619999885559082,
+        5.0,
+        6.25
+      ],
+      "materials": [
+        "HH_V2_Plaster"
+      ]
+    },
+    {
+      "name": "HH_V2_Glass_Loft",
+      "triangles": 76,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.023891543108147492,
+      "unreal_bounds_min_m": [
+        -4.517499923706055,
+        0.12999999523162842,
+        3.9800000190734863
+      ],
+      "unreal_bounds_max_m": [
+        -4.482500076293945,
+        1.0700000524520874,
+        4.920000076293945
+      ],
+      "materials": [
+        "HH_V2_Glass"
+      ]
+    },
+    {
+      "name": "HH_V2_Windows_Loft",
+      "triangles": 968,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.09253048944250024,
+      "unreal_bounds_min_m": [
+        -4.84499979019165,
+        0.043454550206661224,
+        3.8934545516967773
+      ],
+      "unreal_bounds_max_m": [
+        -4.695000171661377,
+        1.1565455198287964,
+        5.006545543670654
+      ],
+      "materials": [
+        "HH_V2_Wood"
+      ]
+    },
+    {
+      "name": "HH_V2_Roof_Main",
+      "triangles": 264,
+      "non_manifold_edges": 0,
+      "volume_m3": 19.717385800528763,
+      "unreal_bounds_min_m": [
+        -4.949999809265137,
+        -5.550000190734863,
+        2.506596088409424
+      ],
+      "unreal_bounds_max_m": [
+        4.949999809265137,
+        5.550000190734863,
+        6.388681411743164
+      ],
+      "materials": [
+        "HH_V2_Roof"
+      ]
+    },
+    {
+      "name": "HH_V2_Roof_Trim",
+      "triangles": 660,
+      "non_manifold_edges": 0,
+      "volume_m3": 4.0299777421926635,
+      "unreal_bounds_min_m": [
+        -5.105000019073486,
+        -5.700000286102295,
+        2.424999713897705
+      ],
+      "unreal_bounds_max_m": [
+        5.105000019073486,
+        5.700000286102295,
+        6.390000343322754
+      ],
+      "materials": [
+        "HH_V2_Wood"
+      ]
+    },
+    {
+      "name": "HH_V2_Roof_Porch",
+      "triangles": 176,
+      "non_manifold_edges": 0,
+      "volume_m3": 1.065424360465951,
+      "unreal_bounds_min_m": [
+        -3.809999942779541,
+        -6.38488245010376,
+        1.910395860671997
+      ],
+      "unreal_bounds_max_m": [
+        0.36000001430511475,
+        -4.915116786956787,
+        2.769604444503784
+      ],
+      "materials": [
+        "HH_V2_Roof",
+        "HH_V2_Wood"
+      ]
+    },
+    {
+      "name": "HH_V2_Timber_Porch",
+      "triangles": 396,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.6473378941234562,
+      "unreal_bounds_min_m": [
+        -3.680000066757202,
+        -6.375,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        0.2150000035762787,
+        -5.68391227722168,
+        2.1922783851623535
+      ],
+      "materials": [
+        "HH_V2_Timber",
+        "HH_V2_Stone"
+      ]
+    },
+    {
+      "name": "HH_V2_PorchFloor",
+      "triangles": 12,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.9656001542985424,
+      "unreal_bounds_min_m": [
+        -3.450000047683716,
+        -6.650000095367432,
+        -0.1599999964237213
+      ],
+      "unreal_bounds_max_m": [
+        0.10000000149011612,
+        -4.949999809265137,
+        0.0
+      ],
+      "materials": [
+        "HH_V2_Stone"
+      ]
+    },
+    {
+      "name": "HH_V2_Roof_Entry",
+      "triangles": 88,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.3323008028229526,
+      "unreal_bounds_min_m": [
+        -5.0,
+        -1.5499999523162842,
+        2.543034791946411
+      ],
+      "unreal_bounds_max_m": [
+        -4.320000171661377,
+        1.5499999523162842,
+        3.816965103149414
+      ],
+      "materials": [
+        "HH_V2_Roof"
+      ]
+    },
+    {
+      "name": "HH_V2_Timber_Entry",
+      "triangles": 132,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.41148543836374624,
+      "unreal_bounds_min_m": [
+        -5.125,
+        -1.611026406288147,
+        2.3450000286102295
+      ],
+      "unreal_bounds_max_m": [
+        -4.65500020980835,
+        1.611026406288147,
+        3.817662239074707
+      ],
+      "materials": [
+        "HH_V2_Timber"
+      ]
+    },
+    {
+      "name": "HH_V2_DoorFrame",
+      "triangles": 352,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.835380704586252,
+      "unreal_bounds_min_m": [
+        -4.960000038146973,
+        -1.5,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        -4.559999942779541,
+        1.5,
+        2.5899999141693115
+      ],
+      "materials": [
+        "HH_V2_Stone",
+        "HH_V2_Wood"
+      ]
+    },
+    {
+      "name": "HH_V2_DoorLeaf",
+      "triangles": 176,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.20404004965885678,
+      "unreal_bounds_min_m": [
+        -5.519999980926514,
+        -1.4874999523162842,
+        0.019999999552965164
+      ],
+      "unreal_bounds_max_m": [
+        -4.559999942779541,
+        -1.3424999713897705,
+        2.2200000286102295
+      ],
+      "materials": [
+        "HH_V2_Wood",
+        "HH_V2_Metal"
+      ]
+    },
+    {
+      "name": "HH_V2_Timber_Front",
+      "triangles": 748,
+      "non_manifold_edges": 0,
+      "volume_m3": 3.112674350046341,
+      "unreal_bounds_min_m": [
+        -4.835000038146973,
+        -5.079999923706055,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        -4.564999580383301,
+        5.079999923706055,
+        6.302241325378418
+      ],
+      "materials": [
+        "HH_V2_Timber"
+      ]
+    },
+    {
+      "name": "HH_V2_Timber_Rear",
+      "triangles": 704,
+      "non_manifold_edges": 0,
+      "volume_m3": 3.174705170015794,
+      "unreal_bounds_min_m": [
+        4.564999580383301,
+        -5.079999923706055,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        4.835000038146973,
+        5.079999923706055,
+        6.302241325378418
+      ],
+      "materials": [
+        "HH_V2_Timber"
+      ]
+    },
+    {
+      "name": "HH_V2_Timber_CameraSide",
+      "triangles": 308,
+      "non_manifold_edges": 0,
+      "volume_m3": 1.627659890373373,
+      "unreal_bounds_min_m": [
+        -4.400000095367432,
+        5.074999809265137,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        4.400000095367432,
+        5.324999809265137,
+        2.680000066757202
+      ],
+      "materials": [
+        "HH_V2_Timber"
+      ]
+    },
+    {
+      "name": "HH_V2_Timber_Far",
+      "triangles": 308,
+      "non_manifold_edges": 0,
+      "volume_m3": 1.6276598903733737,
+      "unreal_bounds_min_m": [
+        -4.400000095367432,
+        -5.324999809265137,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        4.400000095367432,
+        -5.074999809265137,
+        2.680000066757202
+      ],
+      "materials": [
+        "HH_V2_Timber"
+      ]
+    },
+    {
+      "name": "HH_V2_Stone_Front",
+      "triangles": 1012,
+      "non_manifold_edges": 0,
+      "volume_m3": 1.1563417774120992,
+      "unreal_bounds_min_m": [
+        -4.867032051086426,
+        -5.0289998054504395,
+        -0.0007273702649399638
+      ],
+      "unreal_bounds_max_m": [
+        -4.513075828552246,
+        5.0289998054504395,
+        0.5416710376739502
+      ],
+      "materials": [
+        "HH_V2_Stone"
+      ]
+    },
+    {
+      "name": "HH_V2_Stone_CameraSide",
+      "triangles": 1144,
+      "non_manifold_edges": 0,
+      "volume_m3": 1.331910216057552,
+      "unreal_bounds_min_m": [
+        -4.339000225067139,
+        5.003891468048096,
+        -0.0016225416911765933
+      ],
+      "unreal_bounds_max_m": [
+        4.339000225067139,
+        5.355672836303711,
+        0.5415014624595642
+      ],
+      "materials": [
+        "HH_V2_Stone"
+      ]
+    },
+    {
+      "name": "HH_V2_Stone_Rear",
+      "triangles": 1408,
+      "non_manifold_edges": 0,
+      "volume_m3": 1.5297618390795267,
+      "unreal_bounds_min_m": [
+        4.5042314529418945,
+        -5.0289998054504395,
+        -0.0015903284074738622
+      ],
+      "unreal_bounds_max_m": [
+        4.856503486633301,
+        5.0289998054504395,
+        0.5424721240997314
+      ],
+      "materials": [
+        "HH_V2_Stone"
+      ]
+    },
+    {
+      "name": "HH_V2_Stone_Far",
+      "triangles": 1188,
+      "non_manifold_edges": 0,
+      "volume_m3": 1.3215854334211525,
+      "unreal_bounds_min_m": [
+        -4.339000225067139,
+        -5.35482931137085,
+        -0.0011857413919642568
+      ],
+      "unreal_bounds_max_m": [
+        4.339000225067139,
+        -5.00455904006958,
+        0.5417535305023193
+      ],
+      "materials": [
+        "HH_V2_Stone"
+      ]
+    },
+    {
+      "name": "HH_V2_Chimney",
+      "triangles": 308,
+      "non_manifold_edges": 0,
+      "volume_m3": 4.3295298005713985,
+      "unreal_bounds_min_m": [
+        2.25,
+        -2.0250000953674316,
+        2.200000047683716
+      ],
+      "unreal_bounds_max_m": [
+        3.3499999046325684,
+        -0.875,
+        6.949999809265137
+      ],
+      "materials": [
+        "HH_V2_Stone"
+      ]
+    },
+    {
+      "name": "HH_V2_ChimneyCap",
+      "triangles": 44,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.08199488178147085,
+      "unreal_bounds_min_m": [
+        2.299999952316284,
+        -1.975000023841858,
+        6.940000057220459
+      ],
+      "unreal_bounds_max_m": [
+        3.299999952316284,
+        -0.925000011920929,
+        7.019999980926514
+      ],
+      "materials": [
+        "HH_V2_Metal"
+      ]
+    },
+    {
+      "name": "HH_V2_InteriorStone",
+      "triangles": 44,
+      "non_manifold_edges": 0,
+      "volume_m3": 0.48179485503654657,
+      "unreal_bounds_min_m": [
+        4.215000152587891,
+        -4.724999904632568,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        4.34499979019165,
+        4.724999904632568,
+        0.4000000059604645
+      ],
+      "materials": [
+        "HH_V2_Stone"
+      ]
+    },
+    {
+      "name": "HH_V2_Counter",
+      "triangles": 308,
+      "non_manifold_edges": 0,
+      "volume_m3": 2.5569887421732718,
+      "unreal_bounds_min_m": [
+        1.7300000190734863,
+        -2.549999952316284,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        2.6700000762939453,
+        0.949999988079071,
+        0.9200000166893005
+      ],
+      "materials": [
+        "HH_V2_Wood",
+        "HH_V2_Timber"
+      ]
+    },
+    {
+      "name": "HH_V2_InteriorBeams",
+      "triangles": 338,
+      "non_manifold_edges": 8,
+      "volume_m3": 1.2772428870503139,
+      "unreal_bounds_min_m": [
+        -4.324999809265137,
+        -4.900000095367432,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        4.389999866485596,
+        4.728000164031982,
+        2.565000057220459
+      ],
+      "materials": [
+        "HH_V2_Timber"
+      ]
+    },
+    {
+      "name": "HH_V2_InteriorBeams_CameraSide",
+      "triangles": 322,
+      "non_manifold_edges": 8,
+      "volume_m3": 0.9051054819916194,
+      "unreal_bounds_min_m": [
+        -4.324999809265137,
+        4.659999847412109,
+        0.0
+      ],
+      "unreal_bounds_max_m": [
+        4.389999866485596,
+        4.900000095367432,
+        2.565000057220459
+      ],
+      "materials": [
+        "HH_V2_Timber"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "main_door",
+      "kind": "door",
+      "wall": "Walls_Front",
+      "width_m": 2.4,
+      "height_m": 2.3,
+      "threshold_m": 0,
+      "depth_m": 0.3,
+      "destination": "Existing free central aisle; real exterior/interior passage"
+    },
+    {
+      "id": "Front_-3.1",
+      "kind": "window",
+      "style": "Arch",
+      "width_m": 1.25,
+      "height_m": 1.25,
+      "sill_m": 1.0,
+      "depth_m": 0.3,
+      "wall": "Walls_Front_Part"
+    },
+    {
+      "id": "Front_3.1",
+      "kind": "window",
+      "style": "Arch",
+      "width_m": 1.25,
+      "height_m": 1.25,
+      "sill_m": 1.0,
+      "depth_m": 0.3,
+      "wall": "Walls_Front_Part"
+    },
+    {
+      "id": "CameraSide_-2.3",
+      "kind": "window",
+      "style": "Twin",
+      "width_m": 1.2,
+      "height_m": 1.15,
+      "sill_m": 1.08,
+      "depth_m": 0.3,
+      "wall": "Walls_CameraSide_Part"
+    },
+    {
+      "id": "Far_-2.3",
+      "kind": "window",
+      "style": "Twin",
+      "width_m": 1.2,
+      "height_m": 1.15,
+      "sill_m": 1.08,
+      "depth_m": 0.3,
+      "wall": "Walls_Far_Part"
+    },
+    {
+      "id": "CameraSide_2.3",
+      "kind": "window",
+      "style": "Twin",
+      "width_m": 1.2,
+      "height_m": 1.15,
+      "sill_m": 1.08,
+      "depth_m": 0.3,
+      "wall": "Walls_CameraSide_Part"
+    },
+    {
+      "id": "Far_2.3",
+      "kind": "window",
+      "style": "Twin",
+      "width_m": 1.2,
+      "height_m": 1.15,
+      "sill_m": 1.08,
+      "depth_m": 0.3,
+      "wall": "Walls_Far_Part"
+    },
+    {
+      "id": "loft_round",
+      "kind": "window",
+      "style": "Round",
+      "wall": "Gable_Front",
+      "width_m": 0.94,
+      "height_m": 0.94,
+      "sill_m": 3.98,
+      "depth_m": 0.24
+    }
+  ],
+  "materials": [
+    "Plaster",
+    "Wood",
+    "Timber",
+    "Stone",
+    "Roof",
+    "Metal",
+    "Glass"
+  ],
+  "functional_dimensions_m": {
+    "main": [
+      9.3,
+      10.3
+    ],
+    "ridge": 6.4,
+    "door": [
+      2.4,
+      2.3
+    ],
+    "counter_height": 0.92
+  },
+  "production_camera": {
+    "distance_cm": 2500,
+    "fov_degrees": 35,
+    "rotation": [
+      -55,
+      -45,
+      0
+    ]
+  },
+  "reserved_interior_zones_unreal_m": {
+    "treatment_beds": [
+      [
+        -1.5,
+        -3.8
+      ],
+      [
+        1.0,
+        -2.7
+      ]
+    ],
+    "waiting": [
+      [
+        -2.8,
+        2.5
+      ],
+      [
+        0.5,
+        4.4
+      ]
+    ],
+    "shelves_and_herb_table": [
+      [
+        2.9,
+        -4.4
+      ],
+      [
+        4.2,
+        -2.8
+      ]
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "head": "8705b16",
+  "cpp_changed": false,
+  "build_required": false,
+  "automation": {
+    "succeeded": 35,
+    "succeededWithWarnings": 0,
+    "failed": 0,
+    "notRun": 0
+  },
+  "healing_house_tests": [
+    {
+      "name": "PokeMonster.Overworld.HealingHouse.CollisionAndCutaway",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Overworld.HealingHouse.Layout",
+      "state": "Success"
+    },
+    {
+      "name": "PokeMonster.Overworld.HealingHouse.RestCheckpointSaveAndDefeat",
+      "state": "Success"
+    }
+  ],
+  "geometry": {
+    "modules": 39,
+    "triangles": 15256,
+    "non_manifold_edges": 16
+  },
+  "map_check": {
+    "errors": 0,
+    "warnings": 0,
+    "log": "/private/tmp/HealingHouseV2ImportFinal.log"
+  },
+  "original_actor_placements_and_collision_unchanged": true,
+  "retained_files": {
+    "Art/HealingHouse/Source/HealingHouse_V1.blend": true,
+    "Art/HealingHouse/Exports/HealingHouse_V1.fbx": true,
+    "Content/Maps/Dev_TestMap.umap": true
+  },
+  "camera": {
+    "distance_cm": 2500,
+    "fov": 35,
+    "pitch": -55,
+    "yaw": -45,
+    "lag_speed": 6,
+    "lag_max_cm": 180
+  },
+  "player": {
+    "body_height_cm": 140,
+    "speed_cm_s": 210,
+    "scale_and_animation_assets_unchanged": true
+  },
+  "pie": {
+    "teleports": false,
+    "route_complete": true,
+    "threshold_before": {
+      "x_cm": -479.2,
+      "y_cm": -24.94,
+      "cutaway": false,
+      "fade": 0
+    },
+    "inside": {
+      "x_cm": -379.15,
+      "y_cm": -28.61,
+      "cutaway": true,
+      "fade": 1
+    },
+    "counter": {
+      "x_cm": 151.62,
+      "y_cm": -65.51,
+      "cutaway": true
+    },
+    "healer_interaction": true,
+    "healing_save_confirmation": true,
+    "outside_after_return": {
+      "x_cm": -589.45,
+      "y_cm": -73.62,
+      "cutaway": false,
+      "fade": 0
+    },
+    "original_dev_save_restored_sha256": "56e72576d928353a557a58a4653e58e9613a566dc1b77e3e166135d63f38facf",
+    "full_exterior_composition": "roof remains cropped close to entrance under the fixed camera; no camera workaround"
+  },
+  "baseline_image_provenance": "V1 picture copied unchanged from the previous confirmed 2500-cm PIE test; not a new V1 run.",
+  "automation_log": "/private/tmp/HealingHouseV2FinalAutomation.log",
+  "window_library": {
+    "modules": 3,
+    "triangles": 2308,
+    "import_success": true,
+    "map_not_changed": true
+  },
+  "git_diff_check": "passed"
+}

@@ -1,0 +1,35 @@
+{
+  "head": "8705b16",
+  "build": "Mac Development succeeded; only C++ test assertions changed",
+  "automation": {
+    "succeeded": 35,
+    "succeededWithWarnings": 0,
+    "failed": 0,
+    "notRun": 0
+  },
+  "map_check": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "camera": {
+    "arm_cm": 2500,
+    "fov": 35,
+    "rotation": [
+      -55,
+      -45,
+      0
+    ],
+    "lag_speed": 6,
+    "lag_max_cm": 180
+  },
+  "player": {
+    "body_cm": 140,
+    "speed_cm_s": 210,
+    "scaling_changed": false
+  },
+  "foot_test": "Normal PlayerStart, Slate WASD only, straight and diagonal entrance, healer, diagonal exit and exterior return",
+  "dev_save_restored": true,
+  "dev_save_sha256": "59f6f2f7af77f45e08c07d3358314be1131bac7a7f9f0e4e33359313ccf0bbbf",
+  "git_diff_check": "passed",
+  "durable_reimport_links_verified": 36
+}

@@ -1,0 +1,8 @@
+{
+  "assets": [
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_WindowModule_Arch",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_WindowModule_Round",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_WindowModule_Twin"
+  ],
+  "map_changed": false
+}

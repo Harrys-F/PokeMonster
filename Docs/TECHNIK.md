@@ -396,3 +396,9 @@ Die historische V1-Messung oben beschreibt den Ausgangsstand. Die Kalibrierung t
 ## Overworld-Kamera nach dem 2500-cm-Vergleich
 
 Die perspektivische SpringArm-Kamera verwendet 2500 cm Abstand statt zuvor 2000 cm. Der PIE-Vergleich an gleichen zu Fuß erreichten Positionen zeigt mehr Vorplatz und Innenraumeinrichtung bei weiterhin lesbarer 140-cm-Figur und Hüterin. Rotation (-55°, -45°, 0°), FOV 35°, Camera Lag (Geschwindigkeit 6; maximal 180 cm) sowie alle Player- und Gameplaywerte bleiben unverändert. Das vollständige Heilhaus passt unmittelbar am Eingang auch damit nicht ins Bild.
+
+## Heilhaus V2: aktuelle Proportionen
+
+Die historischen Blockout-Abmessungen oben sind für `Dev_HealingHouseTestMap` durch den V2-Proportions-Pass ersetzt: Hauptkörper 9,00 m breit / 9,30 m tief, First 6,40 m, freie Passage 1,70 × 2,15 m. Die map-konfigurierte Türschwellen-Box ist 40 × 170 × 215 cm groß und liegt bei (-450, 0, 107,5) cm; die generischen C++-Defaults und die Übergangslogik bleiben unverändert. Maßgeblich sind die Map-Komponentenwerte. 0,4-s-Fade, 4-cm-Hysterese und CPD Index 0 bleiben bestehen.
+
+Die neue Quelle wird gezielt mit `Tools/Blender/ApplyHealingHouseV2Proportions.py` aus dem vorherigen V2-Stand angepasst. Nach Sichtprüfung exportiert `ExportHealingHouseV2Proportions.py` das Haus und einzelne geänderte Module; `Tools/ImportHealingHouseV2Proportions.py` aktualisiert nur diese V2-Meshes und notwendige Map-Abmessungen. Alle Reimport-Quellen liegen unter `Art/HealingHouse/Exports/V2Modules`; die Unreal-Hierarchie bleibt gleich. Keine globale Haus-, Player- oder Kameraskalierung. Prüfbericht: `Docs/HEILHAUS_V2_PROPORTIONEN.md`.

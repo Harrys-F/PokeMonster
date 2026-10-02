@@ -1,0 +1,584 @@
+{
+  "source_head": "8705b16",
+  "map": "/Game/Maps/Dev_HealingHouseTestMap",
+  "assets": [
+    "/Game/Environment/HealingHouse/Textures/T_HH_V2_Plaster.T_HH_V2_Plaster",
+    "/Game/Environment/HealingHouse/Materials/M_HH_V2_Plaster.M_HH_V2_Plaster",
+    "/Game/Environment/HealingHouse/Textures/T_HH_V2_Wood.T_HH_V2_Wood",
+    "/Game/Environment/HealingHouse/Materials/M_HH_V2_Wood.M_HH_V2_Wood",
+    "/Game/Environment/HealingHouse/Textures/T_HH_V2_Timber.T_HH_V2_Timber",
+    "/Game/Environment/HealingHouse/Materials/M_HH_V2_Timber.M_HH_V2_Timber",
+    "/Game/Environment/HealingHouse/Textures/T_HH_V2_Stone.T_HH_V2_Stone",
+    "/Game/Environment/HealingHouse/Materials/M_HH_V2_Stone.M_HH_V2_Stone",
+    "/Game/Environment/HealingHouse/Textures/T_HH_V2_Roof.T_HH_V2_Roof",
+    "/Game/Environment/HealingHouse/Materials/M_HH_V2_Roof.M_HH_V2_Roof",
+    "/Game/Environment/HealingHouse/Textures/T_HH_V2_Metal.T_HH_V2_Metal",
+    "/Game/Environment/HealingHouse/Materials/M_HH_V2_Metal.M_HH_V2_Metal",
+    "/Game/Environment/HealingHouse/Textures/T_HH_V2_Glass.T_HH_V2_Glass",
+    "/Game/Environment/HealingHouse/Materials/M_HH_V2_Glass.M_HH_V2_Glass",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Floor",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Foundation",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Walls_Front",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Walls_CameraSide",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Walls_Rear",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Walls_Far",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Glass_Front",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Windows_Front",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Glass_CameraSide",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Windows_CameraSide",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Glass_Far",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Windows_Far",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Gable_Front",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Gable_Rear",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Glass_Loft",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Windows_Loft",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Roof_Main",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Roof_Trim",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Roof_Porch",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Timber_Porch",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_PorchFloor",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Roof_Entry",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Timber_Entry",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_DoorFrame",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_DoorLeaf",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Timber_Front",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Timber_Rear",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Timber_CameraSide",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Timber_Far",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Stone_Front",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Stone_CameraSide",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Stone_Rear",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Stone_Far",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Chimney",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_ChimneyCap",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_InteriorStone",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Counter",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_InteriorBeams",
+    "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_InteriorBeams_CameraSide"
+  ],
+  "bounds": {
+    "HH_V2_Floor": {
+      "min_cm": [
+        -435.00006103515625,
+        -485.00006103515625,
+        -16.0
+      ],
+      "max_cm": [
+        435.00006103515625,
+        485.00006103515625,
+        0.0
+      ]
+    },
+    "HH_V2_Foundation": {
+      "min_cm": [
+        -465.0000915527344,
+        -515.0000610351562,
+        -36.0
+      ],
+      "max_cm": [
+        465.0000915527344,
+        515.0000610351562,
+        -8.0
+      ]
+    },
+    "HH_V2_Walls_Front": {
+      "min_cm": [
+        -465.0000915527344,
+        -500.00006103515625,
+        0.0
+      ],
+      "max_cm": [
+        -434.9999084472656,
+        499.99993896484375,
+        260.0
+      ]
+    },
+    "HH_V2_Walls_CameraSide": {
+      "min_cm": [
+        -435.00006103515625,
+        484.9999084472656,
+        0.0
+      ],
+      "max_cm": [
+        434.9999084472656,
+        515.0000610351562,
+        260.0
+      ]
+    },
+    "HH_V2_Walls_Rear": {
+      "min_cm": [
+        434.9999084472656,
+        -499.99993896484375,
+        0.0
+      ],
+      "max_cm": [
+        465.0000915527344,
+        500.00006103515625,
+        260.0
+      ]
+    },
+    "HH_V2_Walls_Far": {
+      "min_cm": [
+        -434.9999084472656,
+        -515.0000610351562,
+        0.0
+      ],
+      "max_cm": [
+        435.00006103515625,
+        -484.9999084472656,
+        260.0
+      ]
+    },
+    "HH_V2_Glass_Front": {
+      "min_cm": [
+        -451.75006103515625,
+        -372.50006103515625,
+        100.0
+      ],
+      "max_cm": [
+        -448.24993896484375,
+        372.4999084472656,
+        225.0
+      ]
+    },
+    "HH_V2_Windows_Front": {
+      "min_cm": [
+        -491.50006103515625,
+        -388.5000915527344,
+        83.5
+      ],
+      "max_cm": [
+        -456.49993896484375,
+        388.49993896484375,
+        233.7272186279297
+      ]
+    },
+    "HH_V2_Glass_CameraSide": {
+      "min_cm": [
+        -290.0000915527344,
+        498.2499694824219,
+        108.00000762939453
+      ],
+      "max_cm": [
+        289.99993896484375,
+        501.7500305175781,
+        223.0
+      ]
+    },
+    "HH_V2_Windows_CameraSide": {
+      "min_cm": [
+        -306.0000915527344,
+        506.4999694824219,
+        91.5
+      ],
+      "max_cm": [
+        305.9999084472656,
+        541.5000610351562,
+        230.0
+      ]
+    },
+    "HH_V2_Glass_Far": {
+      "min_cm": [
+        -289.99993896484375,
+        -501.7500305175781,
+        108.00000762939453
+      ],
+      "max_cm": [
+        290.0000915527344,
+        -498.2499694824219,
+        223.0
+      ]
+    },
+    "HH_V2_Windows_Far": {
+      "min_cm": [
+        -305.9999084472656,
+        -541.5000610351562,
+        91.5
+      ],
+      "max_cm": [
+        306.0000915527344,
+        -506.4999694824219,
+        230.0
+      ]
+    },
+    "HH_V2_Gable_Front": {
+      "min_cm": [
+        -462.00006103515625,
+        -500.00006103515625,
+        260.0
+      ],
+      "max_cm": [
+        -437.99993896484375,
+        499.99993896484375,
+        625.0
+      ]
+    },
+    "HH_V2_Gable_Rear": {
+      "min_cm": [
+        437.99993896484375,
+        -499.99993896484375,
+        260.0
+      ],
+      "max_cm": [
+        462.00006103515625,
+        500.00006103515625,
+        625.0
+      ]
+    },
+    "HH_V2_Glass_Loft": {
+      "min_cm": [
+        -451.75,
+        12.99992561340332,
+        398.0
+      ],
+      "max_cm": [
+        -448.25,
+        106.99993133544922,
+        492.0
+      ]
+    },
+    "HH_V2_Windows_Loft": {
+      "min_cm": [
+        -484.5,
+        4.345376491546631,
+        389.345458984375
+      ],
+      "max_cm": [
+        -469.5000305175781,
+        115.65447235107422,
+        500.654541015625
+      ]
+    },
+    "HH_V2_Roof_Main": {
+      "min_cm": [
+        -495.00006103515625,
+        -555.0001220703125,
+        250.65960693359375
+      ],
+      "max_cm": [
+        495.00006103515625,
+        555.0001220703125,
+        638.8681640625
+      ]
+    },
+    "HH_V2_Roof_Trim": {
+      "min_cm": [
+        -510.5000915527344,
+        -570.0001220703125,
+        242.49996948242188
+      ],
+      "max_cm": [
+        510.5000915527344,
+        570.0001220703125,
+        639.0000610351562
+      ]
+    },
+    "HH_V2_Roof_Porch": {
+      "min_cm": [
+        -380.9999084472656,
+        -638.48828125,
+        191.03958129882812
+      ],
+      "max_cm": [
+        36.00010681152344,
+        -491.5116882324219,
+        276.96044921875
+      ]
+    },
+    "HH_V2_Timber_Porch": {
+      "min_cm": [
+        -367.9999084472656,
+        -637.5000610351562,
+        0.0
+      ],
+      "max_cm": [
+        21.500102996826172,
+        -568.3912353515625,
+        219.22784423828125
+      ]
+    },
+    "HH_V2_PorchFloor": {
+      "min_cm": [
+        -344.99993896484375,
+        -665.0000610351562,
+        -16.0
+      ],
+      "max_cm": [
+        10.00010871887207,
+        -494.9999694824219,
+        0.0
+      ]
+    },
+    "HH_V2_Roof_Entry": {
+      "min_cm": [
+        -500.0000305175781,
+        -155.0000762939453,
+        254.30348205566406
+      ],
+      "max_cm": [
+        -432.0,
+        154.9999237060547,
+        381.6965026855469
+      ]
+    },
+    "HH_V2_Timber_Entry": {
+      "min_cm": [
+        -512.5,
+        -161.10272216796875,
+        234.5
+      ],
+      "max_cm": [
+        -465.5,
+        161.10255432128906,
+        381.7662353515625
+      ]
+    },
+    "HH_V2_DoorFrame": {
+      "min_cm": [
+        -496.0000305175781,
+        -150.0000762939453,
+        0.0
+      ],
+      "max_cm": [
+        -455.9999694824219,
+        149.9999237060547,
+        259.0
+      ]
+    },
+    "HH_V2_DoorLeaf": {
+      "min_cm": [
+        -552.0,
+        -148.7500762939453,
+        2.0
+      ],
+      "max_cm": [
+        -455.9999694824219,
+        -134.2500762939453,
+        222.0
+      ]
+    },
+    "HH_V2_Timber_Front": {
+      "min_cm": [
+        -483.5000915527344,
+        -508.00006103515625,
+        0.0
+      ],
+      "max_cm": [
+        -456.4998779296875,
+        507.9999084472656,
+        630.22412109375
+      ]
+    },
+    "HH_V2_Timber_Rear": {
+      "min_cm": [
+        456.4998779296875,
+        -507.9999084472656,
+        0.0
+      ],
+      "max_cm": [
+        483.5000915527344,
+        508.00006103515625,
+        630.22412109375
+      ]
+    },
+    "HH_V2_Timber_CameraSide": {
+      "min_cm": [
+        -440.0000915527344,
+        507.4999084472656,
+        0.0
+      ],
+      "max_cm": [
+        439.99993896484375,
+        532.5000610351562,
+        268.0
+      ]
+    },
+    "HH_V2_Timber_Far": {
+      "min_cm": [
+        -439.99993896484375,
+        -532.5000610351562,
+        0.0
+      ],
+      "max_cm": [
+        440.0000915527344,
+        -507.4999084472656,
+        268.0
+      ]
+    },
+    "HH_V2_Stone_Front": {
+      "min_cm": [
+        -486.7031555175781,
+        -502.9000549316406,
+        -0.07273702323436737
+      ],
+      "max_cm": [
+        -451.3075256347656,
+        502.89990234375,
+        54.1671028137207
+      ]
+    },
+    "HH_V2_Stone_CameraSide": {
+      "min_cm": [
+        -433.9001159667969,
+        500.38916015625,
+        -0.16225416958332062
+      ],
+      "max_cm": [
+        433.8999328613281,
+        535.5672607421875,
+        54.150146484375
+      ]
+    },
+    "HH_V2_Stone_Rear": {
+      "min_cm": [
+        450.4231872558594,
+        -502.89990234375,
+        -0.15903283655643463
+      ],
+      "max_cm": [
+        485.65032958984375,
+        502.9000549316406,
+        54.24721145629883
+      ]
+    },
+    "HH_V2_Stone_Far": {
+      "min_cm": [
+        -433.8999328613281,
+        -535.4829711914062,
+        -0.11857414245605469
+      ],
+      "max_cm": [
+        433.9001159667969,
+        -500.4559631347656,
+        54.17535400390625
+      ]
+    },
+    "HH_V2_Chimney": {
+      "min_cm": [
+        225.00001525878906,
+        -202.49996948242188,
+        220.0
+      ],
+      "max_cm": [
+        335.0000305175781,
+        -87.49994659423828,
+        695.0
+      ]
+    },
+    "HH_V2_ChimneyCap": {
+      "min_cm": [
+        230.00001525878906,
+        -197.49996948242188,
+        694.0
+      ],
+      "max_cm": [
+        330.0000305175781,
+        -92.49994659423828,
+        702.0
+      ]
+    },
+    "HH_V2_InteriorStone": {
+      "min_cm": [
+        421.49993896484375,
+        -472.4999084472656,
+        0.0
+      ],
+      "max_cm": [
+        434.50006103515625,
+        472.50006103515625,
+        40.0
+      ]
+    },
+    "HH_V2_Counter": {
+      "min_cm": [
+        172.99998474121094,
+        -254.99996948242188,
+        0.0
+      ],
+      "max_cm": [
+        267.00006103515625,
+        95.00004577636719,
+        92.0
+      ]
+    },
+    "HH_V2_InteriorBeams": {
+      "min_cm": [
+        -432.4999084472656,
+        -490.0000915527344,
+        0.0
+      ],
+      "max_cm": [
+        439.00006103515625,
+        472.8000793457031,
+        256.5
+      ]
+    },
+    "HH_V2_InteriorBeams_CameraSide": {
+      "min_cm": [
+        -432.50006103515625,
+        465.9999084472656,
+        0.0
+      ],
+      "max_cm": [
+        438.9999084472656,
+        490.0000915527344,
+        256.5
+      ]
+    }
+  },
+  "cutaway_before": {
+    "threshold": [
+      -450.0,
+      0.0,
+      115.0
+    ],
+    "extent": [
+      20.0,
+      120.0,
+      115.0
+    ],
+    "fade": 0.4000000059604645,
+    "hysteresis": 4.0
+  },
+  "triangles": 15256,
+  "cutaway_modules": [
+    "HH_V2_Walls_Front",
+    "HH_V2_Walls_CameraSide",
+    "HH_V2_Gable_Front",
+    "HH_V2_Glass_Front",
+    "HH_V2_Glass_CameraSide",
+    "HH_V2_Glass_Loft",
+    "HH_V2_Windows_Front",
+    "HH_V2_Windows_CameraSide",
+    "HH_V2_Windows_Loft",
+    "HH_V2_Roof_Main",
+    "HH_V2_Roof_Trim",
+    "HH_V2_Roof_Porch",
+    "HH_V2_Roof_Entry",
+    "HH_V2_Timber_Front",
+    "HH_V2_Timber_CameraSide",
+    "HH_V2_Timber_Entry",
+    "HH_V2_DoorFrame",
+    "HH_V2_DoorLeaf",
+    "HH_V2_Stone_Front",
+    "HH_V2_Stone_CameraSide",
+    "HH_V2_Chimney",
+    "HH_V2_ChimneyCap",
+    "HH_V2_InteriorBeams_CameraSide"
+  ],
+  "original_actor_placements_and_collision_unchanged": true,
+  "cutaway_after": {
+    "threshold": [
+      -450.0,
+      0.0,
+      115.0
+    ],
+    "extent": [
+      20.0,
+      120.0,
+      115.0
+    ],
+    "fade": 0.4000000059604645,
+    "hysteresis": 4.0
+  }
+}

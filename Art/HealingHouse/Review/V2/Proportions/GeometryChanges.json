@@ -1,0 +1,60 @@
+{
+  "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/HealingHouse/Source/HealingHouse_V2.blend",
+  "preserved_source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/HealingHouse/Source/HealingHouse_V2_PreProportions.blend",
+  "changed_modules": [
+    "HH_V2_Floor",
+    "HH_V2_Foundation",
+    "HH_V2_Walls_Front",
+    "HH_V2_Walls_CameraSide",
+    "HH_V2_Walls_Rear",
+    "HH_V2_Walls_Far",
+    "HH_V2_Glass_Front",
+    "HH_V2_Windows_Front",
+    "HH_V2_Glass_CameraSide",
+    "HH_V2_Windows_CameraSide",
+    "HH_V2_Glass_Far",
+    "HH_V2_Windows_Far",
+    "HH_V2_Gable_Front",
+    "HH_V2_Gable_Rear",
+    "HH_V2_Glass_Loft",
+    "HH_V2_Windows_Loft",
+    "HH_V2_Roof_Main",
+    "HH_V2_Roof_Trim",
+    "HH_V2_Roof_Porch",
+    "HH_V2_Timber_Porch",
+    "HH_V2_PorchFloor",
+    "HH_V2_Roof_Entry",
+    "HH_V2_Timber_Entry",
+    "HH_V2_DoorFrame",
+    "HH_V2_DoorLeaf",
+    "HH_V2_Timber_Front",
+    "HH_V2_Timber_Rear",
+    "HH_V2_Timber_CameraSide",
+    "HH_V2_Timber_Far",
+    "HH_V2_Stone_Front",
+    "HH_V2_Stone_CameraSide",
+    "HH_V2_Stone_Rear",
+    "HH_V2_Stone_Far",
+    "HH_V2_InteriorStone",
+    "HH_V2_InteriorBeams",
+    "HH_V2_InteriorBeams_CameraSide"
+  ],
+  "old_door_m": [
+    2.4,
+    2.3
+  ],
+  "new_door_m": [
+    1.7,
+    2.15
+  ],
+  "old_width_m": 10.3,
+  "new_width_m": 9.0,
+  "counter_changed": false,
+  "height_and_depth_unchanged": true,
+  "global_actor_scale_used": false,
+  "baseline_non_manifold_edges": {
+    "HH_V2_InteriorBeams": 8,
+    "HH_V2_InteriorBeams_CameraSide": 8
+  },
+  "mesh_connectivity_unchanged": true
+}

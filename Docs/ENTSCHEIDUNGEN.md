@@ -437,6 +437,13 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Der Heilhaus-Fußweg vom normalen Spawn über Vorplatz und Tür bis zur Hüterin am Tresen und zurück wurde ohne Teleports geprüft. Gerade und diagonale Türdurchgänge, Anhalten im Hystereseband sowie direkte Umkehr bleiben stabil. Beim Anlaufen und nach dem Rückweg sind Dach/Fassade vollständig eingeblendet; innen bleiben Boden, Rückwände und Einrichtung sichtbar. Healing House V2 bleibt eine separate Aufgabe.
 - Abschließender macOS-Development-Build erfolgreich; alle 35 PokeMonster-Automationstests ohne Fehler oder Warnungen bestanden. HealingHouse prüft zusätzlich Türgeometrie, Annäherung, 0,4-Sekunden-Fade, Anhalten, Richtungsumkehr, diagonalen Durchgang und unveränderte Blocker. Die Scale-Calibration-Assertion prüft 2500 cm; Körpergrößen-Assertions bleiben unverändert.
 
+## 2026-10-02 – Healing House V2: Architectural Art Pass
+
+- V2 erhält eine eigene Blender-Quelle und eigene, versionierte Module/Materialien innerhalb der bestehenden Heilhaus-Assetstruktur. V1 und die ursprünglichen Collision-Actors bleiben als Rückfallmöglichkeit erhalten; nur die Darstellung in `Dev_HealingHouseTestMap` wird ersetzt.
+- Architektur und Materialkontraste werden für die bestätigte Spielkamera (2500 cm, FOV 35°, bestehender Winkel/Lag) und den 140-cm-Player entworfen. Kräftige Fachwerkbalken, dicke Dachkanten, wenige wiederverwendbare Fensterformen und selbst erzeugte stilisierte Texturen haben Vorrang vor kleinteiligen Props. Dachschindeln werden texturiert statt einzeln modelliert.
+- Die neuen Meshes verwenden keine Gameplay-Collision. Türpassage, Bodenhöhe, Tresen-Blocker, Hüterin und vorhandene Funktionen bleiben maßgeblich. Für Cutaway werden ausschließlich neue Module der bestehenden Occluder-Liste hinzugefügt; CPD Index 0, maskierter Dither und der 0,4-s-Fade bleiben unverändert.
+- Umgesetzt sind 39 Gebäudemodule mit 15.256 Dreiecken, sieben stilisierte Material-/Texturpaare und drei zusätzliche wiederverwendbare Fenster-Assets mit lokalen Wand-/Sohlbank-Pivots. Kameraseitige Innenbalken sind gesondert ausblendbar; die Rückwandbalken bleiben innen sichtbar. Der vollständige PIE-Fußweg und die reguläre Hüterinnen-Interaktion wurden ohne Teleports geprüft. Der vorhandene Dev-Slot wurde vor dem Heil-/Save-Test gesichert und anschließend bytegleich wiederhergestellt. Prüfdetails und Dateiliste: `Docs/HEILHAUS_V2_PRUEFBERICHT.md`.
+
 ## Aktuell offene Entscheidungen
 
 - endgültiger Spielname
@@ -453,3 +460,12 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - genaue Schnellreise- und Weltfähigkeiten
 - endgültige Zielauflösung und exakte Pixelgrößen
 - Musik- und Soundkonzept
+
+## 2026-10-02 – Heilhaus V2: gezielter Proportions-Pass
+
+- Die bisherige V2-Passage von 2,40 × 2,30 m ist für die aktuelle Heilhaus-Testmap durch **1,70 × 2,15 m** ersetzt. Der Hauptkörper wird entlang der Fassadenachse von 10,30 auf **9,00 m** verschmälert; Tiefe 9,30 m und First 6,40 m bleiben erhalten. Dies ersetzt die entsprechenden ursprünglichen Blockout-Maße, nicht die allgemeine Cutaway-Implementierung.
+- Keine globale Actor-Skalierung: Front, Tür, Dach und Giebel werden gezielt angepasst; die Frontfenster behalten ihre Formen und werden um 35 cm nach innen gesetzt. Seitenwände und Vorbau rücken um 65 cm nach innen. Innenrandbalken und Boden folgen dem schmaleren Grundriss. Tresen und Hüterin bleiben unverändert; das bestehende Regal samt vorhandenen Gefäßen rückt um 50 cm von der neuen Seitenwand weg.
+- Die vorhandenen einfachen Wandblocker erhalten passend zum sichtbaren Grundriss neue Abmessungen, aber unveränderte Collision-Profile. Die nicht kollidierende Türschwellen-Box wird auf **40 × 170 × 215 cm** bei **(-450, 0, 107,5) cm** gesetzt. X-Übergang, 4-cm-Hysterese, 0,4-s-Fade und Cutaway-C++ bleiben unverändert.
+- Kamera 2500 cm, FOV 35°, Winkel/Lag, Playerhöhe 140 cm, 210 cm/s, Animationen, Gameplay-Systeme und Dev_TestMap bleiben unverändert. Nur geometrieabhängige HealingHouse-Testassertionen werden aktualisiert.
+- Der frühere V2-Quellstand bleibt als `Art/HealingHouse/Source/HealingHouse_V2_PreProportions.blend` erhalten. Die aktuelle `HealingHouse_V2.blend` wird explizit gespeichert und wieder geöffnet. Bestehende V2-Materialien/Texturen und die drei Fensterbibliotheks-Assets bleiben erhalten. Pro-Modul-FBXs in `Art/HealingHouse/Exports/V2Modules` halten die Reimport-Quellen dauerhaft im Projekt; keine zusätzlichen Unreal-Assets.
+- Nachweise und Fußweg-PIE-Ergebnisse: `Docs/HEILHAUS_V2_PROPORTIONEN.md` und `Art/HealingHouse/Review/V2/Proportions`. Kein V3-Dressing und keine neue Beleuchtung.

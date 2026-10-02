@@ -1,0 +1,17 @@
+{"step": "PIE_BeforeThreshold", "player": {"x": -494.0912601597755, "y": -6.5133805047050854, "z": 50}, "cutaway": {"bCutawayActive": false, "cutawayAmount": 0}}
+{"step": "PIE_StraightEntry", "player": {"x": -389.4416882960044, "y": 0.6077263751361967, "z": 50}, "cutaway": {"bCutawayActive": true, "cutawayAmount": 1}}
+{"step": "PIE_DiagonalStart", "player": {"x": -508.40469117959657, "y": 35.424614125242904, "z": 50}, "cutaway": {"bCutawayActive": false, "cutawayAmount": 0}}
+{"step": "PIE_DiagonalEntry", "player": {"x": -395.96316287748533, "y": -77.01691417686817, "z": 50}, "cutaway": {"bCutawayActive": true, "cutawayAmount": 1}}
+{"step": "PIE_Interior", "player": {"x": -201.22027206445873, "y": 73.15298516659686, "z": 50}, "cutaway": {"bCutawayActive": true, "cutawayAmount": 1}}
+{"step": "PIE_Counter", "player": {"x": 143.66058707850976, "y": -71.44885890889071, "z": 50}, "cutaway": {"bCutawayActive": true, "cutawayAmount": 1}}
+{"step": "PIE_Counter", "player": {"x": 143.66058707850976, "y": -71.44885890889071, "z": 50}, "cutaway": {"bCutawayActive": true, "cutawayAmount": 1}}
+{"step": "PIE_HealerDialogue", "player": {"x": 143.66058707850976, "y": -71.44885890889071, "z": 50}, "cutaway": {"bCutawayActive": true, "cutawayAmount": 1}}
+{"step": "PIE_HealerApproach", "player": {"x": 147.0045983785983, "y": -184.76636645209243, "z": 50.14999706085382}, "cutaway": {"bCutawayActive": true, "cutawayAmount": 1}}
+{"step": "PIE_HealerDialogue", "player": {"x": 149.59422509374934, "y": -182.17673973694139, "z": 50.14999706085382}, "cutaway": {"bCutawayActive": true, "cutawayAmount": 1}}
+{"step": "PIE_HealingConfirmed", "player": {"x": 149.59422509374934, "y": -182.17673973694139, "z": 50.14999706085382}, "cutaway": {"bCutawayActive": true, "cutawayAmount": 1}}
+{"step": "PIE_ReturnInterior", "player": {"x": -356.09199018217, "y": -19.845627688742212, "z": 50.14999706085382}, "cutaway": {"bCutawayActive": true, "cutawayAmount": 1}}
+{"step": "PIE_InDoorway", "player": {"x": -453.8492574381365, "y": -8.793706147189148, "z": 50.14999706085382}, "cutaway": {"bCutawayActive": true, "cutawayAmount": 1}}
+{"step": "PIE_DiagonalExit", "player": {"x": -573.631582213925, "y": 110.98861862859938, "z": 50.14999706085382}, "cutaway": {"bCutawayActive": false, "cutawayAmount": 0}}
+{"step": "PIE_BeforeThreshold", "player": {"x": -495.26586891787787, "y": 1.96054309623708, "z": 50.14999706085382}, "cutaway": {"bCutawayActive": false, "cutawayAmount": 0}}
+{"step": "PIE_Forecourt", "player": {"x": -671.7954331205291, "y": -13.37866488490609, "z": 50.14999706085382}, "cutaway": {"bCutawayActive": false, "cutawayAmount": 0}}
+{"step": "PIE_Exterior", "player": {"x": -1004.9783795219873, "y": -1.8237154950716663, "z": 50.14999706085382}, "cutaway": {"bCutawayActive": false, "cutawayAmount": 0}}
