@@ -388,3 +388,7 @@ Vor dem Abschluss eines Arbeitsschrittes soll Codex, soweit möglich:
 - konkrete Auflösungen und Bildraten der Grafikprofile
 - Umfang der Unreal- und Blender-MCP-Automatisierung
 - endgültige Ordnerstruktur innerhalb des Content-Ordners
+
+## Scale Calibration von Player und Architektur
+
+Die historische V1-Messung oben beschreibt den Ausgangsstand. Die Kalibrierung trennt Leinwand, Alpha-Körper, Render-Bounds und Gameplay-Collision. Der Player verwendet visuelle Component-Scale (0,66; 0,66; 1,086758), einen Sohlen-Pivot (128,488) und pro Frame normierte Pixels Per Unreal Unit (3,4 × Körperpixel / 438). Seine Paper2D-Fläche steht aufrecht (Yaw 45°, Roll 0°); die sichtbare Körperhöhe beträgt dadurch tatsächlich 140 cm in Welt-Z. Getrennte Breiten-/Höhenskalierung erhält die Bildschirmproportionen unter der unveränderten -55°-Kamera. Eine zur Kamera gekippte Fläche mit nur passender Bildschirmhöhe wäre für die Verdeckung durch echte 3D-Tresen geometrisch zu niedrig. Die Sprite-Komponente sitzt am Capsule-Fuß, die Capsule bleibt 96 cm hoch und 56 cm breit. Sie ist eine Navigations-/Kollisionshülle, keine Körpergrößenreferenz. Messung und Vergleich stehen in `SCALE_CALIBRATION.md`.

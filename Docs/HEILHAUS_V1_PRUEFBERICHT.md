@@ -193,3 +193,7 @@ Nach Harrys Abnahme dieses funktionalen Blockouts ist ein Git-Sicherungspunkt si
 git add Art/HealingHouse Content/Environment/HealingHouse Content/Maps/Dev_HealingHouseTestMap.umap Docs/ENTSCHEIDUNGEN.md Docs/TECHNIK.md Docs/HEILHAUS_V1_PRUEFBERICHT.md Source/PokeMonster/Tests/PokeMonsterHealingHouseTest.cpp Tools/Blender/BuildHealingHouseV1.py Tools/Blender/FinalizeHealingHouseSource.py Tools/ImportHealingHouseV1.py
 git commit -m "Add modular Blender healing house V1"
 ```
+
+## Nachtrag: Scale Calibration 2026-10-02
+
+Die ursprünglichen 54,21 cm waren die gesamte transparente Sprite-Leinwand, nicht die Körperhöhe. Die spätere Messung ergibt vor der Korrektur 45,42–46,38 cm Alpha-Körper in der geneigten Sprite-Ebene. Die anschließende reine Player-Darstellungskalibrierung erzeugt 140 cm sichtbare Welt-Z-Körperhöhe bei unveränderter Capsule, Kamera und Architektur. Vollständige Frame-/Pivot-/PPU-Messwerte, Größenreferenzen, PIE-Beurteilung und Tests stehen in `SCALE_CALIBRATION.md`. Dieser Nachtrag ersetzt keine historischen V1-Testergebnisse.

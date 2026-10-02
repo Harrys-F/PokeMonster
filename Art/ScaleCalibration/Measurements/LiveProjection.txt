@@ -1,0 +1,9 @@
+Foot=X=-1000.000 Y=0.000 Z=2.000
+Camera=X=-1567.812 Y=567.812 Z=1196.813
+ActorScale=X=1.000 Y=1.000 Z=1.000
+SpriteScale=X=0.660 Y=0.660 Z=1.087
+SpriteLocation=X=-1000.000 Y=0.000 Z=2.000
+BodyPixels=223.750183
+Upright140Pixels=223.750183
+Ratio=1.000000
+Result=PASS

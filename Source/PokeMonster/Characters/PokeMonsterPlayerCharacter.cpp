@@ -218,8 +218,11 @@ void APokeMonsterPlayerCharacter::BeginPlay()
 	}
 	if (IdleFlipbooks.HasAnyFlipbook() || WalkingFlipbooks.HasAnyFlipbook())
 	{
-		GetSprite()->SetRelativeRotation(FRotator(0.f, 45.f, -55.f));
-		GetSprite()->SetRelativeScale3D(FVector(0.36f));
+		GetSprite()->SetRelativeRotation(FRotator(0.f, 45.f, 0.f));
+		// Upright Paper2D geometry gives real 140 cm height and correct counter occlusion.
+		// Sprite assets share a visible sole pivot and normalized body heights.
+		GetSprite()->SetRelativeScale3D(FVector(0.66f, 0.66f, 140.f * 3.4f / 438.f));
+		GetSprite()->SetRelativeLocation(FVector(0.f, 0.f, -GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight()));
 		GetSprite()->SetSpriteColor(FLinearColor::White);
 	}
 	RefreshCharacterVisual();

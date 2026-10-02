@@ -1,0 +1,843 @@
+{
+  "capsule_radius_cm": 28.0,
+  "capsule_half_height_cm": 48.0,
+  "actor_scale": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "sprite_cdo_scale": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "sprite_cdo_location": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "runtime_sprite_scale_from_cpp": 0.36,
+  "runtime_sprite_rotation_from_cpp": [
+    0,
+    45,
+    -55
+  ],
+  "flipbooks": [
+    {
+      "state": "idle",
+      "direction": "up",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerIdleUp.FB_PlayerIdleUp",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Idle_Up.S_Player_Idle_Up",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Idle_Up.T_Player_Idle_Up",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Idle_Up.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e21f6e790) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "idle",
+      "direction": "up_right",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerIdleUpRight.FB_PlayerIdleUpRight",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_UpRight_01.S_Player_Walk_UpRight_01",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_UpRight_01.T_Player_Walk_UpRight_01",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_UpRight_01.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e21f6db10) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "idle",
+      "direction": "right",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerIdleRight.FB_PlayerIdleRight",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_Right_01.S_Player_Walk_Right_01",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_Right_01.T_Player_Walk_Right_01",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_Right_01.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e21f6ce90) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "idle",
+      "direction": "down_right",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerIdleDownRight.FB_PlayerIdleDownRight",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Idle_DownRight.S_Player_Idle_DownRight",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Idle_DownRight.T_Player_Idle_DownRight",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Idle_DownRight.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e21f69510) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "idle",
+      "direction": "down",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerIdleDown.FB_PlayerIdleDown",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Idle_Down.S_Player_Idle_Down",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Idle_Down.T_Player_Idle_Down",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Idle_Down.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e21f6b590) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "idle",
+      "direction": "down_left",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerIdleDownLeft.FB_PlayerIdleDownLeft",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_DownLeft_01.S_Player_Walk_DownLeft_01",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_DownLeft_01.T_Player_Walk_DownLeft_01",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_DownLeft_01.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e18570b90) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "idle",
+      "direction": "left",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerIdleLeft.FB_PlayerIdleLeft",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_Left_01.S_Player_Walk_Left_01",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_Left_01.T_Player_Walk_Left_01",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_Left_01.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e21aff410) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "idle",
+      "direction": "up_left",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerIdleUpLeft.FB_PlayerIdleUpLeft",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_UpLeft_01.S_Player_Walk_UpLeft_01",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_UpLeft_01.T_Player_Walk_UpLeft_01",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_UpLeft_01.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e21f6f410) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "walking",
+      "direction": "up",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerWalkUp.FB_PlayerWalkUp",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_Up_01.S_Player_Walk_Up_01",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_Up_01.T_Player_Walk_Up_01",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_Up_01.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e18576f90) {}>"
+          }
+        },
+        {
+          "frame": 1,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_Up_02.S_Player_Walk_Up_02",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_Up_02.T_Player_Walk_Up_02",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_Up_02.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e18577210) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "walking",
+      "direction": "up_right",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerWalkUpRight.FB_PlayerWalkUpRight",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_UpRight_01.S_Player_Walk_UpRight_01",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_UpRight_01.T_Player_Walk_UpRight_01",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_UpRight_01.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e21f6db10) {}>"
+          }
+        },
+        {
+          "frame": 1,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_UpRight_02.S_Player_Walk_UpRight_02",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_UpRight_02.T_Player_Walk_UpRight_02",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_UpRight_02.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e18575690) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "walking",
+      "direction": "right",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerWalkRight.FB_PlayerWalkRight",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_Right_01.S_Player_Walk_Right_01",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_Right_01.T_Player_Walk_Right_01",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_Right_01.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e21f6ce90) {}>"
+          }
+        },
+        {
+          "frame": 1,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_Right_02.S_Player_Walk_Right_02",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_Right_02.T_Player_Walk_Right_02",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_Right_02.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e18573610) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "walking",
+      "direction": "down_right",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerWalkDownRight.FB_PlayerWalkDownRight",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_DownRight_01.S_Player_Walk_DownRight_01",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_DownRight_01.T_Player_Walk_DownRight_01",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_DownRight_01.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e18573b10) {}>"
+          }
+        },
+        {
+          "frame": 1,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_DownRight_02.S_Player_Walk_DownRight_02",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_DownRight_02.T_Player_Walk_DownRight_02",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_DownRight_02.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e18573d90) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "walking",
+      "direction": "down",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerWalkDown.FB_PlayerWalkDown",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_Down_01.S_Player_Walk_Down_01",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_Down_01.T_Player_Walk_Down_01",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_Down_01.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e18572490) {}>"
+          }
+        },
+        {
+          "frame": 1,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_Down_02.S_Player_Walk_Down_02",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_Down_02.T_Player_Walk_Down_02",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_Down_02.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e18572710) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "walking",
+      "direction": "down_left",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerWalkDownLeft.FB_PlayerWalkDownLeft",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_DownLeft_01.S_Player_Walk_DownLeft_01",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_DownLeft_01.T_Player_Walk_DownLeft_01",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_DownLeft_01.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e18570b90) {}>"
+          }
+        },
+        {
+          "frame": 1,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_DownLeft_02.S_Player_Walk_DownLeft_02",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_DownLeft_02.T_Player_Walk_DownLeft_02",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_DownLeft_02.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e18579a10) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "walking",
+      "direction": "left",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerWalkLeft.FB_PlayerWalkLeft",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_Left_01.S_Player_Walk_Left_01",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_Left_01.T_Player_Walk_Left_01",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_Left_01.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e21aff410) {}>"
+          }
+        },
+        {
+          "frame": 1,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_Left_02.S_Player_Walk_Left_02",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_Left_02.T_Player_Walk_Left_02",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_Left_02.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e18578b10) {}>"
+          }
+        }
+      ]
+    },
+    {
+      "state": "walking",
+      "direction": "up_left",
+      "asset": "/Game/Characters/Prototype2D/Flipbooks/HobbitPlayer/FB_PlayerWalkUpLeft.FB_PlayerWalkUpLeft",
+      "frames": [
+        {
+          "frame": 0,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_UpLeft_01.S_Player_Walk_UpLeft_01",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_UpLeft_01.T_Player_Walk_UpLeft_01",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_UpLeft_01.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e21f6f410) {}>"
+          }
+        },
+        {
+          "frame": 1,
+          "sprite": "/Game/Characters/Prototype2D/Sprites/HobbitPlayer/S_Player_Walk_UpLeft_02.S_Player_Walk_UpLeft_02",
+          "texture": "/Game/Characters/Prototype2D/Textures/HobbitPlayer/T_Player_Walk_UpLeft_02.T_Player_Walk_UpLeft_02",
+          "source_dimensions_px": [
+            256.0,
+            512.0
+          ],
+          "source_uv_px": [
+            0.0,
+            0.0
+          ],
+          "texture_source_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/Prototype2D/Source/HobbitPlayer/Player_Walk_UpLeft_02.png",
+          "properties": {
+            "pixels_per_unreal_unit": 3.4000000953674316,
+            "pivot_mode": "<SpritePivotMode.BOTTOM_CENTER: 7>",
+            "custom_pivot_point": [
+              128.0,
+              512.0
+            ],
+            "snap_pivot_to_pixel_grid": true,
+            "baked_render_data": "PaperSprite: Failed to find property 'baked_render_data' for attribute 'baked_render_data' on 'PaperSprite'",
+            "render_geometry": "<Struct 'SpriteGeometryCollection' (0x87e18577c10) {}>"
+          }
+        }
+      ]
+    }
+  ],
+  "architecture": {
+    "HH_Counter": {
+      "bounds_center_cm": [
+        220.0000228881836,
+        -79.99996185302734,
+        46.0
+      ],
+      "bounds_extent_cm": [
+        47.000038146972656,
+        175.00000762939453,
+        46.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "HH_Floor": {
+      "bounds_center_cm": [
+        0.0,
+        0.0,
+        -8.0
+      ],
+      "bounds_extent_cm": [
+        435.00006103515625,
+        485.00006103515625,
+        8.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "HH_Glass_Front": {
+      "bounds_center_cm": [
+        -450.0,
+        -7.62939453125e-05,
+        167.5000114440918
+      ],
+      "bounds_extent_cm": [
+        1.75006103515625,
+        359.99998474121094,
+        47.500003814697266
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "HH_Roof_Main": {
+      "bounds_center_cm": [
+        0.0,
+        0.0,
+        447.5
+      ],
+      "bounds_extent_cm": [
+        495.00006103515625,
+        555.0001220703125,
+        192.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "HH_Walls_Front": {
+      "bounds_center_cm": [
+        -450.0,
+        -6.103515625e-05,
+        130.0
+      ],
+      "bounds_extent_cm": [
+        15.000091552734375,
+        500.0,
+        130.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "HH_WindowFrames_Front": {
+      "bounds_center_cm": [
+        -468.99998474121094,
+        -7.62939453125e-05,
+        167.5
+      ],
+      "bounds_extent_cm": [
+        7.5000762939453125,
+        377.99998474121094,
+        65.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  }
+}

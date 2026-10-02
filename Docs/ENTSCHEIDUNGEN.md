@@ -411,8 +411,16 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - 24 getrennte Module mit insgesamt 1.124 Dreiecken und sieben einfachen Material-Slots bilden die neue Hülle. Dach, vorderer Giebel und kameraseitige Fassadenteile sind unabhängig ausblendbar. Keine finalen Schindeln, Blumen, Ornamente oder hochauflösenden Texturen wurden produziert.
 - Der lokale Export-/Importweg verwendet FBX mit getrennten Static Meshes und ohne automatische Ganzhaus-Collision. Nach Prüfung neben dem Original wurde nur dessen Darstellung ersetzt. Der alte Blockout bleibt unsichtbar erhalten und liefert weiterhin einfache Gameplay-Collision. Hüterin, RestPoint, Checkpoint, Save/Load und die vorhandene Cutaway-Logik werden wiederverwendet; Player und Spielkamera bleiben unverändert.
 
-- Der aktuelle Player-Maßstab bleibt erhalten. Die gemessene Sprite-Flächenhöhe bei Scale 0,36 beträgt etwa 54,21 cm; der 1,40-m-Block ist ausschließlich eine Blender-Prüfhilfe. Eine spätere Änderung der Figurengröße ist nicht Teil dieses Architektur-Prototyps.
+- **Für V1 historisch, durch die anschließende Scale Calibration ersetzt:** Scale 0,36 blieb im Architektur-Prototyp zunächst erhalten. Die 54,21 cm bezeichneten nur die transparente Sprite-Leinwand; der 1,40-m-Block war eine Blender-Prüfhilfe.
 - Der funktionale V1 wurde mit erfolgreichem Mac-Build, allen 34 PokeMonster-Automationstests und einem echten PIE-Fußweg von außen zur Hüterin und zurück überprüft. Der bestehende Dev-Slot wurde durch die reguläre Hüterinnen-Interaktion gespeichert; der vorherige Slot wurde zuvor temporär gesichert.
+
+## 2026-10-02 – Player-/Heilhaus-Scale-Calibration
+
+- Die Figur soll einen aufrechten Körper von ungefähr 140 cm repräsentieren. Der tatsächliche Alpha-Körper der 256 × 512-Pixel-Quellen umfasst 429–438 Pixel, nicht die gesamte Leinwand. Die bisherige Sprite-Skalierung 0,36 ergab nur 45,42–46,38 cm sichtbare Höhe in der Sprite-Ebene.
+- Die bisherige Sprite-Neigung von Roll -55° wird durch eine aufrechte Paper2D-Fläche (Yaw 45°, Roll 0°) ersetzt. Eine nur auf Bildschirmhöhe kalibrierte geneigte Fläche hatte geometrisch nur etwa 49 cm Höhe: Am 92-cm-Tresen wurde der Kopf falsch verdeckt. Visuelle Component-Scale (0,66; 0,66; 1,086758) erhält die schmale Bildschirm-Silhouette und gibt dem Körper tatsächlich 140 cm Welt-Z-Höhe. Kamera und ihre Perspektive bleiben unverändert. Die Änderung betrifft ausschließlich die Sprite-Darstellung.
+- Der gemeinsame Fuß-Pivot liegt bei Quellpixel (128,488), an der sichtbaren Sohle. Pixels Per Unreal Unit wird pro Pose anhand ihrer Alpha-Körperhöhe normiert (3,4 × Körperpixel / 438). Das ergibt gleiche sichtbare Körperhöhe ohne Richtungs-/Frame-Sprünge. Die PNGs und Flipbook-Zuordnungen bleiben unverändert.
+- Die Sprite-Komponente wird rein visuell um die unveränderte Capsule-Halbhöhe nach unten versetzt. Actor-Scale 1, Capsule 28-cm-Radius/48-cm-Halbhöhe, Bewegung 210 cm/s, Kamera, Interaktion und alle Gameplay-Systeme bleiben unverändert. Vergleichsreferenzen sind kurzlebige Debug-Zeichnungen im PIE, keine gespeicherten Actors.
+- Vollständige Messwerte und Prüfung: `Docs/SCALE_CALIBRATION.md`.
 
 ## Aktuell offene Entscheidungen
 

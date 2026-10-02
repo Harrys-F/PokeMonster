@@ -1,6 +1,6 @@
 # Hobbit-Player: Bildquellen und Zuordnung
 
-Alle PNGs in diesem Ordner sind transparente, auf 256 × 512 Pixel normierte Arbeitsdateien. Die Bodenlinie ist für alle Posen gleich; die Paper2D-Sprites verwenden `Bottom Center` als Pivot und 3,4 Pixel pro Unreal-Einheit.
+Alle PNGs in diesem Ordner sind transparente, auf 256 × 512 Pixel normierte Arbeitsdateien. Die Bodenlinie ist für alle Posen gleich; die Paper2D-Sprites verwenden den sichtbaren Sohlenpunkt `(128,488)` als Custom-Pivot. Pixels Per Unreal Unit wird je Pose mit `3,4 × sichtbare Körperpixel / 438` normiert. Bei visueller Component-Scale (0,66; 0,66; 1,086758) und aufrechter Sprite-Fläche ergibt dies stets 140 cm sichtbare Körperhöhe in Welt-Z (siehe `Docs/SCALE_CALIBRATION.md`). Die transparenten 24 Pixel unter den Füßen zählen nicht zur Körperhöhe.
 
 | Spielrichtung | Walk (beide Frames) | Idle |
 | --- | --- | --- |
