@@ -103,7 +103,7 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
-	CameraBoom->TargetArmLength = 2000.0f;
+	CameraBoom->TargetArmLength = 2500.0f;
 	CameraBoom->SetRelativeRotation(FRotator(-55.0f, -45.0f, 0.0f));
 	CameraBoom->bUsePawnControlRotation = false;
 	CameraBoom->bInheritPitch = false;

@@ -23,6 +23,7 @@
 #include "GameFramework/WorldSettings.h"
 #include "Kismet/GameplayStatics.h"
 #include "PaperSpriteComponent.h"
+#include "Materials/MaterialInterface.h"
 #include "UObject/StrongObjectPtr.h"
 #include "Misc/ScopeExit.h"
 
@@ -77,7 +78,15 @@ bool FPokeMonsterHealingHouseLayoutTest::RunTest(const FString& Parameters)
 	}
 	Cutaway->InteriorArea->UpdateComponentToWorld();
 	TestFalse(TEXT("Roof visible at exterior spawn"), Cutaway->IsViewerInside(Start->GetActorLocation()));
-	TestTrue(TEXT("Cutaway begins before the doorway"), Cutaway->IsViewerInside(FVector(-570.f, 0.f, 48.f)));
+	TestFalse(TEXT("Approaching the house does not activate cutaway"), Cutaway->IsViewerInside(FVector(-570.f, 0.f, 48.f)));
+	Cutaway->DoorThreshold->UpdateComponentToWorld();
+	TestEqual(TEXT("Door threshold is centred on the actual doorway"), Cutaway->DoorThreshold->GetComponentLocation(), FVector(-450.f, 0.f, 115.f));
+	TestEqual(TEXT("Door threshold matches the 240 by 230 cm passage"), Cutaway->DoorThreshold->GetUnscaledBoxExtent(), FVector(20.f, 120.f, 115.f));
+	TestEqual(TEXT("Door threshold never changes gameplay collision"), Cutaway->DoorThreshold->GetCollisionEnabled(), ECollisionEnabled::NoCollision);
+	TestFalse(TEXT("Forecourt is outside the small threshold"), Cutaway->IsViewerInDoorway(FVector(-570.f, 0.f, 48.f)));
+	TestTrue(TEXT("Diagonal position fits doorway transition"), Cutaway->IsViewerInDoorway(FVector(-450.f, 85.f, 48.f)));
+	TestFalse(TEXT("Facade away from door does not form a transition"), Cutaway->IsViewerInDoorway(FVector(-450.f, 300.f, 48.f)));
+	TestEqual(TEXT("Fade duration is 0.4 seconds"), Cutaway->FadeDuration, 0.4f);
 	TestTrue(TEXT("Whole main aisle is inside cutaway"), Cutaway->IsViewerInside(FVector(140.f, -80.f, 48.f)));
 	TestTrue(TEXT("Healer remains inside cutaway after defeat return"), Cutaway->IsViewerInside(Healer->GetActorLocation()));
 	TestTrue(TEXT("Occluding building parts configured"), Cutaway->OccludingActors.Num() > 0);
@@ -108,7 +117,17 @@ bool FPokeMonsterHealingHouseLayoutTest::RunTest(const FString& Parameters)
 	{
 		auto* Module = Imported.FindRef(Name);
 		if (TestNotNull(TEXT("Required removable Blender module exists"), Module))
+		{
 			TestTrue(TEXT("Imported roof/near facade belongs to existing cutaway"), Cutaway->OccludingActors.Contains(Module));
+			for (UMaterialInterface* Material : Module->GetStaticMeshComponent()->GetMaterials())
+			{
+				if (!TestNotNull(TEXT("Occluding module has a material"), Material)) continue;
+				TestEqual(TEXT("Cutaway uses masked rendering rather than translucency"), Material->GetBlendMode(), BLEND_Masked);
+				float DefaultFade = -1.f;
+				TestTrue(TEXT("Material exposes the primitive-driven fade parameter"), Material->GetScalarParameterValue(FMaterialParameterInfo(TEXT("HouseCutaway")), DefaultFade));
+				TestEqual(TEXT("Material is fully visible without runtime cutaway data"), DefaultFade, 0.f);
+			}
+		}
 	}
 	if (auto* Roof = Imported.FindRef(TEXT("HH_Roof_Main")))
 	{
@@ -170,18 +189,62 @@ bool FPokeMonsterHealingHouseCollisionTest::RunTest(const FString& Parameters)
 	Cutaway->OccludingActors = FrontParts;
 	Cutaway->Tick(0.1f);
 	TestFalse(TEXT("Exterior does not activate cutaway"), Cutaway->IsCutawayActive());
-	Viewer->SetActorLocation(FVector(0, 0, 50));
+	Viewer->SetActorLocation(FVector(-570, 0, 50));
 	Cutaway->Tick(0.1f);
-	TestTrue(TEXT("Interior activates cutaway"), Cutaway->IsCutawayActive());
-	for (AActor* Part : FrontParts) TestTrue(TEXT("Front wall becomes invisible"), Part->IsHidden());
+	TestFalse(TEXT("Approach before door keeps entire roof and facade visible"), Cutaway->IsCutawayActive());
+	TestEqual(TEXT("No fade in forecourt"), Cutaway->GetCutawayAmount(), 0.f);
+	Viewer->SetActorLocation(FVector(-443, 60, 50));
+	Cutaway->Tick(0.1f);
+	TestTrue(TEXT("Crossing threshold starts the fade"), Cutaway->IsCutawayActive());
+	TestTrue(TEXT("Quarter-faded after 0.1 seconds"), FMath::IsNearlyEqual(Cutaway->GetCutawayAmount(), 0.25f));
+	for (AActor* Part : FrontParts)
+	{
+		TestFalse(TEXT("Part stays renderable during the transition"), Part->IsHidden());
+		const auto* Mesh = CastChecked<AStaticMeshActor>(Part)->GetStaticMeshComponent();
+		TestTrue(TEXT("Partial fade reaches actual primitive material data"), FMath::IsNearlyEqual(Mesh->GetCustomPrimitiveData().Data[0], 0.25f));
+	}
+	Viewer->SetActorLocation(FVector(-450, 0, 50));
+	Cutaway->Tick(0.1f);
+	TestTrue(TEXT("Pausing on threshold retains inside state"), Cutaway->IsCutawayActive());
+	TestTrue(TEXT("Fade continues smoothly while paused"), FMath::IsNearlyEqual(Cutaway->GetCutawayAmount(), 0.5f));
+	Viewer->SetActorLocation(FVector(-452, -30, 50));
+	Cutaway->Tick(0.f);
+	TestTrue(TEXT("Small threshold jitter does not flicker"), Cutaway->IsCutawayActive());
+	Viewer->SetActorLocation(FVector(-458, -30, 50));
+	Cutaway->Tick(0.04f);
+	TestFalse(TEXT("Turning around across threshold changes target"), Cutaway->IsCutawayActive());
+	TestTrue(TEXT("Reversal preserves continuous fade progress"), FMath::IsNearlyEqual(Cutaway->GetCutawayAmount(), 0.4f));
+	Viewer->SetActorLocation(FVector(-450, -30, 50));
+	Cutaway->Tick(0.f);
+	TestFalse(TEXT("Paused threshold retains outside state after reversal"), Cutaway->IsCutawayActive());
+	Cutaway->Tick(0.16f);
+	TestTrue(TEXT("Reverse transition restores full opacity"), FMath::IsNearlyZero(Cutaway->GetCutawayAmount()));
+	Viewer->SetActorLocation(FVector(-444, 80, 50));
+	Cutaway->Tick(0.4f);
+	TestTrue(TEXT("Diagonal threshold crossing activates cutaway"), Cutaway->IsCutawayActive());
+	TestEqual(TEXT("Fully faded after 0.4 seconds"), Cutaway->GetCutawayAmount(), 1.f);
+	Viewer->SetActorLocation(FVector(140, -80, 50));
+	Cutaway->Tick(0.1f);
+	TestTrue(TEXT("Interior keeps cutaway active"), Cutaway->IsCutawayActive());
+	for (AActor* Part : FrontParts) TestTrue(TEXT("Only completed fade hides the front wall"), Part->IsHidden());
 	FCollisionQueryParams WithoutViewer;
 	WithoutViewer.AddIgnoredActor(Viewer);
 	TestTrue(TEXT("Invisible wall still blocks gameplay"), TestWorld->SweepSingleByChannel(Hit,
 		FVector(-600, 300, 50), FVector(-300, 300, 50), FQuat::Identity, ECC_Pawn, PlayerShape, WithoutViewer));
-	Viewer->SetActorLocation(FVector(-1000, 0, 50));
+	Viewer->SetActorLocation(FVector(-460, -80, 50));
 	Cutaway->Tick(0.1f);
-	TestFalse(TEXT("Leaving deactivates cutaway"), Cutaway->IsCutawayActive());
+	TestFalse(TEXT("Leaving through threshold starts restoration"), Cutaway->IsCutawayActive());
+	TestTrue(TEXT("Exit fades in gradually"), FMath::IsNearlyEqual(Cutaway->GetCutawayAmount(), 0.75f));
+	for (AActor* Part : FrontParts) TestFalse(TEXT("Front wall is renderable during fade-in"), Part->IsHidden());
+	Viewer->SetActorLocation(FVector(-1000, 0, 50));
+	Cutaway->Tick(0.31f);
+	TestEqual(TEXT("Exterior restoration completes"), Cutaway->GetCutawayAmount(), 0.f);
 	for (AActor* Part : FrontParts) TestFalse(TEXT("Front wall restored on exit"), Part->IsHidden());
+	Viewer->SetActorLocation(FVector(140, -80, 50));
+	auto* InteriorSpawnCutaway = TestWorld->SpawnActor<APokeMonsterBuildingCutaway>(FVector(-40, 0, 150), FRotator::ZeroRotator);
+	InteriorSpawnCutaway->Tick(0.f);
+	TestTrue(TEXT("Existing checkpoint spawn inside initializes the correct state"), InteriorSpawnCutaway->IsCutawayActive());
+	TestEqual(TEXT("Existing interior spawn starts readable"), InteriorSpawnCutaway->GetCutawayAmount(), 1.f);
 	return true;
 }
 

@@ -1,24 +1,47 @@
 #include "PokeMonsterBuildingCutaway.h"
 
 #include "Components/BoxComponent.h"
+#include "Components/PrimitiveComponent.h"
 #include "GameFramework/Pawn.h"
 #include "Kismet/GameplayStatics.h"
+
+namespace
+{
+	// The house's masked materials reserve this float for their dither mask.
+	constexpr int32 CutawayDataIndex = 0;
+}
 
 APokeMonsterBuildingCutaway::APokeMonsterBuildingCutaway()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	PrimaryActorTick.TickInterval = 0.1f;
+	PrimaryActorTick.TickInterval = 0.02f;
 	InteriorArea = CreateDefaultSubobject<UBoxComponent>(TEXT("InteriorArea"));
 	SetRootComponent(InteriorArea);
-	InteriorArea->SetBoxExtent(FVector(570.f, 580.f, 250.f));
+	InteriorArea->SetBoxExtent(FVector(490.f, 500.f, 250.f));
 	InteriorArea->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	InteriorArea->SetGenerateOverlapEvents(false);
+
+	DoorThreshold = CreateDefaultSubobject<UBoxComponent>(TEXT("DoorThreshold"));
+	DoorThreshold->SetupAttachment(InteriorArea);
+	DoorThreshold->SetRelativeLocation(FVector(-410.f, 0.f, -35.f));
+	DoorThreshold->SetBoxExtent(FVector(20.f, 120.f, 115.f));
+	DoorThreshold->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	DoorThreshold->SetGenerateOverlapEvents(false);
 }
 
 bool APokeMonsterBuildingCutaway::IsViewerInside(FVector WorldLocation) const
 {
 	const FVector Local = InteriorArea->GetComponentTransform().InverseTransformPosition(WorldLocation);
 	const FVector Extent = InteriorArea->GetUnscaledBoxExtent();
+	const FVector DoorLocal = DoorThreshold->GetComponentTransform().InverseTransformPosition(WorldLocation);
+	return FMath::Abs(Local.X) <= Extent.X && FMath::Abs(Local.Y) <= Extent.Y
+		&& FMath::Abs(Local.Z) <= Extent.Z && DoorLocal.X >= 0.f;
+}
+
+bool APokeMonsterBuildingCutaway::IsViewerInDoorway(FVector WorldLocation) const
+{
+	const FVector Local = DoorThreshold->GetComponentTransform().InverseTransformPosition(WorldLocation);
+	const FVector Extent = DoorThreshold->GetUnscaledBoxExtent();
 	return FMath::Abs(Local.X) <= Extent.X && FMath::Abs(Local.Y) <= Extent.Y
 		&& FMath::Abs(Local.Z) <= Extent.Z;
 }
@@ -26,39 +49,83 @@ bool APokeMonsterBuildingCutaway::IsViewerInside(FVector WorldLocation) const
 void APokeMonsterBuildingCutaway::BeginPlay()
 {
 	Super::BeginPlay();
-	RefreshVisibility();
+	RefreshVisibility(0.f);
 }
 
 void APokeMonsterBuildingCutaway::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
-	RefreshVisibility();
+	RefreshVisibility(DeltaSeconds);
 }
 
-void APokeMonsterBuildingCutaway::RefreshVisibility()
+void APokeMonsterBuildingCutaway::RefreshVisibility(float DeltaSeconds)
 {
 	const APawn* Player = UGameplayStatics::GetPlayerPawn(this, 0);
-	ApplyVisibility(Player && IsViewerInside(Player->GetActorLocation()));
+	if (!Player) return;
+	bool bInside = false;
+	if (Player)
+	{
+		const FVector Position = Player->GetActorLocation();
+		bInside = IsViewerInside(Position);
+		if (bViewerInitialized && IsViewerInDoorway(Position))
+		{
+			const float DoorX = DoorThreshold->GetComponentTransform().InverseTransformPosition(Position).X;
+			const float Band = FMath::Clamp(ThresholdHysteresis, 0.f,
+				DoorThreshold->GetUnscaledBoxExtent().X);
+			// Keep the previous side while standing on, or brushing, the threshold.
+			bInside = DoorX > Band ? true : DoorX < -Band ? false : bCutawayActive;
+		}
+	}
+	bCutawayActive = bInside;
+	const float Target = bInside ? 1.f : 0.f;
+	const float PreviousAmount = CutawayAmount;
+	if (!bViewerInitialized)
+	{
+		// A checkpoint/spawn already inside must not start beneath an opaque roof.
+		CutawayAmount = Target;
+		bViewerInitialized = true;
+	}
+	else
+	{
+		CutawayAmount = FMath::FInterpConstantTo(CutawayAmount, Target,
+			FMath::Max(DeltaSeconds, 0.f), 1.f / FMath::Max(FadeDuration, 0.05f));
+		if (FMath::IsNearlyEqual(CutawayAmount, Target, KINDA_SMALL_NUMBER)) CutawayAmount = Target;
+	}
+	if (OriginalHiddenStates.IsEmpty() || PreviousAmount != CutawayAmount)
+		ApplyVisibility();
 }
 
-void APokeMonsterBuildingCutaway::ApplyVisibility(bool bInside)
+void APokeMonsterBuildingCutaway::ApplyVisibility()
 {
-	bCutawayActive = bInside;
 	for (AActor* Actor : OccludingActors)
 	{
 		if (!IsValid(Actor)) continue;
 		const TWeakObjectPtr<AActor> Key(Actor);
 		if (!OriginalHiddenStates.Contains(Key)) OriginalHiddenStates.Add(Key, Actor->IsHidden());
-		Actor->SetActorHiddenInGame(bInside || OriginalHiddenStates.FindChecked(Key));
+		TInlineComponentArray<UPrimitiveComponent*> Components(Actor);
+		for (UPrimitiveComponent* Component : Components)
+		{
+			const TWeakObjectPtr<UPrimitiveComponent> ComponentKey(Component);
+			if (!OriginalFadeData.Contains(ComponentKey))
+			{
+				const TArray<float>& Data = Component->GetCustomPrimitiveData().Data;
+				OriginalFadeData.Add(ComponentKey, Data.IsValidIndex(CutawayDataIndex) ? Data[CutawayDataIndex] : 0.f);
+			}
+			Component->SetCustomPrimitiveDataFloat(CutawayDataIndex, CutawayAmount);
+		}
+		// Dither covers the entire transition; only its fully hidden endpoint skips rendering.
+		Actor->SetActorHiddenInGame(CutawayAmount >= 1.f || OriginalHiddenStates.FindChecked(Key));
 	}
 }
 
 void APokeMonsterBuildingCutaway::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
+	for (const auto& Data : OriginalFadeData)
+		if (UPrimitiveComponent* Component = Data.Key.Get())
+			Component->SetCustomPrimitiveDataFloat(CutawayDataIndex, Data.Value);
 	for (const auto& State : OriginalHiddenStates)
-	{
 		if (AActor* Actor = State.Key.Get()) Actor->SetActorHiddenInGame(State.Value);
-	}
+	OriginalFadeData.Reset();
 	OriginalHiddenStates.Reset();
 	Super::EndPlay(EndPlayReason);
 }
