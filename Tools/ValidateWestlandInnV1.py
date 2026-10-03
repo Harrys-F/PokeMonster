@@ -3,7 +3,7 @@ Run after import in the full editor. Reports live checks under ignored Saved/.
 """
 import unreal,json
 from pathlib import Path
-ROOT=Path(unreal.Paths.project_dir()).resolve();ART=ROOT/'Art/Architecture/Westland';OUT=ROOT/'Saved/WestlandInnV1'
+ROOT=Path(unreal.Paths.project_dir()).resolve();ART=ROOT/'Art/Architecture/Westland';OUT=ROOT/'Saved/WestlandInnCamera'
 kit=json.loads((ART/'WestlandBuildingKit_V1.json').read_text());kit['modules']+=json.loads((ART/'WestlandBuildingKit_InnExtensions_V1.json').read_text())['modules'];layout=json.loads((ART/'Buildings/WL_Inn_V1.json').read_text())
 editor=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem)
 assert not editor.get_game_world(), 'Stop PIE before this saved-asset/editor-physics audit.'
@@ -35,20 +35,25 @@ def trace(a,b):
  return unreal.SystemLibrary.capsule_trace_single_for_objects(world,unreal.Vector(*a),unreal.Vector(*b),28,48,[unreal.ObjectTypeQuery.OBJECT_TYPE_QUERY1],False,ignore,unreal.DrawDebugTrace.NONE,True) is not None
 def free(a,b):assert not trace(a,b),('route blocked',a,b)
 def block(a,b):assert trace(a,b),('missing collision',a,b)
-route=[(-950,0,50),(-950,-1600,50),(-450,-1600,50),(-250,-1600,50),(0,-1600,50),(150,-1400,50),(-200,-1750,50),(200,-1800,50),(340,-1730,50),(340,-1350,50),(340,-1730,50),(-250,-1600,50),(-500,-1600,50)]
+route=[(-950,0,50),(-950,-1600,50),(-350,-1600,50),(-250,-1600,50),(0,-1500,50),(240,-1400,50),(400,-1400,50),(430,-1220,50),(420,-1620,50),(300,-1500,50),(0,-1500,50),(-230,-1790,50),(-230,-1200,50),(0,-1250,50),(-250,-1600,50),(-500,-1600,50)]
 for a,b in zip(route,route[1:]):free(a,b)
-free((-500,-1640,50),(-280,-1560,50))
-block((-500,-1300,50),(-250,-1300,50));block((300,-1500,50),(450,-1500,50));block((0,-1750,50),(0,-1950,50));block((100,-1400,50),(280,-1400,50))
+free((-360,-1640,50),(-260,-1560,50))
+# Genuine surrounding walls and counter remain blocking; the 6m wing join stays open.
+block((-400,-1300,50),(-200,-1300,50));block((450,-1500,50),(550,-1500,50));block((0,-1830,50),(0,-1950,50));block((0,-1730,50),(140,-1730,50));block((400,-1740,50),(400,-1630,50))
 cut=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(world,unreal.load_class(None,'/Script/PokeMonster.PokeMonsterBuildingCutaway')) if a.get_actor_label()=='WL_Inn_Cutaway')
 assert cut.get_editor_property('door_threshold').get_unscaled_box_extent()==unreal.Vector(20,80,107.5)
 assert abs(cut.get_editor_property('fade_duration')-.4)<1e-6
 assert {a.get_actor_label() for a in cut.get_editor_property('occluding_actors')}=={p['label'] for p in layout['placements'] if p['cutaway']}
-assert all(p['cutaway'] for p in layout['placements'] if p['module']=='GableHalf4m' and p['position_m'][1]>0)
-assert not cut.is_viewer_inside(unreal.Vector(-440,-1600,50)) and cut.is_viewer_inside(unreal.Vector(-350,-1600,50))
+assert cut.get_editor_property('use_interior_camera')
+assert cut.get_editor_property('interior_camera_distance')==layout['interior_camera']['distance_cm']
+assert len(cut.get_editor_property('interior_regions'))==2
+assert all(not p['cutaway'] for p in layout['placements'] if p['role'] in ('LeftWall','RightWall','WingNotchWall','WingRearWall','MainRearWall'))
+assert not cut.is_viewer_inside(unreal.Vector(-306,-1600,50)) and cut.is_viewer_inside(unreal.Vector(-294,-1600,50))
+assert cut.is_viewer_inside(unreal.Vector(400,-1400,50)) and not cut.is_viewer_inside(unreal.Vector(450,-1850,50))
 assert len(unreal.GameplayStatics.get_all_actors_of_class(world,unreal.load_class(None,'/Script/PokeMonster.PokeMonsterBuildingCutaway')))==2
 cottage=json.loads((ART/'Buildings/WL_Cottage_V1.json').read_text())
 cp=[a for a in unreal.GameplayStatics.get_all_actors_of_class(world,unreal.StaticMeshActor) if a.actor_has_tag('Westland_Cottage')]
 assert len(cp)==148
 for m,n in cottage['module_counts'].items():assert sum(a.actor_has_tag('Westland_Module_'+m) for a in cp)==n
-(OUT/'RuntimeValidation.json').write_text(json.dumps({'passed':True,'world':world.get_name(),'meshes_checked':len(kit['modules']),'collision_bodies':counts,'material_slots_checked':materials,'reuse_counts':actual,'placed_modules':len(placed),'free_capsule_route_segments':len(route)-1,'diagonal_door_sweep':True,'front_rear_window_counter_blocking':True,'cutaway_config':[40,160,215,.4],'cottage_148_instances_preserved':True,'cpp_unchanged':True},indent=2)+'\n')
+(OUT/'RuntimeValidation.json').write_text(json.dumps({'passed':True,'world':world.get_name(),'meshes_checked':len(kit['modules']),'collision_bodies':counts,'material_slots_checked':materials,'reuse_counts':actual,'placed_modules':len(placed),'free_capsule_route_segments':len(route)-1,'diagonal_door_sweep':True,'front_rear_counter_notch_blocking':True,'cutaway_config':[40,160,215,.4],'cottage_148_instances_preserved':True,'optional_footprint_union':True},indent=2)+'\n')
 unreal.log('WESTLAND_INN_RUNTIME_VALIDATION_PASSED')

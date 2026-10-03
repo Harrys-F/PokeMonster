@@ -1,5 +1,8 @@
 # Westland Inn V1 – Prüfbericht
 
+
+> Historischer Erst-Proof: Die quadratische Komposition und reine Box-Konfiguration wurden ersetzt. Aktueller L-Grundriss, Innenkamera und Steuerungsprüfung: [WESTLAND_INN_V1_INNENRAUM_PRUEFBERICHT.md](WESTLAND_INN_V1_INNENRAUM_PRUEFBERICHT.md).
+
 Stand: 03.10.2026. Zweiter Architektur-Proof für Westland Building Kit V1; keine neuen Gameplay-Systeme, kein Commit, Push oder Staging.
 
 ## Ausgangsstand und Architektur

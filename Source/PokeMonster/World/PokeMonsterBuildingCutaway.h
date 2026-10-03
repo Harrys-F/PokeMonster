@@ -9,6 +9,15 @@ class APokeMonsterPlayerCharacter;
 struct FMinimalViewInfo;
 class UPrimitiveComponent;
 
+/** Optional box in InteriorArea-local centimetres; multiple boxes form one room footprint. */
+USTRUCT(BlueprintType)
+struct FPokeMonsterBuildingInteriorRegion
+{
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building") FVector Center = FVector::ZeroVector;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building", meta=(ClampMin="0.0")) FVector Extent = FVector(100.f);
+};
+
 /** Doorway-driven visual cutaway; never changes gameplay collision. */
 UCLASS(Blueprintable)
 class POKEMONSTER_API APokeMonsterBuildingCutaway : public AActor
@@ -17,6 +26,8 @@ class POKEMONSTER_API APokeMonsterBuildingCutaway : public AActor
 public:
 	APokeMonsterBuildingCutaway();
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Building") TObjectPtr<UBoxComponent> InteriorArea;
+	/** Empty preserves the original InteriorArea box. Non-empty supports joined/L-shaped rooms. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building") TArray<FPokeMonsterBuildingInteriorRegion> InteriorRegions;
 	/** Local +X points into the building. This box never generates gameplay overlaps. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Building") TObjectPtr<UBoxComponent> DoorThreshold;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building", meta=(ClampMin="0.05")) float FadeDuration = 0.4f;

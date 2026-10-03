@@ -44,8 +44,18 @@ bool APokeMonsterBuildingCutaway::IsViewerInside(FVector WorldLocation) const
 	const FVector Local = InteriorArea->GetComponentTransform().InverseTransformPosition(WorldLocation);
 	const FVector Extent = InteriorArea->GetUnscaledBoxExtent();
 	const FVector DoorLocal = DoorThreshold->GetComponentTransform().InverseTransformPosition(WorldLocation);
-	return FMath::Abs(Local.X) <= Extent.X && FMath::Abs(Local.Y) <= Extent.Y
-		&& FMath::Abs(Local.Z) <= Extent.Z && DoorLocal.X >= 0.f;
+	if (DoorLocal.X < 0.f) return false;
+	if (InteriorRegions.IsEmpty())
+		return FMath::Abs(Local.X) <= Extent.X && FMath::Abs(Local.Y) <= Extent.Y
+			&& FMath::Abs(Local.Z) <= Extent.Z;
+	for (const FPokeMonsterBuildingInteriorRegion& Region : InteriorRegions)
+	{
+		const FVector Offset = Local - Region.Center;
+		if (Region.Extent.X > 0.f && Region.Extent.Y > 0.f && Region.Extent.Z > 0.f
+			&& FMath::Abs(Offset.X) <= Region.Extent.X && FMath::Abs(Offset.Y) <= Region.Extent.Y
+			&& FMath::Abs(Offset.Z) <= Region.Extent.Z) return true;
+	}
+	return false;
 }
 
 bool APokeMonsterBuildingCutaway::IsViewerInDoorway(FVector WorldLocation) const

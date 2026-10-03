@@ -491,7 +491,7 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Explizite UCX-Körper bestimmen die Collision und halten die Tür frei. Kleine Architekturdekoration bleibt NoCollision. Legacy-FBX wird im vollständigen Editor importiert, da sein Commandlet-Pfad Slate voraussetzt. Neue Map: Dev_BuildingKitTestMap; Dev_TestMap, Heilhaus, Player, Kamera und bestehende Gameplay-Systeme bleiben erhalten.
 - Prüf-/Screenshot-/Log-Ergebnisse werden unter dem bereits ignorierten `Saved/WestlandKitV1` gesammelt. Nur tatsächliche Quelle, Modul-/Gebäudedefinitionen, FBX-Reimport-Dateien, neue Content-Assets, Autorenwerkzeuge und dauerhafte Dokumentation sollen versioniert werden.
 
-## 2026-10-03 – Westland Inn V1 als zweiter modularer Proof
+## 2026-10-03 – Westland Inn V1 als zweiter modularer Proof (Komposition/Cutaway teilweise ersetzt)
 
 - Kit V1, Wohnhaus und Healing House V3 bleiben als bestehende Quellen/Assets erhalten. Der Inn-Proof erhält eine eigene ausdrücklich gespeicherte und wieder geöffnete Blenderquelle; keine Überschreibung oder Reimport vorhandener Kitmeshes.
 - Der öffentliche Eingang benötigt eine echte 160×215-cm-Passage. Die 130×200-cm-Privattür lässt sich durch Wiederholung nicht erweitern; vier generische Größenvarianten ersetzen ausschließlich die Instanzen am neuen Gasthaus.
@@ -516,3 +516,13 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Erst nach dem Kamera-Endpunkt dreht ein kurzer Bewegungsbasis-Blend mit 250 Grad/s (45 Grad in 0,18 s) den horizontalen Tastaturbezug. Kein Input-Reset, StopMovement oder Geschwindigkeitsparameter wird geändert. Alle acht Richtungen bleiben normalisiert.
 - Die Blickrichtung wird relativ zur gerenderten Ansicht aus dem letzten tatsächlichen Weltbewegungsvektor bestimmt. Die Sprite-Ebene dreht ausschließlich um Z zur Kamera, ohne Größen-/Pivot-/Assetänderung. Interaktionen verwenden denselben letzten Weltvektor, auch im Idle; Reichweite bleibt 150 cm.
 - Nur Gebäude mit aktivierter Innenkamera nutzen dieses Verhalten. Healing House V3 wird nicht migriert. Kamera außen 2500/-55/-45/35, innen 2000/-50/0/35 und Cutaway 0,4 s bleiben unverändert.
+
+
+## 2026-10-03 – Westland Inn: L-Grundriss und bestehende Innensteuerung
+
+- Ersetzt die quadratische, traufseitige Inn-Komposition und deren bisherigen reinen Box-Innenbereich. Rechteckiger Hauptgastraum 6 × 8 m plus versetzter rückwärtiger 2 × 6-m-Flügel; nominaler Gesamtrahmen 8 × 8 m. Hauptdach 8-m-Spannweite, niedrigeres Flügeldach 6-m-Spannweite. Alle Architekturmodule stammen aus den bereits vorhandenen 33 Kit-/Inn-Varianten; keine neuen Meshes, Exporte oder Materialien.
+- Die allgemeine Cutaway-Klasse erhält optionale, gebäudelokale Innen-Teilboxen als Vereinigungsmenge. Eine leere Liste behält exakt die bisherige Box-Auswertung. Das schließt die offene L-Außenecke aus, ohne Wohnhaus oder Heilhaus umzubauen. Türschwelle und 4-cm-Hysterese bleiben maßgeblich; Fade 0,4 s.
+- Das Gasthaus aktiviert dieselbe vorhandene Kamera-/Steuerungsanbindung wie das Wohnhaus: zunächst 2000 cm / -50° / lokaler Yaw 0°, FOV 35°, fester Raumfokus. Ein nötiger Framing-Abgleich wird erst anhand der Spielansicht entschieden. Äußere Kamera 2500/-55/-45/35, Lag, Playerhöhe und 210 cm/s bleiben unverändert.
+- Die explizite Inn-Liste umfasst Dach, kameraseitige Front und das obere Giebelstück am Übergang zum Flügel. Die unteren Seiten-/Rückwände bleiben sichtbar. Keine automatische Sichtprüfung oder neue Input-Implementierung; vorhandene Endpunkt-Latches und der 0,18-s-Basis-Blend werden wiederverwendet.
+
+- Spielansicht-Abgleich: 2000 cm schneidet den Fuß-/Schwellenbereich knapp an. 2200 cm (+10 %) bietet mehr Rand und bleibt gut lesbar; gewählter Inn-Abstand 2200 cm. Pitch/Yaw/FOV/Fokus und Wohnhaus-Abstand bleiben unverändert.

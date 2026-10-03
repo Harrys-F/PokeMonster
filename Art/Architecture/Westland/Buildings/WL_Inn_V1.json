@@ -6,7 +6,18 @@
     8,
     3
   ],
+  "main_hall_m": [
+    6,
+    8,
+    3
+  ],
+  "rear_wing_m": [
+    2,
+    6,
+    3
+  ],
   "ridge_m": 5.666666666666666,
+  "wing_ridge_m": 5,
   "door_m": [
     1.6,
     2.15
@@ -17,7 +28,7 @@
     0
   ],
   "door_center_local_m": [
-    -4,
+    -3,
     -1,
     1.075
   ],
@@ -26,2249 +37,2249 @@
       "label": "Inn_Floor1m_000",
       "module": "Floor1m",
       "position_m": [
-        -4,
+        -3,
         -4,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_001",
       "module": "Floor1m",
       "position_m": [
-        -4,
+        -3,
         -3,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_002",
       "module": "Floor1m",
       "position_m": [
-        -4,
+        -3,
         -2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_003",
       "module": "Floor1m",
       "position_m": [
-        -4,
+        -3,
         -1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_004",
       "module": "Floor1m",
       "position_m": [
-        -4,
+        -3,
         0,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_005",
       "module": "Floor1m",
       "position_m": [
-        -4,
+        -3,
         1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_006",
       "module": "Floor1m",
       "position_m": [
-        -4,
+        -3,
         2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_007",
       "module": "Floor1m",
       "position_m": [
-        -4,
+        -3,
         3,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_008",
       "module": "Floor1m",
       "position_m": [
-        -3,
+        -2,
         -4,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_009",
       "module": "Floor1m",
       "position_m": [
-        -3,
+        -2,
         -3,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_010",
       "module": "Floor1m",
       "position_m": [
-        -3,
+        -2,
         -2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_011",
       "module": "Floor1m",
       "position_m": [
-        -3,
+        -2,
         -1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_012",
       "module": "Floor1m",
       "position_m": [
-        -3,
+        -2,
         0,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_013",
       "module": "Floor1m",
       "position_m": [
-        -3,
+        -2,
         1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_014",
       "module": "Floor1m",
       "position_m": [
-        -3,
+        -2,
         2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_015",
       "module": "Floor1m",
       "position_m": [
-        -3,
+        -2,
         3,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_016",
       "module": "Floor1m",
       "position_m": [
-        -2,
+        -1,
         -4,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_017",
       "module": "Floor1m",
       "position_m": [
-        -2,
+        -1,
         -3,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_018",
       "module": "Floor1m",
       "position_m": [
-        -2,
+        -1,
         -2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_019",
       "module": "Floor1m",
       "position_m": [
-        -2,
+        -1,
         -1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_020",
       "module": "Floor1m",
       "position_m": [
-        -2,
+        -1,
         0,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_021",
       "module": "Floor1m",
       "position_m": [
-        -2,
+        -1,
         1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_022",
       "module": "Floor1m",
       "position_m": [
-        -2,
+        -1,
         2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_023",
       "module": "Floor1m",
       "position_m": [
-        -2,
+        -1,
         3,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_024",
       "module": "Floor1m",
       "position_m": [
-        -1,
+        0,
         -4,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_025",
       "module": "Floor1m",
       "position_m": [
-        -1,
+        0,
         -3,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_026",
       "module": "Floor1m",
       "position_m": [
-        -1,
+        0,
         -2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_027",
       "module": "Floor1m",
       "position_m": [
-        -1,
+        0,
         -1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_028",
       "module": "Floor1m",
       "position_m": [
-        -1,
+        0,
         0,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_029",
       "module": "Floor1m",
       "position_m": [
-        -1,
+        0,
         1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_030",
       "module": "Floor1m",
       "position_m": [
-        -1,
+        0,
         2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_031",
       "module": "Floor1m",
       "position_m": [
-        -1,
+        0,
         3,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_032",
       "module": "Floor1m",
       "position_m": [
-        0,
+        1,
         -4,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_033",
       "module": "Floor1m",
       "position_m": [
-        0,
+        1,
         -3,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_034",
       "module": "Floor1m",
       "position_m": [
-        0,
+        1,
         -2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_035",
       "module": "Floor1m",
       "position_m": [
-        0,
+        1,
         -1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_036",
       "module": "Floor1m",
       "position_m": [
-        0,
+        1,
         0,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_037",
       "module": "Floor1m",
       "position_m": [
-        0,
+        1,
         1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_038",
       "module": "Floor1m",
       "position_m": [
-        0,
+        1,
         2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_039",
       "module": "Floor1m",
       "position_m": [
-        0,
+        1,
         3,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_040",
       "module": "Floor1m",
       "position_m": [
-        1,
+        2,
         -4,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_041",
       "module": "Floor1m",
       "position_m": [
-        1,
+        2,
         -3,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_042",
       "module": "Floor1m",
       "position_m": [
-        1,
+        2,
         -2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_043",
       "module": "Floor1m",
       "position_m": [
-        1,
+        2,
         -1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_044",
       "module": "Floor1m",
       "position_m": [
-        1,
+        2,
         0,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_045",
       "module": "Floor1m",
       "position_m": [
-        1,
+        2,
         1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_046",
       "module": "Floor1m",
       "position_m": [
-        1,
+        2,
         2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_047",
       "module": "Floor1m",
       "position_m": [
-        1,
+        2,
         3,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainHallFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_048",
       "module": "Floor1m",
       "position_m": [
-        2,
-        -4,
+        3,
+        -2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_049",
       "module": "Floor1m",
       "position_m": [
-        2,
-        -3,
+        3,
+        -1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_050",
       "module": "Floor1m",
       "position_m": [
-        2,
-        -2,
+        3,
+        0,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_051",
       "module": "Floor1m",
       "position_m": [
-        2,
-        -1,
+        3,
+        1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_052",
       "module": "Floor1m",
       "position_m": [
+        3,
         2,
-        0,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_053",
       "module": "Floor1m",
       "position_m": [
-        2,
-        1,
+        3,
+        3,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_054",
       "module": "Floor1m",
       "position_m": [
-        2,
-        2,
+        4,
+        -2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_055",
       "module": "Floor1m",
       "position_m": [
-        2,
-        3,
+        4,
+        -1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_056",
       "module": "Floor1m",
       "position_m": [
-        3,
-        -4,
+        4,
+        0,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_057",
       "module": "Floor1m",
       "position_m": [
-        3,
-        -3,
+        4,
+        1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_058",
       "module": "Floor1m",
       "position_m": [
-        3,
-        -2,
+        4,
+        2,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingFloor",
       "existing": true
     },
     {
       "label": "Inn_Floor1m_059",
       "module": "Floor1m",
       "position_m": [
-        3,
-        -1,
-        0
-      ],
-      "yaw": 0,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_Floor1m_060",
-      "module": "Floor1m",
-      "position_m": [
-        3,
-        0,
-        0
-      ],
-      "yaw": 0,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_Floor1m_061",
-      "module": "Floor1m",
-      "position_m": [
-        3,
-        1,
-        0
-      ],
-      "yaw": 0,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_Floor1m_062",
-      "module": "Floor1m",
-      "position_m": [
-        3,
-        2,
-        0
-      ],
-      "yaw": 0,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_Floor1m_063",
-      "module": "Floor1m",
-      "position_m": [
-        3,
+        4,
         3,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingFloor",
       "existing": true
     },
     {
-      "label": "Inn_WallWindowArch2m_064",
+      "label": "Inn_WallWindowArch2m_060",
       "module": "WallWindowArch2m",
       "position_m": [
-        -4,
+        -3,
         -4,
         0
       ],
       "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "FrontWall",
       "existing": true
     },
     {
-      "label": "Inn_HorizontalBeam2m_065",
+      "label": "Inn_HorizontalBeam2m_061",
       "module": "HorizontalBeam2m",
       "position_m": [
-        -4.14,
-        -4,
+        -3.14,
+        -4.0,
         3
       ],
       "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "FacadeTimber",
       "existing": true
     },
     {
-      "label": "Inn_WindowArch_066",
+      "label": "Inn_VerticalPost3m_062",
+      "module": "VerticalPost3m",
+      "position_m": [
+        -3.14,
+        -4.0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowArch_063",
       "module": "WindowArch",
       "position_m": [
-        -4,
-        -3,
+        -3.0,
+        -3.0,
         1
       ],
       "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "Window",
       "existing": true
     },
     {
-      "label": "Inn_WallDoor160x2152m_067",
+      "label": "Inn_StonePlinth1m_064",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -3.0,
+        -4.0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_065",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -3.0,
+        -3.0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallDoor160x2152m_066",
       "module": "WallDoor160x2152m",
       "position_m": [
-        -4,
+        -3,
         -2,
         0
       ],
       "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
-      "existing": false
+      "role": "FrontWall",
+      "existing": true
     },
     {
-      "label": "Inn_HorizontalBeam2m_068",
+      "label": "Inn_HorizontalBeam2m_067",
       "module": "HorizontalBeam2m",
       "position_m": [
-        -4.14,
-        -2,
+        -3.14,
+        -2.0,
         3
       ],
       "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_068",
+      "module": "VerticalPost3m",
+      "position_m": [
+        -3.14,
+        -2.0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "FacadeTimber",
       "existing": true
     },
     {
       "label": "Inn_WallWindowDouble2m_069",
       "module": "WallWindowDouble2m",
       "position_m": [
-        -4,
+        -3,
         0,
         0
       ],
       "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "FrontWall",
       "existing": true
     },
     {
       "label": "Inn_HorizontalBeam2m_070",
       "module": "HorizontalBeam2m",
       "position_m": [
-        -4.14,
-        0,
+        -3.14,
+        0.0,
         3
       ],
       "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "FacadeTimber",
       "existing": true
     },
     {
-      "label": "Inn_WindowDouble_071",
+      "label": "Inn_VerticalPost3m_071",
+      "module": "VerticalPost3m",
+      "position_m": [
+        -3.14,
+        0.0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowDouble_072",
       "module": "WindowDouble",
       "position_m": [
-        -4,
-        1,
+        -3.0,
+        1.0,
         1
       ],
       "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "Window",
       "existing": true
     },
     {
-      "label": "Inn_WallWindowDouble2m_072",
+      "label": "Inn_StonePlinth1m_073",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -3.0,
+        0.0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_074",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -3.0,
+        1.0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowDouble2m_075",
       "module": "WallWindowDouble2m",
       "position_m": [
-        -4,
+        -3,
         2,
         0
       ],
       "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_HorizontalBeam2m_073",
-      "module": "HorizontalBeam2m",
-      "position_m": [
-        -4.14,
-        2,
-        3
-      ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_WindowDouble_074",
-      "module": "WindowDouble",
-      "position_m": [
-        -4,
-        3,
-        1
-      ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_WallSolid2m_075",
-      "module": "WallSolid2m",
-      "position_m": [
-        4,
-        4,
-        0
-      ],
-      "yaw": 180,
-      "cutaway": false,
-      "role": "Architecture",
+      "role": "FrontWall",
       "existing": true
     },
     {
       "label": "Inn_HorizontalBeam2m_076",
       "module": "HorizontalBeam2m",
       "position_m": [
-        4.14,
-        4,
+        -3.14,
+        2.0,
         3
       ],
-      "yaw": 180,
-      "cutaway": false,
-      "role": "Architecture",
+      "yaw": 0,
+      "cutaway": true,
+      "role": "FacadeTimber",
       "existing": true
     },
     {
-      "label": "Inn_WallWindowDouble2m_077",
-      "module": "WallWindowDouble2m",
+      "label": "Inn_VerticalPost3m_077",
+      "module": "VerticalPost3m",
       "position_m": [
-        4,
-        2,
+        -3.14,
+        2.0,
         0
       ],
-      "yaw": 180,
-      "cutaway": false,
-      "role": "Architecture",
+      "yaw": 0,
+      "cutaway": true,
+      "role": "FacadeTimber",
       "existing": true
     },
     {
-      "label": "Inn_HorizontalBeam2m_078",
-      "module": "HorizontalBeam2m",
-      "position_m": [
-        4.14,
-        2,
-        3
-      ],
-      "yaw": 180,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_WindowDouble_079",
+      "label": "Inn_WindowDouble_078",
       "module": "WindowDouble",
       "position_m": [
-        4,
-        1,
+        -3.0,
+        3.0,
         1
       ],
-      "yaw": 180,
-      "cutaway": false,
-      "role": "Architecture",
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Window",
       "existing": true
     },
     {
-      "label": "Inn_WallSolid2m_080",
-      "module": "WallSolid2m",
+      "label": "Inn_StonePlinth1m_079",
+      "module": "StonePlinth1m",
       "position_m": [
-        4,
-        0,
+        -3.0,
+        2.0,
         0
       ],
-      "yaw": 180,
-      "cutaway": false,
-      "role": "Architecture",
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Plinth",
       "existing": true
     },
     {
-      "label": "Inn_HorizontalBeam2m_081",
-      "module": "HorizontalBeam2m",
+      "label": "Inn_StonePlinth1m_080",
+      "module": "StonePlinth1m",
       "position_m": [
-        4.14,
-        0,
-        3
-      ],
-      "yaw": 180,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_WallWindowDouble2m_082",
-      "module": "WallWindowDouble2m",
-      "position_m": [
-        4,
-        -2,
+        -3.0,
+        3.0,
         0
       ],
-      "yaw": 180,
-      "cutaway": false,
-      "role": "Architecture",
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Plinth",
       "existing": true
     },
     {
-      "label": "Inn_HorizontalBeam2m_083",
-      "module": "HorizontalBeam2m",
-      "position_m": [
-        4.14,
-        -2,
-        3
-      ],
-      "yaw": 180,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_WindowDouble_084",
-      "module": "WindowDouble",
-      "position_m": [
-        4,
-        -3,
-        1
-      ],
-      "yaw": 180,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_WallSolid2m_085",
-      "module": "WallSolid2m",
-      "position_m": [
-        4,
-        -4,
-        0
-      ],
-      "yaw": 90,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_HorizontalBeam2m_086",
-      "module": "HorizontalBeam2m",
-      "position_m": [
-        4.14,
-        -4,
-        3
-      ],
-      "yaw": 90,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_WallWindowArch2m_087",
+      "label": "Inn_WallWindowArch2m_081",
       "module": "WallWindowArch2m",
       "position_m": [
-        2,
-        -4,
+        3,
+        -2,
         0
       ],
-      "yaw": 90,
+      "yaw": 180,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "MainRearWall",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_082",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        3.14,
+        -2.0,
+        3
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_083",
+      "module": "VerticalPost3m",
+      "position_m": [
+        3.14,
+        -2.0,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowArch_084",
+      "module": "WindowArch",
+      "position_m": [
+        3.0,
+        -3.0,
+        1
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Window",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_085",
+      "module": "StonePlinth1m",
+      "position_m": [
+        3.0,
+        -2.0,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_086",
+      "module": "StonePlinth1m",
+      "position_m": [
+        3.0,
+        -3.0,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowDouble2m_087",
+      "module": "WallWindowDouble2m",
+      "position_m": [
+        5,
+        0,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "WingRearWall",
       "existing": true
     },
     {
       "label": "Inn_HorizontalBeam2m_088",
       "module": "HorizontalBeam2m",
       "position_m": [
+        5.14,
+        -1.7145055188062947e-17,
+        3
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_089",
+      "module": "VerticalPost3m",
+      "position_m": [
+        5.14,
+        -1.7145055188062947e-17,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowDouble_090",
+      "module": "WindowDouble",
+      "position_m": [
+        5.0,
+        -1.0,
+        1
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Window",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_091",
+      "module": "StonePlinth1m",
+      "position_m": [
+        5.0,
+        0.0,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_092",
+      "module": "StonePlinth1m",
+      "position_m": [
+        5.0,
+        -1.0,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallSolid2m_093",
+      "module": "WallSolid2m",
+      "position_m": [
+        5,
         2,
-        -4.14,
-        3
-      ],
-      "yaw": 90,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_WindowArch_089",
-      "module": "WindowArch",
-      "position_m": [
-        1,
-        -4,
-        1
-      ],
-      "yaw": 90,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_WallSolid2m_090",
-      "module": "WallSolid2m",
-      "position_m": [
-        0,
-        -4,
         0
       ],
-      "yaw": 90,
+      "yaw": 180,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingRearWall",
       "existing": true
     },
     {
-      "label": "Inn_HorizontalBeam2m_091",
+      "label": "Inn_HorizontalBeam2m_094",
       "module": "HorizontalBeam2m",
       "position_m": [
-        0,
-        -4.14,
+        5.14,
+        2.0,
         3
       ],
-      "yaw": 90,
+      "yaw": 180,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "FacadeTimber",
       "existing": true
     },
     {
-      "label": "Inn_WallWindowArch2m_092",
+      "label": "Inn_VerticalPost3m_095",
+      "module": "VerticalPost3m",
+      "position_m": [
+        5.14,
+        2.0,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_096",
+      "module": "StonePlinth1m",
+      "position_m": [
+        5.0,
+        2.0,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_097",
+      "module": "StonePlinth1m",
+      "position_m": [
+        5.0,
+        1.0,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowArch2m_098",
       "module": "WallWindowArch2m",
       "position_m": [
-        -2,
-        -4,
+        5,
+        4,
         0
       ],
-      "yaw": 90,
+      "yaw": 180,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingRearWall",
       "existing": true
     },
     {
-      "label": "Inn_HorizontalBeam2m_093",
+      "label": "Inn_HorizontalBeam2m_099",
       "module": "HorizontalBeam2m",
       "position_m": [
-        -2,
-        -4.14,
+        5.14,
+        4.0,
         3
       ],
-      "yaw": 90,
+      "yaw": 180,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "FacadeTimber",
       "existing": true
     },
     {
-      "label": "Inn_WindowArch_094",
+      "label": "Inn_VerticalPost3m_100",
+      "module": "VerticalPost3m",
+      "position_m": [
+        5.14,
+        4.0,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowArch_101",
       "module": "WindowArch",
       "position_m": [
-        -3,
-        -4,
+        5.0,
+        3.0,
         1
       ],
-      "yaw": 90,
+      "yaw": 180,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "Window",
       "existing": true
     },
     {
-      "label": "Inn_GableHalf4m_095",
-      "module": "GableHalf4m",
+      "label": "Inn_StonePlinth1m_102",
+      "module": "StonePlinth1m",
       "position_m": [
-        -4,
-        -4,
-        3
-      ],
-      "yaw": -90,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_GableTrimHalf4m_096",
-      "module": "GableTrimHalf4m",
-      "position_m": [
-        0,
-        -4.08,
-        5.666666666666666
-      ],
-      "yaw": 90,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_GableHalf4m_097",
-      "module": "GableHalf4m",
-      "position_m": [
-        4,
-        -4,
-        3
-      ],
-      "yaw": 90,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_GableTrimHalf4m_098",
-      "module": "GableTrimHalf4m",
-      "position_m": [
-        0,
-        -4.08,
-        5.666666666666666
-      ],
-      "yaw": -90,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_WallSolid2m_099",
-      "module": "WallSolid2m",
-      "position_m": [
-        -4,
-        4,
+        5.0,
+        4.0,
         0
       ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Plinth",
       "existing": true
     },
     {
-      "label": "Inn_HorizontalBeam2m_100",
-      "module": "HorizontalBeam2m",
+      "label": "Inn_StonePlinth1m_103",
+      "module": "StonePlinth1m",
       "position_m": [
-        -4.14,
-        4,
-        3
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_WallWindowArch2m_101",
-      "module": "WallWindowArch2m",
-      "position_m": [
-        -2,
-        4,
+        5.0,
+        3.0,
         0
       ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_HorizontalBeam2m_102",
-      "module": "HorizontalBeam2m",
-      "position_m": [
-        -2,
-        4.14,
-        3
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_WindowArch_103",
-      "module": "WindowArch",
-      "position_m": [
-        -1,
-        4,
-        1
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Plinth",
       "existing": true
     },
     {
       "label": "Inn_WallSolid2m_104",
       "module": "WallSolid2m",
       "position_m": [
-        0,
-        4,
+        -1,
+        -4,
         0
       ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": 90,
+      "cutaway": false,
+      "role": "LeftWall",
       "existing": true
     },
     {
       "label": "Inn_HorizontalBeam2m_105",
       "module": "HorizontalBeam2m",
       "position_m": [
-        0,
-        4.14,
+        -1.0,
+        -4.14,
         3
       ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": 90,
+      "cutaway": false,
+      "role": "FacadeTimber",
       "existing": true
     },
     {
-      "label": "Inn_WallWindowArch2m_106",
+      "label": "Inn_VerticalPost3m_106",
+      "module": "VerticalPost3m",
+      "position_m": [
+        -1.0,
+        -4.14,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_107",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -1.0,
+        -4.0,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_108",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -2.0,
+        -4.0,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowArch2m_109",
       "module": "WallWindowArch2m",
       "position_m": [
-        2,
-        4,
+        1,
+        -4,
         0
       ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": 90,
+      "cutaway": false,
+      "role": "LeftWall",
       "existing": true
     },
     {
-      "label": "Inn_HorizontalBeam2m_107",
+      "label": "Inn_HorizontalBeam2m_110",
       "module": "HorizontalBeam2m",
       "position_m": [
-        2,
-        4.14,
+        1.0,
+        -4.14,
         3
       ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": 90,
+      "cutaway": false,
+      "role": "FacadeTimber",
       "existing": true
     },
     {
-      "label": "Inn_WindowArch_108",
+      "label": "Inn_VerticalPost3m_111",
+      "module": "VerticalPost3m",
+      "position_m": [
+        1.0,
+        -4.14,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowArch_112",
       "module": "WindowArch",
       "position_m": [
-        3,
-        4,
+        0.0,
+        -4.0,
         1
       ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_GableHalf4m_109",
-      "module": "GableHalf4m",
-      "position_m": [
-        -4,
-        4,
-        3
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_GableTrimHalf4m_110",
-      "module": "GableTrimHalf4m",
-      "position_m": [
-        0,
-        4.08,
-        5.666666666666666
-      ],
       "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_GableHalf4m_111",
-      "module": "GableHalf4m",
-      "position_m": [
-        4,
-        4,
-        3
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_GableTrimHalf4m_112",
-      "module": "GableTrimHalf4m",
-      "position_m": [
-        0,
-        4.08,
-        5.666666666666666
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_CornerPost3m_113",
-      "module": "CornerPost3m",
-      "position_m": [
-        -4.06,
-        -4.06,
-        0
-      ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_CornerPost3m_114",
-      "module": "CornerPost3m",
-      "position_m": [
-        -4.06,
-        4.06,
-        0
-      ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_CornerPost3m_115",
-      "module": "CornerPost3m",
-      "position_m": [
-        4.06,
-        -4.06,
-        0
-      ],
-      "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "Window",
       "existing": true
     },
     {
-      "label": "Inn_CornerPost3m_116",
-      "module": "CornerPost3m",
+      "label": "Inn_StonePlinth1m_113",
+      "module": "StonePlinth1m",
       "position_m": [
-        4.06,
-        4.06,
+        1.0,
+        -4.0,
         0
       ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_114",
+      "module": "StonePlinth1m",
+      "position_m": [
+        0.0,
+        -4.0,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallSolid2m_115",
+      "module": "WallSolid2m",
+      "position_m": [
+        3,
+        -4,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "LeftWall",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_116",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        3.0,
+        -4.14,
+        3
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "FacadeTimber",
       "existing": true
     },
     {
       "label": "Inn_VerticalPost3m_117",
       "module": "VerticalPost3m",
       "position_m": [
+        3.0,
         -4.14,
-        -2,
         0
       ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_VerticalPost3m_118",
-      "module": "VerticalPost3m",
-      "position_m": [
-        -4.14,
-        0,
-        0
-      ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_VerticalPost3m_119",
-      "module": "VerticalPost3m",
-      "position_m": [
-        -4.14,
-        2,
-        0
-      ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_VerticalPost3m_120",
-      "module": "VerticalPost3m",
-      "position_m": [
-        4.14,
-        -2,
-        0
-      ],
-      "yaw": 0,
+      "yaw": 90,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "FacadeTimber",
       "existing": true
     },
     {
-      "label": "Inn_VerticalPost3m_121",
-      "module": "VerticalPost3m",
+      "label": "Inn_StonePlinth1m_118",
+      "module": "StonePlinth1m",
       "position_m": [
-        4.14,
-        0,
+        3.0,
+        -4.0,
         0
       ],
-      "yaw": 0,
+      "yaw": 90,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_119",
+      "module": "StonePlinth1m",
+      "position_m": [
+        2.0,
+        -4.0,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowDouble2m_120",
+      "module": "WallWindowDouble2m",
+      "position_m": [
+        -3,
+        4,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": false,
+      "role": "RightWall",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_121",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -3.0,
+        4.14,
+        3
+      ],
+      "yaw": -90,
+      "cutaway": false,
+      "role": "FacadeTimber",
       "existing": true
     },
     {
       "label": "Inn_VerticalPost3m_122",
       "module": "VerticalPost3m",
       "position_m": [
-        4.14,
-        2,
-        0
-      ],
-      "yaw": 0,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_VerticalPost3m_123",
-      "module": "VerticalPost3m",
-      "position_m": [
-        -2,
-        -4.14,
-        0
-      ],
-      "yaw": 0,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_VerticalPost3m_124",
-      "module": "VerticalPost3m",
-      "position_m": [
-        0,
-        -4.14,
-        0
-      ],
-      "yaw": 0,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_VerticalPost3m_125",
-      "module": "VerticalPost3m",
-      "position_m": [
-        2,
-        -4.14,
-        0
-      ],
-      "yaw": 0,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_VerticalPost3m_126",
-      "module": "VerticalPost3m",
-      "position_m": [
-        -2,
+        -3.0,
         4.14,
         0
       ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": -90,
+      "cutaway": false,
+      "role": "FacadeTimber",
       "existing": true
     },
     {
-      "label": "Inn_VerticalPost3m_127",
-      "module": "VerticalPost3m",
+      "label": "Inn_WindowDouble_123",
+      "module": "WindowDouble",
       "position_m": [
-        0,
-        4.14,
+        -2.0,
+        4.0,
+        1
+      ],
+      "yaw": -90,
+      "cutaway": false,
+      "role": "Window",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_124",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -3.0,
+        4.0,
         0
       ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": -90,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_125",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -2.0,
+        4.0,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallSolid2m_126",
+      "module": "WallSolid2m",
+      "position_m": [
+        -1,
+        4,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": false,
+      "role": "RightWall",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_127",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -1.0,
+        4.14,
+        3
+      ],
+      "yaw": -90,
+      "cutaway": false,
+      "role": "FacadeTimber",
       "existing": true
     },
     {
       "label": "Inn_VerticalPost3m_128",
       "module": "VerticalPost3m",
       "position_m": [
-        2,
+        -1.0,
         4.14,
         0
       ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_DiagonalBrace1m_129",
-      "module": "DiagonalBrace1m",
-      "position_m": [
-        -3,
-        -4.14,
-        1.75
-      ],
-      "yaw": 90,
+      "yaw": -90,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "FacadeTimber",
       "existing": true
     },
     {
-      "label": "Inn_DiagonalBrace1m_130",
-      "module": "DiagonalBrace1m",
-      "position_m": [
-        1,
-        -4.14,
-        1.75
-      ],
-      "yaw": 90,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_DiagonalBrace1m_131",
-      "module": "DiagonalBrace1m",
-      "position_m": [
-        -3,
-        4.14,
-        1.75
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_DiagonalBrace1m_132",
-      "module": "DiagonalBrace1m",
-      "position_m": [
-        1,
-        4.14,
-        1.75
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_StonePlinth1m_133",
+      "label": "Inn_StonePlinth1m_129",
       "module": "StonePlinth1m",
       "position_m": [
+        -1.0,
+        4.0,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_130",
+      "module": "StonePlinth1m",
+      "position_m": [
+        0.0,
+        4.0,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": false,
+      "role": "Plinth",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowArch2m_131",
+      "module": "WallWindowArch2m",
+      "position_m": [
+        1,
         4,
-        -4,
         0
       ],
-      "yaw": 90,
+      "yaw": -90,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "RightWall",
       "existing": true
     },
     {
-      "label": "Inn_StonePlinth1m_134",
-      "module": "StonePlinth1m",
+      "label": "Inn_HorizontalBeam2m_132",
+      "module": "HorizontalBeam2m",
       "position_m": [
-        -4,
-        -4,
+        1.0,
+        4.14,
+        3
+      ],
+      "yaw": -90,
+      "cutaway": false,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_133",
+      "module": "VerticalPost3m",
+      "position_m": [
+        1.0,
+        4.14,
         0
       ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": -90,
+      "cutaway": false,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowArch_134",
+      "module": "WindowArch",
+      "position_m": [
+        2.0,
+        4.0,
+        1
+      ],
+      "yaw": -90,
+      "cutaway": false,
+      "role": "Window",
       "existing": true
     },
     {
       "label": "Inn_StonePlinth1m_135",
       "module": "StonePlinth1m",
       "position_m": [
-        3,
-        -4,
+        1.0,
+        4.0,
         0
       ],
-      "yaw": 90,
+      "yaw": -90,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "Plinth",
       "existing": true
     },
     {
       "label": "Inn_StonePlinth1m_136",
       "module": "StonePlinth1m",
       "position_m": [
-        -4,
-        -3,
+        2.0,
+        4.0,
         0
       ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": -90,
+      "cutaway": false,
+      "role": "Plinth",
       "existing": true
     },
     {
-      "label": "Inn_StonePlinth1m_137",
-      "module": "StonePlinth1m",
+      "label": "Inn_WallSolid2m_137",
+      "module": "WallSolid2m",
       "position_m": [
-        2,
-        -4,
+        3,
+        4,
         0
       ],
-      "yaw": 90,
+      "yaw": -90,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "RightWall",
       "existing": true
     },
     {
-      "label": "Inn_StonePlinth1m_138",
-      "module": "StonePlinth1m",
+      "label": "Inn_HorizontalBeam2m_138",
+      "module": "HorizontalBeam2m",
       "position_m": [
-        1,
-        -4,
-        0
+        3.0,
+        4.14,
+        3
       ],
-      "yaw": 90,
+      "yaw": -90,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "FacadeTimber",
       "existing": true
     },
     {
-      "label": "Inn_StonePlinth1m_139",
-      "module": "StonePlinth1m",
+      "label": "Inn_VerticalPost3m_139",
+      "module": "VerticalPost3m",
       "position_m": [
-        0,
-        -4,
+        3.0,
+        4.14,
         0
       ],
-      "yaw": 90,
+      "yaw": -90,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "FacadeTimber",
       "existing": true
     },
     {
       "label": "Inn_StonePlinth1m_140",
       "module": "StonePlinth1m",
       "position_m": [
-        -4,
-        0,
+        3.0,
+        4.0,
         0
       ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": -90,
+      "cutaway": false,
+      "role": "Plinth",
       "existing": true
     },
     {
       "label": "Inn_StonePlinth1m_141",
       "module": "StonePlinth1m",
       "position_m": [
-        -1,
-        -4,
+        4.0,
+        4.0,
         0
       ],
-      "yaw": 90,
+      "yaw": -90,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "Plinth",
       "existing": true
     },
     {
-      "label": "Inn_StonePlinth1m_142",
-      "module": "StonePlinth1m",
+      "label": "Inn_WallWindowArch2m_142",
+      "module": "WallWindowArch2m",
       "position_m": [
-        -4,
-        1,
-        0
-      ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_StonePlinth1m_143",
-      "module": "StonePlinth1m",
-      "position_m": [
+        5,
         -2,
-        -4,
         0
       ],
       "yaw": 90,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingNotchWall",
       "existing": true
     },
     {
-      "label": "Inn_StonePlinth1m_144",
-      "module": "StonePlinth1m",
+      "label": "Inn_HorizontalBeam2m_143",
+      "module": "HorizontalBeam2m",
       "position_m": [
-        -4,
-        2,
-        0
+        5.0,
+        -2.14,
+        3
       ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": 90,
+      "cutaway": false,
+      "role": "FacadeTimber",
       "existing": true
     },
     {
-      "label": "Inn_StonePlinth1m_145",
-      "module": "StonePlinth1m",
+      "label": "Inn_VerticalPost3m_144",
+      "module": "VerticalPost3m",
       "position_m": [
-        -3,
-        -4,
+        5.0,
+        -2.14,
         0
       ],
       "yaw": 90,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowArch_145",
+      "module": "WindowArch",
+      "position_m": [
+        4.0,
+        -2.0,
+        1
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Window",
       "existing": true
     },
     {
       "label": "Inn_StonePlinth1m_146",
       "module": "StonePlinth1m",
       "position_m": [
-        -4,
-        3,
+        5.0,
+        -2.0,
         0
       ],
-      "yaw": 0,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Plinth",
       "existing": true
     },
     {
       "label": "Inn_StonePlinth1m_147",
       "module": "StonePlinth1m",
       "position_m": [
-        -4,
-        4,
+        4.0,
+        -2.0,
         0
       ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_StonePlinth1m_148",
-      "module": "StonePlinth1m",
-      "position_m": [
-        4,
-        4,
-        0
-      ],
-      "yaw": 180,
+      "yaw": 90,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "Plinth",
       "existing": true
     },
     {
-      "label": "Inn_StonePlinth1m_149",
-      "module": "StonePlinth1m",
+      "label": "Inn_CornerPost3m_148",
+      "module": "CornerPost3m",
+      "position_m": [
+        -3,
+        -4,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Corner",
+      "existing": true
+    },
+    {
+      "label": "Inn_CornerPost3m_149",
+      "module": "CornerPost3m",
       "position_m": [
         -3,
         4,
         0
       ],
-      "yaw": -90,
+      "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "Corner",
       "existing": true
     },
     {
-      "label": "Inn_StonePlinth1m_150",
-      "module": "StonePlinth1m",
+      "label": "Inn_CornerPost3m_150",
+      "module": "CornerPost3m",
       "position_m": [
+        5,
         4,
-        3,
         0
       ],
-      "yaw": 180,
+      "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "Corner",
       "existing": true
     },
     {
-      "label": "Inn_StonePlinth1m_151",
-      "module": "StonePlinth1m",
+      "label": "Inn_CornerPost3m_151",
+      "module": "CornerPost3m",
       "position_m": [
-        -2,
-        4,
-        0
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_StonePlinth1m_152",
-      "module": "StonePlinth1m",
-      "position_m": [
-        4,
-        2,
-        0
-      ],
-      "yaw": 180,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_StonePlinth1m_153",
-      "module": "StonePlinth1m",
-      "position_m": [
-        -1,
-        4,
-        0
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_StonePlinth1m_154",
-      "module": "StonePlinth1m",
-      "position_m": [
-        4,
-        1,
-        0
-      ],
-      "yaw": 180,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_StonePlinth1m_155",
-      "module": "StonePlinth1m",
-      "position_m": [
-        0,
-        4,
-        0
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_StonePlinth1m_156",
-      "module": "StonePlinth1m",
-      "position_m": [
-        4,
-        0,
-        0
-      ],
-      "yaw": 180,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_StonePlinth1m_157",
-      "module": "StonePlinth1m",
-      "position_m": [
-        1,
-        4,
-        0
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_StonePlinth1m_158",
-      "module": "StonePlinth1m",
-      "position_m": [
-        4,
-        -1,
-        0
-      ],
-      "yaw": 180,
-      "cutaway": false,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_StonePlinth1m_159",
-      "module": "StonePlinth1m",
-      "position_m": [
-        2,
-        4,
-        0
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_StonePlinth1m_160",
-      "module": "StonePlinth1m",
-      "position_m": [
-        4,
+        5,
         -2,
         0
       ],
-      "yaw": 180,
+      "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "Corner",
       "existing": true
     },
     {
-      "label": "Inn_StonePlinth1m_161",
-      "module": "StonePlinth1m",
+      "label": "Inn_CornerPost3m_152",
+      "module": "CornerPost3m",
       "position_m": [
         3,
-        4,
+        -2,
         0
       ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Corner",
       "existing": true
     },
     {
-      "label": "Inn_StonePlinth1m_162",
-      "module": "StonePlinth1m",
+      "label": "Inn_CornerPost3m_153",
+      "module": "CornerPost3m",
+      "position_m": [
+        3,
+        -4,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Corner",
+      "existing": true
+    },
+    {
+      "label": "Inn_DiagonalBrace1m_154",
+      "module": "DiagonalBrace1m",
+      "position_m": [
+        -2,
+        4,
+        1.75
+      ],
+      "yaw": -90,
+      "cutaway": false,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_DiagonalBrace1m_155",
+      "module": "DiagonalBrace1m",
+      "position_m": [
+        0,
+        -4,
+        1.75
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_DiagonalBrace1m_156",
+      "module": "DiagonalBrace1m",
       "position_m": [
         4,
+        -2,
+        1.75
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "FacadeTimber",
+      "existing": true
+    },
+    {
+      "label": "Inn_GableHalf4m_157",
+      "module": "GableHalf4m",
+      "position_m": [
         -3,
-        0
+        -4,
+        3
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "FrontGable",
+      "existing": true
+    },
+    {
+      "label": "Inn_GableTrimHalf4m_158",
+      "module": "GableTrimHalf4m",
+      "position_m": [
+        -3.08,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 180,
+      "cutaway": true,
+      "role": "RoofTrim",
+      "existing": true
+    },
+    {
+      "label": "Inn_GableHalf4m_159",
+      "module": "GableHalf4m",
+      "position_m": [
+        -3,
+        4,
+        3
+      ],
+      "yaw": 180,
+      "cutaway": true,
+      "role": "FrontGable",
+      "existing": true
+    },
+    {
+      "label": "Inn_GableTrimHalf4m_160",
+      "module": "GableTrimHalf4m",
+      "position_m": [
+        -3.08,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "RoofTrim",
+      "existing": true
+    },
+    {
+      "label": "Inn_GableHalf4m_161",
+      "module": "GableHalf4m",
+      "position_m": [
+        3,
+        -4,
+        3
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "JunctionUpperGable",
+      "existing": true
+    },
+    {
+      "label": "Inn_GableTrimHalf4m_162",
+      "module": "GableTrimHalf4m",
+      "position_m": [
+        3.08,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 180,
+      "cutaway": true,
+      "role": "RoofTrim",
+      "existing": true
+    },
+    {
+      "label": "Inn_GableHalf4m_163",
+      "module": "GableHalf4m",
+      "position_m": [
+        3,
+        4,
+        3
+      ],
+      "yaw": 180,
+      "cutaway": true,
+      "role": "JunctionUpperGable",
+      "existing": true
+    },
+    {
+      "label": "Inn_GableTrimHalf4m_164",
+      "module": "GableTrimHalf4m",
+      "position_m": [
+        3.08,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "RoofTrim",
+      "existing": true
+    },
+    {
+      "label": "Inn_GableHalf3m_165",
+      "module": "GableHalf3m",
+      "position_m": [
+        5,
+        -2,
+        3
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "WingRearGable",
+      "existing": true
+    },
+    {
+      "label": "Inn_GableTrimHalf3m_166",
+      "module": "GableTrimHalf3m",
+      "position_m": [
+        5.08,
+        1,
+        5
+      ],
+      "yaw": 180,
+      "cutaway": true,
+      "role": "RoofTrim",
+      "existing": true
+    },
+    {
+      "label": "Inn_GableHalf3m_167",
+      "module": "GableHalf3m",
+      "position_m": [
+        5,
+        4,
+        3
       ],
       "yaw": 180,
       "cutaway": false,
-      "role": "Architecture",
+      "role": "WingRearGable",
       "existing": true
     },
     {
-      "label": "Inn_RoofPanel8mSpan1m_163",
-      "module": "RoofPanel8mSpan1m",
+      "label": "Inn_GableTrimHalf3m_168",
+      "module": "GableTrimHalf3m",
       "position_m": [
-        0,
-        -4,
-        5.666666666666666
+        5.08,
+        1,
+        5
       ],
-      "yaw": 90,
+      "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_EaveTrim1m_164",
-      "module": "EaveTrim1m",
-      "position_m": [
-        -4.3,
-        -4,
-        2.8
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_RoofPanel8mSpan1m_165",
-      "module": "RoofPanel8mSpan1m",
-      "position_m": [
-        0,
-        -3,
-        5.666666666666666
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_EaveTrim1m_166",
-      "module": "EaveTrim1m",
-      "position_m": [
-        -4.3,
-        -3,
-        2.8
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_RoofPanel8mSpan1m_167",
-      "module": "RoofPanel8mSpan1m",
-      "position_m": [
-        0,
-        -2,
-        5.666666666666666
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_EaveTrim1m_168",
-      "module": "EaveTrim1m",
-      "position_m": [
-        -4.3,
-        -2,
-        2.8
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
+      "role": "RoofTrim",
       "existing": true
     },
     {
       "label": "Inn_RoofPanel8mSpan1m_169",
       "module": "RoofPanel8mSpan1m",
       "position_m": [
+        -2,
         0,
-        -1,
         5.666666666666666
       ],
-      "yaw": 90,
+      "yaw": 180,
       "cutaway": true,
-      "role": "Architecture",
-      "existing": false
+      "role": "MainRoof",
+      "existing": true
     },
     {
       "label": "Inn_EaveTrim1m_170",
       "module": "EaveTrim1m",
       "position_m": [
+        -3,
         -4.3,
-        -1,
         2.8
       ],
-      "yaw": 90,
+      "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "RoofTrim",
       "existing": true
     },
     {
       "label": "Inn_RoofPanel8mSpan1m_171",
       "module": "RoofPanel8mSpan1m",
       "position_m": [
-        0,
+        -1,
         0,
         5.666666666666666
       ],
-      "yaw": 90,
+      "yaw": 180,
       "cutaway": true,
-      "role": "Architecture",
-      "existing": false
+      "role": "MainRoof",
+      "existing": true
     },
     {
       "label": "Inn_EaveTrim1m_172",
       "module": "EaveTrim1m",
       "position_m": [
+        -2,
         -4.3,
-        0,
         2.8
       ],
-      "yaw": 90,
+      "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "RoofTrim",
       "existing": true
     },
     {
@@ -2276,579 +2287,618 @@
       "module": "RoofPanel8mSpan1m",
       "position_m": [
         0,
-        1,
+        0,
         5.666666666666666
       ],
-      "yaw": 90,
+      "yaw": 180,
       "cutaway": true,
-      "role": "Architecture",
-      "existing": false
+      "role": "MainRoof",
+      "existing": true
     },
     {
       "label": "Inn_EaveTrim1m_174",
       "module": "EaveTrim1m",
       "position_m": [
+        -1,
         -4.3,
-        1,
         2.8
       ],
-      "yaw": 90,
+      "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "RoofTrim",
       "existing": true
     },
     {
       "label": "Inn_RoofPanel8mSpan1m_175",
       "module": "RoofPanel8mSpan1m",
       "position_m": [
+        1,
         0,
-        2,
         5.666666666666666
       ],
-      "yaw": 90,
+      "yaw": 180,
       "cutaway": true,
-      "role": "Architecture",
-      "existing": false
+      "role": "MainRoof",
+      "existing": true
     },
     {
       "label": "Inn_EaveTrim1m_176",
       "module": "EaveTrim1m",
       "position_m": [
+        0,
         -4.3,
-        2,
         2.8
       ],
-      "yaw": 90,
+      "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "RoofTrim",
       "existing": true
     },
     {
       "label": "Inn_RoofPanel8mSpan1m_177",
       "module": "RoofPanel8mSpan1m",
       "position_m": [
+        2,
         0,
-        3,
         5.666666666666666
       ],
-      "yaw": 90,
+      "yaw": 180,
       "cutaway": true,
-      "role": "Architecture",
-      "existing": false
+      "role": "MainRoof",
+      "existing": true
     },
     {
       "label": "Inn_EaveTrim1m_178",
       "module": "EaveTrim1m",
       "position_m": [
+        1,
         -4.3,
-        3,
         2.8
       ],
-      "yaw": 90,
+      "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "RoofTrim",
       "existing": true
     },
     {
-      "label": "Inn_RoofPanel8mSpanEnd30cm_179",
-      "module": "RoofPanel8mSpanEnd30cm",
-      "position_m": [
-        0,
-        -4.3,
-        5.666666666666666
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_RoofPanel8mSpanEnd30cm_180",
-      "module": "RoofPanel8mSpanEnd30cm",
-      "position_m": [
-        0,
-        4,
-        5.666666666666666
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_RoofPanel8mSpan1m_181",
+      "label": "Inn_RoofPanel8mSpan1m_179",
       "module": "RoofPanel8mSpan1m",
       "position_m": [
+        3,
         0,
-        4,
         5.666666666666666
       ],
-      "yaw": -90,
+      "yaw": 180,
       "cutaway": true,
-      "role": "Architecture",
-      "existing": false
+      "role": "MainRoof",
+      "existing": true
     },
     {
-      "label": "Inn_EaveTrim1m_182",
+      "label": "Inn_EaveTrim1m_180",
       "module": "EaveTrim1m",
       "position_m": [
-        4.3,
-        -4,
-        2.8
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_RoofPanel8mSpan1m_183",
-      "module": "RoofPanel8mSpan1m",
-      "position_m": [
-        0,
-        3,
-        5.666666666666666
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_EaveTrim1m_184",
-      "module": "EaveTrim1m",
-      "position_m": [
-        4.3,
-        -3,
-        2.8
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_RoofPanel8mSpan1m_185",
-      "module": "RoofPanel8mSpan1m",
-      "position_m": [
-        0,
         2,
+        -4.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "RoofTrim",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpanEnd30cm_181",
+      "module": "RoofPanel8mSpanEnd30cm",
+      "position_m": [
+        -3.0,
+        0,
         5.666666666666666
       ],
-      "yaw": -90,
+      "yaw": 180,
       "cutaway": true,
-      "role": "Architecture",
-      "existing": false
+      "role": "MainRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpanEnd30cm_182",
+      "module": "RoofPanel8mSpanEnd30cm",
+      "position_m": [
+        3.3,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 180,
+      "cutaway": true,
+      "role": "MainRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel1m_183",
+      "module": "RoofPanel1m",
+      "position_m": [
+        4,
+        1,
+        5
+      ],
+      "yaw": 180,
+      "cutaway": true,
+      "role": "WingRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel1m_184",
+      "module": "RoofPanel1m",
+      "position_m": [
+        5,
+        1,
+        5
+      ],
+      "yaw": 180,
+      "cutaway": true,
+      "role": "WingRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanelEnd30cm_185",
+      "module": "RoofPanelEnd30cm",
+      "position_m": [
+        5.3,
+        1,
+        5
+      ],
+      "yaw": 180,
+      "cutaway": true,
+      "role": "WingRoof",
+      "existing": true
     },
     {
       "label": "Inn_EaveTrim1m_186",
       "module": "EaveTrim1m",
       "position_m": [
-        4.3,
-        -2,
-        2.8
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_RoofPanel8mSpan1m_187",
-      "module": "RoofPanel8mSpan1m",
-      "position_m": [
-        0,
-        1,
-        5.666666666666666
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_EaveTrim1m_188",
-      "module": "EaveTrim1m",
-      "position_m": [
-        4.3,
-        -1,
-        2.8
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_RoofPanel8mSpan1m_189",
-      "module": "RoofPanel8mSpan1m",
-      "position_m": [
-        0,
-        0,
-        5.666666666666666
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_EaveTrim1m_190",
-      "module": "EaveTrim1m",
-      "position_m": [
-        4.3,
-        0,
-        2.8
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_RoofPanel8mSpan1m_191",
-      "module": "RoofPanel8mSpan1m",
-      "position_m": [
-        0,
-        -1,
-        5.666666666666666
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_EaveTrim1m_192",
-      "module": "EaveTrim1m",
-      "position_m": [
-        4.3,
-        1,
-        2.8
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_RoofPanel8mSpan1m_193",
-      "module": "RoofPanel8mSpan1m",
-      "position_m": [
-        0,
-        -2,
-        5.666666666666666
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_EaveTrim1m_194",
-      "module": "EaveTrim1m",
-      "position_m": [
-        4.3,
-        2,
-        2.8
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_RoofPanel8mSpan1m_195",
-      "module": "RoofPanel8mSpan1m",
-      "position_m": [
-        0,
-        -3,
-        5.666666666666666
-      ],
-      "yaw": -90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_EaveTrim1m_196",
-      "module": "EaveTrim1m",
-      "position_m": [
-        4.3,
         3,
+        -2.3,
         2.8
       ],
-      "yaw": 90,
+      "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "RoofTrim",
       "existing": true
     },
     {
-      "label": "Inn_RoofPanel8mSpanEnd30cm_197",
-      "module": "RoofPanel8mSpanEnd30cm",
+      "label": "Inn_EaveTrim1m_187",
+      "module": "EaveTrim1m",
+      "position_m": [
+        4,
+        -2.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "RoofTrim",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_188",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        -3,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "MainRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_EaveTrim1m_189",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -3,
+        4.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "RoofTrim",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_190",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        -2,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "MainRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_EaveTrim1m_191",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -2,
+        4.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "RoofTrim",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_192",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        -1,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "MainRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_EaveTrim1m_193",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -1,
+        4.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "RoofTrim",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_194",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "MainRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_EaveTrim1m_195",
+      "module": "EaveTrim1m",
       "position_m": [
         0,
         4.3,
-        5.666666666666666
+        2.8
       ],
-      "yaw": -90,
+      "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
-      "existing": false
+      "role": "RoofTrim",
+      "existing": true
     },
     {
-      "label": "Inn_RoofPanel8mSpanEnd30cm_198",
+      "label": "Inn_RoofPanel8mSpan1m_196",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        1,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "MainRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_EaveTrim1m_197",
+      "module": "EaveTrim1m",
+      "position_m": [
+        1,
+        4.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "RoofTrim",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_198",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        2,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "MainRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_EaveTrim1m_199",
+      "module": "EaveTrim1m",
+      "position_m": [
+        2,
+        4.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "RoofTrim",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpanEnd30cm_200",
       "module": "RoofPanel8mSpanEnd30cm",
       "position_m": [
+        -3.3,
         0,
-        -4,
         5.666666666666666
       ],
-      "yaw": -90,
+      "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
-      "existing": false
-    },
-    {
-      "label": "Inn_RidgeCap1m_199",
-      "module": "RidgeCap1m",
-      "position_m": [
-        0,
-        -4,
-        5.666666666666666
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
+      "role": "MainRoof",
       "existing": true
     },
     {
-      "label": "Inn_RidgeCap1m_200",
-      "module": "RidgeCap1m",
+      "label": "Inn_RoofPanel1m_201",
+      "module": "RoofPanel1m",
       "position_m": [
-        0,
-        -3,
-        5.666666666666666
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_RidgeCap1m_201",
-      "module": "RidgeCap1m",
-      "position_m": [
-        0,
-        -2,
-        5.666666666666666
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_RidgeCap1m_202",
-      "module": "RidgeCap1m",
-      "position_m": [
-        0,
-        -1,
-        5.666666666666666
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_RidgeCap1m_203",
-      "module": "RidgeCap1m",
-      "position_m": [
-        0,
-        0,
-        5.666666666666666
-      ],
-      "yaw": 90,
-      "cutaway": true,
-      "role": "Architecture",
-      "existing": true
-    },
-    {
-      "label": "Inn_RidgeCap1m_204",
-      "module": "RidgeCap1m",
-      "position_m": [
-        0,
+        3,
         1,
-        5.666666666666666
+        5
       ],
-      "yaw": 90,
+      "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "WingRoof",
       "existing": true
     },
     {
-      "label": "Inn_RidgeCap1m_205",
-      "module": "RidgeCap1m",
+      "label": "Inn_RoofPanel1m_202",
+      "module": "RoofPanel1m",
       "position_m": [
-        0,
-        2,
-        5.666666666666666
+        4,
+        1,
+        5
       ],
-      "yaw": 90,
+      "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "WingRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanelEnd30cm_203",
+      "module": "RoofPanelEnd30cm",
+      "position_m": [
+        5,
+        1,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "WingRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_EaveTrim1m_204",
+      "module": "EaveTrim1m",
+      "position_m": [
+        3,
+        4.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "RoofTrim",
+      "existing": true
+    },
+    {
+      "label": "Inn_EaveTrim1m_205",
+      "module": "EaveTrim1m",
+      "position_m": [
+        4,
+        4.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "RoofTrim",
       "existing": true
     },
     {
       "label": "Inn_RidgeCap1m_206",
       "module": "RidgeCap1m",
       "position_m": [
+        -3,
         0,
-        3,
         5.666666666666666
       ],
-      "yaw": 90,
+      "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "MainRoof",
       "existing": true
     },
     {
-      "label": "Inn_DoorFrame160x215_207",
+      "label": "Inn_RidgeCap1m_207",
+      "module": "RidgeCap1m",
+      "position_m": [
+        -2,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "MainRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_RidgeCap1m_208",
+      "module": "RidgeCap1m",
+      "position_m": [
+        -1,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "MainRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_RidgeCap1m_209",
+      "module": "RidgeCap1m",
+      "position_m": [
+        0,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "MainRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_RidgeCap1m_210",
+      "module": "RidgeCap1m",
+      "position_m": [
+        1,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "MainRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_RidgeCap1m_211",
+      "module": "RidgeCap1m",
+      "position_m": [
+        2,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "MainRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_RidgeCap1m_212",
+      "module": "RidgeCap1m",
+      "position_m": [
+        3,
+        1,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "WingRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_RidgeCap1m_213",
+      "module": "RidgeCap1m",
+      "position_m": [
+        4,
+        1,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "WingRoof",
+      "existing": true
+    },
+    {
+      "label": "Inn_DoorFrame160x215_214",
       "module": "DoorFrame160x215",
       "position_m": [
-        -4,
+        -3,
         -1,
         0
       ],
       "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
-      "existing": false
+      "role": "Entrance",
+      "existing": true
     },
     {
-      "label": "Inn_DoorLeaf160x215_208",
+      "label": "Inn_DoorLeaf160x215_215",
       "module": "DoorLeaf160x215",
       "position_m": [
-        -4.22,
+        -3.22,
         -1.8,
         0
       ],
       "yaw": 90,
       "cutaway": true,
-      "role": "Architecture",
-      "existing": false
+      "role": "Entrance",
+      "existing": true
     },
     {
-      "label": "Inn_Threshold160cm_209",
+      "label": "Inn_Threshold160cm_216",
       "module": "Threshold160cm",
       "position_m": [
-        -4,
+        -3,
         -1,
         0
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "Architecture",
-      "existing": false
+      "role": "Entrance",
+      "existing": true
     },
     {
-      "label": "Inn_Porch160cm_210",
+      "label": "Inn_Porch160cm_217",
       "module": "Porch160cm",
       "position_m": [
-        -4,
+        -3,
         -1,
         0.3
       ],
       "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "Entrance",
       "existing": true
     },
     {
-      "label": "Inn_Chimney60cm_211",
+      "label": "Inn_Chimney60cm_218",
       "module": "Chimney60cm",
       "position_m": [
-        2,
-        2,
+        4,
+        1.4,
         4.3
       ],
       "yaw": 0,
       "cutaway": true,
-      "role": "Architecture",
+      "role": "Chimney",
       "existing": true
     },
     {
-      "label": "Inn_HorizontalBeam2m_212",
-      "module": "HorizontalBeam2m",
+      "label": "Inn_Floor1m_219",
+      "module": "Floor1m",
       "position_m": [
-        2.22,
-        -1,
-        0.88
-      ],
-      "yaw": 0,
-      "cutaway": false,
-      "role": "CounterReserve",
-      "existing": true
-    },
-    {
-      "label": "Inn_HorizontalBeam2m_213",
-      "module": "HorizontalBeam2m",
-      "position_m": [
-        2.22,
+        4,
         1,
-        0.88
+        0.004
       ],
       "yaw": 0,
       "cutaway": false,
-      "role": "CounterReserve",
+      "role": "HearthReserve",
       "existing": true
     },
     {
-      "label": "Inn_Floor1m_214",
+      "label": "Inn_Floor1m_220",
       "module": "Floor1m",
       "position_m": [
+        4,
         2,
-        -4,
-        0.004
-      ],
-      "yaw": 0,
-      "cutaway": false,
-      "role": "HearthReserve",
-      "existing": true
-    },
-    {
-      "label": "Inn_Floor1m_215",
-      "module": "Floor1m",
-      "position_m": [
-        2,
-        -3,
-        0.004
-      ],
-      "yaw": 0,
-      "cutaway": false,
-      "role": "HearthReserve",
-      "existing": true
-    },
-    {
-      "label": "Inn_Floor1m_216",
-      "module": "Floor1m",
-      "position_m": [
-        3,
-        -4,
-        0.004
-      ],
-      "yaw": 0,
-      "cutaway": false,
-      "role": "HearthReserve",
-      "existing": true
-    },
-    {
-      "label": "Inn_Floor1m_217",
-      "module": "Floor1m",
-      "position_m": [
-        3,
-        -3,
         0.004
       ],
       "yaw": 0,
@@ -2861,13 +2911,13 @@
     {
       "label": "Inn_CounterBase",
       "position_m": [
-        2.55,
-        1,
+        1.4,
+        -2.3,
         0.42
       ],
       "size_m": [
         0.65,
-        4,
+        2.6,
         0.84
       ],
       "material": "Wood",
@@ -2876,13 +2926,13 @@
     {
       "label": "Inn_CounterTop",
       "position_m": [
-        2.55,
-        1,
+        1.4,
+        -2.3,
         0.9
       ],
       "size_m": [
         0.86,
-        4.1,
+        2.7,
         0.12
       ],
       "material": "Wood",
@@ -2890,82 +2940,126 @@
     }
   ],
   "module_counts": {
+    "WallSolid1m": 0,
+    "WallSolid2m": 5,
+    "WallWindowArch2m": 6,
+    "WallWindowDouble2m": 4,
+    "WallDoor2m": 0,
+    "GableHalf3m": 2,
+    "CornerPost3m": 6,
+    "VerticalPost3m": 16,
+    "HorizontalBeam2m": 16,
+    "DiagonalBrace1m": 3,
+    "StonePlinth1m": 30,
+    "RoofPanel1m": 4,
+    "RoofPanelEnd30cm": 2,
+    "EaveTrim1m": 16,
+    "GableTrimHalf3m": 2,
+    "RidgeCap1m": 8,
+    "DoorFrame130x200": 0,
+    "DoorLeaf130x200": 0,
+    "WindowArch": 6,
+    "WindowDouble": 4,
+    "WindowRound": 0,
+    "Chimney60cm": 1,
+    "Porch160cm": 1,
+    "Floor1m": 62,
+    "Threshold130cm": 0,
     "WallDoor160x2152m": 1,
     "DoorFrame160x215": 1,
     "DoorLeaf160x215": 1,
     "Threshold160cm": 1,
     "GableHalf4m": 4,
-    "RoofPanel8mSpan1m": 16,
-    "RoofPanel8mSpanEnd30cm": 4,
-    "GableTrimHalf4m": 4,
-    "WallSolid1m": 0,
-    "WallSolid2m": 6,
-    "WallWindowArch2m": 5,
-    "WallWindowDouble2m": 4,
-    "WallDoor2m": 0,
-    "GableHalf3m": 0,
-    "CornerPost3m": 4,
-    "VerticalPost3m": 12,
-    "HorizontalBeam2m": 18,
-    "DiagonalBrace1m": 4,
-    "StonePlinth1m": 30,
-    "RoofPanel1m": 0,
-    "RoofPanelEnd30cm": 0,
-    "EaveTrim1m": 16,
-    "GableTrimHalf3m": 0,
-    "RidgeCap1m": 8,
-    "DoorFrame130x200": 0,
-    "DoorLeaf130x200": 0,
-    "WindowArch": 5,
-    "WindowDouble": 4,
-    "WindowRound": 0,
-    "Chimney60cm": 1,
-    "Porch160cm": 1,
-    "Floor1m": 68,
-    "Threshold130cm": 0
+    "RoofPanel8mSpan1m": 12,
+    "RoofPanel8mSpanEnd30cm": 3,
+    "GableTrimHalf4m": 4
   },
-  "new_modules": [
-    "WallDoor160x2152m",
-    "DoorFrame160x215",
-    "DoorLeaf160x215",
-    "Threshold160cm",
-    "GableHalf4m",
-    "RoofPanel8mSpan1m",
-    "RoofPanel8mSpanEnd30cm",
-    "GableTrimHalf4m"
-  ],
+  "new_modules": [],
   "unique_building_only_meshes": [],
   "interior_clear_m": [
-    7.8,
+    5.8,
     7.8
   ],
+  "interior_camera": {
+    "distance_cm": 2200,
+    "pitch": -50,
+    "yaw_offset": 0,
+    "focus_local_m": [
+      1,
+      0,
+      0.8
+    ]
+  },
+  "interior_regions_cm": [
+    {
+      "center": [
+        -100,
+        0,
+        0
+      ],
+      "extent": [
+        310,
+        410,
+        200
+      ]
+    },
+    {
+      "center": [
+        300,
+        100,
+        0
+      ],
+      "extent": [
+        110,
+        310,
+        200
+      ]
+    }
+  ],
   "intentional_asymmetry": [
+    "Rectangular hall plus offset lower rear wing",
     "Offset public entrance",
-    "Eave-facing front and rotated ridge versus cottage",
-    "Rear-right chimney",
-    "Back-right counter reserve and back-left hearth reserve"
+    "Parallel roofs of 8m and 6m span",
+    "Rear-wing chimney"
   ],
   "interior_zones": {
     "Entrance": [
-      -4,
+      -3,
       -1
     ],
     "MainHall": [
-      -1,
+      0,
       0
     ],
     "CounterReserve": [
-      2.4,
-      2
+      1.4,
+      -2.3
     ],
     "FutureSeating": [
       0,
-      1
+      1.5
     ],
     "HearthReserve": [
-      3,
-      -3
+      4,
+      2
+    ],
+    "RearWing": [
+      4,
+      0
     ]
   },
-  "opening_exception": "Public door 1.6m per user brief; .56m capsule leaves .52m each side."
+  "opening_exception": "Public 1.60 x 2.15 m per user brief; 56cm capsule leaves 52cm clearance per side.",
+  "future_sign_reserve": {
+    "center_local_m": [
+      -3.22,
+      -1,
+      2.6
+    ],
+    "size_m": [
+      1.0,
+      0.1,
+      0.45
+    ],
+    "note": "Free lintel area above the public entrance; no sign/decor added."
+  }
 }
