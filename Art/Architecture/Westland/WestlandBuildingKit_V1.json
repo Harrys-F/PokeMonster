@@ -1,0 +1,740 @@
+{
+  "schema": "PokeMonster.WestlandKit.v1",
+  "units": "metres",
+  "blender_axis": "X inward, -Y bay direction, Z up",
+  "unreal_axis": "X inward, Y bay direction, Z up",
+  "grid_m": 1,
+  "wall_bay_m": 2,
+  "wall_height_m": 3,
+  "wall_thickness_m": 0.2,
+  "roof_pitch": "2:3",
+  "modules": [
+    {
+      "name": "WallSolid1m",
+      "mesh": "SM_WL_WallSolid1m",
+      "category": "Walls",
+      "min_m": [
+        -0.10000000149011612,
+        0.0,
+        0.0
+      ],
+      "max_m": [
+        0.10000000149011612,
+        1.0,
+        3.0
+      ],
+      "triangles": 12,
+      "materials": [
+        "WL_Plaster"
+      ],
+      "collision_boxes": [
+        {
+          "center_m": [
+            0,
+            0.5,
+            1.5
+          ],
+          "size_m": [
+            0.2,
+            1,
+            3
+          ]
+        }
+      ],
+      "notes": "Origin at lower bay start, width along +Y in Unreal."
+    },
+    {
+      "name": "WallSolid2m",
+      "mesh": "SM_WL_WallSolid2m",
+      "category": "Walls",
+      "min_m": [
+        -0.10000000149011612,
+        0.0,
+        0.0
+      ],
+      "max_m": [
+        0.10000000149011612,
+        2.0,
+        3.0
+      ],
+      "triangles": 12,
+      "materials": [
+        "WL_Plaster"
+      ],
+      "collision_boxes": [
+        {
+          "center_m": [
+            0,
+            1.0,
+            1.5
+          ],
+          "size_m": [
+            0.2,
+            2,
+            3
+          ]
+        }
+      ],
+      "notes": "Origin at lower bay start, width along +Y in Unreal."
+    },
+    {
+      "name": "WallWindowArch2m",
+      "mesh": "SM_WL_WallWindowArch2m",
+      "category": "Walls",
+      "min_m": [
+        -0.10000000149011612,
+        0.0,
+        0.0
+      ],
+      "max_m": [
+        0.10000000149011612,
+        2.0,
+        3.0
+      ],
+      "triangles": 92,
+      "materials": [
+        "WL_Plaster"
+      ],
+      "collision_boxes": [
+        {
+          "center_m": [
+            0,
+            1,
+            0.5
+          ],
+          "size_m": [
+            0.2,
+            2,
+            1
+          ]
+        },
+        {
+          "center_m": [
+            0,
+            1,
+            2.6
+          ],
+          "size_m": [
+            0.2,
+            2,
+            0.8
+          ]
+        },
+        {
+          "center_m": [
+            0,
+            0.2,
+            1.55
+          ],
+          "size_m": [
+            0.2,
+            0.4,
+            1.1
+          ]
+        },
+        {
+          "center_m": [
+            0,
+            1.8,
+            1.55
+          ],
+          "size_m": [
+            0.2,
+            0.4,
+            1.1
+          ]
+        }
+      ],
+      "notes": "Applied Exact Boolean, sill 1m; compatible window module centered Y=1m."
+    },
+    {
+      "name": "WallWindowDouble2m",
+      "mesh": "SM_WL_WallWindowDouble2m",
+      "category": "Walls",
+      "min_m": [
+        -0.10000000149011612,
+        0.0,
+        0.0
+      ],
+      "max_m": [
+        0.10000000149011612,
+        2.0,
+        3.0
+      ],
+      "triangles": 32,
+      "materials": [
+        "WL_Plaster"
+      ],
+      "collision_boxes": [
+        {
+          "center_m": [
+            0,
+            1,
+            0.5
+          ],
+          "size_m": [
+            0.2,
+            2,
+            1
+          ]
+        },
+        {
+          "center_m": [
+            0,
+            1,
+            2.6
+          ],
+          "size_m": [
+            0.2,
+            2,
+            0.8
+          ]
+        },
+        {
+          "center_m": [
+            0,
+            0.2,
+            1.55
+          ],
+          "size_m": [
+            0.2,
+            0.4,
+            1.1
+          ]
+        },
+        {
+          "center_m": [
+            0,
+            1.8,
+            1.55
+          ],
+          "size_m": [
+            0.2,
+            0.4,
+            1.1
+          ]
+        }
+      ],
+      "notes": "Applied Exact Boolean, sill 1m; compatible window module centered Y=1m."
+    },
+    {
+      "name": "WallDoor2m",
+      "mesh": "SM_WL_WallDoor2m",
+      "category": "Walls",
+      "min_m": [
+        -0.10000000149011612,
+        0.0,
+        0.0
+      ],
+      "max_m": [
+        0.10000000149011612,
+        2.0,
+        3.0
+      ],
+      "triangles": 28,
+      "materials": [
+        "WL_Plaster"
+      ],
+      "collision_boxes": [
+        {
+          "center_m": [
+            0,
+            0.175,
+            1.5
+          ],
+          "size_m": [
+            0.2,
+            0.35,
+            3
+          ]
+        },
+        {
+          "center_m": [
+            0,
+            1.825,
+            1.5
+          ],
+          "size_m": [
+            0.2,
+            0.35,
+            3
+          ]
+        },
+        {
+          "center_m": [
+            0,
+            1,
+            2.5
+          ],
+          "size_m": [
+            0.2,
+            1.3,
+            1
+          ]
+        }
+      ],
+      "notes": "Clear opening Y=.35..1.65, Z=0..2m; separate side/lintel collision."
+    },
+    {
+      "name": "GableHalf3m",
+      "mesh": "SM_WL_GableHalf3m",
+      "category": "Walls",
+      "min_m": [
+        -0.10000000149011612,
+        0.0,
+        0.0
+      ],
+      "max_m": [
+        0.10000000149011612,
+        3.0,
+        2.0
+      ],
+      "triangles": 8,
+      "materials": [
+        "WL_Plaster"
+      ],
+      "collision_boxes": [],
+      "notes": "One half of a 6m gable; repeat mirrored by 180-degree yaw, no scaling."
+    },
+    {
+      "name": "CornerPost3m",
+      "mesh": "SM_WL_CornerPost3m",
+      "category": "Timber",
+      "min_m": [
+        -0.09000000357627869,
+        -0.09000000357627869,
+        0.0
+      ],
+      "max_m": [
+        0.09000000357627869,
+        0.09000000357627869,
+        3.0
+      ],
+      "triangles": 44,
+      "materials": [
+        "WL_Timber"
+      ],
+      "collision_boxes": [],
+      "notes": ""
+    },
+    {
+      "name": "VerticalPost3m",
+      "mesh": "SM_WL_VerticalPost3m",
+      "category": "Timber",
+      "min_m": [
+        -0.05999999865889549,
+        -0.05999999865889549,
+        0.0
+      ],
+      "max_m": [
+        0.05999999865889549,
+        0.05999999865889549,
+        3.0
+      ],
+      "triangles": 44,
+      "materials": [
+        "WL_Timber"
+      ],
+      "collision_boxes": [],
+      "notes": ""
+    },
+    {
+      "name": "HorizontalBeam2m",
+      "mesh": "SM_WL_HorizontalBeam2m",
+      "category": "Timber",
+      "min_m": [
+        -0.07999999821186066,
+        0.0,
+        -0.07999999821186066
+      ],
+      "max_m": [
+        0.07999999821186066,
+        2.0,
+        0.07999999821186066
+      ],
+      "triangles": 44,
+      "materials": [
+        "WL_Timber"
+      ],
+      "collision_boxes": [],
+      "notes": ""
+    },
+    {
+      "name": "DiagonalBrace1m",
+      "mesh": "SM_WL_DiagonalBrace1m",
+      "category": "Timber",
+      "min_m": [
+        -0.06000003218650818,
+        -0.03747665882110596,
+        -0.03747659921646118
+      ],
+      "max_m": [
+        0.06000003218650818,
+        1.037476658821106,
+        1.0374765396118164
+      ],
+      "triangles": 44,
+      "materials": [
+        "WL_Timber"
+      ],
+      "collision_boxes": [],
+      "notes": ""
+    },
+    {
+      "name": "StonePlinth1m",
+      "mesh": "SM_WL_StonePlinth1m",
+      "category": "Structural",
+      "min_m": [
+        -0.125,
+        0.0,
+        0.0
+      ],
+      "max_m": [
+        0.125,
+        1.0,
+        0.36000001430511475
+      ],
+      "triangles": 44,
+      "materials": [
+        "WL_Stone"
+      ],
+      "collision_boxes": [],
+      "notes": ""
+    },
+    {
+      "name": "RoofPanel1m",
+      "mesh": "SM_WL_RoofPanel1m",
+      "category": "Roof",
+      "min_m": [
+        0.0,
+        -0.0318954735994339,
+        -2.2799999713897705
+      ],
+      "max_m": [
+        1.0,
+        3.299999952316284,
+        0.05818507820367813
+      ],
+      "triangles": 1068,
+      "materials": [
+        "WL_Roof"
+      ],
+      "collision_boxes": [],
+      "notes": "Ridge origin; local +Y descends 2:3, strip length along +X. Opposite slope uses yaw 180."
+    },
+    {
+      "name": "RoofPanelEnd30cm",
+      "mesh": "SM_WL_RoofPanelEnd30cm",
+      "category": "Roof",
+      "min_m": [
+        0.0,
+        -0.0318954735994339,
+        -2.2799999713897705
+      ],
+      "max_m": [
+        0.30000001192092896,
+        3.299999952316284,
+        0.05818507820367813
+      ],
+      "triangles": 364,
+      "materials": [
+        "WL_Roof"
+      ],
+      "collision_boxes": [],
+      "notes": "Ridge origin; local +Y descends 2:3, strip length along +X. Opposite slope uses yaw 180."
+    },
+    {
+      "name": "EaveTrim1m",
+      "mesh": "SM_WL_EaveTrim1m",
+      "category": "Roof",
+      "min_m": [
+        0.0,
+        -0.07000000029802322,
+        -0.07999999821186066
+      ],
+      "max_m": [
+        1.0,
+        0.07000000029802322,
+        0.07999999821186066
+      ],
+      "triangles": 44,
+      "materials": [
+        "WL_Timber"
+      ],
+      "collision_boxes": [],
+      "notes": ""
+    },
+    {
+      "name": "GableTrimHalf3m",
+      "mesh": "SM_WL_GableTrimHalf3m",
+      "category": "Roof",
+      "min_m": [
+        -0.07000003755092621,
+        -0.03494596481323242,
+        -2.254361152648926
+      ],
+      "max_m": [
+        0.07000003755092621,
+        3.3349459171295166,
+        0.05436098575592041
+      ],
+      "triangles": 44,
+      "materials": [
+        "WL_Timber"
+      ],
+      "collision_boxes": [],
+      "notes": ""
+    },
+    {
+      "name": "RidgeCap1m",
+      "mesh": "SM_WL_RidgeCap1m",
+      "category": "Roof",
+      "min_m": [
+        0.0,
+        -0.11999999731779099,
+        -0.044999998062849045
+      ],
+      "max_m": [
+        1.0,
+        0.11999999731779099,
+        0.08499999344348907
+      ],
+      "triangles": 44,
+      "materials": [
+        "WL_Timber"
+      ],
+      "collision_boxes": [],
+      "notes": ""
+    },
+    {
+      "name": "DoorFrame130x200",
+      "mesh": "SM_WL_DoorFrame130x200",
+      "category": "Doors",
+      "min_m": [
+        -0.2199999988079071,
+        -0.7799999713897705,
+        0.0
+      ],
+      "max_m": [
+        -0.06000000238418579,
+        0.7799999117851257,
+        2.130000114440918
+      ],
+      "triangles": 132,
+      "materials": [
+        "WL_Wood"
+      ],
+      "collision_boxes": [],
+      "notes": "Origin at opening center / floor. Free opening 130x200cm."
+    },
+    {
+      "name": "DoorLeaf130x200",
+      "mesh": "SM_WL_DoorLeaf130x200",
+      "category": "Doors",
+      "min_m": [
+        -0.08249999582767487,
+        0.00599999725818634,
+        0.0
+      ],
+      "max_m": [
+        0.027499999850988388,
+        1.2740000486373901,
+        1.9500000476837158
+      ],
+      "triangles": 440,
+      "materials": [
+        "WL_Wood",
+        "WL_Metal"
+      ],
+      "collision_boxes": [],
+      "notes": "Floor / hinge pivot, width along +Y; test placement opens outwards 90 degrees."
+    },
+    {
+      "name": "WindowArch",
+      "mesh": "SM_WL_WindowArch",
+      "category": "Windows",
+      "min_m": [
+        -0.23000000417232513,
+        -0.5825000405311584,
+        -0.042500000447034836
+      ],
+      "max_m": [
+        0.019999999552965164,
+        0.5825000405311584,
+        1.1416091918945312
+      ],
+      "triangles": 952,
+      "materials": [
+        "WL_Glass",
+        "WL_Wood"
+      ],
+      "collision_boxes": [],
+      "notes": "Floor-relative origin at lower sill / horizontal opening center; decorative module is NoCollision."
+    },
+    {
+      "name": "WindowDouble",
+      "mesh": "SM_WL_WindowDouble",
+      "category": "Windows",
+      "min_m": [
+        -0.23000000417232513,
+        -0.6350000500679016,
+        -0.07499998807907104
+      ],
+      "max_m": [
+        0.019999999552965164,
+        0.6350000500679016,
+        1.1749999523162842
+      ],
+      "triangles": 276,
+      "materials": [
+        "WL_Glass",
+        "WL_Wood"
+      ],
+      "collision_boxes": [],
+      "notes": "Floor-relative origin at lower sill / horizontal opening center; decorative module is NoCollision."
+    },
+    {
+      "name": "WindowRound",
+      "mesh": "SM_WL_WindowRound",
+      "category": "Windows",
+      "min_m": [
+        -0.1850000023841858,
+        -0.38626548647880554,
+        -0.03626551106572151
+      ],
+      "max_m": [
+        0.019999999552965164,
+        0.38626548647880554,
+        0.7362654805183411
+      ],
+      "triangles": 1236,
+      "materials": [
+        "WL_Glass",
+        "WL_Wood"
+      ],
+      "collision_boxes": [],
+      "notes": "Floor-relative origin at lower sill / horizontal opening center; decorative module is NoCollision."
+    },
+    {
+      "name": "Chimney60cm",
+      "mesh": "SM_WL_Chimney60cm",
+      "category": "Structural",
+      "min_m": [
+        -0.3799999952316284,
+        -0.3799999952316284,
+        0.0
+      ],
+      "max_m": [
+        0.3799999952316284,
+        0.3799999952316284,
+        1.7799999713897705
+      ],
+      "triangles": 264,
+      "materials": [
+        "WL_Stone"
+      ],
+      "collision_boxes": [],
+      "notes": ""
+    },
+    {
+      "name": "Porch160cm",
+      "mesh": "SM_WL_Porch160cm",
+      "category": "Structural",
+      "min_m": [
+        -1.040000081062317,
+        -0.9750000238418579,
+        1.6668387651443481
+      ],
+      "max_m": [
+        0.07000002264976501,
+        0.9750000238418579,
+        2.25
+      ],
+      "triangles": 176,
+      "materials": [
+        "WL_Timber",
+        "WL_Roof"
+      ],
+      "collision_boxes": [],
+      "notes": ""
+    },
+    {
+      "name": "Floor1m",
+      "mesh": "SM_WL_Floor1m",
+      "category": "Structural",
+      "min_m": [
+        0.0,
+        0.0,
+        -0.1599999964237213
+      ],
+      "max_m": [
+        1.0,
+        1.0,
+        0.0
+      ],
+      "triangles": 12,
+      "materials": [
+        "WL_Wood"
+      ],
+      "collision_boxes": [
+        {
+          "center_m": [
+            0.5,
+            0.5,
+            -0.08
+          ],
+          "size_m": [
+            1,
+            1,
+            0.16
+          ]
+        }
+      ],
+      "notes": "Origin at top corner; 1m XY tile, top exactly Z=0."
+    },
+    {
+      "name": "Threshold130cm",
+      "mesh": "SM_WL_Threshold130cm",
+      "category": "Structural",
+      "min_m": [
+        -0.30000001192092896,
+        -0.6499999761581421,
+        -0.07000000029802322
+      ],
+      "max_m": [
+        0.0,
+        0.6499999761581421,
+        0.0
+      ],
+      "triangles": 12,
+      "materials": [
+        "WL_Stone"
+      ],
+      "collision_boxes": [
+        {
+          "center_m": [
+            -0.15,
+            0,
+            -0.035
+          ],
+          "size_m": [
+            0.3,
+            1.3,
+            0.07
+          ]
+        }
+      ],
+      "notes": ""
+    }
+  ],
+  "materials": [
+    "Plaster",
+    "Wood",
+    "Timber",
+    "Stone",
+    "Roof",
+    "Metal",
+    "Glass"
+  ],
+  "no_external_links": true
+}

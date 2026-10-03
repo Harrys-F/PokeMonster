@@ -1,0 +1,1681 @@
+{
+  "schema": "PokeMonster.WestlandBuilding.v1",
+  "building": "WL_Cottage_V1",
+  "body_m": [
+    6,
+    6,
+    3
+  ],
+  "ridge_m": 5,
+  "door_m": [
+    1.3,
+    2
+  ],
+  "placements": [
+    {
+      "label": "Cottage_Floor1m_000",
+      "module": "Floor1m",
+      "position_m": [
+        -3,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_001",
+      "module": "Floor1m",
+      "position_m": [
+        -3,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_002",
+      "module": "Floor1m",
+      "position_m": [
+        -3,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_003",
+      "module": "Floor1m",
+      "position_m": [
+        -3,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_004",
+      "module": "Floor1m",
+      "position_m": [
+        -3,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_005",
+      "module": "Floor1m",
+      "position_m": [
+        -3,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_006",
+      "module": "Floor1m",
+      "position_m": [
+        -2,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_007",
+      "module": "Floor1m",
+      "position_m": [
+        -2,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_008",
+      "module": "Floor1m",
+      "position_m": [
+        -2,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_009",
+      "module": "Floor1m",
+      "position_m": [
+        -2,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_010",
+      "module": "Floor1m",
+      "position_m": [
+        -2,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_011",
+      "module": "Floor1m",
+      "position_m": [
+        -2,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_012",
+      "module": "Floor1m",
+      "position_m": [
+        -1,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_013",
+      "module": "Floor1m",
+      "position_m": [
+        -1,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_014",
+      "module": "Floor1m",
+      "position_m": [
+        -1,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_015",
+      "module": "Floor1m",
+      "position_m": [
+        -1,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_016",
+      "module": "Floor1m",
+      "position_m": [
+        -1,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_017",
+      "module": "Floor1m",
+      "position_m": [
+        -1,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_018",
+      "module": "Floor1m",
+      "position_m": [
+        0,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_019",
+      "module": "Floor1m",
+      "position_m": [
+        0,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_020",
+      "module": "Floor1m",
+      "position_m": [
+        0,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_021",
+      "module": "Floor1m",
+      "position_m": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_022",
+      "module": "Floor1m",
+      "position_m": [
+        0,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_023",
+      "module": "Floor1m",
+      "position_m": [
+        0,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_024",
+      "module": "Floor1m",
+      "position_m": [
+        1,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_025",
+      "module": "Floor1m",
+      "position_m": [
+        1,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_026",
+      "module": "Floor1m",
+      "position_m": [
+        1,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_027",
+      "module": "Floor1m",
+      "position_m": [
+        1,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_028",
+      "module": "Floor1m",
+      "position_m": [
+        1,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_029",
+      "module": "Floor1m",
+      "position_m": [
+        1,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_030",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_031",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_032",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_033",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_034",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Floor1m_035",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_WallWindowArch2m_036",
+      "module": "WallWindowArch2m",
+      "position_m": [
+        -3,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_HorizontalBeam2m_037",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -3.14,
+        -3,
+        3
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_WallDoor2m_038",
+      "module": "WallDoor2m",
+      "position_m": [
+        -3,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_HorizontalBeam2m_039",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -3.14,
+        -1,
+        3
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_WallWindowArch2m_040",
+      "module": "WallWindowArch2m",
+      "position_m": [
+        -3,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_HorizontalBeam2m_041",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -3.14,
+        1,
+        3
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_GableHalf3m_042",
+      "module": "GableHalf3m",
+      "position_m": [
+        -3,
+        -3,
+        3
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_GableTrimHalf3m_043",
+      "module": "GableTrimHalf3m",
+      "position_m": [
+        -3.08,
+        0,
+        5
+      ],
+      "yaw": 180,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_GableHalf3m_044",
+      "module": "GableHalf3m",
+      "position_m": [
+        -3,
+        3,
+        3
+      ],
+      "yaw": 180,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_GableTrimHalf3m_045",
+      "module": "GableTrimHalf3m",
+      "position_m": [
+        -3.08,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_WallSolid2m_046",
+      "module": "WallSolid2m",
+      "position_m": [
+        3,
+        3,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_HorizontalBeam2m_047",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        3.14,
+        3,
+        3
+      ],
+      "yaw": 180,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_WallSolid2m_048",
+      "module": "WallSolid2m",
+      "position_m": [
+        3,
+        1,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_HorizontalBeam2m_049",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        3.14,
+        1,
+        3
+      ],
+      "yaw": 180,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_WallSolid2m_050",
+      "module": "WallSolid2m",
+      "position_m": [
+        3,
+        -1,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_HorizontalBeam2m_051",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        3.14,
+        -1,
+        3
+      ],
+      "yaw": 180,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_GableHalf3m_052",
+      "module": "GableHalf3m",
+      "position_m": [
+        3,
+        -3,
+        3
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_GableTrimHalf3m_053",
+      "module": "GableTrimHalf3m",
+      "position_m": [
+        3.08,
+        0,
+        5
+      ],
+      "yaw": 180,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_GableHalf3m_054",
+      "module": "GableHalf3m",
+      "position_m": [
+        3,
+        3,
+        3
+      ],
+      "yaw": 180,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_GableTrimHalf3m_055",
+      "module": "GableTrimHalf3m",
+      "position_m": [
+        3.08,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_WallSolid2m_056",
+      "module": "WallSolid2m",
+      "position_m": [
+        3,
+        -3,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_HorizontalBeam2m_057",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        3.14,
+        -3,
+        3
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_WallWindowDouble2m_058",
+      "module": "WallWindowDouble2m",
+      "position_m": [
+        1,
+        -3,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_HorizontalBeam2m_059",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        1,
+        -3.14,
+        3
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_WallSolid2m_060",
+      "module": "WallSolid2m",
+      "position_m": [
+        -1,
+        -3,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_HorizontalBeam2m_061",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -1,
+        -3.14,
+        3
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_StonePlinth1m_062",
+      "module": "StonePlinth1m",
+      "position_m": [
+        3,
+        -3,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_StonePlinth1m_063",
+      "module": "StonePlinth1m",
+      "position_m": [
+        2,
+        -3,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_StonePlinth1m_064",
+      "module": "StonePlinth1m",
+      "position_m": [
+        1,
+        -3,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_StonePlinth1m_065",
+      "module": "StonePlinth1m",
+      "position_m": [
+        0,
+        -3,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_StonePlinth1m_066",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -1,
+        -3,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_StonePlinth1m_067",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -2,
+        -3,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_WallSolid2m_068",
+      "module": "WallSolid2m",
+      "position_m": [
+        -3,
+        3,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_HorizontalBeam2m_069",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -3.14,
+        3,
+        3
+      ],
+      "yaw": -90,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_WallSolid2m_070",
+      "module": "WallSolid2m",
+      "position_m": [
+        -1,
+        3,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_HorizontalBeam2m_071",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -1,
+        3.14,
+        3
+      ],
+      "yaw": -90,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_WallSolid2m_072",
+      "module": "WallSolid2m",
+      "position_m": [
+        1,
+        3,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_HorizontalBeam2m_073",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        1,
+        3.14,
+        3
+      ],
+      "yaw": -90,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_StonePlinth1m_074",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -3,
+        3,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_StonePlinth1m_075",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -2,
+        3,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_StonePlinth1m_076",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -1,
+        3,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_StonePlinth1m_077",
+      "module": "StonePlinth1m",
+      "position_m": [
+        0,
+        3,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_StonePlinth1m_078",
+      "module": "StonePlinth1m",
+      "position_m": [
+        1,
+        3,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_StonePlinth1m_079",
+      "module": "StonePlinth1m",
+      "position_m": [
+        2,
+        3,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_CornerPost3m_080",
+      "module": "CornerPost3m",
+      "position_m": [
+        -3.06,
+        -3.06,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_CornerPost3m_081",
+      "module": "CornerPost3m",
+      "position_m": [
+        -3.06,
+        3.06,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_CornerPost3m_082",
+      "module": "CornerPost3m",
+      "position_m": [
+        3.06,
+        -3.06,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_CornerPost3m_083",
+      "module": "CornerPost3m",
+      "position_m": [
+        3.06,
+        3.06,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_VerticalPost3m_084",
+      "module": "VerticalPost3m",
+      "position_m": [
+        -3.14,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_VerticalPost3m_085",
+      "module": "VerticalPost3m",
+      "position_m": [
+        -3.14,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_VerticalPost3m_086",
+      "module": "VerticalPost3m",
+      "position_m": [
+        3.14,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_VerticalPost3m_087",
+      "module": "VerticalPost3m",
+      "position_m": [
+        3.14,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_VerticalPost3m_088",
+      "module": "VerticalPost3m",
+      "position_m": [
+        -1,
+        -3.14,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_VerticalPost3m_089",
+      "module": "VerticalPost3m",
+      "position_m": [
+        1,
+        -3.14,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_VerticalPost3m_090",
+      "module": "VerticalPost3m",
+      "position_m": [
+        -1,
+        3.14,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_VerticalPost3m_091",
+      "module": "VerticalPost3m",
+      "position_m": [
+        1,
+        3.14,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_DiagonalBrace1m_092",
+      "module": "DiagonalBrace1m",
+      "position_m": [
+        -2,
+        -3.14,
+        1.75
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_DiagonalBrace1m_093",
+      "module": "DiagonalBrace1m",
+      "position_m": [
+        1,
+        -3.14,
+        1.75
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_DiagonalBrace1m_094",
+      "module": "DiagonalBrace1m",
+      "position_m": [
+        -2,
+        3.14,
+        1.75
+      ],
+      "yaw": 90,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_DiagonalBrace1m_095",
+      "module": "DiagonalBrace1m",
+      "position_m": [
+        1,
+        3.14,
+        1.75
+      ],
+      "yaw": 90,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_StonePlinth1m_096",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -3,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_StonePlinth1m_097",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -3,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_StonePlinth1m_098",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -3,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_StonePlinth1m_099",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -3,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_StonePlinth1m_100",
+      "module": "StonePlinth1m",
+      "position_m": [
+        3,
+        3,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_StonePlinth1m_101",
+      "module": "StonePlinth1m",
+      "position_m": [
+        3,
+        2,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_StonePlinth1m_102",
+      "module": "StonePlinth1m",
+      "position_m": [
+        3,
+        1,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_StonePlinth1m_103",
+      "module": "StonePlinth1m",
+      "position_m": [
+        3,
+        0,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_StonePlinth1m_104",
+      "module": "StonePlinth1m",
+      "position_m": [
+        3,
+        -1,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_StonePlinth1m_105",
+      "module": "StonePlinth1m",
+      "position_m": [
+        3,
+        -2,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_RoofPanel1m_106",
+      "module": "RoofPanel1m",
+      "position_m": [
+        3,
+        0,
+        5
+      ],
+      "yaw": 180,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_EaveTrim1m_107",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -3,
+        -3.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanel1m_108",
+      "module": "RoofPanel1m",
+      "position_m": [
+        2,
+        0,
+        5
+      ],
+      "yaw": 180,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_EaveTrim1m_109",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -2,
+        -3.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanel1m_110",
+      "module": "RoofPanel1m",
+      "position_m": [
+        1,
+        0,
+        5
+      ],
+      "yaw": 180,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_EaveTrim1m_111",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -1,
+        -3.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanel1m_112",
+      "module": "RoofPanel1m",
+      "position_m": [
+        0,
+        0,
+        5
+      ],
+      "yaw": 180,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_EaveTrim1m_113",
+      "module": "EaveTrim1m",
+      "position_m": [
+        0,
+        -3.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanel1m_114",
+      "module": "RoofPanel1m",
+      "position_m": [
+        -1,
+        0,
+        5
+      ],
+      "yaw": 180,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_EaveTrim1m_115",
+      "module": "EaveTrim1m",
+      "position_m": [
+        1,
+        -3.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanel1m_116",
+      "module": "RoofPanel1m",
+      "position_m": [
+        -2,
+        0,
+        5
+      ],
+      "yaw": 180,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_EaveTrim1m_117",
+      "module": "EaveTrim1m",
+      "position_m": [
+        2,
+        -3.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanelEnd30cm_118",
+      "module": "RoofPanelEnd30cm",
+      "position_m": [
+        3.3,
+        0,
+        5
+      ],
+      "yaw": 180,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanelEnd30cm_119",
+      "module": "RoofPanelEnd30cm",
+      "position_m": [
+        -3,
+        0,
+        5
+      ],
+      "yaw": 180,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanel1m_120",
+      "module": "RoofPanel1m",
+      "position_m": [
+        -3,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_EaveTrim1m_121",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -3,
+        3.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanel1m_122",
+      "module": "RoofPanel1m",
+      "position_m": [
+        -2,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_EaveTrim1m_123",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -2,
+        3.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanel1m_124",
+      "module": "RoofPanel1m",
+      "position_m": [
+        -1,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_EaveTrim1m_125",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -1,
+        3.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanel1m_126",
+      "module": "RoofPanel1m",
+      "position_m": [
+        0,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_EaveTrim1m_127",
+      "module": "EaveTrim1m",
+      "position_m": [
+        0,
+        3.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanel1m_128",
+      "module": "RoofPanel1m",
+      "position_m": [
+        1,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_EaveTrim1m_129",
+      "module": "EaveTrim1m",
+      "position_m": [
+        1,
+        3.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanel1m_130",
+      "module": "RoofPanel1m",
+      "position_m": [
+        2,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_EaveTrim1m_131",
+      "module": "EaveTrim1m",
+      "position_m": [
+        2,
+        3.3,
+        2.8
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanelEnd30cm_132",
+      "module": "RoofPanelEnd30cm",
+      "position_m": [
+        -3.3,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RoofPanelEnd30cm_133",
+      "module": "RoofPanelEnd30cm",
+      "position_m": [
+        3,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RidgeCap1m_134",
+      "module": "RidgeCap1m",
+      "position_m": [
+        -3,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RidgeCap1m_135",
+      "module": "RidgeCap1m",
+      "position_m": [
+        -2,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RidgeCap1m_136",
+      "module": "RidgeCap1m",
+      "position_m": [
+        -1,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RidgeCap1m_137",
+      "module": "RidgeCap1m",
+      "position_m": [
+        0,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RidgeCap1m_138",
+      "module": "RidgeCap1m",
+      "position_m": [
+        1,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_RidgeCap1m_139",
+      "module": "RidgeCap1m",
+      "position_m": [
+        2,
+        0,
+        5
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_DoorFrame130x200_140",
+      "module": "DoorFrame130x200",
+      "position_m": [
+        -3,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_DoorLeaf130x200_141",
+      "module": "DoorLeaf130x200",
+      "position_m": [
+        -3.22,
+        -0.65,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_WindowArch_142",
+      "module": "WindowArch",
+      "position_m": [
+        -3,
+        -2,
+        1
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_WindowArch_143",
+      "module": "WindowArch",
+      "position_m": [
+        -3,
+        2,
+        1
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_WindowDouble_144",
+      "module": "WindowDouble",
+      "position_m": [
+        0,
+        -3,
+        1
+      ],
+      "yaw": 90,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_Porch160cm_145",
+      "module": "Porch160cm",
+      "position_m": [
+        -3,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true
+    },
+    {
+      "label": "Cottage_Threshold130cm_146",
+      "module": "Threshold130cm",
+      "position_m": [
+        -3,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false
+    },
+    {
+      "label": "Cottage_Chimney60cm_147",
+      "module": "Chimney60cm",
+      "position_m": [
+        1.7,
+        1.65,
+        3.9
+      ],
+      "yaw": 0,
+      "cutaway": true
+    }
+  ],
+  "module_counts": {
+    "WallSolid1m": 0,
+    "WallSolid2m": 8,
+    "WallWindowArch2m": 2,
+    "WallWindowDouble2m": 1,
+    "WallDoor2m": 1,
+    "GableHalf3m": 4,
+    "CornerPost3m": 4,
+    "VerticalPost3m": 8,
+    "HorizontalBeam2m": 12,
+    "DiagonalBrace1m": 4,
+    "StonePlinth1m": 22,
+    "RoofPanel1m": 12,
+    "RoofPanelEnd30cm": 4,
+    "EaveTrim1m": 12,
+    "GableTrimHalf3m": 4,
+    "RidgeCap1m": 6,
+    "DoorFrame130x200": 1,
+    "DoorLeaf130x200": 1,
+    "WindowArch": 2,
+    "WindowDouble": 1,
+    "WindowRound": 0,
+    "Chimney60cm": 1,
+    "Porch160cm": 1,
+    "Floor1m": 36,
+    "Threshold130cm": 1
+  },
+  "unique_building_only_meshes": [],
+  "interior_clear_m": [
+    5.8,
+    5.8
+  ],
+  "intentional_asymmetry": [
+    "One side window",
+    "Small chimney offset to the rear"
+  ],
+  "opening_exception": "Private home door 1.3m is deliberately smaller than public V3 door 1.5m; capsule width .56m."
+}
