@@ -490,3 +490,12 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Die bestehende allgemeine Cutaway-Klasse ist ausreichend konfigurierbar; kein C++-Umbau und kein zweites Cutaway-System. Für das Wohnhaus gelten Schwellenzentrum (-300,0,100) cm, Box 40×130×200 cm, 4-cm-Hysterese und 0,4-s-Fade.
 - Explizite UCX-Körper bestimmen die Collision und halten die Tür frei. Kleine Architekturdekoration bleibt NoCollision. Legacy-FBX wird im vollständigen Editor importiert, da sein Commandlet-Pfad Slate voraussetzt. Neue Map: Dev_BuildingKitTestMap; Dev_TestMap, Heilhaus, Player, Kamera und bestehende Gameplay-Systeme bleiben erhalten.
 - Prüf-/Screenshot-/Log-Ergebnisse werden unter dem bereits ignorierten `Saved/WestlandKitV1` gesammelt. Nur tatsächliche Quelle, Modul-/Gebäudedefinitionen, FBX-Reimport-Dateien, neue Content-Assets, Autorenwerkzeuge und dauerhafte Dokumentation sollen versioniert werden.
+
+## 2026-10-03 – Westland Inn V1 als zweiter modularer Proof
+
+- Kit V1, Wohnhaus und Healing House V3 bleiben als bestehende Quellen/Assets erhalten. Der Inn-Proof erhält eine eigene ausdrücklich gespeicherte und wieder geöffnete Blenderquelle; keine Überschreibung oder Reimport vorhandener Kitmeshes.
+- Der öffentliche Eingang benötigt eine echte 160×215-cm-Passage. Die 130×200-cm-Privattür lässt sich durch Wiederholung nicht erweitern; vier generische Größenvarianten ersetzen ausschließlich die Instanzen am neuen Gasthaus.
+- Das 8-m-Raster benötigt eine neue 8-m-Dach-/Giebelspannweite. Die bisherigen 6-m-Varianten werden nicht gestreckt; vier additive Varianten behalten 2:3-Neigung, Standardlängen und Montagekonventionen. Unterschiedliche Dachlängen bleiben durch Wiederholung möglich.
+- Traufseitige Front, versetzter Eingang, neun Fenster, rückwärtiger Kamin und Theken-/Kaminreserven unterscheiden das Gasthaus vom frontgiebeligen Wohnhaus. Zwei Engine-Cubes bleiben einfache Thekenblockouts. Es entstehen weder Gebäude-Einmal-Wände noch umfangreiche Innenausstattung.
+- 186 von 218 Modulinstanzen verwenden unveränderte vorhandene Assets. Materialien bleiben vollständig gemeinsam und unverändert. Die vorhandene Kit-Testmap wird additiv ergänzt, Dev_TestMap und Gameplaydateien bleiben unverändert.
+- Das vorhandene generische Cutaway genügt auch für das Gasthaus. Getrennte Schwellen- und Occluder-Konfigurationen statt einer neuen Implementierung; Fade 0,4 s und Spielparameter bleiben unverändert. Prüfbericht: `Docs/WESTLAND_INN_V1_PRUEFBERICHT.md`.

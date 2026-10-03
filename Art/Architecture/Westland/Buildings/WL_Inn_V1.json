@@ -1,0 +1,2971 @@
+{
+  "schema": "PokeMonster.WestlandBuilding.v1",
+  "building": "WL_Inn_V1",
+  "body_m": [
+    8,
+    8,
+    3
+  ],
+  "ridge_m": 5.666666666666666,
+  "door_m": [
+    1.6,
+    2.15
+  ],
+  "map_origin_cm": [
+    0,
+    -1500,
+    0
+  ],
+  "door_center_local_m": [
+    -4,
+    -1,
+    1.075
+  ],
+  "placements": [
+    {
+      "label": "Inn_Floor1m_000",
+      "module": "Floor1m",
+      "position_m": [
+        -4,
+        -4,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_001",
+      "module": "Floor1m",
+      "position_m": [
+        -4,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_002",
+      "module": "Floor1m",
+      "position_m": [
+        -4,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_003",
+      "module": "Floor1m",
+      "position_m": [
+        -4,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_004",
+      "module": "Floor1m",
+      "position_m": [
+        -4,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_005",
+      "module": "Floor1m",
+      "position_m": [
+        -4,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_006",
+      "module": "Floor1m",
+      "position_m": [
+        -4,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_007",
+      "module": "Floor1m",
+      "position_m": [
+        -4,
+        3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_008",
+      "module": "Floor1m",
+      "position_m": [
+        -3,
+        -4,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_009",
+      "module": "Floor1m",
+      "position_m": [
+        -3,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_010",
+      "module": "Floor1m",
+      "position_m": [
+        -3,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_011",
+      "module": "Floor1m",
+      "position_m": [
+        -3,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_012",
+      "module": "Floor1m",
+      "position_m": [
+        -3,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_013",
+      "module": "Floor1m",
+      "position_m": [
+        -3,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_014",
+      "module": "Floor1m",
+      "position_m": [
+        -3,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_015",
+      "module": "Floor1m",
+      "position_m": [
+        -3,
+        3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_016",
+      "module": "Floor1m",
+      "position_m": [
+        -2,
+        -4,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_017",
+      "module": "Floor1m",
+      "position_m": [
+        -2,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_018",
+      "module": "Floor1m",
+      "position_m": [
+        -2,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_019",
+      "module": "Floor1m",
+      "position_m": [
+        -2,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_020",
+      "module": "Floor1m",
+      "position_m": [
+        -2,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_021",
+      "module": "Floor1m",
+      "position_m": [
+        -2,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_022",
+      "module": "Floor1m",
+      "position_m": [
+        -2,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_023",
+      "module": "Floor1m",
+      "position_m": [
+        -2,
+        3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_024",
+      "module": "Floor1m",
+      "position_m": [
+        -1,
+        -4,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_025",
+      "module": "Floor1m",
+      "position_m": [
+        -1,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_026",
+      "module": "Floor1m",
+      "position_m": [
+        -1,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_027",
+      "module": "Floor1m",
+      "position_m": [
+        -1,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_028",
+      "module": "Floor1m",
+      "position_m": [
+        -1,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_029",
+      "module": "Floor1m",
+      "position_m": [
+        -1,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_030",
+      "module": "Floor1m",
+      "position_m": [
+        -1,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_031",
+      "module": "Floor1m",
+      "position_m": [
+        -1,
+        3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_032",
+      "module": "Floor1m",
+      "position_m": [
+        0,
+        -4,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_033",
+      "module": "Floor1m",
+      "position_m": [
+        0,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_034",
+      "module": "Floor1m",
+      "position_m": [
+        0,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_035",
+      "module": "Floor1m",
+      "position_m": [
+        0,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_036",
+      "module": "Floor1m",
+      "position_m": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_037",
+      "module": "Floor1m",
+      "position_m": [
+        0,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_038",
+      "module": "Floor1m",
+      "position_m": [
+        0,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_039",
+      "module": "Floor1m",
+      "position_m": [
+        0,
+        3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_040",
+      "module": "Floor1m",
+      "position_m": [
+        1,
+        -4,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_041",
+      "module": "Floor1m",
+      "position_m": [
+        1,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_042",
+      "module": "Floor1m",
+      "position_m": [
+        1,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_043",
+      "module": "Floor1m",
+      "position_m": [
+        1,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_044",
+      "module": "Floor1m",
+      "position_m": [
+        1,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_045",
+      "module": "Floor1m",
+      "position_m": [
+        1,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_046",
+      "module": "Floor1m",
+      "position_m": [
+        1,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_047",
+      "module": "Floor1m",
+      "position_m": [
+        1,
+        3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_048",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        -4,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_049",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_050",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_051",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_052",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_053",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_054",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_055",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_056",
+      "module": "Floor1m",
+      "position_m": [
+        3,
+        -4,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_057",
+      "module": "Floor1m",
+      "position_m": [
+        3,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_058",
+      "module": "Floor1m",
+      "position_m": [
+        3,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_059",
+      "module": "Floor1m",
+      "position_m": [
+        3,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_060",
+      "module": "Floor1m",
+      "position_m": [
+        3,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_061",
+      "module": "Floor1m",
+      "position_m": [
+        3,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_062",
+      "module": "Floor1m",
+      "position_m": [
+        3,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_063",
+      "module": "Floor1m",
+      "position_m": [
+        3,
+        3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowArch2m_064",
+      "module": "WallWindowArch2m",
+      "position_m": [
+        -4,
+        -4,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_065",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -4.14,
+        -4,
+        3
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowArch_066",
+      "module": "WindowArch",
+      "position_m": [
+        -4,
+        -3,
+        1
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallDoor160x2152m_067",
+      "module": "WallDoor160x2152m",
+      "position_m": [
+        -4,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_068",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -4.14,
+        -2,
+        3
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowDouble2m_069",
+      "module": "WallWindowDouble2m",
+      "position_m": [
+        -4,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_070",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -4.14,
+        0,
+        3
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowDouble_071",
+      "module": "WindowDouble",
+      "position_m": [
+        -4,
+        1,
+        1
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowDouble2m_072",
+      "module": "WallWindowDouble2m",
+      "position_m": [
+        -4,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_073",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -4.14,
+        2,
+        3
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowDouble_074",
+      "module": "WindowDouble",
+      "position_m": [
+        -4,
+        3,
+        1
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallSolid2m_075",
+      "module": "WallSolid2m",
+      "position_m": [
+        4,
+        4,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_076",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        4.14,
+        4,
+        3
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowDouble2m_077",
+      "module": "WallWindowDouble2m",
+      "position_m": [
+        4,
+        2,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_078",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        4.14,
+        2,
+        3
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowDouble_079",
+      "module": "WindowDouble",
+      "position_m": [
+        4,
+        1,
+        1
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallSolid2m_080",
+      "module": "WallSolid2m",
+      "position_m": [
+        4,
+        0,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_081",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        4.14,
+        0,
+        3
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowDouble2m_082",
+      "module": "WallWindowDouble2m",
+      "position_m": [
+        4,
+        -2,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_083",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        4.14,
+        -2,
+        3
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowDouble_084",
+      "module": "WindowDouble",
+      "position_m": [
+        4,
+        -3,
+        1
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallSolid2m_085",
+      "module": "WallSolid2m",
+      "position_m": [
+        4,
+        -4,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_086",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        4.14,
+        -4,
+        3
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowArch2m_087",
+      "module": "WallWindowArch2m",
+      "position_m": [
+        2,
+        -4,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_088",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        2,
+        -4.14,
+        3
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowArch_089",
+      "module": "WindowArch",
+      "position_m": [
+        1,
+        -4,
+        1
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallSolid2m_090",
+      "module": "WallSolid2m",
+      "position_m": [
+        0,
+        -4,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_091",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        0,
+        -4.14,
+        3
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowArch2m_092",
+      "module": "WallWindowArch2m",
+      "position_m": [
+        -2,
+        -4,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_093",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -2,
+        -4.14,
+        3
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowArch_094",
+      "module": "WindowArch",
+      "position_m": [
+        -3,
+        -4,
+        1
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_GableHalf4m_095",
+      "module": "GableHalf4m",
+      "position_m": [
+        -4,
+        -4,
+        3
+      ],
+      "yaw": -90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_GableTrimHalf4m_096",
+      "module": "GableTrimHalf4m",
+      "position_m": [
+        0,
+        -4.08,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_GableHalf4m_097",
+      "module": "GableHalf4m",
+      "position_m": [
+        4,
+        -4,
+        3
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_GableTrimHalf4m_098",
+      "module": "GableTrimHalf4m",
+      "position_m": [
+        0,
+        -4.08,
+        5.666666666666666
+      ],
+      "yaw": -90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_WallSolid2m_099",
+      "module": "WallSolid2m",
+      "position_m": [
+        -4,
+        4,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_100",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -4.14,
+        4,
+        3
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowArch2m_101",
+      "module": "WallWindowArch2m",
+      "position_m": [
+        -2,
+        4,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_102",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        -2,
+        4.14,
+        3
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowArch_103",
+      "module": "WindowArch",
+      "position_m": [
+        -1,
+        4,
+        1
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallSolid2m_104",
+      "module": "WallSolid2m",
+      "position_m": [
+        0,
+        4,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_105",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        0,
+        4.14,
+        3
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WallWindowArch2m_106",
+      "module": "WallWindowArch2m",
+      "position_m": [
+        2,
+        4,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_107",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        2,
+        4.14,
+        3
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_WindowArch_108",
+      "module": "WindowArch",
+      "position_m": [
+        3,
+        4,
+        1
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_GableHalf4m_109",
+      "module": "GableHalf4m",
+      "position_m": [
+        -4,
+        4,
+        3
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_GableTrimHalf4m_110",
+      "module": "GableTrimHalf4m",
+      "position_m": [
+        0,
+        4.08,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_GableHalf4m_111",
+      "module": "GableHalf4m",
+      "position_m": [
+        4,
+        4,
+        3
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_GableTrimHalf4m_112",
+      "module": "GableTrimHalf4m",
+      "position_m": [
+        0,
+        4.08,
+        5.666666666666666
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_CornerPost3m_113",
+      "module": "CornerPost3m",
+      "position_m": [
+        -4.06,
+        -4.06,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_CornerPost3m_114",
+      "module": "CornerPost3m",
+      "position_m": [
+        -4.06,
+        4.06,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_CornerPost3m_115",
+      "module": "CornerPost3m",
+      "position_m": [
+        4.06,
+        -4.06,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_CornerPost3m_116",
+      "module": "CornerPost3m",
+      "position_m": [
+        4.06,
+        4.06,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_117",
+      "module": "VerticalPost3m",
+      "position_m": [
+        -4.14,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_118",
+      "module": "VerticalPost3m",
+      "position_m": [
+        -4.14,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_119",
+      "module": "VerticalPost3m",
+      "position_m": [
+        -4.14,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_120",
+      "module": "VerticalPost3m",
+      "position_m": [
+        4.14,
+        -2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_121",
+      "module": "VerticalPost3m",
+      "position_m": [
+        4.14,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_122",
+      "module": "VerticalPost3m",
+      "position_m": [
+        4.14,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_123",
+      "module": "VerticalPost3m",
+      "position_m": [
+        -2,
+        -4.14,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_124",
+      "module": "VerticalPost3m",
+      "position_m": [
+        0,
+        -4.14,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_125",
+      "module": "VerticalPost3m",
+      "position_m": [
+        2,
+        -4.14,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_126",
+      "module": "VerticalPost3m",
+      "position_m": [
+        -2,
+        4.14,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_127",
+      "module": "VerticalPost3m",
+      "position_m": [
+        0,
+        4.14,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_VerticalPost3m_128",
+      "module": "VerticalPost3m",
+      "position_m": [
+        2,
+        4.14,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_DiagonalBrace1m_129",
+      "module": "DiagonalBrace1m",
+      "position_m": [
+        -3,
+        -4.14,
+        1.75
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_DiagonalBrace1m_130",
+      "module": "DiagonalBrace1m",
+      "position_m": [
+        1,
+        -4.14,
+        1.75
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_DiagonalBrace1m_131",
+      "module": "DiagonalBrace1m",
+      "position_m": [
+        -3,
+        4.14,
+        1.75
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_DiagonalBrace1m_132",
+      "module": "DiagonalBrace1m",
+      "position_m": [
+        1,
+        4.14,
+        1.75
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_133",
+      "module": "StonePlinth1m",
+      "position_m": [
+        4,
+        -4,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_134",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -4,
+        -4,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_135",
+      "module": "StonePlinth1m",
+      "position_m": [
+        3,
+        -4,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_136",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -4,
+        -3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_137",
+      "module": "StonePlinth1m",
+      "position_m": [
+        2,
+        -4,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_138",
+      "module": "StonePlinth1m",
+      "position_m": [
+        1,
+        -4,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_139",
+      "module": "StonePlinth1m",
+      "position_m": [
+        0,
+        -4,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_140",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -4,
+        0,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_141",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -1,
+        -4,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_142",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -4,
+        1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_143",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -2,
+        -4,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_144",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -4,
+        2,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_145",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -3,
+        -4,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_146",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -4,
+        3,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_147",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -4,
+        4,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_148",
+      "module": "StonePlinth1m",
+      "position_m": [
+        4,
+        4,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_149",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -3,
+        4,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_150",
+      "module": "StonePlinth1m",
+      "position_m": [
+        4,
+        3,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_151",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -2,
+        4,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_152",
+      "module": "StonePlinth1m",
+      "position_m": [
+        4,
+        2,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_153",
+      "module": "StonePlinth1m",
+      "position_m": [
+        -1,
+        4,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_154",
+      "module": "StonePlinth1m",
+      "position_m": [
+        4,
+        1,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_155",
+      "module": "StonePlinth1m",
+      "position_m": [
+        0,
+        4,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_156",
+      "module": "StonePlinth1m",
+      "position_m": [
+        4,
+        0,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_157",
+      "module": "StonePlinth1m",
+      "position_m": [
+        1,
+        4,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_158",
+      "module": "StonePlinth1m",
+      "position_m": [
+        4,
+        -1,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_159",
+      "module": "StonePlinth1m",
+      "position_m": [
+        2,
+        4,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_160",
+      "module": "StonePlinth1m",
+      "position_m": [
+        4,
+        -2,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_161",
+      "module": "StonePlinth1m",
+      "position_m": [
+        3,
+        4,
+        0
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_StonePlinth1m_162",
+      "module": "StonePlinth1m",
+      "position_m": [
+        4,
+        -3,
+        0
+      ],
+      "yaw": 180,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_163",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        -4,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_164",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -4.3,
+        -4,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_165",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        -3,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_166",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -4.3,
+        -3,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_167",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        -2,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_168",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -4.3,
+        -2,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_169",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        -1,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_170",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -4.3,
+        -1,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_171",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_172",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -4.3,
+        0,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_173",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        1,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_174",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -4.3,
+        1,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_175",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        2,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_176",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -4.3,
+        2,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_177",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        3,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_178",
+      "module": "EaveTrim1m",
+      "position_m": [
+        -4.3,
+        3,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpanEnd30cm_179",
+      "module": "RoofPanel8mSpanEnd30cm",
+      "position_m": [
+        0,
+        -4.3,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_RoofPanel8mSpanEnd30cm_180",
+      "module": "RoofPanel8mSpanEnd30cm",
+      "position_m": [
+        0,
+        4,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_181",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        4,
+        5.666666666666666
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_182",
+      "module": "EaveTrim1m",
+      "position_m": [
+        4.3,
+        -4,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_183",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        3,
+        5.666666666666666
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_184",
+      "module": "EaveTrim1m",
+      "position_m": [
+        4.3,
+        -3,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_185",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        2,
+        5.666666666666666
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_186",
+      "module": "EaveTrim1m",
+      "position_m": [
+        4.3,
+        -2,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_187",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        1,
+        5.666666666666666
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_188",
+      "module": "EaveTrim1m",
+      "position_m": [
+        4.3,
+        -1,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_189",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        0,
+        5.666666666666666
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_190",
+      "module": "EaveTrim1m",
+      "position_m": [
+        4.3,
+        0,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_191",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        -1,
+        5.666666666666666
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_192",
+      "module": "EaveTrim1m",
+      "position_m": [
+        4.3,
+        1,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_193",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        -2,
+        5.666666666666666
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_194",
+      "module": "EaveTrim1m",
+      "position_m": [
+        4.3,
+        2,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpan1m_195",
+      "module": "RoofPanel8mSpan1m",
+      "position_m": [
+        0,
+        -3,
+        5.666666666666666
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_EaveTrim1m_196",
+      "module": "EaveTrim1m",
+      "position_m": [
+        4.3,
+        3,
+        2.8
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RoofPanel8mSpanEnd30cm_197",
+      "module": "RoofPanel8mSpanEnd30cm",
+      "position_m": [
+        0,
+        4.3,
+        5.666666666666666
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_RoofPanel8mSpanEnd30cm_198",
+      "module": "RoofPanel8mSpanEnd30cm",
+      "position_m": [
+        0,
+        -4,
+        5.666666666666666
+      ],
+      "yaw": -90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_RidgeCap1m_199",
+      "module": "RidgeCap1m",
+      "position_m": [
+        0,
+        -4,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RidgeCap1m_200",
+      "module": "RidgeCap1m",
+      "position_m": [
+        0,
+        -3,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RidgeCap1m_201",
+      "module": "RidgeCap1m",
+      "position_m": [
+        0,
+        -2,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RidgeCap1m_202",
+      "module": "RidgeCap1m",
+      "position_m": [
+        0,
+        -1,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RidgeCap1m_203",
+      "module": "RidgeCap1m",
+      "position_m": [
+        0,
+        0,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RidgeCap1m_204",
+      "module": "RidgeCap1m",
+      "position_m": [
+        0,
+        1,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RidgeCap1m_205",
+      "module": "RidgeCap1m",
+      "position_m": [
+        0,
+        2,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_RidgeCap1m_206",
+      "module": "RidgeCap1m",
+      "position_m": [
+        0,
+        3,
+        5.666666666666666
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_DoorFrame160x215_207",
+      "module": "DoorFrame160x215",
+      "position_m": [
+        -4,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_DoorLeaf160x215_208",
+      "module": "DoorLeaf160x215",
+      "position_m": [
+        -4.22,
+        -1.8,
+        0
+      ],
+      "yaw": 90,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_Threshold160cm_209",
+      "module": "Threshold160cm",
+      "position_m": [
+        -4,
+        -1,
+        0
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "Architecture",
+      "existing": false
+    },
+    {
+      "label": "Inn_Porch160cm_210",
+      "module": "Porch160cm",
+      "position_m": [
+        -4,
+        -1,
+        0.3
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_Chimney60cm_211",
+      "module": "Chimney60cm",
+      "position_m": [
+        2,
+        2,
+        4.3
+      ],
+      "yaw": 0,
+      "cutaway": true,
+      "role": "Architecture",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_212",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        2.22,
+        -1,
+        0.88
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "CounterReserve",
+      "existing": true
+    },
+    {
+      "label": "Inn_HorizontalBeam2m_213",
+      "module": "HorizontalBeam2m",
+      "position_m": [
+        2.22,
+        1,
+        0.88
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "CounterReserve",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_214",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        -4,
+        0.004
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "HearthReserve",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_215",
+      "module": "Floor1m",
+      "position_m": [
+        2,
+        -3,
+        0.004
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "HearthReserve",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_216",
+      "module": "Floor1m",
+      "position_m": [
+        3,
+        -4,
+        0.004
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "HearthReserve",
+      "existing": true
+    },
+    {
+      "label": "Inn_Floor1m_217",
+      "module": "Floor1m",
+      "position_m": [
+        3,
+        -3,
+        0.004
+      ],
+      "yaw": 0,
+      "cutaway": false,
+      "role": "HearthReserve",
+      "existing": true
+    }
+  ],
+  "primitive_proxies": [
+    {
+      "label": "Inn_CounterBase",
+      "position_m": [
+        2.55,
+        1,
+        0.42
+      ],
+      "size_m": [
+        0.65,
+        4,
+        0.84
+      ],
+      "material": "Wood",
+      "collision": true
+    },
+    {
+      "label": "Inn_CounterTop",
+      "position_m": [
+        2.55,
+        1,
+        0.9
+      ],
+      "size_m": [
+        0.86,
+        4.1,
+        0.12
+      ],
+      "material": "Wood",
+      "collision": true
+    }
+  ],
+  "module_counts": {
+    "WallDoor160x2152m": 1,
+    "DoorFrame160x215": 1,
+    "DoorLeaf160x215": 1,
+    "Threshold160cm": 1,
+    "GableHalf4m": 4,
+    "RoofPanel8mSpan1m": 16,
+    "RoofPanel8mSpanEnd30cm": 4,
+    "GableTrimHalf4m": 4,
+    "WallSolid1m": 0,
+    "WallSolid2m": 6,
+    "WallWindowArch2m": 5,
+    "WallWindowDouble2m": 4,
+    "WallDoor2m": 0,
+    "GableHalf3m": 0,
+    "CornerPost3m": 4,
+    "VerticalPost3m": 12,
+    "HorizontalBeam2m": 18,
+    "DiagonalBrace1m": 4,
+    "StonePlinth1m": 30,
+    "RoofPanel1m": 0,
+    "RoofPanelEnd30cm": 0,
+    "EaveTrim1m": 16,
+    "GableTrimHalf3m": 0,
+    "RidgeCap1m": 8,
+    "DoorFrame130x200": 0,
+    "DoorLeaf130x200": 0,
+    "WindowArch": 5,
+    "WindowDouble": 4,
+    "WindowRound": 0,
+    "Chimney60cm": 1,
+    "Porch160cm": 1,
+    "Floor1m": 68,
+    "Threshold130cm": 0
+  },
+  "new_modules": [
+    "WallDoor160x2152m",
+    "DoorFrame160x215",
+    "DoorLeaf160x215",
+    "Threshold160cm",
+    "GableHalf4m",
+    "RoofPanel8mSpan1m",
+    "RoofPanel8mSpanEnd30cm",
+    "GableTrimHalf4m"
+  ],
+  "unique_building_only_meshes": [],
+  "interior_clear_m": [
+    7.8,
+    7.8
+  ],
+  "intentional_asymmetry": [
+    "Offset public entrance",
+    "Eave-facing front and rotated ridge versus cottage",
+    "Rear-right chimney",
+    "Back-right counter reserve and back-left hearth reserve"
+  ],
+  "interior_zones": {
+    "Entrance": [
+      -4,
+      -1
+    ],
+    "MainHall": [
+      -1,
+      0
+    ],
+    "CounterReserve": [
+      2.4,
+      2
+    ],
+    "FutureSeating": [
+      0,
+      1
+    ],
+    "HearthReserve": [
+      3,
+      -3
+    ]
+  },
+  "opening_exception": "Public door 1.6m per user brief; .56m capsule leaves .52m each side."
+}

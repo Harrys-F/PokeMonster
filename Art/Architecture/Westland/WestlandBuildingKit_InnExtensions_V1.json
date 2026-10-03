@@ -1,0 +1,236 @@
+{
+  "schema": "PokeMonster.WestlandKitExtension.v1",
+  "base": "WestlandBuildingKit_V1.json",
+  "units": "metres",
+  "materials": [
+    "Plaster",
+    "Wood",
+    "Timber",
+    "Stone",
+    "Roof",
+    "Metal",
+    "Glass"
+  ],
+  "modules": [
+    {
+      "name": "WallDoor160x2152m",
+      "mesh": "SM_WL_WallDoor160x2152m",
+      "category": "Walls",
+      "min_m": [
+        -0.10000000149011612,
+        0.0,
+        0.0
+      ],
+      "max_m": [
+        0.10000000149011612,
+        2.0,
+        3.0
+      ],
+      "triangles": 28,
+      "materials": [
+        "WL_Plaster"
+      ],
+      "collision_boxes": [
+        {
+          "center_m": [
+            0,
+            0.1,
+            1.5
+          ],
+          "size_m": [
+            0.2,
+            0.2,
+            3
+          ]
+        },
+        {
+          "center_m": [
+            0,
+            1.9,
+            1.5
+          ],
+          "size_m": [
+            0.2,
+            0.2,
+            3
+          ]
+        },
+        {
+          "center_m": [
+            0,
+            1,
+            2.575
+          ],
+          "size_m": [
+            0.2,
+            1.6,
+            0.85
+          ]
+        }
+      ],
+      "notes": "Public clear passage 160x215cm, compatible 2m bay. Separate jamb/lintel collision."
+    },
+    {
+      "name": "DoorFrame160x215",
+      "mesh": "SM_WL_DoorFrame160x215",
+      "category": "Doors",
+      "min_m": [
+        -0.2199999988079071,
+        -0.9300000071525574,
+        0.0
+      ],
+      "max_m": [
+        -0.06000000238418579,
+        0.9300000667572021,
+        2.2799997329711914
+      ],
+      "triangles": 132,
+      "materials": [
+        "WL_Wood"
+      ],
+      "collision_boxes": [],
+      "notes": "Foot / aperture-center origin; free width 1.60m, height 2.15m."
+    },
+    {
+      "name": "DoorLeaf160x215",
+      "mesh": "SM_WL_DoorLeaf160x215",
+      "category": "Doors",
+      "min_m": [
+        -0.08249999582767487,
+        0.00599999725818634,
+        0.0
+      ],
+      "max_m": [
+        0.027499999850988388,
+        1.5740000009536743,
+        2.0999999046325684
+      ],
+      "triangles": 528,
+      "materials": [
+        "WL_Wood",
+        "WL_Metal"
+      ],
+      "collision_boxes": [],
+      "notes": "Foot / hinge origin; 158x210cm leaf for public door, opens outwards."
+    },
+    {
+      "name": "Threshold160cm",
+      "mesh": "SM_WL_Threshold160cm",
+      "category": "Structural",
+      "min_m": [
+        -0.30000001192092896,
+        -0.800000011920929,
+        -0.07000000029802322
+      ],
+      "max_m": [
+        0.0,
+        0.800000011920929,
+        0.0
+      ],
+      "triangles": 12,
+      "materials": [
+        "WL_Stone"
+      ],
+      "collision_boxes": [
+        {
+          "center_m": [
+            -0.15,
+            0,
+            -0.035
+          ],
+          "size_m": [
+            0.3,
+            1.6,
+            0.07
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "name": "GableHalf4m",
+      "mesh": "SM_WL_GableHalf4m",
+      "category": "Walls",
+      "min_m": [
+        -0.10000000149011612,
+        0.0,
+        0.0
+      ],
+      "max_m": [
+        0.10000000149011612,
+        4.0,
+        2.6666667461395264
+      ],
+      "triangles": 8,
+      "materials": [
+        "WL_Plaster"
+      ],
+      "collision_boxes": [],
+      "notes": "One half of an 8m gable, base 4m, rise 8/3m. No global scaling."
+    },
+    {
+      "name": "RoofPanel8mSpan1m",
+      "mesh": "SM_WL_RoofPanel8mSpan1m",
+      "category": "Roof",
+      "min_m": [
+        0.0,
+        -0.023574963212013245,
+        -2.946666717529297
+      ],
+      "max_m": [
+        1.0,
+        4.300000190734863,
+        0.05263807624578476
+      ],
+      "triangles": 1464,
+      "materials": [
+        "WL_Roof"
+      ],
+      "collision_boxes": [],
+      "notes": "8m roof-span variant, ridge anchor; standard 1m/30cm length, same 2:3 pitch and shingle language."
+    },
+    {
+      "name": "RoofPanel8mSpanEnd30cm",
+      "mesh": "SM_WL_RoofPanel8mSpanEnd30cm",
+      "category": "Roof",
+      "min_m": [
+        0.0,
+        -0.023574963212013245,
+        -2.946666717529297
+      ],
+      "max_m": [
+        0.30000001192092896,
+        4.300000190734863,
+        0.05263807624578476
+      ],
+      "triangles": 496,
+      "materials": [
+        "WL_Roof"
+      ],
+      "collision_boxes": [],
+      "notes": "8m roof-span variant, ridge anchor; standard 1m/30cm length, same 2:3 pitch and shingle language."
+    },
+    {
+      "name": "GableTrimHalf4m",
+      "mesh": "SM_WL_GableTrimHalf4m",
+      "category": "Roof",
+      "min_m": [
+        -0.0700000450015068,
+        -0.03494596481323242,
+        -2.921027421951294
+      ],
+      "max_m": [
+        0.0700000450015068,
+        4.334946155548096,
+        0.05436086654663086
+      ],
+      "triangles": 44,
+      "materials": [
+        "WL_Timber"
+      ],
+      "collision_boxes": [],
+      "notes": "8m-span half-gable bargeboard, same mounting/pitch contract."
+    }
+  ],
+  "reason": "Public 160x215 door and 8m roof span cannot be obtained by repeating the existing 130x200 door / 6m span without distortion. All variants remain generic."
+}
