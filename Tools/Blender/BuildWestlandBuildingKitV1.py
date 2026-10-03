@@ -173,18 +173,18 @@ for side in (-1,1):
  for x in (-3,-1,1):
   module='WallWindowDouble2m' if side==-1 and x==-1 else 'WallSolid2m'
   start=-x if side==-1 else x
-  place(module,(start,y,0),yaw,side==-1)
-  place('HorizontalBeam2m',(start,y,3),yaw,side==-1)
+  place(module,(start,y,0),yaw,False)
+  place('HorizontalBeam2m',(start,y,3),yaw,False)
  for x in range(-3,3):
-  place('StonePlinth1m',(-x if side==-1 else x,y,0),yaw,side==-1)
+  place('StonePlinth1m',(-x if side==-1 else x,y,0),yaw,False)
 for x in (-3,3):
- for y in (-3,3):place('CornerPost3m',(x,y,0),fade=x==-3 or y==-3)
+ for y in (-3,3):place('CornerPost3m',(x,y,0),fade=x==-3)
 for x in (-3,3):
  for y in (-1,1):place('VerticalPost3m',(x,y,0),fade=x==-3)
 for y in (-3,3):
- for x in (-1,1):place('VerticalPost3m',(x,y,0),fade=y==-3)
+ for x in (-1,1):place('VerticalPost3m',(x,y,0),fade=False)
 for y in (-3,3):
- for x in (-2,1):place('DiagonalBrace1m',(x,y,1.75),90,fade=y==-3)
+ for x in (-2,1):place('DiagonalBrace1m',(x,y,1.75),90,fade=False)
 for y in (-3,-2,1,2):place('StonePlinth1m',(-3,y,0),fade=True)
 for y in range(-3,3):place('StonePlinth1m',(3,-y,0),180)
 for side in (-1,1):
@@ -196,7 +196,7 @@ for x in range(-3,3):place('RidgeCap1m',(x,0,5),fade=True)
 place('DoorFrame130x200',(-3,0,0),fade=True)
 place('DoorLeaf130x200',(-3.22,-.65,0),90,True)
 for y in (-2,2):place('WindowArch',(-3,y,1),fade=True)
-place('WindowDouble',(0,-3,1),90,True)
+place('WindowDouble',(0,-3,1),90,False)
 place('Porch160cm',(-3,0,0),fade=True)
 place('Threshold130cm',(-3,0,0))
 place('Chimney60cm',(1.7,1.65,3.9),fade=True)
@@ -207,5 +207,5 @@ bpy.context.preferences.filepaths.save_version=0
 bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE))
 metadata={'schema':'PokeMonster.WestlandKit.v1','units':'metres','blender_axis':'X inward, -Y bay direction, Z up','unreal_axis':'X inward, Y bay direction, Z up','grid_m':1,'wall_bay_m':2,'wall_height_m':3,'wall_thickness_m':.2,'roof_pitch':'2:3','modules':definition,'materials':list(colors),'no_external_links':True}
 (ART/'WestlandBuildingKit_V1.json').write_text(json.dumps(metadata,indent=2)+'\n')
-(ART/'Buildings/WL_Cottage_V1.json').write_text(json.dumps({'schema':'PokeMonster.WestlandBuilding.v1','building':'WL_Cottage_V1','body_m':[6,6,3],'ridge_m':5,'door_m':[1.3,2],'placements':placements,'module_counts':counts,'unique_building_only_meshes':[],'interior_clear_m':[5.8,5.8],'intentional_asymmetry':['One side window','Small chimney offset to the rear'],'opening_exception':'Private home door 1.3m is deliberately smaller than public V3 door 1.5m; capsule width .56m.'},indent=2)+'\n')
+(ART/'Buildings/WL_Cottage_V1.json').write_text(json.dumps({'schema':'PokeMonster.WestlandBuilding.v1','building':'WL_Cottage_V1','body_m':[6,6,3],'ridge_m':5,'door_m':[1.3,2],'placements':placements,'module_counts':counts,'unique_building_only_meshes':[],'interior_clear_m':[5.8,5.8],'intentional_asymmetry':['One side window','Small chimney offset to the rear'],'interior_camera':{'enabled':True,'distance_cm':2000,'pitch_degrees':-50,'yaw_offset_degrees':0,'target_local_cm':[0,0,-70],'transition':'shared CutawayAmount, 0.4s, smoothstep camera','input_basis':'endpoint-latched horizontal room camera; post-endpoint yaw blend 250 degrees/s'},'opening_exception':'Private home door 1.3m is deliberately smaller than public V3 door 1.5m; capsule width .56m.'},indent=2)+'\n')
 print('WESTLAND_SOURCE_SAVED',SOURCE,'modules',len(modules),'placements',len(placements))

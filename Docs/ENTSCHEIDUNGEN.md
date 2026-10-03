@@ -499,3 +499,20 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Traufseitige Front, versetzter Eingang, neun Fenster, rückwärtiger Kamin und Theken-/Kaminreserven unterscheiden das Gasthaus vom frontgiebeligen Wohnhaus. Zwei Engine-Cubes bleiben einfache Thekenblockouts. Es entstehen weder Gebäude-Einmal-Wände noch umfangreiche Innenausstattung.
 - 186 von 218 Modulinstanzen verwenden unveränderte vorhandene Assets. Materialien bleiben vollständig gemeinsam und unverändert. Die vorhandene Kit-Testmap wird additiv ergänzt, Dev_TestMap und Gameplaydateien bleiben unverändert.
 - Das vorhandene generische Cutaway genügt auch für das Gasthaus. Getrennte Schwellen- und Occluder-Konfigurationen statt einer neuen Implementierung; Fade 0,4 s und Spielparameter bleiben unverändert. Prüfbericht: `Docs/WESTLAND_INN_V1_PRUEFBERICHT.md`.
+
+## 2026-10-03 – Wohnhaus: rechte Cutaway-Seite und Innenkamera-Proof (teilweise ersetzt)
+
+- Ersetzt ausschließlich die linke Cottage-Seitenzuordnung aus dem Kit-V1-Proof: Seitenwand bei Y=-300 cm einschließlich zugehörigem Fenster/Fachwerk/Sockel bleibt sichtbar; Y=+300 cm samt Fachwerk/Sockel gehört zum Cutaway. Front und Dach bleiben ausblendbar. Geometrie, Collision und die Schwelle 40×130×200 cm werden nicht verändert.
+- Die allgemeine BuildingCutaway-Klasse erhält eine standardmäßig deaktivierte Innenkamera-Konfiguration. Nur das Wohnhaus aktiviert sie. Healing House V3 und das bereits im aktuellen HEAD vorhandene Gasthaus bleiben bei ihrer bisherigen Kamera; kein weiterer Gasthausbau.
+- Frontal bedeutet Blick entlang der lokalen +X-Richtung der Türschwelle. Der Wohnhausversuch verwendet Yaw 0°, Pitch -50°, FOV weiterhin 35° und Zielpunkt (0,0,80) cm in Weltkoordinaten. 1600 cm wurden visuell geprüft; für mehr Übersicht über Eingang und Raumfläche wird 2000 cm verwendet. Dieser Wert ist ein Proof, keine Freigabe für alle Innenräume.
+- Der Player mischt ausschließlich die gerenderte Camera-POV zwischen bestehender Kamera und festem Raumziel. Derselbe reversible CutawayAmount steuert Materialfade und Kamera; Smoothstep und Quaternion-Slerp glätten die Kamerabewegung. Vollständiger Übergang 0,4 s, Umkehr setzt bei aktuellem Fortschritt fort.
+- SpringArm 2500 cm, Rotation (-55,-45,0), Lag 6/maximal 180 cm und FOV 35 bleiben unberührt. Die ursprüngliche CameraComponent bleibt auch die unveränderte Bewegungs-/Interaktionsbasis; während des Schwenks drehen sich Tasten und Blickrichtungsregeln nicht plötzlich in andere Weltrichtungen. Keine Sprite-/Collision-/Gameplayänderung.
+- Prüfdetails und Git-Dateiliste: `WESTLAND_WOHNHAUS_INNENKAMERA_PRUEFBERICHT.md`.
+
+## 2026-10-03 – Wohnhaus: Dach/Front und kamerabezogene Innensteuerung
+
+- Ersetzt die rechte Seiten-Cutaway-Zuordnung sowie die dauerhaft äußere Bewegungsbasis des vorigen Proofs. Das Wohnhaus blendet nur die explizit zugeordneten Dach-/Frontteile aus; beide Seiten und die Rückwand bleiben sichtbar. Andere Gebäude behalten ihre eigenen Listen.
+- Kamera und Input teilen denselben Endpunktstatus: bis Interior vollständig erreicht ist, gilt die äußere Basis; bis Outside vollständig erreicht ist, bleibt die innere Basis. Umkehr mitten im Fade verändert diese zuletzt erreichte Basis nicht.
+- Erst nach dem Kamera-Endpunkt dreht ein kurzer Bewegungsbasis-Blend mit 250 Grad/s (45 Grad in 0,18 s) den horizontalen Tastaturbezug. Kein Input-Reset, StopMovement oder Geschwindigkeitsparameter wird geändert. Alle acht Richtungen bleiben normalisiert.
+- Die Blickrichtung wird relativ zur gerenderten Ansicht aus dem letzten tatsächlichen Weltbewegungsvektor bestimmt. Die Sprite-Ebene dreht ausschließlich um Z zur Kamera, ohne Größen-/Pivot-/Assetänderung. Interaktionen verwenden denselben letzten Weltvektor, auch im Idle; Reichweite bleibt 150 cm.
+- Nur Gebäude mit aktivierter Innenkamera nutzen dieses Verhalten. Healing House V3 wird nicht migriert. Kamera außen 2500/-55/-45/35, innen 2000/-50/0/35 und Cutaway 0,4 s bleiben unverändert.

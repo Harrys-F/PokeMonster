@@ -5,6 +5,8 @@
 #include "PokeMonsterBuildingCutaway.generated.h"
 
 class UBoxComponent;
+class APokeMonsterPlayerCharacter;
+struct FMinimalViewInfo;
 class UPrimitiveComponent;
 
 /** Doorway-driven visual cutaway; never changes gameplay collision. */
@@ -21,6 +23,15 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building", meta=(ClampMin="0.0", ClampMax="10.0")) float ThresholdHysteresis = 4.f;
 	/** Roof and camera-facing facade parts; rear walls and functional actors stay visible. */
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category="Building") TArray<TObjectPtr<AActor>> OccludingActors;
+	/** Opt-in: existing healing houses retain their original camera. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Interior Camera") bool bUseInteriorCamera = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Interior Camera", meta=(ClampMin="100.0")) float InteriorCameraDistance = 1600.f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Interior Camera", meta=(ClampMin="-80.0", ClampMax="-10.0")) float InteriorCameraPitch = -50.f;
+	/** Relative to the doorway's local inward +X axis. Zero gives a frontal view. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Interior Camera") float InteriorCameraYawOffset = 0.f;
+	/** Room-local look-at point; default is 80 cm above a 150-cm root. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Interior Camera") FVector InteriorCameraTarget = FVector(0.f, 0.f, -70.f);
+	void GetInteriorCameraView(FMinimalViewInfo& OutView) const;
 	UFUNCTION(BlueprintPure, Category="Building") bool IsViewerInside(FVector WorldLocation) const;
 	UFUNCTION(BlueprintPure, Category="Building") bool IsViewerInDoorway(FVector WorldLocation) const;
 	UFUNCTION(BlueprintPure, Category="Building") bool IsCutawayActive() const { return bCutawayActive; }
@@ -30,6 +41,7 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 private:
+	TWeakObjectPtr<APokeMonsterPlayerCharacter> CameraViewer;
 	void RefreshVisibility(float DeltaSeconds);
 	void ApplyVisibility();
 	TMap<TWeakObjectPtr<AActor>, bool> OriginalHiddenStates;

@@ -1,6 +1,8 @@
 #include "PokeMonsterBuildingCutaway.h"
 
 #include "Components/BoxComponent.h"
+#include "Camera/CameraTypes.h"
+#include "../Characters/PokeMonsterPlayerCharacter.h"
 #include "Components/PrimitiveComponent.h"
 #include "GameFramework/Pawn.h"
 #include "Kismet/GameplayStatics.h"
@@ -29,6 +31,14 @@ APokeMonsterBuildingCutaway::APokeMonsterBuildingCutaway()
 	DoorThreshold->SetGenerateOverlapEvents(false);
 }
 
+void APokeMonsterBuildingCutaway::GetInteriorCameraView(FMinimalViewInfo& OutView) const
+{
+	OutView.Rotation = FRotator(InteriorCameraPitch,
+		DoorThreshold->GetComponentRotation().Yaw + InteriorCameraYawOffset, 0.f);
+	const FVector Target = InteriorArea->GetComponentTransform().TransformPosition(InteriorCameraTarget);
+	OutView.Location = Target - OutView.Rotation.Vector() * InteriorCameraDistance;
+}
+
 bool APokeMonsterBuildingCutaway::IsViewerInside(FVector WorldLocation) const
 {
 	const FVector Local = InteriorArea->GetComponentTransform().InverseTransformPosition(WorldLocation);
@@ -49,6 +59,7 @@ bool APokeMonsterBuildingCutaway::IsViewerInDoorway(FVector WorldLocation) const
 void APokeMonsterBuildingCutaway::BeginPlay()
 {
 	Super::BeginPlay();
+	if (bUseInteriorCamera) PrimaryActorTick.TickInterval = 0.f;
 	RefreshVisibility(0.f);
 }
 
@@ -60,7 +71,7 @@ void APokeMonsterBuildingCutaway::Tick(float DeltaSeconds)
 
 void APokeMonsterBuildingCutaway::RefreshVisibility(float DeltaSeconds)
 {
-	const APawn* Player = UGameplayStatics::GetPlayerPawn(this, 0);
+	APawn* Player = UGameplayStatics::GetPlayerPawn(this, 0);
 	if (!Player) return;
 	bool bInside = false;
 	if (Player)
@@ -91,6 +102,19 @@ void APokeMonsterBuildingCutaway::RefreshVisibility(float DeltaSeconds)
 			FMath::Max(DeltaSeconds, 0.f), 1.f / FMath::Max(FadeDuration, 0.05f));
 		if (FMath::IsNearlyEqual(CutawayAmount, Target, KINDA_SMALL_NUMBER)) CutawayAmount = Target;
 	}
+	if (bUseInteriorCamera && (bCutawayActive || CutawayAmount > 0.f))
+	{
+		auto* Viewer = Cast<APokeMonsterPlayerCharacter>(Player);
+		if (CameraViewer.Get() != Viewer)
+			if (auto* PreviousViewer = CameraViewer.Get()) PreviousViewer->ClearInteriorCameraSource(this);
+		CameraViewer = Viewer;
+		if (Viewer) Viewer->SetInteriorCameraSource(this);
+	}
+	else if (auto* Viewer = CameraViewer.Get())
+	{
+		Viewer->ClearInteriorCameraSource(this);
+		CameraViewer.Reset();
+	}
 	if (OriginalHiddenStates.IsEmpty() || PreviousAmount != CutawayAmount)
 		ApplyVisibility();
 }
@@ -120,6 +144,8 @@ void APokeMonsterBuildingCutaway::ApplyVisibility()
 
 void APokeMonsterBuildingCutaway::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
+	if (auto* Viewer = CameraViewer.Get()) Viewer->ClearInteriorCameraSource(this);
+	CameraViewer.Reset();
 	for (const auto& Data : OriginalFadeData)
 		if (UPrimitiveComponent* Component = Data.Key.Get())
 			Component->SetCustomPrimitiveDataFloat(CutawayDataIndex, Data.Value);

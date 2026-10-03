@@ -53,6 +53,7 @@ for entry in layout['placements']:
  if entry['cutaway']:occluding.append(a)
 cutclass=unreal.load_class(None,'/Script/PokeMonster.PokeMonsterBuildingCutaway');assert cutclass
 cut=spawn(cutclass,'WL_Cottage_Cutaway',(0,0,150))
+cut.set_editor_property('use_interior_camera',True);cut.set_editor_property('interior_camera_distance',2000);cut.set_editor_property('interior_camera_pitch',-50);cut.set_editor_property('interior_camera_yaw_offset',0);cut.set_editor_property('interior_camera_target',unreal.Vector(0,0,-70))
 cut.set_editor_property('fade_duration',.4);cut.set_editor_property('threshold_hysteresis',4);cut.set_editor_property('occluding_actors',occluding)
 cut.get_editor_property('interior_area').set_box_extent(unreal.Vector(310,310,200))
 threshold=cut.get_editor_property('door_threshold');threshold.set_relative_location(unreal.Vector(-300,0,-50),False,False);threshold.set_box_extent(unreal.Vector(20,65,100))

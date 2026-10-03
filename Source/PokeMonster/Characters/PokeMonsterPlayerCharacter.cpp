@@ -3,6 +3,8 @@
 #include "PokeMonsterPlayerCharacter.h"
 
 #include "Camera/CameraComponent.h"
+#include "Camera/CameraTypes.h"
+#include "../World/PokeMonsterBuildingCutaway.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "EnhancedInputComponent.h"
@@ -58,7 +60,8 @@ bool FPokeMonsterDirectionalFlipbookSet::HasAnyFlipbook() const
 
 APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 {
-	PrimaryActorTick.bCanEverTick = false;
+	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bStartWithTickEnabled = false;
 
 	GetCapsuleComponent()->InitCapsuleSize(28.0f, 48.0f);
 
@@ -228,6 +231,81 @@ void APokeMonsterPlayerCharacter::BeginPlay()
 	RefreshCharacterVisual();
 }
 
+float APokeMonsterPlayerCharacter::GetMovementBasisYaw() const
+{
+	return bMovementBasisOverride ? MovementBasisYaw : FollowCamera->GetComponentRotation().Yaw;
+}
+
+float APokeMonsterPlayerCharacter::GetPresentationCameraYaw() const
+{
+	const FRotator Exterior = FollowCamera->GetComponentRotation();
+	const auto* Building = InteriorCameraSource.Get();
+	if (!IsValid(Building) || !Building->bUseInteriorCamera) return Exterior.Yaw;
+	FMinimalViewInfo Interior;
+	Building->GetInteriorCameraView(Interior);
+	const float Alpha = FMath::SmoothStep(0.f, 1.f, Building->GetCutawayAmount());
+	return FQuat::Slerp(Exterior.Quaternion(), Interior.Rotation.Quaternion(), Alpha).Rotator().Yaw;
+}
+
+void APokeMonsterPlayerCharacter::SetInteriorCameraSource(APokeMonsterBuildingCutaway* Building)
+{
+	if (!bMovementBasisOverride) MovementBasisYaw = GetMovementBasisYaw();
+	InteriorCameraSource = Building;
+	bMovementBasisOverride = true;
+	// Latch only a completed camera endpoint; a partial reversal does not switch input.
+	if (Building && Building->GetCutawayAmount() >= 1.f) bInteriorMovementBasis = true;
+	SetActorTickEnabled(true);
+}
+
+void APokeMonsterPlayerCharacter::ClearInteriorCameraSource(const APokeMonsterBuildingCutaway* Building)
+{
+	if (InteriorCameraSource.Get() != Building) return;
+	InteriorCameraSource.Reset();
+	bInteriorMovementBasis = false;
+	// Keep ticking until the brief post-camera input blend has reached the exterior.
+}
+
+void APokeMonsterPlayerCharacter::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+	const auto* Building = InteriorCameraSource.Get();
+	const bool bHasBuilding = IsValid(Building) && Building->bUseInteriorCamera;
+	if (!bHasBuilding) bInteriorMovementBasis = false;
+	float TargetYaw = FollowCamera->GetComponentRotation().Yaw;
+	if (bInteriorMovementBasis && bHasBuilding)
+	{
+		FMinimalViewInfo Interior;
+		Building->GetInteriorCameraView(Interior);
+		TargetYaw = Interior.Rotation.Yaw;
+	}
+	// 45 degrees in 0.18 s, only after the view has completed. Never reset held input.
+	MovementBasisYaw = FRotator::NormalizeAxis(FMath::FixedTurn(MovementBasisYaw, TargetYaw, 250.f * FMath::Max(DeltaSeconds, 0.f)));
+	GetSprite()->SetWorldRotation(FRotator(0.f, GetPresentationCameraYaw() + 90.f, 0.f));
+	UpdateMovementInput(MovementInput);
+	if (!bHasBuilding && FMath::IsNearlyZero(FMath::FindDeltaAngleDegrees(MovementBasisYaw, TargetYaw)))
+	{
+		bMovementBasisOverride = false;
+		SetActorTickEnabled(false);
+	}
+}
+
+void APokeMonsterPlayerCharacter::CalcCamera(float DeltaTime, FMinimalViewInfo& OutResult)
+{
+	Super::CalcCamera(DeltaTime, OutResult);
+	const APokeMonsterBuildingCutaway* Building = InteriorCameraSource.Get();
+	if (!IsValid(Building) || !Building->bUseInteriorCamera) return;
+	const float Progress = FMath::Clamp(Building->GetCutawayAmount(), 0.f, 1.f);
+	if (Progress <= 0.f) return;
+	const float Alpha = FMath::SmoothStep(0.f, 1.f, Progress);
+	FMinimalViewInfo InteriorView = OutResult;
+	Building->GetInteriorCameraView(InteriorView);
+	OutResult.Location = FMath::Lerp(OutResult.Location, InteriorView.Location, Alpha);
+	OutResult.Rotation = FQuat::Slerp(OutResult.Rotation.Quaternion(),
+		InteriorView.Rotation.Quaternion(), Alpha).Rotator();
+	// FOV/projection stay inherited from the existing camera. Only the rendered POV
+	// changes; movement switches separately, only at completed view endpoints.
+}
+
 void APokeMonsterPlayerCharacter::PawnClientRestart()
 {
 	Super::PawnClientRestart();
@@ -263,7 +341,7 @@ void APokeMonsterPlayerCharacter::Move(const FInputActionValue& Value)
 	Input = Input.GetClampedToMaxSize(1.0f);
 	UpdateMovementInput(Input);
 
-	const FVector WorldDirection = CalculateCameraRelativeMovement(Input, FollowCamera->GetComponentRotation().Yaw);
+	const FVector WorldDirection = CalculateCameraRelativeMovement(Input, GetMovementBasisYaw());
 	AddMovementInput(WorldDirection);
 }
 
@@ -285,6 +363,7 @@ void APokeMonsterPlayerCharacter::ToggleOverworldMenu(const FInputActionValue& V
 
 FVector APokeMonsterPlayerCharacter::GetInteractionWorldDirection() const
 {
+	if (bHasWorldFacing) return LastWorldFacing;
 	FVector2D FacingInput = FVector2D::ZeroVector;
 	switch (FacingDirection)
 	{
@@ -314,7 +393,7 @@ FVector APokeMonsterPlayerCharacter::GetInteractionWorldDirection() const
 		break;
 	}
 
-	return CalculateCameraRelativeMovement(FacingInput, FollowCamera->GetComponentRotation().Yaw);
+	return CalculateCameraRelativeMovement(FacingInput, GetMovementBasisYaw());
 }
 
 AActor* APokeMonsterPlayerCharacter::FindInteractableInRange() const
@@ -428,8 +507,17 @@ void APokeMonsterPlayerCharacter::UpdateMovementInput(const FVector2D NewMovemen
 	const EPokeMonsterLocomotionState NewLocomotionState = ClampedInput.IsNearlyZero(FacingInputThreshold)
 		? EPokeMonsterLocomotionState::Idle
 		: EPokeMonsterLocomotionState::Walking;
-	const EPokeMonsterFacingDirection NewFacingDirection = NewLocomotionState == EPokeMonsterLocomotionState::Walking
-		? CalculateFacingDirection(ClampedInput, FacingDirection, FacingInputThreshold)
+	if (NewLocomotionState == EPokeMonsterLocomotionState::Walking)
+	{
+		LastWorldFacing = CalculateCameraRelativeMovement(ClampedInput, GetMovementBasisYaw());
+		bHasWorldFacing = true;
+	}
+	const FRotationMatrix ViewAxes(FRotator(0.f, GetPresentationCameraYaw(), 0.f));
+	const FVector WorldFacing = GetInteractionWorldDirection();
+	const FVector2D ScreenFacing(FVector::DotProduct(WorldFacing, ViewAxes.GetUnitAxis(EAxis::Y)),
+		FVector::DotProduct(WorldFacing, ViewAxes.GetUnitAxis(EAxis::X)));
+	const EPokeMonsterFacingDirection NewFacingDirection = bHasWorldFacing
+		? CalculateFacingDirection(ScreenFacing, FacingDirection, FacingInputThreshold)
 		: FacingDirection;
 	const bool bVisualStateChanged = NewLocomotionState != LocomotionState || NewFacingDirection != FacingDirection;
 

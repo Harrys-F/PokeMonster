@@ -637,7 +637,7 @@
         0
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_HorizontalBeam2m_057",
@@ -648,7 +648,7 @@
         3
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_WallWindowDouble2m_058",
@@ -659,7 +659,7 @@
         0
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_HorizontalBeam2m_059",
@@ -670,7 +670,7 @@
         3
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_WallSolid2m_060",
@@ -681,7 +681,7 @@
         0
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_HorizontalBeam2m_061",
@@ -692,7 +692,7 @@
         3
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_StonePlinth1m_062",
@@ -703,7 +703,7 @@
         0
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_StonePlinth1m_063",
@@ -714,7 +714,7 @@
         0
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_StonePlinth1m_064",
@@ -725,7 +725,7 @@
         0
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_StonePlinth1m_065",
@@ -736,7 +736,7 @@
         0
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_StonePlinth1m_066",
@@ -747,7 +747,7 @@
         0
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_StonePlinth1m_067",
@@ -758,7 +758,7 @@
         0
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_WallSolid2m_068",
@@ -923,7 +923,7 @@
         0
       ],
       "yaw": 0,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_CornerPost3m_083",
@@ -989,7 +989,7 @@
         0
       ],
       "yaw": 0,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_VerticalPost3m_089",
@@ -1000,7 +1000,7 @@
         0
       ],
       "yaw": 0,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_VerticalPost3m_090",
@@ -1033,7 +1033,7 @@
         1.75
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_DiagonalBrace1m_093",
@@ -1044,7 +1044,7 @@
         1.75
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_DiagonalBrace1m_094",
@@ -1605,7 +1605,7 @@
         1
       ],
       "yaw": 90,
-      "cutaway": true
+      "cutaway": false
     },
     {
       "label": "Cottage_Porch160cm_145",
@@ -1677,5 +1677,18 @@
     "One side window",
     "Small chimney offset to the rear"
   ],
-  "opening_exception": "Private home door 1.3m is deliberately smaller than public V3 door 1.5m; capsule width .56m."
+  "opening_exception": "Private home door 1.3m is deliberately smaller than public V3 door 1.5m; capsule width .56m.",
+  "interior_camera": {
+    "enabled": true,
+    "distance_cm": 2000,
+    "pitch_degrees": -50,
+    "yaw_offset_degrees": 0,
+    "target_local_cm": [
+      0,
+      0,
+      -70
+    ],
+    "transition": "shared CutawayAmount, 0.4s, smoothstep camera",
+    "input_basis": "endpoint-latched horizontal room camera; post-endpoint yaw blend 250 degrees/s"
+  }
 }

@@ -36,5 +36,12 @@ cut=unreal.GameplayStatics.get_all_actors_of_class(world,unreal.load_class(None,
 assert cut.get_editor_property('door_threshold').get_unscaled_box_extent()==unreal.Vector(20,65,100)
 assert abs(cut.get_editor_property('fade_duration')-.4)<1e-6
 assert not cut.is_viewer_inside(unreal.Vector(-330,0,50)) and cut.is_viewer_inside(unreal.Vector(-250,0,50))
-(OUT/'RuntimeValidation.json').write_text(json.dumps({'passed':True,'world':world.get_name(),'collision_bodies':counts,'material_slots_checked':materials,'reuse_counts':actual,'free_capsule_route_segments':8,'diagonal_door_sweep':True,'front_rear_window_blocking':True,'cutaway_config':[40,130,200,.4],'cpp_unchanged':True},indent=2)+'\n')
+assert cut.get_editor_property('use_interior_camera')
+assert cut.get_editor_property('interior_camera_distance')==2000
+assert cut.get_editor_property('interior_camera_pitch')==-50
+bylabel={a.get_actor_label():a for a in placed}
+assert set(cut.get_editor_property('occluding_actors'))=={bylabel[p['label']] for p in layout['placements'] if p['cutaway']}
+assert not any(p['cutaway'] for i,p in enumerate(layout['placements']) if i in list(range(56,80))+[82,83,88,89,90,91,92,93,94,95,144]), 'Both side walls and their framing remain visible'
+assert all(not p['cutaway'] for p in layout['placements'] if p['module']=='WallSolid2m' and p['label'] not in {'Cottage_WallSolid2m_056','Cottage_WallSolid2m_060','Cottage_WallSolid2m_068','Cottage_WallSolid2m_070','Cottage_WallSolid2m_072'}), 'Rear wall remains visible'
+(OUT/'RuntimeValidation.json').write_text(json.dumps({'passed':True,'world':world.get_name(),'collision_bodies':counts,'material_slots_checked':materials,'reuse_counts':actual,'free_capsule_route_segments':8,'diagonal_door_sweep':True,'front_rear_window_blocking':True,'cutaway_config':[40,130,200,.4],'interior_camera':[2000,-50,0,35], 'camera_opt_in':True},indent=2)+'\n')
 unreal.log('WESTLAND_RUNTIME_VALIDATION_PASSED')

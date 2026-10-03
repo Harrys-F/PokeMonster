@@ -8,6 +8,7 @@
 #include "PokeMonsterPlayerCharacter.generated.h"
 
 class UCameraComponent;
+class APokeMonsterBuildingCutaway;
 class AActor;
 class UInputAction;
 class UInputMappingContext;
@@ -85,6 +86,17 @@ public:
 	APokeMonsterPlayerCharacter();
 
 	virtual void PawnClientRestart() override;
+	virtual void CalcCamera(float DeltaTime, FMinimalViewInfo& OutResult) override;
+	virtual void Tick(float DeltaSeconds) override;
+	/** Optional building view and endpoint-latched horizontal movement basis. */
+	void SetInteriorCameraSource(APokeMonsterBuildingCutaway* Building);
+	void ClearInteriorCameraSource(const APokeMonsterBuildingCutaway* Building);
+	UFUNCTION(BlueprintPure, Category = "PokeMonster|Movement")
+	float GetMovementBasisYaw() const;
+
+	UFUNCTION(BlueprintPure, Category = "PokeMonster|Movement")
+	bool IsUsingInteriorMovementBasis() const { return bInteriorMovementBasis; }
+
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Movement")
@@ -100,7 +112,7 @@ public:
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Visual")
 	UPaperFlipbookComponent* GetCharacterFlipbookComponent() const { return GetSprite(); }
 
-	/** World-space direction used for interaction, derived from the last visual facing direction. */
+	/** World-space direction used for interaction, retaining the last actual world movement direction. */
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Interaction")
 	FVector GetInteractionWorldDirection() const;
 
@@ -182,8 +194,17 @@ protected:
 private:
 #if WITH_DEV_AUTOMATION_TESTS
 	friend class FPokeMonsterPlayerFoundationTest;
+	friend class FPokeMonsterBuildingCameraTest;
 	friend class FPokeMonsterEncounterIntegrationTest;
 #endif
+
+	TWeakObjectPtr<APokeMonsterBuildingCutaway> InteriorCameraSource;
+	bool bInteriorMovementBasis = false;
+	bool bMovementBasisOverride = false;
+	bool bHasWorldFacing = false;
+	float MovementBasisYaw = -45.f;
+	FVector LastWorldFacing = FVector::ZeroVector;
+	float GetPresentationCameraYaw() const;
 
 	void Move(const FInputActionValue& Value);
 	void StopMoving(const FInputActionValue& Value);
