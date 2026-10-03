@@ -23,6 +23,7 @@
 #include "GameFramework/WorldSettings.h"
 #include "Kismet/GameplayStatics.h"
 #include "PaperSpriteComponent.h"
+#include "PhysicsEngine/BodySetup.h"
 #include "Materials/MaterialInterface.h"
 #include "UObject/StrongObjectPtr.h"
 #include "Misc/ScopeExit.h"
@@ -73,24 +74,30 @@ bool FPokeMonsterHealingHouseLayoutTest::RunTest(const FString& Parameters)
 	if (EntranceWalls.Num() == 2)
 	{
 		EntranceWalls.Sort([](const FBox& A, const FBox& B) { return A.Min.Y < B.Min.Y; });
-		TestTrue(TEXT("Door clearance exceeds three player capsule diameters"),
-			EntranceWalls[1].Min.Y - EntranceWalls[0].Max.Y > 3.f * 56.f);
+		TestTrue(TEXT("Door clearance exceeds two player capsule diameters with 38 cm spare"),
+			EntranceWalls[1].Min.Y - EntranceWalls[0].Max.Y > 2.f * 56.f);
 	}
 	Cutaway->InteriorArea->UpdateComponentToWorld();
 	TestFalse(TEXT("Roof visible at exterior spawn"), Cutaway->IsViewerInside(Start->GetActorLocation()));
 	TestFalse(TEXT("Approaching the house does not activate cutaway"), Cutaway->IsViewerInside(FVector(-570.f, 0.f, 48.f)));
 	Cutaway->DoorThreshold->UpdateComponentToWorld();
 	TestEqual(TEXT("Door threshold is centred on the actual doorway"), Cutaway->DoorThreshold->GetComponentLocation(), FVector(-450.f, 0.f, 107.5f));
-	TestEqual(TEXT("Door threshold matches the 170 by 215 cm passage"), Cutaway->DoorThreshold->GetUnscaledBoxExtent(), FVector(20.f, 85.f, 107.5f));
+	TestEqual(TEXT("Door threshold matches the 150 by 215 cm passage"), Cutaway->DoorThreshold->GetUnscaledBoxExtent(), FVector(20.f, 75.f, 107.5f));
 	if (EntranceWalls.Num() == 2)
 	{
-		TestTrue(TEXT("Collision matches the narrowed 170 cm visual passage"),
-			FMath::IsNearlyEqual(EntranceWalls[1].Min.Y - EntranceWalls[0].Max.Y, 170.f, 0.1f));
+		TestTrue(TEXT("Collision matches the narrowed 150 cm visual passage"),
+			FMath::IsNearlyEqual(EntranceWalls[1].Min.Y - EntranceWalls[0].Max.Y, 150.f, 0.1f));
 	}
+	// The actual upper-window mesh must share the doorway axis, not an offset roof ridge.
+	const auto* LoftGlass = LoadObject<UStaticMesh>(nullptr,
+		TEXT("/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Glass_Loft.SM_HH_V2_Glass_Loft"));
+	if (TestNotNull(TEXT("Aligned round-window mesh loads"), LoftGlass))
+		TestTrue(TEXT("Round window centred on doorway Y=0"),
+			FMath::IsNearlyZero(LoftGlass->GetBoundingBox().GetCenter().Y, 0.1f));
 	TestEqual(TEXT("Door threshold never changes gameplay collision"), Cutaway->DoorThreshold->GetCollisionEnabled(), ECollisionEnabled::NoCollision);
 	TestFalse(TEXT("Forecourt is outside the small threshold"), Cutaway->IsViewerInDoorway(FVector(-570.f, 0.f, 48.f)));
 	TestTrue(TEXT("Diagonal position fits doorway transition"), Cutaway->IsViewerInDoorway(FVector(-450.f, 55.f, 48.f)));
-	TestFalse(TEXT("Old wide doorway edge does not trigger cutaway"), Cutaway->IsViewerInDoorway(FVector(-450.f, 100.f, 48.f)));
+	TestFalse(TEXT("Old wide doorway edge does not trigger cutaway"), Cutaway->IsViewerInDoorway(FVector(-450.f, 80.f, 48.f)));
 	TestFalse(TEXT("Facade away from door does not form a transition"), Cutaway->IsViewerInDoorway(FVector(-450.f, 300.f, 48.f)));
 	TestEqual(TEXT("Fade duration is 0.4 seconds"), Cutaway->FadeDuration, 0.4f);
 	TestTrue(TEXT("Whole main aisle is inside cutaway"), Cutaway->IsViewerInside(FVector(140.f, -80.f, 48.f)));
@@ -140,6 +147,53 @@ bool FPokeMonsterHealingHouseLayoutTest::RunTest(const FString& Parameters)
 		const FBox Bounds = Roof->GetStaticMeshComponent()->GetStaticMesh()->GetBoundingBox();
 		TestTrue(TEXT("FBX metre scale produces 6.4 metre ridge"), FMath::IsNearlyEqual(Bounds.Max.Z, 640.f, 0.3f));
 	}
+	// V3 dressing must never turn a small decoration into a movement/interaction
+	// blocker. Fixed furniture remains visible and ignores the healer trace.
+	int32 Decorations = 0;
+	TMap<FName, FVector> Beds;
+	for (AActor* Actor : World->PersistentLevel->Actors)
+	{
+		if (!Actor || !Actor->ActorHasTag(TEXT("HealingHouse_V3"))) continue;
+		TArray<UPrimitiveComponent*> Primitives;
+		Actor->GetComponents<UPrimitiveComponent>(Primitives);
+		if (Actor->ActorHasTag(TEXT("HealingHouse_V3_Decoration")))
+		{
+			++Decorations;
+			for (auto* Primitive : Primitives)
+			{
+				TestEqual(TEXT("Small V3 decoration has no gameplay collision"),
+					Primitive->GetCollisionEnabled(), ECollisionEnabled::NoCollision);
+				if (auto* Sprite = Cast<UPaperSpriteComponent>(Primitive))
+					TestNotNull(TEXT("V3 planted sprite is assigned and renderable"), Sprite->GetSprite());
+			}
+		}
+		if (Actor->ActorHasTag(TEXT("HealingHouse_V3_Furniture")))
+			for (const auto* Primitive : Primitives)
+			{
+				TestTrue(TEXT("Blocking V3 furniture stays visible"), Primitive->IsVisible());
+				TestEqual(TEXT("Furniture does not intercept interaction"),
+					Primitive->GetCollisionResponseToChannel(ECC_Visibility), ECR_Ignore);
+			}
+		if (auto* MeshActor = Cast<AStaticMeshActor>(Actor))
+		{
+			const FString Label = Actor->GetActorLabel();
+			if (Label == TEXT("HH_V3_TreatmentBedSmall") || Label == TEXT("HH_V3_TreatmentBedLarge"))
+				Beds.Add(FName(*Label), MeshActor->GetStaticMeshComponent()->GetStaticMesh()->GetBoundingBox().GetSize());
+			if (Cutaway->OccludingActors.Contains(Actor))
+				for (const auto* Material : MeshActor->GetStaticMeshComponent()->GetMaterials())
+					if (TestNotNull(TEXT("Front dressing has fade-compatible material"), Material))
+						TestEqual(TEXT("New facade dressing uses the same masked fade"), Material->GetBlendMode(), BLEND_Masked);
+		}
+	}
+	TestTrue(TEXT("V3 small props are independently placed"), Decorations > 20);
+	TestEqual(TEXT("Exactly two creature bed sizes"), Beds.Num(), 2);
+	if (Beds.Num() == 2)
+	{
+		TestTrue(TEXT("Large bed is longer than small bed"),
+			Beds[TEXT("HH_V3_TreatmentBedLarge")].X > Beds[TEXT("HH_V3_TreatmentBedSmall")].X + 30.f);
+		TestTrue(TEXT("Large bed is wider than small bed"),
+			Beds[TEXT("HH_V3_TreatmentBedLarge")].Y > Beds[TEXT("HH_V3_TreatmentBedSmall")].Y + 15.f);
+	}
 	return true;
 }
 
@@ -161,6 +215,19 @@ bool FPokeMonsterHealingHouseCollisionTest::RunTest(const FString& Parameters)
 		auto* MeshActor = Cast<AStaticMeshActor>(Source);
 		if (!MeshActor) continue;
 		auto* Original = MeshActor->GetStaticMeshComponent();
+		if (Source->ActorHasTag(TEXT("HealingHouse_V3_Furniture")))
+		{
+			auto* Body = Original->GetStaticMesh()->GetBodySetup();
+			TestNotNull(TEXT("V3 furniture has saved body setup"), Body);
+			if (Body)
+			{
+				AddInfo(FString::Printf(TEXT("Saved %s: %d convex, %d boxes, physics created=%d"),
+					*Source->GetActorLabel(), Body->AggGeom.ConvexElems.Num(), Body->AggGeom.BoxElems.Num(), Body->bCreatedPhysicsMeshes));
+				// Imported convex data may be uncooked on a fresh/null-RHI load.
+				// Prepare it before copying the mesh into the isolated physics world.
+				Body->CreatePhysicsMeshes();
+			}
+		}
 		auto* Copy = TestWorld->SpawnActor<AStaticMeshActor>(MeshActor->GetActorLocation(), MeshActor->GetActorRotation());
 		Copy->SetActorScale3D(MeshActor->GetActorScale3D());
 		auto* Mesh = Copy->GetStaticMeshComponent();
@@ -181,6 +248,10 @@ bool FPokeMonsterHealingHouseCollisionTest::RunTest(const FString& Parameters)
 		FVector(145, -80, 50), FVector(330, -80, 50), FQuat::Identity, ECC_Pawn, PlayerShape));
 	TestTrue(TEXT("Exterior wall blocks walking"), TestWorld->SweepSingleByChannel(Hit,
 		FVector(-600, 300, 50), FVector(-300, 300, 50), FQuat::Identity, ECC_Pawn, PlayerShape));
+	TestTrue(TEXT("Visible V3 creature bed blocks walking"), TestWorld->SweepSingleByChannel(Hit,
+		FVector(0, 220, 50), FVector(-45, 345, 50), FQuat::Identity, ECC_Pawn, PlayerShape));
+	TestTrue(TEXT("Visible V3 bookcase blocks walking"), TestWorld->SweepSingleByChannel(Hit,
+		FVector(-170, -260, 50), FVector(-170, -385, 50), FQuat::Identity, ECC_Pawn, PlayerShape));
 	auto* Healer = TestWorld->SpawnActor<APokeMonsterRestPoint>(FVector(330, -80, 62), FRotator::ZeroRotator);
 	TestTrue(TEXT("Short existing interaction sweep reaches healer through counter"), TestWorld->SweepSingleByChannel(Hit,
 		FVector(145, -80, 50), FVector(295, -80, 50), FQuat::Identity, ECC_Visibility, FCollisionShape::MakeSphere(32.f)));
@@ -233,7 +304,7 @@ bool FPokeMonsterHealingHouseCollisionTest::RunTest(const FString& Parameters)
 	TestFalse(TEXT("Paused threshold retains outside state after reversal"), Cutaway->IsCutawayActive());
 	Cutaway->Tick(0.16f);
 	TestTrue(TEXT("Reverse transition restores full opacity"), FMath::IsNearlyZero(Cutaway->GetCutawayAmount()));
-	Viewer->SetActorLocation(FVector(-444, 80, 50));
+	Viewer->SetActorLocation(FVector(-444, 60, 50));
 	Cutaway->Tick(0.4f);
 	TestTrue(TEXT("Diagonal threshold crossing activates cutaway"), Cutaway->IsCutawayActive());
 	TestEqual(TEXT("Fully faded after 0.4 seconds"), Cutaway->GetCutawayAmount(), 1.f);
@@ -245,7 +316,7 @@ bool FPokeMonsterHealingHouseCollisionTest::RunTest(const FString& Parameters)
 	WithoutViewer.AddIgnoredActor(Viewer);
 	TestTrue(TEXT("Invisible wall still blocks gameplay"), TestWorld->SweepSingleByChannel(Hit,
 		FVector(-600, 300, 50), FVector(-300, 300, 50), FQuat::Identity, ECC_Pawn, PlayerShape, WithoutViewer));
-	Viewer->SetActorLocation(FVector(-460, -80, 50));
+	Viewer->SetActorLocation(FVector(-460, -60, 50));
 	Cutaway->Tick(0.1f);
 	TestFalse(TEXT("Leaving through threshold starts restoration"), Cutaway->IsCutawayActive());
 	TestTrue(TEXT("Exit fades in gradually"), FMath::IsNearlyEqual(Cutaway->GetCutawayAmount(), 0.75f));
