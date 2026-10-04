@@ -195,6 +195,7 @@ private:
 #if WITH_DEV_AUTOMATION_TESTS
 	friend class FPokeMonsterPlayerFoundationTest;
 	friend class FPokeMonsterBuildingCameraTest;
+	friend class FPokeMonsterRelocatedInteriorTransitionTest;
 	friend class FPokeMonsterEncounterIntegrationTest;
 #endif
 

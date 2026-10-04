@@ -243,6 +243,8 @@ float APokeMonsterPlayerCharacter::GetPresentationCameraYaw() const
 	if (!IsValid(Building) || !Building->bUseInteriorCamera) return Exterior.Yaw;
 	FMinimalViewInfo Interior;
 	Building->GetInteriorCameraView(Interior);
+	if (Building->bUseRelocatedInterior)
+		return Building->IsViewerRelocated() ? Interior.Rotation.Yaw : Exterior.Yaw;
 	const float Alpha = FMath::SmoothStep(0.f, 1.f, Building->GetCutawayAmount());
 	return FQuat::Slerp(Exterior.Quaternion(), Interior.Rotation.Quaternion(), Alpha).Rotator().Yaw;
 }
@@ -299,6 +301,17 @@ void APokeMonsterPlayerCharacter::CalcCamera(float DeltaTime, FMinimalViewInfo& 
 	const float Alpha = FMath::SmoothStep(0.f, 1.f, Progress);
 	FMinimalViewInfo InteriorView = OutResult;
 	Building->GetInteriorCameraView(InteriorView);
+	if (Building->bUseRelocatedInterior)
+	{
+		// The spatial cut is covered by the building's midpoint screen mask.
+		// Never fly or interpolate across the distant same-map room separation.
+		if (Building->IsViewerRelocated())
+		{
+			OutResult.Location = InteriorView.Location;
+			OutResult.Rotation = InteriorView.Rotation;
+		}
+		return;
+	}
 	OutResult.Location = FMath::Lerp(OutResult.Location, InteriorView.Location, Alpha);
 	OutResult.Rotation = FQuat::Slerp(OutResult.Rotation.Quaternion(),
 		InteriorView.Rotation.Quaternion(), Alpha).Rotator();

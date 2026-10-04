@@ -102,6 +102,12 @@ bool FPokeMonsterHealingHouseLayoutTest::RunTest(const FString& Parameters)
 	TestEqual(TEXT("Fade duration is 0.4 seconds"), Cutaway->FadeDuration, 0.4f);
 	TestTrue(TEXT("Whole main aisle is inside cutaway"), Cutaway->IsViewerInside(FVector(140.f, -80.f, 48.f)));
 	TestTrue(TEXT("Healer remains inside cutaway after defeat return"), Cutaway->IsViewerInside(Healer->GetActorLocation()));
+	TestTrue(TEXT("Expanded interior is explicitly opt-in in this prototype map"), Cutaway->bUseRelocatedInterior);
+	TestTrue(TEXT("Expanded room retains existing interior camera mechanism"), Cutaway->bUseInteriorCamera);
+	TestEqual(TEXT("Chosen room camera distance"), Cutaway->InteriorCameraDistance, 2600.f);
+	Cutaway->RelocatedDoorThreshold->UpdateComponentToWorld();
+	TestEqual(TEXT("Same-map inner door matches exterior orientation and clearance"),Cutaway->RelocatedDoorThreshold->GetComponentLocation(),FVector(19500,0,107.5));
+
 	TestTrue(TEXT("Occluding building parts configured"), Cutaway->OccludingActors.Num() > 0);
 	for (AActor* Occluder : Cutaway->OccludingActors)
 	{
@@ -244,17 +250,22 @@ bool FPokeMonsterHealingHouseCollisionTest::RunTest(const FString& Parameters)
 	for (int32 Index = 1; Index < UE_ARRAY_COUNT(Route); ++Index)
 		TestFalse(FString::Printf(TEXT("Free capsule route segment %d including diagonal door entry/exit"), Index),
 			TestWorld->SweepSingleByChannel(Hit, Route[Index - 1], Route[Index], FQuat::Identity, ECC_Pawn, PlayerShape));
+	const FVector ExpandedRoute[] = { {19450,0,50}, {19580,35,50}, {19750,0,50},
+		{20000,0,50}, {20145,-80,50}, {20000,170,50}, {19560,20,50}, {19450,0,50} };
+	for (int32 Index=1; Index<UE_ARRAY_COUNT(ExpandedRoute); ++Index)
+		TestFalse(FString::Printf(TEXT("Expanded room capsule route %d"),Index),
+			TestWorld->SweepSingleByChannel(Hit,ExpandedRoute[Index-1],ExpandedRoute[Index],FQuat::Identity,ECC_Pawn,PlayerShape));
 	TestTrue(TEXT("Counter blocks walking"), TestWorld->SweepSingleByChannel(Hit,
-		FVector(145, -80, 50), FVector(330, -80, 50), FQuat::Identity, ECC_Pawn, PlayerShape));
+		FVector(20145, -80, 50), FVector(20330, -80, 50), FQuat::Identity, ECC_Pawn, PlayerShape));
 	TestTrue(TEXT("Exterior wall blocks walking"), TestWorld->SweepSingleByChannel(Hit,
 		FVector(-600, 300, 50), FVector(-300, 300, 50), FQuat::Identity, ECC_Pawn, PlayerShape));
 	TestTrue(TEXT("Visible V3 creature bed blocks walking"), TestWorld->SweepSingleByChannel(Hit,
-		FVector(0, 220, 50), FVector(-45, 345, 50), FQuat::Identity, ECC_Pawn, PlayerShape));
+		FVector(19955, 290, 50), FVector(19955, 415, 50), FQuat::Identity, ECC_Pawn, PlayerShape));
 	TestTrue(TEXT("Visible V3 bookcase blocks walking"), TestWorld->SweepSingleByChannel(Hit,
-		FVector(-170, -260, 50), FVector(-170, -385, 50), FQuat::Identity, ECC_Pawn, PlayerShape));
-	auto* Healer = TestWorld->SpawnActor<APokeMonsterRestPoint>(FVector(330, -80, 62), FRotator::ZeroRotator);
+		FVector(19830, -325, 50), FVector(19830, -450, 50), FQuat::Identity, ECC_Pawn, PlayerShape));
+	auto* Healer = TestWorld->SpawnActor<APokeMonsterRestPoint>(FVector(20330, -80, 62), FRotator::ZeroRotator);
 	TestTrue(TEXT("Short existing interaction sweep reaches healer through counter"), TestWorld->SweepSingleByChannel(Hit,
-		FVector(145, -80, 50), FVector(295, -80, 50), FQuat::Identity, ECC_Visibility, FCollisionShape::MakeSphere(32.f)));
+		FVector(20145, -80, 50), FVector(20295, -80, 50), FQuat::Identity, ECC_Visibility, FCollisionShape::MakeSphere(32.f)));
 	TestEqual(TEXT("Interaction selects healer rather than furniture"), Hit.GetActor(), static_cast<AActor*>(Healer));
 	auto* Viewer = TestWorld->SpawnActor<APokeMonsterPlayerCharacter>(FVector(-1000, 0, 50), FRotator::ZeroRotator);
 	auto* Controller = TestWorld->SpawnActor<APlayerController>();

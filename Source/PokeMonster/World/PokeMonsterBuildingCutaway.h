@@ -6,6 +6,7 @@
 
 class UBoxComponent;
 class APokeMonsterPlayerCharacter;
+class APawn;
 struct FMinimalViewInfo;
 class UPrimitiveComponent;
 
@@ -30,6 +31,18 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building") TArray<FPokeMonsterBuildingInteriorRegion> InteriorRegions;
 	/** Local +X points into the building. This box never generates gameplay overlaps. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Building") TObjectPtr<UBoxComponent> DoorThreshold;
+	/** Optional same-map room. Both doors must share their inward orientation and unit scale. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Relocated Interior") bool bUseRelocatedInterior = false;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Building|Relocated Interior") TObjectPtr<UBoxComponent> RelocatedInteriorArea;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Building|Relocated Interior") TObjectPtr<UBoxComponent> RelocatedDoorThreshold;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Relocated Interior") FVector RelocatedCameraTarget = FVector(0.f, 0.f, -70.f);
+	/** Short blackout around the midpoint; the two spatial camera views never interpolate. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Relocated Interior", meta=(ClampMin="0.05", ClampMax="0.5")) float RelocationMaskHalfWidth = .2f;
+	UFUNCTION(BlueprintPure, Category="Building|Relocated Interior") bool IsViewerInRelocatedRoom(FVector WorldLocation) const;
+	UFUNCTION(BlueprintPure, Category="Building|Relocated Interior") bool IsViewerRelocated() const { return bViewerRelocated; }
+	UFUNCTION(BlueprintPure, Category="Building|Relocated Interior") float GetRelocationMask() const;
+	/** Absolute doorway-relative mapping preserves depth/lateral offset; no accumulated delta. */
+	FVector MapDoorwayPosition(FVector WorldLocation, bool bEntering) const;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building", meta=(ClampMin="0.05")) float FadeDuration = 0.4f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building", meta=(ClampMin="0.0", ClampMax="10.0")) float ThresholdHysteresis = 4.f;
 	/** Roof and camera-facing facade parts; rear walls and functional actors stay visible. */
@@ -54,6 +67,8 @@ protected:
 private:
 	TWeakObjectPtr<APokeMonsterPlayerCharacter> CameraViewer;
 	void RefreshVisibility(float DeltaSeconds);
+	void UpdateRelocation(APawn* Player, bool bInside, float DeltaSeconds);
+	void ApplyRelocationMask(APawn* Player);
 	void ApplyVisibility();
 	TMap<TWeakObjectPtr<AActor>, bool> OriginalHiddenStates;
 	TMap<TWeakObjectPtr<UPrimitiveComponent>, float> OriginalFadeData;
@@ -62,4 +77,8 @@ private:
 	UPROPERTY(Transient, VisibleInstanceOnly, BlueprintReadOnly, Category="Building", meta=(AllowPrivateAccess="true"))
 	bool bCutawayActive = false;
 	bool bViewerInitialized = false;
+	bool bViewerRelocated = false;
+	bool bMidpointArmed = false;
+	bool bOwnsCameraMask = false;
+	bool bRelocationRejected = false;
 };
