@@ -1,0 +1,236 @@
+{
+  "FloorTile2m": {
+    "object": "HH_Art_FloorTile2m",
+    "size_cm": [
+      199.5,
+      199.5,
+      3.4
+    ],
+    "triangles": 2160,
+    "materials": [
+      "HH_Art_Wood"
+    ]
+  },
+  "WindowWall2m": {
+    "object": "HH_Art_WindowWall2m",
+    "size_cm": [
+      47.75,
+      200.0,
+      300.0
+    ],
+    "triangles": 1296,
+    "materials": [
+      "HH_Art_Plaster",
+      "HH_Art_Wood",
+      "HH_Art_Timber",
+      "HH_Art_Window",
+      "HH_Art_Stone"
+    ]
+  },
+  "StoneWainscot2m": {
+    "object": "HH_Art_StoneWainscot2m",
+    "size_cm": [
+      17.5,
+      207.0,
+      56.0
+    ],
+    "triangles": 1728,
+    "materials": [
+      "HH_Art_Mortar",
+      "HH_Art_Stone"
+    ]
+  },
+  "CounterStepped": {
+    "object": "HH_Art_CounterStepped",
+    "size_cm": [
+      93.85,
+      342.0,
+      101.5
+    ],
+    "triangles": 5184,
+    "materials": [
+      "HH_Art_Wood",
+      "HH_Art_Timber",
+      "HH_Art_Gold",
+      "HH_Art_Sage"
+    ]
+  },
+  "Fireplace": {
+    "object": "HH_Art_Fireplace",
+    "size_cm": [
+      115.0,
+      190.0,
+      235.0
+    ],
+    "triangles": 4440,
+    "materials": [
+      "HH_Art_Stone",
+      "HH_Art_Mortar",
+      "HH_Art_Wood",
+      "HH_Art_Timber",
+      "HH_Art_Fire",
+      "HH_Art_Metal"
+    ]
+  },
+  "Bench": {
+    "object": "HH_Art_Bench",
+    "size_cm": [
+      130.0,
+      74.25,
+      118.0
+    ],
+    "triangles": 1632,
+    "materials": [
+      "HH_Art_Timber",
+      "HH_Art_Wood",
+      "HH_Art_Sage"
+    ]
+  },
+  "Table": {
+    "object": "HH_Art_Table",
+    "size_cm": [
+      115.0,
+      70.0,
+      74.5
+    ],
+    "triangles": 1640,
+    "materials": [
+      "HH_Art_Wood",
+      "HH_Art_Timber"
+    ]
+  },
+  "CeramicJar": {
+    "object": "HH_Art_CeramicJar",
+    "size_cm": [
+      30.0,
+      30.0,
+      33.0
+    ],
+    "triangles": 400,
+    "materials": [
+      "HH_Art_Ceramic"
+    ]
+  },
+  "Vial": {
+    "object": "HH_Art_Vial",
+    "size_cm": [
+      16.0,
+      16.0,
+      32.5
+    ],
+    "triangles": 428,
+    "materials": [
+      "HH_Art_Glass",
+      "HH_Art_Wood"
+    ]
+  },
+  "Basket": {
+    "object": "HH_Art_Basket",
+    "size_cm": [
+      47.014,
+      46.0,
+      20.065
+    ],
+    "triangles": 2104,
+    "materials": [
+      "HH_Art_Wood",
+      "HH_Art_Gold"
+    ]
+  },
+  "HerbPot": {
+    "object": "HH_Art_HerbPot",
+    "size_cm": [
+      50.297,
+      46.844,
+      74.0
+    ],
+    "triangles": 7970,
+    "materials": [
+      "HH_Art_Ceramic",
+      "HH_Art_Leaf",
+      "HH_Art_LeafLight",
+      "HH_Art_Flower"
+    ]
+  },
+  "DriedHerbs": {
+    "object": "HH_Art_DriedHerbs",
+    "size_cm": [
+      48.37,
+      31.866,
+      54.8
+    ],
+    "triangles": 6496,
+    "materials": [
+      "HH_Art_Leaf",
+      "HH_Art_LeafLight",
+      "HH_Art_Gold"
+    ]
+  },
+  "Banner": {
+    "object": "HH_Art_Banner",
+    "size_cm": [
+      6.8,
+      122.0,
+      128.7
+    ],
+    "triangles": 1700,
+    "materials": [
+      "HH_Art_Sage",
+      "HH_Art_Gold",
+      "HH_Art_Wood"
+    ]
+  },
+  "Rug": {
+    "object": "HH_Art_Rug",
+    "size_cm": [
+      225.0,
+      160.0,
+      3.85
+    ],
+    "triangles": 3662,
+    "materials": [
+      "HH_Art_Sage",
+      "HH_Art_Gold",
+      "HH_Art_Linen"
+    ]
+  },
+  "WallPost": {
+    "object": "HH_Art_WallPost",
+    "size_cm": [
+      24.0,
+      73.234,
+      300.0
+    ],
+    "triangles": 324,
+    "materials": [
+      "HH_Art_Timber",
+      "HH_Art_Stone"
+    ]
+  },
+  "ShelfStock": {
+    "object": "HH_Art_ShelfStock",
+    "size_cm": [
+      67.0,
+      18.95,
+      34.0
+    ],
+    "triangles": 1080,
+    "materials": [
+      "HH_Art_Ceramic",
+      "HH_Art_Paper",
+      "HH_Art_Book"
+    ]
+  },
+  "Pillow": {
+    "object": "HH_Art_Pillow",
+    "size_cm": [
+      48.0,
+      64.0,
+      14.0
+    ],
+    "triangles": 168,
+    "materials": [
+      "HH_Art_Linen"
+    ]
+  }
+}

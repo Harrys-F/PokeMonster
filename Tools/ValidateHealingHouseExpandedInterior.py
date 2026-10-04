@@ -43,7 +43,11 @@ for actor in objects:
         meshes.append({'actor':actor.get_actor_label(),'mesh':mesh.get_path_name(),'materials':[m.get_path_name() if m else None for m in c.get_materials()],'collision':str(c.get_collision_enabled()),'rotation':str(actor.get_actor_rotation()),'location':str(actor.get_actor_location())})
         assert not any(math.isnan(x) for x in [actor.get_actor_location().x,actor.get_actor_location().y,actor.get_actor_location().z])
         if actor.get_actor_label().startswith('HH_Expanded_Side'):
-            rotation=actor.get_actor_rotation();assert abs(rotation.pitch)<.01 and abs(rotation.yaw+90)<.01
+            rotation=actor.get_actor_rotation()
+            # Window frames on the far wall face inward; all other bays retain -90.
+            window_far=actor.get_actor_label().startswith('HH_Expanded_SideWall_1_') and mesh.get_name()=='SM_HH_Art_WindowWall2m'
+            expected_yaw=90 if window_far else -90
+            assert abs(rotation.pitch)<.01 and abs(rotation.roll)<.01 and abs(rotation.yaw-expected_yaw)<.01
 assert not missing,missing
 (OUT/'MapAudit.json').write_text(json.dumps({'same_map':world.get_path_name(),'room_cm':[1000,1200],'inner_door':str(inner.get_world_location()),'outer_door':str(door.get_world_location()),'own_actor_count':len(own),'new_assets':[],'missing':missing,'geometry_materials':meshes,'healer_gameplay_settings_preserved':True},indent=2))
 unreal.log('HH_EXPANDED_AUDIT_PASSED')
