@@ -3,6 +3,7 @@ Run in Dev_HealingHouseTestMap with PIE stopped. Reuses existing V3 props and
 Westland modules; saves only this map. Refuses to repeat the operation.
 """
 import json
+import runpy
 from pathlib import Path
 import unreal
 ROOT=Path(unreal.Paths.project_dir()).resolve()
@@ -16,7 +17,8 @@ original=list(sub.get_all_level_actors());by={a.get_actor_label():a for a in ori
 cut=next(a for a in original if a.get_class().get_name()=='PokeMonsterBuildingCutaway')
 assert not cut.get_editor_property('use_relocated_interior'), 'Already authored'
 assert not any(a.actor_has_tag('HealingHouse_Expanded') for a in original)
-outer_occluders=list(cut.get_editor_property('occluding_actors'))
+cutaway_rules=runpy.run_path(str(ROOT/'Tools/ConfigureHealingHouseExpandedCutaway.py'))
+outer_occluders=cutaway_rules['without_legacy_side_occluders'](cut.get_editor_property('occluding_actors'))
 outer_door=cut.get_editor_property('door_threshold')
 assert outer_door.get_world_location()==unreal.Vector(-450,0,107.5)
 assert outer_door.get_unscaled_box_extent()==unreal.Vector(20,75,107.5)

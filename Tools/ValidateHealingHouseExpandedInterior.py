@@ -1,5 +1,5 @@
 """Read-only authored-map audit. Writes evidence only to ignored Saved/."""
-import unreal,json,math
+import unreal,json,math,runpy
 from pathlib import Path
 ROOT=Path(unreal.Paths.project_dir()).resolve();OUT=ROOT/'Saved/HealingExpanded';OUT.mkdir(parents=True,exist_ok=True)
 editor=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem)
@@ -7,6 +7,14 @@ assert not editor.get_game_world()
 world=editor.get_editor_world();assert world.get_name()=='Dev_HealingHouseTestMap'
 objects=list(unreal.get_editor_subsystem(unreal.EditorActorSubsystem).get_all_level_actors())
 by={a.get_actor_label():a for a in objects};cut=by['HouseCutaway'];door=cut.get_editor_property('door_threshold');inner=cut.get_editor_property('relocated_door_threshold');area=cut.get_editor_property('relocated_interior_area')
+rules=runpy.run_path(str(ROOT/'Tools/ConfigureHealingHouseExpandedCutaway.py'))
+occluders={a.get_actor_label() for a in cut.get_editor_property('occluding_actors')}
+assert not occluders & rules['LEGACY_SIDE_OCCLUDERS'], 'Legacy side walls must stay visible'
+assert rules['EXPANDED_FRONT_OCCLUDERS'] <= occluders, 'Front and door trim must fade'
+for label,actor in by.items():
+    if label.startswith(('HH_Expanded_Side','HH_Expanded_Rear')):
+        assert label not in occluders, 'Side/rear architecture must not fade: '+label
+        assert actor.static_mesh_component.is_visible(), label
 assert cut.get_editor_property('use_relocated_interior') and cut.get_editor_property('use_interior_camera')
 assert door.get_world_location()==unreal.Vector(-450,0,107.5)
 assert inner.get_world_location()==unreal.Vector(19500,0,107.5)

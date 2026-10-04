@@ -473,6 +473,16 @@ Vorhandene Paper2D-Vegetation bleibt rein visuell; kleine separate Stammkörper 
 
 ## Healing House: Expanded Interior Prototype
 
+### Verbindliche Building-Cutaway-Regel (geprüft am 2026-10-04)
+
+Im vollständig erreichten Innenmodus werden grundsätzlich **Dach und kameraseitige Vorderwand** einschließlich ihrer verdeckenden Front-/Türbauteile ausgeblendet. **Beide Seitenwände und die Rückwand bleiben sichtbar.** Keine pauschale Seitenwand-Ausblendung. Weitere Wandteile dürfen nur nach Sichtprüfung aus der tatsächlich verwendeten Innenkamera als einzelne, explizite Occluder ergänzt werden, wenn sie den Player oder wichtige Innenraumbereiche störend verdecken. Die konkrete Ausnahme und ihre Begründung gehören in den jeweiligen Prüfbericht. Auch L-/T-/Flügelgrundrisse verwenden gebäudespezifische `OccludingActors`-Listen; keine automatische Regel nach Wandnamen oder eine globale Laufzeitänderung für alle Gebäude.
+
+Für das bestehende Expanded Healing House wurden elf übernommene `CameraSide`-Einträge entfernt: Liste 118 → 107. Die ausgelagerten Seiten-/Rückwände waren bereits nicht Teil der Liste und bleiben samt Balken erhalten. Im ausgelagerten Raum sind ausschließlich zwei Frontwände, zwei Türpfosten, Türlintel und Türbalken Occluder; die übrigen 101 Referenzen sind vorhandene äußere Dach-/Frontbauteile und deren Anbauten/Deko, einschließlich weiterhin deaktivierter Altversionen. Der Raum hat bereits ein offenes Oberteil; ein neues Innenraumdach wurde nicht hinzugefügt. Nach dem Fußlauf entlang beider Seiten und der Rückwand aus **2600 cm / FOV 35° / Pitch −50° / lokalem Yaw 0°** ist kein zusätzlicher Seitenwand-Occluder erforderlich. Diese Prüfung verändert weder Außenhülle noch die Cutaway-Listen von Wohnhaus, Gasthaus oder Dorf.
+
+`ConfigureHealingHouseExpandedCutaway.py` korrigiert ausschließlich die vorhandene Referenzliste. Das einmalige Autorenwerkzeug übernimmt dieselbe explizite Ausschlussliste für spätere Reproduktion; der bestehende Raum wird nicht erneut gebaut. Mapaudit und `TestHealingHouseExpandedCutawayPIE.py` sichern Front-Ausblendung, sichtbare Seiten-/Rückwände und unveränderte Kamera/Steuerung ab. Prüfbericht: `HEALING_HOUSE_EXPANDED_CUTAWAY_PRUEFBERICHT.md`.
+
+### Bestehender Expanded-Interior-Aufbau
+
 Der geprüfte Stand basiert auf `32bba08` (Westland Village Core V1). Nur `Dev_HealingHouseTestMap` aktiviert die neue, standardmäßig deaktivierte Option `bUseRelocatedInterior`. Wohnhaus, Gasthaus und Dorf verwenden weiterhin **In-place Interior**: die vorhandene raumfeste Kamera wird innerhalb der Außenhülle über denselben CutawayAmount eingemischt. **Relocated/Expanded Interior** ist eine alternative Gebäudekonfiguration, keine Vorgabe für alle Gebäude.
 
 Für die ausgelagerte Variante ergänzt `APokeMonsterBuildingCutaway` zwei nicht kollidierende Komponenten: `RelocatedInteriorArea` und `RelocatedDoorThreshold`, dazu `RelocatedCameraTarget`. Beide Türpunkte müssen gleich ausgerichtet sein; das wird in BeginPlay geprüft. `MapDoorwayPosition` transformiert die tatsächliche Pawnposition aus dem lokalen Koordinatensystem der Quelltür in dasjenige der Zieltür. Seiten-, Boden- und Bewegungsoffsets bleiben erhalten. Es gibt weder Map-Wechsel noch Streaming oder einen zweiten äußeren Heilhaus-Actor.

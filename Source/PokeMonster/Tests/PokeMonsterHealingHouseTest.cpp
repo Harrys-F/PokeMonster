@@ -117,7 +117,7 @@ bool FPokeMonsterHealingHouseLayoutTest::RunTest(const FString& Parameters)
 	}
 	// Imported architecture is presentation only; the retained simple blockers
 	// remain authoritative. In particular, a convex whole-house hull must never
-	// seal the door or the room, and every near facade must participate in cutaway.
+	// seal the door or the room. Roof/front fade; side/rear walls stay visible.
 	TMap<FName, AStaticMeshActor*> Imported;
 	for (AActor* Actor : World->PersistentLevel->Actors)
 	{
@@ -132,7 +132,7 @@ bool FPokeMonsterHealingHouseLayoutTest::RunTest(const FString& Parameters)
 	}
 	TestTrue(TEXT("Blender shell is installed"), Imported.Num() >= 9);
 	for (const FName Name : {FName(TEXT("HH_Roof_Main")), FName(TEXT("HH_Roof_Porch")),
-		FName(TEXT("HH_Walls_Front")), FName(TEXT("HH_Walls_CameraSide")), FName(TEXT("HH_Gable_Front"))})
+		FName(TEXT("HH_Walls_Front")), FName(TEXT("HH_Gable_Front"))})
 	{
 		auto* Module = Imported.FindRef(Name);
 		if (TestNotNull(TEXT("Required removable Blender module exists"), Module))
@@ -148,6 +148,29 @@ bool FPokeMonsterHealingHouseLayoutTest::RunTest(const FString& Parameters)
 			}
 		}
 	}
+	int32 RetainedExpandedWalls = 0;
+	int32 RemovableExpandedFrontParts = 0;
+	for (AActor* Actor : World->PersistentLevel->Actors)
+	{
+		if (!Actor) continue;
+		const FString Label = Actor->GetActorLabel();
+		if (Label.Contains(TEXT("CameraSide")))
+			TestFalse(TEXT("Legacy side facade is no longer a blanket occluder"), Cutaway->OccludingActors.Contains(Actor));
+		if (Label.StartsWith(TEXT("HH_Expanded_Side")) || Label.StartsWith(TEXT("HH_Expanded_Rear")))
+		{
+			TestFalse(TEXT("Expanded side/rear wall and beam remain outside cutaway"), Cutaway->OccludingActors.Contains(Actor));
+			TestFalse(TEXT("Retained expanded architecture is visible"), Actor->IsHidden());
+			if (Label.Contains(TEXT("Wall"))) ++RetainedExpandedWalls;
+		}
+		if (Label.StartsWith(TEXT("HH_Expanded_FrontWall")) || Label.StartsWith(TEXT("HH_Expanded_DoorPost"))
+			|| Label == TEXT("HH_Expanded_DoorLintel") || Label == TEXT("HH_Expanded_DoorBeam"))
+		{
+			TestTrue(TEXT("Camera-facing front and doorway trim are explicit occluders"), Cutaway->OccludingActors.Contains(Actor));
+			++RemovableExpandedFrontParts;
+		}
+	}
+	TestEqual(TEXT("Ten side bays and six rear bays retained"), RetainedExpandedWalls, 16);
+	TestEqual(TEXT("Only the six expanded front/door parts fade"), RemovableExpandedFrontParts, 6);
 	if (auto* Roof = Imported.FindRef(TEXT("HH_Roof_Main")))
 	{
 		const FBox Bounds = Roof->GetStaticMeshComponent()->GetStaticMesh()->GetBoundingBox();
