@@ -1,0 +1,5 @@
+{
+  "generator": "OpenAI built-in image_gen",
+  "use": "Original albedo texture; no external download",
+  "prompt": "Use case: stylized-concept. Asset type: seamless square albedo texture for terracotta shingles on a cared-for medieval fantasy healing house in a high-quality painted 2.5D game. Generate an edge-to-edge flat orthographic painted material surface, not a building or scene. Muted warm terracotta, soft clay red, tawny orange and brown brushwork, handmade fired-clay streaks and tiny gentle color irregularities, broad readable gouache strokes. No tile grid or outlines: the roof's overlapping rows and seams are actual 3D geometry, this map supplies subtle clay surface color only. Homogeneous illumination with no directional baked shadows, no metallic gloss, no grime, no moss, no damage, no text, no border, no perspective. Smooth low-contrast variation and seamless repeatable edges. The texture must remain warm and well-kept, visually painted rather than photorealistic."
+}

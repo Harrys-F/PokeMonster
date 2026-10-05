@@ -1,0 +1,922 @@
+{
+  "CounterStepped": {
+    "object": "HH_Q3_CounterStepped",
+    "size_cm": [
+      95.1,
+      339.2,
+      103.25
+    ],
+    "bounds_min_cm": [
+      -49.2499977350235,
+      -169.6000099182129,
+      1.7499975860118866
+    ],
+    "bounds_max_cm": [
+      45.84999978542328,
+      169.59999799728394,
+      104.99999523162842
+    ],
+    "triangles": 12772,
+    "materials": [
+      "HH_Q3_Timber",
+      "HH_Q3_Wood",
+      "HH_Q3_Gold",
+      "HH_Q3_Sage"
+    ],
+    "source": "V2 dimensions/function retained; rebuilt continuous construction",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Bookcase": {
+    "object": "HH_Q3_Bookcase",
+    "size_cm": [
+      130.455,
+      50.3,
+      197.8
+    ],
+    "bounds_min_cm": [
+      -65.22749662399292,
+      -27.300000190734863,
+      0.0
+    ],
+    "bounds_max_cm": [
+      65.22749662399292,
+      23.000000417232513,
+      197.79999256134033
+    ],
+    "triangles": 3044,
+    "materials": [
+      "HH_Q3_Timber",
+      "HH_Q3_Wood",
+      "HH_Q3_Gold"
+    ],
+    "source": "retained V3 shelf geometry/support planes plus crown, stiles and small joints",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "HerbShelf": {
+    "object": "HH_Q3_HerbShelf",
+    "size_cm": [
+      225.23,
+      50.3,
+      187.8
+    ],
+    "bounds_min_cm": [
+      -112.61500120162964,
+      -27.300000190734863,
+      0.0
+    ],
+    "bounds_max_cm": [
+      112.61500120162964,
+      23.000000417232513,
+      187.8000020980835
+    ],
+    "triangles": 3044,
+    "materials": [
+      "HH_V2_Timber.001",
+      "HH_V2_Wood.001",
+      "HH_Q3_Timber",
+      "HH_Q3_Gold",
+      "HH_Q3_Wood"
+    ],
+    "source": "retained V3 shelf geometry/support planes plus crown, stiles and small joints",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Bench": {
+    "object": "HH_Q3_Bench",
+    "size_cm": [
+      135.1,
+      77.5005,
+      118.464
+    ],
+    "bounds_min_cm": [
+      -67.64999628067017,
+      -36.00051403045654,
+      -0.21167495287954807
+    ],
+    "bounds_max_cm": [
+      67.44999885559082,
+      41.49999916553497,
+      118.25227737426758
+    ],
+    "triangles": 3772,
+    "materials": [
+      "HH_Q3_Timber",
+      "HH_Q3_Wood",
+      "HH_Q3_Sage"
+    ],
+    "source": "retained V2 seat/cushions with crafted back crest and supports",
+    "collision": "retain original simple collision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Table": {
+    "object": "HH_Q3_Table",
+    "size_cm": [
+      114.0,
+      68.4,
+      76.0
+    ],
+    "bounds_min_cm": [
+      -56.99999928474426,
+      -34.199997782707214,
+      1.0000050067901611
+    ],
+    "bounds_max_cm": [
+      56.99999928474426,
+      34.199997782707214,
+      76.99999809265137
+    ],
+    "triangles": 6912,
+    "materials": [
+      "HH_Q3_Wood",
+      "HH_Q3_Timber"
+    ],
+    "source": "V1 115x70 cm footprint / 75 cm top retained",
+    "collision": "retain original simple collision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "HerbTable": {
+    "object": "HH_Q3_HerbTable",
+    "size_cm": [
+      120.0,
+      65.05,
+      84.0
+    ],
+    "bounds_min_cm": [
+      -60.00000238418579,
+      -32.55000114440918,
+      0.0
+    ],
+    "bounds_max_cm": [
+      60.00000238418579,
+      32.499998807907104,
+      84.00000333786011
+    ],
+    "triangles": 1400,
+    "materials": [
+      "HH_V2_Timber.002",
+      "HH_V2_Wood.002",
+      "HH_Q3_Timber",
+      "HH_Q3_Metal"
+    ],
+    "source": "V3 treatment table preserved; braces and discreet straps",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "TreatmentBedSmall": {
+    "object": "HH_Q3_TreatmentBedSmall",
+    "size_cm": [
+      144.0,
+      85.0,
+      77.5
+    ],
+    "bounds_min_cm": [
+      -74.00000095367432,
+      -42.500001192092896,
+      0.0
+    ],
+    "bounds_max_cm": [
+      69.99999284744263,
+      42.500001192092896,
+      77.50000357627869
+    ],
+    "triangles": 2636,
+    "materials": [
+      "HH_V2_Timber.003",
+      "HH_V2_Wood.003",
+      "HH_Q3_Linen",
+      "HH_Q3_Sage",
+      "HH_V3_Cream",
+      "HH_Q3_Timber",
+      "HH_Q3_Wood"
+    ],
+    "source": "V3 bed dimensions/supports retained; shaped end posts and frame",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "TreatmentBedLarge": {
+    "object": "HH_Q3_TreatmentBedLarge",
+    "size_cm": [
+      184.0,
+      108.0,
+      77.5
+    ],
+    "bounds_min_cm": [
+      -93.99999380111694,
+      -54.00000214576721,
+      0.0
+    ],
+    "bounds_max_cm": [
+      90.00000357627869,
+      54.00000214576721,
+      77.50000357627869
+    ],
+    "triangles": 2636,
+    "materials": [
+      "HH_V2_Timber.004",
+      "HH_V2_Wood.004",
+      "HH_V3_Linen.001",
+      "HH_V3_Sage.001",
+      "HH_V3_Cream.001",
+      "HH_Q3_Timber",
+      "HH_Q3_Wood"
+    ],
+    "source": "V3 bed dimensions/supports retained; shaped end posts and frame",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "BroadHerb": {
+    "object": "HH_Q3_BroadHerb",
+    "size_cm": [
+      77.9338,
+      77.7075,
+      82.3397
+    ],
+    "bounds_min_cm": [
+      -38.39128315448761,
+      -39.12149667739868,
+      0.0
+    ],
+    "bounds_max_cm": [
+      39.542531967163086,
+      38.58597278594971,
+      82.33968615531921
+    ],
+    "triangles": 1956,
+    "materials": [
+      "HH_Q3_Ceramic",
+      "HH_Q3_LeafDark",
+      "HH_Q3_LeafLight",
+      "HH_Q3_Leaf"
+    ],
+    "source": "modular botanical family; curved leaves/midribs and hand-thrown pot",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "NarrowHerb": {
+    "object": "HH_Q3_NarrowHerb",
+    "size_cm": [
+      90.6487,
+      90.674,
+      92.2575
+    ],
+    "bounds_min_cm": [
+      -45.361167192459106,
+      -45.332980155944824,
+      0.0
+    ],
+    "bounds_max_cm": [
+      45.287543535232544,
+      45.34104764461517,
+      92.25753545761108
+    ],
+    "triangles": 2360,
+    "materials": [
+      "HH_Q3_Ceramic",
+      "HH_Q3_LeafDark",
+      "HH_Q3_LeafLight",
+      "HH_Q3_Leaf"
+    ],
+    "source": "modular botanical family; curved leaves/midribs and hand-thrown pot",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "LeafPlant": {
+    "object": "HH_Q3_LeafPlant",
+    "size_cm": [
+      65.3488,
+      65.4367,
+      78.8046
+    ],
+    "bounds_min_cm": [
+      -32.620567083358765,
+      -32.83560276031494,
+      0.0
+    ],
+    "bounds_max_cm": [
+      32.72818326950073,
+      32.60110020637512,
+      78.80457639694214
+    ],
+    "triangles": 1988,
+    "materials": [
+      "HH_Q3_Ceramic",
+      "HH_Q3_LeafDark",
+      "HH_Q3_LeafLight",
+      "HH_Q3_Leaf"
+    ],
+    "source": "modular botanical family; curved leaves/midribs and hand-thrown pot",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "FlowerPlant": {
+    "object": "HH_Q3_FlowerPlant",
+    "size_cm": [
+      78.1652,
+      78.5267,
+      79.1396
+    ],
+    "bounds_min_cm": [
+      -38.92240226268768,
+      -39.416661858558655,
+      0.0
+    ],
+    "bounds_max_cm": [
+      39.2427921295166,
+      39.110007882118225,
+      79.13955450057983
+    ],
+    "triangles": 2992,
+    "materials": [
+      "HH_Q3_Ceramic",
+      "HH_Q3_LeafDark",
+      "HH_Q3_LeafLight",
+      "HH_Q3_Flower",
+      "HH_Q3_FlowerCream",
+      "HH_Q3_Leaf"
+    ],
+    "source": "modular botanical family; curved leaves/midribs and hand-thrown pot",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "TrailingHerb": {
+    "object": "HH_Q3_TrailingHerb",
+    "size_cm": [
+      104.6025,
+      104.6138,
+      37.9189
+    ],
+    "bounds_min_cm": [
+      -52.315086126327515,
+      -51.38397216796875,
+      -12.918899953365326
+    ],
+    "bounds_max_cm": [
+      52.28742957115173,
+      53.2298743724823,
+      25.0
+    ],
+    "triangles": 1492,
+    "materials": [
+      "HH_Q3_Ceramic",
+      "HH_Q3_LeafDark",
+      "HH_Q3_LeafLight",
+      "HH_Q3_Leaf"
+    ],
+    "source": "modular botanical family; curved leaves/midribs and hand-thrown pot",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "HangingHerb": {
+    "object": "HH_Q3_HangingHerb",
+    "size_cm": [
+      104.4223,
+      106.0943,
+      90.6861
+    ],
+    "bounds_min_cm": [
+      -52.06335783004761,
+      -52.86364555358887,
+      -13.186120986938477
+    ],
+    "bounds_max_cm": [
+      52.35894322395325,
+      53.23064923286438,
+      77.50000357627869
+    ],
+    "triangles": 2036,
+    "materials": [
+      "HH_Q3_Ceramic",
+      "HH_Q3_LeafDark",
+      "HH_Q3_LeafLight",
+      "HH_Q3_Leaf",
+      "HH_Q3_Gold",
+      "HH_Q3_Metal"
+    ],
+    "source": "modular botanical family; curved leaves/midribs and hand-thrown pot",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "HerbBundle": {
+    "object": "HH_Q3_HerbBundle",
+    "size_cm": [
+      55.6871,
+      55.997,
+      54.5488
+    ],
+    "bounds_min_cm": [
+      -27.653759717941284,
+      -28.016650676727295,
+      8.599698543548584
+    ],
+    "bounds_max_cm": [
+      28.033360838890076,
+      27.980375289916992,
+      63.14847469329834
+    ],
+    "triangles": 1528,
+    "materials": [
+      "HH_Q3_LeafDark",
+      "HH_Q3_LeafLight",
+      "HH_Q3_Leaf",
+      "HH_Q3_Gold"
+    ],
+    "source": "tied hanging herb bundle",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "WindowPlanter": {
+    "object": "HH_Q3_WindowPlanter",
+    "size_cm": [
+      125.0,
+      46.95,
+      24.25
+    ],
+    "bounds_min_cm": [
+      -62.5,
+      -24.250000715255737,
+      0.7499992847442627
+    ],
+    "bounds_max_cm": [
+      62.5,
+      22.699999809265137,
+      25.0
+    ],
+    "triangles": 4324,
+    "materials": [
+      "HH_Q3_Wood",
+      "HH_Q3_Timber",
+      "HH_Q3_Metal"
+    ],
+    "source": "reusable 125 cm window box; ornamental, not a blocker",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "GuardianSign": {
+    "object": "HH_Q3_GuardianSign",
+    "size_cm": [
+      16.75,
+      74.5,
+      84.5
+    ],
+    "bounds_min_cm": [
+      -76.49999856948853,
+      -37.25000023841858,
+      -91.24999642372131
+    ],
+    "bounds_max_cm": [
+      -59.74999666213989,
+      37.25000023841858,
+      -6.7500002682209015
+    ],
+    "triangles": 3432,
+    "materials": [
+      "HH_V3_Sage.002",
+      "HH_V2_Timber.005",
+      "HH_V3_Cream.002",
+      "HH_Q3_Wood",
+      "HH_Q3_Metal"
+    ],
+    "source": "existing V3 protective ring/leaves/toe marks; carved frame and rivets",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "LanternHook": {
+    "object": "HH_Q3_LanternHook",
+    "size_cm": [
+      29.9567,
+      25.7736,
+      36.6562
+    ],
+    "bounds_min_cm": [
+      -14.978349208831787,
+      -1.3000010512769222,
+      38.74380588531494
+    ],
+    "bounds_max_cm": [
+      14.978349208831787,
+      24.47357028722763,
+      75.40000081062317
+    ],
+    "triangles": 564,
+    "materials": [
+      "HH_Q3_Metal"
+    ],
+    "source": "reusable wrought-iron hanger with visible mounting",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Roof_Main": {
+    "object": "HH_Q3_Roof_Main",
+    "size_cm": [
+      990.0,
+      973.591,
+      389.0043
+    ],
+    "bounds_min_cm": [
+      -494.9999809265137,
+      -486.7365837097168,
+      250.65960884094238
+    ],
+    "bounds_max_cm": [
+      494.9999809265137,
+      486.8544578552246,
+      639.6639347076416
+    ],
+    "triangles": 9624,
+    "materials": [
+      "HH_Q3_Roof",
+      "HH_Q3_Timber"
+    ],
+    "source": "retained roof substrate plus continuous scalloped overlapping courses",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Roof_Porch": {
+    "object": "HH_Q3_Roof_Porch",
+    "size_cm": [
+      417.0,
+      146.9766,
+      86.7912
+    ],
+    "bounds_min_cm": [
+      -380.9999942779541,
+      426.51166915893555,
+      191.0395860671997
+    ],
+    "bounds_max_cm": [
+      36.000001430511475,
+      573.4882354736328,
+      277.83074378967285
+    ],
+    "triangles": 656,
+    "materials": [
+      "HH_V2_Roof.001",
+      "HH_V2_Wood.005",
+      "HH_Q3_Roof",
+      "HH_Q3_Timber"
+    ],
+    "source": "retained roof substrate plus continuous scalloped overlapping courses",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Roof_Entry": {
+    "object": "HH_Q3_Roof_Entry",
+    "size_cm": [
+      68.0,
+      240.2844,
+      128.118
+    ],
+    "bounds_min_cm": [
+      -500.0,
+      -120.14222145080566,
+      239.30346965789795
+    ],
+    "bounds_max_cm": [
+      -432.0000171661377,
+      120.14222145080566,
+      367.4215078353882
+    ],
+    "triangles": 232,
+    "materials": [
+      "HH_V2_Roof.002",
+      "HH_Q3_Roof",
+      "HH_Q3_Timber"
+    ],
+    "source": "retained roof substrate plus continuous scalloped overlapping courses",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Roof_Trim": {
+    "object": "HH_Q3_Roof_Trim",
+    "size_cm": [
+      1021.3995,
+      996.777,
+      396.7463
+    ],
+    "bounds_min_cm": [
+      -510.699462890625,
+      -499.94006156921387,
+      242.3264741897583
+    ],
+    "bounds_max_cm": [
+      510.699987411499,
+      496.83690071105957,
+      639.0727519989014
+    ],
+    "triangles": 660,
+    "materials": [
+      "HH_V2_Wood.006"
+    ],
+    "source": "V3 architectural module; retained openings/size/origin, crafted surface details",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Timber_Front": {
+    "object": "HH_Q3_Timber_Front",
+    "size_cm": [
+      27.3693,
+      891.0422,
+      630.7393
+    ],
+    "bounds_min_cm": [
+      -483.67977142333984,
+      -445.4528331756592,
+      -0.1952465740032494
+    ],
+    "bounds_max_cm": [
+      -456.310510635376,
+      445.58939933776855,
+      630.5440902709961
+    ],
+    "triangles": 492,
+    "materials": [
+      "HH_V2_Timber.006"
+    ],
+    "source": "V3 architectural module; retained openings/size/origin, crafted surface details",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Timber_CameraSide": {
+    "object": "HH_Q3_Timber_CameraSide",
+    "size_cm": [
+      880.3919,
+      25.0895,
+      268.1256
+    ],
+    "bounds_min_cm": [
+      -440.1927947998047,
+      -467.29063987731934,
+      0.047065672697499394
+    ],
+    "bounds_max_cm": [
+      440.1991367340088,
+      -442.20118522644043,
+      268.17264556884766
+    ],
+    "triangles": 308,
+    "materials": [
+      "HH_V2_Timber.007"
+    ],
+    "source": "V3 architectural module; retained openings/size/origin, crafted surface details",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Timber_Far": {
+    "object": "HH_Q3_Timber_Far",
+    "size_cm": [
+      880.368,
+      25.0895,
+      268.1237
+    ],
+    "bounds_min_cm": [
+      -440.1827335357666,
+      442.7093029022217,
+      -0.1746231922879815
+    ],
+    "bounds_max_cm": [
+      440.1853084564209,
+      467.7987575531006,
+      267.9490566253662
+    ],
+    "triangles": 308,
+    "materials": [
+      "HH_V2_Timber.008"
+    ],
+    "source": "V3 architectural module; retained openings/size/origin, crafted surface details",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Timber_Entry": {
+    "object": "HH_Q3_Timber_Entry",
+    "size_cm": [
+      47.1063,
+      249.6022,
+      147.51
+    ],
+    "bounds_min_cm": [
+      -512.6935482025146,
+      -124.64535236358643,
+      219.31226253509521
+    ],
+    "bounds_max_cm": [
+      -465.58728218078613,
+      124.95685815811157,
+      366.8222904205322
+    ],
+    "triangles": 132,
+    "materials": [
+      "HH_V2_Timber.009"
+    ],
+    "source": "V3 architectural module; retained openings/size/origin, crafted surface details",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Stone_Front": {
+    "object": "HH_Q3_Stone_Front",
+    "size_cm": [
+      35.3821,
+      875.9591,
+      54.3234
+    ],
+    "bounds_min_cm": [
+      -486.8663787841797,
+      -438.2411479949951,
+      -0.07548801368102431
+    ],
+    "bounds_max_cm": [
+      -451.48425102233887,
+      437.7179145812988,
+      54.24792766571045
+    ],
+    "triangles": 1012,
+    "materials": [
+      "HH_Q3_Stone"
+    ],
+    "source": "V3 architectural module; retained openings/size/origin, crafted surface details",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Stone_CameraSide": {
+    "object": "HH_Q3_Stone_CameraSide",
+    "size_cm": [
+      868.6951,
+      35.6064,
+      54.7061
+    ],
+    "bounds_min_cm": [
+      -434.53288078308105,
+      -470.9424018859863,
+      -0.189252442214638
+    ],
+    "bounds_max_cm": [
+      434.16218757629395,
+      -435.33596992492676,
+      54.51686382293701
+    ],
+    "triangles": 1144,
+    "materials": [
+      "HH_V2_Stone.001"
+    ],
+    "source": "V3 architectural module; retained openings/size/origin, crafted surface details",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Stone_Far": {
+    "object": "HH_Q3_Stone_Far",
+    "size_cm": [
+      868.1318,
+      35.8215,
+      54.5357
+    ],
+    "bounds_min_cm": [
+      -434.2520236968994,
+      435.03684997558594,
+      -0.2511143684387207
+    ],
+    "bounds_max_cm": [
+      433.87980461120605,
+      470.8583354949951,
+      54.28462028503418
+    ],
+    "triangles": 1188,
+    "materials": [
+      "HH_V2_Stone.002"
+    ],
+    "source": "V3 architectural module; retained openings/size/origin, crafted surface details",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Chimney": {
+    "object": "HH_Q3_Chimney",
+    "size_cm": [
+      114.6992,
+      120.1908,
+      475.3597
+    ],
+    "bounds_min_cm": [
+      220.15016078948975,
+      82.57790803909302,
+      219.83773708343506
+    ],
+    "bounds_max_cm": [
+      334.8494052886963,
+      202.7686595916748,
+      695.1974868774414
+    ],
+    "triangles": 17228,
+    "materials": [
+      "HH_V2_Stone.003",
+      "HH_Q3_Stone"
+    ],
+    "source": "V3 architectural module; retained openings/size/origin, crafted surface details",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Windows_Front": {
+    "object": "HH_Q3_Windows_Front",
+    "size_cm": [
+      35.0681,
+      707.2021,
+      150.6258
+    ],
+    "bounds_min_cm": [
+      -491.36857986450195,
+      -353.78310680389404,
+      83.30032229423523
+    ],
+    "bounds_max_cm": [
+      -456.3004970550537,
+      353.4189462661743,
+      233.9261531829834
+    ],
+    "triangles": 1584,
+    "materials": [
+      "HH_V2_Wood.007",
+      "HH_V2_Stone.004"
+    ],
+    "source": "V3 architectural module; retained openings/size/origin, crafted surface details",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Windows_CameraSide": {
+    "object": "HH_Q3_Windows_CameraSide",
+    "size_cm": [
+      612.0942,
+      35.4416,
+      138.672
+    ],
+    "bounds_min_cm": [
+      -305.9880018234253,
+      -476.7865180969238,
+      91.47002696990967
+    ],
+    "bounds_max_cm": [
+      306.10623359680176,
+      -441.34488105773926,
+      230.1419973373413
+    ],
+    "triangles": 792,
+    "materials": [
+      "HH_V2_Wood.008",
+      "HH_V2_Stone.005"
+    ],
+    "source": "V3 architectural module; retained openings/size/origin, crafted surface details",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "Windows_Far": {
+    "object": "HH_Q3_Windows_Far",
+    "size_cm": [
+      612.0987,
+      35.4416,
+      138.6431
+    ],
+    "bounds_min_cm": [
+      -306.0620069503784,
+      441.2134647369385,
+      91.3191556930542
+    ],
+    "bounds_max_cm": [
+      306.03673458099365,
+      476.65510177612305,
+      229.96230125427246
+    ],
+    "triangles": 792,
+    "materials": [
+      "HH_V2_Wood.009",
+      "HH_V2_Stone.006"
+    ],
+    "source": "V3 architectural module; retained openings/size/origin, crafted surface details",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  },
+  "DoorFrame": {
+    "object": "HH_Q3_DoorFrame",
+    "size_cm": [
+      40.0,
+      210.0,
+      242.1087
+    ],
+    "bounds_min_cm": [
+      -496.00000381469727,
+      -104.99999523162842,
+      0.0
+    ],
+    "bounds_max_cm": [
+      -455.9999942779541,
+      104.99999523162842,
+      242.10867881774902
+    ],
+    "triangles": 1104,
+    "materials": [
+      "HH_V2_Stone.007",
+      "HH_V2_Wood.010",
+      "HH_Q3_Metal"
+    ],
+    "source": "V3 architectural module; retained openings/size/origin, crafted surface details",
+    "collision": "NoCollision",
+    "units": "metres; FBX centimetre conversion"
+  }
+}

@@ -1,0 +1,1299 @@
+{
+  "changes": [
+    {
+      "actor": "HH_Art_Reception",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_CounterStepped.SM_HH_Q2_CounterStepped",
+      "new_visual": "CounterStepped"
+    },
+    {
+      "actor": "HH_Art_BenchWaiting",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_Bench.SM_HH_Q2_Bench",
+      "new_visual": "Bench"
+    },
+    {
+      "actor": "HH_Art_BenchCompanion",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_Bench.SM_HH_Q2_Bench",
+      "new_visual": "Bench"
+    },
+    {
+      "actor": "HH_Art_TableWaiting",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_Table.SM_HH_Art_Table",
+      "new_visual": "Table"
+    },
+    {
+      "actor": "HH_V3_HerbTable",
+      "old_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_HerbTable.SM_HH_V3_HerbTable",
+      "new_visual": "HerbTable"
+    },
+    {
+      "actor": "HH_V3_Bookcase",
+      "old_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_Bookcase.SM_HH_V3_Bookcase",
+      "new_visual": "Bookcase"
+    },
+    {
+      "actor": "HH_V3_HerbShelf",
+      "old_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_HerbShelf.SM_HH_V3_HerbShelf",
+      "new_visual": "HerbShelf"
+    },
+    {
+      "actor": "HH_Art_RearApothecary_0",
+      "old_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_Bookcase.SM_HH_V3_Bookcase",
+      "new_visual": "Bookcase"
+    },
+    {
+      "actor": "HH_Art_RearApothecary_1",
+      "old_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_Bookcase.SM_HH_V3_Bookcase",
+      "new_visual": "Bookcase"
+    },
+    {
+      "actor": "HH_V3_TreatmentBedSmall",
+      "old_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_TreatmentBedSmall.SM_HH_V3_TreatmentBedSmall",
+      "new_visual": "TreatmentBedSmall"
+    },
+    {
+      "actor": "HH_V3_TreatmentBedLarge",
+      "old_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_TreatmentBedLarge.SM_HH_V3_TreatmentBedLarge",
+      "new_visual": "TreatmentBedLarge"
+    },
+    {
+      "actor": "HH_V3_GuardianSign",
+      "old_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_GuardianSign.SM_HH_V3_GuardianSign",
+      "new_visual": "GuardianSign"
+    },
+    {
+      "actor": "HH_V2_Roof_Main",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Roof_Main.SM_HH_V2_Roof_Main",
+      "new_visual": "Roof_Main"
+    },
+    {
+      "actor": "HH_V2_Roof_Porch",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Roof_Porch.SM_HH_V2_Roof_Porch",
+      "new_visual": "Roof_Porch"
+    },
+    {
+      "actor": "HH_V2_Roof_Entry",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Roof_Entry.SM_HH_V2_Roof_Entry",
+      "new_visual": "Roof_Entry"
+    },
+    {
+      "actor": "HH_V2_Roof_Trim",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Roof_Trim.SM_HH_V2_Roof_Trim",
+      "new_visual": "Roof_Trim"
+    },
+    {
+      "actor": "HH_V2_Timber_Front",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Timber_Front.SM_HH_V2_Timber_Front",
+      "new_visual": "Timber_Front"
+    },
+    {
+      "actor": "HH_V2_Timber_CameraSide",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Timber_CameraSide.SM_HH_V2_Timber_CameraSide",
+      "new_visual": "Timber_CameraSide"
+    },
+    {
+      "actor": "HH_V2_Timber_Far",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Timber_Far.SM_HH_V2_Timber_Far",
+      "new_visual": "Timber_Far"
+    },
+    {
+      "actor": "HH_V2_Timber_Entry",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Timber_Entry.SM_HH_V2_Timber_Entry",
+      "new_visual": "Timber_Entry"
+    },
+    {
+      "actor": "HH_V2_Stone_Front",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Stone_Front.SM_HH_V2_Stone_Front",
+      "new_visual": "Stone_Front"
+    },
+    {
+      "actor": "HH_V2_Stone_CameraSide",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Stone_CameraSide.SM_HH_V2_Stone_CameraSide",
+      "new_visual": "Stone_CameraSide"
+    },
+    {
+      "actor": "HH_V2_Stone_Far",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Stone_Far.SM_HH_V2_Stone_Far",
+      "new_visual": "Stone_Far"
+    },
+    {
+      "actor": "HH_V2_Chimney",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Chimney.SM_HH_V2_Chimney",
+      "new_visual": "Chimney"
+    },
+    {
+      "actor": "HH_V2_Windows_Front",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Windows_Front.SM_HH_V2_Windows_Front",
+      "new_visual": "Windows_Front"
+    },
+    {
+      "actor": "HH_V2_Windows_CameraSide",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Windows_CameraSide.SM_HH_V2_Windows_CameraSide",
+      "new_visual": "Windows_CameraSide"
+    },
+    {
+      "actor": "HH_V2_Windows_Far",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Windows_Far.SM_HH_V2_Windows_Far",
+      "new_visual": "Windows_Far"
+    },
+    {
+      "actor": "HH_V2_DoorFrame",
+      "old_mesh": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_DoorFrame.SM_HH_V2_DoorFrame",
+      "new_visual": "DoorFrame"
+    },
+    {
+      "actor": "HH_Art_CounterPlant",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_HerbPot.SM_HH_Art_HerbPot",
+      "new_visual": "BroadHerb"
+    },
+    {
+      "actor": "HH_Art_WaitingPot",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_HerbPot.SM_HH_Art_HerbPot",
+      "new_visual": "LeafPlant"
+    },
+    {
+      "actor": "HH_Art_RearHerb_0",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_DriedHerbs.SM_HH_Art_DriedHerbs",
+      "new_visual": "HerbBundle"
+    },
+    {
+      "actor": "HH_Art_RearHerb_1",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_DriedHerbs.SM_HH_Art_DriedHerbs",
+      "new_visual": "HerbBundle"
+    },
+    {
+      "actor": "HH_Art_RearHerb_2",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_DriedHerbs.SM_HH_Art_DriedHerbs",
+      "new_visual": "HerbBundle"
+    },
+    {
+      "actor": "HH_Art_WindowPot_-1_0",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_HerbPot.SM_HH_Art_HerbPot",
+      "new_visual": "FlowerPlant"
+    },
+    {
+      "actor": "HH_Art_WallHerb_-1_0",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_DriedHerbs.SM_HH_Art_DriedHerbs",
+      "new_visual": "HerbBundle"
+    },
+    {
+      "actor": "HH_Art_WindowPot_-1_1",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_HerbPot.SM_HH_Art_HerbPot",
+      "new_visual": "NarrowHerb"
+    },
+    {
+      "actor": "HH_Art_WallHerb_-1_1",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_DriedHerbs.SM_HH_Art_DriedHerbs",
+      "new_visual": "HerbBundle"
+    },
+    {
+      "actor": "HH_Art_WindowPot_1_0",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_HerbPot.SM_HH_Art_HerbPot",
+      "new_visual": "TrailingHerb"
+    },
+    {
+      "actor": "HH_Art_WallHerb_1_0",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_DriedHerbs.SM_HH_Art_DriedHerbs",
+      "new_visual": "HerbBundle"
+    },
+    {
+      "actor": "HH_Art_WindowPot_1_1",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_HerbPot.SM_HH_Art_HerbPot",
+      "new_visual": "BroadHerb"
+    },
+    {
+      "actor": "HH_Art_WallHerb_1_1",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_DriedHerbs.SM_HH_Art_DriedHerbs",
+      "new_visual": "HerbBundle"
+    },
+    {
+      "actor": "HH_Art_FloorHerb_0",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_HerbPot.SM_HH_Art_HerbPot",
+      "new_visual": "LeafPlant"
+    },
+    {
+      "actor": "HH_Art_FloorHerb_1",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_HerbPot.SM_HH_Art_HerbPot",
+      "new_visual": "FlowerPlant"
+    },
+    {
+      "actor": "HH_Art_FloorHerb_2",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_HerbPot.SM_HH_Art_HerbPot",
+      "new_visual": "NarrowHerb"
+    },
+    {
+      "actor": "HH_Art_FloorHerb_3",
+      "old_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_HerbPot.SM_HH_Art_HerbPot",
+      "new_visual": "TrailingHerb"
+    }
+  ],
+  "retained_collision_actors": [
+    {
+      "actor": "HH_Art_BenchWaiting",
+      "original_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_Bench.SM_HH_Q2_Bench",
+      "visual": "HH_Q3_Visual_HH_Art_BenchWaiting"
+    },
+    {
+      "actor": "HH_Art_BenchCompanion",
+      "original_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_Bench.SM_HH_Q2_Bench",
+      "visual": "HH_Q3_Visual_HH_Art_BenchCompanion"
+    },
+    {
+      "actor": "HH_Art_TableWaiting",
+      "original_mesh": "/Game/Environment/HealingHouse/ExpandedArtV1/Meshes/SM_HH_Art_Table.SM_HH_Art_Table",
+      "visual": "HH_Q3_Visual_HH_Art_TableWaiting"
+    },
+    {
+      "actor": "HH_V3_HerbTable",
+      "original_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_HerbTable.SM_HH_V3_HerbTable",
+      "visual": "HH_Q3_Visual_HH_V3_HerbTable"
+    },
+    {
+      "actor": "HH_V3_Bookcase",
+      "original_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_Bookcase.SM_HH_V3_Bookcase",
+      "visual": "HH_Q3_Visual_HH_V3_Bookcase"
+    },
+    {
+      "actor": "HH_V3_HerbShelf",
+      "original_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_HerbShelf.SM_HH_V3_HerbShelf",
+      "visual": "HH_Q3_Visual_HH_V3_HerbShelf"
+    },
+    {
+      "actor": "HH_Art_RearApothecary_0",
+      "original_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_Bookcase.SM_HH_V3_Bookcase",
+      "visual": "HH_Q3_Visual_HH_Art_RearApothecary_0"
+    },
+    {
+      "actor": "HH_Art_RearApothecary_1",
+      "original_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_Bookcase.SM_HH_V3_Bookcase",
+      "visual": "HH_Q3_Visual_HH_Art_RearApothecary_1"
+    },
+    {
+      "actor": "HH_V3_TreatmentBedSmall",
+      "original_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_TreatmentBedSmall.SM_HH_V3_TreatmentBedSmall",
+      "visual": "HH_Q3_Visual_HH_V3_TreatmentBedSmall"
+    },
+    {
+      "actor": "HH_V3_TreatmentBedLarge",
+      "original_mesh": "/Game/Environment/HealingHouse/V3/Meshes/SM_HH_V3_TreatmentBedLarge.SM_HH_V3_TreatmentBedLarge",
+      "visual": "HH_Q3_Visual_HH_V3_TreatmentBedLarge"
+    }
+  ],
+  "plants_replaced": [
+    "HH_Art_CounterPlant",
+    "HH_Art_WaitingPot",
+    "HH_Art_WindowPot_-1_0",
+    "HH_Art_WindowPot_-1_1",
+    "HH_Art_WindowPot_1_0",
+    "HH_Art_WindowPot_1_1",
+    "HH_Art_FloorHerb_0",
+    "HH_Art_FloorHerb_1",
+    "HH_Art_FloorHerb_2",
+    "HH_Art_FloorHerb_3"
+  ],
+  "new_actors": [
+    {
+      "actor": "HH_Q3_Visual_HH_Art_BenchWaiting",
+      "mesh": "Bench",
+      "position_cm": [
+        19770.0,
+        -375.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_Visual_HH_Art_BenchCompanion",
+      "mesh": "Bench",
+      "position_cm": [
+        19925.0,
+        -300.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_Visual_HH_Art_TableWaiting",
+      "mesh": "Table",
+      "position_cm": [
+        19770.0,
+        -285.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_Visual_HH_V3_HerbTable",
+      "mesh": "HerbTable",
+      "position_cm": [
+        19665.0,
+        395.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_Visual_HH_V3_Bookcase",
+      "mesh": "Bookcase",
+      "position_cm": [
+        19830.0,
+        -450.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_Visual_HH_V3_HerbShelf",
+      "mesh": "HerbShelf",
+      "position_cm": [
+        20290.0,
+        -450.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_Visual_HH_Art_RearApothecary_0",
+      "mesh": "Bookcase",
+      "position_cm": [
+        20400.0,
+        -290.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_Visual_HH_Art_RearApothecary_1",
+      "mesh": "Bookcase",
+      "position_cm": [
+        20400.0,
+        295.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_Visual_HH_V3_TreatmentBedSmall",
+      "mesh": "TreatmentBedSmall",
+      "position_cm": [
+        19955.0,
+        415.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_Visual_HH_V3_TreatmentBedLarge",
+      "mesh": "TreatmentBedLarge",
+      "position_cm": [
+        20165.0,
+        415.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowBox_0",
+      "mesh": "WindowPlanter",
+      "position_cm": [
+        -493,
+        -275,
+        68
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "front_occluder": true
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_0_0",
+      "mesh": "FlowerPlant",
+      "position_cm": [
+        -493,
+        -313.0,
+        91
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": true
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_0_1",
+      "mesh": "BroadHerb",
+      "position_cm": [
+        -493,
+        -275,
+        91
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": true
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_0_2",
+      "mesh": "TrailingHerb",
+      "position_cm": [
+        -493,
+        -237.0,
+        91
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": true
+    },
+    {
+      "actor": "HH_Q3_WindowBox_1",
+      "mesh": "WindowPlanter",
+      "position_cm": [
+        -493,
+        275,
+        68
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "front_occluder": true
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_1_0",
+      "mesh": "FlowerPlant",
+      "position_cm": [
+        -493,
+        237.0,
+        91
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": true
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_1_1",
+      "mesh": "BroadHerb",
+      "position_cm": [
+        -493,
+        275,
+        91
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": true
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_1_2",
+      "mesh": "TrailingHerb",
+      "position_cm": [
+        -493,
+        313.0,
+        91
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": true
+    },
+    {
+      "actor": "HH_Q3_WindowBox_2",
+      "mesh": "WindowPlanter",
+      "position_cm": [
+        -260,
+        -480,
+        72
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_2_0",
+      "mesh": "FlowerPlant",
+      "position_cm": [
+        -298.0,
+        -480,
+        95
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_2_1",
+      "mesh": "BroadHerb",
+      "position_cm": [
+        -260,
+        -480,
+        95
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_2_2",
+      "mesh": "TrailingHerb",
+      "position_cm": [
+        -222.0,
+        -480,
+        95
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowBox_3",
+      "mesh": "WindowPlanter",
+      "position_cm": [
+        260,
+        -480,
+        72
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_3_0",
+      "mesh": "FlowerPlant",
+      "position_cm": [
+        222.0,
+        -480,
+        95
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_3_1",
+      "mesh": "BroadHerb",
+      "position_cm": [
+        260,
+        -480,
+        95
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_3_2",
+      "mesh": "TrailingHerb",
+      "position_cm": [
+        298.0,
+        -480,
+        95
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowBox_4",
+      "mesh": "WindowPlanter",
+      "position_cm": [
+        -260,
+        480,
+        72
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_4_0",
+      "mesh": "FlowerPlant",
+      "position_cm": [
+        -298.0,
+        480,
+        95
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_4_1",
+      "mesh": "BroadHerb",
+      "position_cm": [
+        -260,
+        480,
+        95
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_4_2",
+      "mesh": "TrailingHerb",
+      "position_cm": [
+        -222.0,
+        480,
+        95
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowBox_5",
+      "mesh": "WindowPlanter",
+      "position_cm": [
+        260,
+        480,
+        72
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_5_0",
+      "mesh": "FlowerPlant",
+      "position_cm": [
+        222.0,
+        480,
+        95
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_5_1",
+      "mesh": "BroadHerb",
+      "position_cm": [
+        260,
+        480,
+        95
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_WindowHerb_5_2",
+      "mesh": "TrailingHerb",
+      "position_cm": [
+        298.0,
+        480,
+        95
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.65
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_EntranceHerb_0",
+      "mesh": "FlowerPlant",
+      "position_cm": [
+        -540,
+        -175,
+        0
+      ],
+      "scale": [
+        1.25,
+        1.25,
+        1.15
+      ],
+      "front_occluder": true
+    },
+    {
+      "actor": "HH_Q3_EntranceHerb_1",
+      "mesh": "NarrowHerb",
+      "position_cm": [
+        -550,
+        275,
+        0
+      ],
+      "scale": [
+        1.25,
+        1.25,
+        1.15
+      ],
+      "front_occluder": true
+    },
+    {
+      "actor": "HH_Q3_EntranceHerb_2",
+      "mesh": "BroadHerb",
+      "position_cm": [
+        -680,
+        -410,
+        0
+      ],
+      "scale": [
+        1.25,
+        1.25,
+        1.15
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_EntranceHerb_3",
+      "mesh": "LeafPlant",
+      "position_cm": [
+        320,
+        -530,
+        0
+      ],
+      "scale": [
+        1.25,
+        1.25,
+        1.15
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_HangingHook_0",
+      "mesh": "LanternHook",
+      "position_cm": [
+        19735,
+        -590,
+        228
+      ],
+      "scale": [
+        1,
+        0.85,
+        1
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_HangingHerb_0",
+      "mesh": "HangingHerb",
+      "position_cm": [
+        19735,
+        -570,
+        214
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_HangingHook_1",
+      "mesh": "LanternHook",
+      "position_cm": [
+        20315,
+        590,
+        228
+      ],
+      "scale": [
+        1,
+        0.85,
+        1
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_HangingHerb_1",
+      "mesh": "HangingHerb",
+      "position_cm": [
+        20315,
+        570,
+        214
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_HangingHook_2",
+      "mesh": "LanternHook",
+      "position_cm": [
+        20490,
+        -425,
+        228
+      ],
+      "scale": [
+        1,
+        0.85,
+        1
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_HangingHerb_2",
+      "mesh": "HangingHerb",
+      "position_cm": [
+        20470,
+        -425,
+        214
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_HerbBundle_0",
+      "mesh": "HerbBundle",
+      "position_cm": [
+        20485,
+        -454,
+        137
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_HerbBundle_1",
+      "mesh": "HerbBundle",
+      "position_cm": [
+        20485,
+        -420,
+        148
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_HerbBundle_2",
+      "mesh": "HerbBundle",
+      "position_cm": [
+        20485,
+        -390,
+        158
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_ForecourtHerb_0",
+      "mesh": "BroadHerb",
+      "position_cm": [
+        -1100.0,
+        -430.0,
+        0
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.4
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_ForecourtHerb_1",
+      "mesh": "LeafPlant",
+      "position_cm": [
+        -700.0,
+        -455.0,
+        0
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.4
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_ForecourtHerb_2",
+      "mesh": "FlowerPlant",
+      "position_cm": [
+        -920.0,
+        450.0,
+        0
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.4
+      ],
+      "front_occluder": false
+    },
+    {
+      "actor": "HH_Q3_ForecourtHerb_3",
+      "mesh": "NarrowHerb",
+      "position_cm": [
+        -560.0,
+        650.0,
+        0
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.4
+      ],
+      "front_occluder": false
+    }
+  ],
+  "lights": [
+    {
+      "actor": "HH_Art_Light_Fire",
+      "candela": 20,
+      "range_cm": 270,
+      "source_cm": 18,
+      "temperature": 2450,
+      "shadows": true
+    },
+    {
+      "actor": "HH_Art_Light_Waiting",
+      "candela": 3.8,
+      "range_cm": 245,
+      "source_cm": 12,
+      "temperature": 2850,
+      "shadows": false
+    },
+    {
+      "actor": "HH_Art_Light_Reception",
+      "candela": 5.5,
+      "range_cm": 260,
+      "source_cm": 15,
+      "temperature": 3100,
+      "shadows": false
+    },
+    {
+      "actor": "HH_Art_Light_Treatment",
+      "candela": 3.5,
+      "range_cm": 260,
+      "source_cm": 16,
+      "temperature": 3400,
+      "shadows": false
+    },
+    {
+      "actor": "HH_V3_CounterGlow",
+      "candela": 1.8,
+      "range_cm": 210,
+      "source_cm": 16,
+      "temperature": 3050,
+      "shadows": false
+    },
+    {
+      "actor": "HH_V3_RestAreaGlow",
+      "candela": 1.5,
+      "range_cm": 210,
+      "source_cm": 16,
+      "temperature": 3200,
+      "shadows": false
+    },
+    {
+      "actor": "HH_Q3_WindowLight_0",
+      "candela": 5,
+      "range_cm": 440,
+      "source_cm": 24,
+      "temperature": 5800,
+      "shadows": false
+    },
+    {
+      "actor": "HH_Q3_WindowLight_1",
+      "candela": 5,
+      "range_cm": 440,
+      "source_cm": 24,
+      "temperature": 5800,
+      "shadows": false
+    },
+    {
+      "actor": "HH_Q3_WindowLight_2",
+      "candela": 5,
+      "range_cm": 440,
+      "source_cm": 24,
+      "temperature": 5800,
+      "shadows": false
+    },
+    {
+      "actor": "HH_Q3_WindowLight_3",
+      "candela": 5,
+      "range_cm": 440,
+      "source_cm": 24,
+      "temperature": 5800,
+      "shadows": false
+    },
+    {
+      "actor": "HH_Q3_WindowLight_4",
+      "candela": 5,
+      "range_cm": 440,
+      "source_cm": 24,
+      "temperature": 5800,
+      "shadows": false
+    },
+    {
+      "actor": "HH_Q3_WindowLight_5",
+      "candela": 5,
+      "range_cm": 440,
+      "source_cm": 24,
+      "temperature": 5800,
+      "shadows": false
+    }
+  ],
+  "original_occluders": [
+    "EntranceWall_-310",
+    "EntranceWall_310",
+    "DoorLintel",
+    "DoorPost_-135",
+    "DoorPost_135",
+    "DoorBeam",
+    "Roof_-260",
+    "Roof_260",
+    "Ridge",
+    "FrontWindow_-315",
+    "FrontWindowFrame_-315_-57",
+    "FrontWindowFrame_-315_57",
+    "FrontWindowSill_-315",
+    "FrontWindow_315",
+    "FrontWindowFrame_315_-57",
+    "FrontWindowFrame_315_57",
+    "FrontWindowSill_315",
+    "HH_Walls_Front",
+    "HH_Gable_Front",
+    "HH_Roof_Main",
+    "HH_Roof_Porch",
+    "HH_Timber_Front",
+    "HH_DoorFrame",
+    "HH_WindowFrames_Front",
+    "HH_Glass_Front",
+    "HH_Chimney",
+    "HH_ChimneyCap",
+    "HH_V2_Walls_Front",
+    "HH_V2_Gable_Front",
+    "HH_V2_Glass_Front",
+    "HH_V2_Glass_Loft",
+    "HH_V2_Windows_Front",
+    "HH_V2_Windows_Loft",
+    "HH_V2_Roof_Main",
+    "HH_V2_Roof_Trim",
+    "HH_V2_Roof_Porch",
+    "HH_V2_Roof_Entry",
+    "HH_V2_Timber_Front",
+    "HH_V2_Timber_Entry",
+    "HH_V2_DoorFrame",
+    "HH_V2_DoorLeaf",
+    "HH_V2_Stone_Front",
+    "HH_V2_Chimney",
+    "HH_V2_ChimneyCap",
+    "HH_V3_SignBracket",
+    "HH_V3_GuardianSign",
+    "HH_V3_Lantern",
+    "HH_V3_WindowBox_-1",
+    "HH_V3_WindowBoxSoil_-1",
+    "HH_V3_WindowHerb_-1_0_Pot",
+    "HH_V3_WindowHerb_-1_0_Leaf0",
+    "HH_V3_WindowHerb_-1_0_Leaf1",
+    "HH_V3_WindowHerb_-1_0_Leaf2",
+    "HH_V3_WindowHerb_-1_0_Flower",
+    "HH_V3_WindowHerb_-1_1_Pot",
+    "HH_V3_WindowHerb_-1_1_Leaf0",
+    "HH_V3_WindowHerb_-1_1_Leaf1",
+    "HH_V3_WindowHerb_-1_1_Leaf2",
+    "HH_V3_WindowHerb_-1_2_Pot",
+    "HH_V3_WindowHerb_-1_2_Leaf0",
+    "HH_V3_WindowHerb_-1_2_Leaf1",
+    "HH_V3_WindowHerb_-1_2_Leaf2",
+    "HH_V3_WindowHerb_-1_2_Flower",
+    "HH_V3_WindowHerb_-1_3_Pot",
+    "HH_V3_WindowHerb_-1_3_Leaf0",
+    "HH_V3_WindowHerb_-1_3_Leaf1",
+    "HH_V3_WindowHerb_-1_3_Leaf2",
+    "HH_V3_Ivy_-1_0",
+    "HH_V3_Ivy_-1_1",
+    "HH_V3_Ivy_-1_2",
+    "HH_V3_Ivy_-1_3",
+    "HH_V3_Ivy_-1_4",
+    "HH_V3_Ivy_-1_5",
+    "HH_V3_Ivy_-1_6",
+    "HH_V3_WindowBox_1",
+    "HH_V3_WindowBoxSoil_1",
+    "HH_V3_WindowHerb_1_0_Pot",
+    "HH_V3_WindowHerb_1_0_Leaf0",
+    "HH_V3_WindowHerb_1_0_Leaf1",
+    "HH_V3_WindowHerb_1_0_Leaf2",
+    "HH_V3_WindowHerb_1_0_Flower",
+    "HH_V3_WindowHerb_1_1_Pot",
+    "HH_V3_WindowHerb_1_1_Leaf0",
+    "HH_V3_WindowHerb_1_1_Leaf1",
+    "HH_V3_WindowHerb_1_1_Leaf2",
+    "HH_V3_WindowHerb_1_2_Pot",
+    "HH_V3_WindowHerb_1_2_Leaf0",
+    "HH_V3_WindowHerb_1_2_Leaf1",
+    "HH_V3_WindowHerb_1_2_Leaf2",
+    "HH_V3_WindowHerb_1_2_Flower",
+    "HH_V3_WindowHerb_1_3_Pot",
+    "HH_V3_WindowHerb_1_3_Leaf0",
+    "HH_V3_WindowHerb_1_3_Leaf1",
+    "HH_V3_WindowHerb_1_3_Leaf2",
+    "HH_V3_Ivy_1_0",
+    "HH_V3_Ivy_1_1",
+    "HH_V3_Ivy_1_2",
+    "HH_V3_Ivy_1_3",
+    "HH_V3_Ivy_1_4",
+    "HH_V3_Ivy_1_5",
+    "HH_V3_Ivy_1_6",
+    "HH_Expanded_FrontWall_-1",
+    "HH_Expanded_DoorPost_-1",
+    "HH_Expanded_FrontWall_1",
+    "HH_Expanded_DoorPost_1",
+    "HH_Expanded_DoorLintel",
+    "HH_Expanded_DoorBeam"
+  ],
+  "new_front_occluders": [
+    "HH_Q3_WindowBox_0",
+    "HH_Q3_WindowHerb_0_0",
+    "HH_Q3_WindowHerb_0_1",
+    "HH_Q3_WindowHerb_0_2",
+    "HH_Q3_WindowBox_1",
+    "HH_Q3_WindowHerb_1_0",
+    "HH_Q3_WindowHerb_1_1",
+    "HH_Q3_WindowHerb_1_2",
+    "HH_Q3_EntranceHerb_0",
+    "HH_Q3_EntranceHerb_1"
+  ],
+  "layout_and_gameplay_preserved": true,
+  "decorative_plant_moves_cm": {
+    "HH_Art_FloorHerb_1": [
+      19620,
+      480,
+      1
+    ],
+    "HH_Art_FloorHerb_2": [
+      20380,
+      410,
+      1
+    ]
+  },
+  "decorative_plant_scale": {
+    "HH_Art_FloorHerb_1": [
+      0.85,
+      0.85,
+      0.85
+    ]
+  }
+}

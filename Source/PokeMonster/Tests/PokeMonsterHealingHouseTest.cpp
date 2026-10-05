@@ -199,7 +199,30 @@ bool FPokeMonsterHealingHouseLayoutTest::RunTest(const FString& Parameters)
 		if (Actor->ActorHasTag(TEXT("HealingHouse_V3_Furniture")))
 			for (const auto* Primitive : Primitives)
 			{
-				TestTrue(TEXT("Blocking V3 furniture stays visible"), Primitive->IsVisible());
+				if (Primitive->IsVisible())
+					TestFalse(TEXT("Visible furniture actor is not hidden"), Actor->IsHidden());
+				else
+				{
+					// Art variants may retain the original collision mesh as a hidden
+					// proxy. Require its matching visible, nonblocking representation.
+					AStaticMeshActor* Visual = nullptr;
+					for (AActor* Candidate : World->PersistentLevel->Actors)
+						if (Candidate && Candidate->GetActorLabel() == TEXT("HH_Q3_Visual_") + Actor->GetActorLabel())
+							Visual = Cast<AStaticMeshActor>(Candidate);
+					if (TestNotNull(TEXT("Hidden furniture proxy has a matching art representation"), Visual))
+					{
+						TestFalse(TEXT("Furniture art actor is not hidden"), Visual->IsHidden());
+						TestTrue(TEXT("Furniture art component stays visible"), Visual->GetStaticMeshComponent()->IsVisible());
+						TestEqual(TEXT("Furniture art does not duplicate collision"),
+							Visual->GetStaticMeshComponent()->GetCollisionEnabled(), ECollisionEnabled::NoCollision);
+						TestTrue(TEXT("Furniture art matches its collision proxy transform"),
+							Visual->GetActorTransform().Equals(Actor->GetActorTransform()));
+					}
+					TestEqual(TEXT("Retained furniture proxy still blocks the player"),
+						Primitive->GetCollisionResponseToChannel(ECC_Pawn), ECR_Block);
+					TestTrue(TEXT("Retained furniture proxy collision remains enabled"),
+						Primitive->GetCollisionEnabled() != ECollisionEnabled::NoCollision);
+				}
 				TestEqual(TEXT("Furniture does not intercept interaction"),
 					Primitive->GetCollisionResponseToChannel(ECC_Visibility), ECR_Ignore);
 			}
