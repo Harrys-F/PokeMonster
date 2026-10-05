@@ -1,0 +1,35 @@
+{
+  "generator": "Built-in Imagegen",
+  "prompts": [
+    {
+      "name": "Wood",
+      "prompt": "Seamless repeating square base-color game texture, full frame orthographic flat surface of warm aged honey-brown oak wood, vertical continuous grain. Hand painted high resolution cozy fantasy game illustration, subtle sweeping broad grain, a few knots and darker grain grooves, softly brushed tonal transitions, gently worn wood. Visible broad features at distant 2.5D game camera, quiet contrast, medium brown NOT yellow. No board separators, no perspective, no lighting vignette, no furniture, no border, no labels. Edges tile seamlessly. Matte albedo only, no photo texture, no pixel art, no glossy realism.",
+      "destination": "Art/HealingHouse/Textures/QualityV2/T_HH_PaintedWood.png"
+    },
+    {
+      "name": "Stone",
+      "prompt": "Seamless square material base-color texture, flat single natural sandstone surface without masonry joints. Hand painted stylized cozy fantasy game, warm grey taupe with soft brown muted lavender inclusions, broad brushed irregular clouding, lightly chipped mineral flecks, subtle darker fissures, softly painted highlights. Medium value, restrained palette. This coats individual beveled masonry blocks so do not draw blocks or mortar lines. Full frame all surface, tileable edges, no lighting vignette, no text, no photo texture, no noise microdetail.",
+      "destination": "Art/HealingHouse/Textures/QualityV2/T_HH_PaintedStone.png"
+    },
+    {
+      "name": "Plaster",
+      "prompt": "Seamless square base-color texture of clean maintained warm ivory lime plaster, creamy slightly ochre light surface with softly hand-painted broad brush strokes, extremely subtle age marks and tonal variations. Cozy high quality illustrated medieval fantasy interior. No dirty mould, no bricks, no objects, no shadows, no vignette, no text, no cracks large or heavy. Low contrast flat albedo, full frame tileable brushwork readable from distant game camera, not photographic.",
+      "destination": "Art/HealingHouse/Textures/QualityV2/T_HH_PaintedPlaster.png"
+    },
+    {
+      "name": "Cloth",
+      "prompt": "Seamless square flat texture of soft muted sage-green linen cloth for cozy fantasy furniture, hand painted high resolution, subtle broad undulating fabric folds and woven painted streaks, slight light sage to olive color variation. Fine warm golden linen fibers understated, no symbols or embroidery. Matte illustrated material albedo not photo, gentle contrast, tileable edges, no objects or borders, no perspective or vignette. Designed for green bed blankets and upholstered cushions viewed from distant 2.5D game camera.",
+      "destination": "Art/HealingHouse/Textures/QualityV2/T_HH_PaintedCloth.png"
+    },
+    {
+      "name": "Grass",
+      "prompt": "Seamless repeating square flat ground albedo texture for high quality hand painted 2.5D fantasy RPG countryside. Natural grassy earth mosaic with soft moss greens, olive and sage patches, a little straw/tan dry soil, painterly grouped short grass strokes, tiny scattered leaves, broad gentle organic tonal variation. Grass-earth ground surface NOT a field photograph or individual tall grass blades. Quiet naturally muted warm green palette, no bright neon green, no large flowers, no large rocks, no tile grid, no text or vignette. Top down orthographic uniform light, seamless all edges. Rich brush work readable at distant game camera.",
+      "destination": "Art/Environment/Westland/NaturalGroundV1/Textures/T_WL_PaintedGrass.png"
+    },
+    {
+      "name": "Earth",
+      "prompt": "Seamless square flat albedo game texture of a worn rural earth path, high quality hand painted cozy fantasy illustration. Warm tawny ochre and muted brown packed earth, smooth stepped brush shading, small pale pebble flecks, subtle darker compressed foot-worn streaks and light dusty patches. No defined path outline, no grass border, no road shape, no footprints, no tile grid, no objects. Entire image is packed earth ground. Flat orthographic uniform lighting, no shadows or vignette, seamless edges, no photorealism, no pixel art, broad natural marks readable at distant 2.5D camera.",
+      "destination": "Art/Environment/Westland/NaturalGroundV1/Textures/T_WL_PaintedEarth.png"
+    }
+  ]
+}

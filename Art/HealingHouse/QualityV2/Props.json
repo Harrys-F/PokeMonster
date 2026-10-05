@@ -1,0 +1,194 @@
+{
+  "FloorTile2m": {
+    "object": "HH_Q2_FloorTile2m",
+    "size_cm": [
+      199.8272,
+      199.5183,
+      3.7091
+    ],
+    "triangles": 2160,
+    "materials": [
+      "HH_Art_Wood"
+    ],
+    "ground": false
+  },
+  "CounterStepped": {
+    "object": "HH_Q2_CounterStepped",
+    "size_cm": [
+      93.9531,
+      341.9762,
+      101.6429
+    ],
+    "triangles": 5184,
+    "materials": [
+      "HH_Art_Wood",
+      "HH_Art_Timber",
+      "HH_Art_Gold",
+      "HH_Art_Sage"
+    ],
+    "ground": false
+  },
+  "Fireplace": {
+    "object": "HH_Q2_Fireplace",
+    "size_cm": [
+      115.233,
+      189.8791,
+      234.696
+    ],
+    "triangles": 4440,
+    "materials": [
+      "HH_Art_Stone",
+      "HH_Art_Mortar",
+      "HH_Art_Wood",
+      "HH_Art_Timber",
+      "HH_Art_Fire",
+      "HH_Art_Metal"
+    ],
+    "ground": false
+  },
+  "Bench": {
+    "object": "HH_Q2_Bench",
+    "size_cm": [
+      130.4894,
+      74.2654,
+      118.464
+    ],
+    "triangles": 1632,
+    "materials": [
+      "HH_Art_Timber",
+      "HH_Art_Wood",
+      "HH_Art_Sage"
+    ],
+    "ground": false
+  },
+  "StoneWainscot2m": {
+    "object": "HH_Q2_StoneWainscot2m",
+    "size_cm": [
+      17.8254,
+      206.6743,
+      55.7027
+    ],
+    "triangles": 1728,
+    "materials": [
+      "HH_Art_Mortar",
+      "HH_Art_Stone"
+    ],
+    "ground": false
+  },
+  "Pillow": {
+    "object": "HH_Q2_Pillow",
+    "size_cm": [
+      47.9403,
+      63.9204,
+      13.9826
+    ],
+    "triangles": 168,
+    "materials": [
+      "HH_Art_Linen"
+    ],
+    "ground": false
+  },
+  "Coverlet": {
+    "object": "HH_Q2_Coverlet",
+    "size_cm": [
+      130.0,
+      74.0,
+      13.6889
+    ],
+    "triangles": 560,
+    "materials": [
+      "HH_Art_Sage"
+    ],
+    "ground": false
+  },
+  "GrassSmall": {
+    "object": "HH_Q2_GrassSmall",
+    "size_cm": [
+      33.8625,
+      40.5101,
+      20.3694
+    ],
+    "triangles": 54,
+    "materials": [
+      "HH_Art_GrassLeaf0",
+      "HH_Art_GrassLeaf1",
+      "HH_Art_GrassLeaf2",
+      "HH_Art_FlowerCream"
+    ],
+    "ground": true
+  },
+  "GrassMedium": {
+    "object": "HH_Q2_GrassMedium",
+    "size_cm": [
+      66.0715,
+      73.6779,
+      37.7454
+    ],
+    "triangles": 108,
+    "materials": [
+      "HH_Art_GrassLeaf0",
+      "HH_Art_GrassLeaf1",
+      "HH_Art_GrassLeaf2",
+      "HH_Art_FlowerCream"
+    ],
+    "ground": true
+  },
+  "GrassLarge": {
+    "object": "HH_Q2_GrassLarge",
+    "size_cm": [
+      100.7283,
+      110.7676,
+      54.6217
+    ],
+    "triangles": 168,
+    "materials": [
+      "HH_Art_GrassLeaf0",
+      "HH_Art_GrassLeaf1",
+      "HH_Art_GrassLeaf2",
+      "HH_Art_FlowerCream"
+    ],
+    "ground": true
+  },
+  "MeadowHerbs": {
+    "object": "HH_Q2_MeadowHerbs",
+    "size_cm": [
+      58.731,
+      52.1522,
+      30.536
+    ],
+    "triangles": 112,
+    "materials": [
+      "HH_Art_GrassLeaf0",
+      "HH_Art_GrassLeaf1",
+      "HH_Art_GrassLeaf2",
+      "HH_Art_FlowerCream"
+    ],
+    "ground": true
+  },
+  "PebbleSmall": {
+    "object": "HH_Q2_PebbleSmall",
+    "size_cm": [
+      31.4555,
+      25.5351,
+      14.9988
+    ],
+    "triangles": 80,
+    "materials": [
+      "HH_Art_Stone"
+    ],
+    "ground": true
+  },
+  "PebbleCluster": {
+    "object": "HH_Q2_PebbleCluster",
+    "size_cm": [
+      51.0108,
+      39.0812,
+      17.9355
+    ],
+    "triangles": 80,
+    "materials": [
+      "HH_Art_Stone"
+    ],
+    "ground": true
+  }
+}
