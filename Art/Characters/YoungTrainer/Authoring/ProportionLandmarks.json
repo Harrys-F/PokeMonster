@@ -1,0 +1,90 @@
+{
+  "scale_m_per_pixel": 0.003580562659846547,
+  "ground_pixel_y": 494,
+  "measurement_method": "Manual landmarks on supplied illustrated FRONT; anatomy under clothes estimated. Uncertainty 3-8 pixels (1.1-2.9 cm). A-pose arms differ from relaxed reference.",
+  "front": [
+    {
+      "name": "HairTop",
+      "pixel_y": 103,
+      "height_m": 1.4
+    },
+    {
+      "name": "SkullTopEstimated",
+      "pixel_y": 121,
+      "height_m": 1.3355498721227619
+    },
+    {
+      "name": "EyeLine",
+      "pixel_y": 166,
+      "height_m": 1.1744245524296675
+    },
+    {
+      "name": "Chin",
+      "pixel_y": 196,
+      "height_m": 1.067007672634271
+    },
+    {
+      "name": "NeckBase",
+      "pixel_y": 202,
+      "height_m": 1.0455242966751916
+    },
+    {
+      "name": "Shoulder",
+      "pixel_y": 213,
+      "height_m": 1.0061381074168798
+    },
+    {
+      "name": "Chest",
+      "pixel_y": 250,
+      "height_m": 0.8736572890025575
+    },
+    {
+      "name": "Waist",
+      "pixel_y": 284,
+      "height_m": 0.7519181585677749
+    },
+    {
+      "name": "Hip",
+      "pixel_y": 315,
+      "height_m": 0.640920716112532
+    },
+    {
+      "name": "Crotch",
+      "pixel_y": 333,
+      "height_m": 0.5764705882352941
+    },
+    {
+      "name": "ElbowEstimated",
+      "pixel_y": 283,
+      "height_m": 0.7554987212276214
+    },
+    {
+      "name": "Wrist",
+      "pixel_y": 310,
+      "height_m": 0.6588235294117646
+    },
+    {
+      "name": "Fingertip",
+      "pixel_y": 350,
+      "height_m": 0.5156010230179028
+    },
+    {
+      "name": "KneeEstimated",
+      "pixel_y": 383,
+      "height_m": 0.3974424552429667
+    },
+    {
+      "name": "Ankle",
+      "pixel_y": 437,
+      "height_m": 0.2040920716112532
+    },
+    {
+      "name": "Sole",
+      "pixel_y": 494,
+      "height_m": 0.0
+    }
+  ],
+  "side_axis_x": 403,
+  "side_boot_front_x": 447,
+  "side_boot_front_projection_m": 0.15754475703324808
+}

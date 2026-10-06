@@ -1,0 +1,735 @@
+{
+  "schema_version": 1,
+  "asset": "YoungTrainer_Reference_V1",
+  "date": "2026-10-06",
+  "base_git_head": "eafab5b",
+  "blender_version": "5.2.2 LTS",
+  "source": "Source/YoungTrainer_Reference_V1.blend",
+  "height_m": 1.4,
+  "bounds_m": {
+    "min": [
+      -0.39896395802497864,
+      -0.16994141042232513,
+      0.0
+    ],
+    "max": [
+      0.39896395802497864,
+      0.3569999933242798,
+      1.399999976158142
+    ]
+  },
+  "mesh_count": 20,
+  "bone_count": 32,
+  "vertices": 28499,
+  "triangles": 56066,
+  "quads": 25954,
+  "material": "YT_IllustratedAtlas",
+  "linear_skinning": true,
+  "objects": [
+    {
+      "object": "YT_Head",
+      "vertices": 1522,
+      "triangles": 3040,
+      "quads": 1520,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 1,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Body",
+      "vertices": 746,
+      "triangles": 1472,
+      "quads": 632,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 2,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Shirt",
+      "vertices": 1182,
+      "triangles": 2316,
+      "quads": 976,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 3,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Pants",
+      "vertices": 1904,
+      "triangles": 3736,
+      "quads": 1732,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 2,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Socks",
+      "vertices": 244,
+      "triangles": 480,
+      "quads": 200,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 1,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Boots",
+      "vertices": 1432,
+      "triangles": 2816,
+      "quads": 1264,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 1,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Hands",
+      "vertices": 776,
+      "triangles": 1504,
+      "quads": 608,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 1,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Eyes",
+      "vertices": 1240,
+      "triangles": 2440,
+      "quads": 1024,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 1,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Face",
+      "vertices": 1450,
+      "triangles": 2856,
+      "quads": 1344,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 1,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Vest",
+      "vertices": 2136,
+      "triangles": 4108,
+      "quads": 1930,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 3,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Scarf",
+      "vertices": 166,
+      "triangles": 316,
+      "quads": 122,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 1,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Belt",
+      "vertices": 110,
+      "triangles": 212,
+      "quads": 74,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 1,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Harness",
+      "vertices": 144,
+      "triangles": 280,
+      "quads": 140,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 2,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Pouches",
+      "vertices": 396,
+      "triangles": 760,
+      "quads": 356,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 1,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Wristbands",
+      "vertices": 180,
+      "triangles": 344,
+      "quads": 140,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 1,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Pendant",
+      "vertices": 628,
+      "triangles": 1216,
+      "quads": 544,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 2,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Backpack",
+      "vertices": 578,
+      "triangles": 1112,
+      "quads": 532,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 1,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Bedroll",
+      "vertices": 1358,
+      "triangles": 2704,
+      "quads": 1320,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 1,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Equipment",
+      "vertices": 480,
+      "triangles": 940,
+      "quads": 426,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 1,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "YT_Hair",
+      "vertices": 11827,
+      "triangles": 23414,
+      "quads": 11070,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "invalid_uv_loops": 0,
+      "bad_weight_vertices": 0,
+      "max_weights": 1,
+      "materials": 1,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "fk_probes": [
+    {
+      "pose": "Rest",
+      "bone_rotations_degrees": {},
+      "overlap_face_pairs": {
+        "hands_backpack": 0,
+        "skin_backpack": 0
+      }
+    },
+    {
+      "pose": "Stride",
+      "bone_rotations_degrees": {
+        "upperarm.L": [
+          20,
+          0,
+          0
+        ],
+        "upperarm.R": [
+          -20,
+          0,
+          0
+        ],
+        "thigh.L": [
+          14,
+          0,
+          0
+        ],
+        "thigh.R": [
+          -14,
+          0,
+          0
+        ],
+        "shin.R": [
+          -16,
+          0,
+          0
+        ]
+      },
+      "overlap_face_pairs": {
+        "hands_backpack": 0,
+        "skin_backpack": 0
+      }
+    },
+    {
+      "pose": "Interact",
+      "bone_rotations_degrees": {
+        "upperarm.L": [
+          -18,
+          0,
+          0
+        ],
+        "forearm.L": [
+          -35,
+          0,
+          0
+        ],
+        "head": [
+          0,
+          20,
+          0
+        ]
+      },
+      "overlap_face_pairs": {
+        "hands_backpack": 0,
+        "skin_backpack": 0
+      }
+    },
+    {
+      "pose": "RunProbe",
+      "bone_rotations_degrees": {
+        "upperarm.L": [
+          35,
+          0,
+          0
+        ],
+        "upperarm.R": [
+          -35,
+          0,
+          0
+        ],
+        "forearm.L": [
+          -40,
+          0,
+          0
+        ],
+        "forearm.R": [
+          -40,
+          0,
+          0
+        ],
+        "thigh.L": [
+          25,
+          0,
+          0
+        ],
+        "thigh.R": [
+          -25,
+          0,
+          0
+        ],
+        "shin.R": [
+          -45,
+          0,
+          0
+        ]
+      },
+      "overlap_face_pairs": {
+        "hands_backpack": 0,
+        "skin_backpack": 0
+      }
+    }
+  ],
+  "technical_audit_passed": true,
+  "original_scene_preserved": true,
+  "runtime_import_tested": false,
+  "export_created": false,
+  "limitations": [
+    "Temporary FK poses do not replace a full animation suite.",
+    "Palette tile UVs are intentionally shared; no unique painted body bake.",
+    "No facial blendshapes/IK/Unreal import test in this Blender-only task.",
+    "Reference likeness remains simplified, especially face, curls and painted cloth.",
+    "Not a fully animated/LOD/Unreal performance-validated production asset."
+  ],
+  "files": [
+    {
+      "path": "Authoring/BuildYoungTrainer.py",
+      "bytes": 9975,
+      "sha256": "186862545e329e5467101510310d8ced828ba804f9163d77aee7ad297f535cfd"
+    },
+    {
+      "path": "Authoring/ComposeReview.py",
+      "bytes": 1146,
+      "sha256": "ac47e37170f1555a2064da9d7b8d29e7e43e6977dfdfe047e56458aa2d44efbf"
+    },
+    {
+      "path": "Authoring/DetailYoungTrainer.py",
+      "bytes": 12281,
+      "sha256": "878983a711cef12378810dfa2a9aa02b4518193af49672b0815e74996a8d3e24"
+    },
+    {
+      "path": "Authoring/Palette.json",
+      "bytes": 1141,
+      "sha256": "3cdd649c85c25b18e7c93b6a36f0b927d9d6a7b6289d8543ea33e2a0a72438b5"
+    },
+    {
+      "path": "Authoring/PolishYoungTrainer.py",
+      "bytes": 8443,
+      "sha256": "745fa8acda4e974a6a3061c5be18d939ed368f92691c5cb375d0c287c0844266"
+    },
+    {
+      "path": "Authoring/PrepareYoungTrainer.py",
+      "bytes": 10632,
+      "sha256": "b2db46197f00f229cc15f7bc02d27e60d5f888155f0d53f794a431ddad9529ea"
+    },
+    {
+      "path": "Authoring/RefineYoungTrainer.py",
+      "bytes": 3423,
+      "sha256": "f8dba8501e32cace245cb07003234f7e9768c9095dea8bd9f43b7ed6a4c34c0c"
+    },
+    {
+      "path": "Authoring/RenderYoungTrainer.py",
+      "bytes": 3779,
+      "sha256": "c6b73cad5f8fef3d4989cce6bfb90d08043777c34afa377e6ab739fb42f9a354"
+    },
+    {
+      "path": "Authoring/ValidateYoungTrainer.py",
+      "bytes": 5259,
+      "sha256": "d67b4522f427bc6a7649b9d9b3b0e008550e5540ffb8b6aac0fa111df8d3e355"
+    },
+    {
+      "path": "Authoring/VerifyPreservation.py",
+      "bytes": 1506,
+      "sha256": "20558cbcdb033221eaaaf98f3236ab5174c330c79b6af362edb98ea5af871145"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8410,
+      "sha256": "2fa5d961acec6ef9674de463eed00ae2a2febacd4c2bf68180c3094c11e637b3"
+    },
+    {
+      "path": "Reference/Character_Turnaround.png",
+      "bytes": 2852294,
+      "sha256": "dd3d16f90142cdf84c64e1fb7d294cb1884a1aa2ef590edad608a2b166c55db4"
+    },
+    {
+      "path": "Source/Stages/01_Blockout.blend",
+      "bytes": 184661,
+      "sha256": "b5e5b57b73e01f73b55c8d9219a8d248c59e18fc3f2dc9bb2bf1b54e550b24e4"
+    },
+    {
+      "path": "Source/Stages/02_FaceHair.blend",
+      "bytes": 337200,
+      "sha256": "bc50c1d966c5057d059d8d6fa6a7ae79a52cea40edf9b61d671c3b571a3b7653"
+    },
+    {
+      "path": "Source/Stages/03_Modelled.blend",
+      "bytes": 420540,
+      "sha256": "033373dbb89e4cf7a2805f12f6a307f4b2ec6a8f513519a46c488f9fbd7ebc48"
+    },
+    {
+      "path": "Source/Stages/04_ReferenceRefined.blend",
+      "bytes": 484628,
+      "sha256": "a33e561e839a50158a50900c4f79ea0aa069d8395a294a9495b42f849c67087c"
+    },
+    {
+      "path": "Source/Stages/05_LikenessPolish.blend",
+      "bytes": 542993,
+      "sha256": "4d1051fa48284f64439643663334bc88bc1c8d8a2d068244d52c884156e0fe07"
+    },
+    {
+      "path": "Source/YoungTrainer_Reference_V1.blend",
+      "bytes": 1485627,
+      "sha256": "985784203c7e346b4b6a4a0e1053bbc955b1dd0c5764d47cb3eb49def819b22b"
+    },
+    {
+      "path": "Textures/YT_ORM.png",
+      "bytes": 40015,
+      "sha256": "226808ede9abc662a45390e4fa220787c7d3b38980d4d0db8357de5c9c6ec43e"
+    },
+    {
+      "path": "Textures/YT_PaintedBaseColor.png",
+      "bytes": 460303,
+      "sha256": "086071e0ae25553115b53ab71b7454097c6e641de7df8005987c571239b66e73"
+    }
+  ]
+}

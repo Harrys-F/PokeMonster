@@ -1,0 +1,152 @@
+{
+  "source": "../Character_Turnaround.png",
+  "common_height_pixels": 391,
+  "scale_m_per_pixel": 0.003580562659846547,
+  "opacity": 0.4,
+  "views": [
+    {
+      "name": "Front",
+      "file": "Front.png",
+      "crop": [
+        15,
+        88,
+        181,
+        503
+      ],
+      "axis_pixel_global": 101,
+      "ground_pixel_global": 494,
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "metres_per_pixel": 0.003580562659846547
+    },
+    {
+      "name": "FrontRight",
+      "file": "FrontRight.png",
+      "crop": [
+        188,
+        88,
+        344,
+        503
+      ],
+      "axis_pixel_global": 258,
+      "ground_pixel_global": 494,
+      "normal": [
+        -1,
+        -1,
+        0
+      ],
+      "metres_per_pixel": 0.003580562659846547
+    },
+    {
+      "name": "Right",
+      "file": "Right.png",
+      "crop": [
+        342,
+        88,
+        467,
+        503
+      ],
+      "axis_pixel_global": 403,
+      "ground_pixel_global": 494,
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "metres_per_pixel": 0.003580562659846547
+    },
+    {
+      "name": "BackRight",
+      "file": "BackRight.png",
+      "crop": [
+        485,
+        88,
+        629,
+        503
+      ],
+      "axis_pixel_global": 558,
+      "ground_pixel_global": 494,
+      "normal": [
+        -1,
+        1,
+        0
+      ],
+      "metres_per_pixel": 0.003580562659846547
+    },
+    {
+      "name": "Back",
+      "file": "Back.png",
+      "crop": [
+        627,
+        88,
+        781,
+        503
+      ],
+      "axis_pixel_global": 706,
+      "ground_pixel_global": 494,
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "metres_per_pixel": 0.003580562659846547
+    },
+    {
+      "name": "BackLeft",
+      "file": "BackLeft.png",
+      "crop": [
+        779,
+        88,
+        936,
+        503
+      ],
+      "axis_pixel_global": 856,
+      "ground_pixel_global": 494,
+      "normal": [
+        1,
+        1,
+        0
+      ],
+      "metres_per_pixel": 0.003580562659846547
+    },
+    {
+      "name": "Left",
+      "file": "Left.png",
+      "crop": [
+        934,
+        88,
+        1053,
+        503
+      ],
+      "axis_pixel_global": 1000,
+      "ground_pixel_global": 494,
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "metres_per_pixel": 0.003580562659846547
+    },
+    {
+      "name": "FrontLeft",
+      "file": "FrontLeft.png",
+      "crop": [
+        1073,
+        88,
+        1208,
+        503
+      ],
+      "axis_pixel_global": 1136,
+      "ground_pixel_global": 494,
+      "normal": [
+        1,
+        -1,
+        0
+      ],
+      "metres_per_pixel": 0.003580562659846547
+    }
+  ]
+}

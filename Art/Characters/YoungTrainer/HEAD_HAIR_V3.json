@@ -1,0 +1,109 @@
+{
+  "version": 3,
+  "stage": "HeadFaceHairCorrection",
+  "date": "2026-10-06",
+  "git_head": "eafab5b",
+  "source": "Source/YoungTrainer_HeadHair_V3.blend",
+  "previous_source": "Source/YoungTrainer_Proportions_V2.blend",
+  "backup": "Source/Stages/07_PreHeadHair.blend",
+  "preview_only": true,
+  "unreal_import": false,
+  "new_rigging": false,
+  "new_animation": false,
+  "new_uvs_or_final_textures": false,
+  "new_files": [
+    "Source/YoungTrainer_HeadHair_V3.blend",
+    "Source/Stages/07_PreHeadHair.blend",
+    "Reference/HeadPass/Portrait.png",
+    "Authoring/CorrectHeadHair.py",
+    "Authoring/RenderHeadHair.py",
+    "Authoring/ValidateHeadHair.py",
+    "Authoring/CompareHeadHair.py",
+    "HEAD_HAIR_V3_PRUEFBERICHT.md",
+    "HEAD_HAIR_V3.json"
+  ],
+  "file_sha256": {
+    "Source/YoungTrainer_HeadHair_V3.blend": "6c749cbd08affec99614b6babff7470a1a735c68cd1df2b4d9659607921bc8df",
+    "Source/Stages/07_PreHeadHair.blend": "2a461b241ad01ce977542321ebc1528a93423ec0c1149c46abe352dbed8ad935",
+    "Reference/HeadPass/Portrait.png": "99e429d7b1eef4761ecc75d51ec25a2a16af4661be905b027c7aa5592152ddbd",
+    "Authoring/CorrectHeadHair.py": "88bfa2cd30f7e12f671b565e512cf9592ae019abe0d9f4b071b14cab84f97a6d",
+    "Authoring/RenderHeadHair.py": "a911377b88532a831711303e0cb355ddb3c4ffe0d3dc1c030bcf7cccd25e526e",
+    "Authoring/ValidateHeadHair.py": "b5014eae6f9a62a8dff15e63d84e16f089d74f80680d7ff8b1e4ae08cb4c500a",
+    "Authoring/CompareHeadHair.py": "0a95a7a8d982ee50a28b91bbd65e0da85b1608001248abebc837678ece5b813a",
+    "HEAD_HAIR_V3_PRUEFBERICHT.md": "9cfa7047bd9d728887f8d03cdc07380ed281f58c26b86fb45378801e23aeb1e3"
+  },
+  "audit": {
+    "status": "PASS",
+    "protected_old_files": 39,
+    "rig_and_actions_unchanged": true,
+    "existing_references_unchanged": true,
+    "clothing_backpack_body_non_ear_vertices_unchanged": true,
+    "original_materials_unchanged": true,
+    "backup_byte_identical": true,
+    "new_head_meshes": 77,
+    "large_hair_groups": 55,
+    "head_region_bounds_m": {
+      "min": [
+        -0.21187224984169006,
+        -0.13936375081539154,
+        1.0640000104904175
+      ],
+      "max": [
+        0.20040562748908997,
+        0.18186748027801514,
+        1.399999976158142
+      ]
+    },
+    "facial_loop_counts": {
+      "EyeR": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "EyeL": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "Mouth": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    "intentional_boundaries": "Head: two eyes + mouth (100). Hair base: underside (48). Colored eye surfaces: disc perimeters.",
+    "new_skinning_or_facial_rig": false,
+    "animation_test_performed": false,
+    "v2_sha256": "2a461b241ad01ce977542321ebc1528a93423ec0c1149c46abe352dbed8ad935",
+    "v3_sha256": "6c749cbd08affec99614b6babff7470a1a735c68cd1df2b4d9659607921bc8df"
+  },
+  "game_camera_review": {
+    "distance_cm": 2500,
+    "horizontal_fov_deg": 35,
+    "pitch_deg": -55,
+    "resolution": [
+      1280,
+      720
+    ],
+    "directions": 8,
+    "performed_in": "Blender",
+    "pie_test": false
+  },
+  "remaining_visual_limitations": [
+    "Portrait identity is not yet unambiguous.",
+    "Face and eyes remain more doll-like than the illustration.",
+    "Hair groups remain more sculptural and some smooth under-volume is visible.",
+    "Facial deformation, blinking and mouth movement have not been validated."
+  ],
+  "review_directory": "Saved/YoungTrainerHeadPass/Review",
+  "review_images": [
+    "Portrait_Before_After.jpg",
+    "Head_8Directions.jpg",
+    "Head_Silhouette_8Directions.jpg",
+    "FullCharacter_Views.jpg",
+    "Game25m_8Directions_ActualPixels.jpg"
+  ]
+}
