@@ -1,0 +1,152 @@
+{
+  "reference": "Player_Barefoot_Turnaround.png",
+  "sole_pixel_global": 477,
+  "crown_pixel_global": 87,
+  "height_m": 1.4,
+  "scale_m_per_pixel": 0.0035897435897435893,
+  "views": [
+    {
+      "name": "Front",
+      "crop": [
+        55,
+        84,
+        222,
+        479
+      ],
+      "axis_global": 145,
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "file": "Front.png"
+    },
+    {
+      "name": "FrontRight",
+      "crop": [
+        223,
+        84,
+        367,
+        479
+      ],
+      "axis_global": 290,
+      "normal": [
+        -1,
+        -1,
+        0
+      ],
+      "file": "FrontRight.png"
+    },
+    {
+      "name": "Right",
+      "crop": [
+        368,
+        84,
+        484,
+        479
+      ],
+      "axis_global": 426,
+      "normal": [
+        -1,
+        0,
+        0
+      ],
+      "file": "Right.png"
+    },
+    {
+      "name": "BackRight",
+      "crop": [
+        485,
+        84,
+        620,
+        479
+      ],
+      "axis_global": 553,
+      "normal": [
+        -1,
+        1,
+        0
+      ],
+      "file": "BackRight.png"
+    },
+    {
+      "name": "Back",
+      "crop": [
+        620,
+        84,
+        774,
+        479
+      ],
+      "axis_global": 699,
+      "normal": [
+        0,
+        1,
+        0
+      ],
+      "file": "Back.png"
+    },
+    {
+      "name": "BackLeft",
+      "crop": [
+        774,
+        84,
+        918,
+        479
+      ],
+      "axis_global": 841,
+      "normal": [
+        1,
+        1,
+        0
+      ],
+      "file": "BackLeft.png"
+    },
+    {
+      "name": "Left",
+      "crop": [
+        918,
+        84,
+        1048,
+        479
+      ],
+      "axis_global": 982,
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "file": "Left.png"
+    },
+    {
+      "name": "FrontLeft",
+      "crop": [
+        1048,
+        84,
+        1205,
+        479
+      ],
+      "axis_global": 1124,
+      "normal": [
+        1,
+        -1,
+        0
+      ],
+      "file": "FrontLeft.png"
+    }
+  ],
+  "landmarks_front_pixels": {
+    "crown": 87,
+    "eyes": 156,
+    "chin": 190,
+    "shoulder": 208,
+    "elbow": 282,
+    "wrist": 313,
+    "fingertips": 347,
+    "waist": 283,
+    "crotch": 341,
+    "knee": 380,
+    "cuff": 425,
+    "sole": 477
+  },
+  "side_convention": "Sheet RIGHT is viewed from -X, sheet LEFT from +X for a -Y-facing model. Blender Right Orthographic (+X) uses sheet LEFT."
+}

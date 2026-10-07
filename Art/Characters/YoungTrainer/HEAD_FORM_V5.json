@@ -1,0 +1,65 @@
+{
+  "stage": "V5 head face hair form pass",
+  "date": "2026-10-07",
+  "git_head": "32979f347bd3a7705c43b602dadd2408d3bda08a",
+  "source": "Source/YoungTrainer_HeadForm_V5.blend",
+  "source_sha256": "8cfe99060807ee4809618990e6572f3660e1a4eee76a1f735cf15bc9f108e08e",
+  "backup": "Source/Stages/09_BeforeHeadFormV5_20261007.blend",
+  "backup_sha256": "d4840048f0a564417efa2566b2e4c042a2f326fa7894662c3d004ac84246033c",
+  "reference": "Reference/BarefootFinal/Player_Barefoot_Turnaround.png",
+  "reference_sha256": "d41202f83cc353d404ff9f401379ff9eea011504656483e2ecb883f4fc5b718f",
+  "height_m": 1.399999976158142,
+  "feet_ground_z_m": 0.0,
+  "bounds_m": {
+    "min": [
+      -0.28038614988327026,
+      -0.20711803436279297,
+      0.0
+    ],
+    "max": [
+      0.28665000200271606,
+      0.34587520360946655,
+      1.399999976158142
+    ]
+  },
+  "active_meshes": 42,
+  "raw_vertices": 595258,
+  "unchanged_body_part_count": 20,
+  "previous_objects_preserved": 237,
+  "previous_materials_preserved": 21,
+  "pre_existing_files_byte_identical": 70,
+  "hair_major_flows": 57,
+  "new_final_materials_textures_rig_animation_export": false,
+  "scope": [
+    "head surface",
+    "eye surfaces and eyelids",
+    "brows",
+    "mouth shape",
+    "hair form"
+  ],
+  "inspection_camera": {
+    "elevation_degrees": 35,
+    "horizontal_fov_degrees": 35,
+    "distance_m": 3.4,
+    "target_z_m": 0.7,
+    "approximate_reference_perspective": true,
+    "changes_unreal_camera": false,
+    "unchanged_from_v4_native_review": true
+  },
+  "files": [
+    "HEAD_FORM_V5.json",
+    "HEAD_FORM_V5_PRUEFBERICHT.md",
+    "Authoring/RefineHeadFormV5.py",
+    "Authoring/RenderHeadFormV5.py",
+    "Authoring/CompareHeadFormV5.py",
+    "Authoring/ValidateHeadFormV5.py",
+    "Source/Stages/09_BeforeHeadFormV5_20261007.blend",
+    "Source/YoungTrainer_HeadForm_V5.blend"
+  ],
+  "audit": "PASS",
+  "remaining_visual_differences": [
+    "hair groups still thicker and more ordered than the drawing",
+    "simplified ears, eyelids and expression",
+    "V4 clothing and equipment differences outside the scope"
+  ]
+}

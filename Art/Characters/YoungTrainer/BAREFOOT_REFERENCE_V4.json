@@ -1,0 +1,77 @@
+{
+  "stage": "V4 barefoot likeness/proportion/silhouette correction",
+  "reference": "Reference/BarefootFinal/Player_Barefoot_Turnaround.png",
+  "reference_sha256": "d41202f83cc353d404ff9f401379ff9eea011504656483e2ecb883f4fc5b718f",
+  "source": "Source/YoungTrainer_BarefootReference_V4.blend",
+  "source_sha256": "9bf209fae2abf8165802db9b5115ffa610377ce689ee10fc7d872f7e03aba058",
+  "before_backup": "Source/Stages/08_BeforeBarefootReferenceRework_20261007.blend",
+  "baseline_head": "32979f3",
+  "preexisting_user_changes_preserved": [
+    "Source/YoungTrainer_HeadHair_V3.blend",
+    "Source/YoungTrainer_HeadHair_V3.blend1"
+  ],
+  "height_m": 1.399999976158142,
+  "sole_z_m": 0.0,
+  "root_m": [
+    0,
+    0,
+    0
+  ],
+  "world_bounds_m": {
+    "min": [
+      -0.28038614988327026,
+      -0.20711803436279297,
+      0.0
+    ],
+    "max": [
+      0.28665000200271606,
+      0.34587520360946655,
+      1.399999976158142
+    ]
+  },
+  "active_meshes": 106,
+  "raw_vertices": 280344,
+  "hair_envelope_lobe_fields": 46,
+  "broad_hair_groups": 64,
+  "fingers_per_hand": 5,
+  "toes_per_foot": 5,
+  "reference_images": 11,
+  "reference_opacity": [
+    0.4,
+    0.45
+  ],
+  "reference_pixel_scale_m": 0.0035897435897435893,
+  "model_front_axis": "-Y",
+  "blender_right_ortho_reference": "sheet Left (+X camera), no image mirroring",
+  "inspection_camera": {
+    "orthographic_scale_m": 1.62,
+    "game_elevation_deg": 35,
+    "game_horizontal_fov_deg": 35,
+    "game_distance_m": 3.4,
+    "runtime_camera_changed": false
+  },
+  "scope": {
+    "static_geometry_only": true,
+    "source_rig_preserved": true,
+    "rig_fitted_to_new_geometry": false,
+    "new_animation": false,
+    "new_final_uvs_or_textures": false,
+    "unreal_import": false
+  },
+  "audit": {
+    "status": "PASS",
+    "protected_files_byte_identical": 50,
+    "existing_objects_preserved": 119,
+    "existing_materials_preserved": 14,
+    "geometry_diagnostics": 0
+  },
+  "authoring": [
+    "Authoring/ReworkBarefootReference.py",
+    "Authoring/RenderBarefootReference.py",
+    "Authoring/CompareBarefootReference.py",
+    "Authoring/ValidateBarefootReference.py"
+  ],
+  "review_directory": "Saved/YoungTrainerReferenceRework/Review (project-relative; ignored)",
+  "report": "BAREFOOT_REFERENCE_V4_PRUEFBERICHT.md",
+  "backup_sha256": "b898fd6917b53d7c4086a5fdab5a9171cd751f7646be9e363f200a20513725a8"
+}
