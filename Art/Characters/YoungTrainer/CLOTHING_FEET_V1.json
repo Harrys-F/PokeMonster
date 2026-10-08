@@ -1,0 +1,332 @@
+{
+  "version": "ClothingFeet V1",
+  "source": "Source/YoungTrainer_HeadForm_V6.blend",
+  "output": "Source/YoungTrainer_ClothingFeet_V1.blend",
+  "height_m": 1.4,
+  "frozen": [
+    "V6 head/face/hair/eyes/ears",
+    "body and hands",
+    "backpack and bedroll",
+    "pendant",
+    "rig/weights/actions of originals",
+    "all existing material datablocks and files"
+  ],
+  "changed": [
+    "shirt",
+    "vest",
+    "pants",
+    "rolled cuffs",
+    "pouches",
+    "waist belt",
+    "bare feet"
+  ],
+  "new_scarf_forms": 6,
+  "feet": {
+    "R": {
+      "source_outturn_deg": 10,
+      "outturn_deg": 9,
+      "max_local_displacement_cm": 1.4048656427259019,
+      "width_cm": 13.881141196368796,
+      "length_cm": 26.832307406232125,
+      "toe_count": 5,
+      "five_anterior_lobes_geometrically_sampled": true,
+      "sole_z_m": 0
+    },
+    "L": {
+      "source_outturn_deg": -28,
+      "outturn_deg": -21,
+      "max_local_displacement_cm": 2.97601222318062,
+      "width_cm": 13.881141178872902,
+      "length_cm": 26.832307373331926,
+      "toe_count": 5,
+      "five_anterior_lobes_geometrically_sampled": true,
+      "sole_z_m": 0
+    }
+  },
+  "no_unreal_export": true,
+  "no_new_final_uv_or_texture": true,
+  "camera_note": "Fixed elevated Blender form review, not Unreal PIE",
+  "foot_refinement": "Flattened toe pads, stronger forefoot, preserved heel and arch; modest length reduction",
+  "starting_head": "58793f8b3bb563548cc6c18b6c72fa27ef4aed1d",
+  "source_sha256": "003a4d58b6a96384dd61b0e3fa93ac05025b28f2aacf48203a5eb8617a67a744",
+  "output_sha256": "16be34ec332c3cbf6ff4422886094c3a38efd054bbcf9fdbb03f24d1d34085b3",
+  "saved_and_reopened_in_live_blender": true,
+  "geometry_audit": "PASS",
+  "existing_project_files_byte_identical": 992,
+  "frozen_mesh_count": 32,
+  "active_mesh_count": 47,
+  "active_raw_vertices": 499736,
+  "active_raw_faces": 502210,
+  "measured_height_m": 1.399999976158142,
+  "locked_reference_images": 11,
+  "component_metrics": {
+    "Shirt": {
+      "V6": {
+        "min_m": [
+          -0.23620447516441345,
+          -0.11877704411745071,
+          0.510225772857666
+        ],
+        "max_m": [
+          0.23620447516441345,
+          0.10421813279390335,
+          1.010188341140747
+        ],
+        "dimensions_cm": [
+          47.24089503288269,
+          22.299517691135406,
+          49.996256828308105
+        ]
+      },
+      "CF1": {
+        "min_m": [
+          -0.2302705943584442,
+          -0.12434516847133636,
+          0.5879533290863037
+        ],
+        "max_m": [
+          0.22961975634098053,
+          0.10580702871084213,
+          1.0101886987686157
+        ],
+        "dimensions_cm": [
+          45.989035069942474,
+          23.01521971821785,
+          42.2235369682312
+        ]
+      }
+    },
+    "Vest": {
+      "V6": {
+        "min_m": [
+          -0.22359439730644226,
+          -0.16438667476177216,
+          0.43765783309936523
+        ],
+        "max_m": [
+          0.22359439730644226,
+          0.10945656150579453,
+          0.9668113589286804
+        ],
+        "dimensions_cm": [
+          44.71887946128845,
+          27.384323626756668,
+          52.91535258293152
+        ]
+      },
+      "CF1": {
+        "min_m": [
+          -0.19060581922531128,
+          -0.13284337520599365,
+          0.5092489719390869
+        ],
+        "max_m": [
+          0.19067977368831635,
+          0.10724987089633942,
+          0.9632852673530579
+        ],
+        "dimensions_cm": [
+          38.12855929136276,
+          24.009324610233307,
+          45.403629541397095
+        ]
+      }
+    },
+    "Pants": {
+      "V6": {
+        "min_m": [
+          -0.23112277686595917,
+          -0.15242454409599304,
+          0.18087813258171082
+        ],
+        "max_m": [
+          0.25412365794181824,
+          0.12177341431379318,
+          0.7015635371208191
+        ],
+        "dimensions_cm": [
+          48.52464348077774,
+          27.419795840978622,
+          52.06854045391083
+        ]
+      },
+      "CF1": {
+        "min_m": [
+          -0.2327294498682022,
+          -0.15315592288970947,
+          0.18083707988262177
+        ],
+        "max_m": [
+          0.25695163011550903,
+          0.12108838558197021,
+          0.7015640735626221
+        ],
+        "dimensions_cm": [
+          48.968107998371124,
+          27.42443084716797,
+          52.07269936800003
+        ]
+      }
+    },
+    "Pouches": {
+      "V6": {
+        "min_m": [
+          -0.21903251111507416,
+          -0.12390000373125076,
+          0.5418853163719177
+        ],
+        "max_m": [
+          0.22588200867176056,
+          -0.02250000089406967,
+          0.688084065914154
+        ],
+        "dimensions_cm": [
+          44.49145197868347,
+          10.14000028371811,
+          14.619874954223633
+        ]
+      },
+      "CF1": {
+        "min_m": [
+          -0.19899727404117584,
+          -0.11382800340652466,
+          0.5806699991226196
+        ],
+        "max_m": [
+          0.20681728422641754,
+          -0.019340001046657562,
+          0.7106777429580688
+        ],
+        "dimensions_cm": [
+          40.58145582675934,
+          9.44880023598671,
+          13.000774383544922
+        ]
+      }
+    },
+    "BareFoot_R": {
+      "V6": {
+        "min_m": [
+          0.08279835432767868,
+          -0.20711803436279297,
+          0.0
+        ],
+        "max_m": [
+          0.22726991772651672,
+          0.07952523976564407,
+          0.21716928482055664
+        ],
+        "dimensions_cm": [
+          14.447156339883804,
+          28.664327412843704,
+          21.716928482055664
+        ],
+        "local_width_cm": 13.459965040461416,
+        "local_length_cm": 28.533392987014583
+      },
+      "CF1": {
+        "min_m": [
+          0.08363230526447296,
+          -0.19575102627277374,
+          0.0
+        ],
+        "max_m": [
+          0.22589001059532166,
+          0.07604768127202988,
+          0.21714602410793304
+        ],
+        "dimensions_cm": [
+          14.22577053308487,
+          27.179870754480362,
+          21.714602410793304
+        ],
+        "local_width_cm": 13.881141196368796,
+        "local_length_cm": 26.832307406232125
+      }
+    },
+    "BareFoot_L": {
+      "V6": {
+        "min_m": [
+          -0.2662450671195984,
+          -0.20037877559661865,
+          0.0
+        ],
+        "max_m": [
+          -0.07462577521800995,
+          0.07579545676708221,
+          0.21716928482055664
+        ],
+        "dimensions_cm": [
+          19.161929190158844,
+          27.617423236370087,
+          21.716928482055664
+        ],
+        "local_width_cm": 13.45996485697587,
+        "local_length_cm": 28.533392660074984
+      },
+      "CF1": {
+        "min_m": [
+          -0.2507340908050537,
+          -0.19479544460773468,
+          0.0
+        ],
+        "max_m": [
+          -0.07774648815393448,
+          0.0744568333029747,
+          0.21714602410793304
+        ],
+        "dimensions_cm": [
+          17.298760265111923,
+          26.925227791070938,
+          21.714602410793304
+        ],
+        "local_width_cm": 13.881141178872902,
+        "local_length_cm": 26.832307373331926
+      }
+    },
+    "DiagonalWaistBelt": {
+      "V6": {
+        "min_m": [
+          -0.16899999976158142,
+          -0.12099999934434891,
+          0.6370000243186951
+        ],
+        "max_m": [
+          0.16899999976158142,
+          0.12099999934434891,
+          0.7649999856948853
+        ],
+        "dimensions_cm": [
+          33.799999952316284,
+          24.19999986886978,
+          12.799996137619019
+        ]
+      },
+      "CF1": {
+        "min_m": [
+          -0.16899999976158142,
+          -0.1194423958659172,
+          0.6446291208267212
+        ],
+        "max_m": [
+          0.16899999976158142,
+          0.12099999934434891,
+          0.7573708891868591
+        ],
+        "dimensions_cm": [
+          33.799999952316284,
+          24.04423952102661,
+          11.274176836013794
+        ]
+      }
+    }
+  },
+  "review_directory": "Saved/YoungTrainerClothingFeetV1/Review",
+  "remaining_reference_differences": [
+    "Sleeves and rolled cuffs remain smoother and simpler than the sheet",
+    "Pants retain broad rounded masses; reference folds are finer and more irregular",
+    "Vest tips and scarf folds remain simplified",
+    "Toe pads are clear but lack final surface anatomy",
+    "V6 head and backpack differences are intentionally frozen"
+  ]
+}
