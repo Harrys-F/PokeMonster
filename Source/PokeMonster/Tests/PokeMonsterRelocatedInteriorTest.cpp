@@ -109,7 +109,7 @@ bool FPokeMonsterRelocatedInteriorTransitionTest::RunTest(const FString& Paramet
     Player->SetActorLocation(Outer+FVector(6,0,-59.5)); Building->Tick(.2); Building->Tick(.01);
     TestTrue(TEXT("A new doorway crossing can retry after obstruction is removed"),Building->IsViewerRelocated());
     TestEqual(TEXT("Movement remains 210 cm/s"),Player->GetCharacterMovement()->MaxWalkSpeed,210.f);
-    TestEqual(TEXT("Exterior distance remains 2500 cm"),Boom->TargetArmLength,2500.f);
+    TestEqual(TEXT("Exterior distance remains at the 2500 cm standard"),Boom->TargetArmLength,2500.f);
     TestTrue(TEXT("Lag remains enabled"),Boom->bEnableCameraLag);
     TestEqual(TEXT("Lag speed unchanged"),Boom->CameraLagSpeed,LagSpeed);
     TestEqual(TEXT("Interaction range unchanged"),Player->GetInteractionRange(),150.f);

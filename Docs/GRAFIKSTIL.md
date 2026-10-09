@@ -25,7 +25,7 @@ Besonders verbindlich sind:
 - sichtbar und natürlich in die Welt integrierte Kreaturen
 - weiche, malerische Beleuchtung und atmosphärische Farbgestaltung
 
-Die technische Umsetzung der Kamera wird erst in einer Testszene festgelegt. Entscheidend ist zunächst die visuelle Wirkung. Eine orthografische oder nahezu orthografische Kamera soll geprüft werden.
+Der aktuelle technische Kamerastandard ist unten dokumentiert. Perspektivische Projektion bleibt gemäß Kameraauftrag vom 09.10.2026 zunächst erhalten. Eine spätere orthografische Variante wäre ein eigener visueller Vergleich, keine Änderung dieses Auftrags.
 
 ## Kameraperspektive
 
@@ -39,13 +39,19 @@ Die technische Umsetzung der Kamera wird erst in einer Testszene festgelegt. Ent
 - die Perspektive bleibt zwischen Außenbereichen und Innenräumen visuell zusammenhängend
 - die technische Projektion darf perspektivisch, nahezu orthografisch oder orthografisch sein, solange das verbindliche Referenzbild erreicht wird
 
+### Verbindliche Standardkamera vom 09.10.2026
+
+Feste schräge Draufsicht: Pitch −55° von der Horizontalen, bestehender Yaw −45°, Roll 0°. Keine zusätzliche isometrische Drehung, keine Rotation mit der Figur oder freie Kamerasteuerung. Perspektivische Projektion und horizontaler FOV 35° bleiben erhalten. Die 140-cm-Figur wird durch 2500 cm SpringArm-Abstand ungefähr mittig, leicht unterhalb der Bildmitte eingerahmt; Fokus 35 cm über dem Capsule-Zentrum. Die anschließende Rückkehr auf 2500 cm ersetzt den 10–13-Prozent-Zielbereich durch mehr Übersicht; die Figur nimmt bei 16:9 ungefähr 9 Prozent der Spielbildhöhe ein, ohne transparente Sprite-Ränder oder Editorleisten. Andere Fensterseitenverhältnisse verändern diesen Anteil.
+
+Kurzer Positions-Lag: Geschwindigkeit 12, maximal 45 cm, Substepping bis 1/60 s; kein Rotations-Lag und kein Kollisions-Zoom. Gebäudespezifische raumfeste Innenkameras und ihre bestehenden Übergänge bleiben gesonderte Konfigurationen. Player- und Weltmaßstab bleiben unverändert. Technische Tests sind bestanden; die visuelle PIE-Prüfung mit Gebäuden und Vegetation ist noch offen. Prüfstand und Grenzen stehen in `OVERWORLD_KAMERA_2026_10_09_PRUEFBERICHT.md`.
+
 ## Figurengröße
 
 Die Spielfigur soll im Bild ungefähr dieselbe relative Größe wie in der ersten Referenz besitzen.
 
 Vorläufige Gestaltungsregeln:
 
-- Figur ungefähr 7 Prozent der sichtbaren Bildhöhe
+- Figur in der normalen Außenansicht ungefähr 9 Prozent der sichtbaren Bildhöhe bei 16:9; maßgeblich ist der wiederhergestellte 2500-cm-Abstand (ersetzt den zwischenzeitlichen 10–13-Prozent-Zielbereich)
 - Türen ungefähr 1,5 bis 2 Figuren hoch
 - normale Wege mindestens 2 bis 3 Figuren breit
 - Bäume und größere Landschaftselemente deutlich größer als die Figur

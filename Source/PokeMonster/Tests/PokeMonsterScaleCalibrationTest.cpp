@@ -28,7 +28,7 @@ bool FPokeMonsterScaleCalibrationTest::RunTest(const FString& Parameters)
     const APokeMonsterPlayerCharacter* Defaults = GetDefault<APokeMonsterPlayerCharacter>();
     TestEqual(TEXT("Navigation capsule radius stays 28 cm"), Defaults->GetCapsuleComponent()->GetUnscaledCapsuleRadius(), 28.f);
     TestEqual(TEXT("Navigation capsule height stays 96 cm"), Defaults->GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight()*2, 96.f);
-    TestEqual(TEXT("Camera distance uses calibrated 2500 cm overview"), Defaults->FindComponentByClass<USpringArmComponent>()->TargetArmLength, 2500.f);
+    TestEqual(TEXT("Camera distance uses calibrated 2500 cm framing"), Defaults->FindComponentByClass<USpringArmComponent>()->TargetArmLength, 2500.f);
     const struct { const TCHAR* Name; int32 Width; int32 Height; } Frames[] =
     {
         { TEXT("S_Player_Idle_Down"), 230, 438 },

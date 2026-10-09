@@ -110,8 +110,8 @@ bool FPokeMonsterBuildingCameraTest::RunTest(const FString& Parameters)
 
     TestTrue(TEXT("Sprite scale unchanged"), Player->GetSprite()->GetRelativeScale3D().Equals(SpriteScale));
     TestTrue(TEXT("Lag stays enabled"), Boom->bEnableCameraLag);
-    TestEqual(TEXT("Lag speed unchanged"), Boom->CameraLagSpeed, 6.f);
-    TestEqual(TEXT("Lag limit unchanged"), Boom->CameraLagMaxDistance, 180.f);
+    TestEqual(TEXT("Lag speed unchanged"), Boom->CameraLagSpeed, 12.f);
+    TestEqual(TEXT("Lag limit unchanged"), Boom->CameraLagMaxDistance, 45.f);
     Player->SetActorLocation(FVector(-306,0,48));
     Building->Tick(.1f);
     Player->Tick(.1f);

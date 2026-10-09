@@ -3,6 +3,7 @@
 #if WITH_DEV_AUTOMATION_TESTS
 
 #include "Misc/AutomationTest.h"
+#include "Misc/ScopeExit.h"
 
 #include "../Characters/PokeMonsterPlayerCharacter.h"
 #include "../Game/PokeMonsterGameMode.h"
@@ -130,6 +131,68 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 		APokeMonsterPlayerCharacter::CalculateFacingDirection(
 			FVector2D(0.04f, 0.03f), EPokeMonsterFacingDirection::UpLeft, 0.1f),
 		EPokeMonsterFacingDirection::UpLeft);
+
+	// Exercise the actual component chain, independently of Editor viewport framing.
+	{
+		UWorld* CameraWorld = UWorld::CreateWorld(EWorldType::Game, false);
+		if (!TestNotNull(TEXT("Fixed-camera test world exists"), CameraWorld)) return false;
+		GEngine->CreateNewWorldContext(EWorldType::Game).SetCurrentWorld(CameraWorld);
+		ON_SCOPE_EXIT { GEngine->DestroyWorldContext(CameraWorld); CameraWorld->DestroyWorld(false); };
+		auto* Player = CameraWorld->SpawnActor<APokeMonsterPlayerCharacter>(FVector(0,0,48), FRotator::ZeroRotator);
+		if (!TestNotNull(TEXT("Fixed-camera pawn spawns"), Player)) return false;
+		auto* Boom = Player->CameraBoom.Get();
+		auto* Camera = Player->FollowCamera.Get();
+		Camera->Activate(true);
+		TestTrue(TEXT("Exterior boom rotation is absolute"), Boom->IsUsingAbsoluteRotation());
+		TestFalse(TEXT("Exterior camera cannot zoom through collision"), Boom->bDoCollisionTest);
+		TestFalse(TEXT("Exterior rotation has no lag"), Boom->bEnableCameraRotationLag);
+		TestTrue(TEXT("Position lag uses substeps"), Boom->bUseCameraLagSubstepping);
+		TestEqual(TEXT("Perspective projection is preserved"), Camera->ProjectionMode, ECameraProjectionMode::Perspective);
+		const FRotator FixedRotation(-55.f, -45.f, 0.f);
+		for (const auto& Direction : Directions)
+		{
+			Player->Move(FInputActionValue(Direction.Input));
+			const FVector Movement = Player->ConsumeMovementInputVector();
+			const FVector RightAxis = FRotationMatrix(FRotator(0,-45,0)).GetUnitAxis(EAxis::Y);
+			const FVector UpAxis = FRotationMatrix(FixedRotation).GetUnitAxis(EAxis::Z);
+			TestTrue(TEXT("Each direction retains unit movement speed"), FMath::IsNearlyEqual(Movement.Size2D(), 1.f));
+			TestTrue(TEXT("Right/left input matches screen horizontal direction"), FMath::IsNearlyEqual(FVector::DotProduct(Movement,RightAxis), Direction.Input.GetSafeNormal().X, .0001));
+			TestTrue(TEXT("Up/down input matches screen vertical direction"), FMath::IsNearlyEqual(FVector::DotProduct(Movement,UpAxis), Direction.Input.GetSafeNormal().Y * FMath::Sin(FMath::DegreesToRadians(55.f)), .0001));
+			Player->StopMoving(FInputActionValue(FVector2D::ZeroVector));
+			Boom->TickComponent(1.f/60.f, LEVELTICK_All, nullptr);
+			TestTrue(TEXT("Eight facing changes never rotate the camera"), Camera->GetComponentRotation().Equals(FixedRotation,.01f));
+		}
+		Player->SetActorRotation(FRotator(0,90,0));
+		Boom->TickComponent(1.f/60.f, LEVELTICK_All, nullptr);
+		TestTrue(TEXT("Even actor rotation cannot rotate the camera"), Camera->GetComponentRotation().Equals(FixedRotation,.01f));
+		Player->SetActorRotation(FRotator::ZeroRotator);
+		for (int32 Frame=0; Frame<180; ++Frame) Boom->TickComponent(1.f/60.f, LEVELTICK_All, nullptr);
+		const FVector Forward = FixedRotation.Vector();
+		const FVector Up = FRotationMatrix(FixedRotation).GetUnitAxis(EAxis::Z);
+		const float VerticalTanHalfFOV = FMath::Tan(FMath::DegreesToRadians(Camera->FieldOfView*.5f)) / (16.f/9.f);
+		auto ScreenY = [&](FVector Point)
+		{
+			const FVector Offset = Point - Camera->GetComponentLocation();
+			return .5f - .5f * FVector::DotProduct(Offset,Up) / (FVector::DotProduct(Offset,Forward)*VerticalTanHalfFOV);
+		};
+		const float FootY = ScreenY(FVector::ZeroVector);
+		const float HeadY = ScreenY(FVector(0,0,140));
+		const float BodyFraction = FootY-HeadY;
+		TestTrue(TEXT("140 cm body occupies about 9 percent at 2500 cm and 16:9"), BodyFraction>=.085f && BodyFraction<=.095f);
+		TestTrue(TEXT("Body centre is close to screen centre, slightly below"), (FootY+HeadY)*.5f>=.50f && (FootY+HeadY)*.5f<=.55f);
+		AddInfo(FString::Printf(TEXT("Fixed exterior projection: body %.3f%%; centre Y %.4f"),BodyFraction*100.f,(FootY+HeadY)*.5f));
+		for (int32 Frame=0; Frame<120; ++Frame)
+		{
+			Player->AddActorWorldOffset(FVector(210.f/60.f,0,0));
+			Boom->TickComponent(1.f/60.f, LEVELTICK_All, nullptr);
+			const FVector LaggedFocus = Camera->GetComponentLocation()+Forward*Boom->TargetArmLength;
+			const FVector TargetFocus = Boom->GetComponentLocation()+Boom->TargetOffset;
+			TestTrue(TEXT("Walking lag stays short and bounded"), FVector::Distance(LaggedFocus,TargetFocus)<=45.01f);
+			TestTrue(TEXT("Walking never rotates the camera"), Camera->GetComponentRotation().Equals(FixedRotation,.01f));
+		}
+		for (int32 Frame=0; Frame<60; ++Frame) Boom->TickComponent(1.f/60.f, LEVELTICK_All, nullptr);
+		TestTrue(TEXT("Camera settles after stopping"), (Camera->GetComponentLocation()+Forward*Boom->TargetArmLength).Equals(Boom->GetComponentLocation()+Boom->TargetOffset,.05f));
+	}
 	TestEqual(TEXT("Small angular changes at a sector boundary retain the last direction"),
 		APokeMonsterPlayerCharacter::CalculateFacingDirection(
 			FVector2D(FMath::Sin(FMath::DegreesToRadians(24.0f)),

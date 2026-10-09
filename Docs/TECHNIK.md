@@ -393,9 +393,16 @@ Vor dem Abschluss eines Arbeitsschrittes soll Codex, soweit möglich:
 
 Die historische V1-Messung oben beschreibt den Ausgangsstand. Die Kalibrierung trennt Leinwand, Alpha-Körper, Render-Bounds und Gameplay-Collision. Der Player verwendet visuelle Component-Scale (0,66; 0,66; 1,086758), einen Sohlen-Pivot (128,488) und pro Frame normierte Pixels Per Unreal Unit (3,4 × Körperpixel / 438). Seine Paper2D-Fläche steht aufrecht (Yaw 45°, Roll 0°); die sichtbare Körperhöhe beträgt dadurch tatsächlich 140 cm in Welt-Z. Getrennte Breiten-/Höhenskalierung erhält die Bildschirmproportionen unter der unveränderten -55°-Kamera. Eine zur Kamera gekippte Fläche mit nur passender Bildschirmhöhe wäre für die Verdeckung durch echte 3D-Tresen geometrisch zu niedrig. Die Sprite-Komponente sitzt am Capsule-Fuß, die Capsule bleibt 96 cm hoch und 56 cm breit. Sie ist eine Navigations-/Kollisionshülle, keine Körpergrößenreferenz. Messung und Vergleich stehen in `SCALE_CALIBRATION.md`.
 
-## Overworld-Kamera nach dem 2500-cm-Vergleich
+## Aktuelle feste Overworld-Kamera (09.10.2026)
 
-Die perspektivische SpringArm-Kamera verwendet 2500 cm Abstand statt zuvor 2000 cm. Der PIE-Vergleich an gleichen zu Fuß erreichten Positionen zeigt mehr Vorplatz und Innenraumeinrichtung bei weiterhin lesbarer 140-cm-Figur und Hüterin. Rotation (-55°, -45°, 0°), FOV 35°, Camera Lag (Geschwindigkeit 6; maximal 180 cm) sowie alle Player- und Gameplaywerte bleiben unverändert. Das vollständige Heilhaus passt unmittelbar am Eingang auch damit nicht ins Bild.
+Nach dem zwischenzeitlichen 2000-cm-Stand wurde der Außenabstand am 09.10.2026 auf Harrys ausdrücklichen Folgeauftrag wieder auf 2500 cm gesetzt. Die übrigen neuen Kameraparameter bleiben erhalten. `APokeMonsterPlayerCharacter` behält das vorhandene SpringArm-/CameraComponent-System: **2500 cm**, Pitch **−55°**, bestehender Yaw **−45°**, Roll **0°**, perspektivisch, FOV **35°**. Absolute SpringArm-Rotation sowie deaktivierte Controller-/Pawn- und Rotationsvererbung halten die Außenansicht unabhängig von Actorrotation und acht Sprite-Blickrichtungen fest. Keine neue diagonale Kameradrehung. `TargetOffset=(0,0,35)` cm fokussiert leicht oberhalb des Figurenmittelpunkts und platziert sie ungefähr mittig, leicht unterhalb.
+
+Positions-Lag bleibt aktiv, mit **12** statt 6, maximal **45 cm** statt 180; Substepping **1/60 s**, kein Rotations-Lag. Kamerakollision bleibt deaktiviert, daher kein Verkürzen des Arms an Dach/Vegetation. Das löst keine grafische Verdeckung durch Baumkronen; bestehende per-building Cutaways bleiben zuständig. Keine neue Occlusion-Logik.
+
+Bei 140 cm aufrechter Körperhöhe und 16:9 liegt die Projektion bei ungefähr 9 Prozent der Spielbildhöhe. Transparente Leinwand und Collisionhöhe dürfen nicht als Körpermaß dienen. Der Anteil hängt bei unverändertem horizontalem FOV vom Seitenverhältnis ab. Der vorhandene Blueprint-/Map-Audit findet keine Player-Blueprint-Overrides: `Dev_TestMap`, HealingHouse- und BuildingKit-Testmap verwenden den nativen Pawn über `PokeMonsterGameMode`, ohne platzierte Playerinstanzen. Keine Map-/Assetänderung ist erforderlich.
+
+`CalculateCameraRelativeMovement` verwendet bereits die horizontale Kamerabasis: Bildschirm oben entlang Camera Forward, rechts entlang Camera Right, Diagonalen normalisiert. Die vorhandene Innenkamera-/Endpunkt-/Steuerungsanbindung bleibt unverändert; keine Drehung der Eingaben mit der Figur. Raumfeste Innenkameras behalten ihre eigenen Abstände/Winkel sowie Relocation, Fade und Bewegungsbasis-Blend. Ältere Architekturberichte und deren 2500/6/180-Angaben beschreiben historische Außenwerte. Aktuelle Prüfung: `OVERWORLD_KAMERA_2026_10_09_PRUEFBERICHT.md`.
+
 
 ## Heilhaus V2: aktuelle Proportionen
 

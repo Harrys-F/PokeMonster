@@ -429,7 +429,7 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Perspektive, Rotation (-55°, -45°, 0°), FOV 35°, Camera Lag mit Geschwindigkeit 6 und maximal 180 cm bleiben unverändert. Sprite-/Actor-Skalierung, 140 cm Körperhöhe, Capsule, 210 cm/s Bewegung, Input, Blickrichtungen und Gameplay werden nicht angepasst. Die Maps werden nicht gespeichert oder verändert.
 - Die bestehende Scale-Calibration-Testassertion prüft den neuen Kameraabstand; die Körpergrößen-Prüfungen bleiben unverändert. Mac-Development-Build erfolgreich; alle 35 vorhandenen PokeMonster-Automationstests erfolgreich, einschließlich Player Foundation, Scale Calibration und HealingHouse. Zusätzliche PIE-WASD-Prüfung in `Dev_TestMap`: tatsächliche Bewegung und Kamerafolgen bestätigt; im offenen Wegbereich bleiben Figur und NPCs lesbar. Vorhandene Vordergrund-Baumkronen können die Figur weiterhin verdecken; daran wird bei dieser reinen Abstandsanpassung nichts geändert.
 
-## 2026-10-02 – Türschwellen-Cutaway und weiterer Kameravergleich
+## 2026-10-02 – Türschwellen-Cutaway und weiterer Kameravergleich (Außenkamerawerte ersetzt am 2026-10-09)
 
 - Die sofortige Sichtbarkeitsschaltung in einer bis vor den Eingang reichenden Box ist ersetzt: Eine 40 × 240 × 230 cm große, nicht kollidierende Türschwellen-Zone liegt bei (-450, 0, 115) cm. Ihre lokale X-Achse zeigt nach innen. Ein 4-cm-Hystereseband verhindert Umschalten bei kleinen Bewegungen direkt auf der Schwelle; die Innenraumbox dient zusätzlich der robusten Initialisierung bei einem vorhandenen Innenraumspawn.
 - Ausschließlich die bereits konfigurierten Dächer und kameraseitigen Fassadenteile erhalten einen reversiblen 0,4-Sekunden-Fade. Die vorhandenen einfachen Heilhaus-Materialien bekommen eine maskierte `DitherTemporalAA`-Opacity-Maske; Custom Primitive Data Index 0 steuert den Ausblendanteil pro Mesh. Der Standardwert 0 lässt alle anderen Gebäudeteile unverändert sichtbar. Keine Translucent-Materialien, neuen Gameplay-Blocker oder Änderungen an Heilung, Save oder Checkpoint.
@@ -582,3 +582,18 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Die bestehende Layoutprüfung erwartete die Darstellung direkt auf jedem ursprünglichen Möbel-Primitive. Sie wird für die explizite Proxy-/Darstellungstrennung erweitert: passende sichtbare Darstellung, gleiche Transformation, NoCollision und weiterhin aktiver ursprünglicher Player-Blocker. Keine Schwächung der Collisionprüfung und keine Gameplay-C++-Änderung.
 
 V3-Abschlussprüfung: vollständiger Enhanced-Input-Fußlauf ohne Test-Teleports, gerade/diagonale Türpassage, sämtliche Funktionszonen und Heilerin einschließlich Healing/PP/Checkpoint/Save bestanden. Build der erweiterten Automationstestdatei erfolgreich; 38/38 Automationstests, Map Check 0 Fehler/0 Warnungen sowie Import-/Material-/Collisionaudit bestanden. Originaler Dev-Spielstand nach allen Tests bytegleich wiederhergestellt. Keine visuelle Nutzerfreigabe vorweggenommen.
+
+## 2026-10-09 – Feste 2,5D-Außenkamera und 10–13 Prozent Figurhöhe (Abstand/Zielbereich durch Folgeauftrag ersetzt)
+
+- Harrys neuer Kameraauftrag ersetzt den früheren 7-Prozent-Richtwert und die Außenwerte 2500 cm / Lag 6 / maximal 180 cm. Körperhöhe 140 cm, Weltmaßstab, 210 cm/s, Sprite-/Input-/Gameplaylogik bleiben unverändert.
+- Bestehendes Kamerasystem: 2000 cm SpringArm, Pitch −55°, Yaw weiterhin −45°, Roll 0°, Perspektive/FOV 35°. Die horizontale Blickrichtung wird ausdrücklich beibehalten, nicht um einen zusätzlichen isometrischen Winkel gedreht. Absoluter Armwinkel verhindert Mitdrehen mit dem Pawn.
+- Fokus um 35 cm über Capsule-Zentrum; positionsbezogenes Camera Lag 12/maximal 45 cm, Substepping 1/60 s, kein Rotations-Lag. Deaktivierte Kamerakollision bleibt erhalten und verhindert unerwünschte Zoomsprünge.
+- Der Zielbereich 10–13 Prozent gilt für das normale 16:9-Spielbild anhand des sichtbaren Körpers. Bei anderem Seitenverhältnis ändert sich der Anteil unter unverändertem horizontalem FOV. Technische Projektionsprüfung und verfügbare Editorprüfung werden getrennt dokumentiert; keine nicht durchgeführte Sichtprüfung als bestanden ausgeben.
+- Native Pawn-/GameMode-Anbindung in den vorhandenen Testmaps; keine Player-Blueprint-Overrides vorhanden. Bildschirmbezogene Bewegungsbasis und acht Animationrichtungen werden weiterverwendet. Bestehende gebäudespezifische Innenkameras bleiben unverändert; sie sind bewusste Ausnahmen von der folgenden Außenkamera.
+- Prüfbericht und endgültige Testergebnisse: `Docs/OVERWORLD_KAMERA_2026_10_09_PRUEFBERICHT.md`. Kein Commit/Push im Rahmen des Auftrags.
+
+## 2026-10-09 – Außenabstand zurück auf 2500 cm
+
+- Harrys Folgeauftrag setzt ausschließlich den SpringArm-Abstand von 2000 auf 2500 cm zurück. Der zwischenzeitliche 10–13-Prozent-Figurenanteil ist damit ersetzt; bei 16:9 liegt die 140-cm-Figur wieder bei ungefähr 9 Prozent der Bildhöhe. Keine Figurenskalierung als Ausgleich.
+- Pitch −55°, Yaw −45°, Roll 0°, Perspektive/FOV 35°, TargetOffset (0,0,35) cm, absolute Rotation, Lag 12/maximal 45 cm, Substepping 1/60 s und deaktivierter Kollisions-/Rotations-Lag bleiben unverändert. Gebäudespezifische Innenkameras, Player und Gameplay bleiben unverändert.
+- Abstandserwartungen und die Projektionsprüfung werden passend zum neuen Standard aktualisiert; Build und Kameraregressionen werden erneut geprüft. Ergebnisse im Nachtrag zu `Docs/OVERWORLD_KAMERA_2026_10_09_PRUEFBERICHT.md`.

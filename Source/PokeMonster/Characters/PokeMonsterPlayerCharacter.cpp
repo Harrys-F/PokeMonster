@@ -106,16 +106,22 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
+	// Fixed exterior framing: the upright 140 cm body occupies about 9% at 16:9.
 	CameraBoom->TargetArmLength = 2500.0f;
+	CameraBoom->SetUsingAbsoluteRotation(true);
 	CameraBoom->SetRelativeRotation(FRotator(-55.0f, -45.0f, 0.0f));
+	CameraBoom->TargetOffset = FVector(0.0f, 0.0f, 35.0f);
 	CameraBoom->bUsePawnControlRotation = false;
 	CameraBoom->bInheritPitch = false;
 	CameraBoom->bInheritYaw = false;
 	CameraBoom->bInheritRoll = false;
 	CameraBoom->bDoCollisionTest = false;
 	CameraBoom->bEnableCameraLag = true;
-	CameraBoom->CameraLagSpeed = 6.0f;
-	CameraBoom->CameraLagMaxDistance = 180.0f;
+	CameraBoom->CameraLagSpeed = 12.0f;
+	CameraBoom->CameraLagMaxDistance = 45.0f;
+	CameraBoom->bUseCameraLagSubstepping = true;
+	CameraBoom->CameraLagMaxTimeStep = 1.0f / 60.0f;
+	CameraBoom->bEnableCameraRotationLag = false;
 
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
