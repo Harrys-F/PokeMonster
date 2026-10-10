@@ -1,0 +1,333 @@
+{
+  "units": "metres",
+  "materials": {
+    "Bark": {
+      "color": [
+        0.85,
+        0.84,
+        0.77
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_Bark.png",
+      "two_sided": false
+    },
+    "Birch": {
+      "color": [
+        0.88,
+        0.88,
+        0.78
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_Birch.png",
+      "two_sided": false
+    },
+    "Leaf": {
+      "color": [
+        0.7,
+        0.84,
+        0.62
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_LeafSummer.png",
+      "two_sided": true
+    },
+    "LeafLight": {
+      "color": [
+        0.92,
+        0.94,
+        0.75
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_LeafSummer.png",
+      "two_sided": true
+    },
+    "LeafDark": {
+      "color": [
+        0.46,
+        0.66,
+        0.4
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_LeafSummer.png",
+      "two_sided": true
+    },
+    "Straw": {
+      "color": [
+        0.9,
+        0.85,
+        0.65
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_Straw.png",
+      "two_sided": false
+    },
+    "Wood": {
+      "color": [
+        1,
+        0.91,
+        0.78
+      ],
+      "texture": "Art/HealingHouse/Textures/QualityV2/T_HH_PaintedWood.png",
+      "two_sided": false
+    },
+    "Timber": {
+      "color": [
+        0.43,
+        0.4,
+        0.32
+      ],
+      "texture": "Art/HealingHouse/Textures/QualityV2/T_HH_PaintedWood.png",
+      "two_sided": false
+    },
+    "Stone": {
+      "color": [
+        0.91,
+        0.96,
+        0.9
+      ],
+      "texture": "Art/HealingHouse/Textures/QualityV2/T_HH_PaintedStone.png",
+      "two_sided": false
+    },
+    "Moss": {
+      "color": [
+        0.54,
+        0.72,
+        0.39
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_Leaf.png",
+      "two_sided": false
+    },
+    "MossStone": {
+      "color": [
+        0.91,
+        0.96,
+        0.9
+      ],
+      "texture": "Art/HealingHouse/Textures/QualityV2/T_HH_PaintedStone.png",
+      "two_sided": false,
+      "vertex_color": true
+    },
+    "Iron": {
+      "color": [
+        0.09,
+        0.11,
+        0.09
+      ],
+      "texture": null,
+      "two_sided": false
+    },
+    "Apple": {
+      "color": [
+        0.48,
+        0.12,
+        0.055
+      ],
+      "texture": null,
+      "two_sided": false
+    },
+    "FlowerCream": {
+      "color": [
+        0.82,
+        0.74,
+        0.53
+      ],
+      "texture": null,
+      "two_sided": false
+    },
+    "FlowerBlue": {
+      "color": [
+        0.29,
+        0.32,
+        0.49
+      ],
+      "texture": null,
+      "two_sided": false
+    },
+    "Gold": {
+      "color": [
+        0.53,
+        0.32,
+        0.1
+      ],
+      "texture": null,
+      "two_sided": false
+    },
+    "Rune": {
+      "color": [
+        0.34,
+        0.52,
+        0.46
+      ],
+      "texture": null,
+      "two_sided": false
+    }
+  },
+  "assets": [
+    {
+      "id": "WLA_OakAncient_A",
+      "object": "SM_WLA_OakAncient_A",
+      "family": "Trees",
+      "dimensions_m": [
+        8.978070259094238,
+        8.674059867858887,
+        11.940389882773161
+      ],
+      "triangles": 26720,
+      "materials": [
+        "WLA_Bark",
+        "WLA_Leaf",
+        "WLA_LeafLight",
+        "WLA_LeafDark"
+      ],
+      "collision": "trunk_only",
+      "collision_objects": [
+        "UCX_SM_WLA_OakAncient_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review"
+    },
+    {
+      "id": "WLA_OakYoung_A",
+      "object": "SM_WLA_OakYoung_A",
+      "family": "Trees",
+      "dimensions_m": [
+        4.1769726276397705,
+        3.913581371307373,
+        5.2009591944515705
+      ],
+      "triangles": 16364,
+      "materials": [
+        "WLA_Bark",
+        "WLA_Leaf",
+        "WLA_LeafLight",
+        "WLA_LeafDark"
+      ],
+      "collision": "trunk_only",
+      "collision_objects": [
+        "UCX_SM_WLA_OakYoung_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review"
+    },
+    {
+      "id": "WLA_Fern_A",
+      "object": "SM_WLA_Fern_A",
+      "family": "Vegetation",
+      "dimensions_m": [
+        1.252101480960846,
+        1.238279104232788,
+        0.8808359727263451
+      ],
+      "triangles": 4212,
+      "materials": [
+        "WLA_LeafDark",
+        "WLA_LeafLight",
+        "WLA_Leaf"
+      ],
+      "collision": "none",
+      "collision_objects": [],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review"
+    },
+    {
+      "id": "WLA_Boulder_A",
+      "object": "SM_WLA_Boulder_A",
+      "family": "Landscape",
+      "dimensions_m": [
+        2.8501561880111694,
+        2.2258059978485107,
+        2.393075466156006
+      ],
+      "triangles": 1280,
+      "materials": [
+        "WLA_MossStone"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Boulder_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review"
+    },
+    {
+      "id": "WLA_Bench_A",
+      "object": "SM_WLA_Bench_A",
+      "family": "Village",
+      "dimensions_m": [
+        1.3509999513626099,
+        0.7750051319599152,
+        1.1846395232714713
+      ],
+      "triangles": 3772,
+      "materials": [
+        "WLA_Timber",
+        "WLA_Wood",
+        "WLA_Wood"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Bench_A_00",
+        "UCX_SM_WLA_Bench_A_01"
+      ],
+      "provenance": "unchanged HH_Q3_Bench construction; painted material family reused",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review"
+    },
+    {
+      "id": "WLA_Runestone_A",
+      "object": "SM_WLA_Runestone_A",
+      "family": "Ruins",
+      "dimensions_m": [
+        1.1976540088653564,
+        0.6809387505054474,
+        2.4070225954055786
+      ],
+      "triangles": 1342,
+      "materials": [
+        "WLA_MossStone",
+        "WLA_Rune"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Runestone_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review"
+    }
+  ]
+}

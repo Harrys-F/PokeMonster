@@ -1,0 +1,1650 @@
+{
+  "units": "metres",
+  "materials": {
+    "Bark": {
+      "color": [
+        0.85,
+        0.84,
+        0.77
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_Bark.png",
+      "two_sided": false
+    },
+    "Birch": {
+      "color": [
+        0.88,
+        0.88,
+        0.78
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_Birch.png",
+      "two_sided": false
+    },
+    "Leaf": {
+      "color": [
+        0.7,
+        0.84,
+        0.62
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_LeafSummer.png",
+      "two_sided": true
+    },
+    "LeafLight": {
+      "color": [
+        0.92,
+        0.94,
+        0.75
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_LeafSummer.png",
+      "two_sided": true
+    },
+    "LeafDark": {
+      "color": [
+        0.46,
+        0.66,
+        0.4
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_LeafSummer.png",
+      "two_sided": true
+    },
+    "Straw": {
+      "color": [
+        0.9,
+        0.85,
+        0.65
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_Straw.png",
+      "two_sided": false
+    },
+    "Wood": {
+      "color": [
+        1,
+        0.91,
+        0.78
+      ],
+      "texture": "Art/HealingHouse/Textures/QualityV2/T_HH_PaintedWood.png",
+      "two_sided": false
+    },
+    "Timber": {
+      "color": [
+        0.43,
+        0.4,
+        0.32
+      ],
+      "texture": "Art/HealingHouse/Textures/QualityV2/T_HH_PaintedWood.png",
+      "two_sided": false
+    },
+    "Stone": {
+      "color": [
+        0.91,
+        0.96,
+        0.9
+      ],
+      "texture": "Art/HealingHouse/Textures/QualityV2/T_HH_PaintedStone.png",
+      "two_sided": false
+    },
+    "Moss": {
+      "color": [
+        0.54,
+        0.72,
+        0.39
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_Leaf.png",
+      "two_sided": false
+    },
+    "MossStone": {
+      "color": [
+        0.91,
+        0.96,
+        0.9
+      ],
+      "texture": "Art/HealingHouse/Textures/QualityV2/T_HH_PaintedStone.png",
+      "two_sided": false,
+      "vertex_color": true
+    },
+    "Iron": {
+      "color": [
+        0.09,
+        0.11,
+        0.09
+      ],
+      "texture": null,
+      "two_sided": false
+    },
+    "Apple": {
+      "color": [
+        0.48,
+        0.12,
+        0.055
+      ],
+      "texture": null,
+      "two_sided": false
+    },
+    "FlowerCream": {
+      "color": [
+        0.82,
+        0.74,
+        0.53
+      ],
+      "texture": null,
+      "two_sided": false
+    },
+    "FlowerBlue": {
+      "color": [
+        0.29,
+        0.32,
+        0.49
+      ],
+      "texture": null,
+      "two_sided": false
+    },
+    "Gold": {
+      "color": [
+        0.53,
+        0.32,
+        0.1
+      ],
+      "texture": null,
+      "two_sided": false
+    },
+    "Rune": {
+      "color": [
+        0.34,
+        0.52,
+        0.46
+      ],
+      "texture": null,
+      "two_sided": false
+    }
+  },
+  "assets": [
+    {
+      "id": "WLA_OakAncient_A",
+      "object": "SM_WLA_OakAncient_A",
+      "family": "Trees",
+      "dimensions_m": [
+        8.97807,
+        8.67406,
+        11.94039
+      ],
+      "triangles": 26720,
+      "materials": [
+        "WLA_Bark",
+        "WLA_Leaf",
+        "WLA_LeafLight",
+        "WLA_LeafDark"
+      ],
+      "collision": "trunk_only",
+      "collision_objects": [
+        "UCX_SM_WLA_OakAncient_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 34,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false,
+      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+    },
+    {
+      "id": "WLA_OakYoung_A",
+      "object": "SM_WLA_OakYoung_A",
+      "family": "Trees",
+      "dimensions_m": [
+        4.17697,
+        3.91358,
+        5.20096
+      ],
+      "triangles": 16364,
+      "materials": [
+        "WLA_Bark",
+        "WLA_Leaf",
+        "WLA_LeafLight",
+        "WLA_LeafDark"
+      ],
+      "collision": "trunk_only",
+      "collision_objects": [
+        "UCX_SM_WLA_OakYoung_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 22,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false,
+      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+    },
+    {
+      "id": "WLA_Fern_A",
+      "object": "SM_WLA_Fern_A",
+      "family": "Vegetation",
+      "dimensions_m": [
+        1.2521,
+        1.23828,
+        0.88084
+      ],
+      "triangles": 4212,
+      "materials": [
+        "WLA_LeafDark",
+        "WLA_LeafLight",
+        "WLA_Leaf"
+      ],
+      "collision": "none",
+      "collision_objects": [],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 18,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Boulder_A",
+      "object": "SM_WLA_Boulder_A",
+      "family": "Landscape",
+      "dimensions_m": [
+        2.85016,
+        2.22581,
+        2.39308
+      ],
+      "triangles": 1280,
+      "materials": [
+        "WLA_MossStone"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Boulder_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 0,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Bench_A",
+      "object": "SM_WLA_Bench_A",
+      "family": "Village",
+      "dimensions_m": [
+        1.351,
+        0.77501,
+        1.18464
+      ],
+      "triangles": 3772,
+      "materials": [
+        "WLA_Timber",
+        "WLA_Wood",
+        "WLA_Wood"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Bench_A_00",
+        "UCX_SM_WLA_Bench_A_01"
+      ],
+      "provenance": "unchanged HH_Q3_Bench construction; painted material family reused",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 0,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Runestone_A",
+      "object": "SM_WLA_Runestone_A",
+      "family": "Ruins",
+      "dimensions_m": [
+        1.19765,
+        0.68094,
+        2.40702
+      ],
+      "triangles": 1342,
+      "materials": [
+        "WLA_MossStone",
+        "WLA_Rune"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Runestone_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 29,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Birch_A",
+      "object": "SM_WLA_Birch_A",
+      "family": "Trees",
+      "dimensions_m": [
+        3.63771,
+        3.27474,
+        9.05539
+      ],
+      "triangles": 16364,
+      "materials": [
+        "WLA_Birch",
+        "WLA_Leaf",
+        "WLA_LeafDark",
+        "WLA_LeafLight"
+      ],
+      "collision": "trunk_only",
+      "collision_objects": [
+        "UCX_SM_WLA_Birch_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 22,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false,
+      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+    },
+    {
+      "id": "WLA_FruitTree_A",
+      "object": "SM_WLA_FruitTree_A",
+      "family": "Trees",
+      "dimensions_m": [
+        5.66148,
+        4.91454,
+        5.40158
+      ],
+      "triangles": 19724,
+      "materials": [
+        "WLA_Bark",
+        "WLA_Leaf",
+        "WLA_LeafDark",
+        "WLA_LeafLight",
+        "WLA_Apple"
+      ],
+      "collision": "trunk_only",
+      "collision_objects": [
+        "UCX_SM_WLA_FruitTree_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 2038,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false,
+      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+    },
+    {
+      "id": "WLA_Bush_A",
+      "object": "SM_WLA_Bush_A",
+      "family": "Vegetation",
+      "dimensions_m": [
+        2.2465,
+        1.90416,
+        1.46059
+      ],
+      "triangles": 13426,
+      "materials": [
+        "WLA_Bark",
+        "WLA_Leaf",
+        "WLA_LeafLight",
+        "WLA_LeafDark"
+      ],
+      "collision": "none",
+      "collision_objects": [],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 14,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false,
+      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+    },
+    {
+      "id": "WLA_Grass_A",
+      "object": "SM_WLA_Grass_A",
+      "family": "Vegetation",
+      "dimensions_m": [
+        0.42707,
+        0.54421,
+        0.37648
+      ],
+      "triangles": 576,
+      "materials": [
+        "WLA_LeafLight",
+        "WLA_Leaf"
+      ],
+      "collision": "none",
+      "collision_objects": [],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 0,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Herb_A",
+      "object": "SM_WLA_Herb_A",
+      "family": "Vegetation",
+      "dimensions_m": [
+        0.77934,
+        0.77707,
+        0.607
+      ],
+      "triangles": 1152,
+      "materials": [
+        "WLA_LeafDark",
+        "WLA_LeafLight",
+        "WLA_Leaf"
+      ],
+      "collision": "none",
+      "collision_objects": [],
+      "provenance": "reuses HH_Q3_BroadHerb from HealingHouse_QualityV3; pot removed",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 0,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Wildflowers_A",
+      "object": "SM_WLA_Wildflowers_A",
+      "family": "Vegetation",
+      "dimensions_m": [
+        0.78165,
+        0.78527,
+        0.57514
+      ],
+      "triangles": 2160,
+      "materials": [
+        "WLA_LeafDark",
+        "WLA_LeafLight",
+        "WLA_FlowerBlue",
+        "WLA_FlowerCream",
+        "WLA_Leaf"
+      ],
+      "collision": "none",
+      "collision_objects": [],
+      "provenance": "reuses HH_Q3_FlowerPlant from HealingHouse_QualityV3; pot removed",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 0,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_SmallStones_A",
+      "object": "SM_WLA_SmallStones_A",
+      "family": "Landscape",
+      "dimensions_m": [
+        0.89266,
+        1.18372,
+        0.413
+      ],
+      "triangles": 6400,
+      "materials": [
+        "WLA_Stone"
+      ],
+      "collision": "none",
+      "collision_objects": [],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 0,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Stump_A",
+      "object": "SM_WLA_Stump_A",
+      "family": "Landscape",
+      "dimensions_m": [
+        1.8004,
+        1.6361,
+        0.92544
+      ],
+      "triangles": 1208,
+      "materials": [
+        "WLA_Bark",
+        "WLA_Wood",
+        "WLA_Timber"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Stump_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 20,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Root_A",
+      "object": "SM_WLA_Root_A",
+      "family": "Landscape",
+      "dimensions_m": [
+        1.74754,
+        1.69811,
+        0.48569
+      ],
+      "triangles": 251,
+      "materials": [
+        "WLA_Bark"
+      ],
+      "collision": "none",
+      "collision_objects": [],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 5,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Fence_A",
+      "object": "SM_WLA_Fence_A",
+      "family": "Village",
+      "dimensions_m": [
+        1.98288,
+        0.17245,
+        1.15579
+      ],
+      "triangles": 656,
+      "materials": [
+        "WLA_Wood",
+        "WLA_Iron"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Fence_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 328,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Signpost_A",
+      "object": "SM_WLA_Signpost_A",
+      "family": "Village",
+      "dimensions_m": [
+        1.1,
+        0.13448,
+        2.15335
+      ],
+      "triangles": 280,
+      "materials": [
+        "WLA_Wood",
+        "WLA_Iron"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Signpost_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 130,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Cart_A",
+      "object": "SM_WLA_Cart_A",
+      "family": "Village",
+      "dimensions_m": [
+        1.76,
+        3.23926,
+        1.27874
+      ],
+      "triangles": 6196,
+      "materials": [
+        "WLA_Timber",
+        "WLA_Wood",
+        "WLA_Iron"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Cart_A_00",
+        "UCX_SM_WLA_Cart_A_01",
+        "UCX_SM_WLA_Cart_A_02"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 200,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Barrel_A",
+      "object": "SM_WLA_Barrel_A",
+      "family": "Village",
+      "dimensions_m": [
+        0.856,
+        0.85999,
+        1.0
+      ],
+      "triangles": 2620,
+      "materials": [
+        "WLA_Wood",
+        "WLA_Iron"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Barrel_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 1258,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Crate_A",
+      "object": "SM_WLA_Crate_A",
+      "family": "Village",
+      "dimensions_m": [
+        0.89614,
+        0.88773,
+        0.70357
+      ],
+      "triangles": 4136,
+      "materials": [
+        "WLA_Wood",
+        "WLA_Timber"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Crate_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 0,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Haybale_A",
+      "object": "SM_WLA_Haybale_A",
+      "family": "Farm",
+      "dimensions_m": [
+        1.2573,
+        0.90329,
+        0.92633
+      ],
+      "triangles": 396,
+      "materials": [
+        "WLA_Straw",
+        "WLA_Timber"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Haybale_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 100,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Woodpile_A",
+      "object": "SM_WLA_Woodpile_A",
+      "family": "Farm",
+      "dimensions_m": [
+        1.34932,
+        1.31823,
+        0.73932
+      ],
+      "triangles": 1344,
+      "materials": [
+        "WLA_Bark",
+        "WLA_Wood"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Woodpile_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 48,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Column_A",
+      "object": "SM_WLA_Column_A",
+      "family": "Ruins",
+      "dimensions_m": [
+        0.91442,
+        0.93394,
+        1.84797
+      ],
+      "triangles": 776,
+      "materials": [
+        "WLA_Stone",
+        "WLA_LeafDark"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Column_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 284,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_WallRemnant_A",
+      "object": "SM_WLA_WallRemnant_A",
+      "family": "Ruins",
+      "dimensions_m": [
+        2.74292,
+        0.64032,
+        1.51946
+      ],
+      "triangles": 3868,
+      "materials": [
+        "WLA_Stone",
+        "WLA_Leaf"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_WallRemnant_A_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "A",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 348,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_OakAncient_B",
+      "object": "SM_WLA_OakAncient_B",
+      "family": "Trees",
+      "dimensions_m": [
+        9.03234,
+        8.64303,
+        11.71446
+      ],
+      "triangles": 26720,
+      "materials": [
+        "WLA_Bark",
+        "WLA_Leaf",
+        "WLA_LeafLight",
+        "WLA_LeafDark"
+      ],
+      "collision": "trunk_only",
+      "collision_objects": [
+        "UCX_SM_WLA_OakAncient_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 34,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false,
+      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+    },
+    {
+      "id": "WLA_OakYoung_B",
+      "object": "SM_WLA_OakYoung_B",
+      "family": "Trees",
+      "dimensions_m": [
+        4.18561,
+        3.98105,
+        5.37109
+      ],
+      "triangles": 16364,
+      "materials": [
+        "WLA_Bark",
+        "WLA_Leaf",
+        "WLA_LeafLight",
+        "WLA_LeafDark"
+      ],
+      "collision": "trunk_only",
+      "collision_objects": [
+        "UCX_SM_WLA_OakYoung_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 22,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false,
+      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+    },
+    {
+      "id": "WLA_Fern_B",
+      "object": "SM_WLA_Fern_B",
+      "family": "Vegetation",
+      "dimensions_m": [
+        1.20565,
+        1.17112,
+        0.7575
+      ],
+      "triangles": 4212,
+      "materials": [
+        "WLA_LeafDark",
+        "WLA_LeafLight",
+        "WLA_Leaf"
+      ],
+      "collision": "none",
+      "collision_objects": [],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 18,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Boulder_B",
+      "object": "SM_WLA_Boulder_B",
+      "family": "Landscape",
+      "dimensions_m": [
+        2.83132,
+        2.46964,
+        2.42791
+      ],
+      "triangles": 1280,
+      "materials": [
+        "WLA_MossStone"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Boulder_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 0,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Runestone_B",
+      "object": "SM_WLA_Runestone_B",
+      "family": "Ruins",
+      "dimensions_m": [
+        1.2158,
+        0.68098,
+        2.35147
+      ],
+      "triangles": 1342,
+      "materials": [
+        "WLA_MossStone",
+        "WLA_Rune"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Runestone_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 29,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Birch_B",
+      "object": "SM_WLA_Birch_B",
+      "family": "Trees",
+      "dimensions_m": [
+        3.95115,
+        3.35561,
+        9.09204
+      ],
+      "triangles": 16364,
+      "materials": [
+        "WLA_Birch",
+        "WLA_Leaf",
+        "WLA_LeafDark",
+        "WLA_LeafLight"
+      ],
+      "collision": "trunk_only",
+      "collision_objects": [
+        "UCX_SM_WLA_Birch_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 22,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false,
+      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+    },
+    {
+      "id": "WLA_FruitTree_B",
+      "object": "SM_WLA_FruitTree_B",
+      "family": "Trees",
+      "dimensions_m": [
+        5.36826,
+        5.14103,
+        5.3
+      ],
+      "triangles": 19724,
+      "materials": [
+        "WLA_Bark",
+        "WLA_Leaf",
+        "WLA_LeafLight",
+        "WLA_LeafDark",
+        "WLA_Apple"
+      ],
+      "collision": "trunk_only",
+      "collision_objects": [
+        "UCX_SM_WLA_FruitTree_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 2038,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false,
+      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+    },
+    {
+      "id": "WLA_Bush_B",
+      "object": "SM_WLA_Bush_B",
+      "family": "Vegetation",
+      "dimensions_m": [
+        2.20257,
+        2.05171,
+        1.42401
+      ],
+      "triangles": 13426,
+      "materials": [
+        "WLA_Bark",
+        "WLA_Leaf",
+        "WLA_LeafLight",
+        "WLA_LeafDark"
+      ],
+      "collision": "none",
+      "collision_objects": [],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 14,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false,
+      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+    },
+    {
+      "id": "WLA_Grass_B",
+      "object": "SM_WLA_Grass_B",
+      "family": "Vegetation",
+      "dimensions_m": [
+        0.35024,
+        0.52752,
+        0.37989
+      ],
+      "triangles": 576,
+      "materials": [
+        "WLA_LeafLight",
+        "WLA_Leaf"
+      ],
+      "collision": "none",
+      "collision_objects": [],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 0,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Herb_B",
+      "object": "SM_WLA_Herb_B",
+      "family": "Vegetation",
+      "dimensions_m": [
+        0.90649,
+        0.90674,
+        0.70576
+      ],
+      "triangles": 1512,
+      "materials": [
+        "WLA_LeafDark",
+        "WLA_LeafLight",
+        "WLA_Leaf"
+      ],
+      "collision": "none",
+      "collision_objects": [],
+      "provenance": "reuses HH_Q3_NarrowHerb from HealingHouse_QualityV3; pot removed",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 0,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_SmallStones_B",
+      "object": "SM_WLA_SmallStones_B",
+      "family": "Landscape",
+      "dimensions_m": [
+        1.047,
+        1.15268,
+        0.38381
+      ],
+      "triangles": 6400,
+      "materials": [
+        "WLA_Stone"
+      ],
+      "collision": "none",
+      "collision_objects": [],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 0,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Stump_B",
+      "object": "SM_WLA_Stump_B",
+      "family": "Landscape",
+      "dimensions_m": [
+        1.69611,
+        1.69042,
+        1.02338
+      ],
+      "triangles": 1208,
+      "materials": [
+        "WLA_Bark",
+        "WLA_Wood",
+        "WLA_Timber"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Stump_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 20,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Root_B",
+      "object": "SM_WLA_Root_B",
+      "family": "Landscape",
+      "dimensions_m": [
+        1.73767,
+        1.47915,
+        0.54595
+      ],
+      "triangles": 251,
+      "materials": [
+        "WLA_Bark"
+      ],
+      "collision": "none",
+      "collision_objects": [],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 5,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Fence_B",
+      "object": "SM_WLA_Fence_B",
+      "family": "Village",
+      "dimensions_m": [
+        1.98288,
+        0.17245,
+        1.15579
+      ],
+      "triangles": 656,
+      "materials": [
+        "WLA_Wood",
+        "WLA_Iron"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Fence_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 328,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Signpost_B",
+      "object": "SM_WLA_Signpost_B",
+      "family": "Village",
+      "dimensions_m": [
+        1.1,
+        0.13448,
+        2.15335
+      ],
+      "triangles": 280,
+      "materials": [
+        "WLA_Wood",
+        "WLA_Iron"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Signpost_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 130,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Cart_B",
+      "object": "SM_WLA_Cart_B",
+      "family": "Village",
+      "dimensions_m": [
+        1.76,
+        3.2391,
+        1.27916
+      ],
+      "triangles": 6196,
+      "materials": [
+        "WLA_Timber",
+        "WLA_Wood",
+        "WLA_Iron"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Cart_B_00",
+        "UCX_SM_WLA_Cart_B_01",
+        "UCX_SM_WLA_Cart_B_02"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 200,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Barrel_B",
+      "object": "SM_WLA_Barrel_B",
+      "family": "Village",
+      "dimensions_m": [
+        0.91643,
+        0.92999,
+        1.0
+      ],
+      "triangles": 2620,
+      "materials": [
+        "WLA_Wood",
+        "WLA_Iron"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Barrel_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 1258,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Crate_B",
+      "object": "SM_WLA_Crate_B",
+      "family": "Village",
+      "dimensions_m": [
+        0.89632,
+        0.89731,
+        0.70229
+      ],
+      "triangles": 4136,
+      "materials": [
+        "WLA_Wood",
+        "WLA_Timber"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Crate_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 0,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Haybale_B",
+      "object": "SM_WLA_Haybale_B",
+      "family": "Farm",
+      "dimensions_m": [
+        1.21551,
+        0.90329,
+        0.94179
+      ],
+      "triangles": 396,
+      "materials": [
+        "WLA_Straw",
+        "WLA_Timber"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Haybale_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 100,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Woodpile_B",
+      "object": "SM_WLA_Woodpile_B",
+      "family": "Farm",
+      "dimensions_m": [
+        1.61932,
+        1.31823,
+        0.50932
+      ],
+      "triangles": 1232,
+      "materials": [
+        "WLA_Bark",
+        "WLA_Wood"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Woodpile_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 44,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_Column_B",
+      "object": "SM_WLA_Column_B",
+      "family": "Ruins",
+      "dimensions_m": [
+        0.90961,
+        0.92848,
+        1.85034
+      ],
+      "triangles": 776,
+      "materials": [
+        "WLA_Stone",
+        "WLA_LeafDark"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_Column_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 280,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "needs_polish",
+      "human_art_approval": false
+    },
+    {
+      "id": "WLA_WallRemnant_B",
+      "object": "SM_WLA_WallRemnant_B",
+      "family": "Ruins",
+      "dimensions_m": [
+        2.77629,
+        0.64213,
+        1.51364
+      ],
+      "triangles": 3868,
+      "materials": [
+        "WLA_Stone",
+        "WLA_Leaf"
+      ],
+      "collision": "simple",
+      "collision_objects": [
+        "UCX_SM_WLA_WallRemnant_B_00"
+      ],
+      "provenance": "new authored form",
+      "variant": "B",
+      "uv": "UV0",
+      "origin_m": [
+        0,
+        0,
+        0
+      ],
+      "status": "needs_visual_review",
+      "uv_cap_faces_fixed": 346,
+      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
+      "art_status": "V1_review_ready",
+      "human_art_approval": false
+    }
+  ]
+}

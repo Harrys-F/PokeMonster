@@ -1,0 +1,1393 @@
+{
+  "project": "PokeMonster",
+  "library": "Westland Region V1",
+  "unit": "meters in Blender; centimeters in Unreal",
+  "status": "reviewed against HEAD 89b475e; original preparation ZIP preserved",
+  "assets": [
+    {
+      "id": "WL_Oak_Ancient",
+      "name_de": "Alte Eiche",
+      "family": "Baeume",
+      "height_m_target": 12,
+      "footprint_m_approx": 7,
+      "biomes": [
+        "forest",
+        "landmark"
+      ],
+      "priority": "P1",
+      "collision": "trunk_only",
+      "placement": "ISM_or_actor",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_OakAncient",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Oak_Mature",
+      "name_de": "Eiche",
+      "family": "Baeume",
+      "height_m_target": 9,
+      "footprint_m_approx": 5,
+      "biomes": [
+        "meadow",
+        "forest"
+      ],
+      "priority": "P1",
+      "collision": "trunk_only",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Oak_Young",
+      "name_de": "Junge Eiche",
+      "family": "Baeume",
+      "height_m_target": 5,
+      "footprint_m_approx": 2.8,
+      "biomes": [
+        "meadow",
+        "edge"
+      ],
+      "priority": "P1",
+      "collision": "trunk_only",
+      "placement": "ISM_or_actor",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_OakYoung",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Birch_Tall",
+      "name_de": "Birke hoch",
+      "family": "Baeume",
+      "height_m_target": 9,
+      "footprint_m_approx": 3.4,
+      "biomes": [
+        "forest",
+        "river"
+      ],
+      "priority": "P1",
+      "collision": "trunk_only",
+      "placement": "ISM_or_actor",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Birch",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Birch_Young",
+      "name_de": "Birke jung",
+      "family": "Baeume",
+      "height_m_target": 5,
+      "footprint_m_approx": 2,
+      "biomes": [
+        "edge"
+      ],
+      "priority": "P1",
+      "collision": "trunk_only",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Willow_River",
+      "name_de": "Weide",
+      "family": "Baeume",
+      "height_m_target": 9,
+      "footprint_m_approx": 6,
+      "biomes": [
+        "river"
+      ],
+      "priority": "P1",
+      "collision": "trunk_only",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Maple_Broad",
+      "name_de": "Ahorn",
+      "family": "Baeume",
+      "height_m_target": 8,
+      "footprint_m_approx": 5,
+      "biomes": [
+        "village",
+        "forest"
+      ],
+      "priority": "P2",
+      "collision": "trunk_only",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Ash_Tall",
+      "name_de": "Esche",
+      "family": "Baeume",
+      "height_m_target": 11,
+      "footprint_m_approx": 4,
+      "biomes": [
+        "forest"
+      ],
+      "priority": "P2",
+      "collision": "trunk_only",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Fruit_Apple",
+      "name_de": "Apfelbaum",
+      "family": "Baeume",
+      "height_m_target": 5,
+      "footprint_m_approx": 4,
+      "biomes": [
+        "village",
+        "orchard"
+      ],
+      "priority": "P2",
+      "collision": "trunk_only",
+      "placement": "ISM_or_actor",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_FruitTree",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Fruit_Pear",
+      "name_de": "Birnbaum",
+      "family": "Baeume",
+      "height_m_target": 6,
+      "footprint_m_approx": 3,
+      "biomes": [
+        "orchard"
+      ],
+      "priority": "P2",
+      "collision": "trunk_only",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Pine_Highland",
+      "name_de": "Kiefer",
+      "family": "Baeume",
+      "height_m_target": 10,
+      "footprint_m_approx": 3,
+      "biomes": [
+        "ridge"
+      ],
+      "priority": "P2",
+      "collision": "trunk_only",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Dead_Tree",
+      "name_de": "Totholzbaum",
+      "family": "Baeume",
+      "height_m_target": 7,
+      "footprint_m_approx": 3,
+      "biomes": [
+        "ruins",
+        "edge"
+      ],
+      "priority": "P3",
+      "collision": "trunk_only",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Shrub_Round",
+      "name_de": "Rundbusch",
+      "family": "Unterwuchs",
+      "height_m_target": 1.4,
+      "footprint_m_approx": 1.5,
+      "biomes": [
+        "meadow",
+        "edge"
+      ],
+      "priority": "P1",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Bush",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Shrub_Wild",
+      "name_de": "Wildbusch",
+      "family": "Unterwuchs",
+      "height_m_target": 1.8,
+      "footprint_m_approx": 1.7,
+      "biomes": [
+        "forest",
+        "edge"
+      ],
+      "priority": "P1",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Shrub_Berry",
+      "name_de": "Beerenbusch",
+      "family": "Unterwuchs",
+      "height_m_target": 1.3,
+      "footprint_m_approx": 1.4,
+      "biomes": [
+        "forest",
+        "village"
+      ],
+      "priority": "P1",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Fern_Large",
+      "name_de": "Großer Farn",
+      "family": "Unterwuchs",
+      "height_m_target": 1.0,
+      "footprint_m_approx": 1.2,
+      "biomes": [
+        "forest"
+      ],
+      "priority": "P1",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Fern",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Fern_Small",
+      "name_de": "Kleiner Farn",
+      "family": "Unterwuchs",
+      "height_m_target": 0.55,
+      "footprint_m_approx": 0.7,
+      "biomes": [
+        "forest"
+      ],
+      "priority": "P1",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Herb_Broad",
+      "name_de": "Breitblättriges Heilkraut",
+      "family": "Unterwuchs",
+      "height_m_target": 0.5,
+      "footprint_m_approx": 0.5,
+      "biomes": [
+        "village",
+        "forest"
+      ],
+      "priority": "P1",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "rework",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Herb_A",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "HealingHouse Q3 construction reused, source untouched"
+    },
+    {
+      "id": "WL_Herb_Narrow",
+      "name_de": "Schmales Heilkraut",
+      "family": "Unterwuchs",
+      "height_m_target": 0.55,
+      "footprint_m_approx": 0.35,
+      "biomes": [
+        "village",
+        "meadow"
+      ],
+      "priority": "P2",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "rework",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Herb_B",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "HealingHouse Q3 construction reused, source untouched"
+    },
+    {
+      "id": "WL_Flower_White",
+      "name_de": "Weiße Wildblumen",
+      "family": "Unterwuchs",
+      "height_m_target": 0.4,
+      "footprint_m_approx": 0.55,
+      "biomes": [
+        "meadow",
+        "river"
+      ],
+      "priority": "P2",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Flower_Yellow",
+      "name_de": "Gelbe Wildblumen",
+      "family": "Unterwuchs",
+      "height_m_target": 0.45,
+      "footprint_m_approx": 0.55,
+      "biomes": [
+        "meadow"
+      ],
+      "priority": "P2",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Flower_Purple",
+      "name_de": "Violette Wildblumen",
+      "family": "Unterwuchs",
+      "height_m_target": 0.5,
+      "footprint_m_approx": 0.5,
+      "biomes": [
+        "meadow",
+        "forest"
+      ],
+      "priority": "P2",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "rework",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Wildflowers",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "HealingHouse Q3 construction reused, source untouched"
+    },
+    {
+      "id": "WL_Grass_TuftShort",
+      "name_de": "Kurzes Grasbüschel",
+      "family": "Unterwuchs",
+      "height_m_target": 0.23,
+      "footprint_m_approx": 0.4,
+      "biomes": [
+        "meadow",
+        "edge"
+      ],
+      "priority": "P2",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Grass",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Grass_TuftTall",
+      "name_de": "Hohes Grasbüschel",
+      "family": "Unterwuchs",
+      "height_m_target": 0.55,
+      "footprint_m_approx": 0.5,
+      "biomes": [
+        "meadow",
+        "edge"
+      ],
+      "priority": "P3",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Reeds_River",
+      "name_de": "Schilfgruppe",
+      "family": "Unterwuchs",
+      "height_m_target": 1.25,
+      "footprint_m_approx": 0.7,
+      "biomes": [
+        "river"
+      ],
+      "priority": "P3",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Mushroom_Cluster",
+      "name_de": "Pilzgruppe",
+      "family": "Unterwuchs",
+      "height_m_target": 0.32,
+      "footprint_m_approx": 0.45,
+      "biomes": [
+        "forest"
+      ],
+      "priority": "P3",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Root_Exposed",
+      "name_de": "Sichtbare Wurzel",
+      "family": "Unterwuchs",
+      "height_m_target": 0.4,
+      "footprint_m_approx": 1.8,
+      "biomes": [
+        "forest"
+      ],
+      "priority": "P3",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Root",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Rock_FieldSmall",
+      "name_de": "Feldstein klein",
+      "family": "Gestein_Ufer",
+      "height_m_target": 0.35,
+      "footprint_m_approx": 0.6,
+      "biomes": [
+        "meadow",
+        "edge"
+      ],
+      "priority": "P1",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_SmallStones",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Rock_FieldMedium",
+      "name_de": "Feldstein mittel",
+      "family": "Gestein_Ufer",
+      "height_m_target": 0.8,
+      "footprint_m_approx": 1.2,
+      "biomes": [
+        "meadow",
+        "edge"
+      ],
+      "priority": "P1",
+      "collision": "simple",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Rock_Boulder",
+      "name_de": "Findling",
+      "family": "Gestein_Ufer",
+      "height_m_target": 2.0,
+      "footprint_m_approx": 2.8,
+      "biomes": [
+        "meadow",
+        "forest"
+      ],
+      "priority": "P1",
+      "collision": "simple",
+      "placement": "HISM",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Boulder",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Rock_Mossy",
+      "name_de": "Moosiger Fels",
+      "family": "Gestein_Ufer",
+      "height_m_target": 1.3,
+      "footprint_m_approx": 1.7,
+      "biomes": [
+        "forest",
+        "river"
+      ],
+      "priority": "P1",
+      "collision": "simple",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Rock_RiverFlat",
+      "name_de": "Flacher Uferstein",
+      "family": "Gestein_Ufer",
+      "height_m_target": 0.35,
+      "footprint_m_approx": 1.2,
+      "biomes": [
+        "river"
+      ],
+      "priority": "P1",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Rock_RiverRound",
+      "name_de": "Runder Uferstein",
+      "family": "Gestein_Ufer",
+      "height_m_target": 0.5,
+      "footprint_m_approx": 0.7,
+      "biomes": [
+        "river"
+      ],
+      "priority": "P1",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Rock_Scree",
+      "name_de": "Geröllgruppe",
+      "family": "Gestein_Ufer",
+      "height_m_target": 0.5,
+      "footprint_m_approx": 1.8,
+      "biomes": [
+        "ridge",
+        "ruins"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Log_Fallen",
+      "name_de": "Gefallener Stamm",
+      "family": "Gestein_Ufer",
+      "height_m_target": 0.9,
+      "footprint_m_approx": 5.0,
+      "biomes": [
+        "forest"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Stump_Old",
+      "name_de": "Alter Baumstumpf",
+      "family": "Gestein_Ufer",
+      "height_m_target": 0.9,
+      "footprint_m_approx": 1.0,
+      "biomes": [
+        "forest"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "HISM",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Stump",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Branch_Driftwood",
+      "name_de": "Schwemmholz",
+      "family": "Gestein_Ufer",
+      "height_m_target": 0.4,
+      "footprint_m_approx": 2.2,
+      "biomes": [
+        "river"
+      ],
+      "priority": "P2",
+      "collision": "none",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Riverbank_ReedPatch",
+      "name_de": "Uferbewuchs",
+      "family": "Gestein_Ufer",
+      "height_m_target": 1.1,
+      "footprint_m_approx": 2.0,
+      "biomes": [
+        "river"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Root_Bank",
+      "name_de": "Uferwurzel",
+      "family": "Gestein_Ufer",
+      "height_m_target": 0.7,
+      "footprint_m_approx": 2.5,
+      "biomes": [
+        "river"
+      ],
+      "priority": "P3",
+      "collision": "simple",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Fence_Straight",
+      "name_de": "Holzzaun gerade",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 1.15,
+      "footprint_m_approx": 2.0,
+      "biomes": [
+        "village",
+        "fields"
+      ],
+      "priority": "P1",
+      "collision": "simple",
+      "placement": "HISM",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Fence",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Fence_Corner",
+      "name_de": "Holzzaun Ecke",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 1.15,
+      "footprint_m_approx": 2.0,
+      "biomes": [
+        "village",
+        "fields"
+      ],
+      "priority": "P1",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Fence_Gate",
+      "name_de": "Holztor",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 1.8,
+      "footprint_m_approx": 2.3,
+      "biomes": [
+        "village"
+      ],
+      "priority": "P1",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Well_Stone",
+      "name_de": "Steinbrunnen",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 2.1,
+      "footprint_m_approx": 2.3,
+      "biomes": [
+        "village"
+      ],
+      "priority": "P1",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Cart_Wood",
+      "name_de": "Handkarren",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 1.4,
+      "footprint_m_approx": 2.5,
+      "biomes": [
+        "village",
+        "fields"
+      ],
+      "priority": "P1",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Cart",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Bench_Rustic",
+      "name_de": "Holzbank",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 0.9,
+      "footprint_m_approx": 1.7,
+      "biomes": [
+        "village"
+      ],
+      "priority": "P1",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "existing",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Bench",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "HealingHouse Q3 construction reused, source untouched"
+    },
+    {
+      "id": "WL_Sign_Post",
+      "name_de": "Wegweiser",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 2.2,
+      "footprint_m_approx": 0.8,
+      "biomes": [
+        "village",
+        "edge"
+      ],
+      "priority": "P1",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Signpost",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Lantern_Post",
+      "name_de": "Laternenpfosten",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 2.8,
+      "footprint_m_approx": 0.7,
+      "biomes": [
+        "village"
+      ],
+      "priority": "P1",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Crate_Stack",
+      "name_de": "Kistenstapel",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 1.2,
+      "footprint_m_approx": 1.3,
+      "biomes": [
+        "village"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "HISM",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Crate",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Barrel_Stack",
+      "name_de": "Fässergruppe",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 1.3,
+      "footprint_m_approx": 1.5,
+      "biomes": [
+        "village"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "HISM",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Barrel",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Woodpile",
+      "name_de": "Holzstapel",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 1.3,
+      "footprint_m_approx": 2.5,
+      "biomes": [
+        "village"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "HISM",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Woodpile",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Planter_Box",
+      "name_de": "Pflanzkasten",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 0.7,
+      "footprint_m_approx": 1.5,
+      "biomes": [
+        "village"
+      ],
+      "priority": "P3",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Bucket_Wood",
+      "name_de": "Holzeimer",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 0.5,
+      "footprint_m_approx": 0.45,
+      "biomes": [
+        "village"
+      ],
+      "priority": "P3",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Rope_Coil",
+      "name_de": "Seilrolle",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 0.15,
+      "footprint_m_approx": 0.6,
+      "biomes": [
+        "village"
+      ],
+      "priority": "P3",
+      "collision": "none",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Notice_Board",
+      "name_de": "Anschlagtafel",
+      "family": "Dorf_Handwerk",
+      "height_m_target": 2.1,
+      "footprint_m_approx": 1.8,
+      "biomes": [
+        "village"
+      ],
+      "priority": "P3",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Hay_BaleRound",
+      "name_de": "Rundballen Heu",
+      "family": "Feld_Muehle",
+      "height_m_target": 1.3,
+      "footprint_m_approx": 1.5,
+      "biomes": [
+        "fields"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Hay_BaleStack",
+      "name_de": "Heuballenstapel",
+      "family": "Feld_Muehle",
+      "height_m_target": 1.8,
+      "footprint_m_approx": 2.0,
+      "biomes": [
+        "fields"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Haybale",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Crop_WheatPatch",
+      "name_de": "Weizenbüschel",
+      "family": "Feld_Muehle",
+      "height_m_target": 1.2,
+      "footprint_m_approx": 1.1,
+      "biomes": [
+        "fields"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "HISM",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Crop_VegetableBed",
+      "name_de": "Gemüsebeet",
+      "family": "Feld_Muehle",
+      "height_m_target": 0.6,
+      "footprint_m_approx": 2.2,
+      "biomes": [
+        "fields"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Farm_Trough",
+      "name_de": "Holztrog",
+      "family": "Feld_Muehle",
+      "height_m_target": 0.8,
+      "footprint_m_approx": 1.8,
+      "biomes": [
+        "fields",
+        "village"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Farm_Rake",
+      "name_de": "Harke",
+      "family": "Feld_Muehle",
+      "height_m_target": 1.7,
+      "footprint_m_approx": 0.6,
+      "biomes": [
+        "fields"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Farm_Pitchfork",
+      "name_de": "Heugabel",
+      "family": "Feld_Muehle",
+      "height_m_target": 1.8,
+      "footprint_m_approx": 0.5,
+      "biomes": [
+        "fields"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Farm_Basket",
+      "name_de": "Erntekorb",
+      "family": "Feld_Muehle",
+      "height_m_target": 0.65,
+      "footprint_m_approx": 0.8,
+      "biomes": [
+        "fields",
+        "village"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Sack_Grain",
+      "name_de": "Getreidesack",
+      "family": "Feld_Muehle",
+      "height_m_target": 0.85,
+      "footprint_m_approx": 0.6,
+      "biomes": [
+        "fields"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Watering_Can",
+      "name_de": "Gießkanne",
+      "family": "Feld_Muehle",
+      "height_m_target": 0.5,
+      "footprint_m_approx": 0.7,
+      "biomes": [
+        "fields",
+        "village"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Ruin_WallStraight",
+      "name_de": "Ruinenmauer gerade",
+      "family": "Ruinen_Magie",
+      "height_m_target": 2.4,
+      "footprint_m_approx": 3.0,
+      "biomes": [
+        "ruins"
+      ],
+      "priority": "P1",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_WallRemnant",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Ruin_WallCorner",
+      "name_de": "Ruinenmauer Ecke",
+      "family": "Ruinen_Magie",
+      "height_m_target": 2.4,
+      "footprint_m_approx": 3.0,
+      "biomes": [
+        "ruins"
+      ],
+      "priority": "P1",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Ruin_Arch",
+      "name_de": "Alter Steinbogen",
+      "family": "Ruinen_Magie",
+      "height_m_target": 3.5,
+      "footprint_m_approx": 3.2,
+      "biomes": [
+        "ruins"
+      ],
+      "priority": "P1",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "existing",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "WR_RuinArch already present in secured Region source; not duplicated in this phase"
+    },
+    {
+      "id": "WL_Ruin_PillarIntact",
+      "name_de": "Steinsäule",
+      "family": "Ruinen_Magie",
+      "height_m_target": 3.0,
+      "footprint_m_approx": 0.9,
+      "biomes": [
+        "ruins"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Ruin_PillarBroken",
+      "name_de": "Gebrochene Säule",
+      "family": "Ruinen_Magie",
+      "height_m_target": 1.8,
+      "footprint_m_approx": 1.2,
+      "biomes": [
+        "ruins"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Column",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_Ruin_Foundation",
+      "name_de": "Überwachsenes Fundament",
+      "family": "Ruinen_Magie",
+      "height_m_target": 0.7,
+      "footprint_m_approx": 3.5,
+      "biomes": [
+        "ruins"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Rune_StandingStone",
+      "name_de": "Runenstein",
+      "family": "Ruinen_Magie",
+      "height_m_target": 2.0,
+      "footprint_m_approx": 1.0,
+      "biomes": [
+        "ruins"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "new",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": "WLA_Runestone",
+      "scope": "requested first 24 object groups",
+      "review_state": "local visual/technical review; human art approval pending",
+      "reason": "Existing regional geometry is billboard/primitive blockout or this shape is missing; new independently authored library form"
+    },
+    {
+      "id": "WL_StoneCircle_Stone",
+      "name_de": "Steinkreis-Monolith",
+      "family": "Ruinen_Magie",
+      "height_m_target": 2.4,
+      "footprint_m_approx": 1.2,
+      "biomes": [
+        "ruins"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Ruin_Stairs",
+      "name_de": "Alte Steinstufen",
+      "family": "Ruinen_Magie",
+      "height_m_target": 0.7,
+      "footprint_m_approx": 2.6,
+      "biomes": [
+        "ruins"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    },
+    {
+      "id": "WL_Ruin_Capstone",
+      "name_de": "Behauener Deckstein",
+      "family": "Ruinen_Magie",
+      "height_m_target": 0.6,
+      "footprint_m_approx": 1.8,
+      "biomes": [
+        "ruins"
+      ],
+      "priority": "P2",
+      "collision": "simple",
+      "placement": "ISM_or_actor",
+      "status": "skip",
+      "style_note": "Handgemalte stilisierte Materialien; natürliche Silhouette, Variation; Spielkamera -45/-55",
+      "library_mesh_prefix": null,
+      "scope": "deferred beyond requested first library scope",
+      "reason": "No unrequested mass production of all 74 planning entries"
+    }
+  ]
+}
