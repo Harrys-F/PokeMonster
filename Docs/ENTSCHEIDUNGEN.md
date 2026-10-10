@@ -597,3 +597,9 @@ V3-Abschlussprüfung: vollständiger Enhanced-Input-Fußlauf ohne Test-Teleports
 - Harrys Folgeauftrag setzt ausschließlich den SpringArm-Abstand von 2000 auf 2500 cm zurück. Der zwischenzeitliche 10–13-Prozent-Figurenanteil ist damit ersetzt; bei 16:9 liegt die 140-cm-Figur wieder bei ungefähr 9 Prozent der Bildhöhe. Keine Figurenskalierung als Ausgleich.
 - Pitch −55°, Yaw −45°, Roll 0°, Perspektive/FOV 35°, TargetOffset (0,0,35) cm, absolute Rotation, Lag 12/maximal 45 cm, Substepping 1/60 s und deaktivierter Kollisions-/Rotations-Lag bleiben unverändert. Gebäudespezifische Innenkameras, Player und Gameplay bleiben unverändert.
 - Abstandserwartungen und die Projektionsprüfung werden passend zum neuen Standard aktualisiert; Build und Kameraregressionen werden erneut geprüft. Ergebnisse im Nachtrag zu `Docs/OVERWORLD_KAMERA_2026_10_09_PRUEFBERICHT.md`.
+
+## 10.10.2026 – Westland Asset Library V1 separat prüfen
+
+Auf Basis des gesicherten Regions-HEAD `89b475e` wird eine eigenständige Quell- und Prüfbibliothek mit 24 angefragten Grundtypen und 22 Varianten angelegt. Vorhandene Bench-/Pflanzenkonstruktionen und gemalte Holz-/Steintexturen werden wiederverwendet; das optionale primitive Starterpaket gilt nicht als fertige Art. Keine Änderungen an Region, Player oder Gameplay.
+
+Die Bibliothek wird in einer separaten Map mit unveränderter Spielkamera geprüft. Häufiger Unterwuchs nutzt HISM, keine Alpha-Überzeichnung und keine Pflanzenschatten. Qualitätsstatus unterscheidet V1-Reviewbereitschaft von weiterem Art-Feinschliff; die importierten Baum-/Buschformen sind wegen Art- und Normalenwarnungen noch keine freigegebenen finalen Regionsassets. Die tatsächlichen Messwerte erfüllen kein stabiles 60-FPS-Ziel und erlauben keine direkte Hochrechnung auf die große Region. Prüfbericht: `Docs/WESTLAND_ASSET_LIBRARY_V1_PRUEFBERICHT.md`.

@@ -547,3 +547,11 @@ Quellen öffnen/auditieren und visuell prüfen, danach erst FBX exportieren. Imp
 Die bestehende Möbelprüfung erkennt zusätzlich die Trennung in unveränderten Kollisionsproxy und sichtbare Quality-V3-Darstellung. Sie fordert eine sichtbare Ersatzdarstellung mit identischer Transformation, ohne zweite Collision, sowie einen weiterhin aktivierten Player-Blocker. Nur der Automationstest wird dafür erweitert; kein Gameplay-C++ wird geändert.
 
 V3-Abschlussprüfung: vollständiger Enhanced-Input-Fußlauf ohne Test-Teleports, gerade/diagonale Türpassage, sämtliche Funktionszonen und Heilerin einschließlich Healing/PP/Checkpoint/Save bestanden. Build der erweiterten Automationstestdatei erfolgreich; 38/38 Automationstests, Map Check 0 Fehler/0 Warnungen sowie Import-/Material-/Collisionaudit bestanden. Originaler Dev-Spielstand nach allen Tests bytegleich wiederhergestellt. Keine visuelle Nutzerfreigabe vorweggenommen.
+
+## Westland Asset Library V1 – isolierte Prüfbibliothek (10.10.2026)
+
+Quelle: `Art/World/WestlandAssetLibrary/Source/WestlandAssetLibrary_V1.blend`, 46 separate Meshes aus 24 Grundtypen. Meter in Blender, Zentimeter in Unreal, Boden-Pivots und getrennte UCX-Kollision; Vegetation ohne Kollision, Bäume mit Stammkollision. Unreal-Ziel ausschließlich `/Game/Environment/WestlandAssetLibrary`, Reviewmap `/Game/Maps/Dev_WestlandAssetLibrary`. Die gesicherte Region bleibt unverändert.
+
+Zwei einfache Opaque-Materialmaster mit jeweils einem Farbtextur-Sample; Blattmaster zweiseitig, keine Alpha-Masken. Holz-/Steintexturen aus Healing House werden unverändert referenziert. UV0 ist bewusst überlagertes Material-Tiling; Unreal generiert getrennt UV1. Drei LODs bei Meshes über 1000 Dreiecken, Distanzfelder deaktiviert. Unterwuchs wird in der Reviewmap über HISM instanziert, ohne Schatten und Kollision, mit 65–90-m-Culling. Diese Reviewwerte sind keine pauschale Freigabe für eine dicht bepflanzte Region.
+
+Die native Kamera 2500 cm / Pitch −55° / Yaw −45° / FOV 35°, Playerkörperhöhe 1,40 m und Bewegung 210 cm/s bleiben erhalten. PlayerStart verwendet Yaw 0°, damit die bestehende relative Spriteausrichtung korrekt bleibt. Offene Art- und Normalenprobleme sowie Leistungsgrenzen siehe `Docs/WESTLAND_ASSET_LIBRARY_V1_PRUEFBERICHT.md`; keine finale Artfreigabe oder Regionsintegration.
