@@ -569,3 +569,18 @@ Die 18 Revisionen über 1000 Dreiecken verwenden drei LODs mit ungefähr 100/60/
 Performanceaufnahmen müssen den tatsächlichen Viewport, Skalierungsstufe, 75-Prozent-Renderauflösung, Spawnpunkt und Vordergrund-/Hintergrunddrosselung berücksichtigen. Schatten-/Vegetationsabschaltung dient nur kurzzeitig der Kostendiagnose und wird zurückgenommen. CPU-/GPU-Zähler und Grenzen ihrer Messbarkeit im V2-Prüfbericht. `DumpDetailedPrimitives` ist auf dem geprüften macOS-/UE-5.8.2-Stand wegen eines nativen Renderthread-/Slate-Assertions kein zuverlässiges Diagnosewerkzeug. Nicht verfügbare Nullzähler werden nicht als null Draw Calls ausgegeben.
 
 Technische Prüfung bedeutet keine finale visuelle Freigabe. Kronenform, Dichte, botanische Variation und Ruinenoberflächen werden mit den Spielkamera-Bildern im Bericht bewertet; Harrys Sichtprüfung bleibt offen. Vollständiger Bericht: `Docs/WESTLAND_ASSET_LIBRARY_ART_QUALITY_V2_PRUEFBERICHT.md`.
+
+
+## Westland Asset Library: Art Quality V3 (11.10.2026)
+
+V3 ergänzt genau eine alte Eiche und zwei Wildstrauchvarianten als getrennte Assets unter `/Game/Environment/WestlandAssetLibrary/QualityV3`. V1/V2-Quellen und gemeinsame Materialien bleiben erhalten; keine Migration der Region. Separate Blenderquelle `Art/World/WestlandAssetLibrary/Source/WestlandAssetLibrary_V3.blend`, individuelle FBX-Exporte und Manifest `ArtQualityV3.json`.
+
+Die V3-Krone verwendet gekrümmte, gemalte Blattgruppenkarten statt großer einzelner V2-Blätter. Ein eigener RGBA-Atlas, vier Gruppen, ein Texture-Sample, Masked/TwoSided, Clip 0,45, Roughness 0,95 und Specular 0,05. PNG-Quelle 1254²; Unreal-Laufzeitgröße 2048² mit Mips und Alpha-Coverage. Rindenbild und Unreal-Rindeninstanz werden wiederverwendet. Diese neue Masked-Variante ersetzt die opake V2-Darstellung nicht global.
+
+LOD0: 12068 / 3284 / 3396 Dreiecke; je zwei belegte Sektionen/Slots, drei LODs. Gültige UV0-, Corner-Normalen- und Tangenten-/Binormalenbasis wird nach erneutem Öffnen geprüft. Keine eindeutige gebackene Lightmap-UV1 zugesichert; die Prüfszene verwendet dynamisches Licht. Eiche: eigener geerdeter UCX-Stammkörper, 1,74 × 1,70 × 4,80 m; Sträucher ohne Collision.
+
+Nur die Bibliotheks-Testmap erhält die additive Vergleichsgruppe und einen gekrümmten Weg. 67 vorhandene Unterwuchsinstanzen auf drei HISM-Komponenten, ohne Collision/Schatten, Culling 6000–8000 cm; neue große Vergleichsobjekte bis 10000 cm. Das eigene Wegband besitzt 1512 aufwärts gerichtete Dreiecke und explizite Normalen/Mikk-Tangenten, keine Collision/Schatten. Enge Kurven werden pro Dreieck auf konsistente Ausrichtung geprüft.
+
+Performancevergleich tauscht nur drei Meshes in der PIE-Kopie am identischen, zu Fuß erreichten Standort. Beide Varianten temporär Movable, tatsächlicher Meshtausch und Materialreferenzen geprüft; danach ursprüngliche Meshes, Overrides, Sichtbarkeit, Schatten und Mobilität zurückgeben. Medium/75 %, 1280 × 740, gleiche Kamera, 10 s Warmup/30 s CSV. Opaque-/Schatten-/Sichtbarkeitsdiagnosen sind keine gespeicherten Qualitätseinstellungen.
+
+Kamera 2500/−55/−45/35, Lag 12/max.45, Player 140 cm/210 cm/s, C++, Gameplay und andere Maps bleiben unverändert. Fußlauf und 38/38 bestehende Automationstests bestanden, Map Check 0/0. Dichte Eichenkrone kann die Figur aus nächster Nähe verdecken; keine Vegetations-Fade-Logik hinzugefügt. Keine finale Art-/Regionsfreigabe. Vollständige Maße, Bildnachweise, Kosten und Grenzen: `WESTLAND_ASSET_LIBRARY_ART_QUALITY_V3_PRUEFBERICHT.md`.

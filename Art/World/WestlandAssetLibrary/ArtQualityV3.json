@@ -1,0 +1,75 @@
+{
+  "revision": "Art Quality V3",
+  "source": "Art/World/WestlandAssetLibrary/Source/WestlandAssetLibrary_V3.blend",
+  "units": "metres",
+  "preserves_v2": true,
+  "assets": [
+    {
+      "object": "SM_WLA_OakAncient_V3",
+      "family": "Trees",
+      "triangles": 12068,
+      "vertices": 12180,
+      "dimensions_m": [
+        12.592239379882812,
+        10.43504524230957,
+        11.946959495544434
+      ],
+      "material_slots": [
+        "WLA_V3_Bark",
+        "WLA_V3_FoliageGroups"
+      ],
+      "collision_objects": [
+        "UCX_SM_WLA_OakAncient_V3_00"
+      ],
+      "leaf_group_count": 957,
+      "art_status": "V3_agent_reviewed_human_approval_pending"
+    },
+    {
+      "object": "SM_WLA_WildBush_V3_A",
+      "family": "Vegetation",
+      "triangles": 3284,
+      "vertices": 3618,
+      "dimensions_m": [
+        3.4244461059570312,
+        2.410120964050293,
+        2.030992031097412
+      ],
+      "material_slots": [
+        "WLA_V3_Bark",
+        "WLA_V3_FoliageGroups"
+      ],
+      "collision_objects": [],
+      "leaf_group_count": 352,
+      "art_status": "V3_agent_reviewed_human_approval_pending"
+    },
+    {
+      "object": "SM_WLA_WildBush_V3_B",
+      "family": "Vegetation",
+      "triangles": 3396,
+      "vertices": 3744,
+      "dimensions_m": [
+        3.882579803466797,
+        2.149812698364258,
+        1.4169529676437378
+      ],
+      "material_slots": [
+        "WLA_V3_Bark",
+        "WLA_V3_FoliageGroups"
+      ],
+      "collision_objects": [],
+      "leaf_group_count": 366,
+      "art_status": "V3_agent_reviewed_human_approval_pending"
+    }
+  ],
+  "foliage_texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_FoliageGroups_V3.png",
+  "texture_provenance": "Built-in imagegen, 2026-10-11; exact prompt in TextureProvenance_V3.md",
+  "bark_texture_reused": "Art/World/WestlandAssetLibrary/Textures/T_WLA_Bark.png",
+  "human_art_approval": false,
+  "unreal_root": "/Game/Environment/WestlandAssetLibrary/QualityV3",
+  "source_reopen_validated": true,
+  "remaining_quality_notes": [
+    "Tree crown can obscure player at very close viewpoints; no new gameplay fade system.",
+    "Some card edges and repeated four-spray atlas patterns remain visible close up.",
+    "Group deployment and large-region performance are not approved by this isolated map test."
+  ]
+}
