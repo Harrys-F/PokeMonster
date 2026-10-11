@@ -154,6 +154,46 @@
       ],
       "texture": null,
       "two_sided": false
+    },
+    "LeafOak": {
+      "color": [
+        0.8,
+        0.89,
+        0.72
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_LeafOak_V2.png",
+      "two_sided": true,
+      "vertex_color": true
+    },
+    "LeafBirch": {
+      "color": [
+        0.83,
+        0.92,
+        0.77
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_LeafBirch_V2.png",
+      "two_sided": true,
+      "vertex_color": true
+    },
+    "LeafOrchard": {
+      "color": [
+        0.86,
+        0.89,
+        0.71
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_LeafOrchard_V2.png",
+      "two_sided": true,
+      "vertex_color": true
+    },
+    "LeafFern": {
+      "color": [
+        0.72,
+        0.87,
+        0.71
+      ],
+      "texture": "Art/World/WestlandAssetLibrary/Textures/T_WLA_LeafFern_V2.png",
+      "two_sided": true,
+      "vertex_color": true
     }
   },
   "assets": [
@@ -162,22 +202,20 @@
       "object": "SM_WLA_OakAncient_A",
       "family": "Trees",
       "dimensions_m": [
-        8.97807,
-        8.67406,
-        11.94039
+        10.487088203430176,
+        10.06026840209961,
+        10.874002456665039
       ],
-      "triangles": 26720,
+      "triangles": 36264,
       "materials": [
         "WLA_Bark",
-        "WLA_Leaf",
-        "WLA_LeafLight",
-        "WLA_LeafDark"
+        "WLA_LeafOak"
       ],
       "collision": "trunk_only",
       "collision_objects": [
         "UCX_SM_WLA_OakAncient_A_00"
       ],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "A",
       "uv": "UV0",
       "origin_m": [
@@ -187,32 +225,29 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 34,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
-      "human_art_approval": false,
-      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
+      "human_art_approval": false
     },
     {
       "id": "WLA_OakYoung_A",
       "object": "SM_WLA_OakYoung_A",
       "family": "Trees",
       "dimensions_m": [
-        4.17697,
-        3.91358,
-        5.20096
+        5.039209842681885,
+        4.726936101913452,
+        4.855645656585693
       ],
-      "triangles": 16364,
+      "triangles": 28748,
       "materials": [
         "WLA_Bark",
-        "WLA_Leaf",
-        "WLA_LeafLight",
-        "WLA_LeafDark"
+        "WLA_LeafOak"
       ],
       "collision": "trunk_only",
       "collision_objects": [
         "UCX_SM_WLA_OakYoung_A_00"
       ],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "A",
       "uv": "UV0",
       "origin_m": [
@@ -222,29 +257,26 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 22,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
-      "human_art_approval": false,
-      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
+      "human_art_approval": false
     },
     {
       "id": "WLA_Fern_A",
       "object": "SM_WLA_Fern_A",
       "family": "Vegetation",
       "dimensions_m": [
-        1.2521,
-        1.23828,
-        0.88084
+        1.558001697063446,
+        1.445089340209961,
+        0.7429527640342712
       ],
-      "triangles": 4212,
+      "triangles": 8030,
       "materials": [
-        "WLA_LeafDark",
-        "WLA_LeafLight",
-        "WLA_Leaf"
+        "WLA_LeafFern"
       ],
       "collision": "none",
       "collision_objects": [],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "A",
       "uv": "UV0",
       "origin_m": [
@@ -254,8 +286,8 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 18,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
       "human_art_approval": false
     },
     {
@@ -328,20 +360,19 @@
       "object": "SM_WLA_Runestone_A",
       "family": "Ruins",
       "dimensions_m": [
-        1.19765,
-        0.68094,
-        2.40702
+        0.9894891381263733,
+        0.6255765855312347,
+        2.284992218017578
       ],
-      "triangles": 1342,
+      "triangles": 6464,
       "materials": [
-        "WLA_MossStone",
-        "WLA_Rune"
+        "WLA_MossStone"
       ],
       "collision": "simple",
       "collision_objects": [
         "UCX_SM_WLA_Runestone_A_00"
       ],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "A",
       "uv": "UV0",
       "origin_m": [
@@ -351,8 +382,8 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 29,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
       "human_art_approval": false
     },
     {
@@ -360,22 +391,20 @@
       "object": "SM_WLA_Birch_A",
       "family": "Trees",
       "dimensions_m": [
-        3.63771,
-        3.27474,
-        9.05539
+        4.476946234703064,
+        4.1450512409210205,
+        8.077899932861328
       ],
-      "triangles": 16364,
+      "triangles": 28628,
       "materials": [
         "WLA_Birch",
-        "WLA_Leaf",
-        "WLA_LeafDark",
-        "WLA_LeafLight"
+        "WLA_LeafBirch"
       ],
       "collision": "trunk_only",
       "collision_objects": [
         "UCX_SM_WLA_Birch_A_00"
       ],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "A",
       "uv": "UV0",
       "origin_m": [
@@ -385,33 +414,30 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 22,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
-      "human_art_approval": false,
-      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
+      "human_art_approval": false
     },
     {
       "id": "WLA_FruitTree_A",
       "object": "SM_WLA_FruitTree_A",
       "family": "Trees",
       "dimensions_m": [
-        5.66148,
-        4.91454,
-        5.40158
+        6.591633319854736,
+        5.9081034660339355,
+        5.140749454498291
       ],
-      "triangles": 19724,
+      "triangles": 35148,
       "materials": [
         "WLA_Bark",
-        "WLA_Leaf",
-        "WLA_LeafDark",
-        "WLA_LeafLight",
+        "WLA_LeafOrchard",
         "WLA_Apple"
       ],
       "collision": "trunk_only",
       "collision_objects": [
         "UCX_SM_WLA_FruitTree_A_00"
       ],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "A",
       "uv": "UV0",
       "origin_m": [
@@ -421,30 +447,27 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 2038,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
-      "human_art_approval": false,
-      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
+      "human_art_approval": false
     },
     {
       "id": "WLA_Bush_A",
       "object": "SM_WLA_Bush_A",
       "family": "Vegetation",
       "dimensions_m": [
-        2.2465,
-        1.90416,
-        1.46059
+        2.4547860622406006,
+        2.422259211540222,
+        1.1785701513290405
       ],
-      "triangles": 13426,
+      "triangles": 7398,
       "materials": [
         "WLA_Bark",
-        "WLA_Leaf",
-        "WLA_LeafLight",
-        "WLA_LeafDark"
+        "WLA_LeafOrchard"
       ],
       "collision": "none",
       "collision_objects": [],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "A",
       "uv": "UV0",
       "origin_m": [
@@ -454,10 +477,9 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 14,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
-      "human_art_approval": false,
-      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
+      "human_art_approval": false
     },
     {
       "id": "WLA_Grass_A",
@@ -587,11 +609,11 @@
       "object": "SM_WLA_Stump_A",
       "family": "Landscape",
       "dimensions_m": [
-        1.8004,
-        1.6361,
-        0.92544
+        1.6428887844085693,
+        1.501534342765808,
+        0.8379994034767151
       ],
-      "triangles": 1208,
+      "triangles": 1988,
       "materials": [
         "WLA_Bark",
         "WLA_Wood",
@@ -601,7 +623,7 @@
       "collision_objects": [
         "UCX_SM_WLA_Stump_A_00"
       ],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "A",
       "uv": "UV0",
       "origin_m": [
@@ -611,8 +633,8 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 20,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
       "human_art_approval": false
     },
     {
@@ -620,17 +642,17 @@
       "object": "SM_WLA_Root_A",
       "family": "Landscape",
       "dimensions_m": [
-        1.74754,
-        1.69811,
-        0.48569
+        1.7196086049079895,
+        1.017048418521881,
+        0.25370776653289795
       ],
-      "triangles": 251,
+      "triangles": 228,
       "materials": [
         "WLA_Bark"
       ],
       "collision": "none",
       "collision_objects": [],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "A",
       "uv": "UV0",
       "origin_m": [
@@ -640,8 +662,8 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 5,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
       "human_art_approval": false
     },
     {
@@ -876,20 +898,20 @@
       "object": "SM_WLA_Column_A",
       "family": "Ruins",
       "dimensions_m": [
-        0.91442,
-        0.93394,
-        1.84797
+        1.0015241205692291,
+        0.9526754021644592,
+        1.982245683670044
       ],
-      "triangles": 776,
+      "triangles": 1856,
       "materials": [
-        "WLA_Stone",
-        "WLA_LeafDark"
+        "WLA_MossStone",
+        "WLA_Stone"
       ],
       "collision": "simple",
       "collision_objects": [
         "UCX_SM_WLA_Column_A_00"
       ],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "A",
       "uv": "UV0",
       "origin_m": [
@@ -899,8 +921,8 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 284,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
       "human_art_approval": false
     },
     {
@@ -940,22 +962,20 @@
       "object": "SM_WLA_OakAncient_B",
       "family": "Trees",
       "dimensions_m": [
-        9.03234,
-        8.64303,
-        11.71446
+        10.23968505859375,
+        9.54714584350586,
+        10.672562599182129
       ],
-      "triangles": 26720,
+      "triangles": 36264,
       "materials": [
         "WLA_Bark",
-        "WLA_Leaf",
-        "WLA_LeafLight",
-        "WLA_LeafDark"
+        "WLA_LeafOak"
       ],
       "collision": "trunk_only",
       "collision_objects": [
         "UCX_SM_WLA_OakAncient_B_00"
       ],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "B",
       "uv": "UV0",
       "origin_m": [
@@ -965,32 +985,29 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 34,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
-      "human_art_approval": false,
-      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
+      "human_art_approval": false
     },
     {
       "id": "WLA_OakYoung_B",
       "object": "SM_WLA_OakYoung_B",
       "family": "Trees",
       "dimensions_m": [
-        4.18561,
-        3.98105,
-        5.37109
+        5.004837989807129,
+        4.63592267036438,
+        4.865663051605225
       ],
-      "triangles": 16364,
+      "triangles": 28748,
       "materials": [
         "WLA_Bark",
-        "WLA_Leaf",
-        "WLA_LeafLight",
-        "WLA_LeafDark"
+        "WLA_LeafOak"
       ],
       "collision": "trunk_only",
       "collision_objects": [
         "UCX_SM_WLA_OakYoung_B_00"
       ],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "B",
       "uv": "UV0",
       "origin_m": [
@@ -1000,29 +1017,26 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 22,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
-      "human_art_approval": false,
-      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
+      "human_art_approval": false
     },
     {
       "id": "WLA_Fern_B",
       "object": "SM_WLA_Fern_B",
       "family": "Vegetation",
       "dimensions_m": [
-        1.20565,
-        1.17112,
-        0.7575
+        1.3592782616615295,
+        1.508014738559723,
+        0.759395956993103
       ],
-      "triangles": 4212,
+      "triangles": 8030,
       "materials": [
-        "WLA_LeafDark",
-        "WLA_LeafLight",
-        "WLA_Leaf"
+        "WLA_LeafFern"
       ],
       "collision": "none",
       "collision_objects": [],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "B",
       "uv": "UV0",
       "origin_m": [
@@ -1032,8 +1046,8 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 18,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
       "human_art_approval": false
     },
     {
@@ -1072,20 +1086,19 @@
       "object": "SM_WLA_Runestone_B",
       "family": "Ruins",
       "dimensions_m": [
-        1.2158,
-        0.68098,
-        2.35147
+        0.9868435859680176,
+        0.6256498694419861,
+        2.284998893737793
       ],
-      "triangles": 1342,
+      "triangles": 6464,
       "materials": [
-        "WLA_MossStone",
-        "WLA_Rune"
+        "WLA_MossStone"
       ],
       "collision": "simple",
       "collision_objects": [
         "UCX_SM_WLA_Runestone_B_00"
       ],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "B",
       "uv": "UV0",
       "origin_m": [
@@ -1095,8 +1108,8 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 29,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
       "human_art_approval": false
     },
     {
@@ -1104,22 +1117,20 @@
       "object": "SM_WLA_Birch_B",
       "family": "Trees",
       "dimensions_m": [
-        3.95115,
-        3.35561,
-        9.09204
+        4.4144333600997925,
+        3.942646026611328,
+        8.027312278747559
       ],
-      "triangles": 16364,
+      "triangles": 28628,
       "materials": [
         "WLA_Birch",
-        "WLA_Leaf",
-        "WLA_LeafDark",
-        "WLA_LeafLight"
+        "WLA_LeafBirch"
       ],
       "collision": "trunk_only",
       "collision_objects": [
         "UCX_SM_WLA_Birch_B_00"
       ],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "B",
       "uv": "UV0",
       "origin_m": [
@@ -1129,33 +1140,30 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 22,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
-      "human_art_approval": false,
-      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
+      "human_art_approval": false
     },
     {
       "id": "WLA_FruitTree_B",
       "object": "SM_WLA_FruitTree_B",
       "family": "Trees",
       "dimensions_m": [
-        5.36826,
-        5.14103,
-        5.3
+        6.282294750213623,
+        5.811401844024658,
+        5.094967365264893
       ],
-      "triangles": 19724,
+      "triangles": 35148,
       "materials": [
         "WLA_Bark",
-        "WLA_Leaf",
-        "WLA_LeafLight",
-        "WLA_LeafDark",
+        "WLA_LeafOrchard",
         "WLA_Apple"
       ],
       "collision": "trunk_only",
       "collision_objects": [
         "UCX_SM_WLA_FruitTree_B_00"
       ],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "B",
       "uv": "UV0",
       "origin_m": [
@@ -1165,30 +1173,27 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 2038,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
-      "human_art_approval": false,
-      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
+      "human_art_approval": false
     },
     {
       "id": "WLA_Bush_B",
       "object": "SM_WLA_Bush_B",
       "family": "Vegetation",
       "dimensions_m": [
-        2.20257,
-        2.05171,
-        1.42401
+        2.070553421974182,
+        2.318732976913452,
+        1.3528326749801636
       ],
-      "triangles": 13426,
+      "triangles": 7398,
       "materials": [
         "WLA_Bark",
-        "WLA_Leaf",
-        "WLA_LeafLight",
-        "WLA_LeafDark"
+        "WLA_LeafOrchard"
       ],
       "collision": "none",
       "collision_objects": [],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "B",
       "uv": "UV0",
       "origin_m": [
@@ -1198,10 +1203,9 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 14,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
-      "human_art_approval": false,
-      "technical_caveat": "Unreal build logs still report near-zero normals/binormals; investigate before final release/normal-map use"
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
+      "human_art_approval": false
     },
     {
       "id": "WLA_Grass_B",
@@ -1298,11 +1302,11 @@
       "object": "SM_WLA_Stump_B",
       "family": "Landscape",
       "dimensions_m": [
-        1.69611,
-        1.69042,
-        1.02338
+        1.4850698113441467,
+        1.4824912548065186,
+        0.8379994034767151
       ],
-      "triangles": 1208,
+      "triangles": 1988,
       "materials": [
         "WLA_Bark",
         "WLA_Wood",
@@ -1312,7 +1316,7 @@
       "collision_objects": [
         "UCX_SM_WLA_Stump_B_00"
       ],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "B",
       "uv": "UV0",
       "origin_m": [
@@ -1322,8 +1326,8 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 20,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
       "human_art_approval": false
     },
     {
@@ -1331,17 +1335,17 @@
       "object": "SM_WLA_Root_B",
       "family": "Landscape",
       "dimensions_m": [
-        1.73767,
-        1.47915,
-        0.54595
+        1.7196086049079895,
+        1.017048418521881,
+        0.25370776653289795
       ],
-      "triangles": 251,
+      "triangles": 228,
       "materials": [
         "WLA_Bark"
       ],
       "collision": "none",
       "collision_objects": [],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "B",
       "uv": "UV0",
       "origin_m": [
@@ -1351,8 +1355,8 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 5,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
       "human_art_approval": false
     },
     {
@@ -1587,20 +1591,20 @@
       "object": "SM_WLA_Column_B",
       "family": "Ruins",
       "dimensions_m": [
-        0.90961,
-        0.92848,
-        1.85034
+        0.9827881753444672,
+        0.9692851603031158,
+        1.990823745727539
       ],
-      "triangles": 776,
+      "triangles": 1856,
       "materials": [
-        "WLA_Stone",
-        "WLA_LeafDark"
+        "WLA_MossStone",
+        "WLA_Stone"
       ],
       "collision": "simple",
       "collision_objects": [
         "UCX_SM_WLA_Column_B_00"
       ],
-      "provenance": "new authored form",
+      "provenance": "Art V2 revision of existing V1 asset; branch/leaf construction and surface revision",
       "variant": "B",
       "uv": "UV0",
       "origin_m": [
@@ -1610,8 +1614,8 @@
       ],
       "status": "needs_visual_review",
       "uv_cap_faces_fixed": 280,
-      "technical_status": "scale/UV/material/collision/reopen/PIE validated",
-      "art_status": "needs_polish",
+      "technical_status": "source_tangent_audit_passed",
+      "art_status": "V2_review_pending",
       "human_art_approval": false
     },
     {

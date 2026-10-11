@@ -1,30 +1,31 @@
-# Westland Asset Library V1
+# Westland Asset Library – V1 / Art Quality V2
 
-Stand: 10.10.2026; Ausgangs-HEAD `89b475e`. Isolierte Prüf- und Quellbibliothek, keine Integration in die Region.
+Stand: 10.10.2026. V1 gesichert in Git-HEAD `0add5a5`; Art Quality V2 ist ein separater, noch nicht committeter Reviewstand.
 
-Verbindliche Quelle: `Source/WestlandAssetLibrary_V1.blend`. Die Datei enthält 46 einzelne, als Assets markierte Meshes in Metern, gepackte Texturen, eine Review-Szene und die separate Source-Szene. Objektursprünge liegen am Boden. Alle Blender-Quellen wurden gespeichert; die verbindliche Quelle wurde nach der letzten Änderung erneut geöffnet.
+## Quellen und Umfang
 
-`Assets.json` enthält die vollständige Liste mit Maßen, Dreiecken, Materialfamilien, UCX-Körpern und Qualitätsstatus. 24 Grundtypen, 22 Varianten. 26 Meshes aus 14 Typen sind für eine V1-Sichtprüfung nutzbar; 20 Meshes aus 10 Typen benötigen weiteren Art-Feinschliff. Keine finale menschliche Art-Freigabe wird behauptet. Baum-/Buschmeshes benötigen zusätzlich eine Untersuchung der verbleibenden Unreal-Normalen-/Binormalenwarnungen.
+V1 bleibt unverändert erhalten: `Source/WestlandAssetLibrary_V1.blend`.
+Aktuelle Art-Quelle: `Source/WestlandAssetLibrary_V2.blend`. Sie enthält weiterhin dieselben 46 Assets und UCX-Körper, gepackte Texturen sowie getrennte Source-/Review-Szenen. Maße in Metern; Objektursprünge am Boden. Die gespeicherte Datei wurde erneut geöffnet und geprüft.
 
-Unreal: `/Game/Environment/WestlandAssetLibrary`; separate Map `/Game/Maps/Dev_WestlandAssetLibrary`. Native Playerbasis und Spielkamera bleiben unverändert. Die Map verwendet ausschließlich eigene neue Actors und vorhandene Spielsysteme. `Dev_WestlandRegion` wird nicht geändert.
+V2 ersetzt ausschließlich die 20 offenen Meshes aus zehn vorhandenen Typen, jeweils A/B: alte/junge Eiche, Birke, Obstbaum, Busch, Farn, Stumpf, Wurzel, Ruinensäule und Runenstein. Keine neuen Objekttypen. Die übrigen 26 Meshes bleiben erhalten. `Assets.json` dokumentiert Maße, Dreiecke, Materialien, Collision und Qualitätsstatus. Technische Prüfung und menschliche Art-Freigabe sind getrennt; eine finale Referenzqualität wird nicht behauptet.
 
-## Pipeline
+Unreal: `/Game/Environment/WestlandAssetLibrary`; einzige geänderte Map: `/Game/Maps/Dev_WestlandAssetLibrary`. Reimport erhält die bisherigen Meshpfade und Referenzen. Spieler, Spielkamera und Westland-Region bleiben unverändert.
 
-- `Tools/Blender/BuildWestlandAssetLibraryV1.py`: ursprüngliche Erstellung; schützt vorhandene Quellen vor Überschreiben. Für eine neue Version zuerst einen neuen Quellnamen wählen.
-- `Tools/Blender/PackageWestlandAssetLibraryV1.py`: eigene Quelle packen, Geometrie und UV-Endflächen bereinigen, Asset-Metadaten setzen. Sicherungskopie im ignorierten Saved-Ordner.
-- `Tools/Blender/ReviewWestlandAssetLibraryV1.py`: lesendes Wiederöffnen, Geometrie-/UV-/Materialaudit und Renderprüfung. `--audit-only` prüft ohne Renderjobs.
-- `Tools/Blender/ExportWestlandAssetLibraryV1.py`: geprüfte Quelle selektiv als FBX mit UCX exportieren; keine Lampen, Kameras oder Review-Instanzen exportieren.
-- `Tools/ImportWestlandAssetLibraryV1.py`: ausschließlich eigener Assetordner und eigene Testmap; vorhandene Holz-, Stein- und Bodenmaterialquellen bleiben unverändert.
-- `Tools/DressWestlandAssetLibraryV1.py`: eigenständiger, nicht kollidierender Review-Weg mit vorhandenen Bodenmaterialien.
-- `Tools/ValidateWestlandAssetLibraryV1.py`: Editor- und PIE-Audit; `Tools/TestWestlandAssetLibraryV1PIE.py`: echter Enhanced-Input-Fußlauf ohne Teleports.
-- `Tools/MeasureWestlandAssetLibraryV1PIE.py` und `Tools/SummarizeWestlandAssetLibraryV1Performance.py`: getrennte Idle-Messungen und CSV-Auswertung.
+## V2-Pipeline
 
-Testjob-Dateien liegen ausschließlich unter `Saved/WestlandAssetLibrary`. Ohne aktiven FootViewJob wird der vollständige Fußlauf ausgeführt. Rendering-Kosten werden nicht aus unzuverlässigen Null-Zählern erfunden.
+1. `Tools/Blender/BuildWestlandAssetLibraryV2.py`: liest die gesicherte V1-Quelle, ersetzt nur die genannten Geometrien und schreibt die separate V2-Datei. Bereits vorhandene eigene V2-Arbeitsstände werden unter Saved gesichert. Keine primitive geschlossene Kronenkugel: verzweigte Stämme, Zweige und gebogene einzelne Blätter.
+2. `Tools/Blender/ReviewWestlandAssetLibraryV2.py`: lesendes Wiederöffnen, Audit der 20 Meshes einschließlich UV-Flächen, Normalen, Tangenten und Binormalen nach Triangulierung; Renderprüfung. Blender-Scriptargumente nach `--` übergeben; `-- --surfaces` beschränkt Renderjobs auf die acht Landschafts-/Ruinenvarianten.
+3. `Tools/Blender/ExportWestlandAssetLibraryV2.py`: selektiver FBX-Export der geprüften 20 Meshes mit erhaltenen UCX-Körpern und Tangenten. Erfordert die lokale Sichtprüfungsmarkierung unter Saved; diese ersetzt keine menschliche Art-Freigabe.
+4. `Tools/ImportWestlandAssetLibraryV2.py`: Reimport nur der 20 bisherigen Assetpfade; vier gemalte Blatttexturen und vier Materialinstanzen. Importierte Normalen/Tangenten und MikkTSpace für die reduzierten LODs. Kein Unterdrücken von Normalenwarnungen.
+5. `Tools/ValidateWestlandAssetLibraryV2.py`: vollständiger Editor-/PIE-Audit der Bibliothek und Collision-Sweeps.
+6. `Tools/TestWestlandAssetLibraryV2PIE.py`: Fußlauf über Enhanced Input ohne Teleports; tatsächliche Game-Viewport-Aufnahmen und Prüfung der HUD-Eingabesperre.
+7. `Tools/MeasureWestlandAssetLibraryV2.py` / `Tools/SummarizeWestlandAssetLibraryV2.py`: CSV-Messungen mit Medium und 75 % Renderauflösung, Vegetations-/Schattenvergleich nur temporär zur Kostendiagnose. Editor-Hintergrunddrosselung muss während der Messung ausgeschaltet sein. PIE und Standalone müssen dieselbe tatsächliche Viewport-Auflösung verwenden, nicht nur dieselben nominellen Fenstermaße.
 
-## Erhaltene Entwicklungsstände
+Jobdateien, Backups, Logs, CSVs und rohe Renderaufnahmen bleiben ausschließlich unter `Saved/WestlandAssetLibraryV2`. Ohne aktiven FootViewJob wird der gesamte Fußlauf ausgeführt. Nullwerte bei nicht unterstützten Draw-Call-Zählern gelten als nicht verfügbar, nicht als kostenlose Szene. Native `DumpDetailedPrimitives`-Diagnose in dieser Engine-Version nicht verwenden: sie verursachte bei dieser Prüfung einen Renderthread-/Slate-Assert.
 
-`Source/WestlandAssetLibrary_HeroReview_V1*.blend` und `Heroes.json` sind erhaltene frühe Reviewstände, nicht die freigegebene Bibliotheksquelle. Die ersten Kronenfarben wurden verworfen. Diese Zwischenstände nicht mit der verbindlichen V1-Datei verwechseln und nicht automatisch versionieren.
+## Erhaltene frühere Stände
 
-Das ursprüngliche Vorbereitungspaket bleibt unverändert. `CatalogReview_V1.json` ordnet dessen 74 Einträge bestehenden Assets und dem angefragten Umfang zu; weitere 50 Katalogtypen werden nicht als erstellt behauptet. Der optionale primitive Starter wurde nicht als fertige Bibliothek übernommen.
+Alle V1-Tools und frühen `HeroReview_V1`-Quellen bleiben erhalten. Das Vorbereitungspaket und sein Katalog bleiben unverändert. Die Bibliothek enthält 24 Grundtypen mit 22 Varianten; weitere Katalogtypen wurden nicht erzeugt.
 
-Screenshots: `Review/Spielkamera_V1.jpg`; vollständiger Bericht: `Docs/WESTLAND_ASSET_LIBRARY_V1_PRUEFBERICHT.md`. Rohbilder, Logs, CSVs und temporäre Sicherungen verbleiben unter Saved und gehören nicht in Git.
+V1: `Review/Spielkamera_V1.jpg`, `Docs/WESTLAND_ASSET_LIBRARY_V1_PRUEFBERICHT.md`.
+V2: `Docs/WESTLAND_ASSET_LIBRARY_ART_QUALITY_V2_PRUEFBERICHT.md`.
