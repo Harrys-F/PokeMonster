@@ -622,3 +622,12 @@ Die Bibliothek wird in einer separaten Map mit unveränderter Spielkamera geprü
 - Normalen-/Binormalenprobleme werden an Geometrie/UVs/Tangenten korrigiert. Zusätzlich am eigenen Wegband 16 entgegengesetzt orientierte Dreiecke an engen Kurven aufwärts drehen und explizite Normalen sowie Tangentenbildung verwenden. Warnungen werden nicht unterdrückt. Stamm-Collision erhält korrekte Bodenlage; ein neuer Felsen wird nach tatsächlicher Fußblockade vom Weg versetzt. Kein Gameplay-Umbau.
 - Ausschließlich `Dev_WestlandAssetLibrary` ergänzt V2/V3-Vergleich und kleine Waldszene. Reale Spielkamera und Fußlauf ohne Test-Teleports, unveränderte 2500/−55/−45/35, 140-cm-Figur, 210 cm/s. 38/38 Automationstests und Map Check 0/0; keine Source-/Config-Änderung und kein Build erforderlich.
 - V3 ist eine geprüfte neue Art-Revision, keine vorweggenommene menschliche Freigabe. Direkte Kronenverdeckung, stellenweise erkennbare Karten-/Atlaswiederholung und nicht vollständig geprüfte Fern-LOD-Übergänge bleiben ausdrücklich offen. Keine massenhafte Regionsverteilung oder neue Fade-Mechanik in diesem Auftrag. Bericht und ausgewählte unveränderte Aufnahmen dokumentieren den Stand; weitere Stilentscheidung liegt bei Harry.
+
+
+## 2026-10-12 – Meshy Player Animation Quality V2
+
+**Status: technische Umsetzung geprüft; visuelle Abnahme ausstehend.**
+
+Auf Harrys Auftrag ersetzt eine native, rein visuelle Animationsinstanz das harte Single-Clip-Umschalten der offenen Meshy-V1-Integration. Idle/Walk werden kurz überblendet; ein auf 210 cm/s abgestimmter In-place-Zyklus ergänzt Becken-/Armschwung. Umhang und Tasche erhalten begrenzte gedämpfte Knochenantworten auf Beschleunigung und Drehung statt eines aufwendigen Cloth-Solvers. Diese Darstellung darf weder Root Motion noch zusätzliche Gameplay-Kollision erzeugen.
+
+Neue Blender-Arbeitsdatei und getrennte V2-Mesh-/Skelett-/Clip-Assets erhalten beide V1-Quellen und sämtliche V1-Assets. Materialfamilie, Kamera, Maßstab, Maps, Geschwindigkeit und Paper2D-Rückfalloption bleiben bestehen. Das ist keine finale Art- oder Stoffkontaktfreigabe. Nachweise und Grenzen siehe `MESHY_PLAYER_ANIMATION_QUALITY_V2_PRUEFBERICHT.md`.

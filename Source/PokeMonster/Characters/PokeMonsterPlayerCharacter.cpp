@@ -1,6 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "PokeMonsterPlayerCharacter.h"
+#include "PokeMonsterMeshyVisualComponent.h"
 
 #include "Camera/CameraComponent.h"
 #include "Camera/CameraTypes.h"
@@ -64,6 +65,10 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 	PrimaryActorTick.bStartWithTickEnabled = false;
 
 	GetCapsuleComponent()->InitCapsuleSize(28.0f, 48.0f);
+
+    MeshyVisual = CreateDefaultSubobject<UPokeMonsterMeshyVisualComponent>(TEXT("MeshyVisual"));
+    MeshyVisual->SetupAttachment(GetCapsuleComponent());
+    MeshyVisual->SetRelativeLocation(FVector(0,0,-48));
 
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
@@ -583,7 +588,7 @@ void APokeMonsterPlayerCharacter::RefreshCharacterVisual()
 	}
 
 	const bool bHasFlipbook = SpriteComponent->GetFlipbook() != nullptr;
-	SpriteComponent->SetVisibility(bHasFlipbook, true);
+	SpriteComponent->SetVisibility(bHasFlipbook && !(MeshyVisual && MeshyVisual->IsMeshyActive()), true);
 
 	const bool bShowPlaceholder = bShowPlaceholderWithoutFlipbook && !bHasFlipbook;
 	PlaceholderMesh->SetVisibility(bShowPlaceholder, true);

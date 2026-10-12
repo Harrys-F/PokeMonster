@@ -584,3 +584,10 @@ Nur die Bibliotheks-Testmap erhält die additive Vergleichsgruppe und einen gekr
 Performancevergleich tauscht nur drei Meshes in der PIE-Kopie am identischen, zu Fuß erreichten Standort. Beide Varianten temporär Movable, tatsächlicher Meshtausch und Materialreferenzen geprüft; danach ursprüngliche Meshes, Overrides, Sichtbarkeit, Schatten und Mobilität zurückgeben. Medium/75 %, 1280 × 740, gleiche Kamera, 10 s Warmup/30 s CSV. Opaque-/Schatten-/Sichtbarkeitsdiagnosen sind keine gespeicherten Qualitätseinstellungen.
 
 Kamera 2500/−55/−45/35, Lag 12/max.45, Player 140 cm/210 cm/s, C++, Gameplay und andere Maps bleiben unverändert. Fußlauf und 38/38 bestehende Automationstests bestanden, Map Check 0/0. Dichte Eichenkrone kann die Figur aus nächster Nähe verdecken; keine Vegetations-Fade-Logik hinzugefügt. Keine finale Art-/Regionsfreigabe. Vollständige Maße, Bildnachweise, Kosten und Grenzen: `WESTLAND_ASSET_LIBRARY_ART_QUALITY_V3_PRUEFBERICHT.md`.
+
+
+### Meshy-Player – Animation Quality V2 (12.10.2026)
+
+Die von Harry beauftragte 3D-Playerdarstellung bleibt eine getrennte, kollisionsfreie `PokeMonsterMeshyVisualComponent` am vorhandenen PaperCharacter. Acht Weltblickrichtungen drehen ausschließlich das Mesh. Kamera, Capsule, 140-cm-Referenzkörper, 210 cm/s und Gameplay bleiben unverändert; vorhandene Paper2D-Flipbooks bleiben über `SetMeshyEnabled(false)` erreichbar.
+
+V2 verwendet 25 Knochen, eigenes Mesh/Skelett und Idle (3 s)/Walk (0,55 s) unter `/Game/Characters/YoungTrainer/MeshyV2`; vorhandene V1-Materialien/Textures bleiben erhalten. `PokeMonsterMeshyAnimInstance` mischt die Clips über 0,18 s, hält die Laufphase am Stop und setzt die Rate aus tatsächlichem Tempo / 210 cm/s. Gedämpfte begrenzte Zubehörfedern reagieren auf Beschleunigung/Drehung und verändern ausschließlich Umhang-/Taschenbones. Keine Root Motion oder Stoffsimulation. Original und funktionierende V1-Blenderquelle bleiben unverändert. Prüfungen, Bildsequenzen und verbleibende Art-/Topologiegrenzen: `MESHY_PLAYER_ANIMATION_QUALITY_V2_PRUEFBERICHT.md`. Technisch geprüft, visuelle Freigabe ausstehend.

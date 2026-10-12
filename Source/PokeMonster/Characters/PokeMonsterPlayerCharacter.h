@@ -16,6 +16,7 @@ class UPaperFlipbook;
 class UPaperFlipbookComponent;
 class USpringArmComponent;
 class UStaticMeshComponent;
+class UPokeMonsterMeshyVisualComponent;
 
 #if WITH_DEV_AUTOMATION_TESTS
 class FPokeMonsterPlayerFoundationTest;
@@ -83,6 +84,10 @@ class POKEMONSTER_API APokeMonsterPlayerCharacter : public APaperCharacter
 	GENERATED_BODY()
 
 public:
+    /** Disable on this component to restore the retained eight-direction Paper2D player. */
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Player Presentation")
+    TObjectPtr<UPokeMonsterMeshyVisualComponent> MeshyVisual;
+
 	APokeMonsterPlayerCharacter();
 
 	virtual void PawnClientRestart() override;
