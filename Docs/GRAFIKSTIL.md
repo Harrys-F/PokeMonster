@@ -39,11 +39,11 @@ Der aktuelle technische Kamerastandard ist unten dokumentiert. Perspektivische P
 - die Perspektive bleibt zwischen Außenbereichen und Innenräumen visuell zusammenhängend
 - die technische Projektion darf perspektivisch, nahezu orthografisch oder orthografisch sein, solange das verbindliche Referenzbild erreicht wird
 
-### Verbindliche Standardkamera vom 09.10.2026
+### Verbindliche Standardkamera B vom 13.10.2026
 
-Feste schräge Draufsicht: Pitch −55° von der Horizontalen, bestehender Yaw −45°, Roll 0°. Keine zusätzliche isometrische Drehung, keine Rotation mit der Figur oder freie Kamerasteuerung. Perspektivische Projektion und horizontaler FOV 35° bleiben erhalten. Die 140-cm-Figur wird durch 2500 cm SpringArm-Abstand ungefähr mittig, leicht unterhalb der Bildmitte eingerahmt; Fokus 35 cm über dem Capsule-Zentrum. Die anschließende Rückkehr auf 2500 cm ersetzt den 10–13-Prozent-Zielbereich durch mehr Übersicht; die Figur nimmt bei 16:9 ungefähr 9 Prozent der Spielbildhöhe ein, ohne transparente Sprite-Ränder oder Editorleisten. Andere Fensterseitenverhältnisse verändern diesen Anteil.
+Feste schräge Draufsicht: Pitch −50° von der Horizontalen, bestehender Yaw −45°, Roll 0°. Keine zusätzliche isometrische Drehung, keine Rotation mit der Figur oder freie Kamerasteuerung. Perspektivische Projektion und horizontaler FOV 35° bleiben erhalten. Die 140-cm-Figur wird durch 2850 cm SpringArm-Abstand ungefähr mittig, leicht unterhalb der Bildmitte eingerahmt; Fokus 35 cm über dem Capsule-Zentrum. Kamera B ersetzt die bisherige Kamera A mit 2500 cm/−55° und bewahrt die erweiterte Übersicht; die Figur nimmt bei 16:9 ungefähr 9 Prozent der Spielbildhöhe ein, ohne transparente Sprite-Ränder oder Editorleisten. Andere Fensterseitenverhältnisse verändern diesen Anteil.
 
-Kurzer Positions-Lag: Geschwindigkeit 12, maximal 45 cm, Substepping bis 1/60 s; kein Rotations-Lag und kein Kollisions-Zoom. Gebäudespezifische raumfeste Innenkameras und ihre bestehenden Übergänge bleiben gesonderte Konfigurationen. Player- und Weltmaßstab bleiben unverändert. Technische Tests sind bestanden; die visuelle PIE-Prüfung mit Gebäuden und Vegetation ist noch offen. Prüfstand und Grenzen stehen in `OVERWORLD_KAMERA_2026_10_09_PRUEFBERICHT.md`.
+Kurzer Positions-Lag: Geschwindigkeit 12, maximal 45 cm, Substepping bis 1/60 s; kein Rotations-Lag und kein Kollisions-Zoom. Gebäudespezifische raumfeste Innenkameras und ihre bestehenden Übergänge bleiben gesonderte Konfigurationen. Player- und Weltmaßstab bleiben unverändert. Die frühere Kamera-A-Prüfung steht historisch in `OVERWORLD_KAMERA_2026_10_09_PRUEFBERICHT.md`. Kamera B wurde in PIE verglichen und dauerhaft übernommen. Der begrenzte Kamera→Player-Sichtkegel stellt vorbereitete Kronen weich frei, ohne Gebäude oder Vegetation hinter dem Player pauschal auszublenden. Prüfungen und Grenzen stehen in `KAMERA_B_SICHTFREISTELLUNG_PRUEFBERICHT.md`.
 
 ## Figurengröße
 
@@ -51,7 +51,7 @@ Die Spielfigur soll im Bild ungefähr dieselbe relative Größe wie in der erste
 
 Vorläufige Gestaltungsregeln:
 
-- Figur in der normalen Außenansicht ungefähr 9 Prozent der sichtbaren Bildhöhe bei 16:9; maßgeblich ist der wiederhergestellte 2500-cm-Abstand (ersetzt den zwischenzeitlichen 10–13-Prozent-Zielbereich)
+- Figur in der normalen Außenansicht ungefähr 9 Prozent der sichtbaren Bildhöhe bei 16:9; maßgeblich ist Kamera B mit 2850 cm/−50° (ersetzt den zwischenzeitlichen 10–13-Prozent-Zielbereich)
 - Türen ungefähr 1,5 bis 2 Figuren hoch
 - normale Wege mindestens 2 bis 3 Figuren breit
 - Bäume und größere Landschaftselemente deutlich größer als die Figur

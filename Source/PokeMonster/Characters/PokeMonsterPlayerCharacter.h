@@ -8,6 +8,7 @@
 #include "PokeMonsterPlayerCharacter.generated.h"
 
 class UCameraComponent;
+class UPokeMonsterCameraVisibilityComponent;
 class APokeMonsterBuildingCutaway;
 class AActor;
 class UInputAction;
@@ -154,6 +155,9 @@ protected:
 	/** Smooth camera follow and the fixed, angled top-down view. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "PokeMonster|Camera")
 	TObjectPtr<USpringArmComponent> CameraBoom;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "PokeMonster|Camera")
+	TObjectPtr<UPokeMonsterCameraVisibilityComponent> CameraVisibility;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "PokeMonster|Camera")
 	TObjectPtr<UCameraComponent> FollowCamera;

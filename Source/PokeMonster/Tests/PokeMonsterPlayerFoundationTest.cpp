@@ -148,7 +148,7 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 		TestFalse(TEXT("Exterior rotation has no lag"), Boom->bEnableCameraRotationLag);
 		TestTrue(TEXT("Position lag uses substeps"), Boom->bUseCameraLagSubstepping);
 		TestEqual(TEXT("Perspective projection is preserved"), Camera->ProjectionMode, ECameraProjectionMode::Perspective);
-		const FRotator FixedRotation(-55.f, -45.f, 0.f);
+		const FRotator FixedRotation(-50.f, -45.f, 0.f);
 		for (const auto& Direction : Directions)
 		{
 			Player->Move(FInputActionValue(Direction.Input));
@@ -157,7 +157,7 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 			const FVector UpAxis = FRotationMatrix(FixedRotation).GetUnitAxis(EAxis::Z);
 			TestTrue(TEXT("Each direction retains unit movement speed"), FMath::IsNearlyEqual(Movement.Size2D(), 1.f));
 			TestTrue(TEXT("Right/left input matches screen horizontal direction"), FMath::IsNearlyEqual(FVector::DotProduct(Movement,RightAxis), Direction.Input.GetSafeNormal().X, .0001));
-			TestTrue(TEXT("Up/down input matches screen vertical direction"), FMath::IsNearlyEqual(FVector::DotProduct(Movement,UpAxis), Direction.Input.GetSafeNormal().Y * FMath::Sin(FMath::DegreesToRadians(55.f)), .0001));
+			TestTrue(TEXT("Up/down input matches screen vertical direction"), FMath::IsNearlyEqual(FVector::DotProduct(Movement,UpAxis), Direction.Input.GetSafeNormal().Y * FMath::Sin(FMath::DegreesToRadians(50.f)), .0001));
 			Player->StopMoving(FInputActionValue(FVector2D::ZeroVector));
 			Boom->TickComponent(1.f/60.f, LEVELTICK_All, nullptr);
 			TestTrue(TEXT("Eight facing changes never rotate the camera"), Camera->GetComponentRotation().Equals(FixedRotation,.01f));
@@ -178,7 +178,7 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 		const float FootY = ScreenY(FVector::ZeroVector);
 		const float HeadY = ScreenY(FVector(0,0,140));
 		const float BodyFraction = FootY-HeadY;
-		TestTrue(TEXT("140 cm body occupies about 9 percent at 2500 cm and 16:9"), BodyFraction>=.085f && BodyFraction<=.095f);
+		TestTrue(TEXT("140 cm body occupies about 9 percent at 2850 cm and 16:9"), BodyFraction>=.085f && BodyFraction<=.095f);
 		TestTrue(TEXT("Body centre is close to screen centre, slightly below"), (FootY+HeadY)*.5f>=.50f && (FootY+HeadY)*.5f<=.55f);
 		AddInfo(FString::Printf(TEXT("Fixed exterior projection: body %.3f%%; centre Y %.4f"),BodyFraction*100.f,(FootY+HeadY)*.5f));
 		for (int32 Frame=0; Frame<120; ++Frame)

@@ -105,7 +105,7 @@ bool FPokeMonsterBuildingCameraTest::RunTest(const FString& Parameters)
     Player->CalcCamera(0.f, Interior);
     TestTrue(TEXT("Interior view stays fixed while walking diagonally"), Interior.Location.Equals(FixedLocation));
     TestEqual(TEXT("Interior FOV stays 35"), Interior.FOV, 35.f);
-    TestEqual(TEXT("Overworld boom remains 2500"), Boom->TargetArmLength, 2500.f);
+    TestEqual(TEXT("Overworld boom remains 2850"), Boom->TargetArmLength, 2850.f);
     TestTrue(TEXT("Overworld rotation untouched"), Boom->GetRelativeRotation().Equals(BoomRotation));
 
     TestTrue(TEXT("Sprite scale unchanged"), Player->GetSprite()->GetRelativeScale3D().Equals(SpriteScale));

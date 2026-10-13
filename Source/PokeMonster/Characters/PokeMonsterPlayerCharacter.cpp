@@ -2,6 +2,7 @@
 
 #include "PokeMonsterPlayerCharacter.h"
 #include "PokeMonsterMeshyVisualComponent.h"
+#include "../Camera/PokeMonsterCameraVisibilityComponent.h"
 
 #include "Camera/CameraComponent.h"
 #include "Camera/CameraTypes.h"
@@ -112,9 +113,9 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
 	// Fixed exterior framing: the upright 140 cm body occupies about 9% at 16:9.
-	CameraBoom->TargetArmLength = 2500.0f;
+	CameraBoom->TargetArmLength = 2850.0f;
 	CameraBoom->SetUsingAbsoluteRotation(true);
-	CameraBoom->SetRelativeRotation(FRotator(-55.0f, -45.0f, 0.0f));
+	CameraBoom->SetRelativeRotation(FRotator(-50.0f, -45.0f, 0.0f));
 	CameraBoom->TargetOffset = FVector(0.0f, 0.0f, 35.0f);
 	CameraBoom->bUsePawnControlRotation = false;
 	CameraBoom->bInheritPitch = false;
@@ -132,6 +133,7 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	FollowCamera->bUsePawnControlRotation = false;
 	FollowCamera->FieldOfView = 35.0f;
+	CameraVisibility = CreateDefaultSubobject<UPokeMonsterCameraVisibilityComponent>(TEXT("CameraVisibility"));
 
 	MoveAction = CreateDefaultSubobject<UInputAction>(TEXT("MoveAction"));
 	MoveAction->ValueType = EInputActionValueType::Axis2D;
