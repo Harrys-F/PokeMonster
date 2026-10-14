@@ -3,6 +3,8 @@
 #include "../Camera/PokeMonsterCameraVisibilityComponent.h"
 #include "Materials/MaterialParameterCollection.h"
 #include "Materials/Material.h"
+#include "Materials/MaterialInstance.h"
+#include "Engine/StaticMesh.h"
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPokeMonsterCameraVisibilityTest,
     "PokeMonster.Camera.Visibility.FiniteSightlineAndFade", EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
@@ -28,6 +30,49 @@ bool FPokeMonsterCameraVisibilityTest::RunTest(const FString& Parameters)
         TestTrue(TEXT("Camera data also stays correct in shadow passes"),Collection->GetParameterId(TEXT("PlayerSightCamera")).IsValid());
     }
     TestNotNull(TEXT("Scoped foliage material remains available"),LoadObject<UMaterial>(nullptr,TEXT("/Game/Environment/DevTestMapVisualV2/Materials/M_V2_CrownReveal.M_V2_CrownReveal")));
+    return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPokeMonsterCameraTreeFamilyTest,
+    "PokeMonster.Camera.Visibility.TreeFamiliesAndBuildingExclusion", EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FPokeMonsterCameraTreeFamilyTest::RunTest(const FString& Parameters)
+{
+    const auto* Visibility = GetDefault<UPokeMonsterCameraVisibilityComponent>();
+    auto* Birch = LoadObject<UStaticMesh>(nullptr,TEXT("/Game/Environment/WestlandAssetLibrary/Meshes/Trees/SM_WLA_Birch_A.SM_WLA_Birch_A"));
+    auto* Oak = LoadObject<UStaticMesh>(nullptr,TEXT("/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3"));
+    auto* Cube = LoadObject<UStaticMesh>(nullptr,TEXT("/Engine/BasicShapes/Cube.Cube"));
+    auto* Bark = LoadObject<UMaterial>(nullptr,TEXT("/Game/Environment/DevTestMapVisualV2/Materials/M_V2_BarkRevealBase.M_V2_BarkRevealBase"));
+    auto* Crown = LoadObject<UMaterial>(nullptr,TEXT("/Game/Environment/DevTestMapVisualV2/Materials/M_V2_CrownReveal.M_V2_CrownReveal"));
+    TestNotNull(TEXT("Existing birch mesh loads"),Birch);
+    TestNotNull(TEXT("Existing oak mesh loads"),Oak);
+    TestNotNull(TEXT("Building-like mesh loads"),Cube);
+    TestEqual(TEXT("Existing oak crown material is reused unchanged"),Visibility->FindRevealMaterial(Oak,Crown),static_cast<UMaterialInterface*>(Crown));
+    TestNull(TEXT("A building cannot opt in even with a crown reveal material"),Visibility->FindRevealMaterial(Cube,Crown));
+    TestNull(TEXT("A building cannot opt in even with a bark reveal material"),Visibility->FindRevealMaterial(Cube,Bark));
+    TestNull(TEXT("Missing mesh cannot opt in"),Visibility->FindRevealMaterial(nullptr,Bark));
+    TestEqual(TEXT("The established fade duration stays unchanged"),Visibility->FadeDuration,.25f);
+    for (const TCHAR* Suffix : {TEXT("Birch"),TEXT("LeafBirch"),TEXT("LeafDark"),TEXT("LeafLight")})
+    {
+        const FString Path = FString::Printf(TEXT("/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_%s.MI_WLA_%s"),Suffix,Suffix);
+        auto* Original = LoadObject<UMaterialInterface>(nullptr,*Path);
+        TestNotNull(FString::Printf(TEXT("Original %s loads"),Suffix),Original);
+        UMaterialInterface* Reveal = Visibility->FindRevealMaterial(Birch,Original);
+        TestNotNull(FString::Printf(TEXT("Birch slot %s has a reveal instance"),Suffix),Reveal);
+        TestNull(TEXT("A building sharing the original tree material is excluded"),Visibility->FindRevealMaterial(Cube,Original));
+        if (!Original || !Reveal) continue;
+        TestEqual(TEXT("No duplicate reveal master"),Reveal->GetMaterial(),Bark);
+        UTexture* OriginalPaint = nullptr;
+        UTexture* RevealPaint = nullptr;
+        Original->GetTextureParameterValue(FMaterialParameterInfo(TEXT("Paint")),OriginalPaint);
+        Reveal->GetTextureParameterValue(FMaterialParameterInfo(TEXT("Paint")),RevealPaint);
+        TestNotNull(TEXT("Original paint texture is available"),OriginalPaint);
+        TestEqual(TEXT("Birch paint texture is preserved"),RevealPaint,OriginalPaint);
+        FLinearColor OriginalTint, RevealTint;
+        TestTrue(TEXT("Original tint is available"),Original->GetVectorParameterValue(FMaterialParameterInfo(TEXT("Tint")),OriginalTint));
+        TestTrue(TEXT("Reveal tint is available"),Reveal->GetVectorParameterValue(FMaterialParameterInfo(TEXT("Tint")),RevealTint));
+        TestTrue(TEXT("Birch leaf/bark tint is preserved"),OriginalTint.Equals(RevealTint));
+        TestEqual(TEXT("Original two-sided rendering is preserved"),Reveal->IsTwoSided(),Original->IsTwoSided());
+    }
     return true;
 }
 #endif

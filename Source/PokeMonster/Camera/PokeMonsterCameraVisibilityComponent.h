@@ -9,6 +9,7 @@ class UMaterialInterface;
 class UMaterialInstanceDynamic;
 class UMaterialParameterCollection;
 class UMeshComponent;
+class UStaticMesh;
 
 /** Visual-only finite camera/player sight cone for the existing scoped tree materials. */
 UCLASS(ClassGroup=(Camera), meta=(BlueprintSpawnableComponent))
@@ -28,6 +29,9 @@ public:
     static bool IsBetweenCameraAndTarget(const FBox& Bounds, const FVector& Camera, const FVector& Target);
     static float AdvanceFade(float Current, bool bOccluding, float DeltaTime, float Duration);
 
+    /** Explicit tree mesh/material opt-in. Shared building materials never opt in. */
+    UMaterialInterface* FindRevealMaterial(const UStaticMesh* Mesh, UMaterialInterface* Original) const;
+
 private:
     struct FSlot
     {
@@ -46,4 +50,7 @@ private:
     UPROPERTY() TObjectPtr<UMaterialParameterCollection> SightCollection;
     UPROPERTY() TObjectPtr<UMaterial> CrownMaterial;
     UPROPERTY() TObjectPtr<UMaterial> BarkMaterial;
+    UPROPERTY() TObjectPtr<UStaticMesh> OakMesh;
+    UPROPERTY() TObjectPtr<UStaticMesh> BirchMesh;
+    UPROPERTY() TMap<TObjectPtr<UMaterialInterface>, TObjectPtr<UMaterialInterface>> BirchMaterials;
 };

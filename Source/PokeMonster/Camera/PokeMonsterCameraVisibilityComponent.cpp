@@ -2,6 +2,8 @@
 
 #include "Camera/PlayerCameraManager.h"
 #include "Components/MeshComponent.h"
+#include "Components/StaticMeshComponent.h"
+#include "Engine/StaticMesh.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
 #include "GameFramework/Pawn.h"
@@ -22,6 +24,27 @@ UPokeMonsterCameraVisibilityComponent::UPokeMonsterCameraVisibilityComponent()
     SightCollection = Collection.Object;
     CrownMaterial = Crown.Object;
     BarkMaterial = Bark.Object;
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> Oak(TEXT("/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3"));
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> Birch(TEXT("/Game/Environment/WestlandAssetLibrary/Meshes/Trees/SM_WLA_Birch_A.SM_WLA_Birch_A"));
+    OakMesh = Oak.Object;
+    BirchMesh = Birch.Object;
+    for (const TCHAR* Suffix : {TEXT("Birch"), TEXT("LeafBirch"), TEXT("LeafDark"), TEXT("LeafLight")})
+    {
+        const FString OriginalPath = FString::Printf(TEXT("/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_%s.MI_WLA_%s"), Suffix, Suffix);
+        const FString RevealPath = FString::Printf(TEXT("/Game/Environment/DevTestMapVisualV2/Materials/MI_V2_%sReveal.MI_V2_%sReveal"), Suffix, Suffix);
+        ConstructorHelpers::FObjectFinder<UMaterialInterface> Original(*OriginalPath);
+        ConstructorHelpers::FObjectFinder<UMaterialInterface> Reveal(*RevealPath);
+        if (Original.Succeeded() && Reveal.Succeeded()) BirchMaterials.Add(Original.Object, Reveal.Object);
+    }
+}
+
+UMaterialInterface* UPokeMonsterCameraVisibilityComponent::FindRevealMaterial(const UStaticMesh* Mesh, UMaterialInterface* Original) const
+{
+    if (!Mesh || !Original) return nullptr;
+    if (Mesh == OakMesh && (Original->GetMaterial() == CrownMaterial || Original->GetMaterial() == BarkMaterial)) return Original;
+    if (Mesh == BirchMesh)
+        if (const TObjectPtr<UMaterialInterface>* Reveal = BirchMaterials.Find(Original)) return Reveal->Get();
+    return nullptr;
 }
 
 void UPokeMonsterCameraVisibilityComponent::BeginPlay()
@@ -32,21 +55,24 @@ void UPokeMonsterCameraVisibilityComponent::BeginPlay()
         SetComponentTickEnabled(false);
         return;
     }
-    // Scan once. Only materials explicitly belonging to the existing tree reveal opt in.
-    // Buildings and generic world materials cannot be registered by this component.
+    // Scan once. Both the tree mesh and its material must explicitly opt in.
+    // A building using the same bark/leaf material still cannot be registered.
     for (TActorIterator<AActor> It(GetWorld()); It; ++It)
     {
         TArray<UMeshComponent*> Meshes;
         It->GetComponents(Meshes);
         for (UMeshComponent* Mesh : Meshes)
         {
+            const UStaticMeshComponent* StaticMesh = Cast<UStaticMeshComponent>(Mesh);
+            if (!StaticMesh) continue;
             FTree Tree;
             Tree.Mesh = Mesh;
             for (int32 Slot = 0; Slot < Mesh->GetNumMaterials(); ++Slot)
             {
                 UMaterialInterface* Original = Mesh->GetMaterial(Slot);
-                if (!Original || (Original->GetMaterial() != CrownMaterial && Original->GetMaterial() != BarkMaterial)) continue;
-                if (UMaterialInstanceDynamic* MID = Mesh->CreateDynamicMaterialInstance(Slot, Original))
+                UMaterialInterface* Reveal = FindRevealMaterial(StaticMesh->GetStaticMesh(), Original);
+                if (!Reveal) continue;
+                if (UMaterialInstanceDynamic* MID = Mesh->CreateDynamicMaterialInstance(Slot, Reveal))
                 {
                     MID->SetScalarParameterValue(TEXT("PlayerRevealStrength"), 0.f);
                     Tree.Slots.Add({Slot, Original, MID});
