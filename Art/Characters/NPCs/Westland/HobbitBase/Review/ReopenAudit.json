@@ -1,0 +1,194 @@
+{
+  "file_opened": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Source/Hobbit_NPC_Base_V1.blend",
+  "blender_version": "5.2.2 LTS",
+  "units": "METRIC",
+  "unit_scale": 1.0,
+  "height_m": 1.3200000524520874,
+  "sole_z_m": 0.0,
+  "top_z_m": 1.3200000524520874,
+  "body_components": [
+    16758
+  ],
+  "nonmanifold_edges": 0,
+  "boundary_edges": 0,
+  "symmetry_max_error_m": 0.0,
+  "cross_section_counts": {
+    "left_arm": 1,
+    "right_arm": 1,
+    "legs": 2,
+    "heads": 1,
+    "toe_contours": 10
+  },
+  "armatures": 0,
+  "actions": 0,
+  "evaluated_model_vertices": 44192,
+  "evaluated_model_triangles": 88060,
+  "objects": [
+    {
+      "name": "HNB_Body",
+      "verts": 16758,
+      "triangles": 33512,
+      "materials": [
+        "HNB_Skin"
+      ]
+    },
+    {
+      "name": "HNB_Shirt",
+      "verts": 5836,
+      "triangles": 11680,
+      "materials": [
+        "HNB_Linen"
+      ]
+    },
+    {
+      "name": "HNB_Waistcoat",
+      "verts": 2028,
+      "triangles": 4064,
+      "materials": [
+        "HNB_Vest"
+      ]
+    },
+    {
+      "name": "HNB_Breeches",
+      "verts": 2574,
+      "triangles": 5152,
+      "materials": [
+        "HNB_Olive"
+      ]
+    },
+    {
+      "name": "HNB_Belt",
+      "verts": 256,
+      "triangles": 512,
+      "materials": [
+        "HNB_Leather"
+      ]
+    },
+    {
+      "name": "HNB_Buckle",
+      "verts": 280,
+      "triangles": 540,
+      "materials": [
+        "HNB_Brass"
+      ]
+    },
+    {
+      "name": "HNB_Eye_L",
+      "verts": 262,
+      "triangles": 520,
+      "materials": [
+        "HNB_Eyes"
+      ]
+    },
+    {
+      "name": "HNB_Iris_L",
+      "verts": 262,
+      "triangles": 520,
+      "materials": [
+        "HNB_Iris"
+      ]
+    },
+    {
+      "name": "HNB_Pupil_L",
+      "verts": 262,
+      "triangles": 520,
+      "materials": [
+        "HNB_Pupil"
+      ]
+    },
+    {
+      "name": "HNB_UpperLid_L",
+      "verts": 104,
+      "triangles": 204,
+      "materials": [
+        "HNB_Skin"
+      ]
+    },
+    {
+      "name": "HNB_Brow_L",
+      "verts": 104,
+      "triangles": 204,
+      "materials": [
+        "HNB_Hair_0"
+      ]
+    },
+    {
+      "name": "HNB_Eye_R",
+      "verts": 262,
+      "triangles": 520,
+      "materials": [
+        "HNB_Eyes"
+      ]
+    },
+    {
+      "name": "HNB_Iris_R",
+      "verts": 262,
+      "triangles": 520,
+      "materials": [
+        "HNB_Iris"
+      ]
+    },
+    {
+      "name": "HNB_Pupil_R",
+      "verts": 262,
+      "triangles": 520,
+      "materials": [
+        "HNB_Pupil"
+      ]
+    },
+    {
+      "name": "HNB_UpperLid_R",
+      "verts": 104,
+      "triangles": 204,
+      "materials": [
+        "HNB_Skin"
+      ]
+    },
+    {
+      "name": "HNB_Brow_R",
+      "verts": 104,
+      "triangles": 204,
+      "materials": [
+        "HNB_Hair_0"
+      ]
+    },
+    {
+      "name": "HNB_GentleSmile",
+      "verts": 168,
+      "triangles": 332,
+      "materials": [
+        "HNB_Smile"
+      ]
+    },
+    {
+      "name": "HNB_HairCore",
+      "verts": 2432,
+      "triangles": 4860,
+      "materials": [
+        "HNB_Hair_1"
+      ]
+    },
+    {
+      "name": "HNB_CurlyHairLocks",
+      "verts": 11872,
+      "triangles": 23472,
+      "materials": [
+        "HNB_Hair_0",
+        "HNB_Hair_1",
+        "HNB_Hair_2",
+        "HNB_Hair_3"
+      ]
+    }
+  ],
+  "saved_file_modified": false,
+  "previews": [
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Previews/Hobbit_Front.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Previews/Hobbit_Back.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Previews/Hobbit_Side_Right.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Previews/Hobbit_Side_Left.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Previews/Hobbit_ThreeQuarter.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Previews/Hobbit_Camera_25D_Detail.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Previews/Hobbit_Camera_25D_2850cm.png"
+  ],
+  "render_complete": true
+}

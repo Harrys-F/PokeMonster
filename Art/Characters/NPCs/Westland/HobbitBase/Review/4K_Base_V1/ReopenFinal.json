@@ -1,0 +1,34 @@
+{
+  "reopened_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Source/Hobbit_NPC_4K_Base_V1.blend",
+  "active_scene_correct": true,
+  "mesh_objects": 1,
+  "armatures": 0,
+  "actions": 0,
+  "unchanged_geometry_uv_normals": true,
+  "textures_packed_byte_exact": [
+    {
+      "image": "Image_0.001",
+      "packed_sha256": "eb5459643c794bb1b222e00b606ac62f8b09e38a62d6d186f2b18d2f7ce25908",
+      "external_exists": true
+    },
+    {
+      "image": "Image_1.001",
+      "packed_sha256": "4bbd332bd394e908eecec3e3e17ddd966a04f785231b534c50f756359f2973c6",
+      "external_exists": true
+    },
+    {
+      "image": "Image_2.001",
+      "packed_sha256": "95abb785be4857e2fc3e7cb065f6715d8dc301fdfbb75f0d63b938d7e048af98",
+      "external_exists": true
+    }
+  ],
+  "external_textures_resolved": true,
+  "master_reference_byte_identical": true,
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "height_m": 1.3999998569488525,
+  "minimum_z_m": 0.0
+}

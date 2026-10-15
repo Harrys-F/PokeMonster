@@ -1,0 +1,16 @@
+ M Source/PokeMonster/Characters/PokeMonsterMeshyAnimInstance.cpp
+ M Source/PokeMonster/Characters/PokeMonsterMeshyAnimInstance.h
+ M Source/PokeMonster/Characters/PokeMonsterMeshyVisualComponent.cpp
+ M Source/PokeMonster/Characters/PokeMonsterMeshyVisualComponent.h
+ M Source/PokeMonster/Characters/PokeMonsterPlayerCharacter.cpp
+ M Source/PokeMonster/Characters/PokeMonsterPlayerCharacter.h
+ M Source/PokeMonster/Tests/PokeMonsterMeshyPlayerTest.cpp
+ M Source/PokeMonster/Tests/PokeMonsterPlayerFoundationTest.cpp
+?? Art/Characters/NPCs/
+?? Art/Characters/YoungTrainer/Exports/SprintV1/
+?? Art/Characters/YoungTrainer/Review/
+?? Art/Characters/YoungTrainer/Source/Player_Meshy_Sprint_V1.blend
+?? Content/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Run_V1.uasset
+?? Source/PokeMonster/Tests/PokeMonsterPlayerSprintTest.cpp
+?? Tools/Blender/CreateMeshySprintV1.py
+?? Tools/ImportMeshySprintV1.py

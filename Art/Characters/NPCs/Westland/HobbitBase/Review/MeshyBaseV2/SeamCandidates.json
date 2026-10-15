@@ -1,0 +1,5 @@
+{
+  "criteria": "Forearm/cape only; gap <=0.5mm, opposing boundaries, surface normal dot>=0.95, UV continuity <=0.002, weights maxdiff<=0.005; candidate only until visual/crossing validation",
+  "possible": 0,
+  "accepted_candidates": []
+}

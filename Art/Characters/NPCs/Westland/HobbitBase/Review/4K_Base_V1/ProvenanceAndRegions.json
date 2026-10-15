@@ -1,0 +1,143 @@
+{
+  "positions_equal_glTF_Yup_to_Blender_Zup": true,
+  "position_max_abs_error_m": 0.0,
+  "triangle_indices_equal": true,
+  "uv_corner_max_abs_error": 0.0,
+  "original_sha256": "43e023f5e127af09e66030cb5cb2ba85bcb3dfad245651bd4d17ebb5ead23772",
+  "regional_intersection_audit": [
+    {
+      "region": "Nose_Mouth",
+      "centroid_bounds_m": [
+        [
+          -0.08,
+          -0.25,
+          1.07
+        ],
+        [
+          0.08,
+          -0.025,
+          1.25
+        ]
+      ],
+      "faces": 30780,
+      "bvh_pair_entries": 296,
+      "shared_or_coincident_contacts_excluded": 143,
+      "coplanar_candidates_not_resolved": 0,
+      "noncoplanar_pairs_tested": 5,
+      "confirmed_noncoplanar_crossings": 0,
+      "examples": []
+    },
+    {
+      "region": "Hand_L",
+      "centroid_bounds_m": [
+        [
+          0.55,
+          -0.2,
+          0.94
+        ],
+        [
+          0.75,
+          0.1,
+          1.1
+        ]
+      ],
+      "faces": 18175,
+      "bvh_pair_entries": 98,
+      "shared_or_coincident_contacts_excluded": 49,
+      "coplanar_candidates_not_resolved": 0,
+      "noncoplanar_pairs_tested": 0,
+      "confirmed_noncoplanar_crossings": 0,
+      "examples": []
+    },
+    {
+      "region": "Hand_R",
+      "centroid_bounds_m": [
+        [
+          -0.75,
+          -0.2,
+          0.94
+        ],
+        [
+          -0.55,
+          0.1,
+          1.1
+        ]
+      ],
+      "faces": 18076,
+      "bvh_pair_entries": 128,
+      "shared_or_coincident_contacts_excluded": 64,
+      "coplanar_candidates_not_resolved": 0,
+      "noncoplanar_pairs_tested": 0,
+      "confirmed_noncoplanar_crossings": 0,
+      "examples": []
+    },
+    {
+      "region": "Foot_L",
+      "centroid_bounds_m": [
+        [
+          0.07,
+          -0.22,
+          0
+        ],
+        [
+          0.27,
+          0.15,
+          0.16
+        ]
+      ],
+      "faces": 64816,
+      "bvh_pair_entries": 426,
+      "shared_or_coincident_contacts_excluded": 213,
+      "coplanar_candidates_not_resolved": 0,
+      "noncoplanar_pairs_tested": 0,
+      "confirmed_noncoplanar_crossings": 0,
+      "examples": []
+    },
+    {
+      "region": "Foot_R",
+      "centroid_bounds_m": [
+        [
+          -0.27,
+          -0.22,
+          0
+        ],
+        [
+          -0.07,
+          0.15,
+          0.16
+        ]
+      ],
+      "faces": 67757,
+      "bvh_pair_entries": 394,
+      "shared_or_coincident_contacts_excluded": 191,
+      "coplanar_candidates_not_resolved": 0,
+      "noncoplanar_pairs_tested": 6,
+      "confirmed_noncoplanar_crossings": 0,
+      "examples": []
+    },
+    {
+      "region": "Cape_Hem",
+      "centroid_bounds_m": [
+        [
+          -0.34,
+          -0.06,
+          0.24
+        ],
+        [
+          0.34,
+          0.25,
+          0.35
+        ]
+      ],
+      "faces": 109495,
+      "bvh_pair_entries": 604,
+      "shared_or_coincident_contacts_excluded": 302,
+      "coplanar_candidates_not_resolved": 0,
+      "noncoplanar_pairs_tested": 0,
+      "confirmed_noncoplanar_crossings": 0,
+      "examples": []
+    }
+  ],
+  "self_intersection_coverage": "Centroid-selected regions only, no full-model exhaustive test; coplanar candidates excluded and remain unresolved. Adjacent/coincident contacts excluded. Counts are triangle pairs, not independent visual defects.",
+  "seconds": 5.136590957641602
+}

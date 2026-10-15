@@ -1,0 +1,2 @@
+git diff --check: exit 0; no output
+New V4 Markdown trailing whitespace: none

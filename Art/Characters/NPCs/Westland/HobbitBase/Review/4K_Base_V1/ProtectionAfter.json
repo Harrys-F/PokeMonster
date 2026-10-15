@@ -1,0 +1,7 @@
+{
+  "protected_files_checked": 1788,
+  "changed": [],
+  "missing": [],
+  "git_head": "3c6dc47 Extend player sight visibility to all test map tree families",
+  "git_status": " M Source/PokeMonster/Characters/PokeMonsterMeshyAnimInstance.cpp\n M Source/PokeMonster/Characters/PokeMonsterMeshyAnimInstance.h\n M Source/PokeMonster/Characters/PokeMonsterMeshyVisualComponent.cpp\n M Source/PokeMonster/Characters/PokeMonsterMeshyVisualComponent.h\n M Source/PokeMonster/Characters/PokeMonsterPlayerCharacter.cpp\n M Source/PokeMonster/Characters/PokeMonsterPlayerCharacter.h\n M Source/PokeMonster/Tests/PokeMonsterMeshyPlayerTest.cpp\n M Source/PokeMonster/Tests/PokeMonsterPlayerFoundationTest.cpp\n?? Art/Characters/NPCs/\n?? Art/Characters/YoungTrainer/Exports/SprintV1/\n?? Art/Characters/YoungTrainer/Review/\n?? Art/Characters/YoungTrainer/Source/Player_Meshy_Sprint_V1.blend\n?? Content/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Run_V1.uasset\n?? Source/PokeMonster/Tests/PokeMonsterPlayerSprintTest.cpp\n?? Tools/Blender/CreateMeshySprintV1.py\n?? Tools/ImportMeshySprintV1.py\n"
+}

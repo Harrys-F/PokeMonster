@@ -1,0 +1,54 @@
+{
+  "opened_source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Source/Hobbit_NPC_MeshyBase_V2_Cleanup.blend",
+  "body_height_m": 1.399999976158142,
+  "minimum_z_m": 0.0,
+  "units": "METRIC",
+  "unit_scale": 1.0,
+  "fps": 60,
+  "mesh_objects": 1,
+  "rigs": 1,
+  "bones": 25,
+  "rest_pose": "REST",
+  "actions": [
+    "HNM2_Idle_V2",
+    "HNM2_Run_V1",
+    "HNM2_Walk_V2"
+  ],
+  "weights_groups": 25,
+  "textures": [
+    {
+      "image": "HNM2_T_Player_Meshy_BaseColor.003",
+      "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Source/../Textures/MeshyBaseV2/T_Hobbit_MeshyBase_V2_BaseColor.png",
+      "exists": true,
+      "packed": true,
+      "packed_filenames": [
+        "//../Textures/MeshyBaseV2/T_Hobbit_MeshyBase_V2_BaseColor.png"
+      ],
+      "packed_matches_disk": true,
+      "texture_same_as_V1": true
+    },
+    {
+      "image": "HNM2_T_Player_Meshy_ORM.003",
+      "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Source/../Textures/MeshyBaseV2/T_Hobbit_MeshyBase_V2_ORM.png",
+      "exists": true,
+      "packed": true,
+      "packed_filenames": [
+        "//../Textures/MeshyBaseV2/T_Hobbit_MeshyBase_V2_ORM.png"
+      ],
+      "packed_matches_disk": true,
+      "texture_same_as_V1": true
+    },
+    {
+      "image": "HNM2_T_Player_Meshy_Normal.003",
+      "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Source/../Textures/MeshyBaseV2/T_Hobbit_MeshyBase_V2_Normal.png",
+      "exists": true,
+      "packed": true,
+      "packed_filenames": [
+        "//../Textures/MeshyBaseV2/T_Hobbit_MeshyBase_V2_Normal.png"
+      ],
+      "packed_matches_disk": true,
+      "texture_same_as_V1": true
+    }
+  ],
+  "external_library_model_data": []
+}

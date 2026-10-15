@@ -1,0 +1,75 @@
+{
+  "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Source/Hobbit_NPC_Base_V3_Body.blend",
+  "blender": "5.2.2 LTS",
+  "units": "METRIC",
+  "unit_scale": 1.0,
+  "body_height_m": 1.281999945640564,
+  "sole_z_m": 0.0,
+  "future_hair_allowance_m": 0.0380000543594361,
+  "body_components": [
+    10499
+  ],
+  "body_vertices": 10499,
+  "body_faces": 10776,
+  "body_triangles": 20994,
+  "body_face_types": {
+    "quads": 10218,
+    "triangles": 558
+  },
+  "nonmanifold_edges": 0,
+  "boundary_edges": 0,
+  "loose_vertices": 0,
+  "degenerate_faces": 0,
+  "duplicate_vertex_pairs_0_1um": [],
+  "symmetry_max_m": 0.0,
+  "signed_volume_m3": 0.05915159347631727,
+  "euler_characteristic": 2,
+  "shared_edge_winding_errors": 0,
+  "invalid_face_normals": 0,
+  "cross_sections": {
+    "head": 1,
+    "legs": 2,
+    "left_arm": 1,
+    "right_arm": 1,
+    "four_fingers_left": 4,
+    "four_fingers_right": 4,
+    "thumbs": 2,
+    "ten_toes": 10
+  },
+  "nonadjacent_triangle_pairs_tested": 0,
+  "proper_triangle_intersections": [],
+  "intersection_test_limits": "Interior segment/triangle crossings; excludes shared-vertex pairs, coplanar overlaps and tangential contacts. Not a formal exhaustive proof. Eyeball/body seating is intentional and separate.",
+  "model_objects": [
+    {
+      "name": "HNV3_Body",
+      "vertices": 10499,
+      "faces": 10776,
+      "triangles": 20994,
+      "materials": [
+        "HNV3_NeutralSkin.004"
+      ]
+    },
+    {
+      "name": "HNV3_Eyeball_L",
+      "vertices": 1298,
+      "faces": 1344,
+      "triangles": 2592,
+      "materials": [
+        "HNV3_NaturalEye_L.002"
+      ]
+    },
+    {
+      "name": "HNV3_Eyeball_R",
+      "vertices": 1298,
+      "faces": 1344,
+      "triangles": 2592,
+      "materials": [
+        "HNV3_NaturalEye_R.002"
+      ]
+    }
+  ],
+  "rigs": 0,
+  "animated_objects": 0,
+  "deformation_tested": false,
+  "body_modifier_types": []
+}

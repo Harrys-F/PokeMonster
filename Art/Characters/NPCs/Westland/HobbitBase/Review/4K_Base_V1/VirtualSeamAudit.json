@@ -1,0 +1,11 @@
+{
+  "method": "Read-only array equivalence of EXACT positions only; NO weld/edit applied to Blender geometry. UV/normal seams are not automatically interpreted as holes.",
+  "vertices_unique_positions": 1324036,
+  "components_after_virtual_exact_weld": 1,
+  "boundary_edges_after_virtual_exact_weld": 28,
+  "edges_gt2_after_virtual_exact_weld": 60,
+  "top_components_vertices": [
+    1324036
+  ],
+  "seconds": 8.18140983581543
+}

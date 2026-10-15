@@ -1,0 +1,302 @@
+{
+  "reopened": true,
+  "source_unchanged_hashes": true,
+  "regions": {
+    "HeadHair": {
+      "vertices": 17671,
+      "polygons": 38824,
+      "triangles": 38824,
+      "quads": 0,
+      "boundary_edges": 538,
+      "edges_gt2": 57,
+      "loose_vertices": 7,
+      "degenerate_faces_area_lt_1e_12": 0,
+      "materials": 1,
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_max": [
+        1.0,
+        0.9999999403953552
+      ],
+      "nonfinite_uv": 0,
+      "source_to_low_surface_error_mm": {
+        "samples": 8000,
+        "sampling": "Area-weighted barycentric points, deterministic seed 42; rest pose",
+        "mean": 0.3559042650168003,
+        "p95": 0.9359480871353288,
+        "maximum": 2.087195171043277
+      },
+      "low_centroid_to_source_error_mm": {
+        "samples": 8000,
+        "mean": 0.3673499542508746,
+        "p95": 0.9167088428512192,
+        "maximum": 1.8581736367195845
+      },
+      "animation_suitability": "Rejected: triangle-only control, no anatomical eye/mouth loops or organized shoulder loops; no deformation test or weights"
+    },
+    "Torso": {
+      "vertices": 23997,
+      "polygons": 44984,
+      "triangles": 44984,
+      "quads": 0,
+      "boundary_edges": 3338,
+      "edges_gt2": 2,
+      "loose_vertices": 1,
+      "degenerate_faces_area_lt_1e_12": 0,
+      "materials": 1,
+      "uv_min": [
+        0.0,
+        0.0
+      ],
+      "uv_max": [
+        0.9999999403953552,
+        1.0
+      ],
+      "nonfinite_uv": 0,
+      "source_to_low_surface_error_mm": {
+        "samples": 8000,
+        "sampling": "Area-weighted barycentric points, deterministic seed 42; rest pose",
+        "mean": 0.11454085997983832,
+        "p95": 0.288786701275967,
+        "maximum": 0.5934885703027248
+      },
+      "low_centroid_to_source_error_mm": {
+        "samples": 8000,
+        "mean": 0.11934970835026704,
+        "p95": 0.2929230206063947,
+        "maximum": 0.7081317016854882
+      },
+      "animation_suitability": "Rejected: triangle-only control, no anatomical eye/mouth loops or organized shoulder loops; no deformation test or weights"
+    }
+  },
+  "mesh_count_in_file": 4,
+  "source_complete_triangles": 2652461,
+  "armatures": 0,
+  "baked_images": [
+    {
+      "name": "GRT_HeadHair_AO",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "packed": true,
+      "external_exists": true,
+      "nonfinite_values": 0,
+      "alpha_nonzero_fraction": 0.9999959468841553,
+      "rgb_min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgb_max": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "name": "GRT_HeadHair_BaseColor",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "sRGB",
+      "packed": true,
+      "external_exists": true,
+      "nonfinite_values": 0,
+      "alpha_nonzero_fraction": 0.39532995223999023,
+      "rgb_min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgb_max": [
+        0.9843137860298157,
+        0.960784375667572,
+        0.9137255549430847
+      ]
+    },
+    {
+      "name": "GRT_HeadHair_Metallic",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "packed": true,
+      "external_exists": true,
+      "nonfinite_values": 0,
+      "alpha_nonzero_fraction": 0.9999959468841553,
+      "rgb_min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgb_max": [
+        0.3803921937942505,
+        0.3803921937942505,
+        0.3803921937942505
+      ]
+    },
+    {
+      "name": "GRT_HeadHair_Normal",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "packed": true,
+      "external_exists": true,
+      "nonfinite_values": 0,
+      "alpha_nonzero_fraction": 1.0,
+      "rgb_min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgb_max": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "name": "GRT_HeadHair_Roughness",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "packed": true,
+      "external_exists": true,
+      "nonfinite_values": 0,
+      "alpha_nonzero_fraction": 0.9999959468841553,
+      "rgb_min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgb_max": [
+        0.729411780834198,
+        0.729411780834198,
+        0.729411780834198
+      ]
+    },
+    {
+      "name": "GRT_Torso_AO",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "packed": true,
+      "external_exists": true,
+      "nonfinite_values": 0,
+      "alpha_nonzero_fraction": 0.9999997615814209,
+      "rgb_min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgb_max": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "name": "GRT_Torso_BaseColor",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "sRGB",
+      "packed": true,
+      "external_exists": true,
+      "nonfinite_values": 0,
+      "alpha_nonzero_fraction": 0.3908402919769287,
+      "rgb_min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgb_max": [
+        0.9764706492424011,
+        0.917647123336792,
+        0.8117647767066956
+      ]
+    },
+    {
+      "name": "GRT_Torso_Metallic",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "packed": true,
+      "external_exists": true,
+      "nonfinite_values": 0,
+      "alpha_nonzero_fraction": 0.9999997615814209,
+      "rgb_min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgb_max": [
+        0.6823529601097107,
+        0.6823529601097107,
+        0.6823529601097107
+      ]
+    },
+    {
+      "name": "GRT_Torso_Normal",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "packed": true,
+      "external_exists": true,
+      "nonfinite_values": 0,
+      "alpha_nonzero_fraction": 1.0,
+      "rgb_min": [
+        0.011764707043766975,
+        0.003921568859368563,
+        0.0
+      ],
+      "rgb_max": [
+        0.9960784912109375,
+        0.9960784912109375,
+        1.0
+      ]
+    },
+    {
+      "name": "GRT_Torso_Roughness",
+      "size": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "packed": true,
+      "external_exists": true,
+      "nonfinite_values": 0,
+      "alpha_nonzero_fraction": 0.9999997615814209,
+      "rgb_min": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rgb_max": [
+        0.8078432083129883,
+        0.8078432083129883,
+        0.8078432083129883
+      ]
+    }
+  ],
+  "context_triangles": 537172,
+  "candidate_total_triangles": 83808,
+  "complete_B_display_triangles": 620980
+}

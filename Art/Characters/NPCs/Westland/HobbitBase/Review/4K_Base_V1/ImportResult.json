@@ -1,0 +1,95 @@
+{
+  "scene": "Hobbit_NPC_4K_Base_V1",
+  "objects": [
+    {
+      "name": "Mesh_0.001",
+      "type": "MESH",
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Mesh_0.001",
+      "vertices": 1466192,
+      "edges": 4114722,
+      "polygons": 2652461,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "custom_normals": true
+    }
+  ],
+  "world_min": [
+    -0.714085578918457,
+    -0.20618200302124023,
+    0.0
+  ],
+  "world_max": [
+    0.7135233283042908,
+    0.21187810599803925,
+    1.3999998569488525
+  ],
+  "height_m": 1.3999998569488525,
+  "dimensions_m": [
+    1.4276089668273926,
+    0.4180601239204407,
+    1.3999998569488525
+  ],
+  "images": [
+    {
+      "name": "Image_0.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "colorspace": "sRGB",
+      "filepath": "//../Textures/4K_Base_V1/Image_0.001.jpg"
+    },
+    {
+      "name": "Image_2.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "colorspace": "Non-Color",
+      "filepath": "//../Textures/4K_Base_V1/Image_2.001.jpg"
+    },
+    {
+      "name": "Image_1.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "colorspace": "Non-Color",
+      "filepath": "//../Textures/4K_Base_V1/Image_1.001.jpg"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "edited_head_vertices": 4811,
+  "max_displacement_m": 0.0036258735134982152,
+  "local_subdivision_cuts": 1,
+  "subdivision_smooth": 0,
+  "whole_body_subdivision": false,
+  "native_brush_strokes_performed": false,
+  "shape_key_reversible": true,
+  "native_brushes": [
+    "Grab",
+    "Clay Strips",
+    "Draw Sharp",
+    "Smooth",
+    "Inflate/Deflate",
+    "Crease Polish",
+    "Mask"
+  ],
+  "body_vertices": 23012,
+  "body_faces": 23688
+}

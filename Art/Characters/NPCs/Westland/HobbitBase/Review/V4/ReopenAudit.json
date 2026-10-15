@@ -1,0 +1,99 @@
+{
+  "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Source/SculptV4/Hobbit_NPC_V4_HeadSculpt.blend",
+  "blender": "5.2.2 LTS",
+  "units": "METRIC",
+  "unit_scale": 1.0,
+  "body_height_m": 1.281999945640564,
+  "sole_z_m": 0.0,
+  "future_hair_allowance_m": 0.0380000543594361,
+  "body_components": [
+    23012
+  ],
+  "body_vertices": 23012,
+  "body_faces": 23688,
+  "body_triangles": 46020,
+  "body_face_types": {
+    "quads": 22140,
+    "triangles": 1452,
+    "ngons": 96
+  },
+  "nonmanifold_edges": 0,
+  "boundary_edges": 0,
+  "loose_vertices": 0,
+  "degenerate_faces": 0,
+  "duplicate_vertex_pairs_0_1um": [],
+  "symmetry_max_m": 1.3677447441295953e-07,
+  "signed_volume_m3": 0.05916613991640429,
+  "euler_characteristic": 2,
+  "shared_edge_winding_errors": 0,
+  "invalid_face_normals": 0,
+  "cross_sections": {
+    "head": 1,
+    "legs": 2,
+    "left_arm": 1,
+    "right_arm": 1,
+    "four_fingers_left": 4,
+    "four_fingers_right": 4,
+    "thumbs": 2,
+    "ten_toes": 10
+  },
+  "nonadjacent_triangle_pairs_tested": 0,
+  "proper_triangle_intersections": [],
+  "intersection_test_limits": "Interior segment/triangle crossings; excludes shared-vertex pairs, coplanar overlaps and tangential contacts. Not a formal exhaustive proof. Eyeball/body seating is intentional and separate.",
+  "model_objects": [
+    {
+      "name": "HNV4_Body.001",
+      "vertices": 23012,
+      "faces": 23688,
+      "triangles": 46020,
+      "materials": [
+        "HNV3_NeutralSkin.005"
+      ]
+    },
+    {
+      "name": "HNV4_Eyeball_L.001",
+      "vertices": 1298,
+      "faces": 1344,
+      "triangles": 2592,
+      "materials": [
+        "HNV3_NaturalEye_L.003"
+      ]
+    },
+    {
+      "name": "HNV4_Eyeball_R.001",
+      "vertices": 1298,
+      "faces": 1344,
+      "triangles": 2592,
+      "materials": [
+        "HNV3_NaturalEye_R.003"
+      ]
+    }
+  ],
+  "rigs": 0,
+  "animated_objects": 0,
+  "deformation_tested": false,
+  "body_modifier_types": [],
+  "protected_original_vertices": 6295,
+  "protected_vertex_max_error_m": 0.0,
+  "eye_checks": [
+    {
+      "side": "L",
+      "vertex_count_equal": true,
+      "max_vertex_difference_m": 0.0,
+      "transform_equal": true
+    },
+    {
+      "side": "R",
+      "vertex_count_equal": true,
+      "max_vertex_difference_m": 0.0,
+      "transform_equal": true
+    }
+  ],
+  "protected_mask_min": 1.0,
+  "shape_keys": [
+    "Basis_V3_LocalDensity",
+    "V4_LimitedHeadFormPass"
+  ],
+  "sculpt_symmetry_x": true,
+  "native_brush": "Grab"
+}

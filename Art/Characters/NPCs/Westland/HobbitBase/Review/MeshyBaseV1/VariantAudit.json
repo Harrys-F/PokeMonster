@@ -1,0 +1,46 @@
+{
+  "analysis_did_not_save_source": true,
+  "welded_analysis": {
+    "tolerance_m": 1e-06,
+    "vertices": 52497,
+    "components": 3798,
+    "largest_components": [
+      820,
+      574,
+      531,
+      491,
+      457,
+      454,
+      444,
+      391,
+      312,
+      256
+    ],
+    "boundary_edges": 45414,
+    "nonmanifold_edges": 47572,
+    "saved_to_mesh": false
+  },
+  "temporary_uniform_scale_checks": [
+    {
+      "target_m": 1.2,
+      "temporary_scale": 0.8571428571428572,
+      "reference_height_m": 1.200000058675986,
+      "reference_sole_z": -1.0992270205179011e-08
+    },
+    {
+      "target_m": 1.32,
+      "temporary_scale": 0.942857142857143,
+      "reference_height_m": 1.3199998261250032,
+      "reference_sole_z": -1.2091494916433021e-08
+    },
+    {
+      "target_m": 1.45,
+      "temporary_scale": 1.0357142857142858,
+      "reference_height_m": 1.4499999417567517,
+      "reference_sole_z": -1.3282325461716482e-08
+    }
+  ],
+  "V2_mesh_positions_and_weights_equal_to_NPC_copy": true,
+  "skeletal_hierarchy_V2_matches": true,
+  "nonuniform_proportion_retarget_tested": false
+}

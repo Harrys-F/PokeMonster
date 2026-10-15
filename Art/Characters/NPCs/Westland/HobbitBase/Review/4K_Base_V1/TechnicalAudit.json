@@ -1,0 +1,246 @@
+{
+  "reopen": true,
+  "scene": "Hobbit_NPC_4K_Base_V1",
+  "vertices": 1466192,
+  "edges": 4114722,
+  "polygons": 2652461,
+  "triangles": 2652461,
+  "mesh_objects": 1,
+  "armatures": 0,
+  "actions": [],
+  "component_count": 3949,
+  "components_top20": [
+    {
+      "root": 1392112,
+      "vertices": 9959,
+      "faces": 19638
+    },
+    {
+      "root": 84609,
+      "vertices": 9140,
+      "faces": 17898
+    },
+    {
+      "root": 1418241,
+      "vertices": 7552,
+      "faces": 14868
+    },
+    {
+      "root": 825137,
+      "vertices": 6693,
+      "faces": 13078
+    },
+    {
+      "root": 55370,
+      "vertices": 6463,
+      "faces": 12580
+    },
+    {
+      "root": 239513,
+      "vertices": 6323,
+      "faces": 12346
+    },
+    {
+      "root": 1378065,
+      "vertices": 6126,
+      "faces": 11954
+    },
+    {
+      "root": 12625,
+      "vertices": 5506,
+      "faces": 10773
+    },
+    {
+      "root": 150417,
+      "vertices": 5041,
+      "faces": 9756
+    },
+    {
+      "root": 382378,
+      "vertices": 5032,
+      "faces": 9702
+    },
+    {
+      "root": 1312952,
+      "vertices": 4859,
+      "faces": 9358
+    },
+    {
+      "root": 11976,
+      "vertices": 4796,
+      "faces": 9258
+    },
+    {
+      "root": 1105416,
+      "vertices": 4734,
+      "faces": 9240
+    },
+    {
+      "root": 792408,
+      "vertices": 4736,
+      "faces": 9227
+    },
+    {
+      "root": 175433,
+      "vertices": 4586,
+      "faces": 8902
+    },
+    {
+      "root": 11632,
+      "vertices": 4533,
+      "faces": 8778
+    },
+    {
+      "root": 25048,
+      "vertices": 4223,
+      "faces": 8079
+    },
+    {
+      "root": 704656,
+      "vertices": 3848,
+      "faces": 7437
+    },
+    {
+      "root": 165993,
+      "vertices": 3500,
+      "faces": 6758
+    },
+    {
+      "root": 419305,
+      "vertices": 3429,
+      "faces": 6674
+    }
+  ],
+  "components_with_faces": 3949,
+  "isolated_vertices": 0,
+  "boundary_edges": 272061,
+  "edges_more_than_2_faces": 0,
+  "loose_edges": 0,
+  "nonmanifold_including_boundary": 272061,
+  "inconsistent_winding_manifold_edges": 0,
+  "duplicate_vertices_exact_redundant": 142156,
+  "duplicate_position_groups": 129905,
+  "degenerate_exact_zero_area": 0,
+  "near_degenerate_area_lt_1e_12_m2": 0,
+  "area_min": 3.765486589202283e-09,
+  "nonfinite_positions": 0,
+  "nonfinite_uv": 0,
+  "uv_min": [
+    9.999999974752427e-07,
+    2.9802322387695312e-06
+  ],
+  "uv_max": [
+    0.9999729990959167,
+    0.999983012676239
+  ],
+  "has_custom_normals": true,
+  "nonfinite_corner_normals": 0,
+  "zero_corner_normals": 0,
+  "corner_normal_lengths": [
+    0.9999993443489075,
+    1.0000003576278687
+  ],
+  "materials": [
+    {
+      "name": "Material_0.001",
+      "slots": 1,
+      "backface_culling": false,
+      "surface_render_method": "DITHERED",
+      "alpha": 1.0,
+      "alpha_linked": false,
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "image": null
+        },
+        {
+          "name": "Material-Ausgabe",
+          "type": "OUTPUT_MATERIAL",
+          "image": null
+        },
+        {
+          "name": "Bildtexturen",
+          "type": "TEX_IMAGE",
+          "image": "Image_0.001"
+        },
+        {
+          "name": "Separate Color",
+          "type": "SEPARATE_COLOR",
+          "image": null
+        },
+        {
+          "name": "Bildtexturen.001",
+          "type": "TEX_IMAGE",
+          "image": "Image_1.001"
+        },
+        {
+          "name": "Normalmap",
+          "type": "NORMAL_MAP",
+          "image": null
+        },
+        {
+          "name": "Bildtexturen.002",
+          "type": "TEX_IMAGE",
+          "image": "Image_2.001"
+        }
+      ]
+    }
+  ],
+  "images": [
+    {
+      "name": "Image_0.001",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorspace": "sRGB",
+      "packed": true,
+      "filepath": "//../Textures/4K_Base_V1/GLB_Image_1.jpg",
+      "packed_sha256": "eb5459643c794bb1b222e00b606ac62f8b09e38a62d6d186f2b18d2f7ce25908"
+    },
+    {
+      "name": "Image_1.001",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "packed": true,
+      "filepath": "//../Textures/4K_Base_V1/GLB_Image_2.jpg",
+      "packed_sha256": "4bbd332bd394e908eecec3e3e17ddd966a04f785231b534c50f756359f2973c6"
+    },
+    {
+      "name": "Image_2.001",
+      "resolution": [
+        2048,
+        2048
+      ],
+      "colorspace": "Non-Color",
+      "packed": true,
+      "filepath": "//../Textures/4K_Base_V1/GLB_Image_0.jpg",
+      "packed_sha256": "95abb785be4857e2fc3e7cb065f6715d8dc301fdfbb75f0d63b938d7e048af98"
+    }
+  ],
+  "world_min_m": [
+    -0.714085578918457,
+    -0.20618200302124023,
+    0.0
+  ],
+  "world_max_m": [
+    0.7135233283042908,
+    0.21187810599803925,
+    1.3999998569488525
+  ],
+  "height_m": 1.3999998569488525,
+  "size_variant_uniform_factors": {
+    "1.2": 0.8571429447252013,
+    "1.32": 0.9428572391977215,
+    "1.45": 1.0357143915429514
+  },
+  "geometry_hash": "80243ef20dff1efd193ca3c7b978ae5e428d4a38e0b7151842fc70047c2f0e77",
+  "uv_hash": "846f6472ee34c5c48b246d59fa51dc9a2b888b371059de1c204f8c2b41e91034",
+  "normal_hash": "550b8b020eb1e051be267056472485e203c8befe35a55098688565a7c205bbfe",
+  "seconds": 11.793715000152588,
+  "self_intersections": "Pending regional BVH examination; full exhaustive intersection test not yet performed."
+}

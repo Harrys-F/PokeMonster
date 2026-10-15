@@ -1,0 +1,10 @@
+{
+  "HeadHair": {
+    "source_vertex_ids": 881083,
+    "source_triangles": 1552988
+  },
+  "Torso": {
+    "source_vertex_ids": 302541,
+    "source_triangles": 562301
+  }
+}

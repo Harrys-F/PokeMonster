@@ -1,0 +1,32 @@
+{
+  "HeadHair": {
+    "layers": [
+      {
+        "name": "BakeUV",
+        "active_render": true
+      }
+    ],
+    "uv_area_sum": 0.0006855615065433085,
+    "zero_uv_faces": 0,
+    "uv_min": 5.5422333389287814e-12,
+    "uv_area_p95": 4.7022162164012116e-08,
+    "zero_face_normals": 0,
+    "use_smooth": 38824
+  },
+  "Torso": {
+    "layers": [
+      {
+        "name": "BakeUV",
+        "active_render": true
+      }
+    ],
+    "uv_area_sum": 0.011255795136094093,
+    "zero_uv_faces": 0,
+    "uv_min": 3.6838443406850274e-10,
+    "uv_area_p95": 9.692023468232946e-07,
+    "zero_face_normals": 0,
+    "use_smooth": 44984
+  },
+  "bake_use_cage": false,
+  "bake_selected_to_active": true
+}

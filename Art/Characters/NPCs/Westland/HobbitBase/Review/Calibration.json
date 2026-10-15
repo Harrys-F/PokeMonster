@@ -1,0 +1,31 @@
+{
+  "height_m": 1.3200000524520874,
+  "sole_z_m": 0.0,
+  "top_z_m": 1.3200000524520874,
+  "calibration_factor": 0.9844347990514335,
+  "model_objects": [
+    "HNB_Body",
+    "HNB_Shirt",
+    "HNB_Waistcoat",
+    "HNB_Breeches",
+    "HNB_Belt",
+    "HNB_Buckle",
+    "HNB_Eye_L",
+    "HNB_Iris_L",
+    "HNB_Pupil_L",
+    "HNB_UpperLid_L",
+    "HNB_Brow_L",
+    "HNB_Eye_R",
+    "HNB_Iris_R",
+    "HNB_Pupil_R",
+    "HNB_UpperLid_R",
+    "HNB_Brow_R",
+    "HNB_GentleSmile",
+    "HNB_HairCore",
+    "HNB_CurlyHairLocks"
+  ],
+  "blender_version": "5.2.2 LTS",
+  "no_armatures": true,
+  "actions_in_scene": 0,
+  "hair_refinement_scale": 0.9984350818434603
+}

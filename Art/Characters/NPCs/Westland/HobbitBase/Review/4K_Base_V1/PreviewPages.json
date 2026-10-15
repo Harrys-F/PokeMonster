@@ -1,0 +1,37 @@
+[
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/4K_Base_V1/Previews/Review_Views.png",
+    "layout_left_to_right_top_to_bottom": [
+      "01_Front.png",
+      "02_Back.png",
+      "03_Left.png",
+      "04_Right.png",
+      "05_ThreeQuarter.png",
+      "06_2_5D_Close.png"
+    ]
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/4K_Base_V1/Previews/Review_Face_Textured_Clay_Wire.png",
+    "layout_left_to_right_top_to_bottom": [
+      "07_Face_Hair.png",
+      "11_Face_Clay.png",
+      "12_Face_Wire.png"
+    ]
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/4K_Base_V1/Previews/Review_Hands.png",
+    "layout_left_to_right_top_to_bottom": [
+      "08_Hands.png",
+      "19_Hand_R.png",
+      "14_Hand_Clay.png",
+      "20_Hand_Wire.png"
+    ]
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/4K_Base_V1/Previews/Review_Feet.png",
+    "layout_left_to_right_top_to_bottom": [
+      "09_Feet.png",
+      "15_Feet_Clay.png"
+    ]
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "HeadHair": {
+    "uv_occupied_texels": 502489,
+    "uv_coverage_fraction": 0.11980271339416504,
+    "uv_interior_overlapping_texels": 842,
+    "base_color_empty_alpha_inside_uv": 23,
+    "base_color_black_inside_uv": 22,
+    "height_bounds_m": [
+      1.1006602048873901,
+      1.399672269821167
+    ],
+    "self_intersections": {
+      "bvh_pairs": 1360,
+      "nonadjacent_noncoplanar_pairs_tested": 327,
+      "confirmed_triangle_pair_crossings": 326,
+      "unresolved_coplanar_pairs": 0,
+      "limits": "Rest pose, zero expansion; endpoint and adjacent triangle contacts excluded. Triangle pairs, not distinct visible defects."
+    }
+  },
+  "Torso": {
+    "uv_occupied_texels": 1081150,
+    "uv_coverage_fraction": 0.2577662467956543,
+    "uv_interior_overlapping_texels": 13777,
+    "base_color_empty_alpha_inside_uv": 2,
+    "base_color_black_inside_uv": 1,
+    "height_bounds_m": [
+      0.6085034608840942,
+      1.1089558601379395
+    ],
+    "self_intersections": {
+      "bvh_pairs": 42,
+      "nonadjacent_noncoplanar_pairs_tested": 9,
+      "confirmed_triangle_pair_crossings": 9,
+      "unresolved_coplanar_pairs": 0,
+      "limits": "Rest pose, zero expansion; endpoint and adjacent triangle contacts excluded. Triangle pairs, not distinct visible defects."
+    }
+  }
+}

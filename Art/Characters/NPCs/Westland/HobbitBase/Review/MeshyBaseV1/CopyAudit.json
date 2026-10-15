@@ -1,0 +1,47 @@
+{
+  "source_mesh_rig": "Art/Characters/YoungTrainer/Source/Player_Meshy_Sprint_V1.blend",
+  "source_idle_walk": "Art/Characters/YoungTrainer/Source/Player_Meshy_AnimationQuality_V2.blend",
+  "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Source/Hobbit_NPC_MeshyBase_V1.blend",
+  "mesh": "HNM1_Body",
+  "rig": "HNM1_Rig",
+  "copied_actions": [
+    "HNM1_Idle_V2",
+    "HNM1_Walk_V2",
+    "HNM1_Run_V1"
+  ],
+  "independent_object_data": true,
+  "independent_materials": true,
+  "independent_images": true,
+  "packed_images": [
+    {
+      "name": "HNM1_T_Player_Meshy_BaseColor.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "HNM1_T_Player_Meshy_ORM.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "HNM1_T_Player_Meshy_Normal.001",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    }
+  ],
+  "external_libraries": [],
+  "vertices": 52699,
+  "faces": 47744,
+  "bones": 25,
+  "reference_height_m": 1.399999976158142,
+  "no_geometry_or_weight_edits": true
+}

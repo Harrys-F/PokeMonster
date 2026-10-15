@@ -1,0 +1,13 @@
+{
+  "boundary_counts_before_reconstruction": [
+    40,
+    40,
+    40,
+    40,
+    64
+  ],
+  "body_vertices": 11575,
+  "body_faces": 10836,
+  "finger_endpoints_per_hand": 5,
+  "toe_endpoints_per_foot": 5
+}

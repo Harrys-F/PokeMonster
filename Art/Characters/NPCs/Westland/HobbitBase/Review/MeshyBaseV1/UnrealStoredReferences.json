@@ -1,0 +1,98 @@
+[
+  {
+    "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2.uasset",
+    "bytes": 11455696,
+    "reference_strings": [
+      "/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2",
+      "/Game/Characters/YoungTrainer/MeshyV1/Materials/M_Player_Meshy",
+      "/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2",
+      "/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2_Skeleton",
+      "SK_Player_Meshy_V2_Skeleton",
+      "[{ \"RelativeFilename\" : \"../../../../../Art/Characters/YoungTrainer/Exports/MeshyV2/SK_Player_Meshy_V2.fbx\", \"Timestamp\" : \"1791829440\", \"FileMD5\" : \"36d6b6942480c5ed1ccece778666ed92\", \"DisplayLabelName\" : \"\" }]",
+      "M_Player_Meshy,'/Game/Characters/YoungTrainer/MeshyV1/Materials/M_Player_Meshy.M_Player_Meshy'>",
+      "/Script/Engine.Skeleton'/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2_Skeleton.SK_Player_Meshy_V2_Skeleton'",
+      "[{ \"RelativeFilename\" : \"../../../../../Art/Characters/YoungTrainer/Exports/MeshyV2/SK_Player_Meshy_V2.fbx\", \"Timestamp\" : \"1791829440\", \"FileMD5\" : \"36d6b6942480c5ed1ccece778666ed92\", \"DisplayLabelName\" : \"\" }]"
+    ],
+    "import_sources_verified": [
+      {
+        "fbx": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/YoungTrainer/Exports/MeshyV2/SK_Player_Meshy_V2.fbx",
+        "exists": true,
+        "matches_import_md5": true
+      }
+    ]
+  },
+  {
+    "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2_Skeleton.uasset",
+    "bytes": 12421,
+    "reference_strings": [
+      "/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2_Skeleton",
+      "/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2",
+      "/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2_Skeleton",
+      "SK_Player_Meshy_V2_Skeleton",
+      "SK_Player_Meshy_V2_Skeleton",
+      "SK_Player_Meshy_V2_Skeleton",
+      "/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2.SK_Player_Meshy_V2"
+    ],
+    "import_sources_verified": []
+  },
+  {
+    "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Idle_V2.uasset",
+    "bytes": 123950,
+    "reference_strings": [
+      "/Game/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Idle_V2",
+      "/Game/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Idle_V2",
+      "/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2_Skeleton",
+      "SK_Player_Meshy_V2_Skeleton",
+      "[{ \"RelativeFilename\" : \"../../../../../Art/Characters/YoungTrainer/Exports/MeshyV2/A_Player_Meshy_Idle_V2.fbx\", \"Timestamp\" : \"1791829440\", \"FileMD5\" : \"7e8746f34f74e57e0849bf84bff69c38\", \"DisplayLabelName\" : \"\" }]",
+      "/Script/Engine.Skeleton'/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2_Skeleton.SK_Player_Meshy_V2_Skeleton'",
+      "[{ \"RelativeFilename\" : \"../../../../../Art/Characters/YoungTrainer/Exports/MeshyV2/A_Player_Meshy_Idle_V2.fbx\", \"Timestamp\" : \"1791829440\", \"FileMD5\" : \"7e8746f34f74e57e0849bf84bff69c38\", \"DisplayLabelName\" : \"\" }]"
+    ],
+    "import_sources_verified": [
+      {
+        "fbx": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/YoungTrainer/Exports/MeshyV2/A_Player_Meshy_Idle_V2.fbx",
+        "exists": true,
+        "matches_import_md5": true
+      }
+    ]
+  },
+  {
+    "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Walk_V2.uasset",
+    "bytes": 99173,
+    "reference_strings": [
+      "/Game/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Walk_V2",
+      "/Game/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Walk_V2",
+      "/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2_Skeleton",
+      "SK_Player_Meshy_V2_Skeleton",
+      "[{ \"RelativeFilename\" : \"../../../../../Art/Characters/YoungTrainer/Exports/MeshyV2/A_Player_Meshy_Walk_V2.fbx\", \"Timestamp\" : \"1791829440\", \"FileMD5\" : \"2d6e70f33147e784ba847d5daf4530c0\", \"DisplayLabelName\" : \"\" }]",
+      "/Script/Engine.Skeleton'/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2_Skeleton.SK_Player_Meshy_V2_Skeleton'",
+      "[{ \"RelativeFilename\" : \"../../../../../Art/Characters/YoungTrainer/Exports/MeshyV2/A_Player_Meshy_Walk_V2.fbx\", \"Timestamp\" : \"1791829440\", \"FileMD5\" : \"2d6e70f33147e784ba847d5daf4530c0\", \"DisplayLabelName\" : \"\" }]"
+    ],
+    "import_sources_verified": [
+      {
+        "fbx": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/YoungTrainer/Exports/MeshyV2/A_Player_Meshy_Walk_V2.fbx",
+        "exists": true,
+        "matches_import_md5": true
+      }
+    ]
+  },
+  {
+    "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Content/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Run_V1.uasset",
+    "bytes": 89778,
+    "reference_strings": [
+      "/Game/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Run_V1",
+      "/Game/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Run_V1",
+      "/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2_Skeleton",
+      "SK_Player_Meshy_V2_Skeleton",
+      "[{ \"RelativeFilename\" : \"../../../../../Art/Characters/YoungTrainer/Exports/SprintV1/A_Player_Meshy_Run_V1.fbx\", \"Timestamp\" : \"1791952207\", \"FileMD5\" : \"20404a28237984381c3f39f2bc51f069\", \"DisplayLabelName\" : \"\" }]",
+      "/Script/Engine.Skeleton'/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2_Skeleton.SK_Player_Meshy_V2_Skeleton'",
+      "[{ \"RelativeFilename\" : \"../../../../../Art/Characters/YoungTrainer/Exports/SprintV1/A_Player_Meshy_Run_V1.fbx\", \"Timestamp\" : \"1791952207\", \"FileMD5\" : \"20404a28237984381c3f39f2bc51f069\", \"DisplayLabelName\" : \"\" }]"
+    ],
+    "import_sources_verified": [
+      {
+        "fbx": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/YoungTrainer/Exports/SprintV1/A_Player_Meshy_Run_V1.fbx",
+        "exists": true,
+        "matches_import_md5": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,83 @@
+{
+  "sequences": [
+    {
+      "clip": "Idle_V2",
+      "frames": [
+        1,
+        27,
+        52,
+        78,
+        104,
+        130,
+        155,
+        181
+      ],
+      "frame_paths": [
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Idle_V2_frame_001.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Idle_V2_frame_027.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Idle_V2_frame_052.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Idle_V2_frame_078.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Idle_V2_frame_104.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Idle_V2_frame_130.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Idle_V2_frame_155.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Idle_V2_frame_181.png"
+      ],
+      "sheet": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/Previews/Sequence_Idle_V2.png",
+      "sampling": "8 ordered samples across complete saved cycle, not real-time video"
+    },
+    {
+      "clip": "Walk_V2",
+      "frames": [
+        1,
+        6,
+        10,
+        15,
+        20,
+        25,
+        29,
+        34
+      ],
+      "frame_paths": [
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Walk_V2_frame_001.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Walk_V2_frame_006.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Walk_V2_frame_010.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Walk_V2_frame_015.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Walk_V2_frame_020.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Walk_V2_frame_025.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Walk_V2_frame_029.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Walk_V2_frame_034.png"
+      ],
+      "sheet": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/Previews/Sequence_Walk_V2.png",
+      "sampling": "8 ordered samples across complete saved cycle, not real-time video"
+    },
+    {
+      "clip": "Run_V1",
+      "frames": [
+        1,
+        5,
+        9,
+        13,
+        16,
+        20,
+        24,
+        28
+      ],
+      "frame_paths": [
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Run_V1_frame_001.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Run_V1_frame_005.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Run_V1_frame_009.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Run_V1_frame_013.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Run_V1_frame_016.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Run_V1_frame_020.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Run_V1_frame_024.png",
+        "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/AnimationFrames/Run_V1_frame_028.png"
+      ],
+      "sheet": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/Previews/Sequence_Run_V1.png",
+      "sampling": "8 ordered samples across complete saved cycle, not real-time video"
+    }
+  ],
+  "rig_image": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/Previews/Rig_Existing25Bones.png",
+  "scale_image": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/Previews/Scale_120_132_145.png",
+  "source_saved": false,
+  "debug_curves_and_size_instances_not_in_master": true
+}

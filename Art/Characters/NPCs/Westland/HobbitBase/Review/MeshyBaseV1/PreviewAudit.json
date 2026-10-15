@@ -1,0 +1,82 @@
+[
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV1/Previews/Hobbit_MeshyBase_V1_01_Front.png",
+    "size": [
+      1200,
+      1200
+    ],
+    "png_crc_valid": true
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV1/Previews/Hobbit_MeshyBase_V1_02_Back.png",
+    "size": [
+      1200,
+      1200
+    ],
+    "png_crc_valid": true
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV1/Previews/Hobbit_MeshyBase_V1_03_Left.png",
+    "size": [
+      1200,
+      1200
+    ],
+    "png_crc_valid": true
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV1/Previews/Hobbit_MeshyBase_V1_04_Right.png",
+    "size": [
+      1200,
+      1200
+    ],
+    "png_crc_valid": true
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV1/Previews/Hobbit_MeshyBase_V1_05_ThreeQuarter.png",
+    "size": [
+      1200,
+      1200
+    ],
+    "png_crc_valid": true
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV1/Previews/Hobbit_MeshyBase_V1_06_Camera25D.png",
+    "size": [
+      1200,
+      1200
+    ],
+    "png_crc_valid": true
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV1/Previews/Hobbit_MeshyBase_V1_Pose_Idle.png",
+    "size": [
+      1200,
+      1200
+    ],
+    "png_crc_valid": true
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV1/Previews/Hobbit_MeshyBase_V1_Pose_Run.png",
+    "size": [
+      1200,
+      1200
+    ],
+    "png_crc_valid": true
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV1/Previews/Hobbit_MeshyBase_V1_Pose_Walk_Left.png",
+    "size": [
+      1200,
+      1200
+    ],
+    "png_crc_valid": true
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV1/Previews/Hobbit_MeshyBase_V1_Pose_Walk_Right.png",
+    "size": [
+      1200,
+      1200
+    ],
+    "png_crc_valid": true
+  }
+]

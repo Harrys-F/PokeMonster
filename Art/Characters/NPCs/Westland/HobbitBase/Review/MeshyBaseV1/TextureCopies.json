@@ -1,0 +1,20 @@
+[
+  {
+    "image": "HNM1_T_Player_Meshy_BaseColor.001",
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/MeshyBaseV1/T_Hobbit_MeshyBase_BaseColor.png",
+    "sha256": "eb5459643c794bb1b222e00b606ac62f8b09e38a62d6d186f2b18d2f7ce25908",
+    "packed": true
+  },
+  {
+    "image": "HNM1_T_Player_Meshy_ORM.001",
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/MeshyBaseV1/T_Hobbit_MeshyBase_ORM.png",
+    "sha256": "4bbd332bd394e908eecec3e3e17ddd966a04f785231b534c50f756359f2973c6",
+    "packed": true
+  },
+  {
+    "image": "HNM1_T_Player_Meshy_Normal.001",
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/MeshyBaseV1/T_Hobbit_MeshyBase_Normal.png",
+    "sha256": "95abb785be4857e2fc3e7cb065f6715d8dc301fdfbb75f0d63b938d7e048af98",
+    "packed": true
+  }
+]

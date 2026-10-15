@@ -1,0 +1,32 @@
+[
+  {
+    "image": "HNM2_T_Player_Meshy_BaseColor.003",
+    "old_packed_paths": [
+      ""
+    ],
+    "new_packed_paths": [
+      "//../../Textures/MeshyBaseV2/T_Hobbit_MeshyBase_V2_BaseColor.png"
+    ],
+    "texture_bytes_unchanged": true
+  },
+  {
+    "image": "HNM2_T_Player_Meshy_ORM.003",
+    "old_packed_paths": [
+      ""
+    ],
+    "new_packed_paths": [
+      "//../../Textures/MeshyBaseV2/T_Hobbit_MeshyBase_V2_ORM.png"
+    ],
+    "texture_bytes_unchanged": true
+  },
+  {
+    "image": "HNM2_T_Player_Meshy_Normal.003",
+    "old_packed_paths": [
+      ""
+    ],
+    "new_packed_paths": [
+      "//../../Textures/MeshyBaseV2/T_Hobbit_MeshyBase_V2_Normal.png"
+    ],
+    "texture_bytes_unchanged": true
+  }
+]

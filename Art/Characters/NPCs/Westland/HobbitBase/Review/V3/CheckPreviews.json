@@ -1,0 +1,12 @@
+{
+  "images": [
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/V3/Previews/Hobbit_V3_05_ThreeQuarter.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/V3/Previews/Hobbit_V3_06_Face_Front.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/V3/Previews/Hobbit_V3_08_Face_Profile.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/V3/Previews/Hobbit_V3_09_Hands.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/V3/Previews/Hobbit_V3_10_Feet.png"
+  ],
+  "rendered_from_saved_source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Source/Hobbit_NPC_Base_V3_Body.blend",
+  "source_saved_by_renderer": false,
+  "comparison_V2_only_disposable_process": true
+}

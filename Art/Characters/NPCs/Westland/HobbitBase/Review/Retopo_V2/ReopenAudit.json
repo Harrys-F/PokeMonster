@@ -1,0 +1,21 @@
+{
+  "file_reopened": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Source/Hobbit_NPC_Retopo_V2.blend",
+  "correct_scene": true,
+  "source_geometry_uv_normals_identical": true,
+  "original_material_graph_inputs_images_identical": true,
+  "source_height_m": 1.3999998569488525,
+  "packed_original_textures": 3,
+  "packed_reference_image_planes": 3,
+  "collections_valid": true,
+  "snap_and_modifiers_valid": true,
+  "source_selection_locked": true,
+  "reference_planes_locked_and_aligned": true,
+  "manual_guide_and_qa_text_present": true,
+  "no_failed_proxy_loaded": true,
+  "no_armature_actions": true,
+  "target_vertices": 0,
+  "target_faces": 0,
+  "animation_ready": false,
+  "baked_material_target": false,
+  "note": "Read-only reopen checks; no deformation or baking claims. No file save during QA."
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/Retopo_V2/Previews/01_Reference_Front.png",
+    "subject": "Unchanged high-poly reference ONLY; no new low-poly head",
+    "camera": "Front",
+    "override": "original material",
+    "engine": "CYCLES",
+    "samples": 12,
+    "size": [
+      1000,
+      1000
+    ]
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/Retopo_V2/Previews/02_Reference_Right.png",
+    "subject": "Unchanged high-poly reference ONLY; no new low-poly head",
+    "camera": "Right",
+    "override": "original material",
+    "engine": "CYCLES",
+    "samples": 12,
+    "size": [
+      1000,
+      1000
+    ]
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/Retopo_V2/Previews/03_Reference_Left.png",
+    "subject": "Unchanged high-poly reference ONLY; no new low-poly head",
+    "camera": "Left",
+    "override": "original material",
+    "engine": "CYCLES",
+    "samples": 12,
+    "size": [
+      1000,
+      1000
+    ]
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/Retopo_V2/Previews/04_Reference_ThreeQuarter.png",
+    "subject": "Unchanged high-poly reference ONLY; no new low-poly head",
+    "camera": "ThreeQuarter",
+    "override": "original material",
+    "engine": "CYCLES",
+    "samples": 12,
+    "size": [
+      1000,
+      1000
+    ]
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/Retopo_V2/Previews/05_Reference_Clay_Front.png",
+    "subject": "Unchanged high-poly reference ONLY; no new low-poly head",
+    "camera": "Front",
+    "override": "clay",
+    "engine": "CYCLES",
+    "samples": 12,
+    "size": [
+      1000,
+      1000
+    ]
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/Retopo_V2/Previews/06_Reference_Wire_Front.png",
+    "subject": "Unchanged high-poly reference ONLY; no new low-poly head",
+    "camera": "Front",
+    "override": "wire",
+    "engine": "CYCLES",
+    "samples": 12,
+    "size": [
+      1000,
+      1000
+    ]
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/Retopo_V2/Previews/07_Reference_2_5D.png",
+    "subject": "Unchanged high-poly reference ONLY; no new low-poly head",
+    "camera": "2_5D_Close",
+    "override": "original material",
+    "engine": "CYCLES",
+    "samples": 12,
+    "size": [
+      1000,
+      1000
+    ]
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/Retopo_V2/Previews/08_Reference_Clay_ThreeQuarter.png",
+    "subject": "Unchanged high-poly reference ONLY; no new low-poly head",
+    "camera": "ThreeQuarter",
+    "override": "clay",
+    "engine": "CYCLES",
+    "samples": 12,
+    "size": [
+      1000,
+      1000
+    ]
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/Retopo_V2/Previews/09_Reference_Wire_Profile.png",
+    "subject": "Unchanged high-poly reference ONLY; no new low-poly head",
+    "camera": "Right",
+    "override": "wire",
+    "engine": "CYCLES",
+    "samples": 12,
+    "size": [
+      1000,
+      1000
+    ]
+  }
+]

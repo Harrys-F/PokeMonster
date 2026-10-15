@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/Previews/BeforeAfter_Front.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/Previews/BeforeAfter_Back.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/Previews/Diagnosis_Cape_Textured_Clay_Wire.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/MeshyBaseV2/Previews/Diagnosis_Arm_Textured_Clay_Wire.png"
+  ],
+  "pixel_comparisons": {
+    "Front": {
+      "mean_abs_rgb_difference": 1.5340571661194987e-06,
+      "max_abs_rgb_difference": 0.03921571373939514,
+      "pixels_not_geometry_metric": true,
+      "left": "V1",
+      "right": "V2"
+    },
+    "Back": {
+      "mean_abs_rgb_difference": 1.0446713485603654e-06,
+      "max_abs_rgb_difference": 0.03529411554336548,
+      "pixels_not_geometry_metric": true,
+      "left": "V1",
+      "right": "V2"
+    }
+  },
+  "interpretation": "Noise, normal encoding and tangent recalculation can create tiny pixel differences. Artist judgement plus exact surface/deformation verification remain required."
+}

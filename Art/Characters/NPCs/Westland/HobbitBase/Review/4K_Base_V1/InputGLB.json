@@ -1,0 +1,199 @@
+{
+  "source": "/Users/harry/Library/Mobile Documents/com~apple~CloudDocs/Downloads/PM/Meshy_Hobbit.glb",
+  "copy": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Incoming/4K_Base_V1/Meshy_Hobbit.glb",
+  "sha256": "43e023f5e127af09e66030cb5cb2ba85bcb3dfad245651bd4d17ebb5ead23772",
+  "bytes": 86784364,
+  "gltf": {
+    "asset": {
+      "generator": "Khronos glTF Blender I/O v4.4.55",
+      "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+      {
+        "name": "Scene",
+        "nodes": [
+          0
+        ]
+      }
+    ],
+    "nodes": [
+      {
+        "mesh": 0,
+        "name": "Mesh_0.001"
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "Material_0.001",
+        "normalTexture": {
+          "index": 0
+        },
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": 1
+          },
+          "metallicRoughnessTexture": {
+            "index": 2
+          }
+        }
+      }
+    ],
+    "meshes": [
+      {
+        "name": "Mesh_0.001",
+        "primitives": [
+          {
+            "attributes": {
+              "POSITION": 0,
+              "NORMAL": 1,
+              "TEXCOORD_0": 2
+            },
+            "indices": 3,
+            "material": 0
+          }
+        ]
+      }
+    ],
+    "textures": [
+      {
+        "sampler": 0,
+        "source": 0
+      },
+      {
+        "sampler": 0,
+        "source": 1
+      },
+      {
+        "sampler": 0,
+        "source": 2
+      }
+    ],
+    "images": [
+      {
+        "bufferView": 4,
+        "mimeType": "image/jpeg",
+        "name": "Image_2"
+      },
+      {
+        "bufferView": 5,
+        "mimeType": "image/jpeg",
+        "name": "Image_0"
+      },
+      {
+        "bufferView": 6,
+        "mimeType": "image/jpeg",
+        "name": "Image_1"
+      }
+    ],
+    "accessors": [
+      {
+        "bufferView": 0,
+        "componentType": 5126,
+        "count": 1466192,
+        "max": [
+          0.7135233283042908,
+          1.3999998569488525,
+          0.20618200302124023
+        ],
+        "min": [
+          -0.714085578918457,
+          0,
+          -0.21187810599803925
+        ],
+        "type": "VEC3"
+      },
+      {
+        "bufferView": 1,
+        "componentType": 5126,
+        "count": 1466192,
+        "type": "VEC3"
+      },
+      {
+        "bufferView": 2,
+        "componentType": 5126,
+        "count": 1466192,
+        "type": "VEC2"
+      },
+      {
+        "bufferView": 3,
+        "componentType": 5125,
+        "count": 7957383,
+        "type": "SCALAR"
+      }
+    ],
+    "bufferViews": [
+      {
+        "buffer": 0,
+        "byteLength": 17594304,
+        "byteOffset": 0,
+        "target": 34962
+      },
+      {
+        "buffer": 0,
+        "byteLength": 17594304,
+        "byteOffset": 17594304,
+        "target": 34962
+      },
+      {
+        "buffer": 0,
+        "byteLength": 11729536,
+        "byteOffset": 35188608,
+        "target": 34962
+      },
+      {
+        "buffer": 0,
+        "byteLength": 31829532,
+        "byteOffset": 46918144,
+        "target": 34963
+      },
+      {
+        "buffer": 0,
+        "byteLength": 2481742,
+        "byteOffset": 78747676
+      },
+      {
+        "buffer": 0,
+        "byteLength": 3516510,
+        "byteOffset": 81229420
+      },
+      {
+        "buffer": 0,
+        "byteLength": 2036698,
+        "byteOffset": 84745932
+      }
+    ],
+    "samplers": [
+      {
+        "magFilter": 9729,
+        "minFilter": 9987
+      }
+    ],
+    "buffers": [
+      {
+        "byteLength": 86782632
+      }
+    ]
+  },
+  "extracted_images": [
+    {
+      "image": 0,
+      "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/4K_Base_V1/GLB_Image_0.jpg",
+      "sha256": "95abb785be4857e2fc3e7cb065f6715d8dc301fdfbb75f0d63b938d7e048af98",
+      "bytes": 2481742
+    },
+    {
+      "image": 1,
+      "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/4K_Base_V1/GLB_Image_1.jpg",
+      "sha256": "eb5459643c794bb1b222e00b606ac62f8b09e38a62d6d186f2b18d2f7ce25908",
+      "bytes": 3516510
+    },
+    {
+      "image": 2,
+      "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/4K_Base_V1/GLB_Image_2.jpg",
+      "sha256": "4bbd332bd394e908eecec3e3e17ddd966a04f785231b534c50f756359f2973c6",
+      "bytes": 2036698
+    }
+  ]
+}

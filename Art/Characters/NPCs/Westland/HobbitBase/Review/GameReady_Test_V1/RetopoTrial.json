@@ -1,0 +1,66 @@
+{
+  "HeadHair": {
+    "input": {
+      "vertices": 775321,
+      "polygons": 1552988
+    },
+    "precondition_ratio": 0.025,
+    "precondition": {
+      "vertices": 17671,
+      "polygons": 38824,
+      "triangles": 38824,
+      "quads": 0,
+      "boundary_edges": 538,
+      "edges_gt2_faces": 57,
+      "loose_vertices": 7
+    },
+    "quadriflow_target_faces": 6000,
+    "quadriflow_status": [
+      "CANCELLED"
+    ],
+    "final": {
+      "vertices": 17671,
+      "polygons": 38824,
+      "triangles": 38824,
+      "quads": 0,
+      "boundary_edges": 538,
+      "edges_gt2_faces": 57,
+      "loose_vertices": 7
+    },
+    "method": "Triangle diagnostic control; automatic QuadriFlow did not produce usable replacement",
+    "uv": "Smart Project angle 0.9 rad, island_margin 0.008; new BakeUV",
+    "seconds": 14.51500415802002
+  },
+  "Torso": {
+    "input": {
+      "vertices": 282950,
+      "polygons": 562301
+    },
+    "precondition_ratio": 0.08,
+    "precondition": {
+      "vertices": 23997,
+      "polygons": 44984,
+      "triangles": 44984,
+      "quads": 0,
+      "boundary_edges": 3338,
+      "edges_gt2_faces": 2,
+      "loose_vertices": 1
+    },
+    "quadriflow_target_faces": 5000,
+    "quadriflow_status": [
+      "CANCELLED"
+    ],
+    "final": {
+      "vertices": 23997,
+      "polygons": 44984,
+      "triangles": 44984,
+      "quads": 0,
+      "boundary_edges": 3338,
+      "edges_gt2_faces": 2,
+      "loose_vertices": 1
+    },
+    "method": "Triangle diagnostic control; automatic QuadriFlow did not produce usable replacement",
+    "uv": "Smart Project angle 0.9 rad, island_margin 0.008; new BakeUV",
+    "seconds": 4.2552490234375
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "HeadHair": {
+    "source_faces": 1552988,
+    "source_unique_position_vertices": 775321,
+    "selection": "Triangle centroid: z >= 1.105 m",
+    "world_min": [
+      -0.1845303475856781,
+      -0.20618200302124023,
+      1.1006602048873901
+    ],
+    "world_max": [
+      0.18696026504039764,
+      0.12516865134239197,
+      1.3999998569488525
+    ]
+  },
+  "Torso": {
+    "source_faces": 562301,
+    "source_unique_position_vertices": 282950,
+    "selection": "Triangle centroid: 0.62 <= z < 1.105 m and |x| <= 0.36 m; includes connected shoulder/collar/cape surface, not a garment separation",
+    "world_min": [
+      -0.3634869456291199,
+      -0.18405592441558838,
+      0.6085034608840942
+    ],
+    "world_max": [
+      0.362056165933609,
+      0.1923433542251587,
+      1.1089558601379395
+    ]
+  },
+  "Context": {
+    "triangles": 537172,
+    "vertices": 286550,
+    "not_optimized": true
+  },
+  "complete_source": {
+    "vertices": 1466192,
+    "triangles": 2652461,
+    "geometry_hash": "80243ef20dff1efd193ca3c7b978ae5e428d4a38e0b7151842fc70047c2f0e77",
+    "uv_hash": "846f6472ee34c5c48b246d59fa51dc9a2b888b371059de1c204f8c2b41e91034",
+    "normal_hash": "550b8b020eb1e051be267056472485e203c8befe35a55098688565a7c205bbfe"
+  }
+}

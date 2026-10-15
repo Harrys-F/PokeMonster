@@ -1,0 +1,26 @@
+{
+  "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Source/Hobbit_NPC_GameReady_Test_V1.blend",
+  "bake_use_cage": true,
+  "bake_margin_pixels": 2,
+  "original_reference_material": "Material_0.003",
+  "mesh_count": 4,
+  "armature_count": 0,
+  "baked_material_count": 2,
+  "original_texture_hashes": [
+    "eb5459643c794bb1b222e00b606ac62f8b09e38a62d6d186f2b18d2f7ce25908",
+    "4bbd332bd394e908eecec3e3e17ddd966a04f785231b534c50f756359f2973c6",
+    "95abb785be4857e2fc3e7cb065f6715d8dc301fdfbb75f0d63b938d7e048af98"
+  ],
+  "baked_texture_paths": [
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_HeadHair_AO.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_HeadHair_BaseColor.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_HeadHair_Metallic.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_HeadHair_Normal.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_HeadHair_Roughness.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_Torso_AO.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_Torso_BaseColor.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_Torso_Metallic.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_Torso_Normal.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_Torso_Roughness.png"
+  ]
+}

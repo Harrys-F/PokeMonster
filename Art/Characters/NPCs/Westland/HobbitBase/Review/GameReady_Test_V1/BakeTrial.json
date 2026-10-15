@@ -1,0 +1,156 @@
+{
+  "HeadHair": {
+    "maps": {
+      "BaseColor": {
+        "image": "GRT_HeadHair_BaseColor",
+        "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_HeadHair_BaseColor.png",
+        "size": [
+          2048,
+          2048
+        ],
+        "colorspace": "sRGB",
+        "status": [
+          "FINISHED"
+        ],
+        "seconds": 17.8012478351593
+      },
+      "Normal": {
+        "image": "GRT_HeadHair_Normal",
+        "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_HeadHair_Normal.png",
+        "size": [
+          2048,
+          2048
+        ],
+        "colorspace": "Non-Color",
+        "status": [
+          "FINISHED"
+        ],
+        "seconds": 13.215536832809448
+      },
+      "Roughness": {
+        "image": "GRT_HeadHair_Roughness",
+        "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_HeadHair_Roughness.png",
+        "size": [
+          2048,
+          2048
+        ],
+        "colorspace": "Non-Color",
+        "status": [
+          "FINISHED"
+        ],
+        "seconds": 14.046680927276611
+      },
+      "Metallic": {
+        "image": "GRT_HeadHair_Metallic",
+        "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_HeadHair_Metallic.png",
+        "size": [
+          2048,
+          2048
+        ],
+        "colorspace": "Non-Color",
+        "status": [
+          "FINISHED"
+        ],
+        "seconds": 14.869306802749634
+      },
+      "AO": {
+        "image": "GRT_HeadHair_AO",
+        "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_HeadHair_AO.png",
+        "size": [
+          2048,
+          2048
+        ],
+        "colorspace": "Non-Color",
+        "status": [
+          "FINISHED"
+        ],
+        "seconds": 16.18104338645935
+      }
+    },
+    "selected_to_active": true,
+    "margin_pixels": 2,
+    "cage_extrusion_m": 0.0020000000949949026,
+    "max_ray_distance_m": 0.014999999664723873,
+    "samples": 16,
+    "normal_convention": "Tangent-space OpenGL +Y; Unreal import later needs explicit normal convention verification",
+    "base_color_pass": "DIFFUSE COLOR only: no direct/indirect studio light",
+    "AO": "Separate diagnostic texture, not multiplied into Base Color and not bound to Principled"
+  },
+  "Torso": {
+    "maps": {
+      "BaseColor": {
+        "image": "GRT_Torso_BaseColor",
+        "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_Torso_BaseColor.png",
+        "size": [
+          2048,
+          2048
+        ],
+        "colorspace": "sRGB",
+        "status": [
+          "FINISHED"
+        ],
+        "seconds": 20.266642332077026
+      },
+      "Normal": {
+        "image": "GRT_Torso_Normal",
+        "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_Torso_Normal.png",
+        "size": [
+          2048,
+          2048
+        ],
+        "colorspace": "Non-Color",
+        "status": [
+          "FINISHED"
+        ],
+        "seconds": 21.0978000164032
+      },
+      "Roughness": {
+        "image": "GRT_Torso_Roughness",
+        "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_Torso_Roughness.png",
+        "size": [
+          2048,
+          2048
+        ],
+        "colorspace": "Non-Color",
+        "status": [
+          "FINISHED"
+        ],
+        "seconds": 16.136717796325684
+      },
+      "Metallic": {
+        "image": "GRT_Torso_Metallic",
+        "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_Torso_Metallic.png",
+        "size": [
+          2048,
+          2048
+        ],
+        "colorspace": "Non-Color",
+        "status": [
+          "FINISHED"
+        ],
+        "seconds": 14.074789762496948
+      },
+      "AO": {
+        "image": "GRT_Torso_AO",
+        "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Textures/GameReady_Test_V1/GRT_Torso_AO.png",
+        "size": [
+          2048,
+          2048
+        ],
+        "colorspace": "Non-Color",
+        "status": [
+          "FINISHED"
+        ],
+        "seconds": 24.281883001327515
+      }
+    },
+    "selected_to_active": true,
+    "margin_pixels": 2,
+    "cage_extrusion_m": 0.004000000189989805,
+    "max_ray_distance_m": 0.02500000037252903,
+    "samples": 16,
+    "normal_convention": "Tangent-space OpenGL +Y; Unreal import later needs explicit normal convention verification",
+    "base_color_pass": "DIFFUSE COLOR only: no direct/indirect studio light",
+    "AO": "Separate diagnostic texture, not multiplied into Base Color and not bound to Principled"
+  }
+}

@@ -1,0 +1,478 @@
+[
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/01_FaceFront_A_HP.png",
+    "view": "01_FaceFront",
+    "version": "A_HP",
+    "mode": "texture",
+    "camera_location": [
+      0.0,
+      -2.0,
+      1.2000000476837158
+    ],
+    "camera_rotation": [
+      1.5707964897155762,
+      -0.0,
+      0.0
+    ],
+    "ortho_scale": 0.285
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/01_FaceFront_B_TriangleControl.png",
+    "view": "01_FaceFront",
+    "version": "B_TriangleControl",
+    "mode": "texture",
+    "camera_location": [
+      0.0,
+      -2.0,
+      1.2000000476837158
+    ],
+    "camera_rotation": [
+      1.5707964897155762,
+      -0.0,
+      0.0
+    ],
+    "ortho_scale": 0.285
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/02_FaceThreeQuarter_A_HP.png",
+    "view": "02_FaceThreeQuarter",
+    "version": "A_HP",
+    "mode": "texture",
+    "camera_location": [
+      0.699999988079071,
+      -1.600000023841858,
+      1.3200000524520874
+    ],
+    "camera_rotation": [
+      1.500730037689209,
+      2.4633678208374477e-08,
+      0.4217873215675354
+    ],
+    "ortho_scale": 0.3
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/02_FaceThreeQuarter_B_TriangleControl.png",
+    "view": "02_FaceThreeQuarter",
+    "version": "B_TriangleControl",
+    "mode": "texture",
+    "camera_location": [
+      0.699999988079071,
+      -1.600000023841858,
+      1.3200000524520874
+    ],
+    "camera_rotation": [
+      1.500730037689209,
+      2.4633678208374477e-08,
+      0.4217873215675354
+    ],
+    "ortho_scale": 0.3
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/04_HairFront_A_HP.png",
+    "view": "04_HairFront",
+    "version": "A_HP",
+    "mode": "texture",
+    "camera_location": [
+      0.0,
+      -2.0,
+      1.2450000047683716
+    ],
+    "camera_rotation": [
+      1.5707964897155762,
+      -0.0,
+      0.0
+    ],
+    "ortho_scale": 0.43
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/04_HairFront_B_TriangleControl.png",
+    "view": "04_HairFront",
+    "version": "B_TriangleControl",
+    "mode": "texture",
+    "camera_location": [
+      0.0,
+      -2.0,
+      1.2450000047683716
+    ],
+    "camera_rotation": [
+      1.5707964897155762,
+      -0.0,
+      0.0
+    ],
+    "ortho_scale": 0.43
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/05_HairSide_A_HP.png",
+    "view": "05_HairSide",
+    "version": "A_HP",
+    "mode": "texture",
+    "camera_location": [
+      -2.0,
+      0.0,
+      1.2450000047683716
+    ],
+    "camera_rotation": [
+      1.5707963705062866,
+      -0.0,
+      -1.5707963705062866
+    ],
+    "ortho_scale": 0.43
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/05_HairSide_B_TriangleControl.png",
+    "view": "05_HairSide",
+    "version": "B_TriangleControl",
+    "mode": "texture",
+    "camera_location": [
+      -2.0,
+      0.0,
+      1.2450000047683716
+    ],
+    "camera_rotation": [
+      1.5707963705062866,
+      -0.0,
+      -1.5707963705062866
+    ],
+    "ortho_scale": 0.43
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/06_HairBack_A_HP.png",
+    "view": "06_HairBack",
+    "version": "A_HP",
+    "mode": "texture",
+    "camera_location": [
+      0.0,
+      2.0,
+      1.2450000047683716
+    ],
+    "camera_rotation": [
+      1.5707964897155762,
+      -1.5099578831723193e-07,
+      3.141592502593994
+    ],
+    "ortho_scale": 0.43
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/06_HairBack_B_TriangleControl.png",
+    "view": "06_HairBack",
+    "version": "B_TriangleControl",
+    "mode": "texture",
+    "camera_location": [
+      0.0,
+      2.0,
+      1.2450000047683716
+    ],
+    "camera_rotation": [
+      1.5707964897155762,
+      -1.5099578831723193e-07,
+      3.141592502593994
+    ],
+    "ortho_scale": 0.43
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/07_Torso_A_HP.png",
+    "view": "07_Torso",
+    "version": "A_HP",
+    "mode": "texture",
+    "camera_location": [
+      0.25,
+      -2.0,
+      0.8899999856948853
+    ],
+    "camera_rotation": [
+      1.5559132099151611,
+      5.103901301595215e-09,
+      0.1243550032377243
+    ],
+    "ortho_scale": 0.89
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/07_Torso_B_TriangleControl.png",
+    "view": "07_Torso",
+    "version": "B_TriangleControl",
+    "mode": "texture",
+    "camera_location": [
+      0.25,
+      -2.0,
+      0.8899999856948853
+    ],
+    "camera_rotation": [
+      1.5559132099151611,
+      5.103901301595215e-09,
+      0.1243550032377243
+    ],
+    "ortho_scale": 0.89
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/08_HeadClay_A_HP.png",
+    "view": "08_HeadClay",
+    "version": "A_HP",
+    "mode": "clay",
+    "camera_location": [
+      0.0,
+      -2.0,
+      1.2450000047683716
+    ],
+    "camera_rotation": [
+      1.5707964897155762,
+      -0.0,
+      0.0
+    ],
+    "ortho_scale": 0.43
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/08_HeadClay_B_TriangleControl.png",
+    "view": "08_HeadClay",
+    "version": "B_TriangleControl",
+    "mode": "clay",
+    "camera_location": [
+      0.0,
+      -2.0,
+      1.2450000047683716
+    ],
+    "camera_rotation": [
+      1.5707964897155762,
+      -0.0,
+      0.0
+    ],
+    "ortho_scale": 0.43
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/09_HeadWire_A_HP.png",
+    "view": "09_HeadWire",
+    "version": "A_HP",
+    "mode": "wire",
+    "camera_location": [
+      0.0,
+      -2.0,
+      1.2450000047683716
+    ],
+    "camera_rotation": [
+      1.5707964897155762,
+      -0.0,
+      0.0
+    ],
+    "ortho_scale": 0.43
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/09_HeadWire_B_TriangleControl.png",
+    "view": "09_HeadWire",
+    "version": "B_TriangleControl",
+    "mode": "wire",
+    "camera_location": [
+      0.0,
+      -2.0,
+      1.2450000047683716
+    ],
+    "camera_rotation": [
+      1.5707964897155762,
+      -0.0,
+      0.0
+    ],
+    "ortho_scale": 0.43
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/10_TorsoClay_A_HP.png",
+    "view": "10_TorsoClay",
+    "version": "A_HP",
+    "mode": "clay",
+    "camera_location": [
+      0.25,
+      -2.0,
+      0.8899999856948853
+    ],
+    "camera_rotation": [
+      1.5559132099151611,
+      5.103901301595215e-09,
+      0.1243550032377243
+    ],
+    "ortho_scale": 0.89
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/10_TorsoClay_B_TriangleControl.png",
+    "view": "10_TorsoClay",
+    "version": "B_TriangleControl",
+    "mode": "clay",
+    "camera_location": [
+      0.25,
+      -2.0,
+      0.8899999856948853
+    ],
+    "camera_rotation": [
+      1.5559132099151611,
+      5.103901301595215e-09,
+      0.1243550032377243
+    ],
+    "ortho_scale": 0.89
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/11_TorsoWire_A_HP.png",
+    "view": "11_TorsoWire",
+    "version": "A_HP",
+    "mode": "wire",
+    "camera_location": [
+      0.25,
+      -2.0,
+      0.8899999856948853
+    ],
+    "camera_rotation": [
+      1.5559132099151611,
+      5.103901301595215e-09,
+      0.1243550032377243
+    ],
+    "ortho_scale": 0.89
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/11_TorsoWire_B_TriangleControl.png",
+    "view": "11_TorsoWire",
+    "version": "B_TriangleControl",
+    "mode": "wire",
+    "camera_location": [
+      0.25,
+      -2.0,
+      0.8899999856948853
+    ],
+    "camera_rotation": [
+      1.5559132099151611,
+      5.103901301595215e-09,
+      0.1243550032377243
+    ],
+    "ortho_scale": 0.89
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/12_2_5D_A_HP.png",
+    "view": "12_2_5D",
+    "version": "A_HP",
+    "mode": "texture",
+    "camera_location": [
+      2.5,
+      -2.5,
+      4.900000095367432
+    ],
+    "camera_rotation": [
+      0.6997105479240417,
+      3.086458377765666e-08,
+      0.7853981852531433
+    ],
+    "ortho_scale": 1.82
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/12_2_5D_B_TriangleControl.png",
+    "view": "12_2_5D",
+    "version": "B_TriangleControl",
+    "mode": "texture",
+    "camera_location": [
+      2.5,
+      -2.5,
+      4.900000095367432
+    ],
+    "camera_rotation": [
+      0.6997105479240417,
+      3.086458377765666e-08,
+      0.7853981852531433
+    ],
+    "ortho_scale": 1.82
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/13_EyeMouthWire_A_HP.png",
+    "view": "13_EyeMouthWire",
+    "version": "A_HP",
+    "mode": "wire",
+    "camera_location": [
+      0.0,
+      -2.0,
+      1.1799999475479126
+    ],
+    "camera_rotation": [
+      1.570796251296997,
+      -0.0,
+      0.0
+    ],
+    "ortho_scale": 0.23
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/13_EyeMouthWire_B_TriangleControl.png",
+    "view": "13_EyeMouthWire",
+    "version": "B_TriangleControl",
+    "mode": "wire",
+    "camera_location": [
+      0.0,
+      -2.0,
+      1.1799999475479126
+    ],
+    "camera_rotation": [
+      1.570796251296997,
+      -0.0,
+      0.0
+    ],
+    "ortho_scale": 0.23
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/14_VestDetail_A_HP.png",
+    "view": "14_VestDetail",
+    "version": "A_HP",
+    "mode": "texture",
+    "camera_location": [
+      0.25,
+      -2.0,
+      0.8199999928474426
+    ],
+    "camera_rotation": [
+      1.5707963705062866,
+      5.2569704145355445e-09,
+      0.13151168823242188
+    ],
+    "ortho_scale": 0.42
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/14_VestDetail_B_TriangleControl.png",
+    "view": "14_VestDetail",
+    "version": "B_TriangleControl",
+    "mode": "texture",
+    "camera_location": [
+      0.25,
+      -2.0,
+      0.8199999928474426
+    ],
+    "camera_rotation": [
+      1.5707963705062866,
+      5.2569704145355445e-09,
+      0.13151168823242188
+    ],
+    "ortho_scale": 0.42
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/03_FaceProfile_A_HP.png",
+    "view": "03_FaceProfile",
+    "version": "A_HP",
+    "mode": "texture",
+    "camera_location": [
+      2.0,
+      -0.04500000178813934,
+      1.2000000476837158
+    ],
+    "camera_rotation": [
+      1.5707963705062866,
+      -0.0,
+      1.5707963705062866
+    ],
+    "ortho_scale": 0.38
+  },
+  {
+    "path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Review/GameReady_Test_V1/Previews/03_FaceProfile_B_TriangleControl.png",
+    "view": "03_FaceProfile",
+    "version": "B_TriangleControl",
+    "mode": "texture",
+    "camera_location": [
+      2.0,
+      -0.04500000178813934,
+      1.2000000476837158
+    ],
+    "camera_rotation": [
+      1.5707963705062866,
+      -0.0,
+      1.5707963705062866
+    ],
+    "ortho_scale": 0.38
+  }
+]

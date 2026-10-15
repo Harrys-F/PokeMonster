@@ -1,0 +1,785 @@
+{
+  "opened_file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Westland/HobbitBase/Source/Hobbit_NPC_Base_V2.blend",
+  "blender": "5.2.2 LTS",
+  "units": "METRIC",
+  "unit_scale": 1.0,
+  "height_m": 1.3200000524520874,
+  "sole_z_m": 0.0,
+  "top_z_m": 1.3200000524520874,
+  "body_connected_parts": [
+    13539
+  ],
+  "body_nonmanifold_edges": 0,
+  "body_boundary_edges": 0,
+  "body_degenerate_faces": 0,
+  "body_symmetry_max_error_m": 0.0,
+  "body_face_types": {
+    "quads": 11362,
+    "triangles": 246,
+    "ngons": 832
+  },
+  "cross_sections": {
+    "arms_left": 1,
+    "arms_right": 1,
+    "legs": 2,
+    "head": 1,
+    "four_fingers_left": 4,
+    "four_fingers_right": 4,
+    "two_thumbs": 2,
+    "ten_toes": 10
+  },
+  "categories": {
+    "body": {
+      "meshes": 1,
+      "vertices": 13539,
+      "triangles": 27090
+    },
+    "clothing": {
+      "meshes": 5,
+      "vertices": 13416,
+      "triangles": 26756
+    },
+    "face_details": {
+      "meshes": 22,
+      "vertices": 9866,
+      "triangles": 19568
+    },
+    "hair": {
+      "meshes": 3,
+      "vertices": 24232,
+      "triangles": 47772
+    }
+  },
+  "objects": [
+    {
+      "object": "HNV2_Body",
+      "category": "body",
+      "source_vertices": 13539,
+      "evaluated_vertices": 13539,
+      "triangles": 27090,
+      "materials": [
+        "HNV2_Skin"
+      ],
+      "bounds_m": [
+        [
+          -0.771796464920044,
+          -0.23915669322013855,
+          0.0
+        ],
+        [
+          0.771796464920044,
+          0.11307952553033829,
+          1.2879999876022339
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_Belt",
+      "category": "clothing",
+      "source_vertices": 256,
+      "evaluated_vertices": 256,
+      "triangles": 512,
+      "materials": [
+        "HNV2_BrownLeather"
+      ],
+      "bounds_m": [
+        [
+          -0.208373561501503,
+          -0.19068148732185364,
+          0.6834696531295776
+        ],
+        [
+          0.208373561501503,
+          0.14939990639686584,
+          0.7178710103034973
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_Buckle",
+      "category": "clothing",
+      "source_vertices": 280,
+      "evaluated_vertices": 280,
+      "triangles": 540,
+      "materials": [
+        "HNV2_AgedBrass"
+      ],
+      "bounds_m": [
+        [
+          -0.021623672917485237,
+          -0.19756175577640533,
+          0.6810124516487122
+        ],
+        [
+          0.021623672917485237,
+          -0.19166436791419983,
+          0.7203282117843628
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_Breeches",
+      "category": "clothing",
+      "source_vertices": 3230,
+      "evaluated_vertices": 3230,
+      "triangles": 6456,
+      "materials": [
+        "HNV2_OliveTwill",
+        "HNV2_OliveHem"
+      ],
+      "bounds_m": [
+        [
+          -0.2048616260290146,
+          -0.16614772379398346,
+          0.2775287330150604
+        ],
+        [
+          0.20290431380271912,
+          0.12683196365833282,
+          0.7084026336669922
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_Shirt",
+      "category": "clothing",
+      "source_vertices": 6908,
+      "evaluated_vertices": 6908,
+      "triangles": 13776,
+      "materials": [
+        "HNV2_WovenLinen",
+        "HNV2_LinenHem"
+      ],
+      "bounds_m": [
+        [
+          -0.44779160618782043,
+          -0.1741405874490738,
+          0.6452003121376038
+        ],
+        [
+          0.44779160618782043,
+          0.12531206011772156,
+          1.055999994277954
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_Waistcoat",
+      "category": "clothing",
+      "source_vertices": 2742,
+      "evaluated_vertices": 2742,
+      "triangles": 5472,
+      "materials": [
+        "HNV2_WalnutWool",
+        "HNV2_WoolBinding",
+        "HNV2_BrownLeather"
+      ],
+      "bounds_m": [
+        [
+          -0.20486196875572205,
+          -0.18182764947414398,
+          0.6844447255134583
+        ],
+        [
+          0.20515000820159912,
+          0.1383439153432846,
+          1.0572794675827026
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_SculptedBrow_L",
+      "category": "face_details",
+      "source_vertices": 144,
+      "evaluated_vertices": 144,
+      "triangles": 284,
+      "materials": [
+        "HNV2_CurlBrown_0"
+      ],
+      "bounds_m": [
+        [
+          0.025736864656209946,
+          -0.08096269518136978,
+          1.200914740562439
+        ],
+        [
+          0.06888426840305328,
+          -0.06026282161474228,
+          1.207738995552063
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_EarHelix_L",
+      "category": "face_details",
+      "source_vertices": 264,
+      "evaluated_vertices": 264,
+      "triangles": 524,
+      "materials": [
+        "HNV2_FaceSkin"
+      ],
+      "bounds_m": [
+        [
+          0.12458419799804688,
+          -0.011883256025612354,
+          1.1311618089675903
+        ],
+        [
+          0.13122493028640747,
+          0.031899191439151764,
+          1.202888011932373
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_EarInnerFold_L",
+      "category": "face_details",
+      "source_vertices": 136,
+      "evaluated_vertices": 136,
+      "triangles": 268,
+      "materials": [
+        "HNV2_EarWarmth"
+      ],
+      "bounds_m": [
+        [
+          0.13143444061279297,
+          0.0034246803261339664,
+          1.144463062286377
+        ],
+        [
+          0.13787741959095,
+          0.014500000514090061,
+          1.1765083074569702
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_SculptedBrow_R",
+      "category": "face_details",
+      "source_vertices": 144,
+      "evaluated_vertices": 144,
+      "triangles": 284,
+      "materials": [
+        "HNV2_CurlBrown_0"
+      ],
+      "bounds_m": [
+        [
+          -0.06888428330421448,
+          -0.08096269518136978,
+          1.200914740562439
+        ],
+        [
+          -0.025736864656209946,
+          -0.060262832790613174,
+          1.207738995552063
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_EarHelix_R",
+      "category": "face_details",
+      "source_vertices": 264,
+      "evaluated_vertices": 264,
+      "triangles": 524,
+      "materials": [
+        "HNV2_FaceSkin"
+      ],
+      "bounds_m": [
+        [
+          -0.13122491538524628,
+          -0.011883256025612354,
+          1.1311618089675903
+        ],
+        [
+          -0.12458419799804688,
+          0.031899191439151764,
+          1.202888011932373
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_EarInnerFold_R",
+      "category": "face_details",
+      "source_vertices": 136,
+      "evaluated_vertices": 136,
+      "triangles": 268,
+      "materials": [
+        "HNV2_EarWarmth"
+      ],
+      "bounds_m": [
+        [
+          -0.13787741959095,
+          0.0034246803261339664,
+          1.144463062286377
+        ],
+        [
+          -0.13143444061279297,
+          0.014500000514090061,
+          1.1765083074569702
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_Nostril_L",
+      "category": "face_details",
+      "source_vertices": 78,
+      "evaluated_vertices": 78,
+      "triangles": 152,
+      "materials": [
+        "HNV2_MouthLine"
+      ],
+      "bounds_m": [
+        [
+          0.009924842976033688,
+          -0.10064229369163513,
+          1.1478800773620605
+        ],
+        [
+          0.019126201048493385,
+          -0.08877528458833694,
+          1.1499629020690918
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_Nostril_R",
+      "category": "face_details",
+      "source_vertices": 78,
+      "evaluated_vertices": 78,
+      "triangles": 152,
+      "materials": [
+        "HNV2_MouthLine"
+      ],
+      "bounds_m": [
+        [
+          -0.019126201048493385,
+          -0.10064229369163513,
+          1.1478800773620605
+        ],
+        [
+          -0.009924842976033688,
+          -0.08877528458833694,
+          1.1499629020690918
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_Eye_L",
+      "category": "face_details",
+      "source_vertices": 478,
+      "evaluated_vertices": 478,
+      "triangles": 952,
+      "materials": [
+        "HNV2_Sclera"
+      ],
+      "bounds_m": [
+        [
+          0.0260000079870224,
+          -0.07449999451637268,
+          1.1744999885559082
+        ],
+        [
+          0.05999999865889549,
+          -0.052500005811452866,
+          1.19350004196167
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_Iris_L",
+      "category": "face_details",
+      "source_vertices": 362,
+      "evaluated_vertices": 362,
+      "triangles": 720,
+      "materials": [
+        "HNV2_HazelIris"
+      ],
+      "bounds_m": [
+        [
+          0.037550002336502075,
+          -0.07559999823570251,
+          1.1782000064849854
+        ],
+        [
+          0.04794999957084656,
+          -0.07400000095367432,
+          1.1898000240325928
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_Pupil_L",
+      "category": "face_details",
+      "source_vertices": 222,
+      "evaluated_vertices": 222,
+      "triangles": 440,
+      "materials": [
+        "HNV2_DeepPupil"
+      ],
+      "bounds_m": [
+        [
+          0.04024999961256981,
+          -0.07579999417066574,
+          1.1806000471115112
+        ],
+        [
+          0.045250002294778824,
+          -0.07519999891519547,
+          1.187399983406067
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_UpperLid_L",
+      "category": "face_details",
+      "source_vertices": 200,
+      "evaluated_vertices": 200,
+      "triangles": 396,
+      "materials": [
+        "HNV2_FaceSkin"
+      ],
+      "bounds_m": [
+        [
+          0.02795322798192501,
+          -0.07406195253133774,
+          1.183913230895996
+        ],
+        [
+          0.058046769350767136,
+          -0.06915413588285446,
+          1.1911500692367554
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_LowerLid_L",
+      "category": "face_details",
+      "source_vertices": 200,
+      "evaluated_vertices": 200,
+      "triangles": 396,
+      "materials": [
+        "HNV2_FaceSkin"
+      ],
+      "bounds_m": [
+        [
+          0.02809465117752552,
+          -0.07445947080850601,
+          1.178399920463562
+        ],
+        [
+          0.057905349880456924,
+          -0.06932809948921204,
+          1.1840765476226807
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_Eye_R",
+      "category": "face_details",
+      "source_vertices": 478,
+      "evaluated_vertices": 478,
+      "triangles": 952,
+      "materials": [
+        "HNV2_Sclera"
+      ],
+      "bounds_m": [
+        [
+          -0.059999994933605194,
+          -0.07449999451637268,
+          1.1744999885559082
+        ],
+        [
+          -0.0260000042617321,
+          -0.052500005811452866,
+          1.19350004196167
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_Iris_R",
+      "category": "face_details",
+      "source_vertices": 362,
+      "evaluated_vertices": 362,
+      "triangles": 720,
+      "materials": [
+        "HNV2_HazelIris"
+      ],
+      "bounds_m": [
+        [
+          -0.04794999957084656,
+          -0.07559999823570251,
+          1.1782000064849854
+        ],
+        [
+          -0.037550002336502075,
+          -0.07400000095367432,
+          1.1898000240325928
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_Pupil_R",
+      "category": "face_details",
+      "source_vertices": 222,
+      "evaluated_vertices": 222,
+      "triangles": 440,
+      "materials": [
+        "HNV2_DeepPupil"
+      ],
+      "bounds_m": [
+        [
+          -0.045250002294778824,
+          -0.07579999417066574,
+          1.1806000471115112
+        ],
+        [
+          -0.04024999961256981,
+          -0.07519999891519547,
+          1.187399983406067
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_UpperLid_R",
+      "category": "face_details",
+      "source_vertices": 200,
+      "evaluated_vertices": 200,
+      "triangles": 396,
+      "materials": [
+        "HNV2_FaceSkin"
+      ],
+      "bounds_m": [
+        [
+          -0.058046769350767136,
+          -0.07406195253133774,
+          1.183913230895996
+        ],
+        [
+          -0.02795322798192501,
+          -0.06915413588285446,
+          1.1911500692367554
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_LowerLid_R",
+      "category": "face_details",
+      "source_vertices": 200,
+      "evaluated_vertices": 200,
+      "triangles": 396,
+      "materials": [
+        "HNV2_FaceSkin"
+      ],
+      "bounds_m": [
+        [
+          -0.057905349880456924,
+          -0.07445947080850601,
+          1.178399920463562
+        ],
+        [
+          -0.02809465117752552,
+          -0.06932809948921204,
+          1.1840765476226807
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_UpperLipSurface",
+      "category": "face_details",
+      "source_vertices": 165,
+      "evaluated_vertices": 330,
+      "triangles": 656,
+      "materials": [
+        "HNV2_MutedLips"
+      ],
+      "bounds_m": [
+        [
+          -0.029500000178813934,
+          -0.08725887537002563,
+          1.1147500276565552
+        ],
+        [
+          0.029500000178813934,
+          -0.0777047872543335,
+          1.11899995803833
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_LowerLipSurface",
+      "category": "face_details",
+      "source_vertices": 165,
+      "evaluated_vertices": 330,
+      "triangles": 656,
+      "materials": [
+        "HNV2_MutedLips"
+      ],
+      "bounds_m": [
+        [
+          -0.029500000178813934,
+          -0.08632518351078033,
+          1.1119999885559082
+        ],
+        [
+          0.029500000178813934,
+          -0.07769366353750229,
+          1.1191540956497192
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_MouthSeam",
+      "category": "face_details",
+      "source_vertices": 198,
+      "evaluated_vertices": 198,
+      "triangles": 392,
+      "materials": [
+        "HNV2_MouthLine"
+      ],
+      "bounds_m": [
+        [
+          -0.02951597236096859,
+          -0.08638076484203339,
+          1.1146968603134155
+        ],
+        [
+          0.02951597236096859,
+          -0.07822518050670624,
+          1.1190296411514282
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_FingerAndToeNails",
+      "category": "face_details",
+      "source_vertices": 4840,
+      "evaluated_vertices": 4840,
+      "triangles": 9600,
+      "materials": [
+        "HNV2_NaturalNails"
+      ],
+      "bounds_m": [
+        [
+          -0.764600396156311,
+          -0.221884623169899,
+          0.030496418476104736
+        ],
+        [
+          0.7646004557609558,
+          0.03862553834915161,
+          0.9384386539459229
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_FootHair",
+      "category": "hair",
+      "source_vertices": 1320,
+      "evaluated_vertices": 1320,
+      "triangles": 2464,
+      "materials": [
+        "HNV2_CurlBrown_0"
+      ],
+      "bounds_m": [
+        [
+          -0.15292902290821075,
+          -0.13094791769981384,
+          0.05324818938970566
+        ],
+        [
+          0.15291808545589447,
+          -0.06678790599107742,
+          0.07818323373794556
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_HairUnderMass",
+      "category": "hair",
+      "source_vertices": 1216,
+      "evaluated_vertices": 2432,
+      "triangles": 4860,
+      "materials": [
+        "HNV2_CurlBrown_0"
+      ],
+      "bounds_m": [
+        [
+          -0.1318318396806717,
+          -0.09147817641496658,
+          1.1485264301300049
+        ],
+        [
+          0.1318318396806717,
+          0.11713352799415588,
+          1.2887649536132812
+        ]
+      ]
+    },
+    {
+      "object": "HNV2_SculptedCurls",
+      "category": "hair",
+      "source_vertices": 20480,
+      "evaluated_vertices": 20480,
+      "triangles": 40448,
+      "materials": [
+        "HNV2_CurlBrown_3",
+        "HNV2_CurlBrown_0",
+        "HNV2_CurlBrown_2",
+        "HNV2_CurlBrown_1"
+      ],
+      "bounds_m": [
+        [
+          -0.15085095167160034,
+          -0.10429887473583221,
+          1.1487032175064087
+        ],
+        [
+          0.15085095167160034,
+          0.13817715644836426,
+          1.3200000524520874
+        ]
+      ]
+    }
+  ],
+  "clothing_skin_vertex_distance_samples": [
+    {
+      "object": "HNV2_Belt",
+      "sampled_vertices": 256,
+      "negative_signed_samples_over_0_6mm": 0,
+      "min_signed_distance_m": 0.023837690905565978,
+      "vertex_indices": []
+    },
+    {
+      "object": "HNV2_Buckle",
+      "sampled_vertices": 280,
+      "negative_signed_samples_over_0_6mm": 0,
+      "min_signed_distance_m": 0.03402956221543718,
+      "vertex_indices": []
+    },
+    {
+      "object": "HNV2_Breeches",
+      "sampled_vertices": 3230,
+      "negative_signed_samples_over_0_6mm": 0,
+      "min_signed_distance_m": 0.001488552567025181,
+      "vertex_indices": []
+    },
+    {
+      "object": "HNV2_Shirt",
+      "sampled_vertices": 6908,
+      "negative_signed_samples_over_0_6mm": 0,
+      "min_signed_distance_m": 0.0014915695178387978,
+      "vertex_indices": []
+    },
+    {
+      "object": "HNV2_Waistcoat",
+      "sampled_vertices": 2742,
+      "negative_signed_samples_over_0_6mm": 0,
+      "min_signed_distance_m": 0.002000007430979167,
+      "vertex_indices": []
+    }
+  ],
+  "rigs": 0,
+  "animated_objects": 0,
+  "shared_rig_compatibility_tested": false,
+  "full_triangle_intersection_or_deformation_tested": false
+}
