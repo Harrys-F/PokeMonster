@@ -29,6 +29,13 @@ bool FPokeMonsterMeshyPlayerTest::RunTest(const FString& Parameters)
  TestTrue(TEXT("Walk uses imported skeleton"),Visual->WalkAnimation->GetSkeleton()==Mesh->GetSkeleton());
  TestTrue(TEXT("Idle is a complete three-second loop"),FMath::IsNearlyEqual(Visual->IdleAnimation->GetPlayLength(),3.f,.01f));
  TestTrue(TEXT("Walk contains a complete speed-matched alternating cycle"),FMath::IsNearlyEqual(Visual->WalkAnimation->GetPlayLength(),.55f,.01f));
+ TestNotNull(TEXT("A separate run clip is available"), Visual->RunAnimation.Get());
+ if (Visual->RunAnimation)
+ {
+  TestTrue(TEXT("Run reuses the unchanged V2 skeleton"), Visual->RunAnimation->GetSkeleton()==Mesh->GetSkeleton());
+  TestTrue(TEXT("Run contains a complete 0.45-second cycle"), FMath::IsNearlyEqual(Visual->RunAnimation->GetPlayLength(),.45f,.01f));
+  TestFalse(TEXT("Run never drives root motion"), Visual->RunAnimation->bEnableRootMotion);
+ }
  TestFalse(TEXT("Idle never drives root motion"),Visual->IdleAnimation->bEnableRootMotion);
  TestFalse(TEXT("Walk never drives root motion"),Visual->WalkAnimation->bEnableRootMotion);
  TestEqual(TEXT("Collision remains 96 cm high"),Defaults->GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight()*2,96.f);
@@ -55,6 +62,15 @@ bool FPokeMonsterMeshyPlayerTest::RunTest(const FString& Parameters)
   TestEqual(TEXT("210 cm/s plays authored cycle at one times speed"),Animation->WalkPlayRate,1.f);
   for (int32 I=0;I<8;++I) { V->TickAnimation(.03f,false);V->RefreshBoneTransforms(); }
   TestTrue(TEXT("Walking settles into full locomotion"),Animation->WalkAlpha>.99f);
+  Player->GetCharacterMovement()->Velocity=FVector(315,0,0);
+  V->TickAnimation(.03f,false);V->RefreshBoneTransforms();
+  TestTrue(TEXT("Walk/Run transitions blend instead of snapping"),Animation->RunAlpha>0.f && Animation->RunAlpha<1.f);
+  for (int32 I=0;I<8;++I) { V->TickAnimation(.03f,false);V->RefreshBoneTransforms(); }
+  TestTrue(TEXT("315 cm/s settles into run"),Animation->RunAlpha>.99f);
+  TestTrue(TEXT("315 cm/s plays run at authored speed"),FMath::IsNearlyEqual(Animation->RunPlayRate,1.f));
+  Player->GetCharacterMovement()->Velocity=FVector(210,0,0);
+  for (int32 I=0;I<8;++I) { V->TickAnimation(.03f,false);V->RefreshBoneTransforms(); }
+  TestTrue(TEXT("Returning to 210 restores walking"),Animation->RunAlpha<.01f);
   V->SetWorldRotation(FRotator(0,90,0));V->TickAnimation(.03f,false);V->RefreshBoneTransforms();
   TestTrue(TEXT("Turning drives accessory springs"),FMath::Abs(Animation->CapeSwing)>.01f && FMath::Abs(Animation->BagSwing)>.01f);
   Player->GetCharacterMovement()->Velocity=FVector::ZeroVector;
@@ -75,6 +91,12 @@ bool FPokeMonsterMeshyPlayerTest::RunTest(const FString& Parameters)
   TestTrue(TEXT("Left recovery foot lifts above planted right foot"),LeftStep.X>LeftStep.Y+4.f);
   TestTrue(TEXT("Right recovery foot lifts above planted left foot"),RightStep.Y>RightStep.X+4.f);
 
+  if (Visual->RunAnimation)
+  {
+   V->PlayAnimation(V->RunAnimation,true);
+   const FVector2D RunLeft=SampleFeet(.45f*.71f), RunRight=SampleFeet(.45f*.21f);
+   TestTrue(TEXT("Run lifts alternate left/right feet"),RunLeft.X>RunLeft.Y+5.f && RunRight.Y>RunRight.X+5.f);
+  }
  }
  return true;
 }

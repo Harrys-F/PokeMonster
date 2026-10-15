@@ -23,6 +23,7 @@
 #include "PaperFlipbookComponent.h"
 #include "PaperSprite.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
 #include "UObject/ConstructorHelpers.h"
 #include "../Save/PokeMonsterSaveSubsystem.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
@@ -182,6 +183,14 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 	MenuAction->ValueType = EInputActionValueType::Boolean;
 	DefaultMappingContext->MapKey(MenuAction, EKeys::Tab);
 
+	SprintHoldAction = CreateDefaultSubobject<UInputAction>(TEXT("SprintHoldAction"));
+	SprintHoldAction->ValueType = EInputActionValueType::Boolean;
+	DefaultMappingContext->MapKey(SprintHoldAction, EKeys::LeftShift);
+	DefaultMappingContext->MapKey(SprintHoldAction, EKeys::RightShift);
+	SprintToggleAction = CreateDefaultSubobject<UInputAction>(TEXT("SprintToggleAction"));
+	SprintToggleAction->ValueType = EInputActionValueType::Boolean;
+	DefaultMappingContext->MapKey(SprintToggleAction, EKeys::Gamepad_LeftThumbstick);
+
 	// Keep the eight authored directions on the existing character class so the
 	// default pawn in Dev_TestMap needs no map or GameMode override.
 	auto FindPlayerFlipbook = [](const TCHAR* AssetName) -> UPaperFlipbook*
@@ -212,6 +221,10 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 void APokeMonsterPlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+	NormalWalkSpeed = GetCharacterMovement()->MaxWalkSpeed;
+	for (TActorIterator<APokeMonsterBuildingCutaway> It(GetWorld()); It; ++It)
+		SprintInteriorAreas.Add(*It);
+	OnCharacterMovementUpdated.AddDynamic(this, &APokeMonsterPlayerCharacter::OnMovementUpdated);
 	// Directional illustrated stand-ins remain replaceable by authored Blueprint flipbooks.
 	if (!IdleFlipbooks.HasAnyFlipbook() && !WalkingFlipbooks.HasAnyFlipbook())
 	{
@@ -266,6 +279,7 @@ void APokeMonsterPlayerCharacter::SetInteriorCameraSource(APokeMonsterBuildingCu
 {
 	if (!bMovementBasisOverride) MovementBasisYaw = GetMovementBasisYaw();
 	InteriorCameraSource = Building;
+	RefreshSprint();
 	bMovementBasisOverride = true;
 	// Latch only a completed camera endpoint; a partial reversal does not switch input.
 	if (Building && Building->GetCutawayAmount() >= 1.f) bInteriorMovementBasis = true;
@@ -276,6 +290,7 @@ void APokeMonsterPlayerCharacter::ClearInteriorCameraSource(const APokeMonsterBu
 {
 	if (InteriorCameraSource.Get() != Building) return;
 	InteriorCameraSource.Reset();
+	RefreshSprint();
 	bInteriorMovementBasis = false;
 	// Keep ticking until the brief post-camera input blend has reached the exterior.
 }
@@ -358,6 +373,10 @@ void APokeMonsterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* Pla
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Completed, this, &APokeMonsterPlayerCharacter::StopMoving);
 	EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &APokeMonsterPlayerCharacter::Interact);
 	EnhancedInputComponent->BindAction(MenuAction, ETriggerEvent::Started, this, &APokeMonsterPlayerCharacter::ToggleOverworldMenu);
+	EnhancedInputComponent->BindAction(SprintHoldAction, ETriggerEvent::Started, this, &APokeMonsterPlayerCharacter::StartSprintHold);
+	EnhancedInputComponent->BindAction(SprintHoldAction, ETriggerEvent::Completed, this, &APokeMonsterPlayerCharacter::StopSprintHold);
+	EnhancedInputComponent->BindAction(SprintHoldAction, ETriggerEvent::Canceled, this, &APokeMonsterPlayerCharacter::StopSprintHold);
+	EnhancedInputComponent->BindAction(SprintToggleAction, ETriggerEvent::Started, this, &APokeMonsterPlayerCharacter::ToggleSprint);
 }
 
 void APokeMonsterPlayerCharacter::Move(const FInputActionValue& Value)
@@ -366,6 +385,7 @@ void APokeMonsterPlayerCharacter::Move(const FInputActionValue& Value)
 	FVector2D Input = Value.Get<FVector2D>();
 	Input = Input.GetClampedToMaxSize(1.0f);
 	UpdateMovementInput(Input);
+	RefreshSprint();
 
 	const FVector WorldDirection = CalculateCameraRelativeMovement(Input, GetMovementBasisYaw());
 	AddMovementInput(WorldDirection);
@@ -374,6 +394,67 @@ void APokeMonsterPlayerCharacter::Move(const FInputActionValue& Value)
 void APokeMonsterPlayerCharacter::StopMoving(const FInputActionValue& Value)
 {
 	UpdateMovementInput(FVector2D::ZeroVector);
+	bSprintToggled = false;
+	RefreshSprint();
+}
+
+float APokeMonsterPlayerCharacter::GetNormalWalkSpeed() const
+{
+	return bSprintActive ? NormalWalkSpeed : GetCharacterMovement()->MaxWalkSpeed;
+}
+
+bool APokeMonsterPlayerCharacter::CanSprint() const
+{
+	if (bOverworldInputLocked || InteriorCameraSource.IsValid()) return false;
+	// Reuse existing room footprints, including houses without an interior camera.
+	for (const auto& Area : SprintInteriorAreas)
+		if (const auto* Building = Area.Get())
+			if (Building->IsViewerInside(GetActorLocation())) return false;
+	return GetCharacterMovement()->IsMovingOnGround();
+}
+
+void APokeMonsterPlayerCharacter::StartSprintHold(const FInputActionValue& Value)
+{
+	if (!bOverworldInputLocked) bSprintHeld = true;
+	RefreshSprint();
+}
+
+void APokeMonsterPlayerCharacter::StopSprintHold(const FInputActionValue& Value)
+{
+	bSprintHeld = false;
+	RefreshSprint();
+}
+
+void APokeMonsterPlayerCharacter::ToggleSprint(const FInputActionValue& Value)
+{
+	// A stationary stick click never leaves sprint armed for later movement.
+	bSprintToggled = CanSprint() && GetVelocity().Size2D() > 3.f && !bSprintToggled;
+	RefreshSprint();
+}
+
+void APokeMonsterPlayerCharacter::RefreshSprint()
+{
+	const bool bAllowed = CanSprint();
+	if (!bAllowed || MovementInput.IsNearlyZero(FacingInputThreshold)) bSprintToggled = false;
+	const bool bWantsSprint = bAllowed && !MovementInput.IsNearlyZero(FacingInputThreshold)
+		&& (bSprintHeld || bSprintToggled);
+	if (bWantsSprint == bSprintActive) return;
+	auto* Movement = GetCharacterMovement();
+	if (bWantsSprint)
+	{
+		NormalWalkSpeed = Movement->MaxWalkSpeed;
+		Movement->MaxWalkSpeed = NormalWalkSpeed * 1.5f;
+	}
+	else Movement->MaxWalkSpeed = NormalWalkSpeed;
+	bSprintActive = bWantsSprint;
+}
+
+void APokeMonsterPlayerCharacter::OnMovementUpdated(float DeltaSeconds, FVector OldLocation, FVector OldVelocity)
+{
+	// Cancel the stick latch after an actual stop, also when stopped by collision.
+	if (bSprintToggled && GetVelocity().Size2D() <= 3.f && OldVelocity.Size2D() > 3.f)
+		bSprintToggled = false;
+	RefreshSprint();
 }
 
 void APokeMonsterPlayerCharacter::Interact(const FInputActionValue& Value)
@@ -469,9 +550,12 @@ void APokeMonsterPlayerCharacter::SetOverworldInputLocked(const bool bLocked)
 	bOverworldInputLocked = bLocked;
 	if (bLocked)
 	{
+		bSprintHeld = false;
+		bSprintToggled = false;
 		UpdateMovementInput(FVector2D::ZeroVector);
 		GetCharacterMovement()->StopMovementImmediately();
 	}
+	RefreshSprint();
 }
 
 void APokeMonsterPlayerCharacter::PMSave()

@@ -32,6 +32,8 @@ struct FMeshyAnimationProxy : FAnimInstanceProxy
     explicit FMeshyAnimationProxy(UAnimInstance* Instance) : FAnimInstanceProxy(Instance) {}
     UAnimSequence* Idle = nullptr;
     UAnimSequence* Walk = nullptr;
+    UAnimSequence* Run = nullptr;
+    float RunAlpha = 0.f, RunRate = 0.f, RunTime = 0.f;
     float Alpha = 0.f, Rate = 0.f, IdleTime = 0.f, WalkTime = 0.f;
     float PreviousYaw = 0.f, PreviousSpeed = 0.f;
     bool bHavePrevious = false;
@@ -42,9 +44,13 @@ struct FMeshyAnimationProxy : FAnimInstanceProxy
         FAnimInstanceProxy::PreUpdate(Instance, Delta);
         const auto* Visual = Cast<UPokeMonsterMeshyVisualComponent>(Instance->GetSkelMeshComponent());
         if (!Visual) return;
-        Idle = Visual->IdleAnimation; Walk = Visual->WalkAnimation;
+        Idle = Visual->IdleAnimation; Walk = Visual->WalkAnimation; Run = Visual->RunAnimation;
         const float Speed = Visual->GetOwner() ? Visual->GetOwner()->GetVelocity().Size2D() : 0.f;
         Rate = Speed > 3.f ? FMath::Clamp(Speed / FMath::Max(Visual->AuthoredWalkSpeed, 1.f), .05f, 3.f) : 0.f;
+        RunRate = Speed / FMath::Max(Visual->AuthoredRunSpeed, 1.f);
+        const float RunTarget = Run ? FMath::Clamp((Speed - Visual->AuthoredWalkSpeed)
+            / FMath::Max(Visual->AuthoredRunSpeed - Visual->AuthoredWalkSpeed, 1.f), 0.f, 1.f) : 0.f;
+        RunAlpha = FMath::FInterpConstantTo(RunAlpha, RunTarget, Delta, 1.f / .18f);
         const float Target = Rate > 0.f ? 1.f : 0.f;
         Alpha = FMath::FInterpConstantTo(Alpha, Target, Delta, 1.f / .18f);
         const float Yaw = Visual->GetComponentRotation().Yaw;
@@ -60,7 +66,15 @@ struct FMeshyAnimationProxy : FAnimInstanceProxy
     {
         if (Idle) IdleTime = FMath::Fmod(IdleTime + Delta, FMath::Max(Idle->GetPlayLength(), .01f));
         // Retain cycle phase at stop; resume continuously rather than restarting one foot.
-        if (Walk && Rate > 0.f) WalkTime = FMath::Fmod(WalkTime + Delta * Rate, FMath::Max(Walk->GetPlayLength(), .01f));
+        if (Walk && Rate > 0.f)
+        {
+            const float WalkLength = FMath::Max(Walk->GetPlayLength(), .01f);
+            const float RunLength = Run ? FMath::Max(Run->GetPlayLength(), .01f) : WalkLength;
+            // Both clips share left/right contact phase; changing speed cannot swap the feet.
+            const float CyclesPerSecond = FMath::Lerp(Rate / WalkLength, RunRate / RunLength, RunAlpha);
+            WalkTime = FMath::Fmod(WalkTime + Delta * CyclesPerSecond * WalkLength, WalkLength);
+            RunTime = WalkTime / WalkLength * RunLength;
+        }
     }
     virtual bool Evaluate(FPoseContext& Output) override
     {
@@ -71,7 +85,16 @@ struct FMeshyAnimationProxy : FAnimInstanceProxy
         FAnimationPoseData A(IdlePose), B(WalkPose), Result(Output);
         Idle->GetAnimationPose(A, FAnimExtractContext(IdleTime, false));
         Walk->GetAnimationPose(B, FAnimExtractContext(WalkTime, false));
-        FAnimationRuntime::BlendTwoPosesTogether(A, B, 1.f - Alpha, Result);
+        if (Run && RunAlpha > 0.f)
+        {
+            FPoseContext RunPose(Output), LocomotionPose(Output);
+            RunPose.ResetToRefPose(); LocomotionPose.ResetToRefPose();
+            FAnimationPoseData C(RunPose), Locomotion(LocomotionPose);
+            Run->GetAnimationPose(C, FAnimExtractContext(RunTime, false));
+            FAnimationRuntime::BlendTwoPosesTogether(B, C, 1.f - RunAlpha, Locomotion);
+            FAnimationRuntime::BlendTwoPosesTogether(A, Locomotion, 1.f - Alpha, Result);
+        }
+        else FAnimationRuntime::BlendTwoPosesTogether(A, B, 1.f - Alpha, Result);
         const FBoneContainer& Bones = Output.Pose.GetBoneContainer();
         auto Offset = [&](FName Name, float Pitch, float Swing)
         {
@@ -104,6 +127,7 @@ struct FMeshyAnimationProxy : FAnimInstanceProxy
         FAnimInstanceProxy::PostUpdate(Instance);
         auto* View = CastChecked<UPokeMonsterMeshyAnimInstance>(Instance);
         View->WalkAlpha = Alpha; View->WalkPlayRate = Rate; View->WalkTime = WalkTime;
+        View->RunAlpha = RunAlpha; View->RunPlayRate = RunRate;
         View->CapePitch = CapePitch.Angle; View->CapeSwing = CapeSwing.Angle; View->BagSwing = BagSwing.Angle;
     }
 };

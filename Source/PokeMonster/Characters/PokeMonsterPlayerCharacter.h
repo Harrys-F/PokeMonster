@@ -103,6 +103,13 @@ public:
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Movement")
 	bool IsUsingInteriorMovementBasis() const { return bInteriorMovementBasis; }
 
+	UFUNCTION(BlueprintPure, Category = "PokeMonster|Movement")
+	bool IsSprinting() const { return bSprintActive; }
+	UFUNCTION(BlueprintPure, Category = "PokeMonster|Movement")
+	bool CanSprint() const;
+	UFUNCTION(BlueprintPure, Category = "PokeMonster|Movement")
+	float GetNormalWalkSpeed() const;
+
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Movement")
@@ -203,6 +210,7 @@ protected:
 private:
 #if WITH_DEV_AUTOMATION_TESTS
 	friend class FPokeMonsterPlayerFoundationTest;
+	friend class FPokeMonsterPlayerSprintTest;
 	friend class FPokeMonsterBuildingCameraTest;
 	friend class FPokeMonsterRelocatedInteriorTransitionTest;
 	friend class FPokeMonsterEncounterIntegrationTest;
@@ -217,6 +225,16 @@ private:
 	float GetPresentationCameraYaw() const;
 
 	void Move(const FInputActionValue& Value);
+	void StartSprintHold(const FInputActionValue& Value);
+	void StopSprintHold(const FInputActionValue& Value);
+	void ToggleSprint(const FInputActionValue& Value);
+	void RefreshSprint();
+	UFUNCTION() void OnMovementUpdated(float DeltaSeconds, FVector OldLocation, FVector OldVelocity);
+	bool bSprintHeld = false;
+	bool bSprintToggled = false;
+	bool bSprintActive = false;
+	float NormalWalkSpeed = 210.f;
+	TArray<TWeakObjectPtr<APokeMonsterBuildingCutaway>> SprintInteriorAreas;
 	void StopMoving(const FInputActionValue& Value);
 	void Interact(const FInputActionValue& Value);
 	void ToggleOverworldMenu(const FInputActionValue& Value);
@@ -239,6 +257,8 @@ private:
 
 	UPROPERTY(Transient)
 	TObjectPtr<UInputAction> MenuAction;
+	UPROPERTY(Transient) TObjectPtr<UInputAction> SprintHoldAction;
+	UPROPERTY(Transient) TObjectPtr<UInputAction> SprintToggleAction;
 
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = "PokeMonster|Movement", meta = (AllowPrivateAccess = "true"))
 	FVector2D MovementInput = FVector2D::ZeroVector;

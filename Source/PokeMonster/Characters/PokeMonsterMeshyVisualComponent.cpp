@@ -22,6 +22,8 @@ UPokeMonsterMeshyVisualComponent::UPokeMonsterMeshyVisualComponent()
     if (Mesh.Succeeded()) SetSkeletalMesh(Mesh.Object);
     IdleAnimation = Idle.Object;
     WalkAnimation = Walk.Object;
+    static ConstructorHelpers::FObjectFinder<UAnimSequence> Run(TEXT("/Game/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Run_V1.A_Player_Meshy_Run_V1"));
+    RunAnimation = Run.Object;
 }
 
 bool UPokeMonsterMeshyVisualComponent::IsMeshyActive() const

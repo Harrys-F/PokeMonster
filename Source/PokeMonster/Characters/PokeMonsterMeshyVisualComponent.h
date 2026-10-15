@@ -22,6 +22,10 @@ public:
     TObjectPtr<UAnimSequence> IdleAnimation;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Player Presentation")
     TObjectPtr<UAnimSequence> WalkAnimation;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Player Presentation")
+    TObjectPtr<UAnimSequence> RunAnimation;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Player Presentation", meta=(ClampMin="1"))
+    float AuthoredRunSpeed = 315.f;
     /** Imported model faces +X; an alternate mesh may require an offset. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Player Presentation")
     float ForwardYawOffset = 0.f;
