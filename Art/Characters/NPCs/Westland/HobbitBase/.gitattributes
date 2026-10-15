@@ -1,0 +1,2 @@
+# Preserve incoming Hobbit master files without changing their original bytes.
+Incoming/**/*.glb filter=lfs diff=lfs merge=lfs -text
