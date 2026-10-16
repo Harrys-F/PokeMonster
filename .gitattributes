@@ -1,3 +1,46 @@
 *.uasset filter=lfs diff=lfs merge=lfs -text
 *.umap filter=lfs diff=lfs merge=lfs -text
 *.blend filter=lfs diff=lfs merge=lfs -text
+
+# Binary-source coverage for the development backup.
+*.glb filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
+
+# Scope review media and textures to the new development groups.
+
+# Genuine NPC texture inputs; review media live outside Git.
+# Runtime movies, if introduced deliberately.
+Content/Movies/**/*.mp4 filter=lfs diff=lfs merge=lfs -text
+Content/Movies/**/*.mov filter=lfs diff=lfs merge=lfs -text
+
+# Exact existing texture inputs; do not migrate unrelated parent images.
+Art/Characters/NPCs/CrouchedCreature/Textures/CrouchedCreature_Image_0.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/CrouchedCreature/Textures/CrouchedCreature_Image_1.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/CrouchedCreature/Textures/CrouchedCreature_Image_2.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/DarkArmored/Textures/DarkArmored_Image_0.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/DarkArmored/Textures/DarkArmored_Image_1.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/DarkArmored/Textures/DarkArmored_Image_2.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/DwarfWarrior/Textures/DwarfWarrior_Image_0.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/DwarfWarrior/Textures/DwarfWarrior_Image_1.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/DwarfWarrior/Textures/DwarfWarrior_Image_2.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/ElvenArcher/Textures/ElvenArcher_Image_0.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/ElvenArcher/Textures/ElvenArcher_Image_1.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/ElvenArcher/Textures/ElvenArcher_Image_2.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/ElvenScholar/Textures/ElvenScholar_Image_0.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/ElvenScholar/Textures/ElvenScholar_Image_1.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/ElvenScholar/Textures/ElvenScholar_Image_2.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/Ranger/Textures/Ranger_Image_0.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/Ranger/Textures/Ranger_Image_1.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/Ranger/Textures/Ranger_Image_2.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/SilverLady/Textures/SilverLady_Image_0.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/SilverLady/Textures/SilverLady_Image_1.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/SilverLady/Textures/SilverLady_Image_2.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/TreeBeing/Textures/TreeBeing_Image_0.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/TreeBeing/Textures/TreeBeing_Image_1.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/TreeBeing/Textures/TreeBeing_Image_2.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/WhiteHairedWarrior/Textures/WhiteHairedWarrior_Image_0.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/WhiteHairedWarrior/Textures/WhiteHairedWarrior_Image_1.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/WhiteHairedWarrior/Textures/WhiteHairedWarrior_Image_2.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/Wizard/Textures/Wizard_Image_0.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/Wizard/Textures/Wizard_Image_1.jpg filter=lfs diff=lfs merge=lfs -text
+Art/Characters/NPCs/Wizard/Textures/Wizard_Image_2.jpg filter=lfs diff=lfs merge=lfs -text
