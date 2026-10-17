@@ -1,0 +1,3 @@
+import unreal,json
+from pathlib import Path
+m=unreal.load_asset('/Game/Characters/NPCs/RangerV2/Meshes/SK_Ranger_NPC_V2');g=m.lod_settings.get_editor_property('lod_groups')[0];r=g.get_editor_property('reduction_settings');out={'fields':dir(r),'api':unreal.GeometryScript_AssetUtils.copy_mesh_from_skeletal_mesh.__doc__,'queries':dir(unreal.GeometryScript_MeshQueries)};out['reduction']={n:str(r.get_editor_property(n)) for n in dir(r) if not n.startswith('_') and not callable(getattr(r,n,None))};Path(unreal.Paths.project_dir(),'Art/Characters/NPCs/Ranger/Review/V2/ReductionAPI.json').write_text(json.dumps(out,indent=2))

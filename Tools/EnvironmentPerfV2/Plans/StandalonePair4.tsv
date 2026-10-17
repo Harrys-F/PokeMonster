@@ -1,0 +1,19 @@
+StandalonePair4	Standalone	5	6
+Dorf	Control	1	2560	1440	1	100
+Dorf	CV:r.Lumen.FinalGatherMethod=0|r.Lumen.HardwareRayTracing=0	1	2560	1440	1	100
+Wald	Control	1	2560	1440	1	100
+Wald	CV:r.Lumen.FinalGatherMethod=0|r.Lumen.HardwareRayTracing=0	1	2560	1440	1	100
+Weg	Control	1	2560	1440	1	100
+Weg	CV:r.Lumen.FinalGatherMethod=0|r.Lumen.HardwareRayTracing=0	1	2560	1440	1	100
+Weg	CV:r.Lumen.FinalGatherMethod=0|r.Lumen.HardwareRayTracing=0	2	2560	1440	1	100
+Weg	Control	2	2560	1440	1	100
+Wald	CV:r.Lumen.FinalGatherMethod=0|r.Lumen.HardwareRayTracing=0	2	2560	1440	1	100
+Wald	Control	2	2560	1440	1	100
+Dorf	CV:r.Lumen.FinalGatherMethod=0|r.Lumen.HardwareRayTracing=0	2	2560	1440	1	100
+Dorf	Control	2	2560	1440	1	100
+Dorf	Control	3	2560	1440	1	100
+Dorf	CV:r.Lumen.FinalGatherMethod=0|r.Lumen.HardwareRayTracing=0	3	2560	1440	1	100
+Wald	Control	3	2560	1440	1	100
+Wald	CV:r.Lumen.FinalGatherMethod=0|r.Lumen.HardwareRayTracing=0	3	2560	1440	1	100
+Weg	Control	3	2560	1440	1	100
+Weg	CV:r.Lumen.FinalGatherMethod=0|r.Lumen.HardwareRayTracing=0	3	2560	1440	1	100

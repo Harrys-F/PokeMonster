@@ -1,0 +1,69 @@
+{
+  "meshes": [
+    {
+      "mesh": "/Game/Environment/TreeShadowProxyV1/SM_TSP_OakAncient_Bark.SM_TSP_OakAncient_Bark",
+      "triangles": 4412,
+      "slots": 1,
+      "collision_count": 0,
+      "bounds": "<Struct 'Box' (0x9e9dd346f00) {min: {x: -530.462097, y: -367.486908, z: 0.000000}, max: {x: 476.623749, y: 350.562408, z: 1086.282349}, is_valid: True}>"
+    },
+    {
+      "mesh": "/Game/Environment/TreeShadowProxyV1/SM_TSP_OakAncient_Crown.SM_TSP_OakAncient_Crown",
+      "triangles": 376,
+      "slots": 1,
+      "collision_count": 0,
+      "bounds": "<Struct 'Box' (0x9e9d6f053c0) {min: {x: -605.427795, y: -384.771790, z: 830.000000}, max: {x: 585.993774, y: 514.605530, z: 1044.863647}, is_valid: True}>"
+    }
+  ],
+  "actors": [
+    {
+      "tree": "V2_ForestOak_0",
+      "proxy": "TSP_V2_ForestOak_0_Bark",
+      "transform": "<Struct 'Transform' (0x71125cfdb0) {rotation: {x: -0.000000, y: 0.000000, z: -0.877373, w: 0.479809}, translation: {x: -4650.000000, y: 900.000000, z: 0.000000}, scale3d: {x: 0.620000, y: 0.620000, z: 0.620000}}>",
+      "hidden_in_game": true,
+      "cast_hidden_shadow": true,
+      "collision": "None"
+    },
+    {
+      "tree": "V2_ForestOak_0",
+      "proxy": "TSP_V2_ForestOak_0_Crown",
+      "transform": "<Struct 'Transform' (0x71125cfdb0) {rotation: {x: -0.000000, y: 0.000000, z: -0.877373, w: 0.479809}, translation: {x: -4650.000000, y: 900.000000, z: 0.000000}, scale3d: {x: 0.620000, y: 0.620000, z: 0.620000}}>",
+      "hidden_in_game": true,
+      "cast_hidden_shadow": true,
+      "collision": "None"
+    },
+    {
+      "tree": "V2_ForestOak_1",
+      "proxy": "TSP_V2_ForestOak_1_Bark",
+      "transform": "<Struct 'Transform' (0x71125cfdb0) {rotation: {x: -0.000000, y: 0.000000, z: -0.991440, w: 0.130562}, translation: {x: -3880.000000, y: 1580.000000, z: 0.000000}, scale3d: {x: 0.600000, y: 0.600000, z: 0.600000}}>",
+      "hidden_in_game": true,
+      "cast_hidden_shadow": true,
+      "collision": "None"
+    },
+    {
+      "tree": "V2_ForestOak_1",
+      "proxy": "TSP_V2_ForestOak_1_Crown",
+      "transform": "<Struct 'Transform' (0x71125cfdb0) {rotation: {x: -0.000000, y: 0.000000, z: -0.991440, w: 0.130562}, translation: {x: -3880.000000, y: 1580.000000, z: 0.000000}, scale3d: {x: 0.600000, y: 0.600000, z: 0.600000}}>",
+      "hidden_in_game": true,
+      "cast_hidden_shadow": true,
+      "collision": "None"
+    },
+    {
+      "tree": "V2_ForestOak_2",
+      "proxy": "TSP_V2_ForestOak_2_Bark",
+      "transform": "<Struct 'Transform' (0x71125cfdb0) {rotation: {x: -0.000000, y: 0.000000, z: -0.374086, w: 0.927394}, translation: {x: -2640.000000, y: 1670.000000, z: 0.000000}, scale3d: {x: 0.520000, y: 0.520000, z: 0.520000}}>",
+      "hidden_in_game": true,
+      "cast_hidden_shadow": true,
+      "collision": "None"
+    },
+    {
+      "tree": "V2_ForestOak_2",
+      "proxy": "TSP_V2_ForestOak_2_Crown",
+      "transform": "<Struct 'Transform' (0x71125cfdb0) {rotation: {x: -0.000000, y: 0.000000, z: -0.374086, w: 0.927394}, translation: {x: -2640.000000, y: 1670.000000, z: 0.000000}, scale3d: {x: 0.520000, y: 0.520000, z: 0.520000}}>",
+      "hidden_in_game": true,
+      "cast_hidden_shadow": true,
+      "collision": "None"
+    }
+  ],
+  "only_original_change": "CastShadow=False on exactly V2_ForestOak_0/1/2 in test map"
+}

@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-15T15:19:04.663573+00:00",
+  "hardware": {
+    "hw.model": "Mac16,12",
+    "hw.memsize": "17179869184",
+    "machdep.cpu.brand_string": "Apple M4"
+  },
+  "power": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=23068771)\t86%; discharging; 3:11 remaining present: true\n"
+}

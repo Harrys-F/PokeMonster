@@ -1,0 +1,1583 @@
+{
+  "raw_logs": [
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/EditorSession.log",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/AutomationFinal.log",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/NativeMatrix1.log",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/NativeMatrix2.log",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/NativeMatrix3.log",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/NativeMatrix4.log",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/NativeMatrix5.log"
+  ],
+  "groups": {
+    "EditorSession.log": [
+      {
+        "message": "LogHAL: Warning: FMacPlatformProcess::CreateProc: posix_spawn(\"/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id\") failed (86, Bad CPU type in executable)",
+        "count": 247
+      },
+      {
+        "message": "LogHAL: Warning: Failed to launch Tool. (/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id)",
+        "count": 247
+      },
+      {
+        "message": "LogAutomationTest: Error: Condition failed",
+        "count": 68
+      },
+      {
+        "message": "LogAudioMixerAudioUnit: Warning: Error querying Sample Rate: 2003332927",
+        "count": 18
+      },
+      {
+        "message": "LogModelContextProtocol: Warning: Data transmitted via this plugin to your connected LLM service is Licensed Technology under the UE EULA. You are responsible for ensuring your LLM provider does not use it as training input. See Section 6(e) of the UE EULA for full terms.",
+        "count": 4
+      },
+      {
+        "message": "LogLayoutService: Warning: While key \"UnrealEd_Layout_v1.5\" was not found, and older version exists (key \"UnrealEd_Layout_v1.6\"). This means section \"EditorLayouts\" was created with a previous version of UE and is no longer compatible. The old key has been removed and updated with the new one.",
+        "count": 2
+      },
+      {
+        "message": "LogConsoleManager: Warning: Console variable 'r.MotionVectorSimulation' used in the render thread. Rendering artifacts could happen. Use ECVF_RenderThreadSafe or don't use in render thread.",
+        "count": 4
+      },
+      {
+        "message": "LogPython: Error: Traceback (most recent call last):",
+        "count": 1
+      },
+      {
+        "message": "LogHttp: Warning: [FHttpManager::Shutdown] Unbinding delegates for 1 outstanding Http Requests:",
+        "count": 3
+      },
+      {
+        "message": "LogHttp: Warning: \tverb=[POST] url=[https://datarouter.ol.epicgames.com/datarouter/api/v1/public/data?SessionID=%7B04FEA371-7447-F6AB-4860-FE8CB8E9C333%7D&AppID=UEEditor.Rocket.Release&AppVersion=5.8.2-56702186%2B%2B%2BUE5%2BRelease-5.8&UserID=ef5ecdb0c042ca5ecc7933a9e6caef50%7C23b32888e1b044fdb8aaf76c76ca6848%7CAAEBC111-5002-50E6-857D-4DD7CB37F772&AppEnvironment=datacollector-binary&UploadType=eteventstream] refs=[2] status=Processing",
+        "count": 1
+      },
+      {
+        "message": "LogConsoleManager: Warning: Performance warning: Many (31) failed FindConsoleObject() for 'Shot'. ",
+        "count": 1
+      },
+      {
+        "message": "LogCharacterMovement: Warning: GetSimulationTimeStep() - Max iterations 8 hit while remaining time 0.078386 > MaxSimulationTimeStep (0.050) for 'PokeMonsterPlayerCharacter_0', movement 'Walking'",
+        "count": 1
+      },
+      {
+        "message": "LogHttp: Warning: \tverb=[POST] url=[https://datarouter.ol.epicgames.com/datarouter/api/v1/public/data?SessionID=%7B97EAAC4E-5449-D585-0AA2-DF8492F9EBF9%7D&AppID=UEEditor.Rocket.Release&AppVersion=5.8.2-56702186%2B%2B%2BUE5%2BRelease-5.8&UserID=ef5ecdb0c042ca5ecc7933a9e6caef50%7C23b32888e1b044fdb8aaf76c76ca6848%7CAAEBC111-5002-50E6-857D-4DD7CB37F772&AppEnvironment=datacollector-binary&UploadType=eteventstream] refs=[2] status=Processing",
+        "count": 1
+      },
+      {
+        "message": "LogConsoleManager: Warning: Setting the console variable 'r.Shadow.Virtual.SMRT.RayCountDirectional' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByConsole'. Value remains '8'",
+        "count": 25
+      },
+      {
+        "message": "LogConsoleManager: Warning: Setting the console variable 'r.Lumen.FinalGatherMethod' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByConsole'. Value remains '1'",
+        "count": 25
+      },
+      {
+        "message": "LogHttp: Warning: \tverb=[POST] url=[https://datarouter.ol.epicgames.com/datarouter/api/v1/public/data?SessionID=%7B51A93A06-C54B-D6E9-97FA-798399E1E532%7D&AppID=UEEditor.Rocket.Release&AppVersion=5.8.2-56702186%2B%2B%2BUE5%2BRelease-5.8&UserID=ef5ecdb0c042ca5ecc7933a9e6caef50%7C23b32888e1b044fdb8aaf76c76ca6848%7CAAEBC111-5002-50E6-857D-4DD7CB37F772&AppEnvironment=datacollector-binary&UploadType=eteventstream] refs=[2] status=Processing",
+        "count": 1
+      }
+    ],
+    "AutomationFinal.log": [
+      {
+        "message": "LogHAL: Warning: FMacPlatformProcess::CreateProc: posix_spawn(\"/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id\") failed (86, Bad CPU type in executable)",
+        "count": 2
+      },
+      {
+        "message": "LogHAL: Warning: Failed to launch Tool. (/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id)",
+        "count": 2
+      },
+      {
+        "message": "LogAutomationTest: Error: Condition failed",
+        "count": 17
+      },
+      {
+        "message": "LogModelContextProtocol: Warning: Data transmitted via this plugin to your connected LLM service is Licensed Technology under the UE EULA. You are responsible for ensuring your LLM provider does not use it as training input. See Section 6(e) of the UE EULA for full terms.",
+        "count": 1
+      }
+    ],
+    "NativeMatrix1.log": [
+      {
+        "message": "LogAudioMixerAudioUnit: Warning: Error querying Sample Rate: 2003332927",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'ActorLayersWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AlertWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AlertHeaderWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'UObjectLabelWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'FolderCompatibilityWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'DiskSizeWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataItemTypeWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataLabelWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataVirtualPathWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetNameWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'DynamicAssetDataColumnBaseWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 5
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'StaticMeshTrianglesWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'OutlinerUnsavedWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'OutlinerUnsavedHeaderConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'SocketWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'TypeInfoWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'VisibilityWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogMaterial: Warning: Material /Game/Environment/WestlandAssetLibrary/QualityV3/Materials/MI_WLA_FoliageGroups_V3.MI_WLA_FoliageGroups_V3 missing usage flag InstancedStaticMeshes! Default Material will be used in game.",
+        "count": 3
+      },
+      {
+        "message": "LogMaterial: Warning:      The material instance will recompile every editor launch until resaved.",
+        "count": 3
+      },
+      {
+        "message": "LogConsoleManager: Warning: Console variable 'r.MotionVectorSimulation' used in the render thread. Rendering artifacts could happen. Use ECVF_RenderThreadSafe or don't use in render thread.",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: Traceback (most recent call last):",
+        "count": 7
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/init_unreal.py\", line 7, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from animation_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/animation_toolset/toolsets/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from animation_toolset.toolsets.controlrig import ControlRigTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/animation_toolset/toolsets/controlrig.py\", line 41, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class ControlRigTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                           ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "count": 4
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from aimodule_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/aimodule_toolset/toolsets/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from aimodule_toolset.toolsets.behavior_tree import BehaviorTreeTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/aimodule_toolset/toolsets/behavior_tree.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class BehaviorTreeTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 2
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from conversation_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/conversation_toolset/toolsets/__init__.py\", line 2, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from conversation_toolset.toolsets.conversation import ConversationTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/conversation_toolset/toolsets/conversation.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class ConversationTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from state_tree_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/state_tree_toolset/toolsets/__init__.py\", line 2, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from state_tree_toolset.toolsets.state_tree import StateTreeTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/state_tree_toolset/toolsets/state_tree.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class StateTreeTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                          ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/init_unreal.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from skills import blueprint_interop",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/skills/blueprint_interop.py\", line 35, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class NiagaraBlueprintInteropSkill(unreal.AgentSkill):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                        ^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "count": 2
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from editor_toolset import skills  # noqa: F401 \u2014 imports register @agent_skill modules",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/editor_toolset/skills/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from editor_toolset.skills import blueprint_basics",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/editor_toolset/skills/blueprint_basics.py\", line 41, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class BlueprintBasicsSkill(unreal.AgentSkill):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                ^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/ToolsetRegistry/Content/Python/init_unreal.py\", line 7, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     tests._toolset_registry_test_runner = unreal.PythonTestRunner.create(",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                           ^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'PythonTestRunner'",
+        "count": 1
+      },
+      {
+        "message": "LogCharacterMovement: Warning: GetSimulationTimeStep() - Max iterations 8 hit while remaining time 0.078386 > MaxSimulationTimeStep (0.050) for 'PokeMonsterPlayerCharacter_0', movement 'Walking'",
+        "count": 1
+      },
+      {
+        "message": "LogConsoleManager: Warning: Setting the console variable 'r.Shadow.Virtual.SMRT.RayCountDirectional' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByConsole'. Value remains '8'",
+        "count": 5
+      },
+      {
+        "message": "LogConsoleManager: Warning: Setting the console variable 'r.Lumen.FinalGatherMethod' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByConsole'. Value remains '1'",
+        "count": 5
+      }
+    ],
+    "NativeMatrix2.log": [
+      {
+        "message": "LogAudioMixerAudioUnit: Warning: Error querying Sample Rate: 2003332927",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'ActorLayersWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AlertWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AlertHeaderWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'UObjectLabelWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'FolderCompatibilityWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'DiskSizeWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataItemTypeWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataLabelWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataVirtualPathWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetNameWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'DynamicAssetDataColumnBaseWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 5
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'StaticMeshTrianglesWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'OutlinerUnsavedWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'OutlinerUnsavedHeaderConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'SocketWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'TypeInfoWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'VisibilityWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogMaterial: Warning: Material /Game/Environment/WestlandAssetLibrary/QualityV3/Materials/MI_WLA_FoliageGroups_V3.MI_WLA_FoliageGroups_V3 missing usage flag InstancedStaticMeshes! Default Material will be used in game.",
+        "count": 3
+      },
+      {
+        "message": "LogMaterial: Warning:      The material instance will recompile every editor launch until resaved.",
+        "count": 3
+      },
+      {
+        "message": "LogConsoleManager: Warning: Console variable 'r.MotionVectorSimulation' used in the render thread. Rendering artifacts could happen. Use ECVF_RenderThreadSafe or don't use in render thread.",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: Traceback (most recent call last):",
+        "count": 7
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/init_unreal.py\", line 7, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from animation_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/animation_toolset/toolsets/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from animation_toolset.toolsets.controlrig import ControlRigTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/animation_toolset/toolsets/controlrig.py\", line 41, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class ControlRigTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                           ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "count": 4
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from aimodule_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/aimodule_toolset/toolsets/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from aimodule_toolset.toolsets.behavior_tree import BehaviorTreeTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/aimodule_toolset/toolsets/behavior_tree.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class BehaviorTreeTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 2
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from conversation_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/conversation_toolset/toolsets/__init__.py\", line 2, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from conversation_toolset.toolsets.conversation import ConversationTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/conversation_toolset/toolsets/conversation.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class ConversationTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/init_unreal.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from skills import blueprint_interop",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/skills/blueprint_interop.py\", line 35, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class NiagaraBlueprintInteropSkill(unreal.AgentSkill):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                        ^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "count": 2
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from state_tree_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/state_tree_toolset/toolsets/__init__.py\", line 2, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from state_tree_toolset.toolsets.state_tree import StateTreeTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/state_tree_toolset/toolsets/state_tree.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class StateTreeTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                          ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from editor_toolset import skills  # noqa: F401 \u2014 imports register @agent_skill modules",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/editor_toolset/skills/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from editor_toolset.skills import blueprint_basics",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/editor_toolset/skills/blueprint_basics.py\", line 41, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class BlueprintBasicsSkill(unreal.AgentSkill):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                ^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/ToolsetRegistry/Content/Python/init_unreal.py\", line 7, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     tests._toolset_registry_test_runner = unreal.PythonTestRunner.create(",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                           ^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'PythonTestRunner'",
+        "count": 1
+      },
+      {
+        "message": "LogCharacterMovement: Warning: GetSimulationTimeStep() - Max iterations 8 hit while remaining time 0.078386 > MaxSimulationTimeStep (0.050) for 'PokeMonsterPlayerCharacter_0', movement 'Walking'",
+        "count": 1
+      },
+      {
+        "message": "LogConsoleManager: Warning: Setting the console variable 'r.Shadow.Virtual.SMRT.RayCountDirectional' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByConsole'. Value remains '8'",
+        "count": 5
+      },
+      {
+        "message": "LogConsoleManager: Warning: Setting the console variable 'r.Lumen.FinalGatherMethod' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByConsole'. Value remains '1'",
+        "count": 5
+      }
+    ],
+    "NativeMatrix3.log": [
+      {
+        "message": "LogAudioMixerAudioUnit: Warning: Error querying Sample Rate: 2003332927",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'ActorLayersWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AlertWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AlertHeaderWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'UObjectLabelWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'FolderCompatibilityWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'DiskSizeWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataItemTypeWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataLabelWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataVirtualPathWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetNameWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'DynamicAssetDataColumnBaseWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 5
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'StaticMeshTrianglesWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'OutlinerUnsavedWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'OutlinerUnsavedHeaderConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'SocketWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'TypeInfoWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'VisibilityWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogMaterial: Warning: Material /Game/Environment/WestlandAssetLibrary/QualityV3/Materials/MI_WLA_FoliageGroups_V3.MI_WLA_FoliageGroups_V3 missing usage flag InstancedStaticMeshes! Default Material will be used in game.",
+        "count": 3
+      },
+      {
+        "message": "LogMaterial: Warning:      The material instance will recompile every editor launch until resaved.",
+        "count": 3
+      },
+      {
+        "message": "LogConsoleManager: Warning: Console variable 'r.MotionVectorSimulation' used in the render thread. Rendering artifacts could happen. Use ECVF_RenderThreadSafe or don't use in render thread.",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: Traceback (most recent call last):",
+        "count": 7
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/init_unreal.py\", line 7, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from animation_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/animation_toolset/toolsets/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from animation_toolset.toolsets.controlrig import ControlRigTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/animation_toolset/toolsets/controlrig.py\", line 41, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class ControlRigTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                           ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "count": 4
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from aimodule_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/aimodule_toolset/toolsets/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from aimodule_toolset.toolsets.behavior_tree import BehaviorTreeTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/aimodule_toolset/toolsets/behavior_tree.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class BehaviorTreeTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 2
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/init_unreal.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from skills import blueprint_interop",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/skills/blueprint_interop.py\", line 35, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class NiagaraBlueprintInteropSkill(unreal.AgentSkill):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                        ^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "count": 2
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from conversation_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/conversation_toolset/toolsets/__init__.py\", line 2, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from conversation_toolset.toolsets.conversation import ConversationTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/conversation_toolset/toolsets/conversation.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class ConversationTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from editor_toolset import skills  # noqa: F401 \u2014 imports register @agent_skill modules",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/editor_toolset/skills/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from editor_toolset.skills import blueprint_basics",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/editor_toolset/skills/blueprint_basics.py\", line 41, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class BlueprintBasicsSkill(unreal.AgentSkill):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                ^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from state_tree_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/state_tree_toolset/toolsets/__init__.py\", line 2, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from state_tree_toolset.toolsets.state_tree import StateTreeTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/state_tree_toolset/toolsets/state_tree.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class StateTreeTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                          ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/ToolsetRegistry/Content/Python/init_unreal.py\", line 7, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     tests._toolset_registry_test_runner = unreal.PythonTestRunner.create(",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                           ^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'PythonTestRunner'",
+        "count": 1
+      },
+      {
+        "message": "LogCharacterMovement: Warning: GetSimulationTimeStep() - Max iterations 8 hit while remaining time 0.078386 > MaxSimulationTimeStep (0.050) for 'PokeMonsterPlayerCharacter_0', movement 'Walking'",
+        "count": 1
+      },
+      {
+        "message": "LogConsoleManager: Warning: Setting the console variable 'r.Shadow.Virtual.SMRT.RayCountDirectional' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByConsole'. Value remains '8'",
+        "count": 5
+      },
+      {
+        "message": "LogConsoleManager: Warning: Setting the console variable 'r.Lumen.FinalGatherMethod' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByConsole'. Value remains '1'",
+        "count": 5
+      }
+    ],
+    "NativeMatrix4.log": [
+      {
+        "message": "LogAudioMixerAudioUnit: Warning: Error querying Sample Rate: 2003332927",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'ActorLayersWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AlertWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AlertHeaderWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'UObjectLabelWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'FolderCompatibilityWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'DiskSizeWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataItemTypeWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataLabelWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataVirtualPathWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetNameWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'DynamicAssetDataColumnBaseWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 5
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'StaticMeshTrianglesWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'OutlinerUnsavedWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'OutlinerUnsavedHeaderConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'SocketWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'TypeInfoWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'VisibilityWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogMaterial: Warning: Material /Game/Environment/WestlandAssetLibrary/QualityV3/Materials/MI_WLA_FoliageGroups_V3.MI_WLA_FoliageGroups_V3 missing usage flag InstancedStaticMeshes! Default Material will be used in game.",
+        "count": 1
+      },
+      {
+        "message": "LogMaterial: Warning:      The material instance will recompile every editor launch until resaved.",
+        "count": 1
+      },
+      {
+        "message": "LogConsoleManager: Warning: Console variable 'r.MotionVectorSimulation' used in the render thread. Rendering artifacts could happen. Use ECVF_RenderThreadSafe or don't use in render thread.",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: Traceback (most recent call last):",
+        "count": 7
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/init_unreal.py\", line 7, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from animation_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/animation_toolset/toolsets/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from animation_toolset.toolsets.controlrig import ControlRigTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/animation_toolset/toolsets/controlrig.py\", line 41, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class ControlRigTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                           ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "count": 4
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from aimodule_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/aimodule_toolset/toolsets/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from aimodule_toolset.toolsets.behavior_tree import BehaviorTreeTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/aimodule_toolset/toolsets/behavior_tree.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class BehaviorTreeTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 2
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from conversation_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/conversation_toolset/toolsets/__init__.py\", line 2, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from conversation_toolset.toolsets.conversation import ConversationTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/conversation_toolset/toolsets/conversation.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class ConversationTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/init_unreal.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from skills import blueprint_interop",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/skills/blueprint_interop.py\", line 35, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class NiagaraBlueprintInteropSkill(unreal.AgentSkill):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                        ^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "count": 2
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from editor_toolset import skills  # noqa: F401 \u2014 imports register @agent_skill modules",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/editor_toolset/skills/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from editor_toolset.skills import blueprint_basics",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/editor_toolset/skills/blueprint_basics.py\", line 41, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class BlueprintBasicsSkill(unreal.AgentSkill):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                ^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from state_tree_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/state_tree_toolset/toolsets/__init__.py\", line 2, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from state_tree_toolset.toolsets.state_tree import StateTreeTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/state_tree_toolset/toolsets/state_tree.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class StateTreeTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                          ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/ToolsetRegistry/Content/Python/init_unreal.py\", line 7, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     tests._toolset_registry_test_runner = unreal.PythonTestRunner.create(",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                           ^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'PythonTestRunner'",
+        "count": 1
+      },
+      {
+        "message": "LogCharacterMovement: Warning: GetSimulationTimeStep() - Max iterations 8 hit while remaining time 0.078386 > MaxSimulationTimeStep (0.050) for 'PokeMonsterPlayerCharacter_0', movement 'Walking'",
+        "count": 1
+      },
+      {
+        "message": "LogConsoleManager: Warning: Setting the console variable 'r.Shadow.Virtual.SMRT.RayCountDirectional' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByConsole'. Value remains '8'",
+        "count": 5
+      },
+      {
+        "message": "LogConsoleManager: Warning: Setting the console variable 'r.Lumen.FinalGatherMethod' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByConsole'. Value remains '1'",
+        "count": 5
+      }
+    ],
+    "NativeMatrix5.log": [
+      {
+        "message": "LogAudioMixerAudioUnit: Warning: Error querying Sample Rate: 2003332927",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'ActorLayersWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AlertWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AlertHeaderWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'UObjectLabelWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'FolderCompatibilityWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'DiskSizeWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataItemTypeWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataLabelWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetDataVirtualPathWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'AssetNameWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'DynamicAssetDataColumnBaseWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 5
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'StaticMeshTrianglesWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'OutlinerUnsavedWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'OutlinerUnsavedHeaderConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'SocketWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'TypeInfoWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogEditorDataStorageUI: Warning: Unable to register widget factory 'VisibilityWidgetConstructor' as purpose '0' isn't registered.",
+        "count": 1
+      },
+      {
+        "message": "LogMaterial: Warning: Material /Game/Environment/WestlandAssetLibrary/QualityV3/Materials/MI_WLA_FoliageGroups_V3.MI_WLA_FoliageGroups_V3 missing usage flag InstancedStaticMeshes! Default Material will be used in game.",
+        "count": 1
+      },
+      {
+        "message": "LogMaterial: Warning:      The material instance will recompile every editor launch until resaved.",
+        "count": 1
+      },
+      {
+        "message": "LogConsoleManager: Warning: Console variable 'r.MotionVectorSimulation' used in the render thread. Rendering artifacts could happen. Use ECVF_RenderThreadSafe or don't use in render thread.",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: Traceback (most recent call last):",
+        "count": 7
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/init_unreal.py\", line 7, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from animation_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/animation_toolset/toolsets/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from animation_toolset.toolsets.controlrig import ControlRigTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AnimationAssistantToolset/Content/Python/animation_toolset/toolsets/controlrig.py\", line 41, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class ControlRigTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                           ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'ToolsetDefinition'",
+        "count": 4
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from aimodule_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/aimodule_toolset/toolsets/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from aimodule_toolset.toolsets.behavior_tree import BehaviorTreeTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/AIModuleToolset/Content/Python/aimodule_toolset/toolsets/behavior_tree.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class BehaviorTreeTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                             ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 2
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from conversation_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/conversation_toolset/toolsets/__init__.py\", line 2, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from conversation_toolset.toolsets.conversation import ConversationTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/ConversationToolset/Content/Python/conversation_toolset/toolsets/conversation.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class ConversationTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/init_unreal.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from skills import blueprint_interop",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/NiagaraToolsets/Content/Python/skills/blueprint_interop.py\", line 35, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class NiagaraBlueprintInteropSkill(unreal.AgentSkill):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                        ^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'AgentSkill'",
+        "count": 2
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from state_tree_toolset import toolsets",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/state_tree_toolset/toolsets/__init__.py\", line 2, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from state_tree_toolset.toolsets.state_tree import StateTreeTools",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/StateTreeToolset/Content/Python/state_tree_toolset/toolsets/state_tree.py\", line 9, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class StateTreeTools(unreal.ToolsetDefinition):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                          ^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/init_unreal.py\", line 5, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from editor_toolset import skills  # noqa: F401 \u2014 imports register @agent_skill modules",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/editor_toolset/skills/__init__.py\", line 3, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     from editor_toolset.skills import blueprint_basics",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/Toolsets/EditorToolset/Content/Python/editor_toolset/skills/blueprint_basics.py\", line 41, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     class BlueprintBasicsSkill(unreal.AgentSkill):",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                ^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:   File \"/Users/Shared/Epic Games/UE_5.8/Engine/Plugins/Experimental/ToolsetRegistry/Content/Python/init_unreal.py\", line 7, in <module>",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:     tests._toolset_registry_test_runner = unreal.PythonTestRunner.create(",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error:                                           ^^^^^^^^^^^^^^^^^^^^^^^",
+        "count": 1
+      },
+      {
+        "message": "LogPython: Error: AttributeError: module 'unreal' has no attribute 'PythonTestRunner'",
+        "count": 1
+      },
+      {
+        "message": "LogCharacterMovement: Warning: GetSimulationTimeStep() - Max iterations 8 hit while remaining time 0.078386 > MaxSimulationTimeStep (0.050) for 'PokeMonsterPlayerCharacter_0', movement 'Walking'",
+        "count": 1
+      },
+      {
+        "message": "LogConsoleManager: Warning: Setting the console variable 'r.Shadow.Virtual.SMRT.RayCountDirectional' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByConsole'. Value remains '8'",
+        "count": 5
+      },
+      {
+        "message": "LogConsoleManager: Warning: Setting the console variable 'r.Lumen.FinalGatherMethod' with 'SetByScalability' was ignored as it is lower priority than the previous 'SetByConsole'. Value remains '1'",
+        "count": 5
+      }
+    ]
+  },
+  "map_check_lines": [
+    {
+      "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/EditorSession.log",
+      "line": "[2026.10.16-12.03.51:202][  0]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 0,084ms bis zum Abschluss."
+    },
+    {
+      "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/EditorSession.log",
+      "line": "[2026.10.16-12.05.11:172][673]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 8,766ms bis zum Abschluss."
+    },
+    {
+      "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/EditorSession.log",
+      "line": "[2026.10.16-12.11.24:662][  0]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 0,078ms bis zum Abschluss."
+    },
+    {
+      "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/EditorSession.log",
+      "line": "[2026.10.16-12.15.47:290][825]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 11,25ms bis zum Abschluss."
+    },
+    {
+      "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/EditorSession.log",
+      "line": "[2026.10.16-12.19.44:445][598]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 6,843ms bis zum Abschluss."
+    },
+    {
+      "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/EditorSession.log",
+      "line": "[2026.10.16-12.22.18:137][  0]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 0,085ms bis zum Abschluss."
+    },
+    {
+      "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/EditorSession.log",
+      "line": "[2026.10.16-12.23.42:669][834]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 8,91ms bis zum Abschluss."
+    },
+    {
+      "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/EditorSession.log",
+      "line": "[2026.10.16-12.33.52:902][201]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 16,792ms bis zum Abschluss."
+    },
+    {
+      "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/EditorSession.log",
+      "line": "[2026.10.16-12.37.32:591][257]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 23,21ms bis zum Abschluss."
+    },
+    {
+      "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/EditorSession.log",
+      "line": "[2026.10.16-12.56.23:098][  0]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 0,118ms bis zum Abschluss."
+    },
+    {
+      "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/EditorSession.log",
+      "line": "[2026.10.16-12.56.26:752][  4]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 4,967ms bis zum Abschluss."
+    },
+    {
+      "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/EditorSession.log",
+      "line": "[2026.10.16-12.58.23:303][721]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 3,186ms bis zum Abschluss."
+    },
+    {
+      "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/RangerAnimationV3/AutomationFinal.log",
+      "line": "[2026.10.16-12.47.30:394][  0]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 0,064ms bis zum Abschluss."
+    }
+  ],
+  "project_test_warnings": 0,
+  "note": "Generic Engine bootstrap Condition failed output precedes PokeMonster tests; raw errors are retained, not suppressed. idevice_id is a known incompatible engine helper, not a project test pass."
+}

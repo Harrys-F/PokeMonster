@@ -1,0 +1,114 @@
+{
+  "TreatmentBedSmall": {
+    "unreal_location_cm": [
+      -45,
+      345,
+      0
+    ],
+    "name": "HH_V3_TreatmentBedSmall",
+    "size_cm": [
+      143.99999380111694,
+      83.00000131130219,
+      69.9999988079071
+    ],
+    "triangles": 1188
+  },
+  "TreatmentBedLarge": {
+    "unreal_location_cm": [
+      165,
+      345,
+      0
+    ],
+    "name": "HH_V3_TreatmentBedLarge",
+    "size_cm": [
+      183.99999737739563,
+      106.00000619888306,
+      69.9999988079071
+    ],
+    "triangles": 1188
+  },
+  "HerbShelf": {
+    "unreal_location_cm": [
+      155,
+      -385,
+      0
+    ],
+    "name": "HH_V3_HerbShelf",
+    "size_cm": [
+      201.99999809265137,
+      46.00000083446503,
+      178.99999618530273
+    ],
+    "triangles": 864
+  },
+  "Bookcase": {
+    "unreal_location_cm": [
+      -170,
+      -385,
+      0
+    ],
+    "name": "HH_V3_Bookcase",
+    "size_cm": [
+      116.9999897480011,
+      46.00000083446503,
+      189.00001049041748
+    ],
+    "triangles": 864
+  },
+  "HerbTable": {
+    "unreal_location_cm": [
+      -255,
+      315,
+      0
+    ],
+    "name": "HH_V3_HerbTable",
+    "size_cm": [
+      120.00000476837158,
+      64.99999761581421,
+      84.00000333786011
+    ],
+    "triangles": 648
+  },
+  "SignBracket": {
+    "unreal_location_cm": [
+      -477,
+      142,
+      235
+    ],
+    "name": "HH_V3_SignBracket",
+    "size_cm": [
+      70.75000070035458,
+      42.500004172325134,
+      55.000001192092896
+    ],
+    "triangles": 540
+  },
+  "GuardianSign": {
+    "unreal_location_cm": [
+      -477,
+      142,
+      235
+    ],
+    "name": "HH_V3_GuardianSign",
+    "size_cm": [
+      13.550007343292236,
+      74.00000095367432,
+      82.99999535083771
+    ],
+    "triangles": 1864
+  },
+  "Lantern": {
+    "unreal_location_cm": [
+      -520,
+      -135,
+      165
+    ],
+    "name": "HH_V3_Lantern",
+    "size_cm": [
+      32.032471895217896,
+      32.032471895217896,
+      60.00000238418579
+    ],
+    "triangles": 972
+  }
+}

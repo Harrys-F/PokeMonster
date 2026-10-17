@@ -1,0 +1,22 @@
+{
+  "segments": 72,
+  "issues": [],
+  "camera_reference_ranges_cm": [
+    [
+      -2055.3805,
+      -2055.3805
+    ],
+    [
+      -114.6195,
+      -114.6195
+    ],
+    [
+      2268.3767,
+      2268.3767
+    ]
+  ],
+  "configurations": 12,
+  "repeats_per_state_configuration": 3,
+  "source": "Renderer observer extents plus native viewport/target/window/camera, exact raw frames preserved",
+  "internal_resolution_method": "Renderer resolution fraction upper bound with dynamic resolution off, ceil dimensions, not GPU allocation readback"
+}

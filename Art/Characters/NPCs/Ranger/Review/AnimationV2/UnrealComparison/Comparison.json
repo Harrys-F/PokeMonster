@@ -1,0 +1,457 @@
+{
+  "records": [
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Front_V1.png",
+      "site": "Dialog",
+      "view": "Front",
+      "variant": "V1",
+      "forced_lod": 0,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Front_V2.png",
+      "site": "Dialog",
+      "view": "Front",
+      "variant": "V2",
+      "forced_lod": 1,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Front_V2LOD1.png",
+      "site": "Dialog",
+      "view": "Front",
+      "variant": "V2LOD1",
+      "forced_lod": 2,
+      "predicted_lod": 1,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Side_V1.png",
+      "site": "Dialog",
+      "view": "Side",
+      "variant": "V1",
+      "forced_lod": 0,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Side_V2.png",
+      "site": "Dialog",
+      "view": "Side",
+      "variant": "V2",
+      "forced_lod": 1,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Side_V2LOD1.png",
+      "site": "Dialog",
+      "view": "Side",
+      "variant": "V2LOD1",
+      "forced_lod": 2,
+      "predicted_lod": 1,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_ThreeQuarter_V1.png",
+      "site": "Dialog",
+      "view": "ThreeQuarter",
+      "variant": "V1",
+      "forced_lod": 0,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_ThreeQuarter_V2.png",
+      "site": "Dialog",
+      "view": "ThreeQuarter",
+      "variant": "V2",
+      "forced_lod": 1,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_ThreeQuarter_V2LOD1.png",
+      "site": "Dialog",
+      "view": "ThreeQuarter",
+      "variant": "V2LOD1",
+      "forced_lod": 2,
+      "predicted_lod": 1,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_Front_V1.png",
+      "site": "Forest",
+      "view": "Front",
+      "variant": "V1",
+      "forced_lod": 0,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_Front_V2.png",
+      "site": "Forest",
+      "view": "Front",
+      "variant": "V2",
+      "forced_lod": 1,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_Front_V2LOD1.png",
+      "site": "Forest",
+      "view": "Front",
+      "variant": "V2LOD1",
+      "forced_lod": 2,
+      "predicted_lod": 1,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_Side_V1.png",
+      "site": "Forest",
+      "view": "Side",
+      "variant": "V1",
+      "forced_lod": 0,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_Side_V2.png",
+      "site": "Forest",
+      "view": "Side",
+      "variant": "V2",
+      "forced_lod": 1,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_Side_V2LOD1.png",
+      "site": "Forest",
+      "view": "Side",
+      "variant": "V2LOD1",
+      "forced_lod": 2,
+      "predicted_lod": 1,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_ThreeQuarter_V1.png",
+      "site": "Forest",
+      "view": "ThreeQuarter",
+      "variant": "V1",
+      "forced_lod": 0,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_ThreeQuarter_V2.png",
+      "site": "Forest",
+      "view": "ThreeQuarter",
+      "variant": "V2",
+      "forced_lod": 1,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_ThreeQuarter_V2LOD1.png",
+      "site": "Forest",
+      "view": "ThreeQuarter",
+      "variant": "V2LOD1",
+      "forced_lod": 2,
+      "predicted_lod": 1,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    }
+  ],
+  "error": null,
+  "camera_unchanged": true,
+  "pose": "Idle single-node, 0.25 seconds, playback stopped; same phase for each pair"
+}

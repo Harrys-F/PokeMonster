@@ -1,0 +1,30 @@
+{
+  "reason": "Reject foreground loss or changing window extent; replace the whole affected site/configuration, not individual favourable frames. No raw files removed.",
+  "excluded": [
+    {
+      "label": "FinalPairedPIE",
+      "filter": "all QHD rows, 72 segments"
+    },
+    {
+      "label": "StandalonePair1",
+      "filter": "all 18 segments"
+    },
+    {
+      "label": "StandalonePair2",
+      "filter": "all 18 segments"
+    },
+    {
+      "label": "StandalonePair6",
+      "filter": "all 6 Dorf segments"
+    }
+  ],
+  "replacement_labels": [
+    "RepairPIEQHD",
+    "RepairNative1",
+    "RepairNative2",
+    "RepairNativeHighDorf"
+  ],
+  "standard_PIE_retained": 36,
+  "required_active_window_fraction": 1.0,
+  "required_stable_window_extent": true
+}

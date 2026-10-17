@@ -1,0 +1,310 @@
+{
+  "error": null,
+  "records": [
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/FrontQuarter_0p0_LOD0.png",
+      "view": "FrontQuarter",
+      "phase_seconds": 0.0,
+      "lod": 0,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/FrontQuarter_0p0_LOD1.png",
+      "view": "FrontQuarter",
+      "phase_seconds": 0.0,
+      "lod": 1,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/FrontQuarter_0p225_LOD0.png",
+      "view": "FrontQuarter",
+      "phase_seconds": 0.225,
+      "lod": 0,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/FrontQuarter_0p225_LOD1.png",
+      "view": "FrontQuarter",
+      "phase_seconds": 0.225,
+      "lod": 1,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/FrontQuarter_0p45_LOD0.png",
+      "view": "FrontQuarter",
+      "phase_seconds": 0.45,
+      "lod": 0,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/FrontQuarter_0p45_LOD1.png",
+      "view": "FrontQuarter",
+      "phase_seconds": 0.45,
+      "lod": 1,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/FrontQuarter_0p675_LOD0.png",
+      "view": "FrontQuarter",
+      "phase_seconds": 0.675,
+      "lod": 0,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/FrontQuarter_0p675_LOD1.png",
+      "view": "FrontQuarter",
+      "phase_seconds": 0.675,
+      "lod": 1,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/BackQuarter_0p0_LOD0.png",
+      "view": "BackQuarter",
+      "phase_seconds": 0.0,
+      "lod": 0,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/BackQuarter_0p0_LOD1.png",
+      "view": "BackQuarter",
+      "phase_seconds": 0.0,
+      "lod": 1,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/BackQuarter_0p225_LOD0.png",
+      "view": "BackQuarter",
+      "phase_seconds": 0.225,
+      "lod": 0,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/BackQuarter_0p225_LOD1.png",
+      "view": "BackQuarter",
+      "phase_seconds": 0.225,
+      "lod": 1,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/BackQuarter_0p45_LOD0.png",
+      "view": "BackQuarter",
+      "phase_seconds": 0.45,
+      "lod": 0,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/BackQuarter_0p45_LOD1.png",
+      "view": "BackQuarter",
+      "phase_seconds": 0.45,
+      "lod": 1,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/BackQuarter_0p675_LOD0.png",
+      "view": "BackQuarter",
+      "phase_seconds": 0.675,
+      "lod": 0,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/SharpPoses/BackQuarter_0p675_LOD1.png",
+      "view": "BackQuarter",
+      "phase_seconds": 0.675,
+      "lod": 1,
+      "source_position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "camera": [
+        -2130.380511365262,
+        215.380511365051,
+        2268.3766628890876
+      ],
+      "pitch": -49.99999999999998,
+      "yaw": -44.99999999999998,
+      "fov": 35.0
+    }
+  ],
+  "purpose": "Actual UE single-node Walk samples, paused after 2s settling. Not movement footage. No motion-blur or camera settings changed."
+}

@@ -653,3 +653,14 @@ Neue Blender-Arbeitsdatei und getrennte V2-Mesh-/Skelett-/Clip-Assets erhalten b
 - Die Birken nutzen vier Material Instances des vorhandenen gemalten Bark-Reveal-Masters. Keine Reveal-Master neu aufbauen oder verändern; ursprüngliche Paint/Tint/PBR- und Two-Sided-Werte erhalten. Originalmaterialien bleiben unverändert, Zuweisung ausschließlich zur Laufzeit mit Rückgabe bei EndPlay.
 - Registrierung nur bei expliziter Kombination aus Baum-Mesh und Material; Gebäude mit gemeinsam genutztem Material können nicht versehentlich optieren. Sichtkegel, Kamera B und 0,25-s-Fade unverändert. Keine Map-, Bewegungs-, Animations- oder Gameplayänderung.
 - 45 sichtbare Baumkomponenten/98 Slots angebunden; Build, 41/41 Tests, eingebettete PIE-Prüfungen und Map Check erfolgreich. Kein schwebendes PIE und kein neuer Viewport-Absturz. Prüfung gilt für die tatsächlichen zwei Familien dieser Testmap, nicht für sämtliche Bäume anderer Maps. Bericht: `BAUMFAMILIEN_SICHTFREISTELLUNG_PRUEFBERICHT.md`.
+
+## 2026-10-15: Optionale Meshy-NPC-Darstellung
+
+Für den ersten Meshy-NPC-Piloten bleibt die bestehende Dialog-/Quest-/Interaktionsidentität erhalten; ein separater Darstellungsactor übernimmt Mesh, Idle und Gesprächsgeste. Der Sprite bleibt als Rückfall erhalten. Bestätigt durch eingebetteten PIE-Fußlauf und den Test `PokeMonster.NPC.PresentationAndFallback`. Keine neue NPC-Bewegungsarchitektur und keine Änderung an Player, Kamera oder Originalkarten. Umfang und offene Qualitätsgrenzen stehen im Integrationsprüfbericht. Diese Entscheidung ersetzt keine bestehenden Gameplay-Regeln.
+
+
+## Environment Performance V1: Messstandard und isolierter Kandidat (15.10.2026)
+
+Der verbindliche Grafik-Teststandard umfasst 1280×740 Medium bei 75/100% sowie 2560×1440 Medium und High jeweils bei 75/100%. Je Ort Dorf/Wald/Weg mindestens drei Läufe, tatsächliche Fenster-/Viewport-/Rendergrößen, P95 und verfügbare CPU/GPU-Zeiten getrennt für PIE und native Prozesse dokumentieren. Details in TECHNIK. Dieser Standard ergänzt die früheren Einzelauflösungsmessungen; deren Werte bleiben historische Ergebnisse und werden nicht als vollständige neue Abnahme verwendet.
+
+Dev_TestMap_EnvironmentPerfV1 ist ausschließlich eine separate experimentelle Kopie. Geprüfter Kandidat: reversible, auf ihre Laufzeit begrenzte Lumen-Integration mit DownsampleFactor=2 und VSM-Richtungslicht mit zwei SMRT-Rays; außen Bloom/MotionBlur=0, Innenvolume erhält seine ursprünglichen Werte. Keine globale Configabsenkung, keine Vegetations-/LOD-/Kamera-/Gameplayänderung und keine automatische Übernahme nach VisualV2. EndPlay und höhere manuelle CVar-Prioritäten werden respektiert. Der gemessene Vorteil ist begrenzt; Leistungsziele weiterhin nicht allgemein erreicht. Visuelle Freigabe und weitere GPU-Analyse bleiben offen. Nachweise: DEV_TESTMAP_ENVIRONMENT_PERFORMANCE_V1_PRUEFBERICHT.md.

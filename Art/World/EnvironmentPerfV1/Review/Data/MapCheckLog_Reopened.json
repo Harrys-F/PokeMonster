@@ -1,0 +1,12 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"returnValue\":[\"[2026.10.15-13.13.59:933][  0]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 0,105ms bis zum Abschluss.\",\"[2026.10.15-13.16.54:834][155]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 18,124ms bis zum Abschluss.\",\"[2026.10.15-13.16.54:837][155]LogPython: ENVIRONMENT_PERF_FINAL_MAP_CHECK_REQUESTED\"]}"
+      }
+    ]
+  }
+}

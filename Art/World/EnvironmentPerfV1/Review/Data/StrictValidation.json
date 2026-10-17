@@ -1,0 +1,51 @@
+{
+  "FinalPairedPIE": {
+    "segments": 108,
+    "groups": 36,
+    "three_repetitions_each": true,
+    "actual_extents_and_camera_verified": true,
+    "window_active_all_frames": true
+  },
+  "StandalonePair1": {
+    "segments": 18,
+    "groups": 6,
+    "three_repetitions_each": true,
+    "actual_extents_and_camera_verified": true,
+    "window_active_all_frames": true
+  },
+  "StandalonePair2": {
+    "segments": 18,
+    "groups": 6,
+    "three_repetitions_each": true,
+    "actual_extents_and_camera_verified": true,
+    "window_active_all_frames": true
+  },
+  "StandalonePair3": {
+    "segments": 18,
+    "groups": 6,
+    "three_repetitions_each": true,
+    "actual_extents_and_camera_verified": true,
+    "window_active_all_frames": true
+  },
+  "StandalonePair4": {
+    "segments": 18,
+    "groups": 6,
+    "three_repetitions_each": true,
+    "actual_extents_and_camera_verified": true,
+    "window_active_all_frames": true
+  },
+  "StandalonePair5": {
+    "segments": 18,
+    "groups": 6,
+    "three_repetitions_each": true,
+    "actual_extents_and_camera_verified": true,
+    "window_active_all_frames": true
+  },
+  "StandalonePair6": {
+    "segments": 18,
+    "groups": 6,
+    "three_repetitions_each": true,
+    "actual_extents_and_camera_verified": true,
+    "window_active_all_frames": true
+  }
+}

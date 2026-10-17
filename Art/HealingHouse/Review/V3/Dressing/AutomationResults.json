@@ -1,0 +1,632 @@
+{
+  "devices": [
+    {
+      "deviceName": "Air-von-Harald",
+      "instance": "BF9F6075DE445E09A770CBA98FE30ED8",
+      "instanceName": "Air-von-Harald-15403",
+      "platform": "MacEditor",
+      "oSVersion": "macOS 27.0.1 26A434",
+      "model": "Default",
+      "gPU": "Apple M4",
+      "cPUModel": "Apple M4",
+      "rAMInGB": 16,
+      "renderMode": "SM6",
+      "rHI": "",
+      "appInstanceLog": ""
+    }
+  ],
+  "reportCreatedOn": "2026.10.03-12.58.51",
+  "succeeded": 35,
+  "succeededWithWarnings": 0,
+  "failed": 0,
+  "notRun": 0,
+  "inProcess": 0,
+  "totalDuration": 1.072828769683838,
+  "comparisonExported": false,
+  "comparisonExportDirectory": "",
+  "tests": [
+    {
+      "testDisplayName": "EventSequence",
+      "fullTestPath": "PokeMonster.Battle.Presentation.EventSequence",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.023973457515239716,
+      "dateTime": "2026.10.03-12.58.49",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "HitsAndTypes",
+      "fullTestPath": "PokeMonster.Battle.Session.HitsAndTypes",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.02514004334807396,
+      "dateTime": "2026.10.03-12.58.49",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "KOAndFinish",
+      "fullTestPath": "PokeMonster.Battle.Session.KOAndFinish",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.015750542283058167,
+      "dateTime": "2026.10.03-12.58.49",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "OrderAndPP",
+      "fullTestPath": "PokeMonster.Battle.Session.OrderAndPP",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.021530333906412125,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "ValidationAndReplay",
+      "fullTestPath": "PokeMonster.Battle.Session.ValidationAndReplay",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.13709145784378052,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "SwitchAndKO",
+      "fullTestPath": "PokeMonster.Battle.Team.SwitchAndKO",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.0143059603869915,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "BindingAndInputLock",
+      "fullTestPath": "PokeMonster.Battle.UI.BindingAndInputLock",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.012733876705169678,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "MissedStatusLog",
+      "fullTestPath": "PokeMonster.Battle.UI.MissedStatusLog",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.020950958132743835,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "UnavailableMoves",
+      "fullTestPath": "PokeMonster.Battle.UI.UnavailableMoves",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.009958751499652863,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "Damage",
+      "fullTestPath": "PokeMonster.Battle.Damage",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.018011290580034256,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "HitCheck",
+      "fullTestPath": "PokeMonster.Battle.HitCheck",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.024965040385723114,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "TypeChart",
+      "fullTestPath": "PokeMonster.Battle.TypeChart",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.021815042942762375,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "WildBattleAndTeamTransfer",
+      "fullTestPath": "PokeMonster.Capture.WildBattleAndTeamTransfer",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.008506081998348236,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "DataSystem",
+      "fullTestPath": "PokeMonster.Creatures.DataSystem",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.020124085247516632,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "EvolutionEligibility",
+      "fullTestPath": "PokeMonster.Creatures.EvolutionEligibility",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.017761874943971634,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "GrowthCurves",
+      "fullTestPath": "PokeMonster.Creatures.GrowthCurves",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.028434500098228455,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "Progression",
+      "fullTestPath": "PokeMonster.Creatures.Progression",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.017314709722995758,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "PagesAndState",
+      "fullTestPath": "PokeMonster.Dialogue.PagesAndState",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.012638706713914871,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "OverworldIntegration",
+      "fullTestPath": "PokeMonster.Encounter.OverworldIntegration",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.021340373903512955,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "TrainerProfileAndDefeatState",
+      "fullTestPath": "PokeMonster.Encounter.TrainerProfileAndDefeatState",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.021747581660747528,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "WildProfileAndSources",
+      "fullTestPath": "PokeMonster.Encounter.WildProfileAndSources",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.008531000465154648,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "InventoryAndUsage",
+      "fullTestPath": "PokeMonster.Items.InventoryAndUsage",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.020641207695007324,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "DataAssetsAndSlots",
+      "fullTestPath": "PokeMonster.Moves.DataAssetsAndSlots",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.012475833296775818,
+      "dateTime": "2026.10.03-12.58.50",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "DefeatAndSave",
+      "fullTestPath": "PokeMonster.Overworld.Checkpoint.DefeatAndSave",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.008016083389520645,
+      "dateTime": "2026.10.03-12.58.51",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "CollisionAndCutaway",
+      "fullTestPath": "PokeMonster.Overworld.HealingHouse.CollisionAndCutaway",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.41771188378334045,
+      "dateTime": "2026.10.03-12.58.51",
+      "entries": [
+        {
+          "event": {
+            "type": "Info",
+            "message": "Saved HH_V3_TreatmentBedSmall: 1 convex, 0 boxes, physics created=1",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.03-12.58.51"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "Saved HH_V3_TreatmentBedLarge: 1 convex, 0 boxes, physics created=1",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.03-12.58.51"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "Saved HH_V3_HerbShelf: 1 convex, 0 boxes, physics created=1",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.03-12.58.51"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "Saved HH_V3_Bookcase: 1 convex, 0 boxes, physics created=1",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.03-12.58.51"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "Saved HH_V3_HerbTable: 1 convex, 0 boxes, physics created=1",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.03-12.58.51"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "Saved HH_V3_NookTableTop: 0 convex, 1 boxes, physics created=1",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.03-12.58.51"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "Saved HH_V3_NookBenchSeat: 0 convex, 1 boxes, physics created=1",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.03-12.58.51"
+        }
+      ],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "Layout",
+      "fullTestPath": "PokeMonster.Overworld.HealingHouse.Layout",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.002948455512523651,
+      "dateTime": "2026.10.03-12.58.51",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "RestCheckpointSaveAndDefeat",
+      "fullTestPath": "PokeMonster.Overworld.HealingHouse.RestCheckpointSaveAndDefeat",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.007803875952959061,
+      "dateTime": "2026.10.03-12.58.51",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "ProgressAndSave",
+      "fullTestPath": "PokeMonster.Overworld.MiniSlice.ProgressAndSave",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.011344123631715775,
+      "dateTime": "2026.10.03-12.58.51",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "HealAndSave",
+      "fullTestPath": "PokeMonster.Overworld.RestPoint.HealAndSave",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.019652165472507477,
+      "dateTime": "2026.10.03-12.58.51",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "Foundation",
+      "fullTestPath": "PokeMonster.Overworld.UI.Foundation",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.008434750139713287,
+      "dateTime": "2026.10.03-12.58.51",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "Foundation",
+      "fullTestPath": "PokeMonster.Player.Foundation",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.019820164889097214,
+      "dateTime": "2026.10.03-12.58.51",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "ScaleCalibration",
+      "fullTestPath": "PokeMonster.Player.ScaleCalibration",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.008680876344442368,
+      "dateTime": "2026.10.03-12.58.51",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "FlowAndSave",
+      "fullTestPath": "PokeMonster.Quest.MiniSlice.FlowAndSave",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.00565825030207634,
+      "dateTime": "2026.10.03-12.58.51",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "RejectInvalidData",
+      "fullTestPath": "PokeMonster.Save.RejectInvalidData",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.01825970783829689,
+      "dateTime": "2026.10.03-12.58.51",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    },
+    {
+      "testDisplayName": "SnapshotAndDisk",
+      "fullTestPath": "PokeMonster.Save.SnapshotAndDisk",
+      "tags": [],
+      "state": "Success",
+      "deviceInstance": [
+        "BF9F6075DE445E09A770CBA98FE30ED8"
+      ],
+      "duration": 0.00875554233789444,
+      "dateTime": "2026.10.03-12.58.51",
+      "entries": [],
+      "warnings": 0,
+      "errors": 0,
+      "artifacts": []
+    }
+  ]
+}

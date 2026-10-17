@@ -1,0 +1,4 @@
+import unreal,json
+from pathlib import Path
+P=Path(unreal.Paths.project_dir(),'Art/Characters/NPCs/Ranger/Review/V2');m=unreal.load_asset('/Game/Characters/NPCs/RangerV2/Meshes/SK_Ranger_NPC_V2');v1=unreal.load_asset('/Game/Characters/NPCs/Ranger/Meshes/SK_Ranger_NPC_V1');s=unreal.get_editor_subsystem(unreal.SkeletalMeshEditorSubsystem)
+out={'v1_tags':{str(k):str(v) for k,v in unreal.EditorAssetLibrary.get_tag_values(v1.get_path_name()).items()},'groups':[str(g) for g in m.lod_settings.get_editor_property('lod_groups')],'api':[n for n in dir(unreal) if ('GeometryScript' in n and ('Asset' in n or 'Mesh' in n)) or 'LOD' in n and 'Skeletal' in n]};out['mesh_methods']=[n for n in dir(m) if any(x in n.lower() for x in ['triangle','lod','vertex','mesh_description'])];(P/'TrueLODInspection.json').write_text(json.dumps(out,indent=2))

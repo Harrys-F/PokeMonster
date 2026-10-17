@@ -1,0 +1,31 @@
+{
+  "source": "Art/World/WestlandAssetLibrary/Source/WestlandAssetLibrary_V3.blend",
+  "crown_gaps": 3,
+  "opaque": true,
+  "objects": [
+    {
+      "object": "SM_TSP_OakAncient_Bark",
+      "triangles": 4412,
+      "vertices": 2293,
+      "non_manifold_edges": 0,
+      "dimensions_m": [
+        10.070858001708984,
+        7.180493354797363,
+        10.862823486328125
+      ]
+    },
+    {
+      "object": "SM_TSP_OakAncient_Crown",
+      "triangles": 376,
+      "vertices": 184,
+      "non_manifold_edges": 0,
+      "dimensions_m": [
+        11.914215087890625,
+        8.993772506713867,
+        0.25783634185791016
+      ]
+    }
+  ],
+  "repair": "Curve conversion cap/wall seam vertices welded at 1 micrometre; no form change",
+  "refinement": "Thin closed crown volume below leaf cards. Actor offset along light projection preserves mean ground-shadow position. Static-light experiment only."
+}

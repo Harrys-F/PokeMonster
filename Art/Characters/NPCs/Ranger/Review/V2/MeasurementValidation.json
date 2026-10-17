@@ -1,0 +1,213 @@
+{
+  "valid_labels": [
+    "BeforeA",
+    "BeforeB",
+    "BeforeC",
+    "FinalPairedA",
+    "FinalPairedB",
+    "FinalAfterC",
+    "VillageA",
+    "VillageB",
+    "VillageC",
+    "Factors_Dorf",
+    "Factors_Wald",
+    "Factors_Weg",
+    "Factors_Village"
+  ],
+  "valid_segments": 218,
+  "resolution_or_percentage_errors": [],
+  "thermal_samples": 922,
+  "thermal_states": [
+    "nominal"
+  ],
+  "thermal_utc_range": [
+    "2026-10-15T06:55:00Z",
+    "2026-10-15T09:33:42Z"
+  ],
+  "nominal_is_not_frequency_or_temperature_proof": true,
+  "example_top_gpu_passes_ms": [
+    [
+      "GPU/SlateUI",
+      5.4293
+    ],
+    [
+      "GPU/Unaccounted",
+      3.94095
+    ],
+    [
+      "GPU/LumenSceneUpdate",
+      2.3168
+    ],
+    [
+      "GPU/Basepass",
+      1.51135
+    ],
+    [
+      "GPU/ShadowDepths",
+      1.3058
+    ],
+    [
+      "GPU/LumenIrradianceFieldGather",
+      1.1149499999999999
+    ],
+    [
+      "GPU/ShadowProjection",
+      0.7242500000000001
+    ],
+    [
+      "GPU/LumenSceneLighting",
+      0.6355999999999999
+    ],
+    [
+      "GPU/PostProcessing",
+      0.5647
+    ],
+    [
+      "GPU/RenderDeferredLighting",
+      0.5467
+    ],
+    [
+      "GPU/Prepass",
+      0.52565
+    ],
+    [
+      "GPU/Lights",
+      0.49995
+    ]
+  ],
+  "example_drawcall_counters": {
+    "DrawCall/SlateUI": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/Basepass": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/CustomDepth": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/Prepass": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/Distortion": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/Fog": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/FrontLayerTranslucencyGBuffer": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/Lights": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/BeginOcclusionTests": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/ScreenSpaceReflections": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/ShadowDepths": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/DistanceFieldShadows": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/SingleLayerWaterDepthPrepass": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/SingleLayerWater": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/Translucency": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/RenderVelocities": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/WaterInfoTexture": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/FXSystemPreInitViews": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/FXSystemPreRender": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "DrawCall/FXSystemPostRenderOpaque": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    },
+    "RHI/DrawCalls": {
+      "median": 0.0,
+      "p95": 0.0,
+      "samples": 384,
+      "all_zero": true
+    }
+  },
+  "example_animation_all_characters_ms": {
+    "median": 0.0590625,
+    "p95": 0.07589194999999999,
+    "samples": 384,
+    "all_zero": false
+  },
+  "output_pixels_ratio_B_to_A": 3.312421875
+}

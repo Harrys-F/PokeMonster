@@ -1,0 +1,783 @@
+{
+  "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV3.Dev_TestMap_EnvironmentPerfV3",
+  "materials": {
+    "/Game/Environment/DevTestMapVisualV2/Materials/M_V2_BarkRevealBase.M_V2_BarkRevealBase": {
+      "example_instance": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV3.Dev_TestMap_EnvironmentPerfV3:PersistentLevel.StaticMeshActor_840.StaticMeshComponent0.MID_MI_V2_BarkReveal_0",
+      "blend": "<BlendMode.BLEND_MASKED: 1>",
+      "clip": 0.44999998807907104,
+      "two_sided": false,
+      "wpo_node": "None",
+      "textures": [
+        {
+          "parameter": "Paint",
+          "texture": "/Game/Environment/WestlandAssetLibrary/Textures/T_WLA_Bark.T_WLA_Bark",
+          "width": 627,
+          "height": 627
+        }
+      ],
+      "compiled_statistics": {
+        "num_vertex_shader_instructions": 157,
+        "num_pixel_shader_instructions": 205,
+        "num_samplers": 0,
+        "num_vertex_texture_samples": 3,
+        "num_pixel_texture_samples": 2,
+        "num_virtual_texture_samples": 0,
+        "num_uv_scalars": 2,
+        "num_interpolator_scalars": 0
+      }
+    },
+    "/Game/Environment/DevTestMapVisualV2/Materials/M_V2_CrownReveal.M_V2_CrownReveal": {
+      "example_instance": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV3.Dev_TestMap_EnvironmentPerfV3:PersistentLevel.StaticMeshActor_840.StaticMeshComponent0.MID_M_V2_CrownReveal_0",
+      "blend": "<BlendMode.BLEND_MASKED: 1>",
+      "clip": 0.44999998807907104,
+      "two_sided": true,
+      "wpo_node": "None",
+      "textures": [
+        {
+          "parameter": "Paint",
+          "texture": "/Game/Environment/WestlandAssetLibrary/QualityV3/Textures/T_WLA_FoliageGroups_V3.T_WLA_FoliageGroups_V3",
+          "width": 2048,
+          "height": 2048
+        }
+      ],
+      "compiled_statistics": {
+        "num_vertex_shader_instructions": 163,
+        "num_pixel_shader_instructions": 208,
+        "num_samplers": 0,
+        "num_vertex_texture_samples": 3,
+        "num_pixel_texture_samples": 2,
+        "num_virtual_texture_samples": 0,
+        "num_uv_scalars": 2,
+        "num_interpolator_scalars": 0
+      }
+    },
+    "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted": {
+      "example_instance": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Bark.MI_WLA_Bark",
+      "blend": "<BlendMode.BLEND_OPAQUE: 0>",
+      "clip": 0.33329999446868896,
+      "two_sided": false,
+      "wpo_node": "None",
+      "textures": [
+        {
+          "parameter": "Paint",
+          "texture": "/Game/Environment/WestlandAssetLibrary/Textures/T_WLA_Bark.T_WLA_Bark",
+          "width": 627,
+          "height": 627
+        }
+      ],
+      "compiled_statistics": {
+        "num_vertex_shader_instructions": 157,
+        "num_pixel_shader_instructions": 205,
+        "num_samplers": 0,
+        "num_vertex_texture_samples": 3,
+        "num_pixel_texture_samples": 1,
+        "num_virtual_texture_samples": 0,
+        "num_uv_scalars": 2,
+        "num_interpolator_scalars": 0
+      }
+    },
+    "/Game/Environment/WestlandAssetLibrary/QualityV3/Materials/M_WLA_FoliageGroups_V3.M_WLA_FoliageGroups_V3": {
+      "example_instance": "/Game/Environment/WestlandAssetLibrary/QualityV3/Materials/MI_WLA_FoliageGroups_V3.MI_WLA_FoliageGroups_V3",
+      "blend": "<BlendMode.BLEND_MASKED: 1>",
+      "clip": 0.44999998807907104,
+      "two_sided": true,
+      "wpo_node": "None",
+      "textures": [
+        {
+          "parameter": "Param",
+          "texture": "/Engine/EngineResources/DefaultTexture.DefaultTexture",
+          "width": 128,
+          "height": 128
+        },
+        {
+          "parameter": "Paint",
+          "texture": "/Game/Environment/WestlandAssetLibrary/QualityV3/Textures/T_WLA_FoliageGroups_V3.T_WLA_FoliageGroups_V3",
+          "width": 2048,
+          "height": 2048
+        }
+      ],
+      "compiled_statistics": {
+        "num_vertex_shader_instructions": 157,
+        "num_pixel_shader_instructions": 208,
+        "num_samplers": 0,
+        "num_vertex_texture_samples": 3,
+        "num_pixel_texture_samples": 1,
+        "num_virtual_texture_samples": 0,
+        "num_uv_scalars": 2,
+        "num_interpolator_scalars": 0
+      }
+    },
+    "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf": {
+      "example_instance": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafFern.MI_WLA_LeafFern",
+      "blend": "<BlendMode.BLEND_OPAQUE: 0>",
+      "clip": 0.33329999446868896,
+      "two_sided": true,
+      "wpo_node": "None",
+      "textures": [
+        {
+          "parameter": "Paint",
+          "texture": "/Game/Environment/WestlandAssetLibrary/Textures/T_WLA_LeafFern_V2.T_WLA_LeafFern_V2",
+          "width": 627,
+          "height": 627
+        }
+      ],
+      "compiled_statistics": {
+        "num_vertex_shader_instructions": 157,
+        "num_pixel_shader_instructions": 212,
+        "num_samplers": 0,
+        "num_vertex_texture_samples": 3,
+        "num_pixel_texture_samples": 1,
+        "num_virtual_texture_samples": 0,
+        "num_uv_scalars": 2,
+        "num_interpolator_scalars": 0
+      }
+    }
+  },
+  "components": [
+    {
+      "actor": "V2_Tree_P2D_Tree_01_Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_Tree_02_Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_Tree_03_Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_Tree_04_Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_Tree_05_Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_Tree_06_Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_Tree_07_Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_Tree_08_Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_Tree_09_Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_Tree_10_Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_Tree_11_Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_Tree_12_Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree00Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree01Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree02Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree03Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree04Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree05Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree06Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree07Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree08Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree09Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree10Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree11Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree12Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree13Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree14Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree15Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree16Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree17Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree18Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_P2D_VS_Tree19Trunk",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub00",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub01",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub02",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub03",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub04",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub05",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub06",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub07",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub08",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub09",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub10",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub11",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub12",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub13",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub14",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub15",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub16",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub17",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub18",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Shrub19",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Reed_0",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Reed_1",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Reed_2",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Reed_3",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Reed_4",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_VS_Reed_5",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_Undergrowth_00",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_Undergrowth_02",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_Undergrowth_04",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_Undergrowth_06",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_Undergrowth_08",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_Undergrowth_10",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_Undergrowth_12",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_Undergrowth_14",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_P2D_Undergrowth_16",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_Slice_Start_Fern_E",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_Slice_Start_Fern_N",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_Slice_Start_Canopy_Back",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_Slice_Start_Fern_W",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_Slice_Branch_Thicket_W",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_Slice_Branch_Bush_N",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_Slice_Branch_Canopy_Back",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_Slice_Trial_Herb_W",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_Slice_Trial_Herb_E",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_Slice_Archive_Ivy_W",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Bush_Slice_Archive_Ivy_E",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Tree_Slice_Archive_Canopy_SW",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_ForestOak_0",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_ForestOak_1",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_ForestOak_2",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_ForestOak_3",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_ForestOak_4",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_ForestOak_5",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Birch_0",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/Meshes/Trees/SM_WLA_Birch_A.SM_WLA_Birch_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Birch_1",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/Meshes/Trees/SM_WLA_Birch_A.SM_WLA_Birch_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Birch_2",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/Meshes/Trees/SM_WLA_Birch_A.SM_WLA_Birch_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Birch_3",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/Meshes/Trees/SM_WLA_Birch_A.SM_WLA_Birch_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Instanced_Fern",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_A.SM_WLA_Fern_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Instanced_BushA",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    },
+    {
+      "actor": "V2_Instanced_BushB",
+      "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B",
+      "min_lod": 0,
+      "override_min_lod": false,
+      "forced_lod": 0
+    }
+  ],
+  "statistics_zero_not_proof_of_no_shader_cost": true
+}

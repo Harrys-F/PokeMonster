@@ -1,0 +1,3 @@
+import unreal,json
+from pathlib import Path
+P=Path(unreal.Paths.project_dir(),'Art/Characters/NPCs/Ranger/Review/V2');w=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_game_world();assert w;v=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.PokeMonsterNPCVisualActor));m=v.visual.get_skeletal_mesh_asset();out={'mesh':m.get_path_name(),'bounds':str(m.get_bounds()),'api':{n:str(getattr(unreal.AnimSingleNodeInstance,n).__doc__) for n in ['set_position','set_play_rate']},'component_methods':[n for n in dir(v.visual) if any(s in n for s in ['position','play_rate','recently','bounds'])]};(P/'RuntimeAPI.json').write_text(json.dumps(out,indent=2))

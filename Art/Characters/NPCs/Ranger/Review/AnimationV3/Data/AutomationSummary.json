@@ -1,0 +1,339 @@
+{
+  "succeeded": 48,
+  "succeededWithWarnings": 0,
+  "failed": 0,
+  "notRun": 0,
+  "totalDuration": 0.8219971656799316,
+  "tests": [
+    {
+      "path": "PokeMonster.Battle.Presentation.EventSequence",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Battle.Session.HitsAndTypes",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Battle.Session.KOAndFinish",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Battle.Session.OrderAndPP",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Battle.Session.ValidationAndReplay",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Battle.Team.SwitchAndKO",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Battle.UI.BindingAndInputLock",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Battle.UI.MissedStatusLog",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Battle.UI.UnavailableMoves",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Battle.Damage",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Battle.HitCheck",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Battle.TypeChart",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Building.Inn.CameraAndFootprint",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Building.RelocatedInterior.MappingAndTransition",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Camera.Visibility.FiniteSightlineAndFade",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Camera.Visibility.TreeFamiliesAndBuildingExclusion",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Capture.WildBattleAndTeamTransfer",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Creatures.DataSystem",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Creatures.EvolutionEligibility",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Creatures.GrowthCurves",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Creatures.Progression",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Dialogue.PagesAndState",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Encounter.OverworldIntegration",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Encounter.TrainerProfileAndDefeatState",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Encounter.WildProfileAndSources",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Items.InventoryAndUsage",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Moves.DataAssetsAndSlots",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.NPC.MotionV2.IsolationSpeedAndSkeleton",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.NPC.MotionV3.AnatomicalLegAxes",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.NPC.PresentationAndFallback",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Overworld.Checkpoint.DefeatAndSave",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Overworld.HealingHouse.CollisionAndCutaway",
+      "state": "Success",
+      "entries": [
+        {
+          "event": {
+            "type": "Info",
+            "message": "Saved HH_V3_TreatmentBedSmall: 1 convex, 0 boxes, physics created=1",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.16-12.47.37"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "Saved HH_V3_TreatmentBedLarge: 1 convex, 0 boxes, physics created=1",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.16-12.47.37"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "Saved HH_V3_HerbShelf: 1 convex, 0 boxes, physics created=1",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.16-12.47.37"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "Saved HH_V3_Bookcase: 1 convex, 0 boxes, physics created=1",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.16-12.47.37"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "Saved HH_V3_HerbTable: 1 convex, 0 boxes, physics created=1",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.16-12.47.37"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "Saved HH_V3_NookTableTop: 0 convex, 1 boxes, physics created=1",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.16-12.47.37"
+        },
+        {
+          "event": {
+            "type": "Info",
+            "message": "Saved HH_V3_NookBenchSeat: 0 convex, 1 boxes, physics created=1",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.16-12.47.37"
+        }
+      ]
+    },
+    {
+      "path": "PokeMonster.Overworld.HealingHouse.Layout",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Overworld.HealingHouse.RestCheckpointSaveAndDefeat",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Overworld.MiniSlice.ProgressAndSave",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Overworld.RestPoint.HealAndSave",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Overworld.UI.Foundation",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Player.BuildingInteriorCamera",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Player.Foundation",
+      "state": "Success",
+      "entries": [
+        {
+          "event": {
+            "type": "Info",
+            "message": "Fixed exterior projection: body 8.843%; centre Y 0.5074",
+            "context": "",
+            "artifact": "00000000000000000000000000000000"
+          },
+          "filename": "",
+          "lineNumber": -1,
+          "timestamp": "2026.10.16-12.47.38"
+        }
+      ]
+    },
+    {
+      "path": "PokeMonster.Player.MeshyPresentation",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Player.ScaleCalibration",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Player.Sprint",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Quest.MiniSlice.FlowAndSave",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Rendering.EnvironmentProfile.ScopeAndBaselineProtection",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Rendering.EnvironmentProfileV2.IndependentExperiment",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Rendering.EnvironmentProfileV3.IndependentExperiment",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Save.RejectInvalidData",
+      "state": "Success",
+      "entries": []
+    },
+    {
+      "path": "PokeMonster.Save.SnapshotAndDisk",
+      "state": "Success",
+      "entries": []
+    }
+  ]
+}

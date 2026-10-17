@@ -1,0 +1,30 @@
+[
+  {
+    "xsign": 1,
+    "ysign": 1,
+    "max_distance_cm": 3.411968959808029e-05,
+    "mean_distance_cm": 2.103414597412746e-06,
+    "pct_over_0_01cm": 0.0
+  },
+  {
+    "xsign": -1,
+    "ysign": 1,
+    "max_distance_cm": 189.3921229202268,
+    "mean_distance_cm": 35.22309364735117,
+    "pct_over_0_01cm": 99.95638901003053
+  },
+  {
+    "xsign": 1,
+    "ysign": -1,
+    "max_distance_cm": 195.8744397579367,
+    "mean_distance_cm": 37.75265326722816,
+    "pct_over_0_01cm": 99.12778020061056
+  },
+  {
+    "xsign": -1,
+    "ysign": -1,
+    "max_distance_cm": 173.98042814671345,
+    "mean_distance_cm": 43.2996775405794,
+    "pct_over_0_01cm": 99.95638901003053
+  }
+]

@@ -1,0 +1,7 @@
+"""Temporary actor only in the new experimental map, never in a baseline."""
+import unreal,json
+from pathlib import Path
+e=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);assert not e.get_game_world();w=e.get_editor_world();assert w.get_name()=='Dev_TestMap_TreeShadowProxyV1';assert not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages();assert not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()
+actors=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.StaticMeshActor);assert not any(a.get_actor_label()=='TSP_TestOnly_SlopeReceiver8deg' for a in actors);ground=next(a for a in actors if a.get_actor_label()=='V2_Ground')
+a=unreal.get_editor_subsystem(unreal.EditorActorSubsystem).spawn_actor_from_class(unreal.StaticMeshActor,unreal.Vector(-3970,1075,60),unreal.Rotator(pitch=8,yaw=0,roll=0));a.set_actor_label('TSP_TestOnly_SlopeReceiver8deg');a.tags=['TreeShadowProxyV1_TemporaryReceiver'];a.set_actor_scale3d(unreal.Vector(4,3,1));c=a.static_mesh_component;c.set_static_mesh(unreal.load_asset('/Engine/BasicShapes/Plane'));c.set_material(0,ground.static_mesh_component.get_material(0));c.set_collision_profile_name('NoCollision');c.set_collision_enabled(unreal.CollisionEnabled.NO_COLLISION);c.set_cast_shadow(False)
+(Path(unreal.Paths.project_dir())/'Saved/TreeShadowProxyV1/SlopeTemporaryActor.json').write_text(json.dumps({'actor':a.get_path_name(),'label':a.get_actor_label(),'not_saved':True,'cleanup_required':True},indent=2))

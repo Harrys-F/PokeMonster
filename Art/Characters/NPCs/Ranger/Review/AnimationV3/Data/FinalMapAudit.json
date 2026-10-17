@@ -1,0 +1,74 @@
+{
+  "map": "/Game/Maps/Dev_TestMap_NPCMotionV3.Dev_TestMap_NPCMotionV3",
+  "baseline": "/Game/Maps/Dev_TestMap_NPCMotionV2.Dev_TestMap_NPCMotionV2",
+  "actor_count": 1353,
+  "baseline_actor_count": 1351,
+  "new_actors": {
+    "PokeMonsterNPCMotionV3PreviewSource_0": {
+      "class": "/Script/PokeMonster.PokeMonsterNPCMotionV3PreviewSource",
+      "position": [
+        -100.0,
+        -150.0,
+        3.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [],
+      "lights": []
+    },
+    "PokeMonsterNPCMotionV3VisualActor_0": {
+      "class": "/Script/PokeMonster.PokeMonsterNPCMotionV3VisualActor",
+      "position": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "rotation": [
+        -0.0,
+        0.0,
+        135.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [],
+      "lights": []
+    },
+    "PokeMonsterNPCMotionV3VisualActor_1": {
+      "class": "/Script/PokeMonster.PokeMonsterNPCMotionV3VisualActor",
+      "position": [
+        -100.0,
+        -150.0,
+        3.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [],
+      "lights": []
+    }
+  },
+  "missing_actors": [
+    "PokeMonsterNPCVisualActor_0"
+  ],
+  "existing_actor_transform_geometry_material_collision_differences": {},
+  "dirty_maps": [],
+  "dirty_content": []
+}

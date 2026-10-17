@@ -1,0 +1,560 @@
+{
+  "NPCV1_After_Dorf.csv": {
+    "FrameTime": {
+      "mean": 46.547785093167704,
+      "median": 43.2239,
+      "samples": 322,
+      "max": 1232.6232
+    },
+    "GameThreadTime": {
+      "mean": 7.890508385093168,
+      "median": 6.42515,
+      "samples": 322,
+      "max": 424.6548
+    },
+    "RenderThreadTime": {
+      "mean": 0.00019152484472049688,
+      "median": 0.000167,
+      "samples": 322,
+      "max": 0.000458
+    },
+    "GPUTime": {
+      "mean": 39.783407453416146,
+      "median": 39.49665,
+      "samples": 322,
+      "max": 92.0694
+    },
+    "RHI/DrawCalls": {
+      "mean": 0.0,
+      "median": 0.0,
+      "samples": 322,
+      "max": 0.0
+    },
+    "GPU/ShadowDepths": {
+      "mean": 2.1191962732919256,
+      "median": 1.8542,
+      "samples": 322,
+      "max": 9.1861
+    },
+    "GPU/ShadowProjection": {
+      "mean": 3.6578745341614907,
+      "median": 2.7045,
+      "samples": 322,
+      "max": 8.7604
+    },
+    "GPU/Basepass": {
+      "mean": 2.900839440993789,
+      "median": 2.3933999999999997,
+      "samples": 322,
+      "max": 7.431
+    },
+    "GPU/Translucency": {
+      "mean": 0.02748535093167702,
+      "median": 0.0,
+      "samples": 322,
+      "max": 1.2438
+    },
+    "Exclusive/GameThread/Animation": {
+      "mean": 0.05917121118012422,
+      "median": 0.05675,
+      "samples": 322,
+      "max": 0.1365
+    }
+  },
+  "NPCV1_Before_Wald.csv": {
+    "FrameTime": {
+      "mean": 39.24771492146597,
+      "median": 38.00945,
+      "samples": 382,
+      "max": 398.1483
+    },
+    "GameThreadTime": {
+      "mean": 5.870031937172775,
+      "median": 5.1081,
+      "samples": 382,
+      "max": 251.944
+    },
+    "RenderThreadTime": {
+      "mean": 0.0002588115183246073,
+      "median": 0.000167,
+      "samples": 382,
+      "max": 0.004458
+    },
+    "GPUTime": {
+      "mean": 37.72029947643979,
+      "median": 36.207300000000004,
+      "samples": 382,
+      "max": 46.374
+    },
+    "RHI/DrawCalls": {
+      "mean": 0.0,
+      "median": 0.0,
+      "samples": 382,
+      "max": 0.0
+    },
+    "GPU/ShadowDepths": {
+      "mean": 2.0112013089005236,
+      "median": 1.6585999999999999,
+      "samples": 382,
+      "max": 6.2819
+    },
+    "GPU/ShadowProjection": {
+      "mean": 3.4884196335078532,
+      "median": 2.6487499999999997,
+      "samples": 382,
+      "max": 7.1845
+    },
+    "GPU/Basepass": {
+      "mean": 2.9891240837696333,
+      "median": 2.57605,
+      "samples": 382,
+      "max": 6.8117
+    },
+    "GPU/Translucency": {
+      "mean": 0.06261670418848167,
+      "median": 0.0,
+      "samples": 382,
+      "max": 2.5108
+    },
+    "Exclusive/GameThread/Animation": {
+      "mean": 0.050159261780104714,
+      "median": 0.0460625,
+      "samples": 382,
+      "max": 0.086542
+    }
+  },
+  "NPCV1_After_Wald.csv": {
+    "FrameTime": {
+      "mean": 43.90928859649123,
+      "median": 43.205749999999995,
+      "samples": 342,
+      "max": 396.2631
+    },
+    "GameThreadTime": {
+      "mean": 7.215133333333333,
+      "median": 6.3134,
+      "samples": 342,
+      "max": 269.988
+    },
+    "RenderThreadTime": {
+      "mean": 0.00020030994152046784,
+      "median": 0.000208,
+      "samples": 342,
+      "max": 0.000917
+    },
+    "GPUTime": {
+      "mean": 39.556248538011694,
+      "median": 39.3512,
+      "samples": 342,
+      "max": 50.7641
+    },
+    "RHI/DrawCalls": {
+      "mean": 0.0,
+      "median": 0.0,
+      "samples": 342,
+      "max": 0.0
+    },
+    "GPU/ShadowDepths": {
+      "mean": 2.2093663742690057,
+      "median": 1.89555,
+      "samples": 342,
+      "max": 6.353
+    },
+    "GPU/ShadowProjection": {
+      "mean": 3.450419298245614,
+      "median": 2.63125,
+      "samples": 342,
+      "max": 7.1555
+    },
+    "GPU/Basepass": {
+      "mean": 2.8933640350877194,
+      "median": 2.4686,
+      "samples": 342,
+      "max": 7.3418
+    },
+    "GPU/Translucency": {
+      "mean": 0.04463092105263158,
+      "median": 0.0,
+      "samples": 342,
+      "max": 2.4293
+    },
+    "Exclusive/GameThread/Animation": {
+      "mean": 0.05790123099415205,
+      "median": 0.0555,
+      "samples": 342,
+      "max": 0.1623
+    }
+  },
+  "NPCV1_Before_Dorf.csv": {
+    "FrameTime": {
+      "mean": 40.44211805929919,
+      "median": 36.0575,
+      "samples": 371,
+      "max": 1221.6594
+    },
+    "GameThreadTime": {
+      "mean": 6.5590086253369275,
+      "median": 5.0899,
+      "samples": 371,
+      "max": 503.1233
+    },
+    "RenderThreadTime": {
+      "mean": 0.00045615094339622643,
+      "median": 0.000208,
+      "samples": 371,
+      "max": 0.024583
+    },
+    "GPUTime": {
+      "mean": 36.789333423180594,
+      "median": 34.9653,
+      "samples": 371,
+      "max": 80.717
+    },
+    "RHI/DrawCalls": {
+      "mean": 0.0,
+      "median": 0.0,
+      "samples": 371,
+      "max": 0.0
+    },
+    "GPU/ShadowDepths": {
+      "mean": 1.972757681940701,
+      "median": 1.6625,
+      "samples": 371,
+      "max": 6.8986
+    },
+    "GPU/ShadowProjection": {
+      "mean": 3.3927981132075473,
+      "median": 2.6155,
+      "samples": 371,
+      "max": 7.8922
+    },
+    "GPU/Basepass": {
+      "mean": 2.87557628032345,
+      "median": 2.4443,
+      "samples": 371,
+      "max": 7.1716
+    },
+    "GPU/Translucency": {
+      "mean": 0.058089938005390834,
+      "median": 0.0,
+      "samples": 371,
+      "max": 1.5276
+    },
+    "Exclusive/GameThread/Animation": {
+      "mean": 0.0497256307277628,
+      "median": 0.043958,
+      "samples": 371,
+      "max": 0.091792
+    }
+  },
+  "NPCV1_Before_OffenerWeg.csv": {
+    "FrameTime": {
+      "mean": 37.54468972431078,
+      "median": 35.5535,
+      "samples": 399,
+      "max": 417.881
+    },
+    "GameThreadTime": {
+      "mean": 5.916979448621554,
+      "median": 5.1104,
+      "samples": 399,
+      "max": 282.6688
+    },
+    "RenderThreadTime": {
+      "mean": 0.00028112280701754385,
+      "median": 0.000167,
+      "samples": 399,
+      "max": 0.013667
+    },
+    "GPUTime": {
+      "mean": 35.90628195488722,
+      "median": 34.5701,
+      "samples": 399,
+      "max": 45.8225
+    },
+    "RHI/DrawCalls": {
+      "mean": 0.0,
+      "median": 0.0,
+      "samples": 399,
+      "max": 0.0
+    },
+    "GPU/ShadowDepths": {
+      "mean": 2.0713699248120303,
+      "median": 1.6471,
+      "samples": 399,
+      "max": 6.1192
+    },
+    "GPU/ShadowProjection": {
+      "mean": 2.928507268170426,
+      "median": 2.2992,
+      "samples": 399,
+      "max": 6.94
+    },
+    "GPU/Basepass": {
+      "mean": 2.8161932330827066,
+      "median": 2.4128,
+      "samples": 399,
+      "max": 6.6731
+    },
+    "GPU/Translucency": {
+      "mean": 0.07412135839598998,
+      "median": 0.003917,
+      "samples": 399,
+      "max": 2.5004
+    },
+    "Exclusive/GameThread/Animation": {
+      "mean": 0.04840944611528822,
+      "median": 0.04375,
+      "samples": 399,
+      "max": 0.095417
+    }
+  },
+  "NPCV1_After_OffenerWeg.csv": {
+    "FrameTime": {
+      "mean": 42.53888181818182,
+      "median": 41.8422,
+      "samples": 352,
+      "max": 384.5564
+    },
+    "GameThreadTime": {
+      "mean": 7.135926988636363,
+      "median": 6.23545,
+      "samples": 352,
+      "max": 249.7409
+    },
+    "RenderThreadTime": {
+      "mean": 0.0001952159090909091,
+      "median": 0.000167,
+      "samples": 352,
+      "max": 0.000583
+    },
+    "GPUTime": {
+      "mean": 38.291928125,
+      "median": 38.0591,
+      "samples": 352,
+      "max": 49.0454
+    },
+    "RHI/DrawCalls": {
+      "mean": 0.0,
+      "median": 0.0,
+      "samples": 352,
+      "max": 0.0
+    },
+    "GPU/ShadowDepths": {
+      "mean": 1.9517988636363637,
+      "median": 1.63435,
+      "samples": 352,
+      "max": 5.9985
+    },
+    "GPU/ShadowProjection": {
+      "mean": 3.220028125,
+      "median": 2.3311,
+      "samples": 352,
+      "max": 7.0845
+    },
+    "GPU/Basepass": {
+      "mean": 2.857527840909091,
+      "median": 2.2813499999999998,
+      "samples": 352,
+      "max": 7.237
+    },
+    "GPU/Translucency": {
+      "mean": 0.07920543465909091,
+      "median": 0.001833,
+      "samples": 352,
+      "max": 2.334
+    },
+    "Exclusive/GameThread/Animation": {
+      "mean": 0.047932446022727275,
+      "median": 0.045854,
+      "samples": 352,
+      "max": 0.1063
+    }
+  },
+  "NPCV1_AfterFinal_OffenerWeg.csv": {
+    "FrameTime": {
+      "mean": 41.96959775910364,
+      "median": 40.6995,
+      "samples": 357,
+      "max": 395.6782
+    },
+    "GameThreadTime": {
+      "mean": 6.994024089635855,
+      "median": 6.1932,
+      "samples": 357,
+      "max": 271.0435
+    },
+    "RenderThreadTime": {
+      "mean": 0.0002452577030812325,
+      "median": 0.000167,
+      "samples": 357,
+      "max": 0.00875
+    },
+    "GPUTime": {
+      "mean": 37.068131932773106,
+      "median": 36.7417,
+      "samples": 357,
+      "max": 45.778
+    },
+    "RHI/DrawCalls": {
+      "mean": 0.0,
+      "median": 0.0,
+      "samples": 357,
+      "max": 0.0
+    },
+    "GPU/ShadowDepths": {
+      "mean": 1.819824369747899,
+      "median": 1.577,
+      "samples": 357,
+      "max": 6.0259
+    },
+    "GPU/ShadowProjection": {
+      "mean": 3.23813025210084,
+      "median": 2.1972,
+      "samples": 357,
+      "max": 7.2273
+    },
+    "GPU/Basepass": {
+      "mean": 2.758850980392157,
+      "median": 2.2079,
+      "samples": 357,
+      "max": 6.8473
+    },
+    "GPU/Translucency": {
+      "mean": 0.029492837535014006,
+      "median": 0.0,
+      "samples": 357,
+      "max": 1.6259
+    },
+    "Exclusive/GameThread/Animation": {
+      "mean": 0.047685781512605045,
+      "median": 0.046,
+      "samples": 357,
+      "max": 0.1077
+    }
+  },
+  "NPCV1_AfterFinal_Dorf.csv": {
+    "FrameTime": {
+      "mean": 46.334069659442726,
+      "median": 42.8556,
+      "samples": 323,
+      "max": 1288.8894
+    },
+    "GameThreadTime": {
+      "mean": 7.951762538699691,
+      "median": 6.4515,
+      "samples": 323,
+      "max": 448.5612
+    },
+    "RenderThreadTime": {
+      "mean": 0.00021212074303405572,
+      "median": 0.000167,
+      "samples": 323,
+      "max": 0.006083
+    },
+    "GPUTime": {
+      "mean": 38.69104148606811,
+      "median": 39.0144,
+      "samples": 323,
+      "max": 73.985
+    },
+    "RHI/DrawCalls": {
+      "mean": 0.0,
+      "median": 0.0,
+      "samples": 323,
+      "max": 0.0
+    },
+    "GPU/ShadowDepths": {
+      "mean": 1.9032687306501548,
+      "median": 1.723,
+      "samples": 323,
+      "max": 5.8343
+    },
+    "GPU/ShadowProjection": {
+      "mean": 3.6440647058823528,
+      "median": 2.5116,
+      "samples": 323,
+      "max": 7.272
+    },
+    "GPU/Basepass": {
+      "mean": 2.5336934984520125,
+      "median": 2.0722,
+      "samples": 323,
+      "max": 6.6684
+    },
+    "GPU/Translucency": {
+      "mean": 0.0015678018575851391,
+      "median": 0.0,
+      "samples": 323,
+      "max": 0.5064
+    },
+    "Exclusive/GameThread/Animation": {
+      "mean": 0.06047528173374613,
+      "median": 0.057292,
+      "samples": 323,
+      "max": 0.122
+    }
+  },
+  "NPCV1_AfterFinal_Wald.csv": {
+    "FrameTime": {
+      "mean": 43.92353284457478,
+      "median": 43.5708,
+      "samples": 341,
+      "max": 391.4239
+    },
+    "GameThreadTime": {
+      "mean": 7.0872219941348975,
+      "median": 6.2287,
+      "samples": 341,
+      "max": 263.1824
+    },
+    "RenderThreadTime": {
+      "mean": 0.00020860703812316714,
+      "median": 0.000167,
+      "samples": 341,
+      "max": 0.002917
+    },
+    "GPUTime": {
+      "mean": 39.136210557184754,
+      "median": 39.2081,
+      "samples": 341,
+      "max": 47.5156
+    },
+    "RHI/DrawCalls": {
+      "mean": 0.0,
+      "median": 0.0,
+      "samples": 341,
+      "max": 0.0
+    },
+    "GPU/ShadowDepths": {
+      "mean": 1.9949211143695014,
+      "median": 1.7099,
+      "samples": 341,
+      "max": 6.2017
+    },
+    "GPU/ShadowProjection": {
+      "mean": 3.5953114369501464,
+      "median": 2.485,
+      "samples": 341,
+      "max": 7.0866
+    },
+    "GPU/Basepass": {
+      "mean": 2.529258651026393,
+      "median": 2.1273,
+      "samples": 341,
+      "max": 6.7448
+    },
+    "GPU/Translucency": {
+      "mean": 0.010840348973607038,
+      "median": 0.0,
+      "samples": 341,
+      "max": 1.487
+    },
+    "Exclusive/GameThread/Animation": {
+      "mean": 0.05724584164222874,
+      "median": 0.055333,
+      "samples": 341,
+      "max": 0.1277
+    }
+  }
+}

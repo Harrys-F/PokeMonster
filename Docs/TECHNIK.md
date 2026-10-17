@@ -629,3 +629,21 @@ Vier Material Instances (`MI_V2_BirchReveal`, `MI_V2_LeafBirchReveal`, `MI_V2_Le
 Die vorhandene Komponente prüft nun explizit Meshfamilie **und** Material. Nur die freigegebenen Eichen-Reveal-Materialien bzw. vier originalen Birken-Materialzuweisungen können Runtime-MIDs erhalten. Gebäude bleiben auch bei gemeinsam genutzten Holz-/Blattmaterialien ausgeschlossen. EndPlay stellt bei Birken ebenfalls ihre ursprünglichen Materialzuweisungen wieder her. Andere Meshfamilien, nachträglich gespawnte Komponenten und Split-Screen bleiben außerhalb der geprüften Anbindung.
 
 Build erfolgreich, 41/41 Automationstests erfolgreich einschließlich `TreeFamiliesAndBuildingExclusion`; Map Check 0 Fehler/0 Warnungen. Eingebettetes PIE prüft einzelne Birken, mehrere Eichen, gemischte Kronen, Zur-/Von-Kamera- und Diagonalbewegung, hintere Vegetation und ein verdeckendes Gebäude. Kein schwebendes PIE, kein neuer Absturz. Nachweise und verbleibende Lesbarkeits-/Dithergrenzen: `BAUMFAMILIEN_SICHTFREISTELLUNG_PRUEFBERICHT.md`.
+
+## Meshy-NPC-Darstellung V1
+
+In `Dev_TestMap_VisualV2` kann ein `APokeMonsterNPCVisualActor` ausschließlich die Darstellung eines bestehenden NPCs übernehmen. SourceActor, Interaktionskapsel, Name, Dialogdaten und Speicheridentität bleiben am Original-NPC. Die neue native AnimInstance blendet Idle/Gespräch in 0,18 s; sie führt keine NPC-Fortbewegung ein. `bUseVisual=false` stellt den erhaltenen PaperSprite wieder her. Der erste geprüfte Einsatz ist der Wanderer mit Ranger-Mesh. Materialien verwenden einen gemeinsamen neuen Parent mit expliziter Skeletal-Mesh-Nutzung. Weitere Modelle gelten nur entsprechend ihrem Prüfstatus in `MESHY_NPC_INTEGRATION_V1_PRUEFBERICHT.md`, nicht automatisch als freigegeben.
+## Verbindlicher Grafik-Performance-Teststandard (15.10.2026)
+
+Bei Grafik-, Vegetations-, Material-, Beleuchtungs- und Performanceänderungen sind beide Ausgabegrößen zu prüfen:
+
+| Ausgabe | Scalability | Screen Percentage |
+|---|---|---|
+| 1280 × 740 | Medium | 75 % und 100 % |
+| 2560 × 1440 (QHD) | Medium und High | jeweils 75 % und 100 % |
+
+Je Konfiguration Dorf, dichter Wald und offener Weg: mindestens drei Messläufe mit festgehaltenen Kameraposen, gleichen NPC-/Szenenzuständen, definierter Aufwärmphase und Messdauer. Vorher/Nachher zeitlich verschachteln und die Reihenfolge wechseln, um Zeitdrift zu erkennen. Median-FPS, Median-Framezeit, P95-Framezeit und zuverlässig verfügbare GPU-/CPU-Zeiten je Lauf protokollieren. Überlappende GPU-Pässe nicht addieren; fehlende oder konstante Nullzähler als nicht auswertbar kennzeichnen.
+
+Tatsächliche Fenstergröße, Spiel-Viewport und Render-Target-Größe sowie Screen Percentage und interne Rendergröße gesondert überprüfen. Ein `r.SetRes`-Aufruf oder Editorfenstertitel allein ist kein Auflösungsnachweis. Aus dem konstanten Renderer-Treiber abgeleitete interne Bildgrößen ausdrücklich von direkt gemessenen Renderpass-/Pufferabmessungen unterscheiden. Dynamische Auflösung, VSync, FPS-Limit, Vordergrunddrosselung, Warm-up, Messfenster, Gerät und zeitliche/thermische Schwankungen festhalten. PIE und eigenständige Prozesse getrennt ausweisen; `-game` mit Editorbinary ist kein paketierter Shipping-Build.
+
+Vergleichsscreenshots auch in tatsächlichen 2560 × 1440 bei gleicher Kamera, Position, Beleuchtung und Qualität erzeugen. Nicht verfügbare Auflösungen oder unzuverlässige Messungen offen benennen. Vorher/Nachher ausschließlich unter gleichen Bedingungen vergleichen. Richtwerte: stabile 60 FPS bei Standard/Medium und QHD/Medium, zunächst mindestens 30 FPS bei QHD/High, langfristig 60 FPS. Dies sind keine Garantien; sichtbare Qualität geht vor aggressiven Einsparungen. Dauerhafte globale Grafikabsenkungen erst nach messbarem und visuell akzeptablem Vergleich.

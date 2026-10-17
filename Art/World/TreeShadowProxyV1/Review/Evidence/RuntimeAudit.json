@@ -1,0 +1,56 @@
+[
+  {
+    "actor": "TSP_V2_ForestOak_0_Bark",
+    "hidden": true,
+    "actor_hidden": false,
+    "cast_hidden_shadow": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+    "cast_shadow": true,
+    "mesh": "/Game/Environment/TreeShadowProxyV1/SM_TSP_OakAncient_Bark.SM_TSP_OakAncient_Bark"
+  },
+  {
+    "actor": "TSP_V2_ForestOak_0_Crown",
+    "hidden": true,
+    "actor_hidden": false,
+    "cast_hidden_shadow": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+    "cast_shadow": true,
+    "mesh": "/Game/Environment/TreeShadowProxyV1/SM_TSP_OakAncient_Crown.SM_TSP_OakAncient_Crown"
+  },
+  {
+    "actor": "TSP_V2_ForestOak_1_Bark",
+    "hidden": true,
+    "actor_hidden": false,
+    "cast_hidden_shadow": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+    "cast_shadow": true,
+    "mesh": "/Game/Environment/TreeShadowProxyV1/SM_TSP_OakAncient_Bark.SM_TSP_OakAncient_Bark"
+  },
+  {
+    "actor": "TSP_V2_ForestOak_1_Crown",
+    "hidden": true,
+    "actor_hidden": false,
+    "cast_hidden_shadow": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+    "cast_shadow": true,
+    "mesh": "/Game/Environment/TreeShadowProxyV1/SM_TSP_OakAncient_Crown.SM_TSP_OakAncient_Crown"
+  },
+  {
+    "actor": "TSP_V2_ForestOak_2_Bark",
+    "hidden": true,
+    "actor_hidden": false,
+    "cast_hidden_shadow": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+    "cast_shadow": true,
+    "mesh": "/Game/Environment/TreeShadowProxyV1/SM_TSP_OakAncient_Bark.SM_TSP_OakAncient_Bark"
+  },
+  {
+    "actor": "TSP_V2_ForestOak_2_Crown",
+    "hidden": true,
+    "actor_hidden": false,
+    "cast_hidden_shadow": true,
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+    "cast_shadow": true,
+    "mesh": "/Game/Environment/TreeShadowProxyV1/SM_TSP_OakAncient_Crown.SM_TSP_OakAncient_Crown"
+  }
+]

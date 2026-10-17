@@ -1,0 +1,11 @@
+{
+  "condition": "CV:r.Lumen.FinalGatherMethod=0|r.Lumen.HardwareRayTracing=0",
+  "name": "LumenIrradianceSoftware",
+  "reason": "Matched QHD exterior review: silhouettes, density and directional shadows retained; indirect detail differs slightly. Pending interior and full-matrix validation.",
+  "renderer_overrides": {
+    "r.Lumen.ScreenProbeGather.IntegrateDownsampleFactor": "2",
+    "r.Shadow.Virtual.SMRT.RayCountDirectional": "2",
+    "r.Lumen.FinalGatherMethod": "0",
+    "r.Lumen.HardwareRayTracing": "0"
+  }
+}

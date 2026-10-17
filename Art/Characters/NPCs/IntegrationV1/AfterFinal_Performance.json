@@ -1,0 +1,59 @@
+{
+  "label": "AfterFinal",
+  "settings": "Medium,75%,VSync off,uncapped",
+  "requested_viewport": [
+    1280,
+    740
+  ],
+  "mode": "embedded Editor-PIE",
+  "points": [
+    {
+      "name": "Dorf",
+      "location": [
+        -760.0,
+        -1410.0,
+        50.14999973626985
+      ],
+      "viewport": [
+        2331,
+        1346
+      ],
+      "fps": 23.476399206678657,
+      "frame_median_ms": 42.77095943689346,
+      "samples": 324
+    },
+    {
+      "name": "Wald",
+      "location": [
+        -748.2290762094663,
+        -714.9003856041712,
+        50.150002241156315
+      ],
+      "viewport": [
+        2331,
+        1346
+      ],
+      "fps": 23.2672187403139,
+      "frame_median_ms": 43.44604164361954,
+      "samples": 342
+    },
+    {
+      "name": "OffenerWeg",
+      "location": [
+        -35.48333930542687,
+        -47.61831731452056,
+        50.15000135630824
+      ],
+      "viewport": [
+        2331,
+        1346
+      ],
+      "fps": 24.32220500729004,
+      "frame_median_ms": 40.76856188476086,
+      "samples": 358
+    }
+  ],
+  "no_teleports": true,
+  "error": null,
+  "distance_m": 18.718859911607318
+}

@@ -1,0 +1,20 @@
+{
+  "starting_head": "477e6f6",
+  "build": "Succeeded",
+  "build_target": "PokeMonsterEditor Mac Development",
+  "automation_passed": 35,
+  "automation_failed": 0,
+  "automation_warnings": 0,
+  "automation_not_run": 0,
+  "automation_fresh_engine_start": true,
+  "map_check": "[2026.10.03-13.00.25:273][  0]MapCheck: Kartenpr\u00fcfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 0,086ms bis zum Abschluss.",
+  "front_gate_before_dressing": true,
+  "final_foot_route_passed": true,
+  "fresh_load_furniture_blocking_PIE_passed": true,
+  "camera_unchanged": true,
+  "player_unchanged": true,
+  "dev_test_map_unchanged": true,
+  "original_dev_save_sha256": "f47190b969bdd940be90d8f4869239e2b1d689180b9ef85368507cc8cf731544",
+  "git_diff_check": "Passed",
+  "commit_or_push": false
+}

@@ -1,0 +1,13 @@
+{
+  "map": "/Game/Maps/Dev_TestMap_EnvironmentPerfV3.Dev_TestMap_EnvironmentPerfV3",
+  "renderer_overrides": {
+    "r.Lumen.ScreenProbeGather.IntegrateDownsampleFactor": "2",
+    "r.Shadow.Virtual.SMRT.RayCountDirectional": "2",
+    "r.Lumen.FinalGatherMethod": "0",
+    "r.Lumen.HardwareRayTracing": "0"
+  },
+  "new_vegetation_settings_adopted": false,
+  "minimum_lod_test_rejected": true,
+  "reason": "No consistent gain, including native QHD High 100; preserve geometry quality",
+  "actor": "EnvironmentPerfV3_RevalidatedV2Profile"
+}

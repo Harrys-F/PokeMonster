@@ -1,0 +1,16 @@
+{
+  "receiver": "Temporary engine Plane, 4x3m, pitch8deg, z60cm, NoCollision, CastShadowFalse",
+  "position": [
+    -3970,
+    1075,
+    60
+  ],
+  "not_saved": true,
+  "not_performance_timed": true,
+  "natural_sloped_terrain": "Not available in selected group; controlled receiver only",
+  "viewport": [
+    2560,
+    1440
+  ],
+  "temporary_receiver_removed_after_test": true
+}

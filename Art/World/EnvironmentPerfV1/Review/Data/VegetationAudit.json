@@ -1,0 +1,1259 @@
+{
+  "meshes": {
+    "/Game/Environment/Westland/NaturalGroundV1/Meshes/SM_WL_NG_HealingApproach.SM_WL_NG_HealingApproach": {
+      "visible_components": 1,
+      "placed_instances": 1,
+      "components_casting_shadow": 0,
+      "lods": [
+        {
+          "triangles": 1152,
+          "vertices": 657,
+          "sections": 1,
+          "uv_channels": 1
+        }
+      ],
+      "screen_sizes": [
+        2.0
+      ],
+      "material_slots": 1,
+      "materials": [
+        {
+          "path": "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_PathBlend.M_WL_NG_PathBlend",
+          "parent_chain": [
+            "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_PathBlend.M_WL_NG_PathBlend"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        }
+      ]
+    },
+    "/Game/Environment/Westland/NaturalGroundV1/Meshes/SM_WL_NG_GrassSmall.SM_WL_NG_GrassSmall": {
+      "visible_components": 1,
+      "placed_instances": 120,
+      "components_casting_shadow": 0,
+      "lods": [
+        {
+          "triangles": 45,
+          "vertices": 99,
+          "sections": 3,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        2.0
+      ],
+      "material_slots": 3,
+      "materials": [
+        {
+          "path": "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf0.M_WL_NG_GrassLeaf0",
+          "parent_chain": [
+            "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf0.M_WL_NG_GrassLeaf0"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf1.M_WL_NG_GrassLeaf1",
+          "parent_chain": [
+            "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf1.M_WL_NG_GrassLeaf1"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf2.M_WL_NG_GrassLeaf2",
+          "parent_chain": [
+            "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf2.M_WL_NG_GrassLeaf2"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        }
+      ]
+    },
+    "/Game/Environment/Westland/NaturalGroundV1/Meshes/SM_WL_NG_GrassMedium.SM_WL_NG_GrassMedium": {
+      "visible_components": 1,
+      "placed_instances": 116,
+      "components_casting_shadow": 0,
+      "lods": [
+        {
+          "triangles": 90,
+          "vertices": 198,
+          "sections": 3,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        2.0
+      ],
+      "material_slots": 3,
+      "materials": [
+        {
+          "path": "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf0.M_WL_NG_GrassLeaf0",
+          "parent_chain": [
+            "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf0.M_WL_NG_GrassLeaf0"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf1.M_WL_NG_GrassLeaf1",
+          "parent_chain": [
+            "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf1.M_WL_NG_GrassLeaf1"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf2.M_WL_NG_GrassLeaf2",
+          "parent_chain": [
+            "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf2.M_WL_NG_GrassLeaf2"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        }
+      ]
+    },
+    "/Game/Environment/Westland/NaturalGroundV1/Meshes/SM_WL_NG_GrassLarge.SM_WL_NG_GrassLarge": {
+      "visible_components": 1,
+      "placed_instances": 14,
+      "components_casting_shadow": 0,
+      "lods": [
+        {
+          "triangles": 140,
+          "vertices": 308,
+          "sections": 3,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        2.0
+      ],
+      "material_slots": 3,
+      "materials": [
+        {
+          "path": "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf0.M_WL_NG_GrassLeaf0",
+          "parent_chain": [
+            "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf0.M_WL_NG_GrassLeaf0"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf1.M_WL_NG_GrassLeaf1",
+          "parent_chain": [
+            "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf1.M_WL_NG_GrassLeaf1"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf2.M_WL_NG_GrassLeaf2",
+          "parent_chain": [
+            "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf2.M_WL_NG_GrassLeaf2"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        }
+      ]
+    },
+    "/Game/Environment/Westland/NaturalGroundV1/Meshes/SM_WL_NG_MeadowHerbs.SM_WL_NG_MeadowHerbs": {
+      "visible_components": 1,
+      "placed_instances": 49,
+      "components_casting_shadow": 0,
+      "lods": [
+        {
+          "triangles": 100,
+          "vertices": 212,
+          "sections": 4,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        2.0
+      ],
+      "material_slots": 4,
+      "materials": [
+        {
+          "path": "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf0.M_WL_NG_GrassLeaf0",
+          "parent_chain": [
+            "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf0.M_WL_NG_GrassLeaf0"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf1.M_WL_NG_GrassLeaf1",
+          "parent_chain": [
+            "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf1.M_WL_NG_GrassLeaf1"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf2.M_WL_NG_GrassLeaf2",
+          "parent_chain": [
+            "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_GrassLeaf2.M_WL_NG_GrassLeaf2"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_FlowerCream.M_WL_NG_FlowerCream",
+          "parent_chain": [
+            "/Game/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_FlowerCream.M_WL_NG_FlowerCream"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        }
+      ]
+    },
+    "/Game/Environment/Westland/NaturalGroundV1/Meshes/SM_WL_NG_PebbleSmall.SM_WL_NG_PebbleSmall": {
+      "visible_components": 1,
+      "placed_instances": 14,
+      "components_casting_shadow": 0,
+      "lods": [
+        {
+          "triangles": 80,
+          "vertices": 240,
+          "sections": 1,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        2.0
+      ],
+      "material_slots": 1,
+      "materials": [
+        {
+          "path": "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Stone.M_HH_Q2_Stone",
+          "parent_chain": [
+            "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Stone.M_HH_Q2_Stone"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        }
+      ]
+    },
+    "/Game/Environment/Westland/NaturalGroundV1/Meshes/SM_WL_NG_PebbleCluster.SM_WL_NG_PebbleCluster": {
+      "visible_components": 2,
+      "placed_instances": 70,
+      "components_casting_shadow": 0,
+      "lods": [
+        {
+          "triangles": 80,
+          "vertices": 240,
+          "sections": 1,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        2.0
+      ],
+      "material_slots": 1,
+      "materials": [
+        {
+          "path": "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Stone.M_HH_Q2_Stone",
+          "parent_chain": [
+            "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Stone.M_HH_Q2_Stone"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Landscape/SM_WLA_Boulder_A.SM_WLA_Boulder_A": {
+      "visible_components": 38,
+      "placed_instances": 38,
+      "components_casting_shadow": 38,
+      "lods": [
+        {
+          "triangles": 1280,
+          "vertices": 1202,
+          "sections": 1,
+          "uv_channels": 3
+        },
+        {
+          "triangles": 704,
+          "vertices": 837,
+          "sections": 1,
+          "uv_channels": 3
+        },
+        {
+          "triangles": 320,
+          "vertices": 448,
+          "sections": 1,
+          "uv_channels": 3
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.44999998807907104,
+        0.1599999964237213
+      ],
+      "material_slots": 1,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_MossStone.MI_WLA_MossStone",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_MossStone.MI_WLA_MossStone",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3": {
+      "visible_components": 41,
+      "placed_instances": 41,
+      "components_casting_shadow": 41,
+      "lods": [
+        {
+          "triangles": 12068,
+          "vertices": 12180,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 7240,
+          "vertices": 8921,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 3621,
+          "vertices": 5576,
+          "sections": 2,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.3400000035762787,
+        0.12999999523162842
+      ],
+      "material_slots": 2,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Bark.MI_WLA_Bark",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Bark.MI_WLA_Bark",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/QualityV3/Materials/MI_WLA_FoliageGroups_V3.MI_WLA_FoliageGroups_V3",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/QualityV3/Materials/MI_WLA_FoliageGroups_V3.MI_WLA_FoliageGroups_V3",
+            "/Game/Environment/WestlandAssetLibrary/QualityV3/Materials/M_WLA_FoliageGroups_V3.M_WLA_FoliageGroups_V3"
+          ],
+          "blend_mode": "<BlendMode.BLEND_MASKED: 1>",
+          "two_sided": true
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_B.SM_WLA_WildBush_V3_B": {
+      "visible_components": 20,
+      "placed_instances": 47,
+      "components_casting_shadow": 0,
+      "lods": [
+        {
+          "triangles": 3396,
+          "vertices": 3744,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 2038,
+          "vertices": 2782,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 1019,
+          "vertices": 1763,
+          "sections": 2,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.3400000035762787,
+        0.12999999523162842
+      ],
+      "material_slots": 2,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Bark.MI_WLA_Bark",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Bark.MI_WLA_Bark",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/QualityV3/Materials/MI_WLA_FoliageGroups_V3.MI_WLA_FoliageGroups_V3",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/QualityV3/Materials/MI_WLA_FoliageGroups_V3.MI_WLA_FoliageGroups_V3",
+            "/Game/Environment/WestlandAssetLibrary/QualityV3/Materials/M_WLA_FoliageGroups_V3.M_WLA_FoliageGroups_V3"
+          ],
+          "blend_mode": "<BlendMode.BLEND_MASKED: 1>",
+          "two_sided": true
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Vegetation/SM_WLA_WildBush_V3_A.SM_WLA_WildBush_V3_A": {
+      "visible_components": 26,
+      "placed_instances": 55,
+      "components_casting_shadow": 0,
+      "lods": [
+        {
+          "triangles": 3284,
+          "vertices": 3618,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 1971,
+          "vertices": 2690,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 986,
+          "vertices": 1694,
+          "sections": 2,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.3400000035762787,
+        0.12999999523162842
+      ],
+      "material_slots": 2,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Bark.MI_WLA_Bark",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Bark.MI_WLA_Bark",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/QualityV3/Materials/MI_WLA_FoliageGroups_V3.MI_WLA_FoliageGroups_V3",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/QualityV3/Materials/MI_WLA_FoliageGroups_V3.MI_WLA_FoliageGroups_V3",
+            "/Game/Environment/WestlandAssetLibrary/QualityV3/Materials/M_WLA_FoliageGroups_V3.M_WLA_FoliageGroups_V3"
+          ],
+          "blend_mode": "<BlendMode.BLEND_MASKED: 1>",
+          "two_sided": true
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Village/SM_WLA_Bench_A.SM_WLA_Bench_A": {
+      "visible_components": 1,
+      "placed_instances": 1,
+      "components_casting_shadow": 1,
+      "lods": [
+        {
+          "triangles": 3772,
+          "vertices": 8066,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 2074,
+          "vertices": 4728,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 942,
+          "vertices": 1984,
+          "sections": 2,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.44999998807907104,
+        0.1599999964237213
+      ],
+      "material_slots": 2,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Timber.MI_WLA_Timber",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Timber.MI_WLA_Timber",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Wood.MI_WLA_Wood",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Wood.MI_WLA_Wood",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Village/SM_WLA_Cart_A.SM_WLA_Cart_A": {
+      "visible_components": 1,
+      "placed_instances": 1,
+      "components_casting_shadow": 1,
+      "lods": [
+        {
+          "triangles": 6196,
+          "vertices": 15736,
+          "sections": 3,
+          "uv_channels": 3
+        },
+        {
+          "triangles": 3408,
+          "vertices": 7962,
+          "sections": 3,
+          "uv_channels": 3
+        },
+        {
+          "triangles": 1548,
+          "vertices": 3582,
+          "sections": 3,
+          "uv_channels": 3
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.44999998807907104,
+        0.1599999964237213
+      ],
+      "material_slots": 3,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Timber.MI_WLA_Timber",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Timber.MI_WLA_Timber",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Wood.MI_WLA_Wood",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Wood.MI_WLA_Wood",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Iron.MI_WLA_Iron",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Iron.MI_WLA_Iron",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Village/SM_WLA_Barrel_A.SM_WLA_Barrel_A": {
+      "visible_components": 1,
+      "placed_instances": 1,
+      "components_casting_shadow": 1,
+      "lods": [
+        {
+          "triangles": 2620,
+          "vertices": 5490,
+          "sections": 2,
+          "uv_channels": 3
+        },
+        {
+          "triangles": 1440,
+          "vertices": 2683,
+          "sections": 2,
+          "uv_channels": 3
+        },
+        {
+          "triangles": 654,
+          "vertices": 1549,
+          "sections": 2,
+          "uv_channels": 3
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.44999998807907104,
+        0.1599999964237213
+      ],
+      "material_slots": 2,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Wood.MI_WLA_Wood",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Wood.MI_WLA_Wood",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Iron.MI_WLA_Iron",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Iron.MI_WLA_Iron",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Village/SM_WLA_Crate_A.SM_WLA_Crate_A": {
+      "visible_components": 1,
+      "placed_instances": 1,
+      "components_casting_shadow": 1,
+      "lods": [
+        {
+          "triangles": 4136,
+          "vertices": 11716,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 2274,
+          "vertices": 6822,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 1034,
+          "vertices": 3102,
+          "sections": 2,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.44999998807907104,
+        0.1599999964237213
+      ],
+      "material_slots": 2,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Wood.MI_WLA_Wood",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Wood.MI_WLA_Wood",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Timber.MI_WLA_Timber",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Timber.MI_WLA_Timber",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Village/SM_WLA_Signpost_A.SM_WLA_Signpost_A": {
+      "visible_components": 1,
+      "placed_instances": 1,
+      "components_casting_shadow": 1,
+      "lods": [
+        {
+          "triangles": 280,
+          "vertices": 405,
+          "sections": 2,
+          "uv_channels": 3
+        }
+      ],
+      "screen_sizes": [
+        2.0
+      ],
+      "material_slots": 2,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Wood.MI_WLA_Wood",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Wood.MI_WLA_Wood",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Iron.MI_WLA_Iron",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Iron.MI_WLA_Iron",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Village/SM_WLA_Fence_A.SM_WLA_Fence_A": {
+      "visible_components": 5,
+      "placed_instances": 5,
+      "components_casting_shadow": 5,
+      "lods": [
+        {
+          "triangles": 656,
+          "vertices": 1420,
+          "sections": 2,
+          "uv_channels": 3
+        }
+      ],
+      "screen_sizes": [
+        2.0
+      ],
+      "material_slots": 2,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Wood.MI_WLA_Wood",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Wood.MI_WLA_Wood",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Iron.MI_WLA_Iron",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Iron.MI_WLA_Iron",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Ruins/SM_WLA_Column_A.SM_WLA_Column_A": {
+      "visible_components": 1,
+      "placed_instances": 1,
+      "components_casting_shadow": 1,
+      "lods": [
+        {
+          "triangles": 1856,
+          "vertices": 1056,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 1113,
+          "vertices": 672,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 556,
+          "vertices": 368,
+          "sections": 2,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.4000000059604645,
+        0.15000000596046448
+      ],
+      "material_slots": 2,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Stone.MI_WLA_Stone",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Stone.MI_WLA_Stone",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_MossStone.MI_WLA_MossStone",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_MossStone.MI_WLA_MossStone",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Ruins/SM_WLA_Column_B.SM_WLA_Column_B": {
+      "visible_components": 1,
+      "placed_instances": 1,
+      "components_casting_shadow": 1,
+      "lods": [
+        {
+          "triangles": 1856,
+          "vertices": 1056,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 1114,
+          "vertices": 673,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 557,
+          "vertices": 366,
+          "sections": 2,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.4000000059604645,
+        0.15000000596046448
+      ],
+      "material_slots": 2,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Stone.MI_WLA_Stone",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Stone.MI_WLA_Stone",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_MossStone.MI_WLA_MossStone",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_MossStone.MI_WLA_MossStone",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Ruins/SM_WLA_WallRemnant_A.SM_WLA_WallRemnant_A": {
+      "visible_components": 1,
+      "placed_instances": 1,
+      "components_casting_shadow": 1,
+      "lods": [
+        {
+          "triangles": 3868,
+          "vertices": 9503,
+          "sections": 2,
+          "uv_channels": 3
+        },
+        {
+          "triangles": 2127,
+          "vertices": 5766,
+          "sections": 2,
+          "uv_channels": 3
+        },
+        {
+          "triangles": 967,
+          "vertices": 2855,
+          "sections": 2,
+          "uv_channels": 3
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.44999998807907104,
+        0.1599999964237213
+      ],
+      "material_slots": 2,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Stone.MI_WLA_Stone",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Stone.MI_WLA_Stone",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Leaf.MI_WLA_Leaf",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Leaf.MI_WLA_Leaf",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Ruins/SM_WLA_Runestone_A.SM_WLA_Runestone_A": {
+      "visible_components": 1,
+      "placed_instances": 1,
+      "components_casting_shadow": 1,
+      "lods": [
+        {
+          "triangles": 6464,
+          "vertices": 3562,
+          "sections": 1,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 3878,
+          "vertices": 2263,
+          "sections": 1,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 1940,
+          "vertices": 1232,
+          "sections": 1,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.4000000059604645,
+        0.15000000596046448
+      ],
+      "material_slots": 2,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_MossStone.MI_WLA_MossStone",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_MossStone.MI_WLA_MossStone",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Rune.MI_WLA_Rune",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Rune.MI_WLA_Rune",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Trees/SM_WLA_Birch_A.SM_WLA_Birch_A": {
+      "visible_components": 4,
+      "placed_instances": 4,
+      "components_casting_shadow": 4,
+      "lods": [
+        {
+          "triangles": 28628,
+          "vertices": 25343,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 17177,
+          "vertices": 18715,
+          "sections": 2,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 8588,
+          "vertices": 10967,
+          "sections": 2,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.4000000059604645,
+        0.15000000596046448
+      ],
+      "material_slots": 4,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Birch.MI_WLA_Birch",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Birch.MI_WLA_Birch",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafBirch.MI_WLA_LeafBirch",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafBirch.MI_WLA_LeafBirch",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafDark.MI_WLA_LeafDark",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafDark.MI_WLA_LeafDark",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafLight.MI_WLA_LeafLight",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafLight.MI_WLA_LeafLight",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Grass_A.SM_WLA_Grass_A": {
+      "visible_components": 1,
+      "placed_instances": 175,
+      "components_casting_shadow": 0,
+      "lods": [
+        {
+          "triangles": 576,
+          "vertices": 504,
+          "sections": 2,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        2.0
+      ],
+      "material_slots": 2,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafLight.MI_WLA_LeafLight",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafLight.MI_WLA_LeafLight",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Leaf.MI_WLA_Leaf",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Leaf.MI_WLA_Leaf",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_A.SM_WLA_Fern_A": {
+      "visible_components": 1,
+      "placed_instances": 46,
+      "components_casting_shadow": 0,
+      "lods": [
+        {
+          "triangles": 8030,
+          "vertices": 6490,
+          "sections": 1,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 4818,
+          "vertices": 4606,
+          "sections": 1,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 2409,
+          "vertices": 2814,
+          "sections": 1,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.4000000059604645,
+        0.15000000596046448
+      ],
+      "material_slots": 3,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafFern.MI_WLA_LeafFern",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafFern.MI_WLA_LeafFern",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafLight.MI_WLA_LeafLight",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafLight.MI_WLA_LeafLight",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Leaf.MI_WLA_Leaf",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Leaf.MI_WLA_Leaf",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Wildflowers_A.SM_WLA_Wildflowers_A": {
+      "visible_components": 1,
+      "placed_instances": 63,
+      "components_casting_shadow": 0,
+      "lods": [
+        {
+          "triangles": 2160,
+          "vertices": 2095,
+          "sections": 5,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 1188,
+          "vertices": 1485,
+          "sections": 5,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 540,
+          "vertices": 910,
+          "sections": 5,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.44999998807907104,
+        0.1599999964237213
+      ],
+      "material_slots": 5,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Leaf.MI_WLA_Leaf",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Leaf.MI_WLA_Leaf",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_FlowerBlue.MI_WLA_FlowerBlue",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_FlowerBlue.MI_WLA_FlowerBlue",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_FlowerCream.MI_WLA_FlowerCream",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_FlowerCream.MI_WLA_FlowerCream",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_Painted.M_WLA_Painted"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": false
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafDark.MI_WLA_LeafDark",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafDark.MI_WLA_LeafDark",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafLight.MI_WLA_LeafLight",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafLight.MI_WLA_LeafLight",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        }
+      ]
+    },
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Herb_A.SM_WLA_Herb_A": {
+      "visible_components": 1,
+      "placed_instances": 55,
+      "components_casting_shadow": 0,
+      "lods": [
+        {
+          "triangles": 1152,
+          "vertices": 1259,
+          "sections": 3,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 634,
+          "vertices": 840,
+          "sections": 3,
+          "uv_channels": 2
+        },
+        {
+          "triangles": 288,
+          "vertices": 527,
+          "sections": 3,
+          "uv_channels": 2
+        }
+      ],
+      "screen_sizes": [
+        1.0,
+        0.44999998807907104,
+        0.1599999964237213
+      ],
+      "material_slots": 3,
+      "materials": [
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafDark.MI_WLA_LeafDark",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafDark.MI_WLA_LeafDark",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafLight.MI_WLA_LeafLight",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_LeafLight.MI_WLA_LeafLight",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        },
+        {
+          "path": "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Leaf.MI_WLA_Leaf",
+          "parent_chain": [
+            "/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Leaf.MI_WLA_Leaf",
+            "/Game/Environment/WestlandAssetLibrary/Materials/M_WLA_PaintedLeaf.M_WLA_PaintedLeaf"
+          ],
+          "blend_mode": "<BlendMode.BLEND_OPAQUE: 0>",
+          "two_sided": true
+        }
+      ]
+    }
+  },
+  "summary": {
+    "placed_instances_not_per_view_visible_instances": 922,
+    "all_lod0_instanced_triangles_upper_bound": 1732692
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "ElvenArcher",
+  "input": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Incoming/Legolas_V1.glb",
+  "source_blend": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenArcher/Source/ElvenArcher_NPC_Source_V1.blend",
+  "original_height_m": 1.878311038017273,
+  "review_height_m": 1.95,
+  "uniform_object_scale": 1.0381667149538776,
+  "front_assumption": "Negative Blender Y, pending visual check",
+  "mesh_audit": [
+    {
+      "object": "ElvenArcher_HP_0",
+      "vertices": 1250242,
+      "triangles": 2269806,
+      "polygons": 2269806,
+      "raw_boundary_edges": 222724,
+      "edges_more_than_two_faces": 0,
+      "loose_edges": 0,
+      "zero_area_polygons": 0,
+      "nonfinite_coordinates": 0,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "geometry_hash": "cf203cb543e11b89a52e691c5208b36bf2452ba637d1d6b2f22598422a92baca",
+      "component_audit": "Deferred exact connectivity/island audit; raw seam edges must not be treated as holes.",
+      "self_intersections": "Not exhaustively tested; visual review required"
+    }
+  ],
+  "textures": [
+    {
+      "name": "ElvenArcher_Image_0",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "colorspace": "sRGB",
+      "external_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenArcher/Textures/ElvenArcher_Image_0.jpg"
+    },
+    {
+      "name": "ElvenArcher_Image_1",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "colorspace": "Non-Color",
+      "external_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenArcher/Textures/ElvenArcher_Image_1.jpg"
+    },
+    {
+      "name": "ElvenArcher_Image_2",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "colorspace": "Non-Color",
+      "external_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenArcher/Textures/ElvenArcher_Image_2.jpg"
+    }
+  ],
+  "rigs": 0,
+  "actions": 0,
+  "rendered_views": [
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenArcher/Previews/01_Front.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenArcher/Previews/02_Right.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenArcher/Previews/03_ThreeQuarter.png"
+  ]
+}

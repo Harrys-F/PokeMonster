@@ -1,0 +1,13 @@
+{
+  "viewport": [
+    2560,
+    1440
+  ],
+  "cvars": {
+    "r.ScreenPercentage": 100.0,
+    "r.SecondaryScreenPercentage.GameViewport": 100.0,
+    "r.Lumen.FinalGatherMethod": 1.0,
+    "r.Lumen.HardwareRayTracing": 1.0
+  },
+  "utc": "2026-10-15T15:08:06Z"
+}

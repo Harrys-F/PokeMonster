@@ -1,0 +1,92 @@
+{
+  "Ranger": {
+    "blender": [
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Previews/01_Front.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Previews/02_Right.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Previews/03_ThreeQuarter.png"
+    ],
+    "game_camera": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Previews/Unreal_Validated_GameCamera00004.png",
+    "note": "Stationary transient preview at unchanged Wanderer visual location; only Ranger permanently bound."
+  },
+  "SilverLady": {
+    "blender": [
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/SilverLady/Previews/01_Front.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/SilverLady/Previews/02_Right.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/SilverLady/Previews/03_ThreeQuarter.png"
+    ],
+    "game_camera": null,
+    "note": "No actual Unreal game-camera review; static candidate not placed."
+  },
+  "TreeBeing": {
+    "blender": [
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/TreeBeing/Previews/01_Front.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/TreeBeing/Previews/02_Right.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/TreeBeing/Previews/03_ThreeQuarter.png"
+    ],
+    "game_camera": null,
+    "note": "No actual Unreal game-camera review; static candidate not placed."
+  },
+  "ElvenScholar": {
+    "blender": [
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenScholar/Previews/01_Front.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenScholar/Previews/02_Right.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenScholar/Previews/03_ThreeQuarter.png"
+    ],
+    "game_camera": null,
+    "note": "No actual Unreal game-camera review; static candidate not placed."
+  },
+  "Wizard": {
+    "blender": [
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Wizard/Previews/01_Front.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Wizard/Previews/02_Right.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Wizard/Previews/03_ThreeQuarter.png"
+    ],
+    "game_camera": null,
+    "note": "No actual Unreal game-camera review; static candidate not placed."
+  },
+  "WhiteHairedWarrior": {
+    "blender": [
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/WhiteHairedWarrior/Previews/01_Front.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/WhiteHairedWarrior/Previews/02_Right.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/WhiteHairedWarrior/Previews/03_ThreeQuarter.png"
+    ],
+    "game_camera": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/WhiteHairedWarrior/Previews/Unreal_Validated_GameCamera00003.png",
+    "note": "Stationary transient preview at unchanged Wanderer visual location; only Ranger permanently bound."
+  },
+  "DwarfWarrior": {
+    "blender": [
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/DwarfWarrior/Previews/01_Front.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/DwarfWarrior/Previews/02_Right.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/DwarfWarrior/Previews/03_ThreeQuarter.png"
+    ],
+    "game_camera": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/DwarfWarrior/Previews/Unreal_Validated_GameCamera00003.png",
+    "note": "Stationary transient preview at unchanged Wanderer visual location; only Ranger permanently bound."
+  },
+  "CrouchedCreature": {
+    "blender": [
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/CrouchedCreature/Previews/01_Front.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/CrouchedCreature/Previews/02_Right.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/CrouchedCreature/Previews/03_ThreeQuarter.png"
+    ],
+    "game_camera": null,
+    "note": "No actual Unreal game-camera review; static candidate not placed."
+  },
+  "ElvenArcher": {
+    "blender": [
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenArcher/Previews/01_Front.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenArcher/Previews/02_Right.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenArcher/Previews/03_ThreeQuarter.png"
+    ],
+    "game_camera": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenArcher/Previews/Unreal_Validated_GameCamera00003.png",
+    "note": "Stationary transient preview at unchanged Wanderer visual location; only Ranger permanently bound."
+  },
+  "DarkArmored": {
+    "blender": [
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/DarkArmored/Previews/01_Front.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/DarkArmored/Previews/02_Right.png",
+      "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/DarkArmored/Previews/03_ThreeQuarter.png"
+    ],
+    "game_camera": null,
+    "note": "No actual Unreal game-camera review; static candidate not placed."
+  }
+}

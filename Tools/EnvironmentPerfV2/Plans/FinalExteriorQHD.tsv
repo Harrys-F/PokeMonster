@@ -1,0 +1,7 @@
+FinalExteriorQHD	PIE	8	1
+Weg	Control	1	2560	1440	2	100
+Weg	CV:r.Lumen.FinalGatherMethod=0|r.Lumen.HardwareRayTracing=0	1	2560	1440	2	100
+Clearing	Control	1	2560	1440	2	100
+Clearing	CV:r.Lumen.FinalGatherMethod=0|r.Lumen.HardwareRayTracing=0	1	2560	1440	2	100
+Archiv	Control	1	2560	1440	2	100
+Archiv	CV:r.Lumen.FinalGatherMethod=0|r.Lumen.HardwareRayTracing=0	1	2560	1440	2	100

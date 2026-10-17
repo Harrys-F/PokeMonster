@@ -1,0 +1,185 @@
+# PokeMonster – Environment Performance Optimization V1
+
+Stand: 15.10.2026. **Isolierter, messbar schnellerer Rendering-Kandidat. Keine automatische Übernahme in die visuelle Baseline. Die Leistungsziele sind weiterhin nicht durchgehend erreicht.**
+
+Arbeitskarte: **/Game/Maps/Dev_TestMap_EnvironmentPerfV1**. Keine Änderungen an den ursprünglichen Testkarten, kein Commit, kein Push.
+
+## 1. Ausgangsstand und Schutz
+
+HEAD: **351a3ef Add YoungTrainer sprint V1 and in-place run animation**. Der Arbeitsbaum war bereits verändert. Die offene NPC-Integration, Incoming-Originale, der Ranger-V2-Versuch und die bestehende VisualV2-Map gehörten zum Ausgangsstand. Sie wurden weder verworfen noch als eigene neue Ergebnisse beansprucht.
+
+Gelesen: AGENTS, relevante TECHNIK/ENTSCHEIDUNGEN/GRAFIKSTIL/SPIELIDEE/SPIELREGELN, VisualV2-, NPC-Integrations-, Ranger-Performance-V2-, V3-Asset- und Kronenfreistellungsberichte sowie tatsächliche Implementierungen. Blender blieb unberührt; keine vorhandene Quelle wurde neu erzeugt oder überschrieben.
+
+{{PROTECTION}}
+
+Original-Testkarten einschließlich VisualV2 und RangerPerfV2, Ranger-V1/V2-Assets, alle Incoming-Modelle, Blenderquellen und Playerdateien sind gegenüber Aufgabenbeginn bytegleich. Das bedeutet nicht sauber gegenüber HEAD: Vorher offene Änderungen bleiben offen.
+
+Die neue Karte entstand über die Unreal-Editor-API: save_map unter neuem Pfad, danach explizites Laden. Das Original wurde nicht gespeichert. Der Actor-/Komponentenvergleich findet **keine geänderten bestehenden Positionen, Rotationen, Skalierungen, Meshes, Materialzuweisungen, Instanztransformationen oder Kollisionen**. Hinzu kommt genau ein tick- und kollisionsfreier Rendering-Infoactor. Drei automatisch erzeugte Editor-Manager (Buoyancy, GameplayDebugger, AbstractNavData) und WorldSettings wurden beim persistenten Actorvergleich ausdrücklich ausgeklammert.
+
+## 2. Messmethode und tatsächliche Auflösungen
+
+MacBook Air M4, 16 GB gemeinsamer Speicher, macOS, UE 5.8.2, Metal. Kamera unverändert: **2850 cm / Pitch −50° / Yaw −45° / FOV 35°**. Player 140 cm, normale Bewegung 210 cm/s. Alle Grafik-Scalability-Gruppen jeweils 1 (Medium) oder 2 (High). VSync=0, t.MaxFPS=0, DynamicRes.OperationMode=0, sekundäre Auflösung=100%, PIE-Auflösungsüberschreibung=0. Keine gespeicherten globalen Grafik-/Projekt-Configänderungen.
+
+Der verbindliche Standard wurde zusätzlich in TECHNIK festgehalten:
+
+| Ausgabe | Qualität | Screen Percentage | Interne Bildgröße laut konstantem Renderer-Treiber |
+|---|---|---|---|
+| 1280×740 | Medium | 75% | 960×555 |
+| 1280×740 | Medium | 100% | 1280×740 |
+| 2560×1440 | Medium | 75% | 1920×1080 |
+| 2560×1440 | Medium | 100% | 2560×1440 |
+| 2560×1440 | High | 75% | 1920×1080 |
+| 2560×1440 | High | 100% | 2560×1440 |
+
+Fenster, Spiel-Viewport, Render-Target und tatsächliches unskaliertes ViewRect werden getrennt geloggt. Das eingebettete Editorfenster hat 2940×1696 Slate-Pixel, DPI 2; **das sind nicht die Spielmessauflösungen**. FSceneViewport::SetFixedViewportSize setzt den tatsächlichen Game-Viewport/Render-Target auf die Tabellenauflösung. Native Fenstermaße und alle pro Segment beobachteten Größen stehen in MeasurementValidation.json.
+
+Die internen Größen sind **abgeleitet** aus dem auf dem Renderthread gelesenen konstanten Screen-Percentage-Treiber und der UE-5.8-ceil-Regel bei deaktivierter dynamischer Auflösung. Keine direkte SceneColor-Allocation-Readback-Messung. Pufferpadding und einzelne Passauflösungen sind nicht erfasst. Fenster- oder r.SetRes-Angaben allein werden nicht als Nachweis benutzt.
+
+Drei Messorte (Player-Capsule-Zentrum in cm):
+
+- Dorf am tatsächlichen Heilhausvorplatz: (−4100, 450, 50.15).
+- Dichter nördlicher Wald: (−4300, 1550, 50.15).
+- Offener Weg: (−36.6, −47.1, 50.15).
+
+Die Kameraposen werden pro Frame protokolliert. Ranger V1 bleibt in der Karte, NPCs im Idle, keine Gespräche/Kämpfe während Performancefenstern. Je finaler Einzelmessung 5 Sekunden Warm-up und 6 Sekunden Messung, je Ort/Konfiguration drei benachbarte Kontrolle/Kandidat-Paare. Reihenfolge in Wiederholung 2 umgedreht. Die frühere unoptimierte Baselinereihe verwendet 5/8 Sekunden und ist separat enthalten; wegen Zeitdrift wird sie nicht allein als kausaler Vorhervergleich benutzt. Einzelfaktorserien: dokumentierte 3/5- oder 4/6-Sekunden-Fenster; zusätzlicher Lumen-Test 5/8 Sekunden. Pläne und UTC-Zeiten liegen bei.
+
+Median-FPS = 1000 / Median der nativen Wall-Clock-Frameintervalle. P95 = linear interpoliertes 95. Perzentil derselben Einzelmessung. Die Zusammenfassung zeigt den Median aus drei Laufmedianen bzw. **Median der drei Lauf-P95**, kein aus allen Frames gemischtes P95. Einzelwerte und CPU-/GPU-Zähler bleiben in Measurements.json. Null gemeldete DrawCall-/RHI-/PIE-Renderthread-Zähler gelten als nicht auswertbar, nicht als kostenlose Arbeit. GPU-Pässe können überlappen und dürfen nicht addiert werden.
+
+Editor während Standalone geschlossen. Keine parallelen Builds, Blender-Renderings oder Hashaudits während der GPU-Messungen. Standalone ist ein nativer Development-Prozess mit dem Editorbinary und -game, **kein paketierter Shipping-Build**. Identische angeforderte Grafikwerte, gleiche Messorte und gleiche Faktoren. Modusvergleiche separat, Optimierungsnachweis innerhalb desselben Modus. Im Standalone wird die unveränderte VisualV2 geladen und nur der reversible Runtime-Kandidat appliziert; keine Baseline-Datei gespeichert.
+
+{{THERMAL}}
+
+Sechs Sekunden sind kurze reproduzierbare Stichproben, kein Langzeit-Stabilitätsnachweis für 60 FPS. Keine fremden Apps oder Systemeinstellungen wurden zur FPS-Steigerung beendet/geändert.
+
+## 3. Vegetation, Schatten und Postprocessing
+
+41 V3-Alteichen, vier Birken, 102 V3-Buschinstanzen (55 A/47 B, teilweise HISM). Dies sind platzierte Instanzen, **keine** exakten pro Kamerabild sichtbaren GPU-Instanzen.
+
+| Familie | LOD-Dreiecke | Abschnitte / Hinweise |
+|---|---|---|
+| V3-Alteiche | 12068 / 7240 / 3621 | 2 Abschnitte; Screen Sizes 1 / .34 / .13 |
+| V3-Busch A | 3284 / 1971 / 986 | 2 Abschnitte |
+| V3-Busch B | 3396 / 2038 / 1019 | 2 Abschnitte |
+| Birke | 28628 / 17177 / 8588 | 2 verwendete Abschnitte, 4 Materialslots |
+| Farn | 8030 / 4818 / 2409 | 46 Instanzen, 1 Abschnitt, 3 Slots |
+| Gras | 576 pro LOD0-Objekt | 175 erfasste Instanzen |
+| Wildblumen | 2160 pro LOD0-Objekt | 63 erfasste Instanzen |
+| Kräuter | 1152 pro LOD0-Objekt | 55 erfasste Instanzen |
+
+Weitere NaturalGround-/Heilhausgruppen stehen im Audit. Die Inventarsumme von 922 Instanzen enthält auch Dorf-/Ruinen-/Landschaftsprops; sie ist keine sichtbare Vegetationsanzahl. Alle LOD0-Instanzen dieses Audits summieren sich theoretisch auf 1.732.692 Dreiecke: obere Inventarsumme, kein gemessener Drawn-Triangle-Wert.
+
+HISM/ISM, bestehende LODs und Sichtweiten sind bereits vorhanden. Kleine Vegetation/Büsche werfen überwiegend schon keine Schatten. HISM-Unterwuchs cullt meist 4500–6500 cm, Heilhausunterwuchs 3200–4300 cm. Keine massenhafte Entfernung, keine versetzten Bäume und keine neuen Material-/Meshvarianten wurden nötig.
+
+Blätter verwenden zweiseitige Masked-Atlasmaterialien, bei V3 eine gemeinsame Blattatlas-Abtastung; Reveal-Rinde ist ebenfalls Masked. Masked-Overdraw wurde nicht quantitativ isoliert. Ein null gemeldeter Translucency-Pass beweist keine kostenlosen Blätter. Keine zuverlässigen Materialinstruction-/sichtbaren Instanz-/DrawCall-Zahlen verfügbar. Material- und Texturfamilien unverändert.
+
+Aktive Schattenmethode: **Virtual Shadow Maps**, r.Shadow.Virtual.Enable=1. Schattenprojektion kostet deutlich mehr als allein Shadow Depths; ein CSM-Distanz-CVar ist deshalb kein vollständiger Nachweis einer VSM-Reichweitenoptimierung. Keine neuen dynamischen Lichter.
+
+Beispiel Wald-Kontrolle QHD/High/100%, Median aus drei finalen PIE-Läufen:
+
+{{GPU_TABLE}}
+
+Lumen Screen Probe Gather ist bei High ein großer klar benannter Pass. Daneben bleiben Schattenprojektion, Basepass, Slate/Editor und ein erheblicher nicht eindeutig zugeordneter GPU-Anteil. **Nicht bewiesen**, dass Vegetation, Ranger oder Lumen allein die gesamte GPU-Last erklären. Auflösungsabhängige GPU-Zeiten und kleinere Game-Thread-Zeiten sprechen bei QHD für ein GPU-Limit. PIE-Renderthreadwerte liegen nahe null und werden als nicht verwertbar markiert. Native Renderthread-Wall-Zeiten enthalten Wartezeit auf GPU/Present; sie sind kein Nachweis reiner CPU-Rechenarbeit. Keine vollständige CPU-Kausalanalyse.
+
+AA bleibt TSR (r.AntiAliasingMethod=4). Der alte r.PostProcessAAQuality-CVar ist in UE 5.8 entfernt; eine anfängliche Nullabfrage wird nicht als abgeschaltetes AA interpretiert. Tonemapper, TSR und Texturqualität werden nicht abgesenkt. Keine zusätzlichen Postprocess-Blendable-Materialien in den zwei Volumes. Klassisches AOOff ist kein vollständiger Schalter für Lumens Short-Range-AO.
+
+## 4. Kontrollierte A/B-Versuche
+
+Alle drei Einzelfaktor-Paare, Mediane und GPU-Differenzen stehen in der folgenden Tabelle. Je Paar nur ein Faktor; anschließend Komponentensichtbarkeit, Schatten, ForcedLOD, Culling, Volumes und CVar-Werte/Prioritäten restauriert.
+
+- Bäume ohne Schatten: kleiner konsistenter Vorteil im Wald, aber Verlust natürlicher Waldbeleuchtung; nicht übernommen.
+- Sämtliche Schatten aus: deutlicher diagnostischer Vorteil, erheblicher Bildverlust; nicht übernommen.
+- Vegetation unsichtbar: diagnostischer Vorteil, keine akzeptable Maßnahme; niemals gespeichert.
+- Schatten-MaxResolution=1024: bei High bereits 1024, somit No-op/Driftkontrolle statt echter Einsparung. Nicht als Erfolg gewertet.
+- Halbe Shadow.DistanceScale und gröberer VSM-LOD-Bias: kein konsistenter Vorteil; nicht übernommen.
+- **VSM-Richtungslicht 2 SMRT-Rays statt High 8 / Medium 4**: konsistenter Nutzen in Wald-/Dorf-/Weg-Paaren. Samples pro Ray und Reichweite erhalten. Feines Schattenrauschen bleibt eine Abnahmegrenze.
+- AOOff, halbe Reflection-/FinalGather-Qualität: gemischte Ergebnisse; keine pauschale GI-/AO-/Reflexionsabsenkung übernommen.
+- Forced TreeLOD1, FernLOD1 und kürzeres SmallFoliageCull: kein stabiler Vorteil; keine Geometrie-/LOD-/Cullingänderung übernommen.
+- **BloomIntensity=0 außen**: kleiner, weitgehend konsistenter Vorteil; statische QHD-Paare zeigen kaum veränderte Komposition.
+- **MotionBlurAmount=0 außen**: überwiegend kleiner Nutzen, einzelne verrauschte Paare. Der finale kombinierte Kandidat wird eigenständig gemessen. Außenbewegung ist schärfer, Animationstempo unverändert.
+- **Lumen ScreenProbeGather IntegrateDownsampleFactor=2 statt 1**: zusätzlicher High-Test. GPU-SPG-Kosten sinken in allen neun Ortspaaren, Gesamtframezeit in acht von neun. Laut lokalem Engine-Quellkommentar verwischt dies feinere indirekte Normaldetails. QHD-Standbilder geprüft. Medium verwendet eine andere Gather-Methode; dort wird kein Lumen-Gewinn vorausgesetzt.
+
+{{FACTOR_TABLES}}
+
+Keine akzeptierte Maßnahme beruht allein auf theoretischen Polygon-/FPS-Zahlen. Kombinierte Effekte sind nicht additiv.
+
+## 5. Umgesetzter separater Kandidat
+
+Nur in Dev_TestMap_EnvironmentPerfV1:
+
+1. Neuer APokeMonsterEnvironmentRenderProfile ohne Tick, Collision oder Gameplayreferenzen. Exakter Levelnamen-Guard, keine Aktivierung in Baselines. BeginPlay setzt zwei Renderer-CVars reversibel, EndPlay restauriert Werte/Prioritäten. Höher priorisierte manuelle Nutzerwerte werden respektiert; parallele experimentelle World bekommt keinen zweiten Besitzer.
+2. r.Lumen.ScreenProbeGather.IntegrateDownsampleFactor=2.
+3. r.Shadow.Virtual.SMRT.RayCountDirectional=2.
+4. Unbound-Außenvolume: BloomIntensity=0, MotionBlurAmount=0, jeweilige Overrides an.
+5. Bounded-Heilhaus-Innenvolume: ursprüngliche Werte .675/.5 explizit erhalten, um sie gegen die Außenvolume-Overrides zu schützen. Keine neue Lichtstimmung.
+
+Die beiden Renderer-CVars sind engineweit wirksam, **aber nur während der Laufzeit dieser Testworld**, keine echten per-Volume-CVars. Keine Config wird geschrieben. Deshalb keine allgemeine Lösung für mehrere gleichzeitig gerenderte Welten oder Split-Screen. Scope-/Baseline-Ausschluss hat einen eigenen Test. In echter PIE sind 2/2 bei Aktivierung sowie 1/8 nach Ende nachgewiesen.
+
+Build.cs erhält RenderCore für die Auflösungsbeobachtung. Der Messprobe ist opt-in und in Shipping deaktiviert; er startet keine automatischen Benchmarks. Keine neue Vegetation, keine verschobenen Instanzen, keine neuen LODs, keine geänderten Blatt-/Reveal-Materialien. Player/NPC-Animationen, Kamera, Reveal-Fade 0,25 s und Spielregeln unverändert.
+
+## 6. Finale reproduzierbare Messwerte
+
+Jede Zeile: drei Kontrolle/Kandidat-Paare. P95-Spalte: Median aus den drei Lauf-P95. CPU/GPU in ms. Einzel-P95 und weitere Pässe in Measurements.json.
+
+{{FINAL_TABLES}}
+
+Standalone Standard/75% zeigt praktisch 60-Hz-Taktung in beiden Zuständen, trotz VSync=0 und t.MaxFPS=0. Dort kein nachgewiesener FPS-Gewinn; GPUTime steigt sogar von etwa 13,4–13,7 auf 15,8 ms. Der größte Zuwachs liegt im nicht zugeordneten GPU-Anteil, während Postprocessing günstiger wird. Ursache (Present-/Pacing-/Taktverhalten oder andere GPU-Arbeit) nicht bewiesen. Kein Beleg für bessere GPU-Effizienz in dieser Konfiguration; vor Baselineübernahme gezielt nachprüfen.
+
+Die Ziele 60 FPS Standard/Medium, 60 FPS QHD/Medium und zunächst mindestens 30 FPS QHD/High bleiben Richtwerte. Dieser Kandidat ist keine ausreichende Gesamtoptimierung für alle Ziele. QHD/100% bleibt deutlich zu langsam. Ein Editor-/Standalone-Unterschied enthält auch Slate-/Prozessbedingungen und wird nicht allein als Optimierungserfolg ausgegeben.
+
+## 7. Visuelle Prüfung und echte Screenshots
+
+14 finale native Gameplay-Screenshots, jeweils echte **2560×1440**, gleiche Kamera/Qualität (High/100%), Position und Beleuchtung. Dorf, Wald, Waldlichtung, Wegübergang, NPC im Waldschatten, Kronenfreistellung, Archiv. Skeletal-Pose für statische A/B-Bilder angehalten und anschließend restauriert. Kontrollierte Fotopositionen sind kein Fußlaufnachweis.
+
+{{SCREENSHOTS}}
+
+Sichtbefund: Dichte Kronen, Baumpositionen, Wege und Gebäudekonturen bleiben erhalten. Keine durch diese Arbeit eingeführte fehlende Vegetation oder neue LOD-Sprünge in geprüften Ansichten. Lumen2 macht feinste indirekte Details etwas weicher, weniger Bloom verändert Leuchtglanz geringfügig. Außenbewegung ohne Motion Blur schärfer. Standbilder beweisen keine vollständige Freiheit von temporalem Schattenrauschen/Ditherflimmern.
+
+Die Figur bleibt im tiefen Waldschatten dunkel. Vereinzelte kantige Hintergrund-/Vegetationsflächen sind bereits in der Kontrolle vorhanden. Diese Art-/Materialgrenzen werden nicht als behoben ausgegeben. Kronenfreistellung im aktiven Lauf sichtbar; Gebäude behalten ihre Darstellung. Der zusätzliche FootTest-Screenshot CrownReveal_Off ist **kein verlässlicher deaktivierter Referenzzustand** wegen laufender Runtime-MID-Anbindung und wird nicht als Material-/Performancebeweis verwendet.
+
+## 8. Gameplay-Fußlauf und Save/Load
+
+{{FOOT_RESULT}}
+
+Route: Start/Menu → Wanderer/Questdialog → Wildabzweigung/Fang → Liora/Trainerkampf → Brücke/offener Weg → Save/Load vor Archiv → Archivabschluss → Rückweg/veränderter Wandererdialog → Dorf/Heilhaus → gerader Eintritt → Heilerin/Heal/PP/Checkpoint/Save → Ausgang → diagonaler Wiederein-/Austritt → dichter Wald/Kronen → alle acht Richtungen → Menü.
+
+Geprüft durch echte Runtime-Aufrufe/Assertions: Dialog-/Battle-Inputlock, Ranger-Idle/Gesprächsblend, NPC-PaperSprite-Fallback ein/aus und restauriert, Trainer besiegt, Trainerzustand nach kontrolliertem Reset und Load restauriert, Party-HP/PP beim Load unverändert, Archivflag im Save, volle HP/PP nach Heilerin, Heilhaus-Checkpoint gespeichert, Innen-/Außenbewegungsbasis und Cutaway korrekt, kein unerwartetes Fallen/Blockieren.
+
+Richtungsbilder und Gesprächsbildsequenzen vorhanden. Kein Controller-Handtest, kein neuer Langzeit-/Multiplayer-Test. Kein kontinuierliches Video.
+
+Der Dev-Slot wurde vorher gesichert. Das Test-Save ist ebenfalls erhalten. Anschließend Original bei passender Test-SHA bytegleich restauriert. SHA-256: 626d58c2f512b3c63f90a18537fd646f611adecb76d52827428a67f578bbd21e. Keine Speichersystemänderung.
+
+Fußlaufbilder unter Art/World/EnvironmentPerfV1/Review/FootTest. UI-Aufnahmen After_*, Direction_* und TalkSequence_* enthalten den 2940×1696-Editorrahmen; Native_* sind 2560×1440-Spielbilder. UI-Ansichten werden nicht als QHD-Performancebeweis benutzt.
+
+## 9. Build, Automation und Map Check
+
+Development Editor Build erfolgreich (Build_FinalProfile.log). Keine Gameplay-C++-Änderung.
+
+{{AUTOMATION}}
+
+Map Check: **0 Fehler / 0 Warnungen**, native Logeinträge 15.10.2026 12:47:37 UTC und nach erneutem Öffnen 13:16:54 UTC. Persistenter Komponentenvergleich fehlerfrei. Profile-EndPlay-Restaurierung in echter PIE bestätigt.
+
+{{WARNINGS}}
+
+Initiale Compile-/API-Anpassungen und MCP-Port-/Editorstartprobleme wurden gelöst; aktueller Build erfolgreich. Kein schwebendes PIE-Fenster verwendet, dessen bekannter Schließabsturz nicht provoziert.
+
+## 10. Empfehlung
+
+**Nicht automatisch in VisualV2 übernehmen.** Separater Kandidat ist funktionsfähig und messbar verbessert, aber keine endgültige Qualitäts-/Leistungsfreigabe. Vor Übernahme: Harry prüft besonders Schattenrauschen in Bewegung und indirekte Details an Gesicht/Vegetation; längere thermisch stabile Messungen, möglichst paketierter Development/Shipping und zusätzliche Licht-/NPC-Schattenfälle.
+
+Nächster technischer Schritt: gezielter Metal-GPU-Capture für den großen noch unaufgeschlüsselten Anteil. Danach Lumen-Integration, Schattenprojektion und Masked-Foliage-Pixelkosten einzeln untersuchen. Kein weiterer pauschaler Polygonabbau: aktuelle ForcedLOD-/Cull-Tests belegen keinen stabilen Nutzen. Vegetationsschatten gruppen-/distanzweise mit Sichtprüfung behandeln, statt Waldschatten komplett zu entfernen. Ergebnisse rechtfertigen keine globale Qualitätsabsenkung.
+
+## 11. Dateien und Nachweise
+
+Bewusst bestehend geändert:
+
+- Docs/TECHNIK.md: angehängter verbindlicher Teststandard.
+- Docs/ENTSCHEIDUNGEN.md: bestätigter Teststandard / isolierter Kandidat, keine Baselinefreigabe.
+- Source/PokeMonster/PokeMonster.Build.cs: nur private RenderCore-Abhängigkeit.
+
+{{FILES}}
+
+Ausführliche Mess-/Prüfnachweise (rund 406 MiB einschließlich unverkleinerter QHD-PNGs und Rohdatenarchiv) unter Art/World/EnvironmentPerfV1/Review. Vollständige rohe Frames, Unreal-CSV-Pässe, Editor-/Native-Logs, weitere diagnostische Screenshotserien und Save-Backups bleiben zusätzlich unter ignoriertem Saved/EnvironmentPerfV1 und Saved/Profiling/CSV/ENV1_* erhalten. Keine Arbeitsartefakte bestehender Aufgaben gelöscht.
+
+## 12. Git-Abschluss
+
+{{GIT}}

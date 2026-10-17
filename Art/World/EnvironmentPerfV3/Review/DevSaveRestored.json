@@ -1,0 +1,6 @@
+{
+  "before_restore_sha256": "416b119dff4246906897ac08e7cbe2d06f230a85fa394b2cd10e4db708ced3ba",
+  "original_sha256": "626d58c2f512b3c63f90a18537fd646f611adecb76d52827428a67f578bbd21e",
+  "after_restore_sha256": "626d58c2f512b3c63f90a18537fd646f611adecb76d52827428a67f578bbd21e",
+  "foot_test_result_preserved": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV3/PokeMonster_Dev_FootTest_Result.sav"
+}

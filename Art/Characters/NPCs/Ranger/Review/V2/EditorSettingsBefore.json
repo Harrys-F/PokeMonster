@@ -1,0 +1,7 @@
+{
+  "throttle": false,
+  "cvars": {
+    "r.Editor.Viewport.OverridePIEScreenPercentage": 1.0,
+    "r.SecondaryScreenPercentage.GameViewport": 0.0
+  }
+}

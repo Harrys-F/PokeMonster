@@ -1,0 +1,78 @@
+{
+  "map": "/Game/Maps/Dev_TestMap_RangerPerfV2.Dev_TestMap_RangerPerfV2",
+  "actor_count": 1352,
+  "baseline_actor_count": 1349,
+  "actor_transform_differences": {
+    "GameplayDebuggerPlayerManager0": [
+      null,
+      {
+        "class": "/Script/GameplayDebugger.GameplayDebuggerPlayerManager",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ],
+    "AbstractNavData-Default": [
+      null,
+      {
+        "class": "/Script/NavigationSystem.AbstractNavData",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ],
+    "BuoyancyManager0": [
+      null,
+      {
+        "class": "/Script/Water.BuoyancyManager",
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "visual_mesh": "/Game/Characters/NPCs/RangerV2/Meshes/SK_Ranger_NPC_V2_Clean.SK_Ranger_NPC_V2_Clean",
+  "visual_collision": "<CollisionEnabled.NO_COLLISION: 0>",
+  "skeleton": "/Game/Characters/NPCs/Ranger/Meshes/SK_Ranger_NPC_V1_Skeleton.SK_Ranger_NPC_V1_Skeleton",
+  "idle": "/Game/Characters/NPCs/Ranger/Animations/A_Ranger_Idle_V1.A_Ranger_Idle_V1",
+  "talk": "/Game/Characters/NPCs/Ranger/Animations/A_Ranger_Talk_V1.A_Ranger_Talk_V1",
+  "source_actor": "Slice_Wanderer_Hinweis",
+  "dirty_maps": [],
+  "dirty_content": []
+}

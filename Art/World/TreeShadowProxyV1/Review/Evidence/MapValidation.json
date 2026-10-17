@@ -1,0 +1,630 @@
+{
+  "new_actors": {
+    "TSP_V2_ForestOak_0_Bark": {
+      "class": "/Script/Engine.StaticMeshActor",
+      "position": [
+        -4650.0,
+        900.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -122.6541748046875
+      ],
+      "scale": [
+        0.62,
+        0.62,
+        0.62
+      ],
+      "components": [
+        {
+          "mesh": "/Game/Environment/TreeShadowProxyV1/SM_TSP_OakAncient_Bark.SM_TSP_OakAncient_Bark",
+          "transform": {
+            "translation": [
+              -4650.0,
+              900.0,
+              0.0
+            ],
+            "rotation": [
+              -0.0,
+              0.0,
+              -0.8773730981865758,
+              0.47980876042282633
+            ],
+            "scale": [
+              0.62,
+              0.62,
+              0.62
+            ]
+          },
+          "shadow": true,
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "materials": [
+            "/Game/Environment/TreeShadowProxyV1/M_TSP_OpaqueShadow.M_TSP_OpaqueShadow"
+          ],
+          "instances": []
+        }
+      ]
+    },
+    "TSP_V2_ForestOak_0_Crown": {
+      "class": "/Script/Engine.StaticMeshActor",
+      "position": [
+        -4689.745065130344,
+        674.5945345164554,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -122.6541748046875
+      ],
+      "scale": [
+        0.62,
+        0.62,
+        0.62
+      ],
+      "components": [
+        {
+          "mesh": "/Game/Environment/TreeShadowProxyV1/SM_TSP_OakAncient_Crown.SM_TSP_OakAncient_Crown",
+          "transform": {
+            "translation": [
+              -4689.745065130344,
+              674.5945345164554,
+              0.0
+            ],
+            "rotation": [
+              -0.0,
+              0.0,
+              -0.8773730981865758,
+              0.47980876042282633
+            ],
+            "scale": [
+              0.62,
+              0.62,
+              0.62
+            ]
+          },
+          "shadow": true,
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "materials": [
+            "/Game/Environment/TreeShadowProxyV1/M_TSP_OpaqueShadow.M_TSP_OpaqueShadow"
+          ],
+          "instances": []
+        }
+      ]
+    },
+    "TSP_V2_ForestOak_1_Bark": {
+      "class": "/Script/Engine.StaticMeshActor",
+      "position": [
+        -3880.0,
+        1580.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -164.99583435058594
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "components": [
+        {
+          "mesh": "/Game/Environment/TreeShadowProxyV1/SM_TSP_OakAncient_Bark.SM_TSP_OakAncient_Bark",
+          "transform": {
+            "translation": [
+              -3880.0,
+              1580.0,
+              0.0
+            ],
+            "rotation": [
+              -0.0,
+              0.0,
+              -0.9914401158078368,
+              0.13056223331018524
+            ],
+            "scale": [
+              0.6,
+              0.6,
+              0.6
+            ]
+          },
+          "shadow": true,
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "materials": [
+            "/Game/Environment/TreeShadowProxyV1/M_TSP_OpaqueShadow.M_TSP_OpaqueShadow"
+          ],
+          "instances": []
+        }
+      ]
+    },
+    "TSP_V2_ForestOak_1_Crown": {
+      "class": "/Script/Engine.StaticMeshActor",
+      "position": [
+        -3918.462966255172,
+        1361.8656785643116,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -164.99583435058594
+      ],
+      "scale": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "components": [
+        {
+          "mesh": "/Game/Environment/TreeShadowProxyV1/SM_TSP_OakAncient_Crown.SM_TSP_OakAncient_Crown",
+          "transform": {
+            "translation": [
+              -3918.462966255172,
+              1361.8656785643116,
+              0.0
+            ],
+            "rotation": [
+              -0.0,
+              0.0,
+              -0.9914401158078368,
+              0.13056223331018524
+            ],
+            "scale": [
+              0.6,
+              0.6,
+              0.6
+            ]
+          },
+          "shadow": true,
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "materials": [
+            "/Game/Environment/TreeShadowProxyV1/M_TSP_OpaqueShadow.M_TSP_OpaqueShadow"
+          ],
+          "instances": []
+        }
+      ]
+    },
+    "TSP_V2_ForestOak_2_Bark": {
+      "class": "/Script/Engine.StaticMeshActor",
+      "position": [
+        -2640.0,
+        1670.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -43.935699462890625
+      ],
+      "scale": [
+        0.52,
+        0.52,
+        0.52
+      ],
+      "components": [
+        {
+          "mesh": "/Game/Environment/TreeShadowProxyV1/SM_TSP_OakAncient_Bark.SM_TSP_OakAncient_Bark",
+          "transform": {
+            "translation": [
+              -2640.0,
+              1670.0,
+              0.0
+            ],
+            "rotation": [
+              -0.0,
+              0.0,
+              -0.3740862655758722,
+              0.9273939108639316
+            ],
+            "scale": [
+              0.52,
+              0.52,
+              0.52
+            ]
+          },
+          "shadow": true,
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "materials": [
+            "/Game/Environment/TreeShadowProxyV1/M_TSP_OpaqueShadow.M_TSP_OpaqueShadow"
+          ],
+          "instances": []
+        }
+      ]
+    },
+    "TSP_V2_ForestOak_2_Crown": {
+      "class": "/Script/Engine.StaticMeshActor",
+      "position": [
+        -2673.3345707544822,
+        1480.9502547557368,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -43.935699462890625
+      ],
+      "scale": [
+        0.52,
+        0.52,
+        0.52
+      ],
+      "components": [
+        {
+          "mesh": "/Game/Environment/TreeShadowProxyV1/SM_TSP_OakAncient_Crown.SM_TSP_OakAncient_Crown",
+          "transform": {
+            "translation": [
+              -2673.3345707544822,
+              1480.9502547557368,
+              0.0
+            ],
+            "rotation": [
+              -0.0,
+              0.0,
+              -0.3740862655758722,
+              0.9273939108639316
+            ],
+            "scale": [
+              0.52,
+              0.52,
+              0.52
+            ]
+          },
+          "shadow": true,
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "materials": [
+            "/Game/Environment/TreeShadowProxyV1/M_TSP_OpaqueShadow.M_TSP_OpaqueShadow"
+          ],
+          "instances": []
+        }
+      ]
+    }
+  },
+  "missing_actors": [],
+  "changed_actors": {
+    "V2_ForestOak_2": {
+      "before": {
+        "class": "/Script/Engine.StaticMeshActor",
+        "position": [
+          -2640.0,
+          1670.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          -43.935699462890625
+        ],
+        "scale": [
+          0.52,
+          0.52,
+          0.52
+        ],
+        "components": [
+          {
+            "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+            "transform": {
+              "translation": [
+                -2640.0,
+                1670.0,
+                0.0
+              ],
+              "rotation": [
+                -0.0,
+                0.0,
+                -0.3740862655758722,
+                0.9273939108639316
+              ],
+              "scale": [
+                0.52,
+                0.52,
+                0.52
+              ]
+            },
+            "shadow": true,
+            "collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>",
+            "materials": [
+              "/Game/Environment/DevTestMapVisualV2/Materials/MI_V2_BarkReveal.MI_V2_BarkReveal",
+              "/Game/Environment/DevTestMapVisualV2/Materials/M_V2_CrownReveal.M_V2_CrownReveal"
+            ],
+            "instances": []
+          }
+        ]
+      },
+      "after": {
+        "class": "/Script/Engine.StaticMeshActor",
+        "position": [
+          -2640.0,
+          1670.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          -43.935699462890625
+        ],
+        "scale": [
+          0.52,
+          0.52,
+          0.52
+        ],
+        "components": [
+          {
+            "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+            "transform": {
+              "translation": [
+                -2640.0,
+                1670.0,
+                0.0
+              ],
+              "rotation": [
+                -0.0,
+                0.0,
+                -0.3740862655758722,
+                0.9273939108639316
+              ],
+              "scale": [
+                0.52,
+                0.52,
+                0.52
+              ]
+            },
+            "shadow": false,
+            "collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>",
+            "materials": [
+              "/Game/Environment/DevTestMapVisualV2/Materials/MI_V2_BarkReveal.MI_V2_BarkReveal",
+              "/Game/Environment/DevTestMapVisualV2/Materials/M_V2_CrownReveal.M_V2_CrownReveal"
+            ],
+            "instances": []
+          }
+        ]
+      }
+    },
+    "V2_ForestOak_0": {
+      "before": {
+        "class": "/Script/Engine.StaticMeshActor",
+        "position": [
+          -4650.0,
+          900.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          -122.6541748046875
+        ],
+        "scale": [
+          0.62,
+          0.62,
+          0.62
+        ],
+        "components": [
+          {
+            "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+            "transform": {
+              "translation": [
+                -4650.0,
+                900.0,
+                0.0
+              ],
+              "rotation": [
+                -0.0,
+                0.0,
+                -0.87737309820639,
+                0.4798087603865945
+              ],
+              "scale": [
+                0.62,
+                0.62,
+                0.62
+              ]
+            },
+            "shadow": true,
+            "collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>",
+            "materials": [
+              "/Game/Environment/DevTestMapVisualV2/Materials/MI_V2_BarkReveal.MI_V2_BarkReveal",
+              "/Game/Environment/DevTestMapVisualV2/Materials/M_V2_CrownReveal.M_V2_CrownReveal"
+            ],
+            "instances": []
+          }
+        ]
+      },
+      "after": {
+        "class": "/Script/Engine.StaticMeshActor",
+        "position": [
+          -4650.0,
+          900.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          -122.6541748046875
+        ],
+        "scale": [
+          0.62,
+          0.62,
+          0.62
+        ],
+        "components": [
+          {
+            "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+            "transform": {
+              "translation": [
+                -4650.0,
+                900.0,
+                0.0
+              ],
+              "rotation": [
+                -0.0,
+                0.0,
+                -0.87737309820639,
+                0.4798087603865945
+              ],
+              "scale": [
+                0.62,
+                0.62,
+                0.62
+              ]
+            },
+            "shadow": false,
+            "collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>",
+            "materials": [
+              "/Game/Environment/DevTestMapVisualV2/Materials/MI_V2_BarkReveal.MI_V2_BarkReveal",
+              "/Game/Environment/DevTestMapVisualV2/Materials/M_V2_CrownReveal.M_V2_CrownReveal"
+            ],
+            "instances": []
+          }
+        ]
+      }
+    },
+    "V2_ForestOak_1": {
+      "before": {
+        "class": "/Script/Engine.StaticMeshActor",
+        "position": [
+          -3880.0,
+          1580.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          -164.99583435058594
+        ],
+        "scale": [
+          0.6,
+          0.6,
+          0.6
+        ],
+        "components": [
+          {
+            "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+            "transform": {
+              "translation": [
+                -3880.0,
+                1580.0,
+                0.0
+              ],
+              "rotation": [
+                -0.0,
+                0.0,
+                -0.9914401158094946,
+                0.13056223329759586
+              ],
+              "scale": [
+                0.6,
+                0.6,
+                0.6
+              ]
+            },
+            "shadow": true,
+            "collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>",
+            "materials": [
+              "/Game/Environment/DevTestMapVisualV2/Materials/MI_V2_BarkReveal.MI_V2_BarkReveal",
+              "/Game/Environment/DevTestMapVisualV2/Materials/M_V2_CrownReveal.M_V2_CrownReveal"
+            ],
+            "instances": []
+          }
+        ]
+      },
+      "after": {
+        "class": "/Script/Engine.StaticMeshActor",
+        "position": [
+          -3880.0,
+          1580.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          -164.99583435058594
+        ],
+        "scale": [
+          0.6,
+          0.6,
+          0.6
+        ],
+        "components": [
+          {
+            "mesh": "/Game/Environment/WestlandAssetLibrary/QualityV3/Meshes/Trees/SM_WLA_OakAncient_V3.SM_WLA_OakAncient_V3",
+            "transform": {
+              "translation": [
+                -3880.0,
+                1580.0,
+                0.0
+              ],
+              "rotation": [
+                -0.0,
+                0.0,
+                -0.9914401158094946,
+                0.13056223329759586
+              ],
+              "scale": [
+                0.6,
+                0.6,
+                0.6
+              ]
+            },
+            "shadow": false,
+            "collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>",
+            "materials": [
+              "/Game/Environment/DevTestMapVisualV2/Materials/MI_V2_BarkReveal.MI_V2_BarkReveal",
+              "/Game/Environment/DevTestMapVisualV2/Materials/M_V2_CrownReveal.M_V2_CrownReveal"
+            ],
+            "instances": []
+          }
+        ]
+      }
+    }
+  },
+  "wind": [
+    {
+      "tree": "V2_ForestOak_2",
+      "material": "/Game/Environment/DevTestMapVisualV2/Materials/M_V2_BarkRevealBase.M_V2_BarkRevealBase",
+      "world_position_offset_connected": false,
+      "input_class": null
+    },
+    {
+      "tree": "V2_ForestOak_2",
+      "material": "/Game/Environment/DevTestMapVisualV2/Materials/M_V2_CrownReveal.M_V2_CrownReveal",
+      "world_position_offset_connected": false,
+      "input_class": null
+    },
+    {
+      "tree": "V2_ForestOak_0",
+      "material": "/Game/Environment/DevTestMapVisualV2/Materials/M_V2_BarkRevealBase.M_V2_BarkRevealBase",
+      "world_position_offset_connected": false,
+      "input_class": null
+    },
+    {
+      "tree": "V2_ForestOak_0",
+      "material": "/Game/Environment/DevTestMapVisualV2/Materials/M_V2_CrownReveal.M_V2_CrownReveal",
+      "world_position_offset_connected": false,
+      "input_class": null
+    },
+    {
+      "tree": "V2_ForestOak_1",
+      "material": "/Game/Environment/DevTestMapVisualV2/Materials/M_V2_BarkRevealBase.M_V2_BarkRevealBase",
+      "world_position_offset_connected": false,
+      "input_class": null
+    },
+    {
+      "tree": "V2_ForestOak_1",
+      "material": "/Game/Environment/DevTestMapVisualV2/Materials/M_V2_CrownReveal.M_V2_CrownReveal",
+      "world_position_offset_connected": false,
+      "input_class": null
+    }
+  ],
+  "bark_match": {
+    "original_vertices": 3567,
+    "proxy_vertices": 2293,
+    "max_nearest_position_error_cm": 3.411968959808029e-05,
+    "matching_to_0_001cm": true
+  },
+  "original_visual_geometry_materials_transforms_collisions_equal": true,
+  "dirty_maps": [],
+  "dirty_content": []
+}

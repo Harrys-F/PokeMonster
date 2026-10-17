@@ -1,0 +1,342 @@
+{
+  "tests": [
+    {
+      "name": "PokeMonster.Battle.Presentation.EventSequence",
+      "state": "Success",
+      "duration": 0.009815707802772522,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Battle.Session.HitsAndTypes",
+      "state": "Success",
+      "duration": 0.03367916867136955,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Battle.Session.KOAndFinish",
+      "state": "Success",
+      "duration": 0.03379520773887634,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Battle.Session.OrderAndPP",
+      "state": "Success",
+      "duration": 0.030649375170469284,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Battle.Session.ValidationAndReplay",
+      "state": "Fail",
+      "duration": 2.677731990814209,
+      "errors": [
+        "LogOutputDevice: === Handled ensure: ===",
+        "LogOutputDevice: ",
+        "LogOutputDevice: Ensure condition failed: !bInitialized  [File:./Runtime/Engine/Private/Subsystems/WorldSubsystem.cpp] [Line: 118] ",
+        "LogOutputDevice: Tickable subsystem LandscapeSubsystem /Game/Maps/Dev_HealingHouseTestMap.Dev_HealingHouseTestMap:LandscapeSubsystem_0 was destroyed while still initialized! Check for missing Super::Deinitialize call",
+        "LogOutputDevice: Stack: ",
+        "LogOutputDevice: [Callstack] 0x18389500 libUnrealEditor-Engine.dylib!UTickableWorldSubsystem::BeginDestroy()::$_0::operator()() const   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x051a6690 libUnrealEditor-CoreUObject.dylib!UObject::ConditionalBeginDestroy()   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x05044e50 libUnrealEditor-CoreUObject.dylib!UnhashUnreachableObjects(bool, double)   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x050479f0 libUnrealEditor-CoreUObject.dylib!void UE::GC::PostCollectGarbageImpl<true>(EObjectFlags)   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x05045f4c libUnrealEditor-CoreUObject.dylib!UE::GC::FReachabilityAnalysisState::PerformReachabilityAnalysisAndConditionallyPurgeGarbage(bool)   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x050488ec libUnrealEditor-CoreUObject.dylib!CollectGarbage(EObjectFlags, bool)   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0xf8a5f318 libUnrealEditor-PokeMonster-0002.dylib!FPokeMonsterSessionValidationTest::RunTest(FString const&)   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x06afb0e8 libUnrealEditor-Core.dylib!FAutomationTestFramework::InternalStartTest(FString const&, FString const&)   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x06afa20c libUnrealEditor-Core.dylib!FAutomationTestFramework::StartTestByName(FString const&, int, FString const&)   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x02e26c94 libUnrealEditor-AutomationWorker.dylib!FAutomationWorkerModule::HandleRunTestsMessage(FAutomationWorkerRunTests const&, TSharedRef<IMessageContext, (ESPMode)1> const&)   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x02e30e70 libUnrealEditor-AutomationWorker.dylib!TRawMessageHandler<FAutomationWorkerRunTests, FAutomationWorkerModule>::HandleMessage(TSharedRef<IMessageContext, (ESPMode)1> const&)   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x02e2ca64 libUnrealEditor-AutomationWorker.dylib!FMessageEndpoint::ProcessMessage(TSharedRef<IMessageContext, (ESPMode)1> const&)   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x02e24d8c libUnrealEditor-AutomationWorker.dylib!FMessageEndpoint::ProcessInbox()   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x02a65b08 UnrealEditor!FEngineLoop::Tick()   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x02a69488 UnrealEditor!GuardedMain(char16_t const*)   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x02a80afc UnrealEditor!-[UEAppDelegate runGameThread:]   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x06a7dac0 libUnrealEditor-Core.dylib!-[FCocoaGameThread main]   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x941deca8 Foundation!__NSThread__start__()   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x92a21d00 libsystem_pthread.dylib!_pthread_start()   [UnknownFile]) ",
+        "LogOutputDevice: [Callstack] 0x92a1ccec libsystem_pthread.dylib!thread_start()   [UnknownFile]) ",
+        "LogOutputDevice: ",
+        "EnsureFailed: Ensure condition failed: !bInitialized  [File:./Runtime/Engine/Private/Subsystems/WorldSubsystem.cpp] [Line: 118] \nTickable subsystem LandscapeSubsystem /Game/Maps/Dev_HealingHouseTestMap.Dev_HealingHouseTestMap:LandscapeSubsystem_0 was destroyed while still initialized! Check for missing Super::Deinitialize call\nStack: \n0x18389500 libUnrealEditor-Engine.dylib!UTickableWorldSubsystem::BeginDestroy()::$_0::operator()() const   [UnknownFile]) \r\n0x051a6690 libUnrealEditor-CoreUObject.dylib!UObject::ConditionalBeginDestroy()   [UnknownFile]) \r\n0x05044e50 libUnrealEditor-CoreUObject.dylib!UnhashUnreachableObjects(bool, double)   [UnknownFile]) \r\n0x050479f0 libUnrealEditor-CoreUObject.dylib!void UE::GC::PostCollectGarbageImpl<true>(EObjectFlags)   [UnknownFile]) \r\n0x05045f4c libUnrealEditor-CoreUObject.dylib!UE::GC::FReachabilityAnalysisState::PerformReachabilityAnalysisAndConditionallyPurgeGarbage(bool)   [UnknownFile]) \r\n0x050488ec libUnrealEditor-CoreUObject.dylib!CollectGarbage(EObjectFlags, bool)   [UnknownFile]) \r\n0xf8a5f318 libUnrealEditor-PokeMonster-0002.dylib!FPokeMonsterSessionValidationTest::RunTest(FString const&)   [UnknownFile]) \r\n0x06afb0e8 libUnrealEditor-Core.dylib!FAutomationTestFramework::InternalStartTest(FString const&, FString const&)   [UnknownFile]) \r\n0x06afa20c libUnrealEditor-Core.dylib!FAutomationTestFramework::StartTestByName(FString const&, int, FString const&)   [UnknownFile]) \r\n0x02e26c94 libUnrealEditor-AutomationWorker.dylib!FAutomationWorkerModule::HandleRunTestsMessage(FAutomationWorkerRunTests const&, TSharedRef<IMessageContext, (ESPMode)1> const&)   [UnknownFile]) \r\n0x02e30e70 libUnrealEditor-AutomationWorker.dylib!TRawMessageHandler<FAutomationWorkerRunTests, FAutomationWorkerModule>::HandleMessage(TSharedRef<IMessageContext, (ESPMode)1> const&)   [UnknownFile]) \r\n0x02e2ca64 libUnrealEditor-AutomationWorker.dylib!FMessageEndpoint::ProcessMessage(TSharedRef<IMessageContext, (ESPMode)1> const&)   [UnknownFile]) \r\n0x02e24d8c libUnrealEditor-AutomationWorker.dylib!FMessageEndpoint::ProcessInbox()   [UnknownFile]) \r\n0x02a65b08 UnrealEditor!FEngineLoop::Tick()   [UnknownFile]) \r\n0x02a69488 UnrealEditor!GuardedMain(char16_t const*)   [UnknownFile]) \r\n0x02a80afc UnrealEditor!-[UEAppDelegate runGameThread:]   [UnknownFile]) \r\n0x06a7dac0 libUnrealEditor-Core.dylib!-[FCocoaGameThread main]   [UnknownFile]) \r\n0x941deca8 Foundation!__NSThread__start__()   [UnknownFile]) \r\n0x92a21d00 libsystem_pthread.dylib!_pthread_start()   [UnknownFile]) \r\n0x92a1ccec libsystem_pthread.dylib!thread_start()   [UnknownFile]) \r\n"
+      ],
+      "warnings": [
+        "LogOutputDevice: \n\nScript Stack (0 frames) :\n",
+        "LogHAL: FMacPlatformProcess::CreateProc: posix_spawn(\"/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id\") failed (86, Bad CPU type in executable)",
+        "LogHAL: Failed to launch Tool. (/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id)"
+      ]
+    },
+    {
+      "name": "PokeMonster.Battle.Team.SwitchAndKO",
+      "state": "Success",
+      "duration": 0.2275182455778122,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Battle.UI.BindingAndInputLock",
+      "state": "Success",
+      "duration": 0.04620816558599472,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Battle.UI.MissedStatusLog",
+      "state": "Success",
+      "duration": 0.03918662667274475,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Battle.UI.UnavailableMoves",
+      "state": "Success",
+      "duration": 0.03271341696381569,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Battle.Damage",
+      "state": "Success",
+      "duration": 0.03201279044151306,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Battle.HitCheck",
+      "state": "Success",
+      "duration": 0.036791540682315826,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Battle.TypeChart",
+      "state": "Success",
+      "duration": 0.03430825099349022,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Building.Inn.CameraAndFootprint",
+      "state": "Success",
+      "duration": 0.32071059942245483,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Building.RelocatedInterior.MappingAndTransition",
+      "state": "Success",
+      "duration": 0.08815691620111465,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Camera.Visibility.FiniteSightlineAndFade",
+      "state": "Success",
+      "duration": 0.019639290869235992,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Camera.Visibility.TreeFamiliesAndBuildingExclusion",
+      "state": "Success",
+      "duration": 0.03399437293410301,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Capture.WildBattleAndTeamTransfer",
+      "state": "Success",
+      "duration": 0.03598853945732117,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Creatures.DataSystem",
+      "state": "Success",
+      "duration": 0.04489178955554962,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Creatures.EvolutionEligibility",
+      "state": "Success",
+      "duration": 0.041804127395153046,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Creatures.GrowthCurves",
+      "state": "Success",
+      "duration": 0.05621691793203354,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Creatures.Progression",
+      "state": "Success",
+      "duration": 0.06345170736312866,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Dialogue.PagesAndState",
+      "state": "Success",
+      "duration": 0.08392241597175598,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Encounter.OverworldIntegration",
+      "state": "Success",
+      "duration": 0.08056266605854034,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Encounter.TrainerProfileAndDefeatState",
+      "state": "Success",
+      "duration": 0.05705133080482483,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Encounter.WildProfileAndSources",
+      "state": "Success",
+      "duration": 0.061726249754428864,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Items.InventoryAndUsage",
+      "state": "Success",
+      "duration": 0.09920775145292282,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Moves.DataAssetsAndSlots",
+      "state": "Success",
+      "duration": 0.04332762211561203,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.NPC.PresentationAndFallback",
+      "state": "Success",
+      "duration": 0.11810429394245148,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Overworld.Checkpoint.DefeatAndSave",
+      "state": "Success",
+      "duration": 0.04460904002189636,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Overworld.HealingHouse.CollisionAndCutaway",
+      "state": "Success",
+      "duration": 0.41678279638290405,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Overworld.HealingHouse.Layout",
+      "state": "Success",
+      "duration": 0.013619374483823776,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Overworld.HealingHouse.RestCheckpointSaveAndDefeat",
+      "state": "Success",
+      "duration": 0.045720458030700684,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Overworld.MiniSlice.ProgressAndSave",
+      "state": "Success",
+      "duration": 0.050045207142829895,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Overworld.RestPoint.HealAndSave",
+      "state": "Success",
+      "duration": 0.052853748202323914,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Overworld.UI.Foundation",
+      "state": "Success",
+      "duration": 0.12128729373216629,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Player.BuildingInteriorCamera",
+      "state": "Success",
+      "duration": 0.0629764199256897,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Player.Foundation",
+      "state": "Success",
+      "duration": 0.058348748832941055,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Player.MeshyPresentation",
+      "state": "Success",
+      "duration": 0.09856899827718735,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Player.ScaleCalibration",
+      "state": "Success",
+      "duration": 0.08027945458889008,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Player.Sprint",
+      "state": "Success",
+      "duration": 0.06695029139518738,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Quest.MiniSlice.FlowAndSave",
+      "state": "Success",
+      "duration": 0.022920917719602585,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Save.RejectInvalidData",
+      "state": "Success",
+      "duration": 0.03586350008845329,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "name": "PokeMonster.Save.SnapshotAndDisk",
+      "state": "Success",
+      "duration": 0.03543554246425629,
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "passed": 42,
+  "failed": 1,
+  "skipped": 0,
+  "total": 43,
+  "duration": 5.68942928314209
+}

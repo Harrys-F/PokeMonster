@@ -1,0 +1,1312 @@
+{
+  "VegetationHidden": [
+    {
+      "repeat": "1",
+      "before_ms": 61.433772,
+      "after_ms": 66.803334,
+      "delta_ms": 5.369562000000009,
+      "control_p95": 68.26321374999999,
+      "factor_p95": 84.31069255,
+      "GPUTime": {
+        "before": 60.5885,
+        "after": 64.2714,
+        "delta": 3.6828999999999965
+      },
+      "GameThreadTime": {
+        "before": 7.00665,
+        "after": 8.29625,
+        "delta": 1.289600000000001
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 3.2862,
+        "after": 3.37585,
+        "delta": 0.08964999999999979
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.57735,
+        "after": 2.82045,
+        "delta": 0.2431000000000001
+      },
+      "GPU/ShadowProjection": {
+        "before": 5.3151,
+        "after": 4.8464,
+        "delta": -0.4687000000000001
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.87845,
+        "after": 5.5013000000000005,
+        "delta": 0.6228500000000006
+      }
+    },
+    {
+      "repeat": "2",
+      "before_ms": 61.3581855,
+      "after_ms": 59.1725,
+      "delta_ms": -2.185685499999998,
+      "control_p95": 69.9484076,
+      "factor_p95": 64.80278565,
+      "GPUTime": {
+        "before": 58.68215,
+        "after": 56.733149999999995,
+        "delta": -1.9490000000000052
+      },
+      "GameThreadTime": {
+        "before": 7.81735,
+        "after": 7.7677,
+        "delta": -0.04965000000000064
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 3.0656499999999998,
+        "after": 3.4367,
+        "delta": 0.3710500000000003
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4496,
+        "after": 2.4552,
+        "delta": 0.005599999999999827
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.8514,
+        "after": 4.2628,
+        "delta": -0.5885999999999996
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.71,
+        "after": 4.356249999999999,
+        "delta": -0.3537500000000007
+      }
+    },
+    {
+      "repeat": "3",
+      "before_ms": 60.146626,
+      "after_ms": 61.530022,
+      "delta_ms": 1.3833960000000047,
+      "control_p95": 68.62882929999999,
+      "factor_p95": 70.975473,
+      "GPUTime": {
+        "before": 57.3599,
+        "after": 58.8292,
+        "delta": 1.469299999999997
+      },
+      "GameThreadTime": {
+        "before": 7.5553,
+        "after": 7.6429,
+        "delta": 0.08760000000000012
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.9721,
+        "after": 3.49285,
+        "delta": 0.5207499999999996
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4341,
+        "after": 2.56015,
+        "delta": 0.12605000000000022
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.7228,
+        "after": 4.444699999999999,
+        "delta": -0.2781000000000011
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.4568,
+        "after": 4.6018,
+        "delta": 0.14499999999999957
+      }
+    }
+  ],
+  "VegetationNoShadow": [
+    {
+      "repeat": "1",
+      "before_ms": 72.74700150000001,
+      "after_ms": 74.19708349999999,
+      "delta_ms": 1.4500819999999806,
+      "control_p95": 84.67989915,
+      "factor_p95": 86.35732825,
+      "GPUTime": {
+        "before": 69.8305,
+        "after": 70.71255,
+        "delta": 0.8820499999999925
+      },
+      "GameThreadTime": {
+        "before": 8.5939,
+        "after": 8.1244,
+        "delta": -0.46950000000000003
+      },
+      "RenderThreadTime": {
+        "before": 0.00025,
+        "after": 0.00025,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 3.19035,
+        "after": 3.12305,
+        "delta": -0.06729999999999992
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.9489,
+        "after": 2.9899,
+        "delta": 0.040999999999999925
+      },
+      "GPU/ShadowProjection": {
+        "before": 6.0647,
+        "after": 5.47345,
+        "delta": -0.5912500000000005
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 5.8968,
+        "after": 6.0378,
+        "delta": 0.14100000000000001
+      }
+    },
+    {
+      "repeat": "2",
+      "before_ms": 59.898022499999996,
+      "after_ms": 59.243042,
+      "delta_ms": -0.6549804999999935,
+      "control_p95": 66.734324,
+      "factor_p95": 67.376048,
+      "GPUTime": {
+        "before": 57.0058,
+        "after": 56.4204,
+        "delta": -0.5853999999999999
+      },
+      "GameThreadTime": {
+        "before": 7.7261500000000005,
+        "after": 7.7865,
+        "delta": 0.06034999999999968
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.97445,
+        "after": 2.9779,
+        "delta": 0.003449999999999953
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.3807,
+        "after": 2.4175,
+        "delta": 0.036799999999999944
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.69575,
+        "after": 4.2471,
+        "delta": -0.44865000000000066
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.3153500000000005,
+        "after": 4.3946,
+        "delta": 0.07924999999999915
+      }
+    },
+    {
+      "repeat": "3",
+      "before_ms": 60.203978500000005,
+      "after_ms": 59.891270500000005,
+      "delta_ms": -0.31270800000000065,
+      "control_p95": 67.123293,
+      "factor_p95": 66.7923635,
+      "GPUTime": {
+        "before": 57.481899999999996,
+        "after": 56.896,
+        "delta": -0.5858999999999952
+      },
+      "GameThreadTime": {
+        "before": 7.406549999999999,
+        "after": 7.5992999999999995,
+        "delta": 0.1927500000000002
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 3.0017500000000004,
+        "after": 2.97705,
+        "delta": -0.024700000000000166
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4425499999999998,
+        "after": 2.3992,
+        "delta": -0.04334999999999978
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.72325,
+        "after": 4.24535,
+        "delta": -0.4779
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.3911,
+        "after": 4.3934999999999995,
+        "delta": 0.0023999999999997357
+      }
+    }
+  ],
+  "TreeLOD1": [
+    {
+      "repeat": "1",
+      "before_ms": 68.5306655,
+      "after_ms": 66.187918,
+      "delta_ms": -2.3427475000000015,
+      "control_p95": 81.78437115,
+      "factor_p95": 73.79783375,
+      "GPUTime": {
+        "before": 65.82820000000001,
+        "after": 63.44775,
+        "delta": -2.3804500000000104
+      },
+      "GameThreadTime": {
+        "before": 7.9623,
+        "after": 7.92065,
+        "delta": -0.04164999999999974
+      },
+      "RenderThreadTime": {
+        "before": 0.00025,
+        "after": 0.00025,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 3.0726,
+        "after": 2.94135,
+        "delta": -0.1312500000000001
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.81425,
+        "after": 2.6255,
+        "delta": -0.18874999999999975
+      },
+      "GPU/ShadowProjection": {
+        "before": 5.46095,
+        "after": 5.35875,
+        "delta": -0.10220000000000073
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 5.7941,
+        "after": 5.1392500000000005,
+        "delta": -0.6548499999999997
+      }
+    },
+    {
+      "repeat": "2",
+      "before_ms": 61.679583,
+      "after_ms": 60.289834,
+      "delta_ms": -1.389749000000002,
+      "control_p95": 68.55973379999999,
+      "factor_p95": 67.4552122,
+      "GPUTime": {
+        "before": 58.894,
+        "after": 57.2065,
+        "delta": -1.6875
+      },
+      "GameThreadTime": {
+        "before": 7.6937,
+        "after": 7.6646,
+        "delta": -0.02909999999999968
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 3.0116,
+        "after": 2.9066,
+        "delta": -0.10499999999999998
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4574,
+        "after": 2.426,
+        "delta": -0.03139999999999965
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.7788,
+        "after": 4.7086,
+        "delta": -0.0702000000000007
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.6873,
+        "after": 4.4967,
+        "delta": -0.19059999999999988
+      }
+    },
+    {
+      "repeat": "3",
+      "before_ms": 60.540251,
+      "after_ms": 61.569709,
+      "delta_ms": 1.0294580000000053,
+      "control_p95": 67.3834037,
+      "factor_p95": 67.926307,
+      "GPUTime": {
+        "before": 57.5159,
+        "after": 58.6111,
+        "delta": 1.0951999999999984
+      },
+      "GameThreadTime": {
+        "before": 7.6757,
+        "after": 7.7329,
+        "delta": 0.05719999999999992
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.9807,
+        "after": 2.9599,
+        "delta": -0.02079999999999993
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.3869,
+        "after": 2.427,
+        "delta": 0.04010000000000025
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.7052,
+        "after": 4.726,
+        "delta": 0.020800000000000374
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.3576,
+        "after": 4.4897,
+        "delta": 0.13210000000000033
+      }
+    }
+  ],
+  "BushLOD1": [
+    {
+      "repeat": "1",
+      "before_ms": 62.7894795,
+      "after_ms": 62.329669,
+      "delta_ms": -0.4598104999999961,
+      "control_p95": 72.91814185,
+      "factor_p95": 69.950938,
+      "GPUTime": {
+        "before": 59.460899999999995,
+        "after": 59.3545,
+        "delta": -0.10639999999999361
+      },
+      "GameThreadTime": {
+        "before": 7.8291,
+        "after": 7.8556,
+        "delta": 0.026499999999999524
+      },
+      "RenderThreadTime": {
+        "before": 0.00025,
+        "after": 0.00025,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.97795,
+        "after": 2.9645,
+        "delta": -0.01344999999999974
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.5663,
+        "after": 2.5322,
+        "delta": -0.03410000000000002
+      },
+      "GPU/ShadowProjection": {
+        "before": 5.2735,
+        "after": 4.9998,
+        "delta": -0.2737000000000007
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.9437,
+        "after": 4.7929,
+        "delta": -0.15079999999999938
+      }
+    },
+    {
+      "repeat": "2",
+      "before_ms": 59.4103335,
+      "after_ms": 62.767625,
+      "delta_ms": 3.3572915000000023,
+      "control_p95": 67.214272,
+      "factor_p95": 75.0040506,
+      "GPUTime": {
+        "before": 56.4914,
+        "after": 60.1529,
+        "delta": 3.6615000000000038
+      },
+      "GameThreadTime": {
+        "before": 7.59895,
+        "after": 7.3735,
+        "delta": -0.22545000000000037
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.9816,
+        "after": 2.9697,
+        "delta": -0.0118999999999998
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.41355,
+        "after": 2.4965,
+        "delta": 0.0829500000000003
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.6985,
+        "after": 4.8544,
+        "delta": 0.15589999999999993
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.3962,
+        "after": 4.9868,
+        "delta": 0.5905999999999993
+      }
+    },
+    {
+      "repeat": "3",
+      "before_ms": 60.454249,
+      "after_ms": 60.978584,
+      "delta_ms": 0.5243350000000007,
+      "control_p95": 67.180836,
+      "factor_p95": 66.8065701,
+      "GPUTime": {
+        "before": 57.6154,
+        "after": 58.0215,
+        "delta": 0.4061000000000021
+      },
+      "GameThreadTime": {
+        "before": 7.6663,
+        "after": 7.7443,
+        "delta": 0.07800000000000029
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.9951,
+        "after": 3.0039,
+        "delta": 0.008799999999999919
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4084,
+        "after": 2.4705,
+        "delta": 0.062100000000000044
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.7071,
+        "after": 4.8056,
+        "delta": 0.09850000000000048
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.3601,
+        "after": 4.6219,
+        "delta": 0.26180000000000003
+      }
+    }
+  ],
+  "FernLOD1": [
+    {
+      "repeat": "1",
+      "before_ms": 62.396627,
+      "after_ms": 61.0169585,
+      "delta_ms": -1.379668500000001,
+      "control_p95": 69.037542,
+      "factor_p95": 67.59193625,
+      "GPUTime": {
+        "before": 59.685,
+        "after": 58.14125,
+        "delta": -1.5437500000000028
+      },
+      "GameThreadTime": {
+        "before": 8.0013,
+        "after": 7.91965,
+        "delta": -0.08165000000000067
+      },
+      "RenderThreadTime": {
+        "before": 0.00025,
+        "after": 0.000208,
+        "delta": -4.200000000000002e-05
+      },
+      "GPU/Basepass": {
+        "before": 2.9946,
+        "after": 2.9863999999999997,
+        "delta": -0.00820000000000043
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.5,
+        "after": 2.4509499999999997,
+        "delta": -0.04905000000000026
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.8414,
+        "after": 4.7393,
+        "delta": -0.10210000000000008
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.7365,
+        "after": 4.44095,
+        "delta": -0.2955500000000004
+      }
+    },
+    {
+      "repeat": "2",
+      "before_ms": 61.993711000000005,
+      "after_ms": 62.7141875,
+      "delta_ms": 0.7204764999999966,
+      "control_p95": 68.2048341,
+      "factor_p95": 84.43608325,
+      "GPUTime": {
+        "before": 58.5493,
+        "after": 59.34995,
+        "delta": 0.8006499999999974
+      },
+      "GameThreadTime": {
+        "before": 7.6527,
+        "after": 7.7858,
+        "delta": 0.13309999999999977
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.98355,
+        "after": 3.0961,
+        "delta": 0.1125499999999997
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.46395,
+        "after": 2.48085,
+        "delta": 0.016900000000000137
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.7637,
+        "after": 4.83385,
+        "delta": 0.07014999999999993
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.5592500000000005,
+        "after": 4.61805,
+        "delta": 0.05879999999999974
+      }
+    },
+    {
+      "repeat": "3",
+      "before_ms": 59.955748,
+      "after_ms": 61.368167,
+      "delta_ms": 1.4124189999999999,
+      "control_p95": 67.2961975,
+      "factor_p95": 66.57208309999999,
+      "GPUTime": {
+        "before": 57.1776,
+        "after": 58.3779,
+        "delta": 1.2002999999999986
+      },
+      "GameThreadTime": {
+        "before": 7.7650500000000005,
+        "after": 7.6437,
+        "delta": -0.12135000000000051
+      },
+      "RenderThreadTime": {
+        "before": 0.00025,
+        "after": 0.000208,
+        "delta": -4.200000000000002e-05
+      },
+      "GPU/Basepass": {
+        "before": 2.9758,
+        "after": 3.0038,
+        "delta": 0.028000000000000025
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4231,
+        "after": 2.4423,
+        "delta": 0.019200000000000106
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.70195,
+        "after": 4.7255,
+        "delta": 0.023550000000000182
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.3508,
+        "after": 4.506,
+        "delta": 0.15520000000000067
+      }
+    }
+  ],
+  "CV:ShowFlag.Materials=0": [
+    {
+      "repeat": "1",
+      "before_ms": 61.269042999999996,
+      "after_ms": 57.896376000000004,
+      "delta_ms": -3.3726669999999928,
+      "control_p95": 67.20067909999999,
+      "factor_p95": 65.9220833,
+      "GPUTime": {
+        "before": 58.54174999999999,
+        "after": 54.63855,
+        "delta": -3.903199999999991
+      },
+      "GameThreadTime": {
+        "before": 7.75515,
+        "after": 7.87235,
+        "delta": 0.11719999999999953
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.9909,
+        "after": 1.8538000000000001,
+        "delta": -1.1370999999999998
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4363,
+        "after": 2.36625,
+        "delta": -0.07005000000000017
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.729,
+        "after": 4.601,
+        "delta": -0.1280000000000001
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.480499999999999,
+        "after": 4.4125499999999995,
+        "delta": -0.06794999999999973
+      }
+    },
+    {
+      "repeat": "2",
+      "before_ms": 60.356168,
+      "after_ms": 57.524752,
+      "delta_ms": -2.8314159999999973,
+      "control_p95": 64.83225925,
+      "factor_p95": 63.367166,
+      "GPUTime": {
+        "before": 57.6542,
+        "after": 54.3654,
+        "delta": -3.288800000000002
+      },
+      "GameThreadTime": {
+        "before": 7.7642,
+        "after": 7.7799,
+        "delta": 0.015699999999999825
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.9892,
+        "after": 1.8743,
+        "delta": -1.1148999999999998
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.43045,
+        "after": 2.3312,
+        "delta": -0.09925000000000006
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.7151,
+        "after": 4.5964,
+        "delta": -0.11869999999999958
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.4155999999999995,
+        "after": 4.3652,
+        "delta": -0.05039999999999978
+      }
+    },
+    {
+      "repeat": "3",
+      "before_ms": 59.785543,
+      "after_ms": 58.189042,
+      "delta_ms": -1.5965009999999964,
+      "control_p95": 65.33839400000001,
+      "factor_p95": 63.69019635,
+      "GPUTime": {
+        "before": 57.0001,
+        "after": 54.825,
+        "delta": -2.1751000000000005
+      },
+      "GameThreadTime": {
+        "before": 7.77345,
+        "after": 7.418749999999999,
+        "delta": -0.3547000000000011
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.9743,
+        "after": 1.8589,
+        "delta": -1.1154
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4165,
+        "after": 2.30965,
+        "delta": -0.10685000000000011
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.7065,
+        "after": 4.55985,
+        "delta": -0.14665000000000017
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.3142,
+        "after": 4.35815,
+        "delta": 0.0439500000000006
+      }
+    }
+  ],
+  "CV:r.Lumen.IrradianceFieldGather.InterpolateDownsampleFactor=4": [
+    {
+      "repeat": "1",
+      "before_ms": 61.1597505,
+      "after_ms": 60.7045625,
+      "delta_ms": -0.4551879999999997,
+      "control_p95": 69.85361255,
+      "factor_p95": 66.922407,
+      "GPUTime": {
+        "before": 58.299,
+        "after": 57.9627,
+        "delta": -0.3363000000000014
+      },
+      "GameThreadTime": {
+        "before": 7.5591,
+        "after": 7.66455,
+        "delta": 0.10545000000000027
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.00025,
+        "delta": 4.200000000000002e-05
+      },
+      "GPU/Basepass": {
+        "before": 3.0429,
+        "after": 3.0166,
+        "delta": -0.02629999999999999
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.47225,
+        "after": 2.4547499999999998,
+        "delta": -0.01750000000000007
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.736800000000001,
+        "after": 4.725099999999999,
+        "delta": -0.011700000000001154
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.54385,
+        "after": 4.44515,
+        "delta": -0.09870000000000001
+      }
+    },
+    {
+      "repeat": "2",
+      "before_ms": 58.8117095,
+      "after_ms": 60.8238745,
+      "delta_ms": 2.012165000000003,
+      "control_p95": 66.6367867,
+      "factor_p95": 67.29017155,
+      "GPUTime": {
+        "before": 56.2478,
+        "after": 58.3776,
+        "delta": 2.129800000000003
+      },
+      "GameThreadTime": {
+        "before": 7.7637,
+        "after": 7.7871,
+        "delta": 0.023399999999999643
+      },
+      "RenderThreadTime": {
+        "before": 0.00025,
+        "after": 0.000208,
+        "delta": -4.200000000000002e-05
+      },
+      "GPU/Basepass": {
+        "before": 3.00135,
+        "after": 3.0031999999999996,
+        "delta": 0.0018499999999996852
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.42395,
+        "after": 2.4545500000000002,
+        "delta": 0.030600000000000183
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.7051,
+        "after": 4.72405,
+        "delta": 0.018950000000000244
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.3949,
+        "after": 4.434950000000001,
+        "delta": 0.04005000000000081
+      }
+    },
+    {
+      "repeat": "3",
+      "before_ms": 60.679123000000004,
+      "after_ms": 62.375998,
+      "delta_ms": 1.6968749999999986,
+      "control_p95": 65.51955375,
+      "factor_p95": 72.7116982,
+      "GPUTime": {
+        "before": 57.866600000000005,
+        "after": 59.86325,
+        "delta": 1.9966499999999954
+      },
+      "GameThreadTime": {
+        "before": 7.5167,
+        "after": 7.4356,
+        "delta": -0.08110000000000017
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.99175,
+        "after": 3.0406500000000003,
+        "delta": 0.048900000000000166
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4208,
+        "after": 2.50425,
+        "delta": 0.08345000000000002
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.7156,
+        "after": 5.0242,
+        "delta": 0.3086000000000002
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.4777000000000005,
+        "after": 4.8868,
+        "delta": 0.4090999999999996
+      }
+    }
+  ],
+  "CV:r.Lumen.IrradianceFieldGather.AdaptivePlacement=1": [
+    {
+      "repeat": "1",
+      "before_ms": 60.589522,
+      "after_ms": 60.90121,
+      "delta_ms": 0.31168799999999663,
+      "control_p95": 68.76049955,
+      "factor_p95": 68.22389365000001,
+      "GPUTime": {
+        "before": 57.790800000000004,
+        "after": 58.057950000000005,
+        "delta": 0.2671500000000009
+      },
+      "GameThreadTime": {
+        "before": 7.7641,
+        "after": 7.733549999999999,
+        "delta": -0.030550000000000743
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.9514500000000004,
+        "after": 2.97655,
+        "delta": 0.025099999999999678
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4527,
+        "after": 2.45395,
+        "delta": 0.0012499999999997513
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.7372499999999995,
+        "after": 4.7276,
+        "delta": -0.009649999999999714
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.577349999999999,
+        "after": 4.93125,
+        "delta": 0.3539000000000012
+      }
+    },
+    {
+      "repeat": "2",
+      "before_ms": 61.763937,
+      "after_ms": 61.995625,
+      "delta_ms": 0.23168799999999834,
+      "control_p95": 69.26051025,
+      "factor_p95": 69.4768828,
+      "GPUTime": {
+        "before": 59.299,
+        "after": 59.241,
+        "delta": -0.05799999999999983
+      },
+      "GameThreadTime": {
+        "before": 7.9738500000000005,
+        "after": 7.7873,
+        "delta": -0.18655000000000044
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.00025,
+        "delta": 4.200000000000002e-05
+      },
+      "GPU/Basepass": {
+        "before": 3.03645,
+        "after": 2.9948,
+        "delta": -0.04164999999999974
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4754,
+        "after": 2.4711,
+        "delta": -0.0043000000000001926
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.83085,
+        "after": 4.8099,
+        "delta": -0.020950000000000024
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.59545,
+        "after": 5.3563,
+        "delta": 0.7608500000000005
+      }
+    },
+    {
+      "repeat": "3",
+      "before_ms": 60.9849575,
+      "after_ms": 59.5713945,
+      "delta_ms": -1.4135630000000035,
+      "control_p95": 68.2328428,
+      "factor_p95": 67.69170825,
+      "GPUTime": {
+        "before": 58.38265,
+        "after": 57.32599999999999,
+        "delta": -1.0566500000000048
+      },
+      "GameThreadTime": {
+        "before": 7.7024,
+        "after": 7.6815,
+        "delta": -0.02090000000000014
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.9937500000000004,
+        "after": 3.0321,
+        "delta": 0.03834999999999944
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4424,
+        "after": 2.42615,
+        "delta": -0.01625000000000032
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.7174,
+        "after": 4.7573,
+        "delta": 0.03990000000000027
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.4882,
+        "after": 5.013400000000001,
+        "delta": 0.5252000000000008
+      }
+    }
+  ],
+  "CV:r.Lumen.IrradianceFieldGather.ShortRangeAORadius=48": [
+    {
+      "repeat": "1",
+      "before_ms": 60.8471055,
+      "after_ms": 61.171625,
+      "delta_ms": 0.32451950000000096,
+      "control_p95": 67.5722509,
+      "factor_p95": 66.5347249,
+      "GPUTime": {
+        "before": 58.197199999999995,
+        "after": 58.2975,
+        "delta": 0.10030000000000427
+      },
+      "GameThreadTime": {
+        "before": 7.85275,
+        "after": 7.8123,
+        "delta": -0.04045000000000076
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.9869000000000003,
+        "after": 2.9609,
+        "delta": -0.026000000000000245
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4379999999999997,
+        "after": 2.3818,
+        "delta": -0.056199999999999584
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.74155,
+        "after": 4.7119,
+        "delta": -0.029650000000000176
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.499750000000001,
+        "after": 4.4024,
+        "delta": -0.09735000000000049
+      }
+    },
+    {
+      "repeat": "2",
+      "before_ms": 61.214916,
+      "after_ms": 63.1678345,
+      "delta_ms": 1.9529184999999956,
+      "control_p95": 71.0291506,
+      "factor_p95": 71.40113455,
+      "GPUTime": {
+        "before": 58.7232,
+        "after": 60.56045,
+        "delta": 1.8372500000000045
+      },
+      "GameThreadTime": {
+        "before": 7.6966,
+        "after": 7.672,
+        "delta": -0.0246000000000004
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.9847,
+        "after": 3.0228,
+        "delta": 0.03810000000000002
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4422,
+        "after": 2.50165,
+        "delta": 0.05945
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.7323,
+        "after": 4.9771,
+        "delta": 0.24479999999999968
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.5979,
+        "after": 4.78115,
+        "delta": 0.18325000000000014
+      }
+    },
+    {
+      "repeat": "3",
+      "before_ms": 58.634479,
+      "after_ms": 60.212666,
+      "delta_ms": 1.5781869999999998,
+      "control_p95": 65.81484544999999,
+      "factor_p95": 65.70616825,
+      "GPUTime": {
+        "before": 55.7408,
+        "after": 57.556,
+        "delta": 1.8151999999999973
+      },
+      "GameThreadTime": {
+        "before": 7.68825,
+        "after": 7.89645,
+        "delta": 0.20819999999999972
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.98595,
+        "after": 2.98455,
+        "delta": -0.0013999999999998458
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4227,
+        "after": 2.42595,
+        "delta": 0.003249999999999975
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.70765,
+        "after": 4.73485,
+        "delta": 0.02719999999999967
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.3721499999999995,
+        "after": 4.40715,
+        "delta": 0.03500000000000014
+      }
+    }
+  ],
+  "CV:r.Lumen.IrradianceFieldGather.ProbeOcclusionBias=0.5": [
+    {
+      "repeat": "1",
+      "before_ms": 60.767250000000004,
+      "after_ms": 61.106751,
+      "delta_ms": 0.3395009999999985,
+      "control_p95": 68.65140835,
+      "factor_p95": 69.82739169999999,
+      "GPUTime": {
+        "before": 57.9828,
+        "after": 58.6199,
+        "delta": 0.6371000000000038
+      },
+      "GameThreadTime": {
+        "before": 7.8065,
+        "after": 7.5878499999999995,
+        "delta": -0.21865000000000023
+      },
+      "RenderThreadTime": {
+        "before": 0.00025,
+        "after": 0.000208,
+        "delta": -4.200000000000002e-05
+      },
+      "GPU/Basepass": {
+        "before": 3.0223500000000003,
+        "after": 3.03475,
+        "delta": 0.012399999999999523
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.41735,
+        "after": 2.46985,
+        "delta": 0.05250000000000021
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.72045,
+        "after": 4.7237,
+        "delta": 0.0032500000000004192
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.58005,
+        "after": 4.7607,
+        "delta": 0.18064999999999998
+      }
+    },
+    {
+      "repeat": "2",
+      "before_ms": 60.605914999999996,
+      "after_ms": 61.111019999999996,
+      "delta_ms": 0.5051050000000004,
+      "control_p95": 67.56848275,
+      "factor_p95": 68.22921185,
+      "GPUTime": {
+        "before": 57.90845,
+        "after": 58.28545,
+        "delta": 0.37699999999999534
+      },
+      "GameThreadTime": {
+        "before": 7.87955,
+        "after": 7.8568,
+        "delta": -0.02275000000000027
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 3.00805,
+        "after": 3.01555,
+        "delta": 0.007500000000000284
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.43935,
+        "after": 2.4661999999999997,
+        "delta": 0.026849999999999596
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.79735,
+        "after": 4.75315,
+        "delta": -0.04420000000000002
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.5176,
+        "after": 4.668950000000001,
+        "delta": 0.15135000000000076
+      }
+    },
+    {
+      "repeat": "3",
+      "before_ms": 60.982041,
+      "after_ms": 59.687773,
+      "delta_ms": -1.2942680000000024,
+      "control_p95": 67.3720362,
+      "factor_p95": 64.931686,
+      "GPUTime": {
+        "before": 57.9258,
+        "after": 56.7435,
+        "delta": -1.182300000000005
+      },
+      "GameThreadTime": {
+        "before": 7.7778,
+        "after": 7.53775,
+        "delta": -0.2400500000000001
+      },
+      "RenderThreadTime": {
+        "before": 0.000208,
+        "after": 0.000208,
+        "delta": 0.0
+      },
+      "GPU/Basepass": {
+        "before": 2.9898,
+        "after": 2.96605,
+        "delta": -0.023749999999999716
+      },
+      "GPU/ShadowDepths": {
+        "before": 2.4247,
+        "after": 2.4152500000000003,
+        "delta": -0.009449999999999736
+      },
+      "GPU/ShadowProjection": {
+        "before": 4.7477,
+        "after": 4.7016,
+        "delta": -0.04610000000000003
+      },
+      "GPU/LumenIrradianceFieldGather": {
+        "before": 4.498,
+        "after": 4.36815,
+        "delta": -0.12985000000000024
+      }
+    }
+  ]
+}

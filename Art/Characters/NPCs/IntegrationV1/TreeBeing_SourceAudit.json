@@ -1,0 +1,67 @@
+{
+  "id": "TreeBeing",
+  "input": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Incoming/Baumbart_V1.glb",
+  "source_blend": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/TreeBeing/Source/TreeBeing_NPC_Source_V1.blend",
+  "original_height_m": 1.798469066619873,
+  "review_height_m": 3.8,
+  "uniform_object_scale": 2.1129081786999526,
+  "front_assumption": "Negative Blender Y, pending visual check",
+  "mesh_audit": [
+    {
+      "object": "TreeBeing_HP_0",
+      "vertices": 1297268,
+      "triangles": 2385308,
+      "polygons": 2385308,
+      "raw_boundary_edges": 204530,
+      "edges_more_than_two_faces": 0,
+      "loose_edges": 0,
+      "zero_area_polygons": 0,
+      "nonfinite_coordinates": 0,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "geometry_hash": "4fcff319cc35d1a7bde21d4036a2094f1caada1006fa75f5ed704ea38fdf950a",
+      "component_audit": "Deferred exact connectivity/island audit; raw seam edges must not be treated as holes.",
+      "self_intersections": "Not exhaustively tested; visual review required"
+    }
+  ],
+  "textures": [
+    {
+      "name": "TreeBeing_Image_0",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "colorspace": "sRGB",
+      "external_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/TreeBeing/Textures/TreeBeing_Image_0.jpg"
+    },
+    {
+      "name": "TreeBeing_Image_1",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "colorspace": "Non-Color",
+      "external_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/TreeBeing/Textures/TreeBeing_Image_1.jpg"
+    },
+    {
+      "name": "TreeBeing_Image_2",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "colorspace": "Non-Color",
+      "external_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/TreeBeing/Textures/TreeBeing_Image_2.jpg"
+    }
+  ],
+  "rigs": 0,
+  "actions": 0,
+  "rendered_views": [
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/TreeBeing/Previews/01_Front.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/TreeBeing/Previews/02_Right.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/TreeBeing/Previews/03_ThreeQuarter.png"
+  ]
+}

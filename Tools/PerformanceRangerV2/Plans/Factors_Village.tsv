@@ -1,0 +1,21 @@
+Factors_Village	PIE	1280	740	4	6
+DorfBauten	V1	1
+DorfBauten	VegetationHidden	1
+DorfBauten	V1	1
+DorfBauten	VegetationNoShadow	1
+DorfBauten	V1	1
+DorfBauten	LocalLightsOff	1
+DorfBauten	V1	1
+DorfBauten	AllDynamicShadowsOff	1
+DorfBauten	V1	1
+DorfBauten	PostProcessingOff	1
+DorfBauten	V1	2
+DorfBauten	PostProcessingOff	2
+DorfBauten	V1	2
+DorfBauten	AllDynamicShadowsOff	2
+DorfBauten	V1	2
+DorfBauten	LocalLightsOff	2
+DorfBauten	V1	2
+DorfBauten	VegetationNoShadow	2
+DorfBauten	V1	2
+DorfBauten	VegetationHidden	2

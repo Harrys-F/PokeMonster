@@ -1,0 +1,3892 @@
+{
+  "segments": [
+    {
+      "label": "TreeShadowProxyV1_C1",
+      "segment": 0,
+      "state": "A",
+      "repeat": 1,
+      "width": 1280,
+      "height": 740,
+      "quality": 1,
+      "percentage": 75,
+      "frames": 373,
+      "median_frame_ms": 27.40771,
+      "p95_frame_ms": 30.458848999999997,
+      "median_fps": 36.486083660400666,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        960,
+        555
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 27.3693,
+          "p95_ms": 30.488400000000002,
+          "samples": 373,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 7.2932,
+          "p95_ms": 8.77788,
+          "samples": 373,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.000458,
+          "samples": 373,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 26.4926,
+          "p95_ms": 28.676560000000002,
+          "samples": 373,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.4366,
+          "p95_ms": 5.1796999999999995,
+          "samples": 373,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 0.8137,
+          "p95_ms": 3.25896,
+          "samples": 373,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.7551,
+          "p95_ms": 7.0658,
+          "samples": 373,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 1.1977,
+          "p95_ms": 2.3532599999999997,
+          "samples": 373,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 5.3017,
+          "p95_ms": 9.657499999999999,
+          "samples": 373,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 0.7522,
+          "p95_ms": 1.7785199999999997,
+          "samples": 373,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C1",
+      "segment": 1,
+      "state": "B",
+      "repeat": 1,
+      "width": 1280,
+      "height": 740,
+      "quality": 1,
+      "percentage": 75,
+      "frames": 336,
+      "median_frame_ms": 30.1968325,
+      "p95_frame_ms": 32.68666675,
+      "median_fps": 33.116056129397016,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        960,
+        555
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 30.206850000000003,
+          "p95_ms": 32.721199999999996,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 8.79535,
+          "p95_ms": 9.8661,
+          "samples": 336,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.00025,
+          "p95_ms": 0.000458,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 29.054949999999998,
+          "p95_ms": 30.783675000000002,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.54055,
+          "p95_ms": 5.7777,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 0.74405,
+          "p95_ms": 3.8116,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.85915,
+          "p95_ms": 7.676475,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 1.2955999999999999,
+          "p95_ms": 3.7433,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 5.7785,
+          "p95_ms": 10.565075,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 0.89105,
+          "p95_ms": 2.113225,
+          "samples": 336,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C1",
+      "segment": 2,
+      "state": "B",
+      "repeat": 2,
+      "width": 1280,
+      "height": 740,
+      "quality": 1,
+      "percentage": 75,
+      "frames": 321,
+      "median_frame_ms": 31.526044,
+      "p95_frame_ms": 34.443874,
+      "median_fps": 31.71980601181677,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        960,
+        555
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 31.5432,
+          "p95_ms": 34.5338,
+          "samples": 321,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 9.129,
+          "p95_ms": 13.4336,
+          "samples": 321,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.00025,
+          "p95_ms": 0.000583,
+          "samples": 321,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 30.2731,
+          "p95_ms": 32.0082,
+          "samples": 321,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.5615,
+          "p95_ms": 6.3535,
+          "samples": 321,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 0.7557,
+          "p95_ms": 3.9696,
+          "samples": 321,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.8505,
+          "p95_ms": 8.1554,
+          "samples": 321,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 1.3333,
+          "p95_ms": 4.3999,
+          "samples": 321,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 5.865,
+          "p95_ms": 11.0238,
+          "samples": 321,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 0.9158,
+          "p95_ms": 2.0255,
+          "samples": 321,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C1",
+      "segment": 3,
+      "state": "A",
+      "repeat": 2,
+      "width": 1280,
+      "height": 740,
+      "quality": 1,
+      "percentage": 75,
+      "frames": 324,
+      "median_frame_ms": 31.257730000000002,
+      "p95_frame_ms": 33.371037949999995,
+      "median_fps": 31.992086437498816,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        960,
+        555
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 31.2539,
+          "p95_ms": 33.377424999999995,
+          "samples": 324,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 9.0772,
+          "p95_ms": 10.164654999999998,
+          "samples": 324,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.00025,
+          "p95_ms": 0.000458,
+          "samples": 324,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 29.95935,
+          "p95_ms": 31.382915,
+          "samples": 324,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.55095,
+          "p95_ms": 6.257054999999999,
+          "samples": 324,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 0.9002,
+          "p95_ms": 4.030819999999999,
+          "samples": 324,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.8530499999999996,
+          "p95_ms": 7.775675000000001,
+          "samples": 324,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 1.3383500000000002,
+          "p95_ms": 3.780859999999998,
+          "samples": 324,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 5.74025,
+          "p95_ms": 10.862754999999998,
+          "samples": 324,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 0.91595,
+          "p95_ms": 1.888665,
+          "samples": 324,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C1",
+      "segment": 4,
+      "state": "A",
+      "repeat": 3,
+      "width": 1280,
+      "height": 740,
+      "quality": 1,
+      "percentage": 75,
+      "frames": 336,
+      "median_frame_ms": 30.1682725,
+      "p95_frame_ms": 33.0329275,
+      "median_fps": 33.14740676649616,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        960,
+        555
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 30.1727,
+          "p95_ms": 33.07515,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 8.91115,
+          "p95_ms": 12.7894,
+          "samples": 336,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.000458,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 28.8877,
+          "p95_ms": 31.0749,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.52915,
+          "p95_ms": 5.900399999999999,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 0.8981,
+          "p95_ms": 3.803,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.92115,
+          "p95_ms": 7.558875,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 1.28095,
+          "p95_ms": 2.7321999999999997,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 5.73475,
+          "p95_ms": 10.70515,
+          "samples": 336,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 0.877,
+          "p95_ms": 1.8794,
+          "samples": 336,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C1",
+      "segment": 5,
+      "state": "B",
+      "repeat": 3,
+      "width": 1280,
+      "height": 740,
+      "quality": 1,
+      "percentage": 75,
+      "frames": 355,
+      "median_frame_ms": 28.777789,
+      "p95_frame_ms": 31.2460127,
+      "median_fps": 34.74902119825814,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        960,
+        555
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 28.7528,
+          "p95_ms": 31.21094,
+          "samples": 355,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 8.0086,
+          "p95_ms": 9.32774,
+          "samples": 355,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.0005126000000000004,
+          "samples": 355,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 27.7204,
+          "p95_ms": 29.50371,
+          "samples": 355,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.5139,
+          "p95_ms": 5.54572,
+          "samples": 355,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 0.7301,
+          "p95_ms": 3.0805000000000025,
+          "samples": 355,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.9594,
+          "p95_ms": 7.34445,
+          "samples": 355,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 1.2552,
+          "p95_ms": 3.72486,
+          "samples": 355,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 5.6429,
+          "p95_ms": 10.02851,
+          "samples": 355,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 0.8032,
+          "p95_ms": 1.72412,
+          "samples": 355,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C2",
+      "segment": 0,
+      "state": "A",
+      "repeat": 1,
+      "width": 1280,
+      "height": 740,
+      "quality": 1,
+      "percentage": 100,
+      "frames": 274,
+      "median_frame_ms": 35.948978499999996,
+      "p95_frame_ms": 41.71131285,
+      "median_fps": 27.817202093795242,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 35.936949999999996,
+          "p95_ms": 41.81431499999999,
+          "samples": 274,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.43045,
+          "p95_ms": 7.278955,
+          "samples": 274,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000167,
+          "p95_ms": 0.0003896999999999986,
+          "samples": 274,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 34.956500000000005,
+          "p95_ms": 39.672035,
+          "samples": 274,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.63405,
+          "p95_ms": 5.5333749999999995,
+          "samples": 274,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 1.4462000000000002,
+          "p95_ms": 4.7265999999999995,
+          "samples": 274,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.9393000000000002,
+          "p95_ms": 7.11677,
+          "samples": 274,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 1.5900500000000002,
+          "p95_ms": 4.533334999999999,
+          "samples": 274,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 11.457799999999999,
+          "p95_ms": 12.409284999999999,
+          "samples": 274,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 0.77405,
+          "p95_ms": 1.6988399999999992,
+          "samples": 274,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C2",
+      "segment": 1,
+      "state": "B",
+      "repeat": 1,
+      "width": 1280,
+      "height": 740,
+      "quality": 1,
+      "percentage": 100,
+      "frames": 278,
+      "median_frame_ms": 35.438603,
+      "p95_frame_ms": 41.20706485,
+      "median_fps": 28.21781659959903,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 35.42055,
+          "p95_ms": 41.1948,
+          "samples": 278,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.5428,
+          "p95_ms": 7.337919999999998,
+          "samples": 278,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000167,
+          "p95_ms": 0.000458,
+          "samples": 278,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 34.671,
+          "p95_ms": 38.711369999999995,
+          "samples": 278,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.61265,
+          "p95_ms": 5.398115,
+          "samples": 278,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 1.15185,
+          "p95_ms": 4.121424999999999,
+          "samples": 278,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.873,
+          "p95_ms": 7.08064,
+          "samples": 278,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 1.5909499999999999,
+          "p95_ms": 4.489935,
+          "samples": 278,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 11.4439,
+          "p95_ms": 12.25198,
+          "samples": 278,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 0.7605500000000001,
+          "p95_ms": 1.7834749999999986,
+          "samples": 278,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C2",
+      "segment": 2,
+      "state": "B",
+      "repeat": 2,
+      "width": 1280,
+      "height": 740,
+      "quality": 1,
+      "percentage": 100,
+      "frames": 275,
+      "median_frame_ms": 35.526749,
+      "p95_frame_ms": 41.655426000000006,
+      "median_fps": 28.14780491173003,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 35.5083,
+          "p95_ms": 41.68143,
+          "samples": 275,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 7.8672,
+          "p95_ms": 10.937590000000002,
+          "samples": 275,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.000458,
+          "samples": 275,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 34.5295,
+          "p95_ms": 40.09541,
+          "samples": 275,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.5809,
+          "p95_ms": 5.837780000000001,
+          "samples": 275,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 1.1422,
+          "p95_ms": 4.110150000000001,
+          "samples": 275,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.702,
+          "p95_ms": 7.219880000000001,
+          "samples": 275,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 1.5953,
+          "p95_ms": 4.675479999999999,
+          "samples": 275,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 11.434,
+          "p95_ms": 12.55018,
+          "samples": 275,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 0.7504,
+          "p95_ms": 1.64289,
+          "samples": 275,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C2",
+      "segment": 3,
+      "state": "A",
+      "repeat": 2,
+      "width": 1280,
+      "height": 740,
+      "quality": 1,
+      "percentage": 100,
+      "frames": 271,
+      "median_frame_ms": 36.293291,
+      "p95_frame_ms": 41.56252,
+      "median_fps": 27.553301793436145,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 36.3775,
+          "p95_ms": 41.4794,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 7.0019,
+          "p95_ms": 7.9124,
+          "samples": 271,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.0004375,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 35.4458,
+          "p95_ms": 39.7602,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.6505,
+          "p95_ms": 5.32685,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 1.4545,
+          "p95_ms": 4.71575,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.9269,
+          "p95_ms": 7.18075,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 1.6061,
+          "p95_ms": 4.531549999999999,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 11.6403,
+          "p95_ms": 12.3947,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 0.7745,
+          "p95_ms": 1.57695,
+          "samples": 271,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C2",
+      "segment": 4,
+      "state": "A",
+      "repeat": 3,
+      "width": 1280,
+      "height": 740,
+      "quality": 1,
+      "percentage": 100,
+      "frames": 272,
+      "median_frame_ms": 35.9402505,
+      "p95_frame_ms": 41.34519275,
+      "median_fps": 27.82395743179364,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 35.92955,
+          "p95_ms": 41.334805,
+          "samples": 272,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.64435,
+          "p95_ms": 7.537209999999999,
+          "samples": 272,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.0005188999999999995,
+          "samples": 272,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 35.1212,
+          "p95_ms": 39.756190000000004,
+          "samples": 272,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.6556000000000002,
+          "p95_ms": 5.362049999999999,
+          "samples": 272,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 1.4068,
+          "p95_ms": 4.744014999999999,
+          "samples": 272,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.9307,
+          "p95_ms": 7.206655,
+          "samples": 272,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 1.61785,
+          "p95_ms": 4.5688949999999995,
+          "samples": 272,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 11.4978,
+          "p95_ms": 12.339335,
+          "samples": 272,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 0.7594000000000001,
+          "p95_ms": 1.7514149999999993,
+          "samples": 272,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C2",
+      "segment": 5,
+      "state": "B",
+      "repeat": 3,
+      "width": 1280,
+      "height": 740,
+      "quality": 1,
+      "percentage": 100,
+      "frames": 271,
+      "median_frame_ms": 36.15671,
+      "p95_frame_ms": 41.9711865,
+      "median_fps": 27.65738365022703,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 36.1678,
+          "p95_ms": 41.90145,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.7492,
+          "p95_ms": 8.9731,
+          "samples": 271,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.0005,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 35.3283,
+          "p95_ms": 39.79495,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.6675,
+          "p95_ms": 5.59905,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 1.2134,
+          "p95_ms": 4.3178,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.9419,
+          "p95_ms": 7.2600999999999996,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 1.616,
+          "p95_ms": 4.6248000000000005,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 11.6667,
+          "p95_ms": 12.60575,
+          "samples": 271,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 0.777,
+          "p95_ms": 1.7391999999999999,
+          "samples": 271,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C3",
+      "segment": 0,
+      "state": "A",
+      "repeat": 1,
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "percentage": 75,
+      "frames": 143,
+      "median_frame_ms": 64.169291,
+      "p95_frame_ms": 108.89633780000003,
+      "median_fps": 15.583778228124727,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 64.1874,
+          "p95_ms": 108.88035000000002,
+          "samples": 143,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 8.1933,
+          "p95_ms": 24.485250000000008,
+          "samples": 143,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.00045390000000000025,
+          "samples": 143,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 63.3756,
+          "p95_ms": 101.47204000000002,
+          "samples": 143,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.1069,
+          "p95_ms": 7.241860000000001,
+          "samples": 143,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 3.4362,
+          "p95_ms": 8.28613,
+          "samples": 143,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.8002,
+          "p95_ms": 7.869670000000001,
+          "samples": 143,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 2.3646,
+          "p95_ms": 6.444690000000001,
+          "samples": 143,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 19.1768,
+          "p95_ms": 33.31561000000001,
+          "samples": 143,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.3863,
+          "p95_ms": 4.81795,
+          "samples": 143,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C3",
+      "segment": 1,
+      "state": "B",
+      "repeat": 1,
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "percentage": 75,
+      "frames": 158,
+      "median_frame_ms": 63.5196655,
+      "p95_frame_ms": 67.3756688,
+      "median_fps": 15.743155952230259,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 63.5506,
+          "p95_ms": 67.34944999999999,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.7181999999999995,
+          "p95_ms": 7.668135,
+          "samples": 158,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000167,
+          "p95_ms": 0.0004643000000000003,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 62.2549,
+          "p95_ms": 66.318405,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.96415,
+          "p95_ms": 6.3243100000000005,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 3.10785,
+          "p95_ms": 7.3143650000000004,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.052,
+          "p95_ms": 7.2793849999999996,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 2.3442,
+          "p95_ms": 6.329085,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 18.9816,
+          "p95_ms": 23.28378,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.31255,
+          "p95_ms": 3.625535000000001,
+          "samples": 158,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C3",
+      "segment": 2,
+      "state": "B",
+      "repeat": 2,
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "percentage": 75,
+      "frames": 161,
+      "median_frame_ms": 63.088499,
+      "p95_frame_ms": 65.961208,
+      "median_fps": 15.850749595421505,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 63.0548,
+          "p95_ms": 66.0272,
+          "samples": 161,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.7471,
+          "p95_ms": 7.61,
+          "samples": 161,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000167,
+          "p95_ms": 0.000417,
+          "samples": 161,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 61.7935,
+          "p95_ms": 64.2797,
+          "samples": 161,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.9982,
+          "p95_ms": 6.0608,
+          "samples": 161,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 2.8846,
+          "p95_ms": 7.1235,
+          "samples": 161,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.1128,
+          "p95_ms": 7.295,
+          "samples": 161,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 2.3277,
+          "p95_ms": 6.1638,
+          "samples": 161,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 18.7837,
+          "p95_ms": 22.3332,
+          "samples": 161,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.3104,
+          "p95_ms": 4.0783,
+          "samples": 161,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C3",
+      "segment": 3,
+      "state": "A",
+      "repeat": 2,
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "percentage": 75,
+      "frames": 156,
+      "median_frame_ms": 64.2028545,
+      "p95_frame_ms": 68.97469774999999,
+      "median_fps": 15.575631454205825,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 64.23044999999999,
+          "p95_ms": 68.964225,
+          "samples": 156,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.866949999999999,
+          "p95_ms": 7.791125,
+          "samples": 156,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000167,
+          "p95_ms": 0.00043775,
+          "samples": 156,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 62.689949999999996,
+          "p95_ms": 67.53880000000001,
+          "samples": 156,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.9663,
+          "p95_ms": 6.310525,
+          "samples": 156,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 3.6057,
+          "p95_ms": 7.998,
+          "samples": 156,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.0551,
+          "p95_ms": 7.285299999999999,
+          "samples": 156,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 2.3413500000000003,
+          "p95_ms": 6.219125,
+          "samples": 156,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 18.9675,
+          "p95_ms": 23.380575,
+          "samples": 156,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.3121999999999998,
+          "p95_ms": 4.358325,
+          "samples": 156,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C3",
+      "segment": 4,
+      "state": "A",
+      "repeat": 3,
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "percentage": 75,
+      "frames": 157,
+      "median_frame_ms": 64.384669,
+      "p95_frame_ms": 67.286658,
+      "median_fps": 15.531647759189381,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 64.403,
+          "p95_ms": 67.29686,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.894,
+          "p95_ms": 7.74564,
+          "samples": 157,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.000458,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 62.88,
+          "p95_ms": 65.49130000000001,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.9892,
+          "p95_ms": 6.311159999999997,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 3.3948,
+          "p95_ms": 7.75788,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.1602,
+          "p95_ms": 7.36728,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 2.3242,
+          "p95_ms": 5.9349799999999995,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 18.9763,
+          "p95_ms": 23.8002,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.3031,
+          "p95_ms": 3.6245999999999987,
+          "samples": 157,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C3",
+      "segment": 5,
+      "state": "B",
+      "repeat": 3,
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "percentage": 75,
+      "frames": 157,
+      "median_frame_ms": 64.132333,
+      "p95_frame_ms": 66.5171922,
+      "median_fps": 15.592758803893817,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 64.1145,
+          "p95_ms": 66.51948,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.8327,
+          "p95_ms": 7.71116,
+          "samples": 157,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.0005,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 62.9849,
+          "p95_ms": 64.86936,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 1.9925,
+          "p95_ms": 6.147579999999997,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 2.8923,
+          "p95_ms": 7.1739999999999995,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.0938,
+          "p95_ms": 7.452879999999999,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 2.3478,
+          "p95_ms": 6.27716,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 19.065,
+          "p95_ms": 23.498939999999997,
+          "samples": 157,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.3028,
+          "p95_ms": 4.65518,
+          "samples": 157,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C4",
+      "segment": 0,
+      "state": "A",
+      "repeat": 1,
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "percentage": 100,
+      "frames": 107,
+      "median_frame_ms": 94.425377,
+      "p95_frame_ms": 100.44171979999999,
+      "median_fps": 10.590373390831154,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 94.4862,
+          "p95_ms": 100.90041,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 8.03,
+          "p95_ms": 9.179049999999997,
+          "samples": 107,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.00048739999999999954,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 92.6571,
+          "p95_ms": 98.80544,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.5046,
+          "p95_ms": 7.33826,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 8.5055,
+          "p95_ms": 10.117869999999998,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.97,
+          "p95_ms": 7.152419999999999,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 4.1368,
+          "p95_ms": 8.78645,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 31.9874,
+          "p95_ms": 34.13661,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.2987,
+          "p95_ms": 4.6533099999999985,
+          "samples": 107,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C4",
+      "segment": 1,
+      "state": "B",
+      "repeat": 1,
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "percentage": 100,
+      "frames": 106,
+      "median_frame_ms": 94.20781199999999,
+      "p95_frame_ms": 99.87576949999999,
+      "median_fps": 10.614830965398072,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 94.17519999999999,
+          "p95_ms": 99.92075,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 8.0713,
+          "p95_ms": 9.854625,
+          "samples": 106,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.00025,
+          "p95_ms": 0.0006145,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 92.65164999999999,
+          "p95_ms": 96.64167499999999,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.5746,
+          "p95_ms": 7.17555,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 7.2524999999999995,
+          "p95_ms": 9.49225,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.9894,
+          "p95_ms": 7.240225000000001,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 4.1352,
+          "p95_ms": 8.374775,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 32.2774,
+          "p95_ms": 33.7258,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.3185,
+          "p95_ms": 4.6736249999999995,
+          "samples": 106,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C4",
+      "segment": 2,
+      "state": "B",
+      "repeat": 2,
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "percentage": 100,
+      "frames": 105,
+      "median_frame_ms": 93.811207,
+      "p95_frame_ms": 114.3477764,
+      "median_fps": 10.659707213872645,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 93.7107,
+          "p95_ms": 114.35252,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 8.0035,
+          "p95_ms": 9.2211,
+          "samples": 105,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.00025,
+          "p95_ms": 0.0005747999999999999,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 92.3867,
+          "p95_ms": 112.73918,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.5566,
+          "p95_ms": 7.27214,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 7.5027,
+          "p95_ms": 10.144279999999998,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.1097,
+          "p95_ms": 7.308439999999999,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 4.1081,
+          "p95_ms": 8.84674,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 32.2026,
+          "p95_ms": 38.15432,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.3123,
+          "p95_ms": 4.52272,
+          "samples": 105,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C4",
+      "segment": 3,
+      "state": "A",
+      "repeat": 2,
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "percentage": 100,
+      "frames": 107,
+      "median_frame_ms": 94.472334,
+      "p95_frame_ms": 99.64698209999999,
+      "median_fps": 10.585109498829572,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 94.5402,
+          "p95_ms": 99.60562,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 8.0765,
+          "p95_ms": 9.130729999999998,
+          "samples": 107,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.000516799999999999,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 93.1077,
+          "p95_ms": 97.51326,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.6106,
+          "p95_ms": 7.284949999999999,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 8.6501,
+          "p95_ms": 10.24148,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.0608,
+          "p95_ms": 7.333679999999997,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 4.1278,
+          "p95_ms": 8.398060000000001,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 32.0623,
+          "p95_ms": 33.460969999999996,
+          "samples": 107,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.309,
+          "p95_ms": 4.7186200000000005,
+          "samples": 107,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C4",
+      "segment": 4,
+      "state": "A",
+      "repeat": 3,
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "percentage": 100,
+      "frames": 106,
+      "median_frame_ms": 95.27977200000001,
+      "p95_frame_ms": 100.0636465,
+      "median_fps": 10.49540714686009,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 95.26984999999999,
+          "p95_ms": 100.39835000000001,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 8.0991,
+          "p95_ms": 9.2193,
+          "samples": 106,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.00025,
+          "p95_ms": 0.0005,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 93.66535,
+          "p95_ms": 97.618175,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.59895,
+          "p95_ms": 7.24455,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 8.42005,
+          "p95_ms": 9.950600000000001,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.0894,
+          "p95_ms": 7.325625,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 4.1325,
+          "p95_ms": 8.288799999999998,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 32.35955,
+          "p95_ms": 33.5072,
+          "samples": 106,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.34105,
+          "p95_ms": 4.22275,
+          "samples": 106,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C4",
+      "segment": 5,
+      "state": "B",
+      "repeat": 3,
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "percentage": 100,
+      "frames": 105,
+      "median_frame_ms": 95.188584,
+      "p95_frame_ms": 100.9384236,
+      "median_fps": 10.50546145323477,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 95.2435,
+          "p95_ms": 100.9491,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 7.9623,
+          "p95_ms": 9.12232,
+          "samples": 105,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.00025,
+          "p95_ms": 0.0005251999999999998,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 93.6005,
+          "p95_ms": 99.23367999999999,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.5914,
+          "p95_ms": 7.39778,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 7.7026,
+          "p95_ms": 9.70822,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.0862,
+          "p95_ms": 7.895679999999999,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 4.3244,
+          "p95_ms": 8.81964,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 32.3968,
+          "p95_ms": 34.41402,
+          "samples": 105,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.3121,
+          "p95_ms": 4.5966999999999985,
+          "samples": 105,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C5",
+      "segment": 0,
+      "state": "A",
+      "repeat": 1,
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "percentage": 75,
+      "frames": 158,
+      "median_frame_ms": 63.4235835,
+      "p95_frame_ms": 69.59502785000001,
+      "median_fps": 15.7670056596534,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 63.44995,
+          "p95_ms": 69.61514,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.7849,
+          "p95_ms": 8.112730000000003,
+          "samples": 158,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000167,
+          "p95_ms": 0.0004643000000000003,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 61.14645,
+          "p95_ms": 67.21867,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.1351,
+          "p95_ms": 6.738435,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 4.4708,
+          "p95_ms": 9.487599999999999,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.1046,
+          "p95_ms": 7.80081,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 3.3284000000000002,
+          "p95_ms": 7.34129,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 11.22285,
+          "p95_ms": 12.23362,
+          "samples": 158,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.5375,
+          "p95_ms": 5.5991800000000005,
+          "samples": 158,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C5",
+      "segment": 1,
+      "state": "B",
+      "repeat": 1,
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "percentage": 75,
+      "frames": 164,
+      "median_frame_ms": 61.635563000000005,
+      "p95_frame_ms": 65.55911075,
+      "median_fps": 16.224399540245944,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 61.6175,
+          "p95_ms": 65.64909,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.8236,
+          "p95_ms": 7.810004999999999,
+          "samples": 164,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000167,
+          "p95_ms": 0.0005,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 58.72905,
+          "p95_ms": 62.950475000000004,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.1367000000000003,
+          "p95_ms": 6.704085,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 3.6767000000000003,
+          "p95_ms": 8.281505,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.0528500000000003,
+          "p95_ms": 7.51436,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 3.2851,
+          "p95_ms": 7.22824,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 10.851500000000001,
+          "p95_ms": 11.98765,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.53025,
+          "p95_ms": 4.759104999999999,
+          "samples": 164,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C5",
+      "segment": 2,
+      "state": "B",
+      "repeat": 2,
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "percentage": 75,
+      "frames": 167,
+      "median_frame_ms": 60.87875,
+      "p95_frame_ms": 63.7827674,
+      "median_fps": 16.426092848489827,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 60.9866,
+          "p95_ms": 63.78962,
+          "samples": 167,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.7634,
+          "p95_ms": 7.87172,
+          "samples": 167,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000167,
+          "p95_ms": 0.0005293999999999995,
+          "samples": 167,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 57.8231,
+          "p95_ms": 61.30584,
+          "samples": 167,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.1289,
+          "p95_ms": 6.70278,
+          "samples": 167,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 3.6194,
+          "p95_ms": 8.212860000000001,
+          "samples": 167,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.0607,
+          "p95_ms": 7.42042,
+          "samples": 167,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 3.2944,
+          "p95_ms": 7.30554,
+          "samples": 167,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 10.8365,
+          "p95_ms": 11.66354,
+          "samples": 167,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.5228,
+          "p95_ms": 5.03766,
+          "samples": 167,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C5",
+      "segment": 3,
+      "state": "A",
+      "repeat": 2,
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "percentage": 75,
+      "frames": 165,
+      "median_frame_ms": 61.465707,
+      "p95_frame_ms": 65.1356486,
+      "median_fps": 16.269234485499368,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 61.3765,
+          "p95_ms": 65.1695,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.9037,
+          "p95_ms": 8.00608,
+          "samples": 165,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000167,
+          "p95_ms": 0.00044979999999999933,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 58.6061,
+          "p95_ms": 61.54236,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.0833,
+          "p95_ms": 6.663319999999999,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 4.305,
+          "p95_ms": 8.768979999999999,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.0546,
+          "p95_ms": 7.31194,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 3.2885,
+          "p95_ms": 7.194039999999999,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 10.1905,
+          "p95_ms": 11.587660000000001,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.5142,
+          "p95_ms": 5.102559999999999,
+          "samples": 165,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C5",
+      "segment": 4,
+      "state": "A",
+      "repeat": 3,
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "percentage": 75,
+      "frames": 165,
+      "median_frame_ms": 61.508417,
+      "p95_frame_ms": 64.09939080000001,
+      "median_fps": 16.257937511218994,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 61.4983,
+          "p95_ms": 64.17222,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.9665,
+          "p95_ms": 7.952839999999999,
+          "samples": 165,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000167,
+          "p95_ms": 0.0005335999999999992,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 58.3247,
+          "p95_ms": 61.40396,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.0968,
+          "p95_ms": 6.6318,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 4.1982,
+          "p95_ms": 8.74622,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.031,
+          "p95_ms": 7.247439999999999,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 3.2698,
+          "p95_ms": 7.11548,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 8.9333,
+          "p95_ms": 11.6726,
+          "samples": 165,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.517,
+          "p95_ms": 5.16264,
+          "samples": 165,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C5",
+      "segment": 5,
+      "state": "B",
+      "repeat": 3,
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "percentage": 75,
+      "frames": 164,
+      "median_frame_ms": 61.6481885,
+      "p95_frame_ms": 64.58905315,
+      "median_fps": 16.22107679611705,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 61.6896,
+          "p95_ms": 64.61078,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 6.7985,
+          "p95_ms": 8.134805,
+          "samples": 164,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.000458,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 58.4452,
+          "p95_ms": 62.382635,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.1311,
+          "p95_ms": 6.74875,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 3.5673,
+          "p95_ms": 8.237325,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.07405,
+          "p95_ms": 7.513205,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 3.29265,
+          "p95_ms": 7.196384999999999,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 10.5744,
+          "p95_ms": 11.82483,
+          "samples": 164,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.5284,
+          "p95_ms": 5.312194999999999,
+          "samples": 164,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C6",
+      "segment": 0,
+      "state": "A",
+      "repeat": 1,
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "percentage": 100,
+      "frames": 109,
+      "median_frame_ms": 89.057788,
+      "p95_frame_ms": 105.7873242,
+      "median_fps": 11.228664246635004,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 89.2512,
+          "p95_ms": 105.76958,
+          "samples": 109,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 7.8573,
+          "p95_ms": 9.42972,
+          "samples": 109,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.000542,
+          "samples": 109,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 86.8731,
+          "p95_ms": 103.35741999999999,
+          "samples": 109,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.6879,
+          "p95_ms": 7.40968,
+          "samples": 109,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 11.3641,
+          "p95_ms": 13.53456,
+          "samples": 109,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.1377,
+          "p95_ms": 7.934579999999999,
+          "samples": 109,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 3.2713,
+          "p95_ms": 7.62582,
+          "samples": 109,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 15.2936,
+          "p95_ms": 17.36282,
+          "samples": 109,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.6267,
+          "p95_ms": 5.38882,
+          "samples": 109,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C6",
+      "segment": 1,
+      "state": "B",
+      "repeat": 1,
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "percentage": 100,
+      "frames": 113,
+      "median_frame_ms": 86.336583,
+      "p95_frame_ms": 102.7202342,
+      "median_fps": 11.582575604132954,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 86.37,
+          "p95_ms": 102.72309999999999,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 7.7188,
+          "p95_ms": 9.16378,
+          "samples": 113,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.00047479999999999967,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 84.2025,
+          "p95_ms": 101.47901999999999,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.7235,
+          "p95_ms": 7.46082,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 10.265,
+          "p95_ms": 11.735159999999999,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 3.1235,
+          "p95_ms": 7.79102,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 3.2382,
+          "p95_ms": 7.40926,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 15.158,
+          "p95_ms": 17.07772,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.5319,
+          "p95_ms": 5.019979999999999,
+          "samples": 113,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C6",
+      "segment": 2,
+      "state": "B",
+      "repeat": 2,
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "percentage": 100,
+      "frames": 115,
+      "median_frame_ms": 85.8735,
+      "p95_frame_ms": 92.0768234,
+      "median_fps": 11.645036012273867,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 85.8801,
+          "p95_ms": 92.0726,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 7.8991,
+          "p95_ms": 9.10046,
+          "samples": 115,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.0005668999999999997,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 83.6939,
+          "p95_ms": 89.25228,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.6667,
+          "p95_ms": 7.3781799999999995,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 9.5773,
+          "p95_ms": 10.85581,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.9827,
+          "p95_ms": 7.24045,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 3.2167,
+          "p95_ms": 7.40306,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 14.9739,
+          "p95_ms": 15.659550000000001,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.5014,
+          "p95_ms": 5.05456,
+          "samples": 115,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C6",
+      "segment": 3,
+      "state": "A",
+      "repeat": 2,
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "percentage": 100,
+      "frames": 113,
+      "median_frame_ms": 87.077707,
+      "p95_frame_ms": 94.88145200000001,
+      "median_fps": 11.48399555353473,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 87.0724,
+          "p95_ms": 94.89648,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 7.8372,
+          "p95_ms": 9.258239999999999,
+          "samples": 113,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.0005997999999999996,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 85.4411,
+          "p95_ms": 90.81422,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.6858,
+          "p95_ms": 7.361839999999999,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 11.3121,
+          "p95_ms": 12.39448,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.9633,
+          "p95_ms": 7.378259999999999,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 3.2071,
+          "p95_ms": 7.604279999999999,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 14.9936,
+          "p95_ms": 15.83066,
+          "samples": 113,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.5166,
+          "p95_ms": 5.114459999999999,
+          "samples": 113,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C6",
+      "segment": 4,
+      "state": "A",
+      "repeat": 3,
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "percentage": 100,
+      "frames": 115,
+      "median_frame_ms": 86.265083,
+      "p95_frame_ms": 91.6676785,
+      "median_fps": 11.592175712622916,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 86.2532,
+          "p95_ms": 91.7072,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 7.9621,
+          "p95_ms": 9.06561,
+          "samples": 115,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.0005,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 84.3441,
+          "p95_ms": 89.40139,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.668,
+          "p95_ms": 7.24037,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 11.1705,
+          "p95_ms": 11.79828,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.9978,
+          "p95_ms": 6.99643,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 3.2166,
+          "p95_ms": 7.31176,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 14.928,
+          "p95_ms": 15.4272,
+          "samples": 115,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.5005,
+          "p95_ms": 5.01138,
+          "samples": 115,
+          "all_zero": false
+        }
+      }
+    },
+    {
+      "label": "TreeShadowProxyV1_C6",
+      "segment": 5,
+      "state": "B",
+      "repeat": 3,
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "percentage": 100,
+      "frames": 116,
+      "median_frame_ms": 85.395666,
+      "p95_frame_ms": 91.66451025,
+      "median_fps": 11.710196159135288,
+      "camera": [
+        -5595.3805,
+        2845.3805,
+        2268.3767,
+        -50.0,
+        -45.0,
+        35.0
+      ],
+      "actual_extents": [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ],
+      "window": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "counters": {
+        "FrameTime": {
+          "median_ms": 85.3813,
+          "p95_ms": 91.665675,
+          "samples": 116,
+          "all_zero": false
+        },
+        "GameThreadTime": {
+          "median_ms": 7.9533000000000005,
+          "p95_ms": 9.068375,
+          "samples": 116,
+          "all_zero": false
+        },
+        "RenderThreadTime": {
+          "median_ms": 0.000208,
+          "p95_ms": 0.00068775,
+          "samples": 116,
+          "all_zero": false
+        },
+        "GPUTime": {
+          "median_ms": 83.20304999999999,
+          "p95_ms": 89.22555,
+          "samples": 116,
+          "all_zero": false
+        },
+        "GPU/ShadowDepths": {
+          "median_ms": 2.6591,
+          "p95_ms": 7.2639,
+          "samples": 116,
+          "all_zero": false
+        },
+        "GPU/ShadowProjection": {
+          "median_ms": 10.1162,
+          "p95_ms": 10.909475,
+          "samples": 116,
+          "all_zero": false
+        },
+        "GPU/SlateUI": {
+          "median_ms": 2.9619,
+          "p95_ms": 7.1881,
+          "samples": 116,
+          "all_zero": false
+        },
+        "GPU/Basepass": {
+          "median_ms": 3.1773,
+          "p95_ms": 7.448575,
+          "samples": 116,
+          "all_zero": false
+        },
+        "GPU/LumenScreenProbeGather": {
+          "median_ms": 14.9545,
+          "p95_ms": 15.556825,
+          "samples": 116,
+          "all_zero": false
+        },
+        "GPU/PostProcessing": {
+          "median_ms": 1.53065,
+          "p95_ms": 5.378725,
+          "samples": 116,
+          "all_zero": false
+        }
+      }
+    }
+  ],
+  "summary": [
+    {
+      "width": 1280,
+      "height": 740,
+      "quality": 1,
+      "percentage": 75,
+      "A": {
+        "median_frame_ms": 30.1682725,
+        "p95_frame_ms": 33.0329275,
+        "median_fps": 33.14740676649616,
+        "range_median_frame_ms": [
+          27.40771,
+          31.257730000000002
+        ],
+        "GPUTime": 28.8877,
+        "GameThreadTime": 8.91115,
+        "RenderThreadTime": 0.000208,
+        "GPU/ShadowDepths": 1.52915,
+        "GPU/ShadowProjection": 0.8981,
+        "GPU/SlateUI": 2.8530499999999996
+      },
+      "B": {
+        "median_frame_ms": 30.1968325,
+        "p95_frame_ms": 32.68666675,
+        "median_fps": 33.116056129397016,
+        "range_median_frame_ms": [
+          28.777789,
+          31.526044
+        ],
+        "GPUTime": 29.054949999999998,
+        "GameThreadTime": 8.79535,
+        "RenderThreadTime": 0.00025,
+        "GPU/ShadowDepths": 1.54055,
+        "GPU/ShadowProjection": 0.74405,
+        "GPU/SlateUI": 2.85915
+      },
+      "paired_frame_delta_B_minus_A_ms": [
+        2.7891224999999977,
+        0.2683139999999966,
+        -1.390483500000002
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 740,
+      "quality": 1,
+      "percentage": 100,
+      "A": {
+        "median_frame_ms": 35.948978499999996,
+        "p95_frame_ms": 41.56252,
+        "median_fps": 27.817202093795242,
+        "range_median_frame_ms": [
+          35.9402505,
+          36.293291
+        ],
+        "GPUTime": 35.1212,
+        "GameThreadTime": 6.64435,
+        "RenderThreadTime": 0.000208,
+        "GPU/ShadowDepths": 1.6505,
+        "GPU/ShadowProjection": 1.4462000000000002,
+        "GPU/SlateUI": 2.9307
+      },
+      "B": {
+        "median_frame_ms": 35.526749,
+        "p95_frame_ms": 41.655426000000006,
+        "median_fps": 28.14780491173003,
+        "range_median_frame_ms": [
+          35.438603,
+          36.15671
+        ],
+        "GPUTime": 34.671,
+        "GameThreadTime": 6.7492,
+        "RenderThreadTime": 0.000208,
+        "GPU/ShadowDepths": 1.61265,
+        "GPU/ShadowProjection": 1.15185,
+        "GPU/SlateUI": 2.873
+      },
+      "paired_frame_delta_B_minus_A_ms": [
+        -0.510375499999995,
+        -0.7665420000000012,
+        0.21645949999999914
+      ]
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "percentage": 75,
+      "A": {
+        "median_frame_ms": 64.2028545,
+        "p95_frame_ms": 68.97469774999999,
+        "median_fps": 15.575631454205825,
+        "range_median_frame_ms": [
+          64.169291,
+          64.384669
+        ],
+        "GPUTime": 62.88,
+        "GameThreadTime": 6.894,
+        "RenderThreadTime": 0.000208,
+        "GPU/ShadowDepths": 1.9892,
+        "GPU/ShadowProjection": 3.4362,
+        "GPU/SlateUI": 3.1602
+      },
+      "B": {
+        "median_frame_ms": 63.5196655,
+        "p95_frame_ms": 66.5171922,
+        "median_fps": 15.743155952230259,
+        "range_median_frame_ms": [
+          63.088499,
+          64.132333
+        ],
+        "GPUTime": 62.2549,
+        "GameThreadTime": 6.7471,
+        "RenderThreadTime": 0.000167,
+        "GPU/ShadowDepths": 1.9925,
+        "GPU/ShadowProjection": 2.8923,
+        "GPU/SlateUI": 3.0938
+      },
+      "paired_frame_delta_B_minus_A_ms": [
+        -0.6496254999999991,
+        -1.114355500000002,
+        -0.25233599999999967
+      ]
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "quality": 1,
+      "percentage": 100,
+      "A": {
+        "median_frame_ms": 94.472334,
+        "p95_frame_ms": 100.0636465,
+        "median_fps": 10.585109498829572,
+        "range_median_frame_ms": [
+          94.425377,
+          95.27977200000001
+        ],
+        "GPUTime": 93.1077,
+        "GameThreadTime": 8.0765,
+        "RenderThreadTime": 0.000208,
+        "GPU/ShadowDepths": 2.59895,
+        "GPU/ShadowProjection": 8.5055,
+        "GPU/SlateUI": 3.0608
+      },
+      "B": {
+        "median_frame_ms": 94.20781199999999,
+        "p95_frame_ms": 100.9384236,
+        "median_fps": 10.614830965398072,
+        "range_median_frame_ms": [
+          93.811207,
+          95.188584
+        ],
+        "GPUTime": 92.65164999999999,
+        "GameThreadTime": 8.0035,
+        "RenderThreadTime": 0.00025,
+        "GPU/ShadowDepths": 2.5746,
+        "GPU/ShadowProjection": 7.5027,
+        "GPU/SlateUI": 3.0862
+      },
+      "paired_frame_delta_B_minus_A_ms": [
+        -0.21756500000000756,
+        -0.6611270000000076,
+        -0.09118800000000249
+      ]
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "percentage": 75,
+      "A": {
+        "median_frame_ms": 61.508417,
+        "p95_frame_ms": 65.1356486,
+        "median_fps": 16.257937511218994,
+        "range_median_frame_ms": [
+          61.465707,
+          63.4235835
+        ],
+        "GPUTime": 58.6061,
+        "GameThreadTime": 6.9037,
+        "RenderThreadTime": 0.000167,
+        "GPU/ShadowDepths": 2.0968,
+        "GPU/ShadowProjection": 4.305,
+        "GPU/SlateUI": 3.0546
+      },
+      "B": {
+        "median_frame_ms": 61.635563000000005,
+        "p95_frame_ms": 64.58905315,
+        "median_fps": 16.224399540245944,
+        "range_median_frame_ms": [
+          60.87875,
+          61.6481885
+        ],
+        "GPUTime": 58.4452,
+        "GameThreadTime": 6.7985,
+        "RenderThreadTime": 0.000167,
+        "GPU/ShadowDepths": 2.1311,
+        "GPU/ShadowProjection": 3.6194,
+        "GPU/SlateUI": 3.0607
+      },
+      "paired_frame_delta_B_minus_A_ms": [
+        -1.7880204999999947,
+        -0.5869570000000053,
+        0.13977150000000194
+      ]
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "quality": 2,
+      "percentage": 100,
+      "A": {
+        "median_frame_ms": 87.077707,
+        "p95_frame_ms": 94.88145200000001,
+        "median_fps": 11.48399555353473,
+        "range_median_frame_ms": [
+          86.265083,
+          89.057788
+        ],
+        "GPUTime": 85.4411,
+        "GameThreadTime": 7.8573,
+        "RenderThreadTime": 0.000208,
+        "GPU/ShadowDepths": 2.6858,
+        "GPU/ShadowProjection": 11.3121,
+        "GPU/SlateUI": 2.9978
+      },
+      "B": {
+        "median_frame_ms": 85.8735,
+        "p95_frame_ms": 92.0768234,
+        "median_fps": 11.645036012273867,
+        "range_median_frame_ms": [
+          85.395666,
+          86.336583
+        ],
+        "GPUTime": 83.6939,
+        "GameThreadTime": 7.8991,
+        "RenderThreadTime": 0.000208,
+        "GPU/ShadowDepths": 2.6667,
+        "GPU/ShadowProjection": 10.1162,
+        "GPU/SlateUI": 2.9827
+      },
+      "paired_frame_delta_B_minus_A_ms": [
+        -2.7212049999999977,
+        -1.2042069999999967,
+        -0.8694169999999986
+      ]
+    }
+  ],
+  "validation": "36 segments, three AB/BA pairs per configuration, native extents and fixed pose validated",
+  "internal_size": "Derived with ceil from native renderer resolution fractions; not allocation readback",
+  "mode": "Editor embedded PIE; no standalone measurement in this bounded group experiment",
+  "site": "Wald: Player (-4300,1550,50.15) cm"
+}

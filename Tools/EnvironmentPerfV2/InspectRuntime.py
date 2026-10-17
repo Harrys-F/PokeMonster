@@ -1,0 +1,4 @@
+import unreal,json
+from pathlib import Path
+O=Path(unreal.Paths.project_dir())/'Saved/EnvironmentPerfV2';w=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_game_world();names=['r.Shadow.Virtual.Stats.Visible','r.Shadow.Virtual.AccumulateStats','r.GPUStatsEnabled','r.GPUCsvStatsEnabled','r.Lumen.HardwareRayTracing','r.RayTracing','r.RayTracing.ForceAllRayTracingEffects','r.Shadow.Virtual.SMRT.AdaptiveRayCount','r.Shadow.Virtual.SMRT.SamplesPerRayDirectional','r.Lumen.ScreenProbeGather.ShortRangeAO','r.Lumen.ScreenProbeGather.ShortRangeAO.DownsampleFactor','r.Lumen.ScreenProbeGather.IntegrateDownsampleFactor','r.VSync','r.VSyncEditor','rhi.SyncInterval','t.MaxFPS','r.ScreenPercentage']
+(O/'RuntimeDiagnosticCVars.json').write_text(json.dumps({n:unreal.SystemLibrary.get_console_variable_float_value(n) for n in names},indent=2))

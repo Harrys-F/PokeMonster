@@ -1,0 +1,9 @@
+{
+  "tests": 45,
+  "succeeded": 45,
+  "failed": 0,
+  "succeededWithWarnings": 0,
+  "test_states": [
+    "Success"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "source": "/Game/Maps/Dev_TestMap_NPCMotionV2.Dev_TestMap_NPCMotionV2:PersistentLevel.PokeMonsterNPC_0",
+  "position": [
+    -920.0,
+    -1080.0,
+    65.0
+  ],
+  "rotation": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "dialogue": "/Game/Data/Dialogues/DA_SliceGuideDialogue.DA_SliceGuideDialogue",
+  "display_name": "Wanderer",
+  "visual": "/Game/Maps/Dev_TestMap_NPCMotionV2.Dev_TestMap_NPCMotionV2:PersistentLevel.PokeMonsterNPCVisualActor_0",
+  "visual_location": [
+    -920.0,
+    -1080.0,
+    3.0
+  ],
+  "visual_rotation": [
+    -0.0,
+    0.0,
+    135.0
+  ],
+  "visual_mesh": "/Game/Characters/NPCs/RangerMotionV2/Meshes/SK_Ranger_AQV2.SK_Ranger_AQV2",
+  "idle": "/Game/Characters/NPCs/RangerMotionV2/Animations/A_Ranger_Idle_AQV2.A_Ranger_Idle_AQV2",
+  "talk": "/Game/Characters/NPCs/RangerMotionV2/Animations/A_Ranger_Talk_AQV2.A_Ranger_Talk_AQV2",
+  "actors": 1347
+}

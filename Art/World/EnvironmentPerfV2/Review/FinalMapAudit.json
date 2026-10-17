@@ -1,0 +1,37 @@
+{
+  "map": "/Game/Maps/Dev_TestMap_EnvironmentPerfV2.Dev_TestMap_EnvironmentPerfV2",
+  "baseline": "/Game/Maps/Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1",
+  "actor_count": 1351,
+  "baseline_actor_count": 1350,
+  "new_actors": {
+    "EnvironmentPerfV2_RenderOnly": {
+      "class": "/Script/PokeMonster.PokeMonsterEnvironmentRenderProfileV2",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": []
+    }
+  },
+  "missing_actors": [],
+  "existing_actor_transform_geometry_material_collision_differences": {},
+  "dirty_maps": [],
+  "dirty_content": [],
+  "persisted_renderer_overrides": {
+    "r.Lumen.ScreenProbeGather.IntegrateDownsampleFactor": "2",
+    "r.Shadow.Virtual.SMRT.RayCountDirectional": "2",
+    "r.Lumen.FinalGatherMethod": "0",
+    "r.Lumen.HardwareRayTracing": "0"
+  }
+}

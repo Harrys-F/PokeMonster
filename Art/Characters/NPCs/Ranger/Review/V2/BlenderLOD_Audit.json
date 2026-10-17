@@ -1,0 +1,154 @@
+{
+  "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Source/Ranger_NPC_V1.blend",
+  "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Source/Ranger_NPC_V2.blend",
+  "bones": 24,
+  "bone_rest_hash": "5a3ca59d60b690a9592741dfaccc04959d42618dab275cb12b7139396b9c75f5",
+  "v1_geometry_hash": "d61ca596e67d5b91f4d610798c48bc347b5b87f53d2cf485df9565eb8a754410",
+  "lods": [
+    {
+      "level": 0,
+      "vertices": 26890,
+      "triangles": 55000,
+      "polygons": 55000,
+      "material_slots": 1,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "bounds_min_m": [
+        -0.9188166260719299,
+        -0.2980176508426666,
+        0.0002966091560665518
+      ],
+      "bounds_max_m": [
+        0.9184269309043884,
+        0.2984285056591034,
+        1.8006705045700073
+      ],
+      "source_vertices_to_lod_surface_p95_mm": 0.893779087346047,
+      "source_vertices_to_lod_surface_max_mm": 7.3813204653561115,
+      "regions": {
+        "head": {
+          "p95_mm": 0.878984446171671,
+          "max_mm": 4.687606357038021
+        },
+        "hands": {
+          "p95_mm": 0.8255298947915429,
+          "max_mm": 1.2650385033339262
+        },
+        "cape": {
+          "p95_mm": 0.9227319445926684,
+          "max_mm": 6.170361768454313
+        }
+      },
+      "weights_sum": [
+        0.9999932646751404,
+        1.000000149011612
+      ],
+      "method": "Independent V1 runtime copy; collapse simplification before Armature; original HP, V1 geometry, UVs, rig and actions unchanged. Candidate pending visual acceptance."
+    },
+    {
+      "level": 1,
+      "vertices": 11390,
+      "triangles": 24000,
+      "polygons": 24000,
+      "material_slots": 1,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "bounds_min_m": [
+        -0.9183619618415833,
+        -0.2974921762943268,
+        0.00038041293737478554
+      ],
+      "bounds_max_m": [
+        0.9171398878097534,
+        0.2969609498977661,
+        1.8010040521621704
+      ],
+      "source_vertices_to_lod_surface_p95_mm": 2.309086802415549,
+      "source_vertices_to_lod_surface_max_mm": 19.887370988726616,
+      "regions": {
+        "head": {
+          "p95_mm": 2.339695289265363,
+          "max_mm": 19.887370988726616
+        },
+        "hands": {
+          "p95_mm": 2.3588313255459057,
+          "max_mm": 4.612153396010399
+        },
+        "cape": {
+          "p95_mm": 2.388350456021725,
+          "max_mm": 12.973420321941376
+        }
+      },
+      "weights_sum": [
+        0.9999986886978149,
+        1.000000149011612
+      ],
+      "method": "Independent V1 runtime copy; collapse simplification before Armature; original HP, V1 geometry, UVs, rig and actions unchanged. Candidate pending visual acceptance."
+    },
+    {
+      "level": 2,
+      "vertices": 4390,
+      "triangles": 10000,
+      "polygons": 10000,
+      "material_slots": 1,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "bounds_min_m": [
+        -0.9217587113380432,
+        -0.29732823371887207,
+        0.00020333319844212383
+      ],
+      "bounds_max_m": [
+        0.9199788570404053,
+        0.29599660634994507,
+        1.7995842695236206
+      ],
+      "source_vertices_to_lod_surface_p95_mm": 5.281753698363897,
+      "source_vertices_to_lod_surface_max_mm": 29.577387496829033,
+      "regions": {
+        "head": {
+          "p95_mm": 5.679971468634903,
+          "max_mm": 23.46700243651867
+        },
+        "hands": {
+          "p95_mm": 5.933910142630339,
+          "max_mm": 8.081713691353798
+        },
+        "cape": {
+          "p95_mm": 5.64893498085439,
+          "max_mm": 29.577387496829033
+        }
+      },
+      "weights_sum": [
+        0.9999988377094269,
+        1.000000149011612
+      ],
+      "method": "Independent V1 runtime copy; collapse simplification before Armature; original HP, V1 geometry, UVs, rig and actions unchanged. Candidate pending visual acceptance."
+    }
+  ],
+  "clips": [
+    {
+      "action": "A_Ranger_Idle_Pilot",
+      "frames": 91,
+      "minimum_surface_z_m_per_lod": [
+        0.0002966039755847305,
+        0.00038040964864194393,
+        0.00020333325664978474
+      ]
+    },
+    {
+      "action": "A_Ranger_Gesture_Pilot",
+      "frames": 61,
+      "minimum_surface_z_m_per_lod": [
+        0.0002966039755847305,
+        0.00038040964864194393,
+        0.00020333325664978474
+      ]
+    }
+  ],
+  "render_folder": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/V2/Blender",
+  "skeleton_animation_change": "None; reused existing 24-bone rig and both V1 actions"
+}

@@ -1,0 +1,3 @@
+import unreal,json
+from pathlib import Path
+P=Path(unreal.Paths.project_dir(),'Art/Characters/NPCs/Ranger/Review/V2');m=unreal.load_asset('/Game/Characters/NPCs/RangerV2/Meshes/SK_Ranger_NPC_V2');s=unreal.get_editor_subsystem(unreal.SkeletalMeshEditorSubsystem);assert s.reimport_all_custom_lods(m);unreal.EditorAssetLibrary.save_loaded_asset(m,False);unreal.SystemLibrary.execute_console_command(unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world(),'pm.Perf.AuditLODs');(P/'FinalReimport.json').write_text(json.dumps({'reimport_all_custom_lods':True,'lod_count':s.get_lod_count(m),'dirty_content':[p.get_path_name() for p in unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()]},indent=2))

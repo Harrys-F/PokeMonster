@@ -1,0 +1,67 @@
+{
+  "id": "ElvenScholar",
+  "input": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Incoming/Elrond_V1.glb",
+  "source_blend": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenScholar/Source/ElvenScholar_NPC_Source_V1.blend",
+  "original_height_m": 1.900022029876709,
+  "review_height_m": 1.95,
+  "uniform_object_scale": 1.0263038898167587,
+  "front_assumption": "Negative Blender Y, pending visual check",
+  "mesh_audit": [
+    {
+      "object": "ElvenScholar_HP_0",
+      "vertices": 3090180,
+      "triangles": 5549014,
+      "polygons": 5549014,
+      "raw_boundary_edges": 609048,
+      "edges_more_than_two_faces": 0,
+      "loose_edges": 0,
+      "zero_area_polygons": 0,
+      "nonfinite_coordinates": 0,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "geometry_hash": "30d3ccab8a4dd1275ba7f03b6195b756c3fc4cec9fe0de7294dea48610b5249a",
+      "component_audit": "Deferred exact connectivity/island audit; raw seam edges must not be treated as holes.",
+      "self_intersections": "Not exhaustively tested; visual review required"
+    }
+  ],
+  "textures": [
+    {
+      "name": "ElvenScholar_Image_0",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "colorspace": "sRGB",
+      "external_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenScholar/Textures/ElvenScholar_Image_0.jpg"
+    },
+    {
+      "name": "ElvenScholar_Image_1",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "colorspace": "Non-Color",
+      "external_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenScholar/Textures/ElvenScholar_Image_1.jpg"
+    },
+    {
+      "name": "ElvenScholar_Image_2",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "colorspace": "Non-Color",
+      "external_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenScholar/Textures/ElvenScholar_Image_2.jpg"
+    }
+  ],
+  "rigs": 0,
+  "actions": 0,
+  "rendered_views": [
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenScholar/Previews/01_Front.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenScholar/Previews/02_Right.png",
+    "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/ElvenScholar/Previews/03_ThreeQuarter.png"
+  ]
+}

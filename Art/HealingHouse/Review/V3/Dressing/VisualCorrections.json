@@ -1,0 +1,117 @@
+[
+  {
+    "actor": "HH_V3_FlowerPatch_0",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.143351607742507
+  },
+  {
+    "actor": "HH_V3_FlowerPatch_1",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.1720219292910103
+  },
+  {
+    "actor": "HH_V3_FlowerPatch_2",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.1761176895122247
+  },
+  {
+    "actor": "HH_V3_FlowerPatch_3",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.131064327078864
+  },
+  {
+    "actor": "HH_V3_FlowerPatch_4",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.188404970175867
+  },
+  {
+    "actor": "HH_V3_FlowerPatch_5",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.155638888406151
+  },
+  {
+    "actor": "HH_V3_FlowerPatch_6",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.1515431281849375
+  },
+  {
+    "actor": "HH_V3_FlowerPatch_7",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.16383040884858
+  },
+  {
+    "actor": "HH_V3_FlowerPatch_8",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.16383040884858
+  },
+  {
+    "actor": "HH_V3_GrassPatch_0",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.155638888406151
+  },
+  {
+    "actor": "HH_V3_GrassPatch_1",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.1843092099546526
+  },
+  {
+    "actor": "HH_V3_GrassPatch_2",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.1310643270788647
+  },
+  {
+    "actor": "HH_V3_GrassPatch_3",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.122872806636437
+  },
+  {
+    "actor": "HH_V3_GrassPatch_4",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.16383040884858
+  },
+  {
+    "actor": "HH_V3_GrassPatch_5",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.16383040884858
+  },
+  {
+    "actor": "HH_V3_GrassPatch_6",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.1515431281849375
+  },
+  {
+    "actor": "HH_V3_MossStones_0",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.122872806636435
+  },
+  {
+    "actor": "HH_V3_MossStones_1",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.122872806636435
+  },
+  {
+    "actor": "HH_V3_MossStones_2",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.122872806636435
+  },
+  {
+    "actor": "HH_V3_MossStones_3",
+    "old_z_cm": 3.0,
+    "new_z_cm": 3.122872806636435
+  },
+  {
+    "actor": "HH_V3_EntranceGlow",
+    "old_intensity": 2.799999952316284,
+    "new_intensity": 2.8
+  },
+  {
+    "actor": "HH_V3_CounterGlow",
+    "old_intensity": 3.5999999046325684,
+    "new_intensity": 3.6
+  },
+  {
+    "actor": "HH_V3_RestAreaGlow",
+    "old_intensity": 2.4000000953674316,
+    "new_intensity": 2.4
+  }
+]

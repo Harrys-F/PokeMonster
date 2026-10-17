@@ -1,0 +1,2814 @@
+{
+  "motion_shots": [
+    {
+      "name": "Idle_Front_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Idle_Front_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -900.0,
+        -1590.0,
+        3.0
+      ],
+      "visual_yaw": 134.99999999602565,
+      "lod": 0
+    },
+    {
+      "name": "Idle_Side_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Idle_Side_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -900.0,
+        -1590.0,
+        3.0
+      ],
+      "visual_yaw": 44.999999996025664,
+      "lod": 0
+    },
+    {
+      "name": "Walk_0_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_0_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -719.6061998605728,
+        -1590.0,
+        3.0
+      ],
+      "visual_yaw": 0.0,
+      "lod": 0,
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_0_000000.png"
+    },
+    {
+      "name": "Walk_0_1",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_0_1.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -652.0733183249831,
+        -1590.0,
+        3.0
+      ],
+      "visual_yaw": 0.0,
+      "lod": 0
+    },
+    {
+      "name": "Stop_0_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Stop_0_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -363.12906090170145,
+        -1590.0,
+        3.0
+      ],
+      "visual_yaw": 0.0,
+      "lod": 0
+    },
+    {
+      "name": "Walk_1_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_1_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -770.4246887008733,
+        -1460.4246887008733,
+        3.0
+      ],
+      "visual_yaw": 44.999999996025664,
+      "lod": 0,
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_1_000000.png"
+    },
+    {
+      "name": "Walk_1_1",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_1_1.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -723.7379009966506,
+        -1413.7379009966508,
+        3.0
+      ],
+      "visual_yaw": 44.999999996025664,
+      "lod": 0
+    },
+    {
+      "name": "Stop_1_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Stop_1_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -518.8619390714198,
+        -1208.8619390714198,
+        3.0
+      ],
+      "visual_yaw": 44.999999996025664,
+      "lod": 0
+    },
+    {
+      "name": "Walk_2_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_2_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -900.0,
+        -1406.9849876314402,
+        3.0
+      ],
+      "visual_yaw": 89.99999999437944,
+      "lod": 0,
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_2_000000.png"
+    },
+    {
+      "name": "Walk_2_1",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_2_1.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -900.0,
+        -1340.9193683043122,
+        3.0
+      ],
+      "visual_yaw": 89.99999999437944,
+      "lod": 0
+    },
+    {
+      "name": "Stop_2_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Stop_2_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -900.0,
+        -1051.6081925109029,
+        3.0
+      ],
+      "visual_yaw": 89.99999999437944,
+      "lod": 0
+    },
+    {
+      "name": "Walk_3_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_3_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -1029.7524280299288,
+        -1460.2475719700712,
+        3.0
+      ],
+      "visual_yaw": 134.99999999602565,
+      "lod": 0,
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_3_000000.png"
+    },
+    {
+      "name": "Walk_3_1",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_3_1.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -1076.5161887870047,
+        -1413.4838112129953,
+        3.0
+      ],
+      "visual_yaw": 134.99999999602565,
+      "lod": 0
+    },
+    {
+      "name": "Stop_3_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Stop_3_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -1280.1836074801784,
+        -1209.8163925198216,
+        3.0
+      ],
+      "visual_yaw": 134.99999999602565,
+      "lod": 0
+    },
+    {
+      "name": "Walk_4_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_4_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -1084.3872249126434,
+        -1590.0,
+        3.0
+      ],
+      "visual_yaw": 180.0,
+      "lod": 0,
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_4_000000.png"
+    },
+    {
+      "name": "Walk_4_1",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_4_1.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -1150.6838070228696,
+        -1590.0,
+        3.0
+      ],
+      "visual_yaw": 180.0,
+      "lod": 0
+    },
+    {
+      "name": "Stop_4_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Stop_4_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -1434.4194140285254,
+        -1590.0,
+        3.0
+      ],
+      "visual_yaw": 180.0,
+      "lod": 0
+    },
+    {
+      "name": "Walk_5_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_5_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -1030.0426248869944,
+        -1720.0426248869944,
+        3.0
+      ],
+      "visual_yaw": -134.99999999602565,
+      "lod": 0,
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_5_000000.png"
+    },
+    {
+      "name": "Walk_5_1",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_5_1.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -1076.738901163906,
+        -1766.738901163906,
+        3.0
+      ],
+      "visual_yaw": -134.99999999602565,
+      "lod": 0
+    },
+    {
+      "name": "Stop_5_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Stop_5_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -1281.572957136207,
+        -1971.5729571362067,
+        3.0
+      ],
+      "visual_yaw": -134.99999999602565,
+      "lod": 0
+    },
+    {
+      "name": "Walk_6_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_6_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -900.0,
+        -1775.58183722198,
+        3.0
+      ],
+      "visual_yaw": -89.99999999437944,
+      "lod": 0,
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_6_000000.png"
+    },
+    {
+      "name": "Walk_6_1",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_6_1.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -900.0,
+        -1841.9148632884026,
+        3.0
+      ],
+      "visual_yaw": -89.99999999437944,
+      "lod": 0
+    },
+    {
+      "name": "Stop_6_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Stop_6_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -900.0000000000001,
+        -2124.796171076596,
+        3.0
+      ],
+      "visual_yaw": -89.99999999437944,
+      "lod": 0
+    },
+    {
+      "name": "Walk_7_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_7_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -771.9450434061282,
+        -1718.0549565938718,
+        3.0
+      ],
+      "visual_yaw": -44.99999999602567,
+      "lod": 0,
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_7_000000.png"
+    },
+    {
+      "name": "Walk_7_1",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_7_1.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -724.7849097146358,
+        -1765.2150902853643,
+        3.0
+      ],
+      "visual_yaw": -44.99999999602567,
+      "lod": 0
+    },
+    {
+      "name": "Stop_7_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Stop_7_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -519.3895434626647,
+        -1970.6104565373355,
+        3.0
+      ],
+      "visual_yaw": -44.99999999602567,
+      "lod": 0
+    },
+    {
+      "name": "Turn90_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Turn90_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -519.3895434626647,
+        -1970.6104565373355,
+        3.0
+      ],
+      "visual_yaw": 14.141848562774717,
+      "lod": 0
+    },
+    {
+      "name": "Turn180_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Turn180_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -519.3895434626647,
+        -1970.6104565373355,
+        3.0
+      ],
+      "visual_yaw": 163.9006347640664,
+      "lod": 0
+    },
+    {
+      "name": "Idle_AfterTurn_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Idle_AfterTurn_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -519.3895434626647,
+        -1970.6104565373355,
+        3.0
+      ],
+      "visual_yaw": -136.85078429791392,
+      "lod": 0
+    },
+    {
+      "name": "AutoLOD_1_LOD1",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/AutoLOD_1_LOD1.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -366.9174433086963,
+        -2123.0825566913036,
+        3.0
+      ],
+      "visual_yaw": -44.99999999602567,
+      "lod": 1
+    },
+    {
+      "name": "AutoLOD_2_LOD0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/AutoLOD_2_LOD0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -548.647756097368,
+        -1941.3522439026315,
+        3.0
+      ],
+      "visual_yaw": 134.99999999602565,
+      "lod": 0
+    },
+    {
+      "name": "ForcedLOD0_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/ForcedLOD0_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -900.0,
+        -1590.0,
+        3.0
+      ],
+      "visual_yaw": 134.99999999602565,
+      "lod": 0
+    },
+    {
+      "name": "ForcedLOD1_0",
+      "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/ForcedLOD1_0.png",
+      "viewport": [
+        2560,
+        1440
+      ],
+      "camera": [
+        -2055.3805113653243,
+        -114.61948863467615,
+        2268.3766623891943
+      ],
+      "rotation": {
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998
+      },
+      "fov": 35.0,
+      "source_position": [
+        -900.0,
+        -1590.0,
+        3.0
+      ],
+      "visual_yaw": 134.99999999602565,
+      "lod": 1
+    }
+  ],
+  "comparison": [
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Front_V1.png",
+      "site": "Dialog",
+      "view": "Front",
+      "variant": "V1",
+      "forced_lod": 0,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Front_V100000.png"
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Front_V2.png",
+      "site": "Dialog",
+      "view": "Front",
+      "variant": "V2",
+      "forced_lod": 1,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Front_V2LOD100000.png"
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Front_V2LOD1.png",
+      "site": "Dialog",
+      "view": "Front",
+      "variant": "V2LOD1",
+      "forced_lod": 2,
+      "predicted_lod": 1,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Front_V2LOD100000.png"
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Side_V1.png",
+      "site": "Dialog",
+      "view": "Side",
+      "variant": "V1",
+      "forced_lod": 0,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Side_V100000.png"
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Side_V2.png",
+      "site": "Dialog",
+      "view": "Side",
+      "variant": "V2",
+      "forced_lod": 1,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Side_V2LOD100000.png"
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Side_V2LOD1.png",
+      "site": "Dialog",
+      "view": "Side",
+      "variant": "V2LOD1",
+      "forced_lod": 2,
+      "predicted_lod": 1,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Side_V2LOD100000.png"
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_ThreeQuarter_V1.png",
+      "site": "Dialog",
+      "view": "ThreeQuarter",
+      "variant": "V1",
+      "forced_lod": 0,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_ThreeQuarter_V100000.png"
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_ThreeQuarter_V2.png",
+      "site": "Dialog",
+      "view": "ThreeQuarter",
+      "variant": "V2",
+      "forced_lod": 1,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_ThreeQuarter_V2LOD100000.png"
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_ThreeQuarter_V2LOD1.png",
+      "site": "Dialog",
+      "view": "ThreeQuarter",
+      "variant": "V2LOD1",
+      "forced_lod": 2,
+      "predicted_lod": 1,
+      "camera_cm": [
+        -2130.3805113656717,
+        215.3805113668518,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 28.766235548443536,
+      "player_npc_distance_m": 0.9720145317843761,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_ThreeQuarter_V2LOD100000.png"
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_Front_V1.png",
+      "site": "Forest",
+      "view": "Front",
+      "variant": "V1",
+      "forced_lod": 0,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_Front_V2.png",
+      "site": "Forest",
+      "view": "Front",
+      "variant": "V2",
+      "forced_lod": 1,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_Front_V2LOD1.png",
+      "site": "Forest",
+      "view": "Front",
+      "variant": "V2LOD1",
+      "forced_lod": 2,
+      "predicted_lod": 1,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_Side_V1.png",
+      "site": "Forest",
+      "view": "Side",
+      "variant": "V1",
+      "forced_lod": 0,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_Side_V2.png",
+      "site": "Forest",
+      "view": "Side",
+      "variant": "V2",
+      "forced_lod": 1,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_Side_V2LOD1.png",
+      "site": "Forest",
+      "view": "Side",
+      "variant": "V2LOD1",
+      "forced_lod": 2,
+      "predicted_lod": 1,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_ThreeQuarter_V1.png",
+      "site": "Forest",
+      "view": "ThreeQuarter",
+      "variant": "V1",
+      "forced_lod": 0,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_ThreeQuarter_V2.png",
+      "site": "Forest",
+      "view": "ThreeQuarter",
+      "variant": "V2",
+      "forced_lod": 1,
+      "predicted_lod": 0,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "requested": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Forest_ThreeQuarter_V2LOD1.png",
+      "site": "Forest",
+      "view": "ThreeQuarter",
+      "variant": "V2LOD1",
+      "forced_lod": 2,
+      "predicted_lod": 1,
+      "camera_cm": [
+        -2041.8805113649855,
+        577.3805113667113,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "camera_npc_distance_m": 30.22822764569772,
+      "player_npc_distance_m": 4.0418977287902775,
+      "viewport": [
+        2560,
+        1440
+      ]
+    }
+  ],
+  "sequence": {
+    "error": null,
+    "frames": [
+      {
+        "index": 0,
+        "time": 0.14334483444690704,
+        "stage": "IdleOrStop",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_000.png",
+        "position": [
+          -900.0,
+          -1590.0,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 0.0,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00000000.png"
+      },
+      {
+        "index": 1,
+        "time": 0.5526008009910583,
+        "stage": "IdleOrStop",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_001.png",
+        "position": [
+          -900.0,
+          -1590.0,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 0.0,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00100000.png"
+      },
+      {
+        "index": 2,
+        "time": 0.9609341435134411,
+        "stage": "IdleOrStop",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_002.png",
+        "position": [
+          -900.0,
+          -1590.0,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 0.0,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00200000.png"
+      },
+      {
+        "index": 3,
+        "time": 1.3692676089704037,
+        "stage": "IdleOrStop",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_003.png",
+        "position": [
+          -900.0,
+          -1590.0,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 0.0,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00300000.png"
+      },
+      {
+        "index": 4,
+        "time": 1.7797872796654701,
+        "stage": "IdleOrStop",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_004.png",
+        "position": [
+          -900.0,
+          -1590.0,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 0.0,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00400000.png"
+      },
+      {
+        "index": 5,
+        "time": 2.188120700418949,
+        "stage": "WalkTowardCamera",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_005.png",
+        "position": [
+          -919.9532134421703,
+          -1570.0467865578298,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 0.0,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00500000.png"
+      },
+      {
+        "index": 6,
+        "time": 2.5964541658759117,
+        "stage": "WalkTowardCamera",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_006.png",
+        "position": [
+          -963.2635178036735,
+          -1526.7364821963265,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 0.0,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00600000.png"
+      },
+      {
+        "index": 7,
+        "time": 3.0047880485653877,
+        "stage": "WalkTowardCamera",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_007.png",
+        "position": [
+          -1006.5738664193675,
+          -1483.4261335806325,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 0.5942206978797913,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00700000.png"
+      },
+      {
+        "index": 8,
+        "time": 3.413124181330204,
+        "stage": "WalkTowardCamera",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_008.png",
+        "position": [
+          -1049.8844536915913,
+          -1440.1155463084087,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 1.3376187086105347,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00800000.png"
+      },
+      {
+        "index": 9,
+        "time": 3.821525853127241,
+        "stage": "WalkTowardCamera",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_009.png",
+        "position": [
+          -1093.2019924279325,
+          -1396.7980075720675,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 1.3376187086105347,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00900000.png"
+      },
+      {
+        "index": 10,
+        "time": 4.229859232902527,
+        "stage": "WalkTowardCamera",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_010.png",
+        "position": [
+          -1136.5122877015215,
+          -1353.4877122984785,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 1.7812350988388062,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01000000.png"
+      },
+      {
+        "index": 11,
+        "time": 4.641325738281012,
+        "stage": "WalkTowardCamera",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_011.png",
+        "position": [
+          -1180.15490112916,
+          -1309.84509887084,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 1.967647910118103,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01100000.png"
+      },
+      {
+        "index": 12,
+        "time": 5.05013095214963,
+        "stage": "WalkTowardCamera",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_012.png",
+        "position": [
+          -1223.5152419657975,
+          -1266.4847580342025,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 1.967647910118103,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01200000.png"
+      },
+      {
+        "index": 13,
+        "time": 5.484499748796225,
+        "stage": "WalkTowardCamera",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_013.png",
+        "position": [
+          -1269.5870102124948,
+          -1220.4129897875052,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 2.0195488929748535,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01300000.png"
+      },
+      {
+        "index": 14,
+        "time": 5.892833173274994,
+        "stage": "WalkTowardCamera",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_014.png",
+        "position": [
+          -1312.897310227604,
+          -1177.102689772396,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 2.021329164505005,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01400000.png"
+      },
+      {
+        "index": 15,
+        "time": 6.301290761679411,
+        "stage": "WalkTowardCamera",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_015.png",
+        "position": [
+          -1356.2207798157842,
+          -1133.7792201842158,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 2.021329164505005,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01500000.png"
+      },
+      {
+        "index": 16,
+        "time": 6.709624391049147,
+        "stage": "IdleOrStop",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_016.png",
+        "position": [
+          -1357.1046940594667,
+          -1132.8953059405333,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 2.0122241973876953,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01600000.png"
+      },
+      {
+        "index": 17,
+        "time": 7.117957856506109,
+        "stage": "IdleOrStop",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_017.png",
+        "position": [
+          -1357.1046940594667,
+          -1132.8953059405333,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 1.4107460975646973,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01700000.png"
+      },
+      {
+        "index": 18,
+        "time": 7.526844572275877,
+        "stage": "IdleOrStop",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_018.png",
+        "position": [
+          -1357.1046940594667,
+          -1132.8953059405333,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 1.4107460975646973,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01800000.png"
+      },
+      {
+        "index": 19,
+        "time": 7.935178078711033,
+        "stage": "IdleOrStop",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_019.png",
+        "position": [
+          -1357.1046940594667,
+          -1132.8953059405333,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 0.6636825203895569,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01900000.png"
+      },
+      {
+        "index": 20,
+        "time": 8.343628667294979,
+        "stage": "Turn180",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_020.png",
+        "position": [
+          -1357.1046940594667,
+          -1132.8953059405333,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 0.2187504768371582,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02000000.png"
+      },
+      {
+        "index": 21,
+        "time": 8.752078924328089,
+        "stage": "Turn180",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_021.png",
+        "position": [
+          -1357.1046940594667,
+          -1132.8953059405333,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 0.2187504768371582,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02100000.png"
+      },
+      {
+        "index": 22,
+        "time": 9.160412430763245,
+        "stage": "WalkAway",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_022.png",
+        "position": [
+          -1360.2827696640234,
+          -1129.7172303359766,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 0.03207895904779434,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02200000.png"
+      },
+      {
+        "index": 23,
+        "time": 9.569007728248835,
+        "stage": "WalkAway",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_023.png",
+        "position": [
+          -1316.944693822074,
+          -1173.055306177926,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 0.5744681358337402,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02300000.png"
+      },
+      {
+        "index": 24,
+        "time": 9.977374192327261,
+        "stage": "WalkAway",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_024.png",
+        "position": [
+          -1273.6308894282197,
+          -1216.3691105717803,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 0.5744681358337402,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02400000.png"
+      },
+      {
+        "index": 25,
+        "time": 10.38576127961278,
+        "stage": "WalkAway",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_025.png",
+        "position": [
+          -1230.3148976129278,
+          -1259.6851023870722,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 1.316190242767334,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02500000.png"
+      },
+      {
+        "index": 26,
+        "time": 10.795140407979488,
+        "stage": "WalkAway",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_026.png",
+        "position": [
+          -1186.8936839512771,
+          -1303.1063160487229,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 1.7689763307571411,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02600000.png"
+      },
+      {
+        "index": 27,
+        "time": 11.214430872350931,
+        "stage": "WalkAway",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_027.png",
+        "position": [
+          -1142.4212143546918,
+          -1347.5787856453082,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 1.7689763307571411,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02700000.png"
+      },
+      {
+        "index": 28,
+        "time": 11.622764252126217,
+        "stage": "WalkAway",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_028.png",
+        "position": [
+          -1099.1109190811028,
+          -1390.8890809188972,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 1.9626752138137817,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02800000.png"
+      },
+      {
+        "index": 29,
+        "time": 12.031097799539566,
+        "stage": "WalkAway",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_029.png",
+        "position": [
+          -1055.8006060268121,
+          -1434.1993939731879,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 2.018249750137329,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02900000.png"
+      },
+      {
+        "index": 30,
+        "time": 12.44008830562234,
+        "stage": "WalkAway",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_030.png",
+        "position": [
+          -1012.4206119830051,
+          -1477.579388016995,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 2.018249750137329,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_03000000.png"
+      },
+      {
+        "index": 31,
+        "time": 12.848421689122915,
+        "stage": "WalkAway",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_031.png",
+        "position": [
+          -969.1103163142893,
+          -1520.8896836857107,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 2.0213465690612793,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_03100000.png"
+      },
+      {
+        "index": 32,
+        "time": 13.257273819297552,
+        "stage": "WalkAway",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_032.png",
+        "position": [
+          -925.7449992519317,
+          -1564.2550007480681,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 2.0124993324279785,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_03200000.png"
+      },
+      {
+        "index": 33,
+        "time": 13.665781535208225,
+        "stage": "IdleOrStop",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_033.png",
+        "position": [
+          -924.8426203422076,
+          -1565.1573796577923,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 1.0,
+        "walk_rate": 1.0,
+        "cape_pitch": 2.0124993324279785,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_03300000.png"
+      },
+      {
+        "index": 34,
+        "time": 14.074114918708801,
+        "stage": "IdleOrStop",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_034.png",
+        "position": [
+          -924.8426203422076,
+          -1565.1573796577923,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 1.4109511375427246,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_03400000.png"
+      },
+      {
+        "index": 35,
+        "time": 14.482448510825634,
+        "stage": "IdleOrStop",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_035.png",
+        "position": [
+          -924.8426203422076,
+          -1565.1573796577923,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 0.6637824773788452,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_03500000.png"
+      },
+      {
+        "index": 36,
+        "time": 14.89078189060092,
+        "stage": "IdleOrStop",
+        "path_request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_036.png",
+        "position": [
+          -924.8426203422076,
+          -1565.1573796577923,
+          3.0
+        ],
+        "camera": [
+          -2055.380511365325,
+          -114.61948863467615,
+          2268.3766638625807
+        ],
+        "pitch": -49.99999999999998,
+        "yaw": -44.99999999999998,
+        "fov": 35.0,
+        "viewport": [
+          2560,
+          1440
+        ],
+        "walk_alpha": 0.0,
+        "walk_rate": 0.0,
+        "cape_pitch": 0.6637824773788452,
+        "bag_swing": 0.0,
+        "lod": 0,
+        "actual_path": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_03600000.png"
+      }
+    ],
+    "source": "Actual embedded PIE screenshots, no camera-parameter changes",
+    "capture_rate_target_hz": 4,
+    "timing": "Game-time timestamps retained; screenshot stalls excluded from performance measurements"
+  },
+  "crop_manifest": [
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_0_000000.png",
+      "crop_center": [
+        1143.9526608457022,
+        550.2901146099327
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_1_000000.png",
+      "crop_center": [
+        1219.0039970313378,
+        683.9536938267948
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_2_000000.png",
+      "crop_center": [
+        1138.576911029,
+        827.6151261066112
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_3_000000.png",
+      "crop_center": [
+        945.4494493061407,
+        890.2366717400456
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_4_000000.png",
+      "crop_center": [
+        759.1545797379471,
+        828.7247464112761
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_5_000000.png",
+      "crop_center": [
+        698.5169490941175,
+        683.9536938267952
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_6_000000.png",
+      "crop_center": [
+        787.7006173720793,
+        546.5560043280752
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalMotion/Walk_7_000000.png",
+      "crop_center": [
+        971.7586607945984,
+        496.37935432215056
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Front_V100000.png",
+      "crop_center": [
+        1193.0705253313465,
+        781.15324887883
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Front_V2LOD100000.png",
+      "crop_center": [
+        1193.0705253313465,
+        781.15324887883
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Front_V2LOD100000.png",
+      "crop_center": [
+        1193.0705253313465,
+        781.15324887883
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Side_V100000.png",
+      "crop_center": [
+        1193.0705253313465,
+        781.15324887883
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Side_V2LOD100000.png",
+      "crop_center": [
+        1193.0705253313465,
+        781.15324887883
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_Side_V2LOD100000.png",
+      "crop_center": [
+        1193.0705253313465,
+        781.15324887883
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_ThreeQuarter_V100000.png",
+      "crop_center": [
+        1193.0705253313465,
+        781.15324887883
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_ThreeQuarter_V2LOD100000.png",
+      "crop_center": [
+        1193.0705253313465,
+        781.15324887883
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/UnrealComparison/Dialog_ThreeQuarter_V2LOD100000.png",
+      "crop_center": [
+        1193.0705253313465,
+        781.15324887883
+      ],
+      "crop_size": 400
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00000000.png",
+      "crop_center": [
+        959.2289128381705,
+        683.9536951835945
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00100000.png",
+      "crop_center": [
+        959.2289128381705,
+        683.9536951835945
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00200000.png",
+      "crop_center": [
+        959.2289128381705,
+        683.9536951835945
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00300000.png",
+      "crop_center": [
+        959.2289128381705,
+        683.9536951835945
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00400000.png",
+      "crop_center": [
+        959.2289128381705,
+        683.9536951835945
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00500000.png",
+      "crop_center": [
+        957.1842456260953,
+        714.5630178559427
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00600000.png",
+      "crop_center": [
+        952.6551518345964,
+        782.3650016988796
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00700000.png",
+      "crop_center": [
+        947.9971587750238,
+        852.096648846145
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00800000.png",
+      "crop_center": [
+        943.2046624264818,
+        923.8418532844129
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_00900000.png",
+      "crop_center": [
+        938.2709758495384,
+        997.7007206375092
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01000000.png",
+      "crop_center": [
+        933.191456184496,
+        1073.7427560013011
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01100000.png",
+      "crop_center": [
+        927.9178907185932,
+        1152.6897191189469
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01200000.png",
+      "crop_center": [
+        922.5171705128942,
+        1233.5402293941704
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01300000.png",
+      "crop_center": [
+        916.5941695195052,
+        1322.2094502456494
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01400000.png",
+      "crop_center": [
+        910.8443737120449,
+        1408.2857340199791
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01500000.png",
+      "crop_center": [
+        904.9078730922251,
+        1497.1570486004184
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01600000.png",
+      "crop_center": [
+        904.7847644922867,
+        1499.0000237491386
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01700000.png",
+      "crop_center": [
+        904.7847644922867,
+        1499.0000237491386
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01800000.png",
+      "crop_center": [
+        904.7847644922867,
+        1499.0000237491386
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_01900000.png",
+      "crop_center": [
+        904.7847644922867,
+        1499.0000237491386
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02000000.png",
+      "crop_center": [
+        904.7847644922867,
+        1499.0000237491386
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02100000.png",
+      "crop_center": [
+        904.7847644922867,
+        1499.0000237491386
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02200000.png",
+      "crop_center": [
+        904.3414644249829,
+        1505.6363676591097
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02300000.png",
+      "crop_center": [
+        910.2977407572391,
+        1416.4690043331984
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02400000.png",
+      "crop_center": [
+        916.0649036944145,
+        1330.1327290677314
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02500000.png",
+      "crop_center": [
+        921.6551788099629,
+        1246.4445211146435
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02600000.png",
+      "crop_center": [
+        927.0892808256078,
+        1165.0942744588567
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02700000.png",
+      "crop_center": [
+        932.4867150099135,
+        1084.2929569757632
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02800000.png",
+      "crop_center": [
+        937.5867477948832,
+        1007.9438336403084
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_02900000.png",
+      "crop_center": [
+        942.5392536441839,
+        933.8032357558869
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_03000000.png",
+      "crop_center": [
+        947.3581707749864,
+        861.6625037497633
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_03100000.png",
+      "crop_center": [
+        952.0339791704234,
+        791.6641553218361
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_03200000.png",
+      "crop_center": [
+        956.5858532194795,
+        723.5211437311978
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_03300000.png",
+      "crop_center": [
+        956.6792305383776,
+        722.1232553767749
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_03400000.png",
+      "crop_center": [
+        956.6792305383776,
+        722.1232553767749
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_03500000.png",
+      "crop_center": [
+        956.6792305383776,
+        722.1232553767749
+      ],
+      "crop_size": 440
+    },
+    {
+      "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/AnimationV2/Unreal/FinalSequence/Frame_03600000.png",
+      "crop_center": [
+        956.6792305383776,
+        722.1232553767749
+      ],
+      "crop_size": 440
+    }
+  ],
+  "processing": "Only exact QHD screenshot crops, labels and GIF layout. No synthetic rendering, recoloring or retouching."
+}

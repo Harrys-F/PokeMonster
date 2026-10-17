@@ -1,0 +1,5318 @@
+[
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix1",
+    "site": "Dorf",
+    "configuration": {
+      "quality": "1",
+      "percentage": "75",
+      "extent": [
+        [
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740,
+          960,
+          555
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      0.0043304999999982385,
+      0.006353000000000719,
+      -0.002479499999999746
+    ],
+    "median_paired_delta_ms": 0.0043304999999982385,
+    "state": {
+      "A_V2": {
+        "median_fps": 60.03459673740783,
+        "median_ms": 16.657062,
+        "p95_ms": 17.132825,
+        "run_fps": [
+          60.04510468173482,
+          60.03459673740783,
+          60.00164584514553
+        ],
+        "run_ms": [
+          16.654147000000002,
+          16.657062,
+          16.6662095
+        ],
+        "min_fps": 60.00164584514553,
+        "max_fps": 60.04510468173482,
+        "GPU_ms": 16.33565,
+        "Game_ms": 1.35,
+        "Render_ms": 16.6669,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 0.0,
+          "GPU/RenderVelocities": 0.0,
+          "GPU/HZB": 0.0,
+          "GPU/BeginOcclusionTests": 0.0,
+          "GPU/LightGrid": 0.0,
+          "GPU/LightFunctionAtlasGeneration": 0.0,
+          "GPU/LumenSceneUpdate": 1.53145,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.46640000000000004,
+          "GPU/Basepass": 1.5046499999999998,
+          "GPU/RenderDeferredLighting": 0.5743,
+          "GPU/ShadowDepths": 1.5351,
+          "GPU/LumenIrradianceFieldGather": 1.46075,
+          "GPU/ScreenSpaceReflections": 0.1482,
+          "GPU/TranslucentLighting": 0.015396,
+          "GPU/Lights": 0.4916,
+          "GPU/ShadowProjection": 0.6602,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.41690000000000005,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 5.96475
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 60.011708284286264,
+        "median_ms": 16.663415,
+        "p95_ms": 17.153140750000002,
+        "run_fps": [
+          60.029495492610295,
+          60.011708284286264,
+          60.01057386311468
+        ],
+        "run_ms": [
+          16.6584775,
+          16.663415,
+          16.66373
+        ],
+        "min_fps": 60.01057386311468,
+        "max_fps": 60.029495492610295,
+        "GPU_ms": 16.36015,
+        "Game_ms": 1.412,
+        "Render_ms": 16.6601,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 0.0,
+          "GPU/RenderVelocities": 0.0,
+          "GPU/HZB": 0.0,
+          "GPU/BeginOcclusionTests": 0.0,
+          "GPU/LightGrid": 0.0,
+          "GPU/LightFunctionAtlasGeneration": 0.0,
+          "GPU/LumenSceneUpdate": 1.492,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4643,
+          "GPU/Basepass": 1.4959500000000001,
+          "GPU/RenderDeferredLighting": 0.5736,
+          "GPU/ShadowDepths": 1.53985,
+          "GPU/LumenIrradianceFieldGather": 1.47405,
+          "GPU/ScreenSpaceReflections": 0.1483,
+          "GPU/TranslucentLighting": 0.0155,
+          "GPU/Lights": 0.49485,
+          "GPU/ShadowProjection": 0.6596,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.4184,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 5.9746500000000005
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix1",
+    "site": "Wald",
+    "configuration": {
+      "quality": "1",
+      "percentage": "75",
+      "extent": [
+        [
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740,
+          960,
+          555
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.017708499999997684,
+      -0.0007304999999995232,
+      0.01885199999999898
+    ],
+    "median_paired_delta_ms": -0.0007304999999995232,
+    "state": {
+      "A_V2": {
+        "median_fps": 59.992875246135775,
+        "median_ms": 16.668646,
+        "p95_ms": 17.17517565,
+        "run_fps": [
+          59.943582299211634,
+          59.992875246135775,
+          60.04773134116578
+        ],
+        "run_ms": [
+          16.682353,
+          16.668646,
+          16.6534185
+        ],
+        "min_fps": 59.943582299211634,
+        "max_fps": 60.04773134116578,
+        "GPU_ms": 16.331200000000003,
+        "Game_ms": 1.3968500000000001,
+        "Render_ms": 16.6543,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 0.0,
+          "GPU/RenderVelocities": 0.0,
+          "GPU/HZB": 0.0,
+          "GPU/BeginOcclusionTests": 0.0,
+          "GPU/LightGrid": 0.0,
+          "GPU/LightFunctionAtlasGeneration": 0.0,
+          "GPU/LumenSceneUpdate": 1.15915,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.42905000000000004,
+          "GPU/Basepass": 1.36405,
+          "GPU/RenderDeferredLighting": 0.55355,
+          "GPU/ShadowDepths": 1.54725,
+          "GPU/LumenIrradianceFieldGather": 1.48665,
+          "GPU/ScreenSpaceReflections": 0.147,
+          "GPU/TranslucentLighting": 0.015542,
+          "GPU/Lights": 0.4708,
+          "GPU/ShadowProjection": 0.6651,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.4292,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 6.25075
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 59.995504536845054,
+        "median_ms": 16.6679155,
+        "p95_ms": 17.1985847,
+        "run_fps": [
+          60.00728068336531,
+          59.995504536845054,
+          59.97983298075688
+        ],
+        "run_ms": [
+          16.6646445,
+          16.6679155,
+          16.6722705
+        ],
+        "min_fps": 59.97983298075688,
+        "max_fps": 60.00728068336531,
+        "GPU_ms": 16.34905,
+        "Game_ms": 1.43015,
+        "Render_ms": 16.655450000000002,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 0.0,
+          "GPU/RenderVelocities": 0.0,
+          "GPU/HZB": 0.0,
+          "GPU/BeginOcclusionTests": 0.0,
+          "GPU/LightGrid": 0.0,
+          "GPU/LightFunctionAtlasGeneration": 0.0,
+          "GPU/LumenSceneUpdate": 1.1485500000000002,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4333,
+          "GPU/Basepass": 1.3092,
+          "GPU/RenderDeferredLighting": 0.55145,
+          "GPU/ShadowDepths": 1.5393,
+          "GPU/LumenIrradianceFieldGather": 1.4540000000000002,
+          "GPU/ScreenSpaceReflections": 0.1458,
+          "GPU/TranslucentLighting": 0.015229,
+          "GPU/Lights": 0.4665,
+          "GPU/ShadowProjection": 0.663,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.42765,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 6.4956
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix1",
+    "site": "Weg",
+    "configuration": {
+      "quality": "1",
+      "percentage": "75",
+      "extent": [
+        [
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740,
+          960,
+          555
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      0.01285400000000081,
+      -0.043665999999998206,
+      -0.01672800000000052
+    ],
+    "median_paired_delta_ms": -0.01672800000000052,
+    "state": {
+      "A_V2": {
+        "median_fps": 59.964547160782125,
+        "median_ms": 16.676520500000002,
+        "p95_ms": 17.149483449999998,
+        "run_fps": [
+          60.017924953466604,
+          59.8956330573103,
+          59.964547160782125
+        ],
+        "run_ms": [
+          16.661689,
+          16.695708,
+          16.676520500000002
+        ],
+        "min_fps": 59.8956330573103,
+        "max_fps": 60.017924953466604,
+        "GPU_ms": 16.37005,
+        "Game_ms": 1.4466999999999999,
+        "Render_ms": 16.66375,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.2393,
+          "GPU/Prepass": 0.0,
+          "GPU/RenderVelocities": 0.0,
+          "GPU/HZB": 0.0,
+          "GPU/BeginOcclusionTests": 0.0,
+          "GPU/LightGrid": 0.0,
+          "GPU/LightFunctionAtlasGeneration": null,
+          "GPU/LumenSceneUpdate": 1.2306,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4965,
+          "GPU/Basepass": 1.4257,
+          "GPU/RenderDeferredLighting": 0.6536,
+          "GPU/ShadowDepths": 1.3729,
+          "GPU/LumenIrradianceFieldGather": 1.42195,
+          "GPU/ScreenSpaceReflections": 0.146,
+          "GPU/TranslucentLighting": 0.014125,
+          "GPU/Lights": 0.45530000000000004,
+          "GPU/ShadowProjection": 0.66185,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 2.61475,
+          "GPU/Postprocessing": 0.4214,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 3.63525
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 60.02475721111172,
+        "median_ms": 16.659792500000002,
+        "p95_ms": 17.13446395,
+        "run_fps": [
+          59.97165859358184,
+          60.05269503884268,
+          60.02475721111172
+        ],
+        "run_ms": [
+          16.674543,
+          16.652042,
+          16.659792500000002
+        ],
+        "min_fps": 59.97165859358184,
+        "max_fps": 60.05269503884268,
+        "GPU_ms": 16.358449999999998,
+        "Game_ms": 1.4275,
+        "Render_ms": 16.654400000000003,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.2442,
+          "GPU/Prepass": 0.0,
+          "GPU/RenderVelocities": 0.0,
+          "GPU/HZB": 0.0,
+          "GPU/BeginOcclusionTests": 0.0,
+          "GPU/LightGrid": 0.0,
+          "GPU/LightFunctionAtlasGeneration": 0.0,
+          "GPU/LumenSceneUpdate": 1.3866,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.5005,
+          "GPU/Basepass": 1.3573499999999998,
+          "GPU/RenderDeferredLighting": 0.66425,
+          "GPU/ShadowDepths": 1.384,
+          "GPU/LumenIrradianceFieldGather": 1.4369,
+          "GPU/ScreenSpaceReflections": 0.14595,
+          "GPU/TranslucentLighting": 0.0152705,
+          "GPU/Lights": 0.46855,
+          "GPU/ShadowProjection": 0.6831,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 2.2683,
+          "GPU/Postprocessing": 0.4202,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 3.6459
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix2",
+    "site": "Dorf",
+    "configuration": {
+      "quality": "1",
+      "percentage": "100",
+      "extent": [
+        [
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      0.004355500000002621,
+      -0.01064349999999692,
+      -0.027313500000001767
+    ],
+    "median_paired_delta_ms": -0.01064349999999692,
+    "state": {
+      "A_V2": {
+        "median_fps": 60.02206050811916,
+        "median_ms": 16.660541,
+        "p95_ms": 17.1758821,
+        "run_fps": [
+          60.02206050811916,
+          60.03565097061588,
+          59.90624672387713
+        ],
+        "run_ms": [
+          16.660541,
+          16.6567695,
+          16.69275
+        ],
+        "min_fps": 59.90624672387713,
+        "max_fps": 60.03565097061588,
+        "GPU_ms": 16.300849999999997,
+        "Game_ms": 1.3662,
+        "Render_ms": 16.6586,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": null,
+          "GPU/Prepass": 0.0,
+          "GPU/RenderVelocities": 0.0,
+          "GPU/HZB": 0.0,
+          "GPU/BeginOcclusionTests": 0.0,
+          "GPU/LightGrid": 0.020875,
+          "GPU/LightFunctionAtlasGeneration": 0.001375,
+          "GPU/LumenSceneUpdate": 0.6765,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.41985,
+          "GPU/Basepass": 1.7741,
+          "GPU/RenderDeferredLighting": 0.7367,
+          "GPU/ShadowDepths": 1.4351,
+          "GPU/LumenIrradianceFieldGather": 1.4497,
+          "GPU/ScreenSpaceReflections": 0.21005000000000001,
+          "GPU/TranslucentLighting": 0.010958,
+          "GPU/Lights": 0.846,
+          "GPU/ShadowProjection": 0.9834,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.3737,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 5.41785
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 60.006373276905734,
+        "median_ms": 16.6648965,
+        "p95_ms": 17.352897000000002,
+        "run_fps": [
+          60.006373276905734,
+          60.074037646957606,
+          60.0044289268991
+        ],
+        "run_ms": [
+          16.6648965,
+          16.646126000000002,
+          16.6654365
+        ],
+        "min_fps": 60.0044289268991,
+        "max_fps": 60.074037646957606,
+        "GPU_ms": 16.27585,
+        "Game_ms": 1.3427,
+        "Render_ms": 16.65165,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 0.0,
+          "GPU/RenderVelocities": 0.0391665,
+          "GPU/HZB": 0.038479,
+          "GPU/BeginOcclusionTests": 0.052146,
+          "GPU/LightGrid": 0.022271,
+          "GPU/LightFunctionAtlasGeneration": 0.001792,
+          "GPU/LumenSceneUpdate": 0.57685,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.41915,
+          "GPU/Basepass": 1.76635,
+          "GPU/RenderDeferredLighting": 0.7359,
+          "GPU/ShadowDepths": 1.44345,
+          "GPU/LumenIrradianceFieldGather": 1.4538,
+          "GPU/ScreenSpaceReflections": 0.20975,
+          "GPU/TranslucentLighting": 0.011104,
+          "GPU/Lights": 0.84065,
+          "GPU/ShadowProjection": 0.9491499999999999,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.35945,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 5.7141
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix2",
+    "site": "Wald",
+    "configuration": {
+      "quality": "1",
+      "percentage": "100",
+      "extent": [
+        [
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.015707500000001318,
+      -0.03958450000000013,
+      -0.005582499999999158
+    ],
+    "median_paired_delta_ms": -0.015707500000001318,
+    "state": {
+      "A_V2": {
+        "median_fps": 59.99219861449217,
+        "median_ms": 16.668834,
+        "p95_ms": 17.14818295,
+        "run_fps": [
+          59.99227959353911,
+          59.8612667254624,
+          59.99219861449217
+        ],
+        "run_ms": [
+          16.6688115,
+          16.705293,
+          16.668834
+        ],
+        "min_fps": 59.8612667254624,
+        "max_fps": 59.99227959353911,
+        "GPU_ms": 16.3551,
+        "Game_ms": 1.3166,
+        "Render_ms": 16.6605,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": null,
+          "GPU/Prepass": 0.0,
+          "GPU/RenderVelocities": 0.0,
+          "GPU/HZB": 0.0,
+          "GPU/BeginOcclusionTests": 0.0,
+          "GPU/LightGrid": 0.0,
+          "GPU/LightFunctionAtlasGeneration": 0.0,
+          "GPU/LumenSceneUpdate": 0.40090000000000003,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.37,
+          "GPU/Basepass": 1.5894,
+          "GPU/RenderDeferredLighting": 0.7155,
+          "GPU/ShadowDepths": 1.4816,
+          "GPU/LumenIrradianceFieldGather": 1.4609,
+          "GPU/ScreenSpaceReflections": 0.2074,
+          "GPU/TranslucentLighting": 0.010917,
+          "GPU/Lights": 0.8135,
+          "GPU/ShadowProjection": 0.9239,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.3463,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 5.9167
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 60.01229711980282,
+        "median_ms": 16.6632515,
+        "p95_ms": 17.09912515,
+        "run_fps": [
+          60.048865364679166,
+          60.0034495983174,
+          60.01229711980282
+        ],
+        "run_ms": [
+          16.653104,
+          16.6657085,
+          16.6632515
+        ],
+        "min_fps": 60.0034495983174,
+        "max_fps": 60.048865364679166,
+        "GPU_ms": 16.29975,
+        "Game_ms": 1.3549,
+        "Render_ms": 16.6556,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": null,
+          "GPU/Prepass": 0.0,
+          "GPU/RenderVelocities": 0.0,
+          "GPU/HZB": 0.0,
+          "GPU/BeginOcclusionTests": 0.0,
+          "GPU/LightGrid": 0.0,
+          "GPU/LightFunctionAtlasGeneration": 0.0,
+          "GPU/LumenSceneUpdate": 0.4131,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.35045000000000004,
+          "GPU/Basepass": 1.56165,
+          "GPU/RenderDeferredLighting": 0.70975,
+          "GPU/ShadowDepths": 1.4638,
+          "GPU/LumenIrradianceFieldGather": 1.44295,
+          "GPU/ScreenSpaceReflections": 0.2075,
+          "GPU/TranslucentLighting": 0.010833,
+          "GPU/Lights": 0.80215,
+          "GPU/ShadowProjection": 0.91715,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.34935000000000005,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 6.13365
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix2",
+    "site": "Weg",
+    "configuration": {
+      "quality": "1",
+      "percentage": "100",
+      "extent": [
+        [
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.015040499999997792,
+      -0.0781230000000015,
+      0.028731000000000506
+    ],
+    "median_paired_delta_ms": -0.015040499999997792,
+    "state": {
+      "A_V2": {
+        "median_fps": 60.00847439675431,
+        "median_ms": 16.664313,
+        "p95_ms": 17.43626975,
+        "run_fps": [
+          60.00847439675431,
+          59.76765443872255,
+          60.01575113388509
+        ],
+        "run_ms": [
+          16.664313,
+          16.731458,
+          16.6622925
+        ],
+        "min_fps": 59.76765443872255,
+        "max_fps": 60.01575113388509,
+        "GPU_ms": 16.3697,
+        "Game_ms": 1.4619499999999999,
+        "Render_ms": 16.6612,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.20475,
+          "GPU/Prepass": 0.0,
+          "GPU/RenderVelocities": 0.0,
+          "GPU/HZB": 0.0,
+          "GPU/BeginOcclusionTests": 0.0,
+          "GPU/LightGrid": 0.02125,
+          "GPU/LightFunctionAtlasGeneration": 0.00175,
+          "GPU/LumenSceneUpdate": 1.14725,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4031,
+          "GPU/Basepass": 1.573,
+          "GPU/RenderDeferredLighting": 0.7999499999999999,
+          "GPU/ShadowDepths": 1.27075,
+          "GPU/LumenIrradianceFieldGather": 1.3952,
+          "GPU/ScreenSpaceReflections": 0.21715,
+          "GPU/TranslucentLighting": 0.011083,
+          "GPU/Lights": 0.7649,
+          "GPU/ShadowProjection": 0.88975,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 1.45595,
+          "GPU/Postprocessing": 0.35785,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 4.0735
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 60.04803242113367,
+        "median_ms": 16.653335,
+        "p95_ms": 17.043486150000003,
+        "run_fps": [
+          60.062684420595545,
+          60.04803242113367,
+          59.91244335615488
+        ],
+        "run_ms": [
+          16.649272500000002,
+          16.653335,
+          16.6910235
+        ],
+        "min_fps": 59.91244335615488,
+        "max_fps": 60.062684420595545,
+        "GPU_ms": 16.36455,
+        "Game_ms": 1.2715,
+        "Render_ms": 16.65445,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.2062,
+          "GPU/Prepass": 0.0,
+          "GPU/RenderVelocities": 0.0,
+          "GPU/HZB": 0.0,
+          "GPU/BeginOcclusionTests": 0.0,
+          "GPU/LightGrid": 0.0,
+          "GPU/LightFunctionAtlasGeneration": 0.0,
+          "GPU/LumenSceneUpdate": 0.50285,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.40464999999999995,
+          "GPU/Basepass": 1.48105,
+          "GPU/RenderDeferredLighting": 0.7949999999999999,
+          "GPU/ShadowDepths": 1.2686,
+          "GPU/LumenIrradianceFieldGather": 1.4092500000000001,
+          "GPU/ScreenSpaceReflections": 0.2067,
+          "GPU/TranslucentLighting": 0.012771,
+          "GPU/Lights": 0.7652,
+          "GPU/ShadowProjection": 0.889,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 2.129,
+          "GPU/Postprocessing": 0.33545,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 4.10135
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix3",
+    "site": "Dorf",
+    "configuration": {
+      "quality": "1",
+      "percentage": "75",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          1920,
+          1080
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.0329365000000017,
+      -0.33937600000000145,
+      -0.027377500000000055
+    ],
+    "median_paired_delta_ms": -0.0329365000000017,
+    "state": {
+      "A_V2": {
+        "median_fps": 34.996337720748365,
+        "median_ms": 28.5744185,
+        "p95_ms": 29.90051425,
+        "run_fps": [
+          34.81512965963737,
+          34.996337720748365,
+          35.43837078610971
+        ],
+        "run_ms": [
+          28.7231445,
+          28.5744185,
+          28.2180015
+        ],
+        "min_fps": 34.81512965963737,
+        "max_fps": 35.43837078610971,
+        "GPU_ms": 28.1164,
+        "Game_ms": 1.32745,
+        "Render_ms": 28.5594,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 0.7031000000000001,
+          "GPU/RenderVelocities": 0.21450000000000002,
+          "GPU/HZB": 0.0864375,
+          "GPU/BeginOcclusionTests": 0.1419,
+          "GPU/LightGrid": 0.0293125,
+          "GPU/LightFunctionAtlasGeneration": 0.002458,
+          "GPU/LumenSceneUpdate": 0.9327,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.468,
+          "GPU/Basepass": 2.9027000000000003,
+          "GPU/RenderDeferredLighting": 1.7548,
+          "GPU/ShadowDepths": 1.8645,
+          "GPU/LumenIrradianceFieldGather": 2.6866000000000003,
+          "GPU/ScreenSpaceReflections": 0.59655,
+          "GPU/TranslucentLighting": 0.0123125,
+          "GPU/Lights": 1.9194499999999999,
+          "GPU/ShadowProjection": 2.32665,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.94945,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 9.14335
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 35.416982283628585,
+        "median_ms": 28.2350425,
+        "p95_ms": 29.563077699999997,
+        "run_fps": [
+          34.8550975998501,
+          35.416982283628585,
+          35.47278698052232
+        ],
+        "run_ms": [
+          28.690208,
+          28.2350425,
+          28.190624
+        ],
+        "min_fps": 34.8550975998501,
+        "max_fps": 35.47278698052232,
+        "GPU_ms": 27.98095,
+        "Game_ms": 1.3125,
+        "Render_ms": 28.2299,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 0.6812,
+          "GPU/RenderVelocities": 0.2115,
+          "GPU/HZB": 0.08675,
+          "GPU/BeginOcclusionTests": 0.13815,
+          "GPU/LightGrid": 0.029958,
+          "GPU/LightFunctionAtlasGeneration": 0.002625,
+          "GPU/LumenSceneUpdate": 0.9465,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4675,
+          "GPU/Basepass": 2.86455,
+          "GPU/RenderDeferredLighting": 1.7548499999999998,
+          "GPU/ShadowDepths": 1.8572000000000002,
+          "GPU/LumenIrradianceFieldGather": 2.674,
+          "GPU/ScreenSpaceReflections": 0.5927,
+          "GPU/TranslucentLighting": 0.012146,
+          "GPU/Lights": 1.88685,
+          "GPU/ShadowProjection": 2.2422,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.92075,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 9.01025
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix3",
+    "site": "Wald",
+    "configuration": {
+      "quality": "1",
+      "percentage": "75",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          1920,
+          1080
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.0338124999999998,
+      -0.9269560000000006,
+      -0.3867119999999993
+    ],
+    "median_paired_delta_ms": -0.3867119999999993,
+    "state": {
+      "A_V2": {
+        "median_fps": 36.02289125056565,
+        "median_ms": 27.760126,
+        "p95_ms": 29.117791,
+        "run_fps": [
+          36.06056241639809,
+          35.82469229813538,
+          36.02289125056565
+        ],
+        "run_ms": [
+          27.731126,
+          27.913708,
+          27.760126
+        ],
+        "min_fps": 35.82469229813538,
+        "max_fps": 36.06056241639809,
+        "GPU_ms": 27.3535,
+        "Game_ms": 1.34235,
+        "Render_ms": 27.7451,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 0.2536,
+          "GPU/RenderVelocities": 0.2406,
+          "GPU/HZB": 0.0861875,
+          "GPU/BeginOcclusionTests": 0.098,
+          "GPU/LightGrid": 0.025208,
+          "GPU/LightFunctionAtlasGeneration": 0.002333,
+          "GPU/LumenSceneUpdate": 0.9009,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.44730000000000003,
+          "GPU/Basepass": 2.7352,
+          "GPU/RenderDeferredLighting": 1.73225,
+          "GPU/ShadowDepths": 1.8996,
+          "GPU/LumenIrradianceFieldGather": 2.65645,
+          "GPU/ScreenSpaceReflections": 0.5922000000000001,
+          "GPU/TranslucentLighting": 0.012375,
+          "GPU/Lights": 1.81945,
+          "GPU/ShadowProjection": 2.2868000000000004,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.9338,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 9.1338
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 36.53179687414949,
+        "median_ms": 27.373414,
+        "p95_ms": 28.348963899999998,
+        "run_fps": [
+          36.104584655836746,
+          37.05521879772712,
+          36.53179687414949
+        ],
+        "run_ms": [
+          27.6973135,
+          26.986752,
+          27.373414
+        ],
+        "min_fps": 36.104584655836746,
+        "max_fps": 37.05521879772712,
+        "GPU_ms": 27.0176,
+        "Game_ms": 1.30295,
+        "Render_ms": 27.3858,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 0.2092,
+          "GPU/RenderVelocities": 0.2418,
+          "GPU/HZB": 0.085708,
+          "GPU/BeginOcclusionTests": 0.09672900000000001,
+          "GPU/LightGrid": 0.024458,
+          "GPU/LightFunctionAtlasGeneration": 0.00225,
+          "GPU/LumenSceneUpdate": 0.9322,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.449,
+          "GPU/Basepass": 2.68375,
+          "GPU/RenderDeferredLighting": 1.7126,
+          "GPU/ShadowDepths": 1.8835,
+          "GPU/LumenIrradianceFieldGather": 2.6485,
+          "GPU/ScreenSpaceReflections": 0.5878,
+          "GPU/TranslucentLighting": 0.0140625,
+          "GPU/Lights": 1.7864,
+          "GPU/ShadowProjection": 2.273,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.9266,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 8.8223
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix3",
+    "site": "Weg",
+    "configuration": {
+      "quality": "1",
+      "percentage": "75",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          1920,
+          1080
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.16779249999999735,
+      0.08329300000000117,
+      -0.13483300000000042
+    ],
+    "median_paired_delta_ms": -0.13483300000000042,
+    "state": {
+      "A_V2": {
+        "median_fps": 35.56841329984069,
+        "median_ms": 28.114833,
+        "p95_ms": 28.996015599999996,
+        "run_fps": [
+          34.88853696821649,
+          35.59574045707565,
+          35.56841329984069
+        ],
+        "run_ms": [
+          28.6627095,
+          28.093249,
+          28.114833
+        ],
+        "min_fps": 34.88853696821649,
+        "max_fps": 35.59574045707565,
+        "GPU_ms": 27.834,
+        "Game_ms": 1.2681,
+        "Render_ms": 28.1151,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.1507,
+          "GPU/Prepass": 0.5514,
+          "GPU/RenderVelocities": 0.2243,
+          "GPU/HZB": 0.091125,
+          "GPU/BeginOcclusionTests": 0.039083,
+          "GPU/LightGrid": 0.028167,
+          "GPU/LightFunctionAtlasGeneration": 0.002542,
+          "GPU/LumenSceneUpdate": 0.961,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.5159,
+          "GPU/Basepass": 2.7588,
+          "GPU/RenderDeferredLighting": 1.8312,
+          "GPU/ShadowDepths": 1.6689,
+          "GPU/LumenIrradianceFieldGather": 2.6721,
+          "GPU/ScreenSpaceReflections": 0.6059,
+          "GPU/TranslucentLighting": 0.012083,
+          "GPU/Lights": 1.7861,
+          "GPU/ShadowProjection": 2.3342,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.047625,
+          "GPU/Postprocessing": 0.9214,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 8.9638
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 35.49051547915283,
+        "median_ms": 28.176542,
+        "p95_ms": 28.8142928,
+        "run_fps": [
+          35.093978340066755,
+          35.49051547915283,
+          35.7398141529664
+        ],
+        "run_ms": [
+          28.494917,
+          28.176542,
+          27.98
+        ],
+        "min_fps": 35.093978340066755,
+        "max_fps": 35.7398141529664,
+        "GPU_ms": 27.8463,
+        "Game_ms": 1.2399,
+        "Render_ms": 28.1678,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.1513,
+          "GPU/Prepass": 0.3938,
+          "GPU/RenderVelocities": 0.2356,
+          "GPU/HZB": 0.0915,
+          "GPU/BeginOcclusionTests": 0.04,
+          "GPU/LightGrid": 0.027458,
+          "GPU/LightFunctionAtlasGeneration": 0.0025,
+          "GPU/LumenSceneUpdate": 0.9342,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.5051,
+          "GPU/Basepass": 2.6921,
+          "GPU/RenderDeferredLighting": 1.8398,
+          "GPU/ShadowDepths": 1.6776,
+          "GPU/LumenIrradianceFieldGather": 2.6914,
+          "GPU/ScreenSpaceReflections": 0.605,
+          "GPU/TranslucentLighting": 0.012167,
+          "GPU/Lights": 1.7932,
+          "GPU/ShadowProjection": 2.3349,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.047958,
+          "GPU/Postprocessing": 0.9249,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 9.074
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix4",
+    "site": "Dorf",
+    "configuration": {
+      "quality": "1",
+      "percentage": "100",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.29651799999999895,
+      0.4110780000000034,
+      0.23043850000000532
+    ],
+    "median_paired_delta_ms": 0.23043850000000532,
+    "state": {
+      "A_V2": {
+        "median_fps": 23.50839139083213,
+        "median_ms": 42.538002,
+        "p95_ms": 43.577123,
+        "run_fps": [
+          23.274420499513752,
+          23.50839139083213,
+          23.67615742404923
+        ],
+        "run_ms": [
+          42.965624,
+          42.538002,
+          42.236583499999995
+        ],
+        "min_fps": 23.274420499513752,
+        "max_fps": 23.67615742404923,
+        "GPU_ms": 42.0208,
+        "Game_ms": 1.6152,
+        "Render_ms": 42.5362,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 1.1271,
+          "GPU/RenderVelocities": 0.37625,
+          "GPU/HZB": 0.1535,
+          "GPU/BeginOcclusionTests": 0.2383,
+          "GPU/LightGrid": 0.033167,
+          "GPU/LightFunctionAtlasGeneration": 0.002375,
+          "GPU/LumenSceneUpdate": 0.9297,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4786,
+          "GPU/Basepass": 4.0121,
+          "GPU/RenderDeferredLighting": 3.2229,
+          "GPU/ShadowDepths": 2.1793,
+          "GPU/LumenIrradianceFieldGather": 3.996,
+          "GPU/ScreenSpaceReflections": 0.9613,
+          "GPU/TranslucentLighting": 0.012208,
+          "GPU/Lights": 4.0618,
+          "GPU/ShadowProjection": 3.8225,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.9255,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 13.9716
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 23.436160110783668,
+        "median_ms": 42.669106,
+        "p95_ms": 44.100794300000004,
+        "run_fps": [
+          23.436160110783668,
+          23.28338581408496,
+          23.547683659099054
+        ],
+        "run_ms": [
+          42.669106,
+          42.94908,
+          42.467022
+        ],
+        "min_fps": 23.28338581408496,
+        "max_fps": 23.547683659099054,
+        "GPU_ms": 42.3236,
+        "Game_ms": 1.6123,
+        "Render_ms": 42.642849999999996,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 1.1010499999999999,
+          "GPU/RenderVelocities": 0.3754,
+          "GPU/HZB": 0.15385,
+          "GPU/BeginOcclusionTests": 0.237,
+          "GPU/LightGrid": 0.034,
+          "GPU/LightFunctionAtlasGeneration": 0.002417,
+          "GPU/LumenSceneUpdate": 0.9249499999999999,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4707,
+          "GPU/Basepass": 4.0275,
+          "GPU/RenderDeferredLighting": 3.24415,
+          "GPU/ShadowDepths": 2.2008,
+          "GPU/LumenIrradianceFieldGather": 4.0177499999999995,
+          "GPU/ScreenSpaceReflections": 0.96495,
+          "GPU/TranslucentLighting": 0.012125,
+          "GPU/Lights": 4.0812,
+          "GPU/ShadowProjection": 3.82585,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.9414,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 13.99005
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix4",
+    "site": "Wald",
+    "configuration": {
+      "quality": "1",
+      "percentage": "100",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.5143345000000039,
+      -0.7263920000000041,
+      0.19616299999999853
+    ],
+    "median_paired_delta_ms": -0.5143345000000039,
+    "state": {
+      "A_V2": {
+        "median_fps": 23.726644943974154,
+        "median_ms": 42.146709,
+        "p95_ms": 43.934069300000004,
+        "run_fps": [
+          23.726644943974154,
+          23.608083898975153,
+          24.51037823337233
+        ],
+        "run_ms": [
+          42.146709,
+          42.358372,
+          40.799044
+        ],
+        "min_fps": 23.608083898975153,
+        "max_fps": 24.51037823337233,
+        "GPU_ms": 41.6632,
+        "Game_ms": 1.6646,
+        "Render_ms": 42.0595,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 0.4812,
+          "GPU/RenderVelocities": 0.4112,
+          "GPU/HZB": 0.1521,
+          "GPU/BeginOcclusionTests": 0.1688,
+          "GPU/LightGrid": 0.031583,
+          "GPU/LightFunctionAtlasGeneration": 0.002333,
+          "GPU/LumenSceneUpdate": 0.8928,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4422,
+          "GPU/Basepass": 3.8887,
+          "GPU/RenderDeferredLighting": 3.236,
+          "GPU/ShadowDepths": 2.4239,
+          "GPU/LumenIrradianceFieldGather": 4.042,
+          "GPU/ScreenSpaceReflections": 0.9655,
+          "GPU/TranslucentLighting": 0.012042,
+          "GPU/Lights": 3.8,
+          "GPU/ShadowProjection": 3.895,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.9277,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 14.1346
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 24.019996166408614,
+        "median_ms": 41.63198,
+        "p95_ms": 43.3877778,
+        "run_fps": [
+          24.019768557760262,
+          24.019996166408614,
+          24.39309551480006
+        ],
+        "run_ms": [
+          41.6323745,
+          41.63198,
+          40.995207
+        ],
+        "min_fps": 24.019768557760262,
+        "max_fps": 24.39309551480006,
+        "GPU_ms": 41.13365,
+        "Game_ms": 1.7475,
+        "Render_ms": 41.6165,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 0.46,
+          "GPU/RenderVelocities": 0.40945,
+          "GPU/HZB": 0.15510000000000002,
+          "GPU/BeginOcclusionTests": 0.1664,
+          "GPU/LightGrid": 0.030729,
+          "GPU/LightFunctionAtlasGeneration": 0.002333,
+          "GPU/LumenSceneUpdate": 0.8365,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4327,
+          "GPU/Basepass": 3.78965,
+          "GPU/RenderDeferredLighting": 3.1967,
+          "GPU/ShadowDepths": 2.4021,
+          "GPU/LumenIrradianceFieldGather": 4.050800000000001,
+          "GPU/ScreenSpaceReflections": 0.9579500000000001,
+          "GPU/TranslucentLighting": 0.011979,
+          "GPU/Lights": 3.7708,
+          "GPU/ShadowProjection": 3.8545,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.9201,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 13.954799999999999
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix4",
+    "site": "Weg",
+    "configuration": {
+      "quality": "1",
+      "percentage": "100",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.5811674999999994,
+      -0.10872850000000511,
+      -0.21425299999999936
+    ],
+    "median_paired_delta_ms": -0.21425299999999936,
+    "state": {
+      "A_V2": {
+        "median_fps": 22.984079594603124,
+        "median_ms": 43.508377,
+        "p95_ms": 47.11745825,
+        "run_fps": [
+          22.984079594603124,
+          22.914439693428168,
+          23.58587802157504
+        ],
+        "run_ms": [
+          43.508377,
+          43.6406045,
+          42.398252
+        ],
+        "min_fps": 22.914439693428168,
+        "max_fps": 23.58587802157504,
+        "GPU_ms": 43.0813,
+        "Game_ms": 1.6036,
+        "Render_ms": 43.5107,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.15365,
+          "GPU/Prepass": 0.9316,
+          "GPU/RenderVelocities": 0.3872,
+          "GPU/HZB": 0.17985,
+          "GPU/BeginOcclusionTests": 0.063042,
+          "GPU/LightGrid": 0.033083,
+          "GPU/LightFunctionAtlasGeneration": 0.002375,
+          "GPU/LumenSceneUpdate": 0.909,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.5119,
+          "GPU/Basepass": 3.948,
+          "GPU/RenderDeferredLighting": 3.4002499999999998,
+          "GPU/ShadowDepths": 2.1870000000000003,
+          "GPU/LumenIrradianceFieldGather": 4.17185,
+          "GPU/ScreenSpaceReflections": 0.985,
+          "GPU/TranslucentLighting": 0.01275,
+          "GPU/Lights": 3.933,
+          "GPU/ShadowProjection": 4.02435,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.20334999999999998,
+          "GPU/Postprocessing": 0.9438,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 14.5372
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 23.295248203822798,
+        "median_ms": 42.927209500000004,
+        "p95_ms": 44.15979865,
+        "run_fps": [
+          23.295248203822798,
+          22.971672527965485,
+          23.705670958317633
+        ],
+        "run_ms": [
+          42.927209500000004,
+          43.531876,
+          42.183999
+        ],
+        "min_fps": 22.971672527965485,
+        "max_fps": 23.705670958317633,
+        "GPU_ms": 42.6429,
+        "Game_ms": 1.5342,
+        "Render_ms": 42.93705,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.152,
+          "GPU/Prepass": 0.7703,
+          "GPU/RenderVelocities": 0.3929,
+          "GPU/HZB": 0.17675000000000002,
+          "GPU/BeginOcclusionTests": 0.061167,
+          "GPU/LightGrid": 0.0326875,
+          "GPU/LightFunctionAtlasGeneration": 0.002417,
+          "GPU/LumenSceneUpdate": 0.9315,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.51045,
+          "GPU/Basepass": 3.8217999999999996,
+          "GPU/RenderDeferredLighting": 3.3465499999999997,
+          "GPU/ShadowDepths": 2.16885,
+          "GPU/LumenIrradianceFieldGather": 4.09225,
+          "GPU/ScreenSpaceReflections": 0.9756,
+          "GPU/TranslucentLighting": 0.0123125,
+          "GPU/Lights": 3.77905,
+          "GPU/ShadowProjection": 3.98075,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.2021,
+          "GPU/Postprocessing": 0.9411499999999999,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 14.3862
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix5",
+    "site": "Dorf",
+    "configuration": {
+      "quality": "2",
+      "percentage": "75",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          1920,
+          1080
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      1.2109370000000013,
+      0.44970999999999606,
+      -0.035354999999995584
+    ],
+    "median_paired_delta_ms": 0.44970999999999606,
+    "state": {
+      "A_V2": {
+        "median_fps": 30.99778170574779,
+        "median_ms": 32.260373,
+        "p95_ms": 33.85523725,
+        "run_fps": [
+          30.418559531242693,
+          30.99778170574779,
+          31.054595267245524
+        ],
+        "run_ms": [
+          32.874666500000004,
+          32.260373,
+          32.201353499999996
+        ],
+        "min_fps": 30.418559531242693,
+        "max_fps": 31.054595267245524,
+        "GPU_ms": 31.6649,
+        "Game_ms": 1.5284,
+        "Render_ms": 32.2579,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": null,
+          "GPU/Prepass": 0.663,
+          "GPU/RenderVelocities": 0.2213,
+          "GPU/HZB": 0.1161,
+          "GPU/BeginOcclusionTests": 0.14205,
+          "GPU/LightGrid": 0.029792,
+          "GPU/LightFunctionAtlasGeneration": 0.0025,
+          "GPU/LumenSceneUpdate": 0.6651,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.8165,
+          "GPU/Basepass": 2.9927,
+          "GPU/RenderDeferredLighting": 2.24225,
+          "GPU/ShadowDepths": 1.8422,
+          "GPU/LumenIrradianceFieldGather": 3.0833,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.031125,
+          "GPU/Lights": 2.3771,
+          "GPU/ShadowProjection": 2.6415,
+          "GPU/DistanceFieldShadows": 0.4141,
+          "GPU/TemporalSuperResolution": 0.1482,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.944,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 10.7873
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 30.57161304054166,
+        "median_ms": 32.710083,
+        "p95_ms": 35.135677,
+        "run_fps": [
+          29.337899210146002,
+          30.57161304054166,
+          31.088728677270815
+        ],
+        "run_ms": [
+          34.085603500000005,
+          32.710083,
+          32.1659985
+        ],
+        "min_fps": 29.337899210146002,
+        "max_fps": 31.088728677270815,
+        "GPU_ms": 32.0621,
+        "Game_ms": 1.5507,
+        "Render_ms": 32.7298,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": null,
+          "GPU/Prepass": 0.6574,
+          "GPU/RenderVelocities": 0.22585,
+          "GPU/HZB": 0.1175,
+          "GPU/BeginOcclusionTests": 0.143,
+          "GPU/LightGrid": 0.0300625,
+          "GPU/LightFunctionAtlasGeneration": 0.0025,
+          "GPU/LumenSceneUpdate": 0.68775,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.8595,
+          "GPU/Basepass": 2.9644,
+          "GPU/RenderDeferredLighting": 2.2655,
+          "GPU/ShadowDepths": 1.8681,
+          "GPU/LumenIrradianceFieldGather": 3.0948,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.031396,
+          "GPU/Lights": 2.3924,
+          "GPU/ShadowProjection": 2.6632,
+          "GPU/DistanceFieldShadows": 0.42464999999999997,
+          "GPU/TemporalSuperResolution": 0.1498,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.933,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 11.0443
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix5",
+    "site": "Wald",
+    "configuration": {
+      "quality": "2",
+      "percentage": "75",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          1920,
+          1080
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      0.07643949999999933,
+      -0.44795799999999986,
+      -0.7655414999999977
+    ],
+    "median_paired_delta_ms": -0.44795799999999986,
+    "state": {
+      "A_V2": {
+        "median_fps": 31.249023468016627,
+        "median_ms": 32.001,
+        "p95_ms": 33.284509199999995,
+        "run_fps": [
+          31.066876297663427,
+          31.456927601881123,
+          31.249023468016627
+        ],
+        "run_ms": [
+          32.188624,
+          31.7895,
+          32.001
+        ],
+        "min_fps": 31.066876297663427,
+        "max_fps": 31.456927601881123,
+        "GPU_ms": 31.323,
+        "Game_ms": 1.3938,
+        "Render_ms": 31.9743,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": null,
+          "GPU/Prepass": 0.2339,
+          "GPU/RenderVelocities": 0.244,
+          "GPU/HZB": 0.117,
+          "GPU/BeginOcclusionTests": 0.099417,
+          "GPU/LightGrid": 0.024458,
+          "GPU/LightFunctionAtlasGeneration": 0.00225,
+          "GPU/LumenSceneUpdate": 0.8849,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.8183,
+          "GPU/Basepass": 2.8212,
+          "GPU/RenderDeferredLighting": 2.1996,
+          "GPU/ShadowDepths": 1.9021,
+          "GPU/LumenIrradianceFieldGather": 3.1247,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.032417,
+          "GPU/Lights": 2.2283,
+          "GPU/ShadowProjection": 2.7065,
+          "GPU/DistanceFieldShadows": 0.4125,
+          "GPU/TemporalSuperResolution": 0.1499,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.9319,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 10.9186
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 31.906534783770372,
+        "median_ms": 31.341542,
+        "p95_ms": 32.602234949999996,
+        "run_fps": [
+          30.993275435518672,
+          31.906534783770372,
+          32.014897428190466
+        ],
+        "run_ms": [
+          32.2650635,
+          31.341542,
+          31.2354585
+        ],
+        "min_fps": 30.993275435518672,
+        "max_fps": 32.014897428190466,
+        "GPU_ms": 30.6895,
+        "Game_ms": 1.39765,
+        "Render_ms": 31.3318,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": null,
+          "GPU/Prepass": 0.18869999999999998,
+          "GPU/RenderVelocities": 0.2438,
+          "GPU/HZB": 0.1157,
+          "GPU/BeginOcclusionTests": 0.1,
+          "GPU/LightGrid": 0.024083,
+          "GPU/LightFunctionAtlasGeneration": 0.002208,
+          "GPU/LumenSceneUpdate": 0.5724,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.82375,
+          "GPU/Basepass": 2.77195,
+          "GPU/RenderDeferredLighting": 2.1788,
+          "GPU/ShadowDepths": 1.8795,
+          "GPU/LumenIrradianceFieldGather": 3.09,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.0313545,
+          "GPU/Lights": 2.2101,
+          "GPU/ShadowProjection": 2.6882,
+          "GPU/DistanceFieldShadows": 0.40605,
+          "GPU/TemporalSuperResolution": 0.14734999999999998,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.9278500000000001,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 10.586500000000001
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix5",
+    "site": "Weg",
+    "configuration": {
+      "quality": "2",
+      "percentage": "75",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          1920,
+          1080
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.36989499999999964,
+      0.10500499999999846,
+      -1.0417109999999994
+    ],
+    "median_paired_delta_ms": -0.36989499999999964,
+    "state": {
+      "A_V2": {
+        "median_fps": 30.296029625033157,
+        "median_ms": 33.0076255,
+        "p95_ms": 34.322357700000005,
+        "run_fps": [
+          30.296029625033157,
+          30.680417097816008,
+          30.125207592805523
+        ],
+        "run_ms": [
+          33.0076255,
+          32.594081,
+          33.194792
+        ],
+        "min_fps": 30.125207592805523,
+        "max_fps": 30.680417097816008,
+        "GPU_ms": 32.408249999999995,
+        "Game_ms": 1.3998,
+        "Render_ms": 32.999399999999994,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.23659999999999998,
+          "GPU/Prepass": 0.58915,
+          "GPU/RenderVelocities": 0.2335,
+          "GPU/HZB": 0.1254,
+          "GPU/BeginOcclusionTests": 0.043167,
+          "GPU/LightGrid": 0.027042,
+          "GPU/LightFunctionAtlasGeneration": 0.002458,
+          "GPU/LumenSceneUpdate": 0.8151999999999999,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.8734,
+          "GPU/Basepass": 2.85595,
+          "GPU/RenderDeferredLighting": 2.2207,
+          "GPU/ShadowDepths": 1.7461,
+          "GPU/LumenIrradianceFieldGather": 3.1514,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.1489,
+          "GPU/Lights": 2.2440499999999997,
+          "GPU/ShadowProjection": 2.8152,
+          "GPU/DistanceFieldShadows": 0.3409,
+          "GPU/TemporalSuperResolution": 0.15555,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.057417,
+          "GPU/Postprocessing": 0.9425,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 11.16355
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 30.639385296719695,
+        "median_ms": 32.6377305,
+        "p95_ms": 33.973234500000004,
+        "run_fps": [
+          30.639385296719695,
+          30.581894552037326,
+          31.101218573734815
+        ],
+        "run_ms": [
+          32.6377305,
+          32.699086,
+          32.153081
+        ],
+        "min_fps": 30.581894552037326,
+        "max_fps": 31.101218573734815,
+        "GPU_ms": 32.03725,
+        "Game_ms": 1.3506,
+        "Render_ms": 32.6472,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.2358,
+          "GPU/Prepass": 0.4385,
+          "GPU/RenderVelocities": 0.24235,
+          "GPU/HZB": 0.1255,
+          "GPU/BeginOcclusionTests": 0.040375,
+          "GPU/LightGrid": 0.025208,
+          "GPU/LightFunctionAtlasGeneration": 0.002333,
+          "GPU/LumenSceneUpdate": 0.9155,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.87,
+          "GPU/Basepass": 2.773,
+          "GPU/RenderDeferredLighting": 2.1917,
+          "GPU/ShadowDepths": 1.7235,
+          "GPU/LumenIrradianceFieldGather": 3.1348000000000003,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.147,
+          "GPU/Lights": 2.2125,
+          "GPU/ShadowProjection": 2.7795,
+          "GPU/DistanceFieldShadows": 0.3339,
+          "GPU/TemporalSuperResolution": 0.15435,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.053583,
+          "GPU/Postprocessing": 0.9367,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 11.1911
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix6",
+    "site": "Dorf",
+    "configuration": {
+      "quality": "2",
+      "percentage": "100",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -1.0348930000000038,
+      -0.3945865000000026,
+      0.4613934999999998
+    ],
+    "median_paired_delta_ms": -0.3945865000000026,
+    "state": {
+      "A_V2": {
+        "median_fps": 20.77080412568821,
+        "median_ms": 48.144501,
+        "p95_ms": 50.150923799999994,
+        "run_fps": [
+          20.099366039865924,
+          20.7714059828213,
+          20.77080412568821
+        ],
+        "run_ms": [
+          49.752813,
+          48.143106,
+          48.144501
+        ],
+        "min_fps": 20.099366039865924,
+        "max_fps": 20.7714059828213,
+        "GPU_ms": 47.62675,
+        "Game_ms": 1.8674499999999998,
+        "Render_ms": 48.199,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": null,
+          "GPU/Prepass": 1.1187,
+          "GPU/RenderVelocities": 0.4307,
+          "GPU/HZB": 0.2023,
+          "GPU/BeginOcclusionTests": 0.2567,
+          "GPU/LightGrid": 0.052083,
+          "GPU/LightFunctionAtlasGeneration": 0.0025,
+          "GPU/LumenSceneUpdate": 0.5807,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 1.65945,
+          "GPU/Basepass": 3.3099499999999997,
+          "GPU/RenderDeferredLighting": 3.8694,
+          "GPU/ShadowDepths": 2.2380500000000003,
+          "GPU/LumenIrradianceFieldGather": 4.5327,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.044833,
+          "GPU/Lights": 3.214,
+          "GPU/ShadowProjection": 4.9006,
+          "GPU/DistanceFieldShadows": 0.626,
+          "GPU/TemporalSuperResolution": 0.2349,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.9059,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 17.6528
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 20.573636393009906,
+        "median_ms": 48.6058945,
+        "p95_ms": 51.0048185,
+        "run_fps": [
+          20.52632788920381,
+          20.94305772140223,
+          20.573636393009906
+        ],
+        "run_ms": [
+          48.71792,
+          47.7485195,
+          48.6058945
+        ],
+        "min_fps": 20.52632788920381,
+        "max_fps": 20.94305772140223,
+        "GPU_ms": 48.1203,
+        "Game_ms": 1.83075,
+        "Render_ms": 48.58015,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 1.1005,
+          "GPU/RenderVelocities": 0.4302,
+          "GPU/HZB": 0.2013,
+          "GPU/BeginOcclusionTests": 0.25670000000000004,
+          "GPU/LightGrid": 0.0514585,
+          "GPU/LightFunctionAtlasGeneration": 0.0025,
+          "GPU/LumenSceneUpdate": 0.56875,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 1.653,
+          "GPU/Basepass": 3.29105,
+          "GPU/RenderDeferredLighting": 3.909,
+          "GPU/ShadowDepths": 2.25085,
+          "GPU/LumenIrradianceFieldGather": 4.601800000000001,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.045,
+          "GPU/Lights": 3.29025,
+          "GPU/ShadowProjection": 4.96315,
+          "GPU/DistanceFieldShadows": 0.62305,
+          "GPU/TemporalSuperResolution": 0.235,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.9033,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 17.767
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix6",
+    "site": "Wald",
+    "configuration": {
+      "quality": "2",
+      "percentage": "100",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      0.8764980000000051,
+      0.34316599999999653,
+      -0.23562450000000013
+    ],
+    "median_paired_delta_ms": 0.34316599999999653,
+    "state": {
+      "A_V2": {
+        "median_fps": 21.36809186817926,
+        "median_ms": 46.7987505,
+        "p95_ms": 50.0662375,
+        "run_fps": [
+          20.983385523209808,
+          21.411097984442737,
+          21.36809186817926
+        ],
+        "run_ms": [
+          47.656752,
+          46.704751,
+          46.7987505
+        ],
+        "min_fps": 20.983385523209808,
+        "max_fps": 21.411097984442737,
+        "GPU_ms": 46.3159,
+        "Game_ms": 1.8373,
+        "Render_ms": 46.7686,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": null,
+          "GPU/Prepass": 0.4975,
+          "GPU/RenderVelocities": 0.47595,
+          "GPU/HZB": 0.198,
+          "GPU/BeginOcclusionTests": 0.1843,
+          "GPU/LightGrid": 0.0483125,
+          "GPU/LightFunctionAtlasGeneration": 0.002333,
+          "GPU/LumenSceneUpdate": 0.72865,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 1.5989,
+          "GPU/Basepass": 3.06335,
+          "GPU/RenderDeferredLighting": 3.79845,
+          "GPU/ShadowDepths": 2.4352,
+          "GPU/LumenIrradianceFieldGather": 4.5837,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.045125,
+          "GPU/Lights": 3.1233,
+          "GPU/ShadowProjection": 4.9145,
+          "GPU/DistanceFieldShadows": 0.6083,
+          "GPU/TemporalSuperResolution": 0.2337,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.8931,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 17.4449
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 21.254926121383864,
+        "median_ms": 47.047917,
+        "p95_ms": 52.3091498,
+        "run_fps": [
+          20.604430982882867,
+          21.254926121383864,
+          21.476221334452504
+        ],
+        "run_ms": [
+          48.53325,
+          47.047917,
+          46.563126
+        ],
+        "min_fps": 20.604430982882867,
+        "max_fps": 21.476221334452504,
+        "GPU_ms": 46.4512,
+        "Game_ms": 1.8203,
+        "Render_ms": 47.0503,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.0,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0,
+          "GPU/Prepass": 0.4888,
+          "GPU/RenderVelocities": 0.4745,
+          "GPU/HZB": 0.2006,
+          "GPU/BeginOcclusionTests": 0.1805,
+          "GPU/LightGrid": 0.048292,
+          "GPU/LightFunctionAtlasGeneration": 0.002375,
+          "GPU/LumenSceneUpdate": 0.466,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 1.6089,
+          "GPU/Basepass": 3.0024,
+          "GPU/RenderDeferredLighting": 3.8137,
+          "GPU/ShadowDepths": 2.4348,
+          "GPU/LumenIrradianceFieldGather": 4.5601,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.045083,
+          "GPU/Lights": 3.117,
+          "GPU/ShadowProjection": 4.9492,
+          "GPU/DistanceFieldShadows": 0.6084,
+          "GPU/TemporalSuperResolution": 0.2337,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/Postprocessing": 0.8992,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 17.5331
+        }
+      }
+    }
+  },
+  {
+    "mode": "Standalone",
+    "label": "NativeMatrix6",
+    "site": "Weg",
+    "configuration": {
+      "quality": "2",
+      "percentage": "100",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      0.30035349999999994,
+      0.3456674999999976,
+      -0.14835400000000476
+    ],
+    "median_paired_delta_ms": 0.30035349999999994,
+    "state": {
+      "A_V2": {
+        "median_fps": 20.77821349460607,
+        "median_ms": 48.127333,
+        "p95_ms": 49.804758,
+        "run_fps": [
+          20.452154388527674,
+          20.77821349460607,
+          20.884675697952286
+        ],
+        "run_ms": [
+          48.8946045,
+          48.127333,
+          47.881998
+        ],
+        "min_fps": 20.452154388527674,
+        "max_fps": 20.884675697952286,
+        "GPU_ms": 47.71825,
+        "Game_ms": 1.7729,
+        "Render_ms": 48.108900000000006,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.1597,
+          "GPU/Prepass": 0.97445,
+          "GPU/RenderVelocities": 0.4437,
+          "GPU/HZB": 0.21925,
+          "GPU/BeginOcclusionTests": 0.06364600000000001,
+          "GPU/LightGrid": 0.049771,
+          "GPU/LightFunctionAtlasGeneration": 0.002542,
+          "GPU/LumenSceneUpdate": 0.95285,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 1.6906,
+          "GPU/Basepass": 3.0595999999999997,
+          "GPU/RenderDeferredLighting": 3.8051000000000004,
+          "GPU/ShadowDepths": 2.2145,
+          "GPU/LumenIrradianceFieldGather": 4.4702,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.15665,
+          "GPU/Lights": 3.0989,
+          "GPU/ShadowProjection": 5.080349999999999,
+          "GPU/DistanceFieldShadows": 0.51635,
+          "GPU/TemporalSuperResolution": 0.2463,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.2203,
+          "GPU/Postprocessing": 0.90105,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 17.81365
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 20.630041253584047,
+        "median_ms": 48.4730005,
+        "p95_ms": 49.827791500000004,
+        "run_fps": [
+          20.32728638573083,
+          20.630041253584047,
+          20.94958432253779
+        ],
+        "run_ms": [
+          49.194958,
+          48.4730005,
+          47.733644
+        ],
+        "min_fps": 20.32728638573083,
+        "max_fps": 20.94958432253779,
+        "GPU_ms": 47.8997,
+        "Game_ms": 1.73445,
+        "Render_ms": 48.4461,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": null,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": null,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.16094999999999998,
+          "GPU/Prepass": 0.83415,
+          "GPU/RenderVelocities": 0.44755,
+          "GPU/HZB": 0.21855,
+          "GPU/BeginOcclusionTests": 0.0672085,
+          "GPU/LightGrid": 0.049979,
+          "GPU/LightFunctionAtlasGeneration": 0.002542,
+          "GPU/LumenSceneUpdate": 0.9495,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 1.6517,
+          "GPU/Basepass": 2.99935,
+          "GPU/RenderDeferredLighting": 3.82095,
+          "GPU/ShadowDepths": 2.2249499999999998,
+          "GPU/LumenIrradianceFieldGather": 4.4946,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.15725,
+          "GPU/Lights": 3.1258,
+          "GPU/ShadowProjection": 5.1176,
+          "GPU/DistanceFieldShadows": 0.5225,
+          "GPU/TemporalSuperResolution": 0.248,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.21839999999999998,
+          "GPU/Postprocessing": 0.9066,
+          "GPU/VirtualTextureUpdate": null,
+          "GPU/SlateUI": null,
+          "GPU/Unaccounted": 18.01145
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix1",
+    "site": "Dorf",
+    "configuration": {
+      "quality": "1",
+      "percentage": "75",
+      "extent": [
+        [
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740,
+          960,
+          555
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.13904249999999863,
+      -0.1081680000000027,
+      1.0283344999999997
+    ],
+    "median_paired_delta_ms": -0.1081680000000027,
+    "state": {
+      "A_V2": {
+        "median_fps": 44.120123300743785,
+        "median_ms": 22.665394499999998,
+        "p95_ms": 24.4913684,
+        "run_fps": [
+          49.522620509273295,
+          43.932868643666254,
+          44.120123300743785
+        ],
+        "run_ms": [
+          20.1927925,
+          22.762001,
+          22.665394499999998
+        ],
+        "min_fps": 43.932868643666254,
+        "max_fps": 49.522620509273295,
+        "GPU_ms": 19.5694,
+        "Game_ms": 7.221450000000001,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.028417,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.003958,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.032417,
+          "GPU/Prepass": 0.417,
+          "GPU/RenderVelocities": 0.1187,
+          "GPU/HZB": 0.02425,
+          "GPU/BeginOcclusionTests": 0.037417,
+          "GPU/LightGrid": 0.025208,
+          "GPU/LightFunctionAtlasGeneration": 0.002083,
+          "GPU/LumenSceneUpdate": 1.9276,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.43225,
+          "GPU/Basepass": 1.35,
+          "GPU/RenderDeferredLighting": 0.4661,
+          "GPU/ShadowDepths": 1.3431,
+          "GPU/LumenIrradianceFieldGather": 1.1746,
+          "GPU/ScreenSpaceReflections": 0.10775000000000001,
+          "GPU/TranslucentLighting": 0.010917,
+          "GPU/Lights": 0.4685,
+          "GPU/ShadowProjection": 0.5371,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 2.25885,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 0.0,
+          "GPU/SlateUI": 3.77305,
+          "GPU/Unaccounted": 1.9584000000000001
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 44.142640232229134,
+        "median_ms": 22.653833,
+        "p95_ms": 25.7707937,
+        "run_fps": [
+          49.865985164869414,
+          44.142640232229134,
+          42.20526030326421
+        ],
+        "run_ms": [
+          20.05375,
+          22.653833,
+          23.693728999999998
+        ],
+        "min_fps": 42.20526030326421,
+        "max_fps": 49.865985164869414,
+        "GPU_ms": 19.31305,
+        "Game_ms": 8.492,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.028042,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.003958,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.032542,
+          "GPU/Prepass": 0.40195000000000003,
+          "GPU/RenderVelocities": 0.14024999999999999,
+          "GPU/HZB": 0.024167,
+          "GPU/BeginOcclusionTests": 0.0371665,
+          "GPU/LightGrid": 0.025021,
+          "GPU/LightFunctionAtlasGeneration": 0.002083,
+          "GPU/LumenSceneUpdate": 1.75765,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.44165,
+          "GPU/Basepass": 1.3447,
+          "GPU/RenderDeferredLighting": 0.4664,
+          "GPU/ShadowDepths": 1.3387,
+          "GPU/LumenIrradianceFieldGather": 1.1669,
+          "GPU/ScreenSpaceReflections": 0.11035,
+          "GPU/TranslucentLighting": 0.011125,
+          "GPU/Lights": 0.4882,
+          "GPU/ShadowProjection": 0.5371,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 2.2243,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 0.0,
+          "GPU/SlateUI": 3.7218,
+          "GPU/Unaccounted": 1.9585
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix1",
+    "site": "Wald",
+    "configuration": {
+      "quality": "1",
+      "percentage": "75",
+      "extent": [
+        [
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740,
+          960,
+          555
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.14231399999999894,
+      0.29691700000000054,
+      -0.03835550000000154
+    ],
+    "median_paired_delta_ms": -0.03835550000000154,
+    "state": {
+      "A_V2": {
+        "median_fps": 45.193824336214576,
+        "median_ms": 22.126917,
+        "p95_ms": 23.893835199999998,
+        "run_fps": [
+          50.74456485114792,
+          45.193824336214576,
+          44.7739879606776
+        ],
+        "run_ms": [
+          19.706544,
+          22.126917,
+          22.3343965
+        ],
+        "min_fps": 44.7739879606776,
+        "max_fps": 50.74456485114792,
+        "GPU_ms": 18.7092,
+        "Game_ms": 7.4589,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.029042,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.003917,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.033167,
+          "GPU/Prepass": 0.278,
+          "GPU/RenderVelocities": 0.1191,
+          "GPU/HZB": 0.024854,
+          "GPU/BeginOcclusionTests": 0.027458,
+          "GPU/LightGrid": 0.0239375,
+          "GPU/LightFunctionAtlasGeneration": 0.001958,
+          "GPU/LumenSceneUpdate": 2.0584,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4099,
+          "GPU/Basepass": 1.118,
+          "GPU/RenderDeferredLighting": 0.4498,
+          "GPU/ShadowDepths": 1.3382,
+          "GPU/LumenIrradianceFieldGather": 1.1955,
+          "GPU/ScreenSpaceReflections": 0.1077,
+          "GPU/TranslucentLighting": 0.010917,
+          "GPU/Lights": 0.44305,
+          "GPU/ShadowProjection": 0.5376,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 2.2849,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.7836499999999997,
+          "GPU/Unaccounted": 1.502
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 44.851011890406916,
+        "median_ms": 22.296041,
+        "p95_ms": 24.283723149999997,
+        "run_fps": [
+          51.113690648699176,
+          44.5954068336396,
+          44.851011890406916
+        ],
+        "run_ms": [
+          19.564230000000002,
+          22.423834,
+          22.296041
+        ],
+        "min_fps": 44.5954068336396,
+        "max_fps": 51.113690648699176,
+        "GPU_ms": 18.7768,
+        "Game_ms": 7.5107,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.028917,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.033958,
+          "GPU/Prepass": 0.2546,
+          "GPU/RenderVelocities": 0.12135,
+          "GPU/HZB": 0.024792,
+          "GPU/BeginOcclusionTests": 0.027375,
+          "GPU/LightGrid": 0.023625,
+          "GPU/LightFunctionAtlasGeneration": 0.001958,
+          "GPU/LumenSceneUpdate": 2.1074,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.40654999999999997,
+          "GPU/Basepass": 1.0842,
+          "GPU/RenderDeferredLighting": 0.4479,
+          "GPU/ShadowDepths": 1.34085,
+          "GPU/LumenIrradianceFieldGather": 1.1961,
+          "GPU/ScreenSpaceReflections": 0.1085,
+          "GPU/TranslucentLighting": 0.010917,
+          "GPU/Lights": 0.4424,
+          "GPU/ShadowProjection": 0.53775,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 2.2791,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 0.0,
+          "GPU/SlateUI": 3.78695,
+          "GPU/Unaccounted": 1.53745
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix1",
+    "site": "Weg",
+    "configuration": {
+      "quality": "1",
+      "percentage": "75",
+      "extent": [
+        [
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740,
+          960,
+          555
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.3596250000000012,
+      0.07568849999999827,
+      0.07179199999999852
+    ],
+    "median_paired_delta_ms": 0.07179199999999852,
+    "state": {
+      "A_V2": {
+        "median_fps": 43.55961887424346,
+        "median_ms": 22.957042,
+        "p95_ms": 25.0256154,
+        "run_fps": [
+          43.21373270197493,
+          44.033264753725135,
+          43.55961887424346
+        ],
+        "run_ms": [
+          23.140792,
+          22.710103500000002,
+          22.957042
+        ],
+        "min_fps": 43.21373270197493,
+        "max_fps": 44.033264753725135,
+        "GPU_ms": 19.4756,
+        "Game_ms": 7.163,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.028917,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.1835,
+          "GPU/Prepass": 0.4313,
+          "GPU/RenderVelocities": 0.1187,
+          "GPU/HZB": 0.024833,
+          "GPU/BeginOcclusionTests": 0.017208,
+          "GPU/LightGrid": 0.023521,
+          "GPU/LightFunctionAtlasGeneration": 0.002,
+          "GPU/LumenSceneUpdate": 1.9825,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4472,
+          "GPU/Basepass": 1.314,
+          "GPU/RenderDeferredLighting": 0.54515,
+          "GPU/ShadowDepths": 1.2001,
+          "GPU/LumenIrradianceFieldGather": 1.1958,
+          "GPU/ScreenSpaceReflections": 0.1042,
+          "GPU/TranslucentLighting": 0.010792,
+          "GPU/Lights": 0.449,
+          "GPU/ShadowProjection": 0.55625,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.0,
+          "GPU/PostProcessing": 2.3523,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.7417,
+          "GPU/Unaccounted": 1.7627
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 43.886997651870075,
+        "median_ms": 22.785792,
+        "p95_ms": 24.86826025,
+        "run_fps": [
+          43.89590752747653,
+          43.886997651870075,
+          43.42382250008837
+        ],
+        "run_ms": [
+          22.781167,
+          22.785792,
+          23.028834
+        ],
+        "min_fps": 43.42382250008837,
+        "max_fps": 43.89590752747653,
+        "GPU_ms": 19.52525,
+        "Game_ms": 7.19135,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0287915,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.18435,
+          "GPU/Prepass": 0.3935,
+          "GPU/RenderVelocities": 0.1187,
+          "GPU/HZB": 0.02475,
+          "GPU/BeginOcclusionTests": 0.0170415,
+          "GPU/LightGrid": 0.023583,
+          "GPU/LightFunctionAtlasGeneration": 0.002,
+          "GPU/LumenSceneUpdate": 2.0290999999999997,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4467,
+          "GPU/Basepass": 1.2428,
+          "GPU/RenderDeferredLighting": 0.5556,
+          "GPU/ShadowDepths": 1.202,
+          "GPU/LumenIrradianceFieldGather": 1.2001499999999998,
+          "GPU/ScreenSpaceReflections": 0.104,
+          "GPU/TranslucentLighting": 0.010833,
+          "GPU/Lights": 0.45395,
+          "GPU/ShadowProjection": 0.5567,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 2.35815,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.7854,
+          "GPU/Unaccounted": 1.7759
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix2",
+    "site": "Dorf",
+    "configuration": {
+      "quality": "1",
+      "percentage": "100",
+      "extent": [
+        [
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      0.6963369999999998,
+      -0.21983350000000002,
+      -0.17620999999999754
+    ],
+    "median_paired_delta_ms": -0.17620999999999754,
+    "state": {
+      "A_V2": {
+        "median_fps": 37.368800709812895,
+        "median_ms": 26.7602915,
+        "p95_ms": 30.3611671,
+        "run_fps": [
+          38.440594251608914,
+          37.368800709812895,
+          37.29000970062312
+        ],
+        "run_ms": [
+          26.014166,
+          26.7602915,
+          26.816834
+        ],
+        "min_fps": 37.29000970062312,
+        "max_fps": 38.440594251608914,
+        "GPU_ms": 23.8633,
+        "Game_ms": 6.8278,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.03,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004292,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.034812499999999996,
+          "GPU/Prepass": 0.5024,
+          "GPU/RenderVelocities": 0.1825,
+          "GPU/HZB": 0.0425,
+          "GPU/BeginOcclusionTests": 0.064917,
+          "GPU/LightGrid": 0.027583,
+          "GPU/LightFunctionAtlasGeneration": 0.002,
+          "GPU/LumenSceneUpdate": 2.01935,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.45389999999999997,
+          "GPU/Basepass": 1.6353,
+          "GPU/RenderDeferredLighting": 0.8081,
+          "GPU/ShadowDepths": 1.4709,
+          "GPU/LumenIrradianceFieldGather": 1.5359500000000001,
+          "GPU/ScreenSpaceReflections": 0.2326,
+          "GPU/TranslucentLighting": 0.011042,
+          "GPU/Lights": 0.7949999999999999,
+          "GPU/ShadowProjection": 0.9749,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 3.8273,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.8072,
+          "GPU/Unaccounted": 1.8476
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 37.53665830049626,
+        "median_ms": 26.640624000000003,
+        "p95_ms": 30.1155771,
+        "run_fps": [
+          37.438456325588476,
+          37.67832491813065,
+          37.53665830049626
+        ],
+        "run_ms": [
+          26.710503,
+          26.540458,
+          26.640624000000003
+        ],
+        "min_fps": 37.438456325588476,
+        "max_fps": 37.67832491813065,
+        "GPU_ms": 23.754,
+        "Game_ms": 6.8571,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.029875,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.00425,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.03475,
+          "GPU/Prepass": 0.493,
+          "GPU/RenderVelocities": 0.1818,
+          "GPU/HZB": 0.042458,
+          "GPU/BeginOcclusionTests": 0.065208,
+          "GPU/LightGrid": 0.027417,
+          "GPU/LightFunctionAtlasGeneration": 0.002125,
+          "GPU/LumenSceneUpdate": 1.9031,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4504,
+          "GPU/Basepass": 1.6187,
+          "GPU/RenderDeferredLighting": 0.8093,
+          "GPU/ShadowDepths": 1.46725,
+          "GPU/LumenIrradianceFieldGather": 1.5146,
+          "GPU/ScreenSpaceReflections": 0.2211,
+          "GPU/TranslucentLighting": 0.011042,
+          "GPU/Lights": 0.8048,
+          "GPU/ShadowProjection": 0.9784,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 3.8089,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.8048,
+          "GPU/Unaccounted": 1.8865
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix2",
+    "site": "Wald",
+    "configuration": {
+      "quality": "1",
+      "percentage": "100",
+      "extent": [
+        [
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      0.8704999999999998,
+      0.3681254999999979,
+      -1.2554805000000009
+    ],
+    "median_paired_delta_ms": 0.3681254999999979,
+    "state": {
+      "A_V2": {
+        "median_fps": 38.308795400615374,
+        "median_ms": 26.103666,
+        "p95_ms": 29.62141335,
+        "run_fps": [
+          39.15867431597432,
+          38.308795400615374,
+          36.650033720779774
+        ],
+        "run_ms": [
+          25.537126,
+          26.103666,
+          27.2851045
+        ],
+        "min_fps": 36.650033720779774,
+        "max_fps": 39.15867431597432,
+        "GPU_ms": 23.00095,
+        "Game_ms": 6.9561,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.029667,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004167,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.035271,
+          "GPU/Prepass": 0.32995,
+          "GPU/RenderVelocities": 0.17985,
+          "GPU/HZB": 0.042583,
+          "GPU/BeginOcclusionTests": 0.046125,
+          "GPU/LightGrid": 0.025417,
+          "GPU/LightFunctionAtlasGeneration": 0.002083,
+          "GPU/LumenSceneUpdate": 2.0698,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4226,
+          "GPU/Basepass": 1.46895,
+          "GPU/RenderDeferredLighting": 0.7825,
+          "GPU/ShadowDepths": 1.5151,
+          "GPU/LumenIrradianceFieldGather": 1.51705,
+          "GPU/ScreenSpaceReflections": 0.21910000000000002,
+          "GPU/TranslucentLighting": 0.011083,
+          "GPU/Lights": 0.75815,
+          "GPU/ShadowProjection": 0.94,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 3.80055,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 0.0,
+          "GPU/SlateUI": 3.8117,
+          "GPU/Unaccounted": 1.4861499999999999
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 37.86784923415683,
+        "median_ms": 26.407626,
+        "p95_ms": 30.143442,
+        "run_fps": [
+          37.86784923415683,
+          37.77606060398293,
+          38.41776585017133
+        ],
+        "run_ms": [
+          26.407626,
+          26.4717915,
+          26.029624
+        ],
+        "min_fps": 37.77606060398293,
+        "max_fps": 38.41776585017133,
+        "GPU_ms": 23.0629,
+        "Game_ms": 7.4489,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.030083,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004167,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.035667,
+          "GPU/Prepass": 0.3067,
+          "GPU/RenderVelocities": 0.1822,
+          "GPU/HZB": 0.042792,
+          "GPU/BeginOcclusionTests": 0.04675,
+          "GPU/LightGrid": 0.026042,
+          "GPU/LightFunctionAtlasGeneration": 0.002083,
+          "GPU/LumenSceneUpdate": 2.1158,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4312,
+          "GPU/Basepass": 1.4601,
+          "GPU/RenderDeferredLighting": 0.7914,
+          "GPU/ShadowDepths": 1.5412,
+          "GPU/LumenIrradianceFieldGather": 1.5489,
+          "GPU/ScreenSpaceReflections": 0.2338,
+          "GPU/TranslucentLighting": 0.011042,
+          "GPU/Lights": 0.7797,
+          "GPU/ShadowProjection": 0.9865,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 3.8154,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 0.0,
+          "GPU/SlateUI": 3.8015,
+          "GPU/Unaccounted": 1.5842
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix2",
+    "site": "Weg",
+    "configuration": {
+      "quality": "1",
+      "percentage": "100",
+      "extent": [
+        [
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740,
+          1280,
+          740
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      0.04312799999999939,
+      -0.21416349999999795,
+      -0.09108400000000216
+    ],
+    "median_paired_delta_ms": -0.09108400000000216,
+    "state": {
+      "A_V2": {
+        "median_fps": 37.27767200341896,
+        "median_ms": 26.825709500000002,
+        "p95_ms": 30.685999799999998,
+        "run_fps": [
+          37.938967128313074,
+          36.58363973046198,
+          37.27767200341896
+        ],
+        "run_ms": [
+          26.358124,
+          27.334623,
+          26.825709500000002
+        ],
+        "min_fps": 36.58363973046198,
+        "max_fps": 37.938967128313074,
+        "GPU_ms": 23.8206,
+        "Game_ms": 6.8408,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.029833,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.00425,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.1864,
+          "GPU/Prepass": 0.4843,
+          "GPU/RenderVelocities": 0.17635,
+          "GPU/HZB": 0.043167,
+          "GPU/BeginOcclusionTests": 0.023542,
+          "GPU/LightGrid": 0.025292,
+          "GPU/LightFunctionAtlasGeneration": 0.002083,
+          "GPU/LumenSceneUpdate": 2.05255,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.47225,
+          "GPU/Basepass": 1.5064,
+          "GPU/RenderDeferredLighting": 0.9106,
+          "GPU/ShadowDepths": 1.3683,
+          "GPU/LumenIrradianceFieldGather": 1.5505,
+          "GPU/ScreenSpaceReflections": 0.2278,
+          "GPU/TranslucentLighting": 0.011125,
+          "GPU/Lights": 0.7648,
+          "GPU/ShadowProjection": 0.9965,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.0,
+          "GPU/PostProcessing": 3.94835,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.8123,
+          "GPU/Unaccounted": 1.6491
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 37.404675820126975,
+        "median_ms": 26.7346255,
+        "p95_ms": 30.2066981,
+        "run_fps": [
+          37.87699159115636,
+          36.87253160293984,
+          37.404675820126975
+        ],
+        "run_ms": [
+          26.401252,
+          27.120459500000003,
+          26.7346255
+        ],
+        "min_fps": 36.87253160293984,
+        "max_fps": 37.87699159115636,
+        "GPU_ms": 23.78355,
+        "Game_ms": 6.65315,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0300625,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004167,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.1869,
+          "GPU/Prepass": 0.43985,
+          "GPU/RenderVelocities": 0.1691,
+          "GPU/HZB": 0.043083,
+          "GPU/BeginOcclusionTests": 0.0236045,
+          "GPU/LightGrid": 0.025437500000000002,
+          "GPU/LightFunctionAtlasGeneration": 0.002083,
+          "GPU/LumenSceneUpdate": 2.06965,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.47250000000000003,
+          "GPU/Basepass": 1.4485999999999999,
+          "GPU/RenderDeferredLighting": 0.9094500000000001,
+          "GPU/ShadowDepths": 1.3881999999999999,
+          "GPU/LumenIrradianceFieldGather": 1.5738,
+          "GPU/ScreenSpaceReflections": 0.222,
+          "GPU/TranslucentLighting": 0.011292,
+          "GPU/Lights": 0.7832,
+          "GPU/ShadowProjection": 1.0169,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.0,
+          "GPU/PostProcessing": 3.9583,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.8137,
+          "GPU/Unaccounted": 1.5945
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix3",
+    "site": "Dorf",
+    "configuration": {
+      "quality": "1",
+      "percentage": "75",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          1920,
+          1080
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -1.2689559999999958,
+      0.3956499999999963,
+      -1.5094574999999963
+    ],
+    "median_paired_delta_ms": -1.2689559999999958,
+    "state": {
+      "A_V2": {
+        "median_fps": 24.406019119821817,
+        "median_ms": 40.973499,
+        "p95_ms": 46.065860199999996,
+        "run_fps": [
+          24.406019119821817,
+          24.6028957313041,
+          23.833807622132714
+        ],
+        "run_ms": [
+          40.973499,
+          40.645622,
+          41.957207
+        ],
+        "min_fps": 23.833807622132714,
+        "max_fps": 24.6028957313041,
+        "GPU_ms": 38.5215,
+        "Game_ms": 6.38025,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.032771,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004583,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.036667,
+          "GPU/Prepass": 0.8457,
+          "GPU/RenderVelocities": 0.2425,
+          "GPU/HZB": 0.075417,
+          "GPU/BeginOcclusionTests": 0.14695,
+          "GPU/LightGrid": 0.037833,
+          "GPU/LightFunctionAtlasGeneration": 0.002292,
+          "GPU/LumenSceneUpdate": 1.6852,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4704,
+          "GPU/Basepass": 2.3522,
+          "GPU/RenderDeferredLighting": 1.9456,
+          "GPU/ShadowDepths": 1.8479,
+          "GPU/LumenIrradianceFieldGather": 2.6181,
+          "GPU/ScreenSpaceReflections": 0.5661,
+          "GPU/TranslucentLighting": 0.011417,
+          "GPU/Lights": 2.4456,
+          "GPU/ShadowProjection": 2.1463,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 9.7282,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.8872,
+          "GPU/Unaccounted": 1.93065
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 24.723254380320963,
+        "median_ms": 40.4477495,
+        "p95_ms": 44.9524664,
+        "run_fps": [
+          25.186034756778337,
+          24.365716540169615,
+          24.723254380320963
+        ],
+        "run_ms": [
+          39.704543,
+          41.041272,
+          40.4477495
+        ],
+        "min_fps": 24.365716540169615,
+        "max_fps": 25.186034756778337,
+        "GPU_ms": 37.927499999999995,
+        "Game_ms": 6.3299,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.032896,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004542,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0368125,
+          "GPU/Prepass": 0.83405,
+          "GPU/RenderVelocities": 0.2555,
+          "GPU/HZB": 0.075625,
+          "GPU/BeginOcclusionTests": 0.1465,
+          "GPU/LightGrid": 0.037667,
+          "GPU/LightFunctionAtlasGeneration": 0.002375,
+          "GPU/LumenSceneUpdate": 1.5846,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4686,
+          "GPU/Basepass": 2.34,
+          "GPU/RenderDeferredLighting": 1.977,
+          "GPU/ShadowDepths": 1.8528,
+          "GPU/LumenIrradianceFieldGather": 2.63145,
+          "GPU/ScreenSpaceReflections": 0.5727,
+          "GPU/TranslucentLighting": 0.011583,
+          "GPU/Lights": 2.4491,
+          "GPU/ShadowProjection": 2.1615,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 9.64885,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.8798500000000002,
+          "GPU/Unaccounted": 1.9192
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix3",
+    "site": "Wald",
+    "configuration": {
+      "quality": "1",
+      "percentage": "75",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          1920,
+          1080
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      2.366498,
+      -1.0978139999999996,
+      -0.17424950000000194
+    ],
+    "median_paired_delta_ms": -0.17424950000000194,
+    "state": {
+      "A_V2": {
+        "median_fps": 25.012010767570587,
+        "median_ms": 39.980792,
+        "p95_ms": 43.934841399999996,
+        "run_fps": [
+          26.030437989841595,
+          24.653324336842218,
+          25.012010767570587
+        ],
+        "run_ms": [
+          38.4165645,
+          40.562481,
+          39.980792
+        ],
+        "min_fps": 24.653324336842218,
+        "max_fps": 26.030437989841595,
+        "GPU_ms": 37.2197,
+        "Game_ms": 6.614599999999999,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.032104,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004458,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.036958,
+          "GPU/Prepass": 0.54,
+          "GPU/RenderVelocities": 0.2398,
+          "GPU/HZB": 0.076167,
+          "GPU/BeginOcclusionTests": 0.10195,
+          "GPU/LightGrid": 0.035646,
+          "GPU/LightFunctionAtlasGeneration": 0.002333,
+          "GPU/LumenSceneUpdate": 2.15245,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.44889999999999997,
+          "GPU/Basepass": 2.1635,
+          "GPU/RenderDeferredLighting": 1.8045,
+          "GPU/ShadowDepths": 1.8583500000000002,
+          "GPU/LumenIrradianceFieldGather": 2.5766,
+          "GPU/ScreenSpaceReflections": 0.5371,
+          "GPU/TranslucentLighting": 0.011375,
+          "GPU/Lights": 2.34245,
+          "GPU/ShadowProjection": 2.1778500000000003,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 9.5557,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.8649,
+          "GPU/Unaccounted": 1.603
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 25.121498557680564,
+        "median_ms": 39.8065425,
+        "p95_ms": 44.241250199999996,
+        "run_fps": [
+          24.51998301991176,
+          25.33912170093821,
+          25.121498557680564
+        ],
+        "run_ms": [
+          40.7830625,
+          39.464667,
+          39.8065425
+        ],
+        "min_fps": 24.51998301991176,
+        "max_fps": 25.33912170093821,
+        "GPU_ms": 36.9805,
+        "Game_ms": 6.658250000000001,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.032375,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004375,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.036833,
+          "GPU/Prepass": 0.5151,
+          "GPU/RenderVelocities": 0.24035,
+          "GPU/HZB": 0.076417,
+          "GPU/BeginOcclusionTests": 0.1028,
+          "GPU/LightGrid": 0.035708,
+          "GPU/LightFunctionAtlasGeneration": 0.002333,
+          "GPU/LumenSceneUpdate": 2.1413,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.44420000000000004,
+          "GPU/Basepass": 2.1246,
+          "GPU/RenderDeferredLighting": 1.8639000000000001,
+          "GPU/ShadowDepths": 1.86775,
+          "GPU/LumenIrradianceFieldGather": 2.58725,
+          "GPU/ScreenSpaceReflections": 0.53685,
+          "GPU/TranslucentLighting": 0.011333,
+          "GPU/Lights": 2.34035,
+          "GPU/ShadowProjection": 2.187,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 9.618400000000001,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.87305,
+          "GPU/Unaccounted": 1.5758999999999999
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix3",
+    "site": "Weg",
+    "configuration": {
+      "quality": "1",
+      "percentage": "75",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          1920,
+          1080
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      0.8343530000000001,
+      -1.7979385000000008,
+      -1.191582000000004
+    ],
+    "median_paired_delta_ms": -1.191582000000004,
+    "state": {
+      "A_V2": {
+        "median_fps": 24.492395711195368,
+        "median_ms": 40.828999,
+        "p95_ms": 45.2153661,
+        "run_fps": [
+          25.040847256065277,
+          24.433212686608506,
+          24.492395711195368
+        ],
+        "run_ms": [
+          39.934751,
+          40.9278965,
+          40.828999
+        ],
+        "min_fps": 24.433212686608506,
+        "max_fps": 25.040847256065277,
+        "GPU_ms": 38.194,
+        "Game_ms": 6.3665,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0321875,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004417,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.1915,
+          "GPU/Prepass": 0.7826,
+          "GPU/RenderVelocities": 0.23595,
+          "GPU/HZB": 0.082625,
+          "GPU/BeginOcclusionTests": 0.041458,
+          "GPU/LightGrid": 0.035583,
+          "GPU/LightFunctionAtlasGeneration": 0.002333,
+          "GPU/LumenSceneUpdate": 1.8206,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4917,
+          "GPU/Basepass": 2.2216,
+          "GPU/RenderDeferredLighting": 1.9861,
+          "GPU/ShadowDepths": 1.6463,
+          "GPU/LumenIrradianceFieldGather": 2.5986000000000002,
+          "GPU/ScreenSpaceReflections": 0.52205,
+          "GPU/TranslucentLighting": 0.011458,
+          "GPU/Lights": 2.3395,
+          "GPU/ShadowProjection": 2.2426,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.0109585,
+          "GPU/PostProcessing": 9.7055,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.8694,
+          "GPU/Unaccounted": 1.7425
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 25.228687328440195,
+        "median_ms": 39.637417,
+        "p95_ms": 44.290686449999995,
+        "run_fps": [
+          24.528378156164532,
+          25.55586693959651,
+          25.228687328440195
+        ],
+        "run_ms": [
+          40.769104,
+          39.129958,
+          39.637417
+        ],
+        "min_fps": 24.528378156164532,
+        "max_fps": 25.55586693959651,
+        "GPU_ms": 37.0064,
+        "Game_ms": 6.2948,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.032125,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004333,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.19035000000000002,
+          "GPU/Prepass": 0.7228,
+          "GPU/RenderVelocities": 0.23609999999999998,
+          "GPU/HZB": 0.081125,
+          "GPU/BeginOcclusionTests": 0.04125,
+          "GPU/LightGrid": 0.035458,
+          "GPU/LightFunctionAtlasGeneration": 0.002292,
+          "GPU/LumenSceneUpdate": 1.9807000000000001,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.49024999999999996,
+          "GPU/Basepass": 2.12305,
+          "GPU/RenderDeferredLighting": 1.9766,
+          "GPU/ShadowDepths": 1.63705,
+          "GPU/LumenIrradianceFieldGather": 2.5639,
+          "GPU/ScreenSpaceReflections": 0.51285,
+          "GPU/TranslucentLighting": 0.011208,
+          "GPU/Lights": 2.29345,
+          "GPU/ShadowProjection": 2.2365500000000003,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.0121665,
+          "GPU/PostProcessing": 9.5895,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.859,
+          "GPU/Unaccounted": 1.6975
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix4",
+    "site": "Dorf",
+    "configuration": {
+      "quality": "1",
+      "percentage": "100",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      0.5846429999999998,
+      0.24366799999999955,
+      0.7399214999999941
+    ],
+    "median_paired_delta_ms": 0.5846429999999998,
+    "state": {
+      "A_V2": {
+        "median_fps": 18.25629556942527,
+        "median_ms": 54.775625,
+        "p95_ms": 60.563501,
+        "run_fps": [
+          18.18068172393151,
+          18.25629556942527,
+          18.276538836594124
+        ],
+        "run_ms": [
+          55.003438,
+          54.775625,
+          54.714955
+        ],
+        "min_fps": 18.18068172393151,
+        "max_fps": 18.276538836594124,
+        "GPU_ms": 52.0195,
+        "Game_ms": 7.1747,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0269375,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004708,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.037146,
+          "GPU/Prepass": 1.3065,
+          "GPU/RenderVelocities": 0.4753,
+          "GPU/HZB": 0.14095,
+          "GPU/BeginOcclusionTests": 0.2512,
+          "GPU/LightGrid": 0.050583,
+          "GPU/LightFunctionAtlasGeneration": 0.002333,
+          "GPU/LumenSceneUpdate": 0.9202,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4741,
+          "GPU/Basepass": 3.1112,
+          "GPU/RenderDeferredLighting": 3.4115,
+          "GPU/ShadowDepths": 2.2371,
+          "GPU/LumenIrradianceFieldGather": 3.9904,
+          "GPU/ScreenSpaceReflections": 0.9745,
+          "GPU/TranslucentLighting": 0.012167,
+          "GPU/Lights": 3.6095,
+          "GPU/ShadowProjection": 3.9496,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 14.9002,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 0.0,
+          "GPU/SlateUI": 3.8646,
+          "GPU/Unaccounted": 2.5283
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 18.032679236063217,
+        "median_ms": 55.4548765,
+        "p95_ms": 62.709841749999995,
+        "run_fps": [
+          17.98946792208927,
+          18.175442567028263,
+          18.032679236063217
+        ],
+        "run_ms": [
+          55.588081,
+          55.019293,
+          55.4548765
+        ],
+        "min_fps": 17.98946792208927,
+        "max_fps": 18.175442567028263,
+        "GPU_ms": 52.6273,
+        "Game_ms": 7.2766,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.026854,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004708,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.037333,
+          "GPU/Prepass": 1.2861,
+          "GPU/RenderVelocities": 0.4784,
+          "GPU/HZB": 0.1413,
+          "GPU/BeginOcclusionTests": 0.253,
+          "GPU/LightGrid": 0.050708,
+          "GPU/LightFunctionAtlasGeneration": 0.002333,
+          "GPU/LumenSceneUpdate": 0.9368,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.478,
+          "GPU/Basepass": 3.1189,
+          "GPU/RenderDeferredLighting": 3.1349,
+          "GPU/ShadowDepths": 2.2741,
+          "GPU/LumenIrradianceFieldGather": 4.05735,
+          "GPU/ScreenSpaceReflections": 0.9758,
+          "GPU/TranslucentLighting": 0.012167,
+          "GPU/Lights": 3.6168,
+          "GPU/ShadowProjection": 3.9664,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 14.956,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.8724,
+          "GPU/Unaccounted": 2.5641
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix4",
+    "site": "Wald",
+    "configuration": {
+      "quality": "1",
+      "percentage": "100",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.636417999999999,
+      -1.4194804999999917,
+      -5.027707999999997
+    ],
+    "median_paired_delta_ms": -1.4194804999999917,
+    "state": {
+      "A_V2": {
+        "median_fps": 18.403721895101178,
+        "median_ms": 54.336835,
+        "p95_ms": 63.071101399999996,
+        "run_fps": [
+          18.403721895101178,
+          18.434552545479885,
+          17.201674878918272
+        ],
+        "run_ms": [
+          54.336835,
+          54.24596,
+          58.133874
+        ],
+        "min_fps": 17.201674878918272,
+        "max_fps": 18.434552545479885,
+        "GPU_ms": 51.3403,
+        "Game_ms": 7.6598500000000005,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.0268125,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004625,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.037833,
+          "GPU/Prepass": 0.8266,
+          "GPU/RenderVelocities": 0.4784,
+          "GPU/HZB": 0.1442,
+          "GPU/BeginOcclusionTests": 0.1737,
+          "GPU/LightGrid": 0.049875,
+          "GPU/LightFunctionAtlasGeneration": 0.002292,
+          "GPU/LumenSceneUpdate": 1.43105,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.45325,
+          "GPU/Basepass": 2.9734499999999997,
+          "GPU/RenderDeferredLighting": 3.3662,
+          "GPU/ShadowDepths": 2.448,
+          "GPU/LumenIrradianceFieldGather": 4.0622,
+          "GPU/ScreenSpaceReflections": 0.98515,
+          "GPU/TranslucentLighting": 0.012042,
+          "GPU/Lights": 3.6861,
+          "GPU/ShadowProjection": 3.98435,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 15.02815,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.86475,
+          "GPU/Unaccounted": 2.1737
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 18.830205140397442,
+        "median_ms": 53.106166,
+        "p95_ms": 60.509417,
+        "run_fps": [
+          18.62182932396968,
+          18.929900486743584,
+          18.830205140397442
+        ],
+        "run_ms": [
+          53.700417,
+          52.826479500000005,
+          53.106166
+        ],
+        "min_fps": 18.62182932396968,
+        "max_fps": 18.929900486743584,
+        "GPU_ms": 50.6936,
+        "Game_ms": 7.6891,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.026729,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004625,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.037708,
+          "GPU/Prepass": 0.8055,
+          "GPU/RenderVelocities": 0.48,
+          "GPU/HZB": 0.1421,
+          "GPU/BeginOcclusionTests": 0.1805,
+          "GPU/LightGrid": 0.04975,
+          "GPU/LightFunctionAtlasGeneration": 0.002292,
+          "GPU/LumenSceneUpdate": 1.4985,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.4484,
+          "GPU/Basepass": 2.8973,
+          "GPU/RenderDeferredLighting": 3.212,
+          "GPU/ShadowDepths": 2.4105,
+          "GPU/LumenIrradianceFieldGather": 3.9805,
+          "GPU/ScreenSpaceReflections": 0.9701,
+          "GPU/TranslucentLighting": 0.01175,
+          "GPU/Lights": 3.5099,
+          "GPU/ShadowProjection": 3.96585,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 14.7009,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.857,
+          "GPU/Unaccounted": 2.1752000000000002
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix4",
+    "site": "Weg",
+    "configuration": {
+      "quality": "1",
+      "percentage": "100",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -3.558669000000002,
+      0.7296635000000009,
+      5.318794000000004
+    ],
+    "median_paired_delta_ms": 0.7296635000000009,
+    "state": {
+      "A_V2": {
+        "median_fps": 18.23165158380363,
+        "median_ms": 54.849666,
+        "p95_ms": 62.6946748,
+        "run_fps": [
+          16.894709198804232,
+          18.336286896585918,
+          18.23165158380363
+        ],
+        "run_ms": [
+          59.190128,
+          54.5366685,
+          54.849666
+        ],
+        "min_fps": 16.894709198804232,
+        "max_fps": 18.336286896585918,
+        "GPU_ms": 51.8791,
+        "Game_ms": 7.3424,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.02675,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004687500000000001,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.19119999999999998,
+          "GPU/Prepass": 1.158,
+          "GPU/RenderVelocities": 0.4726,
+          "GPU/HZB": 0.1607,
+          "GPU/BeginOcclusionTests": 0.0731665,
+          "GPU/LightGrid": 0.049667,
+          "GPU/LightFunctionAtlasGeneration": 0.002292,
+          "GPU/LumenSceneUpdate": 1.0596,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.5105500000000001,
+          "GPU/Basepass": 2.99575,
+          "GPU/RenderDeferredLighting": 3.34,
+          "GPU/ShadowDepths": 2.1552,
+          "GPU/LumenIrradianceFieldGather": 4.02545,
+          "GPU/ScreenSpaceReflections": 0.9641,
+          "GPU/TranslucentLighting": 0.012125,
+          "GPU/Lights": 3.5115,
+          "GPU/ShadowProjection": 4.0804,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.1684,
+          "GPU/PostProcessing": 15.19285,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.8508,
+          "GPU/Unaccounted": 2.3307
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 17.97544083824945,
+        "median_ms": 55.631459,
+        "p95_ms": 63.95507549999999,
+        "run_fps": [
+          17.97544083824945,
+          18.094198833387388,
+          16.62000323757663
+        ],
+        "run_ms": [
+          55.631459,
+          55.266332,
+          60.16846
+        ],
+        "min_fps": 16.62000323757663,
+        "max_fps": 18.094198833387388,
+        "GPU_ms": 52.7538,
+        "Game_ms": 7.1767,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.027042,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004708,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.191,
+          "GPU/Prepass": 1.0992,
+          "GPU/RenderVelocities": 0.4785,
+          "GPU/HZB": 0.1597,
+          "GPU/BeginOcclusionTests": 0.066917,
+          "GPU/LightGrid": 0.049458,
+          "GPU/LightFunctionAtlasGeneration": 0.002292,
+          "GPU/LumenSceneUpdate": 1.0998,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.5134,
+          "GPU/Basepass": 2.9482,
+          "GPU/RenderDeferredLighting": 3.2018,
+          "GPU/ShadowDepths": 2.1862,
+          "GPU/LumenIrradianceFieldGather": 4.0947,
+          "GPU/ScreenSpaceReflections": 0.9697,
+          "GPU/TranslucentLighting": 0.012,
+          "GPU/Lights": 3.5196,
+          "GPU/ShadowProjection": 4.0924,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.1687,
+          "GPU/PostProcessing": 15.1812,
+          "GPU/TemporalSuperResolution": null,
+          "GPU/VirtualTextureUpdate": 0.0,
+          "GPU/SlateUI": 3.862,
+          "GPU/Unaccounted": 2.3372
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix5",
+    "site": "Dorf",
+    "configuration": {
+      "quality": "2",
+      "percentage": "75",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          1920,
+          1080
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.5550420000000003,
+      0.049354499999999746,
+      -0.7367524999999944
+    ],
+    "median_paired_delta_ms": -0.5550420000000003,
+    "state": {
+      "A_V2": {
+        "median_fps": 22.469112834042683,
+        "median_ms": 44.50554,
+        "p95_ms": 49.34391165,
+        "run_fps": [
+          22.469112834042683,
+          23.060470850077444,
+          22.36859159842634
+        ],
+        "run_ms": [
+          44.50554,
+          43.364249,
+          44.705541499999995
+        ],
+        "min_fps": 22.36859159842634,
+        "max_fps": 23.060470850077444,
+        "GPU_ms": 41.4129,
+        "Game_ms": 6.41285,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.026875,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004542,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.035875,
+          "GPU/Prepass": 0.9182,
+          "GPU/RenderVelocities": 0.43085,
+          "GPU/HZB": 0.1173,
+          "GPU/BeginOcclusionTests": 0.1491,
+          "GPU/LightGrid": 0.025792,
+          "GPU/LightFunctionAtlasGeneration": 0.002292,
+          "GPU/LumenSceneUpdate": 0.7252000000000001,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.81075,
+          "GPU/Basepass": 2.5504,
+          "GPU/RenderDeferredLighting": 2.1979,
+          "GPU/ShadowDepths": 1.82125,
+          "GPU/LumenIrradianceFieldGather": 2.9864,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.034625,
+          "GPU/Lights": 2.25805,
+          "GPU/ShadowProjection": 2.6134,
+          "GPU/DistanceFieldShadows": 0.37655,
+          "GPU/TemporalSuperResolution": 0.153,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 11.4988,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.86425,
+          "GPU/Unaccounted": 2.3539
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 22.752870741077835,
+        "median_ms": 43.950498,
+        "p95_ms": 49.1729605,
+        "run_fps": [
+          22.752870741077835,
+          23.034254689316448,
+          22.743405555245108
+        ],
+        "run_ms": [
+          43.950498,
+          43.4136035,
+          43.968789
+        ],
+        "min_fps": 22.743405555245108,
+        "max_fps": 23.034254689316448,
+        "GPU_ms": 41.2883,
+        "Game_ms": 6.450850000000001,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.026667,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004583,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.035729,
+          "GPU/Prepass": 0.9063,
+          "GPU/RenderVelocities": 0.4307,
+          "GPU/HZB": 0.1173,
+          "GPU/BeginOcclusionTests": 0.1461,
+          "GPU/LightGrid": 0.025792,
+          "GPU/LightFunctionAtlasGeneration": 0.002292,
+          "GPU/LumenSceneUpdate": 0.833,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.8052,
+          "GPU/Basepass": 2.53845,
+          "GPU/RenderDeferredLighting": 2.2193,
+          "GPU/ShadowDepths": 1.82835,
+          "GPU/LumenIrradianceFieldGather": 2.9984,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.034583,
+          "GPU/Lights": 2.25015,
+          "GPU/ShadowProjection": 2.6194,
+          "GPU/DistanceFieldShadows": 0.3667,
+          "GPU/TemporalSuperResolution": 0.153,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 11.53605,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.8589,
+          "GPU/Unaccounted": 2.3556
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix5",
+    "site": "Wald",
+    "configuration": {
+      "quality": "2",
+      "percentage": "75",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          1920,
+          1080
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.5072285000000036,
+      -0.31229099999999477,
+      -2.280687999999998
+    ],
+    "median_paired_delta_ms": -0.5072285000000036,
+    "state": {
+      "A_V2": {
+        "median_fps": 22.436868261928,
+        "median_ms": 44.5695,
+        "p95_ms": 50.64575,
+        "run_fps": [
+          23.131437826118574,
+          22.436868261928,
+          22.18266289358796
+        ],
+        "run_ms": [
+          43.231208,
+          44.5695,
+          45.0802505
+        ],
+        "min_fps": 22.18266289358796,
+        "max_fps": 23.131437826118574,
+        "GPU_ms": 41.657,
+        "Game_ms": 6.81415,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.026729,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004583,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0364165,
+          "GPU/Prepass": 0.59155,
+          "GPU/RenderVelocities": 0.43805000000000005,
+          "GPU/HZB": 0.12035,
+          "GPU/BeginOcclusionTests": 0.1017,
+          "GPU/LightGrid": 0.0239375,
+          "GPU/LightFunctionAtlasGeneration": 0.0023125000000000003,
+          "GPU/LumenSceneUpdate": 1.2088999999999999,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.8241499999999999,
+          "GPU/Basepass": 2.2142,
+          "GPU/RenderDeferredLighting": 2.2457,
+          "GPU/ShadowDepths": 1.9023,
+          "GPU/LumenIrradianceFieldGather": 3.00525,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.035,
+          "GPU/Lights": 2.2922,
+          "GPU/ShadowProjection": 2.6869,
+          "GPU/DistanceFieldShadows": 0.3809,
+          "GPU/TemporalSuperResolution": 0.15295,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 11.7571,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.87515,
+          "GPU/Unaccounted": 2.0490000000000004
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 23.364724814652018,
+        "median_ms": 42.7995625,
+        "p95_ms": 48.0696318,
+        "run_fps": [
+          23.40605935362365,
+          22.595188955543943,
+          23.364724814652018
+        ],
+        "run_ms": [
+          42.7239795,
+          44.257209,
+          42.7995625
+        ],
+        "min_fps": 22.595188955543943,
+        "max_fps": 23.40605935362365,
+        "GPU_ms": 40.379099999999994,
+        "Game_ms": 6.9134,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.026479,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004458,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.036146,
+          "GPU/Prepass": 0.56335,
+          "GPU/RenderVelocities": 0.4384,
+          "GPU/HZB": 0.1184,
+          "GPU/BeginOcclusionTests": 0.1023,
+          "GPU/LightGrid": 0.023833,
+          "GPU/LightFunctionAtlasGeneration": 0.00225,
+          "GPU/LumenSceneUpdate": 1.22885,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.8103,
+          "GPU/Basepass": 2.1918,
+          "GPU/RenderDeferredLighting": 2.15225,
+          "GPU/ShadowDepths": 1.89135,
+          "GPU/LumenIrradianceFieldGather": 2.98895,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.034458,
+          "GPU/Lights": 2.2151,
+          "GPU/ShadowProjection": 2.6707,
+          "GPU/DistanceFieldShadows": 0.3714,
+          "GPU/TemporalSuperResolution": 0.152,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 11.46855,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.84875,
+          "GPU/Unaccounted": 1.9983
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix5",
+    "site": "Weg",
+    "configuration": {
+      "quality": "2",
+      "percentage": "75",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          1920,
+          1080
+        ]
+      ],
+      "fractions": [
+        [
+          0.75,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.7845445000000026,
+      2.216729000000001,
+      -0.1315400000000011
+    ],
+    "median_paired_delta_ms": -0.1315400000000011,
+    "state": {
+      "A_V2": {
+        "median_fps": 22.457747600653544,
+        "median_ms": 44.528063,
+        "p95_ms": 50.0579063,
+        "run_fps": [
+          21.971522029180797,
+          22.457747600653544,
+          22.894340535045774
+        ],
+        "run_ms": [
+          45.5134605,
+          44.528063,
+          43.678917
+        ],
+        "min_fps": 21.971522029180797,
+        "max_fps": 22.894340535045774,
+        "GPU_ms": 41.620850000000004,
+        "Game_ms": 6.5001,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.026604,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004625,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.1981,
+          "GPU/Prepass": 0.94905,
+          "GPU/RenderVelocities": 0.4325,
+          "GPU/HZB": 0.1281,
+          "GPU/BeginOcclusionTests": 0.042625,
+          "GPU/LightGrid": 0.023917,
+          "GPU/LightFunctionAtlasGeneration": 0.002292,
+          "GPU/LumenSceneUpdate": 1.0609,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.84105,
+          "GPU/Basepass": 2.4855,
+          "GPU/RenderDeferredLighting": 2.2346000000000004,
+          "GPU/ShadowDepths": 1.6687,
+          "GPU/LumenIrradianceFieldGather": 2.98595,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.15575,
+          "GPU/Lights": 2.23595,
+          "GPU/ShadowProjection": 2.76595,
+          "GPU/DistanceFieldShadows": 0.3304,
+          "GPU/TemporalSuperResolution": 0.1503,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.0299165,
+          "GPU/PostProcessing": 11.7745,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.8722000000000003,
+          "GPU/Unaccounted": 2.15425
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 22.356902188284643,
+        "median_ms": 44.728916,
+        "p95_ms": 51.2821254,
+        "run_fps": [
+          22.356902188284643,
+          21.3927575076171,
+          22.96349559699084
+        ],
+        "run_ms": [
+          44.728916,
+          46.744792000000004,
+          43.547377
+        ],
+        "min_fps": 21.3927575076171,
+        "max_fps": 22.96349559699084,
+        "GPU_ms": 42.3118,
+        "Game_ms": 6.5236,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.027,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004542,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.1979,
+          "GPU/Prepass": 0.8815,
+          "GPU/RenderVelocities": 0.4303,
+          "GPU/HZB": 0.1279,
+          "GPU/BeginOcclusionTests": 0.044667,
+          "GPU/LightGrid": 0.023917,
+          "GPU/LightFunctionAtlasGeneration": 0.002333,
+          "GPU/LumenSceneUpdate": 1.3997,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.8358,
+          "GPU/Basepass": 2.4013,
+          "GPU/RenderDeferredLighting": 2.2323,
+          "GPU/ShadowDepths": 1.6678,
+          "GPU/LumenIrradianceFieldGather": 2.9898,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.1546,
+          "GPU/Lights": 2.2146,
+          "GPU/ShadowProjection": 2.7591,
+          "GPU/DistanceFieldShadows": 0.3323,
+          "GPU/TemporalSuperResolution": 0.1515,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.02825,
+          "GPU/PostProcessing": 11.7435,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.87,
+          "GPU/Unaccounted": 2.1592
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix6",
+    "site": "Dorf",
+    "configuration": {
+      "quality": "2",
+      "percentage": "100",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -0.3481224999999952,
+      -0.5094370000000055,
+      3.761205000000004
+    ],
+    "median_paired_delta_ms": -0.3481224999999952,
+    "state": {
+      "A_V2": {
+        "median_fps": 16.574792316609162,
+        "median_ms": 60.332581,
+        "p95_ms": 68.827437,
+        "run_fps": [
+          16.574792316609162,
+          16.202444488723923,
+          17.059921164739503
+        ],
+        "run_ms": [
+          60.332581,
+          61.719082,
+          58.616918
+        ],
+        "min_fps": 16.202444488723923,
+        "max_fps": 17.059921164739503,
+        "GPU_ms": 57.8363,
+        "Game_ms": 7.4317,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.031625,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004583,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.036208,
+          "GPU/Prepass": 1.6915,
+          "GPU/RenderVelocities": 0.07275,
+          "GPU/HZB": 0.198,
+          "GPU/BeginOcclusionTests": 0.2551,
+          "GPU/LightGrid": 0.049333,
+          "GPU/LightFunctionAtlasGeneration": 0.002333,
+          "GPU/LumenSceneUpdate": 0.6691,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.7952,
+          "GPU/Basepass": 3.1737,
+          "GPU/RenderDeferredLighting": 3.8757,
+          "GPU/ShadowDepths": 2.2429,
+          "GPU/LumenIrradianceFieldGather": 4.47315,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.03,
+          "GPU/Lights": 3.6232,
+          "GPU/ShadowProjection": 4.6797,
+          "GPU/DistanceFieldShadows": 0.7125,
+          "GPU/TemporalSuperResolution": 0.2222,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 18.4328,
+          "GPU/VirtualTextureUpdate": 8.3e-05,
+          "GPU/SlateUI": 3.87,
+          "GPU/Unaccounted": 2.5699
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 16.337294555457724,
+        "median_ms": 61.209644999999995,
+        "p95_ms": 69.74279305,
+        "run_fps": [
+          16.670984868522236,
+          16.337294555457724,
+          16.03126147287247
+        ],
+        "run_ms": [
+          59.9844585,
+          61.209644999999995,
+          62.378123
+        ],
+        "min_fps": 16.03126147287247,
+        "max_fps": 16.670984868522236,
+        "GPU_ms": 58.49205,
+        "Game_ms": 7.3668,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.030979,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004708,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.03675,
+          "GPU/Prepass": 1.72505,
+          "GPU/RenderVelocities": 0.072833,
+          "GPU/HZB": 0.19845000000000002,
+          "GPU/BeginOcclusionTests": 0.2525,
+          "GPU/LightGrid": 0.04925,
+          "GPU/LightFunctionAtlasGeneration": 0.0023125000000000003,
+          "GPU/LumenSceneUpdate": 0.631,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.8007500000000001,
+          "GPU/Basepass": 3.19245,
+          "GPU/RenderDeferredLighting": 3.877,
+          "GPU/ShadowDepths": 2.2469,
+          "GPU/LumenIrradianceFieldGather": 4.43685,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.029917,
+          "GPU/Lights": 3.63105,
+          "GPU/ShadowProjection": 4.673,
+          "GPU/DistanceFieldShadows": 0.6819500000000001,
+          "GPU/TemporalSuperResolution": 0.0947335,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 18.519350000000003,
+          "GPU/VirtualTextureUpdate": 8.3e-05,
+          "GPU/SlateUI": 3.85065,
+          "GPU/Unaccounted": 2.6459
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix6",
+    "site": "Wald",
+    "configuration": {
+      "quality": "2",
+      "percentage": "100",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -3.045480999999995,
+      1.4564175000000077,
+      1.2134160000000023
+    ],
+    "median_paired_delta_ms": 1.2134160000000023,
+    "state": {
+      "A_V2": {
+        "median_fps": 16.308857269439503,
+        "median_ms": 61.316374499999995,
+        "p95_ms": 67.60271150000001,
+        "run_fps": [
+          15.901800909166385,
+          16.308857269439503,
+          16.46569327525444
+        ],
+        "run_ms": [
+          62.885959,
+          61.316374499999995,
+          60.732335
+        ],
+        "min_fps": 15.901800909166385,
+        "max_fps": 16.46569327525444,
+        "GPU_ms": 58.5924,
+        "Game_ms": 7.8211,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.031354,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004625,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.0367915,
+          "GPU/Prepass": 1.2823,
+          "GPU/RenderVelocities": 0.074771,
+          "GPU/HZB": 0.1988,
+          "GPU/BeginOcclusionTests": 0.1752,
+          "GPU/LightGrid": 0.0483125,
+          "GPU/LightFunctionAtlasGeneration": 0.0023125000000000003,
+          "GPU/LumenSceneUpdate": 0.7739,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.792,
+          "GPU/Basepass": 3.0412,
+          "GPU/RenderDeferredLighting": 3.8249,
+          "GPU/ShadowDepths": 2.4141,
+          "GPU/LumenIrradianceFieldGather": 4.41475,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.030042,
+          "GPU/Lights": 3.3474500000000003,
+          "GPU/ShadowProjection": 4.70415,
+          "GPU/DistanceFieldShadows": 0.7457,
+          "GPU/TemporalSuperResolution": 0.2271,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 19.28115,
+          "GPU/VirtualTextureUpdate": 8.3e-05,
+          "GPU/SlateUI": 3.84455,
+          "GPU/Unaccounted": 2.238
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 16.14315726029377,
+        "median_ms": 61.945751,
+        "p95_ms": 70.06534194999999,
+        "run_fps": [
+          16.711096458821736,
+          15.930468729190824,
+          16.14315726029377
+        ],
+        "run_ms": [
+          59.840478000000004,
+          62.772792,
+          61.945751
+        ],
+        "min_fps": 15.930468729190824,
+        "max_fps": 16.711096458821736,
+        "GPU_ms": 58.2923,
+        "Game_ms": 7.7815,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.031542,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004583,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.037,
+          "GPU/Prepass": 1.265,
+          "GPU/RenderVelocities": 0.072917,
+          "GPU/HZB": 0.1999,
+          "GPU/BeginOcclusionTests": 0.1813,
+          "GPU/LightGrid": 0.048583,
+          "GPU/LightFunctionAtlasGeneration": 0.002333,
+          "GPU/LumenSceneUpdate": 1.0245,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.7909999999999999,
+          "GPU/Basepass": 2.9811,
+          "GPU/RenderDeferredLighting": 3.9141,
+          "GPU/ShadowDepths": 2.454,
+          "GPU/LumenIrradianceFieldGather": 4.5046,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.030417,
+          "GPU/Lights": 3.3468999999999998,
+          "GPU/ShadowProjection": 4.7021,
+          "GPU/DistanceFieldShadows": 0.73925,
+          "GPU/TemporalSuperResolution": 0.2248,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": null,
+          "GPU/PostProcessing": 18.9294,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.859,
+          "GPU/Unaccounted": 2.2434
+        }
+      }
+    }
+  },
+  {
+    "mode": "PIE",
+    "label": "PIEMatrix6",
+    "site": "Weg",
+    "configuration": {
+      "quality": "2",
+      "percentage": "100",
+      "extent": [
+        [
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440,
+          2560,
+          1440
+        ]
+      ],
+      "fractions": [
+        [
+          1.0,
+          1.0
+        ]
+      ]
+    },
+    "paired_delta_ms": [
+      -5.655583,
+      -1.5910404999999983,
+      2.2949799999999954
+    ],
+    "median_paired_delta_ms": -1.5910404999999983,
+    "state": {
+      "A_V2": {
+        "median_fps": 16.066053070896714,
+        "median_ms": 62.243041,
+        "p95_ms": 71.79535525,
+        "run_fps": [
+          15.422380048005243,
+          16.066053070896714,
+          16.293738034591637
+        ],
+        "run_ms": [
+          64.840835,
+          62.243041,
+          61.373271
+        ],
+        "min_fps": 15.422380048005243,
+        "max_fps": 16.293738034591637,
+        "GPU_ms": 59.3001,
+        "Game_ms": 7.5457,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.031833,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.00475,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.20035,
+          "GPU/Prepass": 1.6335,
+          "GPU/RenderVelocities": 0.074958,
+          "GPU/HZB": 0.219,
+          "GPU/BeginOcclusionTests": 0.067,
+          "GPU/LightGrid": 0.048083,
+          "GPU/LightFunctionAtlasGeneration": 0.002375,
+          "GPU/LumenSceneUpdate": 0.78945,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.8349,
+          "GPU/Basepass": 3.0151,
+          "GPU/RenderDeferredLighting": 3.8592500000000003,
+          "GPU/ShadowDepths": 2.198,
+          "GPU/LumenIrradianceFieldGather": 4.46305,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.1511,
+          "GPU/Lights": 3.36545,
+          "GPU/ShadowProjection": 4.9042,
+          "GPU/DistanceFieldShadows": 0.6648,
+          "GPU/TemporalSuperResolution": 0.471,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.03075,
+          "GPU/PostProcessing": 19.4486,
+          "GPU/VirtualTextureUpdate": 8.3e-05,
+          "GPU/SlateUI": 3.8876999999999997,
+          "GPU/Unaccounted": 2.4003
+        }
+      },
+      "B_TreeMinLOD1": {
+        "median_fps": 16.487502337206504,
+        "median_ms": 60.6520005,
+        "p95_ms": 68.56446915,
+        "run_fps": [
+          16.896101075991027,
+          16.487502337206504,
+          15.70641543145264
+        ],
+        "run_ms": [
+          59.185252,
+          60.6520005,
+          63.668251
+        ],
+        "min_fps": 15.70641543145264,
+        "max_fps": 16.896101075991027,
+        "GPU_ms": 57.9511,
+        "Game_ms": 7.53565,
+        "Render_ms": null,
+        "gpu_stages_ms": {
+          "GPU/RayTracingGeometry": null,
+          "GPU/DistanceFields": 0.031583,
+          "GPU/GlobalDistanceFieldUpdate": null,
+          "GPU/AllocateRendertargets": null,
+          "GPU/VisibilityCommands": null,
+          "GPU/UpdateLumenSceneBuffers": null,
+          "GPU/GPUSceneUpdate": 0.004667,
+          "GPU/FXSystemPreRender": null,
+          "GPU/BuildRenderingCommandsDeferred": 0.19895000000000002,
+          "GPU/Prepass": 1.5729,
+          "GPU/RenderVelocities": 0.072771,
+          "GPU/HZB": 0.2197,
+          "GPU/BeginOcclusionTests": 0.0595,
+          "GPU/LightGrid": 0.048208,
+          "GPU/LightFunctionAtlasGeneration": 0.002375,
+          "GPU/LumenSceneUpdate": 0.8973,
+          "GPU/BuildRenderingCommands": null,
+          "GPU/LumenSceneLighting": 0.8363,
+          "GPU/Basepass": 2.9533,
+          "GPU/RenderDeferredLighting": 3.7053000000000003,
+          "GPU/ShadowDepths": 2.1858,
+          "GPU/LumenIrradianceFieldGather": 4.4033999999999995,
+          "GPU/LumenReflections": null,
+          "GPU/TranslucentLighting": 0.13995000000000002,
+          "GPU/Lights": 3.32485,
+          "GPU/ShadowProjection": 4.8936,
+          "GPU/DistanceFieldShadows": 0.662,
+          "GPU/TemporalSuperResolution": 0.47085,
+          "GPU/PostRenderOpsFX": null,
+          "GPU/FXSystemPostRenderOpaque": null,
+          "GPU/Translucency": 0.022208,
+          "GPU/PostProcessing": 18.793,
+          "GPU/VirtualTextureUpdate": 4.2e-05,
+          "GPU/SlateUI": 3.8634,
+          "GPU/Unaccounted": 2.37655
+        }
+      }
+    }
+  }
+]

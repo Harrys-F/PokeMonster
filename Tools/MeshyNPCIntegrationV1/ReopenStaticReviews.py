@@ -1,0 +1,4 @@
+import bpy,numpy as np,json
+from pathlib import Path
+p=Path(bpy.data.filepath);id=p.parent.parent.name;I=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/IntegrationV1');objs=[o for o in bpy.context.scene.objects if o.type=='MESH'];assert len(objs)==2;obj=next(o for o in objs if '_HP_' not in o.name);m=obj.data;ims=[i for i in bpy.data.images if i.source=='FILE' and i.users];assert len(ims)==3 and all(i.packed_file for i in ims)
+x={'file':str(p),'reopened':True,'meshes':len(objs),'base_mesh_polygons':len(m.polygons),'vertices':len(m.vertices),'evaluation':'Modifier not recomputed during reopen check; source HP retained','packed_images':len(ims),'modifiers':[(v.name,v.type) for v in obj.modifiers],'diagnosis':'Read-only reopen and packed-texture test; no source repairs, no warning suppression.'};(I/(id+'_StaticReopen.json')).write_text(json.dumps(x,indent=2));print('STATIC_REOPEN_OK',id)

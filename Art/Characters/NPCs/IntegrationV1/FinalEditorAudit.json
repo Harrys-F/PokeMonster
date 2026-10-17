@@ -1,0 +1,623 @@
+{
+  "map": "/Game/Maps/Dev_TestMap_VisualV2.Dev_TestMap_VisualV2",
+  "actors": [
+    {
+      "label": "Slice_Wildkreatur_Optional",
+      "name": "PokeMonsterVisibleWildCreatureActor_0",
+      "class": "/Script/PokeMonster.PokeMonsterVisibleWildCreatureActor",
+      "location": [
+        -1040.0,
+        -1450.0,
+        60.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "Dev_Zone_Separat",
+      "name": "PokeMonsterWildEncounterZone_0",
+      "class": "/Script/PokeMonster.PokeMonsterWildEncounterZone",
+      "location": [
+        -2300.0,
+        -1700.0,
+        65.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "Slice_Waldhueterin_Liora",
+      "name": "PokeMonsterTrainerNPC_0",
+      "class": "/Script/PokeMonster.PokeMonsterTrainerNPC",
+      "location": [
+        -750.0,
+        -600.0,
+        65.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "Slice_Wanderer_Hinweis",
+      "name": "PokeMonsterNPC_0",
+      "class": "/Script/PokeMonster.PokeMonsterNPC",
+      "location": [
+        -920.0,
+        -1080.0,
+        65.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "display_name": "Wanderer",
+      "dialogue": "/Game/Data/Dialogues/DA_SliceGuideDialogue.DA_SliceGuideDialogue"
+    },
+    {
+      "label": "Slice_Archivarin_Abzweig",
+      "name": "PokeMonsterNPC_1",
+      "class": "/Script/PokeMonster.PokeMonsterNPC",
+      "location": [
+        -1050.0,
+        -1260.0,
+        65.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "display_name": "Archivarin",
+      "dialogue": "/Game/Data/Dialogues/DA_SliceArchivistDialogue.DA_SliceArchivistDialogue"
+    },
+    {
+      "label": "Slice_Ruhepunkt",
+      "name": "PokeMonsterRestPoint_0",
+      "class": "/Script/PokeMonster.PokeMonsterRestPoint",
+      "location": [
+        -700.0,
+        -1330.0,
+        65.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "display_name": "Ruhepunkt"
+    },
+    {
+      "label": "V2_House_HouseHealer",
+      "name": "PokeMonsterRestPoint_1",
+      "class": "/Script/PokeMonster.PokeMonsterRestPoint",
+      "location": [
+        17230.0,
+        420.0,
+        62.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "display_name": "H\u00fcterin der Ruhest\u00e4tte"
+    },
+    {
+      "label": "NPCVisual_Wanderer_Ranger_V1",
+      "name": "PokeMonsterNPCVisualActor_0",
+      "class": "/Script/PokeMonster.PokeMonsterNPCVisualActor",
+      "location": [
+        -920.0,
+        -1080.0,
+        3.0
+      ],
+      "rotation": [
+        -0.0,
+        0.0,
+        135.0
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "path": "/Game/Characters/NPCs/CrouchedCreature/Materials/MI_CrouchedCreature_V1.MI_CrouchedCreature_V1",
+      "class": "MaterialInstanceConstant",
+      "textures": {
+        "BaseColor": "/Game/Characters/NPCs/CrouchedCreature/Textures/T_CrouchedCreature_BaseColor.T_CrouchedCreature_BaseColor",
+        "Normal": "/Game/Characters/NPCs/CrouchedCreature/Textures/T_CrouchedCreature_Normal.T_CrouchedCreature_Normal",
+        "MetalRough": "/Game/Characters/NPCs/CrouchedCreature/Textures/T_CrouchedCreature_MetalRough.T_CrouchedCreature_MetalRough"
+      }
+    },
+    {
+      "path": "/Game/Characters/NPCs/CrouchedCreature/Meshes/SM_CrouchedCreature_Reference_V1.SM_CrouchedCreature_Reference_V1",
+      "class": "StaticMesh",
+      "lods": 1,
+      "slots": 1
+    },
+    {
+      "path": "/Game/Characters/NPCs/CrouchedCreature/Textures/T_CrouchedCreature_BaseColor.T_CrouchedCreature_BaseColor",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": true
+    },
+    {
+      "path": "/Game/Characters/NPCs/CrouchedCreature/Textures/T_CrouchedCreature_MetalRough.T_CrouchedCreature_MetalRough",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/CrouchedCreature/Textures/T_CrouchedCreature_Normal.T_CrouchedCreature_Normal",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/DarkArmored/Materials/MI_DarkArmored_V1.MI_DarkArmored_V1",
+      "class": "MaterialInstanceConstant",
+      "textures": {
+        "BaseColor": "/Game/Characters/NPCs/DarkArmored/Textures/T_DarkArmored_BaseColor.T_DarkArmored_BaseColor",
+        "Normal": "/Game/Characters/NPCs/DarkArmored/Textures/T_DarkArmored_Normal.T_DarkArmored_Normal",
+        "MetalRough": "/Game/Characters/NPCs/DarkArmored/Textures/T_DarkArmored_MetalRough.T_DarkArmored_MetalRough"
+      }
+    },
+    {
+      "path": "/Game/Characters/NPCs/DarkArmored/Meshes/SM_DarkArmored_Reference_V1.SM_DarkArmored_Reference_V1",
+      "class": "StaticMesh",
+      "lods": 1,
+      "slots": 1
+    },
+    {
+      "path": "/Game/Characters/NPCs/DarkArmored/Textures/T_DarkArmored_BaseColor.T_DarkArmored_BaseColor",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": true
+    },
+    {
+      "path": "/Game/Characters/NPCs/DarkArmored/Textures/T_DarkArmored_MetalRough.T_DarkArmored_MetalRough",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/DarkArmored/Textures/T_DarkArmored_Normal.T_DarkArmored_Normal",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/DwarfWarrior/Animations/A_DwarfWarrior_Idle_V1.A_DwarfWarrior_Idle_V1",
+      "class": "AnimSequence"
+    },
+    {
+      "path": "/Game/Characters/NPCs/DwarfWarrior/Animations/A_DwarfWarrior_Talk_V1.A_DwarfWarrior_Talk_V1",
+      "class": "AnimSequence"
+    },
+    {
+      "path": "/Game/Characters/NPCs/DwarfWarrior/Materials/MI_DwarfWarrior_V1.MI_DwarfWarrior_V1",
+      "class": "MaterialInstanceConstant",
+      "textures": {
+        "BaseColor": "/Game/Characters/NPCs/DwarfWarrior/Textures/T_DwarfWarrior_BaseColor.T_DwarfWarrior_BaseColor",
+        "Normal": "/Game/Characters/NPCs/DwarfWarrior/Textures/T_DwarfWarrior_Normal.T_DwarfWarrior_Normal",
+        "MetalRough": "/Game/Characters/NPCs/DwarfWarrior/Textures/T_DwarfWarrior_MetalRough.T_DwarfWarrior_MetalRough"
+      }
+    },
+    {
+      "path": "/Game/Characters/NPCs/DwarfWarrior/Meshes/SK_DwarfWarrior_NPC_V1.SK_DwarfWarrior_NPC_V1",
+      "class": "SkeletalMesh",
+      "skeleton": "/Game/Characters/NPCs/DwarfWarrior/Meshes/SK_DwarfWarrior_NPC_V1_Skeleton.SK_DwarfWarrior_NPC_V1_Skeleton",
+      "slots": 1,
+      "materials": [
+        "/Game/Characters/NPCs/DwarfWarrior/Materials/MI_DwarfWarrior_V1.MI_DwarfWarrior_V1"
+      ]
+    },
+    {
+      "path": "/Game/Characters/NPCs/DwarfWarrior/Meshes/SK_DwarfWarrior_NPC_V1_Skeleton.SK_DwarfWarrior_NPC_V1_Skeleton",
+      "class": "Skeleton"
+    },
+    {
+      "path": "/Game/Characters/NPCs/DwarfWarrior/Textures/T_DwarfWarrior_BaseColor.T_DwarfWarrior_BaseColor",
+      "class": "Texture2D",
+      "size": [
+        32,
+        32
+      ],
+      "srgb": true
+    },
+    {
+      "path": "/Game/Characters/NPCs/DwarfWarrior/Textures/T_DwarfWarrior_MetalRough.T_DwarfWarrior_MetalRough",
+      "class": "Texture2D",
+      "size": [
+        32,
+        32
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/DwarfWarrior/Textures/T_DwarfWarrior_Normal.T_DwarfWarrior_Normal",
+      "class": "Texture2D",
+      "size": [
+        32,
+        32
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/ElvenArcher/Animations/A_ElvenArcher_Idle_V1.A_ElvenArcher_Idle_V1",
+      "class": "AnimSequence"
+    },
+    {
+      "path": "/Game/Characters/NPCs/ElvenArcher/Animations/A_ElvenArcher_Talk_V1.A_ElvenArcher_Talk_V1",
+      "class": "AnimSequence"
+    },
+    {
+      "path": "/Game/Characters/NPCs/ElvenArcher/Materials/MI_ElvenArcher_V1.MI_ElvenArcher_V1",
+      "class": "MaterialInstanceConstant",
+      "textures": {
+        "BaseColor": "/Game/Characters/NPCs/ElvenArcher/Textures/T_ElvenArcher_BaseColor.T_ElvenArcher_BaseColor",
+        "Normal": "/Game/Characters/NPCs/ElvenArcher/Textures/T_ElvenArcher_Normal.T_ElvenArcher_Normal",
+        "MetalRough": "/Game/Characters/NPCs/ElvenArcher/Textures/T_ElvenArcher_MetalRough.T_ElvenArcher_MetalRough"
+      }
+    },
+    {
+      "path": "/Game/Characters/NPCs/ElvenArcher/Meshes/SK_ElvenArcher_NPC_V1.SK_ElvenArcher_NPC_V1",
+      "class": "SkeletalMesh",
+      "skeleton": "/Game/Characters/NPCs/ElvenArcher/Meshes/SK_ElvenArcher_NPC_V1_Skeleton.SK_ElvenArcher_NPC_V1_Skeleton",
+      "slots": 1,
+      "materials": [
+        "/Game/Characters/NPCs/ElvenArcher/Materials/MI_ElvenArcher_V1.MI_ElvenArcher_V1"
+      ]
+    },
+    {
+      "path": "/Game/Characters/NPCs/ElvenArcher/Meshes/SK_ElvenArcher_NPC_V1_Skeleton.SK_ElvenArcher_NPC_V1_Skeleton",
+      "class": "Skeleton"
+    },
+    {
+      "path": "/Game/Characters/NPCs/ElvenArcher/Textures/T_ElvenArcher_BaseColor.T_ElvenArcher_BaseColor",
+      "class": "Texture2D",
+      "size": [
+        32,
+        32
+      ],
+      "srgb": true
+    },
+    {
+      "path": "/Game/Characters/NPCs/ElvenArcher/Textures/T_ElvenArcher_MetalRough.T_ElvenArcher_MetalRough",
+      "class": "Texture2D",
+      "size": [
+        32,
+        32
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/ElvenArcher/Textures/T_ElvenArcher_Normal.T_ElvenArcher_Normal",
+      "class": "Texture2D",
+      "size": [
+        32,
+        32
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/ElvenScholar/Materials/MI_ElvenScholar_V1.MI_ElvenScholar_V1",
+      "class": "MaterialInstanceConstant",
+      "textures": {
+        "BaseColor": "/Game/Characters/NPCs/ElvenScholar/Textures/T_ElvenScholar_BaseColor.T_ElvenScholar_BaseColor",
+        "Normal": "/Game/Characters/NPCs/ElvenScholar/Textures/T_ElvenScholar_Normal.T_ElvenScholar_Normal",
+        "MetalRough": "/Game/Characters/NPCs/ElvenScholar/Textures/T_ElvenScholar_MetalRough.T_ElvenScholar_MetalRough"
+      }
+    },
+    {
+      "path": "/Game/Characters/NPCs/ElvenScholar/Meshes/SM_ElvenScholar_Reference_V1.SM_ElvenScholar_Reference_V1",
+      "class": "StaticMesh",
+      "lods": 1,
+      "slots": 1
+    },
+    {
+      "path": "/Game/Characters/NPCs/ElvenScholar/Textures/T_ElvenScholar_BaseColor.T_ElvenScholar_BaseColor",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": true
+    },
+    {
+      "path": "/Game/Characters/NPCs/ElvenScholar/Textures/T_ElvenScholar_MetalRough.T_ElvenScholar_MetalRough",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/ElvenScholar/Textures/T_ElvenScholar_Normal.T_ElvenScholar_Normal",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/Ranger/Animations/A_Ranger_Idle_V1.A_Ranger_Idle_V1",
+      "class": "AnimSequence"
+    },
+    {
+      "path": "/Game/Characters/NPCs/Ranger/Animations/A_Ranger_Talk_V1.A_Ranger_Talk_V1",
+      "class": "AnimSequence"
+    },
+    {
+      "path": "/Game/Characters/NPCs/Ranger/Materials/MI_Ranger_V1.MI_Ranger_V1",
+      "class": "MaterialInstanceConstant",
+      "textures": {
+        "BaseColor": "/Game/Characters/NPCs/Ranger/Textures/T_Ranger_BaseColor.T_Ranger_BaseColor",
+        "Normal": "/Game/Characters/NPCs/Ranger/Textures/T_Ranger_Normal.T_Ranger_Normal",
+        "MetalRough": "/Game/Characters/NPCs/Ranger/Textures/T_Ranger_MetalRough.T_Ranger_MetalRough"
+      }
+    },
+    {
+      "path": "/Game/Characters/NPCs/Ranger/Meshes/SK_Ranger_NPC_V1.SK_Ranger_NPC_V1",
+      "class": "SkeletalMesh",
+      "skeleton": "/Game/Characters/NPCs/Ranger/Meshes/SK_Ranger_NPC_V1_Skeleton.SK_Ranger_NPC_V1_Skeleton",
+      "slots": 1,
+      "materials": [
+        "/Game/Characters/NPCs/Ranger/Materials/MI_Ranger_V1.MI_Ranger_V1"
+      ]
+    },
+    {
+      "path": "/Game/Characters/NPCs/Ranger/Meshes/SK_Ranger_NPC_V1_Skeleton.SK_Ranger_NPC_V1_Skeleton",
+      "class": "Skeleton"
+    },
+    {
+      "path": "/Game/Characters/NPCs/Ranger/Textures/T_Ranger_BaseColor.T_Ranger_BaseColor",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": true
+    },
+    {
+      "path": "/Game/Characters/NPCs/Ranger/Textures/T_Ranger_MetalRough.T_Ranger_MetalRough",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/Ranger/Textures/T_Ranger_Normal.T_Ranger_Normal",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/Shared/Materials/M_NPC_MeshyBase_V1.M_NPC_MeshyBase_V1",
+      "class": "Material"
+    },
+    {
+      "path": "/Game/Characters/NPCs/SilverLady/Materials/MI_SilverLady_V1.MI_SilverLady_V1",
+      "class": "MaterialInstanceConstant",
+      "textures": {
+        "BaseColor": "/Game/Characters/NPCs/SilverLady/Textures/T_SilverLady_BaseColor.T_SilverLady_BaseColor",
+        "Normal": "/Game/Characters/NPCs/SilverLady/Textures/T_SilverLady_Normal.T_SilverLady_Normal",
+        "MetalRough": "/Game/Characters/NPCs/SilverLady/Textures/T_SilverLady_MetalRough.T_SilverLady_MetalRough"
+      }
+    },
+    {
+      "path": "/Game/Characters/NPCs/SilverLady/Meshes/SM_SilverLady_Reference_V1.SM_SilverLady_Reference_V1",
+      "class": "StaticMesh",
+      "lods": 1,
+      "slots": 1
+    },
+    {
+      "path": "/Game/Characters/NPCs/SilverLady/Textures/T_SilverLady_BaseColor.T_SilverLady_BaseColor",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": true
+    },
+    {
+      "path": "/Game/Characters/NPCs/SilverLady/Textures/T_SilverLady_MetalRough.T_SilverLady_MetalRough",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/SilverLady/Textures/T_SilverLady_Normal.T_SilverLady_Normal",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/TreeBeing/Materials/MI_TreeBeing_V1.MI_TreeBeing_V1",
+      "class": "MaterialInstanceConstant",
+      "textures": {
+        "BaseColor": "/Game/Characters/NPCs/TreeBeing/Textures/T_TreeBeing_BaseColor.T_TreeBeing_BaseColor",
+        "Normal": "/Game/Characters/NPCs/TreeBeing/Textures/T_TreeBeing_Normal.T_TreeBeing_Normal",
+        "MetalRough": "/Game/Characters/NPCs/TreeBeing/Textures/T_TreeBeing_MetalRough.T_TreeBeing_MetalRough"
+      }
+    },
+    {
+      "path": "/Game/Characters/NPCs/TreeBeing/Meshes/SM_TreeBeing_Reference_V1.SM_TreeBeing_Reference_V1",
+      "class": "StaticMesh",
+      "lods": 1,
+      "slots": 1
+    },
+    {
+      "path": "/Game/Characters/NPCs/TreeBeing/Textures/T_TreeBeing_BaseColor.T_TreeBeing_BaseColor",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": true
+    },
+    {
+      "path": "/Game/Characters/NPCs/TreeBeing/Textures/T_TreeBeing_MetalRough.T_TreeBeing_MetalRough",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/TreeBeing/Textures/T_TreeBeing_Normal.T_TreeBeing_Normal",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/WhiteHairedWarrior/Animations/A_WhiteHairedWarrior_Idle_V1.A_WhiteHairedWarrior_Idle_V1",
+      "class": "AnimSequence"
+    },
+    {
+      "path": "/Game/Characters/NPCs/WhiteHairedWarrior/Animations/A_WhiteHairedWarrior_Talk_V1.A_WhiteHairedWarrior_Talk_V1",
+      "class": "AnimSequence"
+    },
+    {
+      "path": "/Game/Characters/NPCs/WhiteHairedWarrior/Materials/MI_WhiteHairedWarrior_V1.MI_WhiteHairedWarrior_V1",
+      "class": "MaterialInstanceConstant",
+      "textures": {
+        "BaseColor": "/Game/Characters/NPCs/WhiteHairedWarrior/Textures/T_WhiteHairedWarrior_BaseColor.T_WhiteHairedWarrior_BaseColor",
+        "Normal": "/Game/Characters/NPCs/WhiteHairedWarrior/Textures/T_WhiteHairedWarrior_Normal.T_WhiteHairedWarrior_Normal",
+        "MetalRough": "/Game/Characters/NPCs/WhiteHairedWarrior/Textures/T_WhiteHairedWarrior_MetalRough.T_WhiteHairedWarrior_MetalRough"
+      }
+    },
+    {
+      "path": "/Game/Characters/NPCs/WhiteHairedWarrior/Meshes/SK_WhiteHairedWarrior_NPC_V1.SK_WhiteHairedWarrior_NPC_V1",
+      "class": "SkeletalMesh",
+      "skeleton": "/Game/Characters/NPCs/WhiteHairedWarrior/Meshes/SK_WhiteHairedWarrior_NPC_V1_Skeleton.SK_WhiteHairedWarrior_NPC_V1_Skeleton",
+      "slots": 1,
+      "materials": [
+        "/Game/Characters/NPCs/WhiteHairedWarrior/Materials/MI_WhiteHairedWarrior_V1.MI_WhiteHairedWarrior_V1"
+      ]
+    },
+    {
+      "path": "/Game/Characters/NPCs/WhiteHairedWarrior/Meshes/SK_WhiteHairedWarrior_NPC_V1_Skeleton.SK_WhiteHairedWarrior_NPC_V1_Skeleton",
+      "class": "Skeleton"
+    },
+    {
+      "path": "/Game/Characters/NPCs/WhiteHairedWarrior/Textures/T_WhiteHairedWarrior_BaseColor.T_WhiteHairedWarrior_BaseColor",
+      "class": "Texture2D",
+      "size": [
+        32,
+        32
+      ],
+      "srgb": true
+    },
+    {
+      "path": "/Game/Characters/NPCs/WhiteHairedWarrior/Textures/T_WhiteHairedWarrior_MetalRough.T_WhiteHairedWarrior_MetalRough",
+      "class": "Texture2D",
+      "size": [
+        32,
+        32
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/WhiteHairedWarrior/Textures/T_WhiteHairedWarrior_Normal.T_WhiteHairedWarrior_Normal",
+      "class": "Texture2D",
+      "size": [
+        32,
+        32
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/Wizard/Materials/MI_Wizard_V1.MI_Wizard_V1",
+      "class": "MaterialInstanceConstant",
+      "textures": {
+        "BaseColor": "/Game/Characters/NPCs/Wizard/Textures/T_Wizard_BaseColor.T_Wizard_BaseColor",
+        "Normal": "/Game/Characters/NPCs/Wizard/Textures/T_Wizard_Normal.T_Wizard_Normal",
+        "MetalRough": "/Game/Characters/NPCs/Wizard/Textures/T_Wizard_MetalRough.T_Wizard_MetalRough"
+      }
+    },
+    {
+      "path": "/Game/Characters/NPCs/Wizard/Meshes/SM_Wizard_Reference_V1.SM_Wizard_Reference_V1",
+      "class": "StaticMesh",
+      "lods": 1,
+      "slots": 1
+    },
+    {
+      "path": "/Game/Characters/NPCs/Wizard/Textures/T_Wizard_BaseColor.T_Wizard_BaseColor",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": true
+    },
+    {
+      "path": "/Game/Characters/NPCs/Wizard/Textures/T_Wizard_MetalRough.T_Wizard_MetalRough",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": false
+    },
+    {
+      "path": "/Game/Characters/NPCs/Wizard/Textures/T_Wizard_Normal.T_Wizard_Normal",
+      "class": "Texture2D",
+      "size": [
+        2048,
+        2048
+      ],
+      "srgb": false
+    }
+  ],
+  "saved_new_assets": [],
+  "foreign_dirty_content": [],
+  "dirty_maps": [
+    "/Temp/Untitled_10",
+    "/Temp/Untitled_13"
+  ]
+}

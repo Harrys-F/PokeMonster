@@ -1,0 +1,18 @@
+QHD_CandidateReview	PIE	8	1
+Dorf	Control	1	2560	1440	2	100
+Dorf	BloomOff	1	2560	1440	2	100
+Dorf	MotionBlurOff	1	2560	1440	2	100
+Dorf	GIFinalGatherHalf	1	2560	1440	2	100
+Dorf	TreeLOD1	1	2560	1440	2	100
+Wald	Control	1	2560	1440	2	100
+Wald	BloomOff	1	2560	1440	2	100
+Wald	MotionBlurOff	1	2560	1440	2	100
+Wald	GIFinalGatherHalf	1	2560	1440	2	100
+Wald	TreeLOD1	1	2560	1440	2	100
+NPCWald	Control	1	2560	1440	2	100
+NPCWald	BloomOff	1	2560	1440	2	100
+NPCWald	MotionBlurOff	1	2560	1440	2	100
+NPCWald	GIFinalGatherHalf	1	2560	1440	2	100
+NPCWald	TreeLOD1	1	2560	1440	2	100
+Wald	VSMRayCount2	1	2560	1440	2	100
+NPCWald	VSMRayCount2	1	2560	1440	2	100

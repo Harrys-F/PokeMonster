@@ -1,0 +1,39 @@
+{
+  "actual_reimport_all_custom_lods": true,
+  "lod_count": 2,
+  "skeleton_matches_v1": true,
+  "registry_tags": {
+    "Materials": "Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ranger_Ma,'/Game/Characters/NPCs/Ranger/Materials/MI_Ranger_V1.MI_Ranger_V1'>",
+    "Vertices": "31896",
+    "Triangles": "27498",
+    "Skeleton": "/Script/Engine.Skeleton'/Game/Characters/NPCs/Ranger/Meshes/SK_Ranger_NPC_V1_Skeleton.SK_Ranger_NPC_V1_Skeleton'",
+    "AssetImportData": "[{ \"RelativeFilename\" : \"../../../../../Art/Characters/NPCs/Ranger/Exports/V2_Protected/SK_Ranger_NPC_V2_LOD0.fbx\", \"Timestamp\" : \"1792049215\", \"FileMD5\" : \"0aa4394e8f16d19a159e34bee3313a04\", \"DisplayLabelName\" : \"\" }]",
+    "PhysicsAsset": "None",
+    "MorphTargetNames": ";",
+    "MaterialParamNames": ";",
+    "NeverStream": "False",
+    "LODs": "2",
+    "NaniteEnabled": "False",
+    "EstNaniteCompressedSize": "0",
+    "EstTotalCompressedSize": "0",
+    "NaniteTriangles": "0",
+    "NaniteVertices": "0",
+    "PhysicsSize": "0",
+    "Bones": "25",
+    "LODSettings": "/Script/Engine.SkeletalMeshLODSettings'/Game/Characters/NPCs/RangerV2/DA_RangerV2_LODSettings.DA_RangerV2_LODSettings'",
+    "MorphTargets": "0",
+    "ShadowPhysicsAsset": "None",
+    "SkinWeightProfiles": "0",
+    "LastImportContentType": "FBXICT_All",
+    "MaxBoneInfluences": "4"
+  },
+  "screen_sizes": [
+    1.0,
+    0.11999999731779099
+  ],
+  "hysteresis": [
+    0.014999999664723873,
+    0.014999999664723873
+  ],
+  "dirty_content": []
+}

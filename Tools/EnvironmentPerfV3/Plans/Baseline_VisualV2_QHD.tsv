@@ -1,0 +1,4 @@
+Baseline_VisualV2_QHD	PIE	8	1
+Dorf	CV:r.Lumen.ScreenProbeGather.IntegrateDownsampleFactor=1|r.Shadow.Virtual.SMRT.RayCountDirectional=8|r.Lumen.FinalGatherMethod=1|r.Lumen.HardwareRayTracing=1	1	2560	1440	2	100
+Wald	CV:r.Lumen.ScreenProbeGather.IntegrateDownsampleFactor=1|r.Shadow.Virtual.SMRT.RayCountDirectional=8|r.Lumen.FinalGatherMethod=1|r.Lumen.HardwareRayTracing=1	1	2560	1440	2	100
+Weg	CV:r.Lumen.ScreenProbeGather.IntegrateDownsampleFactor=1|r.Shadow.Virtual.SMRT.RayCountDirectional=8|r.Lumen.FinalGatherMethod=1|r.Lumen.HardwareRayTracing=1	1	2560	1440	2	100

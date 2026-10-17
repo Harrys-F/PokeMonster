@@ -1,0 +1,373 @@
+{
+  "rows": [
+    {
+      "request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV1/Screenshots/QHD_FinalComparison/00_Dorf_Control.png",
+      "site": "Dorf",
+      "condition": "Control",
+      "position": [
+        -4100.0,
+        450.0,
+        50.15
+      ],
+      "camera_cm": [
+        -5395.380511365551,
+        1745.3805113654512,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1"
+    },
+    {
+      "request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV1/Screenshots/QHD_FinalComparison/01_Dorf_MapCandidate.png",
+      "site": "Dorf",
+      "condition": "MapCandidate",
+      "position": [
+        -4100.0,
+        450.0,
+        50.15
+      ],
+      "camera_cm": [
+        -5395.380511365551,
+        1745.3805113654512,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1"
+    },
+    {
+      "request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV1/Screenshots/QHD_FinalComparison/02_Wald_Control.png",
+      "site": "Wald",
+      "condition": "Control",
+      "position": [
+        -4300.0,
+        1550.0,
+        50.15
+      ],
+      "camera_cm": [
+        -5595.380511365889,
+        2845.3805113684384,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1"
+    },
+    {
+      "request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV1/Screenshots/QHD_FinalComparison/03_Wald_MapCandidate.png",
+      "site": "Wald",
+      "condition": "MapCandidate",
+      "position": [
+        -4300.0,
+        1550.0,
+        50.15
+      ],
+      "camera_cm": [
+        -5595.380511365889,
+        2845.3805113684384,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1"
+    },
+    {
+      "request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV1/Screenshots/QHD_FinalComparison/04_Clearing_Control.png",
+      "site": "Clearing",
+      "condition": "Control",
+      "position": [
+        -1550.0,
+        650.0,
+        50.15
+      ],
+      "camera_cm": [
+        -2845.3805113673034,
+        1945.3805113662409,
+        2268.3766628890876
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1"
+    },
+    {
+      "request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV1/Screenshots/QHD_FinalComparison/05_Clearing_MapCandidate.png",
+      "site": "Clearing",
+      "condition": "MapCandidate",
+      "position": [
+        -1550.0,
+        650.0,
+        50.15
+      ],
+      "camera_cm": [
+        -2845.3805113673907,
+        1945.3805113662754,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1"
+    },
+    {
+      "request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV1/Screenshots/QHD_FinalComparison/06_Weg_Control.png",
+      "site": "Weg",
+      "condition": "Control",
+      "position": [
+        -36.59999999999991,
+        -47.10000000000002,
+        50.15
+      ],
+      "camera_cm": [
+        -1331.980511364363,
+        1248.2805113648815,
+        2268.3766628890876
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1"
+    },
+    {
+      "request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV1/Screenshots/QHD_FinalComparison/07_Weg_MapCandidate.png",
+      "site": "Weg",
+      "condition": "MapCandidate",
+      "position": [
+        -36.59999999999991,
+        -47.10000000000002,
+        50.15
+      ],
+      "camera_cm": [
+        -1331.980511364363,
+        1248.2805113648815,
+        2268.3766628890876
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1"
+    },
+    {
+      "request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV1/Screenshots/QHD_FinalComparison/08_NPCWald_Control.png",
+      "site": "NPCWald",
+      "condition": "Control",
+      "position": [
+        -835.0,
+        -1080.0,
+        50.15
+      ],
+      "camera_cm": [
+        -2130.3805113659823,
+        215.3805113673095,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1"
+    },
+    {
+      "request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV1/Screenshots/QHD_FinalComparison/09_NPCWald_MapCandidate.png",
+      "site": "NPCWald",
+      "condition": "MapCandidate",
+      "position": [
+        -835.0,
+        -1080.0,
+        50.15
+      ],
+      "camera_cm": [
+        -2130.3805113660082,
+        215.38051136833315,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1"
+    },
+    {
+      "request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV1/Screenshots/QHD_FinalComparison/10_Crown_Control.png",
+      "site": "Crown",
+      "condition": "Control",
+      "position": [
+        -1900.0,
+        530.0,
+        50.15
+      ],
+      "camera_cm": [
+        -3195.3805113681756,
+        1825.3805113662756,
+        2268.3766628890876
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1"
+    },
+    {
+      "request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV1/Screenshots/QHD_FinalComparison/11_Crown_MapCandidate.png",
+      "site": "Crown",
+      "condition": "MapCandidate",
+      "position": [
+        -1900.0,
+        530.0,
+        50.15
+      ],
+      "camera_cm": [
+        -3195.3805113667313,
+        1825.3805113657595,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1"
+    },
+    {
+      "request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV1/Screenshots/QHD_FinalComparison/12_Archiv_Control.png",
+      "site": "Archiv",
+      "condition": "Control",
+      "position": [
+        745.0,
+        680.0,
+        50.15
+      ],
+      "camera_cm": [
+        -550.3805113627552,
+        1975.380511367548,
+        2268.3766628890876
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1"
+    },
+    {
+      "request": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Saved/EnvironmentPerfV1/Screenshots/QHD_FinalComparison/13_Archiv_MapCandidate.png",
+      "site": "Archiv",
+      "condition": "MapCandidate",
+      "position": [
+        745.0,
+        680.0,
+        50.15
+      ],
+      "camera_cm": [
+        -550.3805113640437,
+        1975.3805113665162,
+        2268.376662889087
+      ],
+      "camera_rotation": [
+        4.9480645106139264e-15,
+        -50.0,
+        -45.0
+      ],
+      "fov": 35.0,
+      "viewport": [
+        2560,
+        1440
+      ],
+      "map": "/Game/Maps/UEDPIE_0_Dev_TestMap_EnvironmentPerfV1.Dev_TestMap_EnvironmentPerfV1"
+    }
+  ],
+  "error": null,
+  "synthetic_images": false,
+  "purpose": "Matched actual-game-camera review, not foot locomotion",
+  "quality": 2,
+  "percentage": 100
+}

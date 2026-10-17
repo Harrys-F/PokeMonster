@@ -1,0 +1,25 @@
+VegetationAB	PIE	5	6
+Dorf	Control	1	2560	1440	2	75
+Dorf	VegetationHidden	1	2560	1440	2	75
+Wald	Control	1	2560	1440	2	75
+Wald	VegetationHidden	1	2560	1440	2	75
+Weg	Control	1	2560	1440	2	75
+Weg	VegetationHidden	1	2560	1440	2	75
+Wald	Control	1	2560	1440	2	75
+Wald	AllShadowsOff	1	2560	1440	2	75
+Weg	VegetationHidden	2	2560	1440	2	75
+Weg	Control	2	2560	1440	2	75
+Wald	VegetationHidden	2	2560	1440	2	75
+Wald	Control	2	2560	1440	2	75
+Dorf	VegetationHidden	2	2560	1440	2	75
+Dorf	Control	2	2560	1440	2	75
+Wald	AllShadowsOff	2	2560	1440	2	75
+Wald	Control	2	2560	1440	2	75
+Dorf	Control	3	2560	1440	2	75
+Dorf	VegetationHidden	3	2560	1440	2	75
+Wald	Control	3	2560	1440	2	75
+Wald	VegetationHidden	3	2560	1440	2	75
+Weg	Control	3	2560	1440	2	75
+Weg	VegetationHidden	3	2560	1440	2	75
+Wald	Control	3	2560	1440	2	75
+Wald	AllShadowsOff	3	2560	1440	2	75

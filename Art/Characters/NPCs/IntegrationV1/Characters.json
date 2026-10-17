@@ -1,0 +1,72 @@
+[
+  {
+    "input_stem": "Aragorn_V1",
+    "id": "Ranger",
+    "review_height_m": 1.8,
+    "identity_status": "Provisional technical ID from filename; appearance must be visually checked",
+    "height_note": "Provisional total visible silhouette height including hat/equipment; not a claim about anatomical body stature"
+  },
+  {
+    "input_stem": "Arwen_V1",
+    "id": "SilverLady",
+    "review_height_m": 1.9,
+    "identity_status": "Provisional technical ID from filename; appearance must be visually checked",
+    "height_note": "Provisional total visible silhouette height including hat/equipment; not a claim about anatomical body stature"
+  },
+  {
+    "input_stem": "Baumbart_V1",
+    "id": "TreeBeing",
+    "review_height_m": 3.8,
+    "identity_status": "Provisional technical ID from filename; appearance must be visually checked",
+    "height_note": "Provisional total visible silhouette height including hat/equipment; not a claim about anatomical body stature"
+  },
+  {
+    "input_stem": "Elrond_V1",
+    "id": "ElvenScholar",
+    "review_height_m": 1.95,
+    "identity_status": "Provisional technical ID from filename; appearance must be visually checked",
+    "height_note": "Provisional total visible silhouette height including hat/equipment; not a claim about anatomical body stature"
+  },
+  {
+    "input_stem": "Gandalf_V1",
+    "id": "Wizard",
+    "review_height_m": 2.05,
+    "identity_status": "Provisional technical ID from filename; appearance must be visually checked",
+    "height_note": "Provisional total visible silhouette height including hat/equipment; not a claim about anatomical body stature"
+  },
+  {
+    "input_stem": "Geralt_V1",
+    "id": "WhiteHairedWarrior",
+    "review_height_m": 1.85,
+    "identity_status": "Provisional technical ID from filename; appearance must be visually checked",
+    "height_note": "Provisional total visible silhouette height including hat/equipment; not a claim about anatomical body stature"
+  },
+  {
+    "input_stem": "Gimli_V1",
+    "id": "DwarfWarrior",
+    "review_height_m": 1.32,
+    "identity_status": "Provisional technical ID from filename; appearance must be visually checked",
+    "height_note": "Provisional total visible silhouette height including hat/equipment; not a claim about anatomical body stature"
+  },
+  {
+    "input_stem": "Gollum_V1",
+    "id": "CrouchedCreature",
+    "review_height_m": 1.1,
+    "identity_status": "Provisional technical ID from filename; appearance must be visually checked",
+    "height_note": "Provisional total visible silhouette height including hat/equipment; not a claim about anatomical body stature"
+  },
+  {
+    "input_stem": "Legolas_V1",
+    "id": "ElvenArcher",
+    "review_height_m": 1.95,
+    "identity_status": "Provisional technical ID from filename; appearance must be visually checked",
+    "height_note": "Provisional total visible silhouette height including hat/equipment; not a claim about anatomical body stature"
+  },
+  {
+    "input_stem": "Sauron_V1",
+    "id": "DarkArmored",
+    "review_height_m": 2.25,
+    "identity_status": "Provisional technical ID from filename; appearance must be visually checked",
+    "height_note": "Provisional total visible silhouette height including hat/equipment; not a claim about anatomical body stature"
+  }
+]

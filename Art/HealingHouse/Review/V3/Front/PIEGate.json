@@ -1,0 +1,35 @@
+{
+  "phase1_passed": true,
+  "input": "Normal Slate WASD, PlayerStart, no teleports",
+  "door_cm": [
+    150,
+    215
+  ],
+  "trigger_cm": [
+    40,
+    150,
+    215
+  ],
+  "straight_entry": true,
+  "diagonal_entry_exit": true,
+  "no_premature_fade": true,
+  "front_axis_blender_y_m": 0,
+  "camera": {
+    "targetArmLength": 2500,
+    "relativeRotation": {
+      "pitch": -54.999999991973006,
+      "yaw": -44.999999993070944,
+      "roll": 0
+    },
+    "bEnableCameraLag": true,
+    "cameraLagSpeed": 6,
+    "cameraLagMaxDistance": 180,
+    "bDoCollisionTest": false
+  },
+  "follow_camera": {
+    "fieldOfView": 35
+  },
+  "movement": {
+    "maxWalkSpeed": 210
+  }
+}

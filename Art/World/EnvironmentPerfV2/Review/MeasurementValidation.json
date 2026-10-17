@@ -1,0 +1,727 @@
+{
+  "SustainedQHD": {
+    "segments": 9,
+    "extents": [
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ]
+    ],
+    "fractions": [
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        2560.0,
+        1440.0,
+        1.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "StandalonePair6": {
+    "segments": 18,
+    "extents": [
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ]
+    ],
+    "fractions": [
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        991.0,
+        558.0,
+        1.0
+      ],
+      [
+        2560.0,
+        1440.0,
+        1.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "FinalExteriorQHD": {
+    "segments": 6,
+    "extents": [
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ]
+    ],
+    "fractions": [
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        2940.0,
+        1696.0,
+        2.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      0.0,
+      0.0
+    ]
+  },
+  "GPUCaptureVerified": {
+    "segments": 1,
+    "extents": [
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ]
+    ],
+    "fractions": [
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        2940.0,
+        1696.0,
+        2.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "RepairNativeHighDorf": {
+    "segments": 6,
+    "extents": [
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ]
+    ],
+    "fractions": [
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        2560.0,
+        1440.0,
+        1.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "StandalonePair3": {
+    "segments": 18,
+    "extents": [
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ]
+    ],
+    "fractions": [
+      [
+        0.75,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        2560.0,
+        1440.0,
+        1.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "FinalPairedPIE": {
+    "segments": 108,
+    "extents": [
+      [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        960,
+        555
+      ],
+      [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740
+      ],
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ],
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ]
+    ],
+    "fractions": [
+      [
+        0.75,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        2940.0,
+        1696.0,
+        2.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "StandalonePair4": {
+    "segments": 18,
+    "extents": [
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ]
+    ],
+    "fractions": [
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        2560.0,
+        1440.0,
+        1.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "FactorsQHD": {
+    "segments": 78,
+    "extents": [
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ]
+    ],
+    "fractions": [
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        2940.0,
+        1696.0,
+        2.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "LightingCandidatesQHD": {
+    "segments": 16,
+    "extents": [
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ]
+    ],
+    "fractions": [
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        2940.0,
+        1696.0,
+        2.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "GPUCapture": {
+    "segments": 1,
+    "extents": [
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ]
+    ],
+    "fractions": [
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        2940.0,
+        1696.0,
+        2.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "StandalonePair1": {
+    "segments": 18,
+    "extents": [
+      [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        960,
+        555
+      ]
+    ],
+    "fractions": [
+      [
+        0.75,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        1280.0,
+        740.0,
+        1.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "RepairNative2": {
+    "segments": 18,
+    "extents": [
+      [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740
+      ]
+    ],
+    "fractions": [
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        1280.0,
+        740.0,
+        1.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "PacingWindowed": {
+    "segments": 3,
+    "extents": [
+      [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        960,
+        555
+      ]
+    ],
+    "fractions": [
+      [
+        0.75,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        993.0,
+        574.0,
+        1.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "PacingFullscreen": {
+    "segments": 3,
+    "extents": [
+      [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        960,
+        555
+      ]
+    ],
+    "fractions": [
+      [
+        0.75,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        1470.0,
+        956.0,
+        1.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "StandalonePair2": {
+    "segments": 18,
+    "extents": [
+      [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740
+      ]
+    ],
+    "fractions": [
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        1280.0,
+        740.0,
+        1.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "RepairNative1": {
+    "segments": 18,
+    "extents": [
+      [
+        1280,
+        740,
+        1280,
+        740,
+        1280,
+        740,
+        960,
+        555
+      ]
+    ],
+    "fractions": [
+      [
+        0.75,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        1280.0,
+        740.0,
+        1.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "GPUCaptureFinal": {
+    "segments": 1,
+    "extents": [
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ]
+    ],
+    "fractions": [
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        2940.0,
+        1696.0,
+        2.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      0.0,
+      0.0
+    ]
+  },
+  "RepairPIEQHD": {
+    "segments": 72,
+    "extents": [
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ],
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ]
+    ],
+    "fractions": [
+      [
+        0.75,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        2940.0,
+        1696.0,
+        2.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "StandalonePair5": {
+    "segments": 18,
+    "extents": [
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        1920,
+        1080
+      ]
+    ],
+    "fractions": [
+      [
+        0.75,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        2560.0,
+        1440.0,
+        1.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  },
+  "FactorsFollowup": {
+    "segments": 30,
+    "extents": [
+      [
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440,
+        2560,
+        1440
+      ]
+    ],
+    "fractions": [
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "windows": [
+      [
+        2940.0,
+        1696.0,
+        2.0
+      ]
+    ],
+    "active_window_fraction_range": [
+      1.0,
+      1.0
+    ]
+  }
+}

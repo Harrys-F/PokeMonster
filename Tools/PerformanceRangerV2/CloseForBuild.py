@@ -1,0 +1,3 @@
+import unreal,json
+from pathlib import Path
+P=Path(unreal.Paths.project_dir()).resolve()/'Art/Characters/NPCs/Ranger/Review/V2';e=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);assert not e.get_game_world();out={'map':e.get_editor_world().get_path_name(),'dirty_maps':[p.get_path_name() for p in unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()],'dirty_content':[p.get_path_name() for p in unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()]};(P/'EditorBeforeBuild.json').write_text(json.dumps(out,indent=2));assert not out['dirty_maps'] and not out['dirty_content'],'Do not discard or save existing unsaved changes';unreal.SystemLibrary.quit_editor()

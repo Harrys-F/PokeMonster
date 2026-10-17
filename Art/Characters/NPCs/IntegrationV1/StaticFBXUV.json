@@ -1,0 +1,50 @@
+[
+  {
+    "id": "SilverLady",
+    "triangles": 149999,
+    "UV_determinant_lt_1e_12": 0,
+    "UV_determinant_lt_1e_8": 173,
+    "nonfinite_uvs": 0,
+    "note": "Read-only exported derivative audit. No tangent warning suppressed."
+  },
+  {
+    "id": "TreeBeing",
+    "triangles": 150000,
+    "UV_determinant_lt_1e_12": 0,
+    "UV_determinant_lt_1e_8": 191,
+    "nonfinite_uvs": 0,
+    "note": "Read-only exported derivative audit. No tangent warning suppressed."
+  },
+  {
+    "id": "ElvenScholar",
+    "triangles": 149999,
+    "UV_determinant_lt_1e_12": 0,
+    "UV_determinant_lt_1e_8": 187,
+    "nonfinite_uvs": 0,
+    "note": "Read-only exported derivative audit. No tangent warning suppressed."
+  },
+  {
+    "id": "Wizard",
+    "triangles": 150000,
+    "UV_determinant_lt_1e_12": 0,
+    "UV_determinant_lt_1e_8": 185,
+    "nonfinite_uvs": 0,
+    "note": "Read-only exported derivative audit. No tangent warning suppressed."
+  },
+  {
+    "id": "DarkArmored",
+    "triangles": 150000,
+    "UV_determinant_lt_1e_12": 0,
+    "UV_determinant_lt_1e_8": 234,
+    "nonfinite_uvs": 0,
+    "note": "Read-only exported derivative audit. No tangent warning suppressed."
+  },
+  {
+    "id": "CrouchedCreature",
+    "triangles": 150000,
+    "UV_determinant_lt_1e_12": 0,
+    "UV_determinant_lt_1e_8": 130,
+    "nonfinite_uvs": 0,
+    "note": "Read-only exported derivative audit. No tangent warning suppressed."
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "engine_root": "/Users/Shared/Epic Games/UE_5.8",
+  "primary_sources": [
+    {
+      "path": "Engine/Source/Runtime/Apple/MetalRHI/Private/MetalViewport.cpp",
+      "line": 1101,
+      "finding": "Present sets displaySyncEnabled to bLockToVsync OR not(IsRunningGame AND bIsFullScreen). Windowed presentation can stay synchronized independently of r.VSync=0."
+    },
+    {
+      "path": "Engine/Source/Runtime/Renderer/Private/Lumen/Lumen.cpp",
+      "line": 55,
+      "finding": "FinalGatherMethod 0 is Irradiance Field Gather: faster, lower quality GI; 1 is Screen Probe Gather."
+    },
+    {
+      "path": "Engine/Config/BaseScalability.ini",
+      "line": 326,
+      "finding": "Medium GI already selects FinalGatherMethod 0. High selects 1 from line 369 onward."
+    },
+    {
+      "path": "Engine/Source/Runtime/Apple/MetalRHI/Private/MetalProfiler.h",
+      "line": 94,
+      "finding": "Breadcrumb GPU event timings use shared stage counter samples; render-pass leaf attribution is coarse. Zero draw/dispatch values in this capture are not real zero costs."
+    }
+  ],
+  "profiling_capture": "GPUProfile_QHD_Verified.txt",
+  "capture_proof": "GPUCaptureVerified_Proof.json",
+  "discarded_as_qhd_evidence": "GPUCaptureFinal ProfileGPU request ran after the probe restored viewport: Tonemap 2331x1346. Kept as diagnostics, excluded from QHD evidence."
+}

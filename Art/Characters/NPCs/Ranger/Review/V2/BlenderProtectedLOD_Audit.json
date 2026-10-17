@@ -1,0 +1,157 @@
+{
+  "source": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Source/Ranger_NPC_V1.blend",
+  "file": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Source/Ranger_NPC_V2_Protected.blend",
+  "bones": 24,
+  "bone_rest_hash": "5a3ca59d60b690a9592741dfaccc04959d42618dab275cb12b7139396b9c75f5",
+  "v1_geometry_hash": "d61ca596e67d5b91f4d610798c48bc347b5b87f53d2cf485df9565eb8a754410",
+  "lods": [
+    {
+      "level": 0,
+      "vertices": 26890,
+      "triangles": 55000,
+      "polygons": 55000,
+      "material_slots": 1,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "bounds_min_m": [
+        -0.918997585773468,
+        -0.29825401306152344,
+        0.00033388074371032417
+      ],
+      "bounds_max_m": [
+        0.9184269309043884,
+        0.2984285056591034,
+        1.8006312847137451
+      ],
+      "source_vertices_to_lod_surface_p95_mm": 1.004449336323887,
+      "source_vertices_to_lod_surface_max_mm": 7.901132106781006,
+      "regions": {
+        "head": {
+          "p95_mm": 0.0,
+          "max_mm": 0.0
+        },
+        "hands": {
+          "p95_mm": 0.0,
+          "max_mm": 0.0
+        },
+        "cape": {
+          "p95_mm": 1.0659352003131057,
+          "max_mm": 6.170361768454313
+        }
+      },
+      "weights_sum": [
+        0.999993085861206,
+        1.000000149011612
+      ],
+      "protected_source_vertices": 6604,
+      "method": "Measured inverted vertex-group bias 1000 protects head/hands; LOD2 protects central face and hands. Simplification before Armature, protection group removed afterward. Original HP/V1/rig/actions unchanged."
+    },
+    {
+      "level": 1,
+      "vertices": 11390,
+      "triangles": 24000,
+      "polygons": 24000,
+      "material_slots": 1,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "bounds_min_m": [
+        -0.918997585773468,
+        -0.2968803346157074,
+        -0.00031732561183162034
+      ],
+      "bounds_max_m": [
+        0.9184269309043884,
+        0.29599660634994507,
+        1.8006312847137451
+      ],
+      "source_vertices_to_lod_surface_p95_mm": 3.9797517703846097,
+      "source_vertices_to_lod_surface_max_mm": 29.50216270983219,
+      "regions": {
+        "head": {
+          "p95_mm": 0.0,
+          "max_mm": 0.0
+        },
+        "hands": {
+          "p95_mm": 0.0,
+          "max_mm": 0.0
+        },
+        "cape": {
+          "p95_mm": 4.33482709340751,
+          "max_mm": 29.50216270983219
+        }
+      },
+      "weights_sum": [
+        0.999993085861206,
+        1.0000001192092896
+      ],
+      "protected_source_vertices": 6604,
+      "method": "Measured inverted vertex-group bias 1000 protects head/hands; LOD2 protects central face and hands. Simplification before Armature, protection group removed afterward. Original HP/V1/rig/actions unchanged."
+    },
+    {
+      "level": 2,
+      "vertices": 4486,
+      "triangles": 10192,
+      "polygons": 10192,
+      "material_slots": 1,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "bounds_min_m": [
+        -0.918997585773468,
+        -0.2669331431388855,
+        0.20295417308807373
+      ],
+      "bounds_max_m": [
+        0.9184269309043884,
+        0.27781185507774353,
+        1.8006312847137451
+      ],
+      "source_vertices_to_lod_surface_p95_mm": 72.34517596662042,
+      "source_vertices_to_lod_surface_max_mm": 363.48211765289307,
+      "regions": {
+        "head": {
+          "p95_mm": 14.172512665390961,
+          "max_mm": 99.08042848110199
+        },
+        "hands": {
+          "p95_mm": 0.0,
+          "max_mm": 0.0
+        },
+        "cape": {
+          "p95_mm": 47.52593804150818,
+          "max_mm": 92.64011681079865
+        }
+      },
+      "weights_sum": [
+        0.999993085861206,
+        1.0000001192092896
+      ],
+      "protected_source_vertices": 3230,
+      "method": "Measured inverted vertex-group bias 1000 protects head/hands; LOD2 protects central face and hands. Simplification before Armature, protection group removed afterward. Original HP/V1/rig/actions unchanged."
+    }
+  ],
+  "clips": [
+    {
+      "action": "A_Ranger_Idle_Pilot",
+      "frames": 91,
+      "minimum_surface_z_m_per_lod": [
+        0.0003338757378514856,
+        -0.00031732505885884166,
+        0.2029493898153305
+      ]
+    },
+    {
+      "action": "A_Ranger_Gesture_Pilot",
+      "frames": 61,
+      "minimum_surface_z_m_per_lod": [
+        0.0003338757378514856,
+        -0.00031732505885884166,
+        0.2029493898153305
+      ]
+    }
+  ],
+  "render_folder": "/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/Ranger/Review/V2/BlenderProtected",
+  "skeleton_animation_change": "None; reused existing 24-bone rig and both V1 actions"
+}

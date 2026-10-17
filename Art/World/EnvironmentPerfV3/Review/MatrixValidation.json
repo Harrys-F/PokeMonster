@@ -1,0 +1,74 @@
+{
+  "PIEMatrix1": {
+    "segments": 18,
+    "three_repetitions_each_site_state": true,
+    "actual_extents_camera_and_active_window_verified": true,
+    "all_segment_csv_present": true
+  },
+  "PIEMatrix2": {
+    "segments": 18,
+    "three_repetitions_each_site_state": true,
+    "actual_extents_camera_and_active_window_verified": true,
+    "all_segment_csv_present": true
+  },
+  "PIEMatrix3": {
+    "segments": 18,
+    "three_repetitions_each_site_state": true,
+    "actual_extents_camera_and_active_window_verified": true,
+    "all_segment_csv_present": true
+  },
+  "PIEMatrix4": {
+    "segments": 18,
+    "three_repetitions_each_site_state": true,
+    "actual_extents_camera_and_active_window_verified": true,
+    "all_segment_csv_present": true
+  },
+  "PIEMatrix5": {
+    "segments": 18,
+    "three_repetitions_each_site_state": true,
+    "actual_extents_camera_and_active_window_verified": true,
+    "all_segment_csv_present": true
+  },
+  "PIEMatrix6": {
+    "segments": 18,
+    "three_repetitions_each_site_state": true,
+    "actual_extents_camera_and_active_window_verified": true,
+    "all_segment_csv_present": true
+  },
+  "NativeMatrix1": {
+    "segments": 18,
+    "three_repetitions_each_site_state": true,
+    "actual_extents_camera_and_active_window_verified": true,
+    "all_segment_csv_present": true
+  },
+  "NativeMatrix2": {
+    "segments": 18,
+    "three_repetitions_each_site_state": true,
+    "actual_extents_camera_and_active_window_verified": true,
+    "all_segment_csv_present": true
+  },
+  "NativeMatrix3": {
+    "segments": 18,
+    "three_repetitions_each_site_state": true,
+    "actual_extents_camera_and_active_window_verified": true,
+    "all_segment_csv_present": true
+  },
+  "NativeMatrix4": {
+    "segments": 18,
+    "three_repetitions_each_site_state": true,
+    "actual_extents_camera_and_active_window_verified": true,
+    "all_segment_csv_present": true
+  },
+  "NativeMatrix5": {
+    "segments": 18,
+    "three_repetitions_each_site_state": true,
+    "actual_extents_camera_and_active_window_verified": true,
+    "all_segment_csv_present": true
+  },
+  "NativeMatrix6": {
+    "segments": 18,
+    "three_repetitions_each_site_state": true,
+    "actual_extents_camera_and_active_window_verified": true,
+    "all_segment_csv_present": true
+  }
+}
