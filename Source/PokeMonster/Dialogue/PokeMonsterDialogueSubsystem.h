@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "PokeMonsterDialogueData.h"
 #include "PokeMonsterDialogueSubsystem.generated.h"
@@ -26,6 +27,8 @@ public:
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Dialogue") bool IsDialogueActive() const { return bActive; }
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Dialogue") int32 GetPageIndex() const { return PageIndex; }
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Dialogue") int32 GetPageCount() const { return ActivePages.Num(); }
+	/** Read-only presentation hook; dialogue ownership and progression remain unchanged. */
+	UFUNCTION(BlueprintPure, Category="PokeMonster|Dialogue") AActor* GetActiveSource() const { return ActiveSource.Get(); }
 	const FPokeMonsterDialoguePage* GetCurrentPage() const;
 	static bool IsConditionMet(const FPokeMonsterDialoguePage& Page,
 		const UPokeMonsterEncounterSubsystem* Encounter, const UPokeMonsterQuestSubsystem* Quests = nullptr);
