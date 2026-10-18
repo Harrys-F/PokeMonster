@@ -1,0 +1,14 @@
+"""Attach one AA-only native blendable to existing VisualV2. No global changes."""
+import unreal,json,copy,hashlib,runpy
+from pathlib import Path
+R=Path(unreal.Paths.project_dir()).resolve();S=R/'Saved/VisualV2TAAIntegrationV1';O=Path('/Users/harry/Documents/Codex/PokeMonster_VisualV2_TAAIntegration_V1_2026-10-18');e=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);w=e.get_editor_world()
+assert not e.get_game_world() and w.get_path_name()=='/Game/Maps/Dev_TestMap_VisualV2.Dev_TestMap_VisualV2';assert not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages() and not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()
+assert not (S/'MapChangeAudit.json').exists();file=R/'Content/Maps/Dev_TestMap_VisualV2.umap';beforehash=hashlib.sha256(file.read_bytes()).hexdigest();assert beforehash==hashlib.sha256((O/'Dev_TestMap_VisualV2_Before.umap').read_bytes()).hexdigest()
+scene=runpy.run_path(str(R/'Tools/VisualV2QualityV2/AuditScene.py'))['scene'];before=scene(w);(S/'BeforeScene.json').write_text(json.dumps(before,indent=2));outside=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.PostProcessVolume) if a.get_actor_label()=='V2_OutdoorExposure');assert outside.unbound and outside.blend_weight==1
+settings=outside.settings;old=settings.export_text();assert len(settings.weighted_blendables.array)==0
+outside.modify();blend=unreal.new_object(unreal.PokeMonsterTemporalAABlendable,outer=outside,name='VisualV2_TAA');weighted=settings.weighted_blendables;weighted.array=[unreal.WeightedBlendable(weight=1.0,object=blend)];settings.weighted_blendables=weighted;outside.set_editor_property('settings',settings)
+after=scene(w);new=outside.settings.export_text();reset=unreal.PostProcessSettings();reset.import_text(new);weighted_reset=reset.weighted_blendables;weighted_reset.array=[];reset.weighted_blendables=weighted_reset;assert reset.export_text()==old,'Non-AA postprocess setting changed'
+expected=copy.deepcopy(before);expected['actors'][outside.get_name()]['pp']=new;assert after==expected,'Other scene state changed'
+assert [p.get_path_name() for p in unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()]==['/Game/Maps/Dev_TestMap_VisualV2'];assert not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()
+assert unreal.EditorLoadingAndSavingUtils.save_map(w,'/Game/Maps/Dev_TestMap_VisualV2')
+(S/'AfterScene.json').write_text(json.dumps(after,indent=2));(S/'MapChangeAudit.json').write_text(json.dumps({'before_sha256':beforehash,'after_sha256':hashlib.sha256(file.read_bytes()).hexdigest(),'change':'One native AA-only WeightedBlendable on V2_OutdoorExposure; all other scene and complete postprocess settings equal','actors':len(before['actors']),'original_shadows_and_lighting_equal':True,'saved':True,'reopened':False,'object':blend.get_path_name()},indent=2));unreal.log('VTA1_AA_ONLY_SAVED')
