@@ -21,6 +21,10 @@ if unreal.EditorAssetLibrary.get_metadata_tag(m,'WLA_V3_GraphReady')!='true':
  for value,prop,y in [(.95,unreal.MaterialProperty.MP_ROUGHNESS,540),(.05,unreal.MaterialProperty.MP_SPECULAR,620)]:
   n=L.create_material_expression(m,unreal.MaterialExpressionConstant,-120,y);n.set_editor_property('r',value);L.connect_material_property(n,'',prop)
  L.recompile_material(m);unreal.EditorAssetLibrary.set_metadata_tag(m,'WLA_V3_GraphReady','true');assert unreal.EditorAssetLibrary.save_loaded_asset(m,False)
+# Persist the HISM vertex-factory permutation even when the graph already exists.
+if not m.get_editor_property('used_with_instanced_static_meshes'):
+ m.set_editor_property('used_with_instanced_static_meshes',True)
+ L.recompile_material(m);assert unreal.EditorAssetLibrary.save_loaded_asset(m,False)
 mi=T.create_asset('MI_WLA_FoliageGroups_V3',D+'/Materials',unreal.MaterialInstanceConstant,unreal.MaterialInstanceConstantFactoryNew()) if not unreal.EditorAssetLibrary.does_asset_exist(D+'/Materials/MI_WLA_FoliageGroups_V3') else unreal.load_asset(D+'/Materials/MI_WLA_FoliageGroups_V3')
 L.set_material_instance_parent(mi,m);L.set_material_instance_texture_parameter_value(mi,'Paint',tex);L.update_material_instance(mi);unreal.EditorAssetLibrary.save_loaded_asset(mi,False)
 materials={'WLA_V3_Bark':unreal.load_asset('/Game/Environment/WestlandAssetLibrary/Materials/MI_WLA_Bark'),'WLA_V3_FoliageGroups':mi};assert all(materials.values())
