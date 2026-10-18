@@ -19,6 +19,8 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/InstancedStaticMeshComponent.h"
 #include "Components/LightComponent.h"
+#include "Materials/Material.h"
+#include "UObject/StrongObjectPtr.h"
 #include "SceneView.h"
 #include "SceneViewExtension.h"
 #include "DynamicResolutionState.h"
@@ -44,7 +46,7 @@ public:
  }
 private:TSharedRef<FResolutionState,ESPMode::ThreadSafe> State;FViewport* Viewport;
 };
-struct FComponentState { TWeakObjectPtr<UPrimitiveComponent> C;bool Visible,Shadow;int32 ForcedLOD=0,CullStart=0,CullEnd=0; };
+struct FComponentState { TWeakObjectPtr<UPrimitiveComponent> C;bool Visible,Shadow;int32 ForcedLOD=0,CullStart=0,CullEnd=0;TArray<TStrongObjectPtr<UMaterialInterface>> DiagnosticMaterials; };
 struct FPostState { TWeakObjectPtr<APostProcessVolume> V;FPostProcessSettings Settings; };
 struct FRow { FString Site,Condition;int32 Repeat=0,Width=1280,Height=740,Quality=1,Percentage=75; };
 struct FProbe : public TSharedFromThis<FProbe>
@@ -56,14 +58,14 @@ struct FProbe : public TSharedFromThis<FProbe>
  FSceneViewport* Viewport(){auto* W=World.Get();auto* C=W&&W->GetGameInstance()?W->GetGameInstance()->GetGameViewportClient():nullptr;return C?C->GetGameViewport():nullptr;}
  void Set(const FString& N,const FString& Value,bool Factor=false){if(auto* V=IConsoleManager::Get().FindConsoleVariable(*N)){auto Priority=(EConsoleVariableFlags)(V->GetFlags()&ECVF_SetByMask);if(!CVars.Contains(N)){CVars.Add(N,V->GetString());Priorities.Add(N,Priority);}if(Factor&&!Factors.Contains(N)){Factors.Add(N,V->GetString());FactorPriorities.Add(N,Priority);}V->Set(*Value,ECVF_SetByConsole,TEXT("PM_EnvPerf2"));}}
  void RestoreVar(const FString& N,const FString& Value,EConsoleVariableFlags Priority){if(auto* V=IConsoleManager::Get().FindConsoleVariable(*N)){V->Unset(ECVF_SetByConsole,TEXT("PM_EnvPerf2"));V->ClearFlags(ECVF_SetByMask);V->Set(*Value,Priority);}}
- void RestoreFactors(){for(const auto& P:Factors)RestoreVar(P.Key,P.Value,FactorPriorities[P.Key]);Factors.Empty();FactorPriorities.Empty();for(const auto& S:Components)if(auto* C=S.C.Get()){C->SetVisibility(S.Visible);C->SetCastShadow(S.Shadow);if(auto* M=Cast<UStaticMeshComponent>(C))M->SetForcedLodModel(S.ForcedLOD);if(auto* I=Cast<UInstancedStaticMeshComponent>(C))I->SetCullDistances(S.CullStart,S.CullEnd);}for(const auto& P:PostVolumes)if(auto* V=P.V.Get())V->Settings=P.Settings;}
+ void RestoreFactors(){for(const auto& P:Factors)RestoreVar(P.Key,P.Value,FactorPriorities[P.Key]);Factors.Empty();FactorPriorities.Empty();for(const auto& S:Components)if(auto* C=S.C.Get()){C->SetVisibility(S.Visible);C->SetCastShadow(S.Shadow);for(int32 Slot=0;Slot<S.DiagnosticMaterials.Num();++Slot)C->SetMaterial(Slot,S.DiagnosticMaterials[Slot].Get());if(auto* M=Cast<UStaticMeshComponent>(C))M->SetForcedLodModel(S.ForcedLOD);if(auto* I=Cast<UInstancedStaticMeshComponent>(C))I->SetCullDistances(S.CullStart,S.CullEnd);}for(const auto& P:PostVolumes)if(auto* V=P.V.Get())V->Settings=P.Settings;}
  bool Vegetation(UPrimitiveComponent* C,bool TreesOnly=false){auto* S=Cast<UStaticMeshComponent>(C);if(!S||!S->GetStaticMesh())return false;auto N=S->GetStaticMesh()->GetName();if(!N.StartsWith(TEXT("SM_WLA_")))return false;return N.Contains(TEXT("Oak"))||N.Contains(TEXT("Birch"))||(!TreesOnly&&(N.Contains(TEXT("Bush"))||N.Contains(TEXT("Grass"))||N.Contains(TEXT("Fern"))||N.Contains(TEXT("Flower"))||N.Contains(TEXT("Herb"))));}
  bool Initialize()
  {
   auto* W=FindWorld();if(!W)return false;World=W;Player=UGameplayStatics::GetPlayerPawn(W,0);if(!Player.IsValid()||!Viewport())return false;
   const int32 Category=FCsvProfiler::GetCategoryIndex(TEXT("VSM"));
   Settings+=FString::Printf(TEXT("csv_VSM_category_enabled=%d\n"),Category>=0&&FCsvProfiler::Get()->IsCategoryEnabled(Category));
-  PlayerBefore=Player->GetActorTransform();for(TObjectIterator<UPrimitiveComponent> I;I;++I)if(I->GetWorld()==W&&I->IsRegistered()){FComponentState S{*I,I->IsVisible(),!!I->CastShadow};if(auto* M=Cast<UStaticMeshComponent>(*I))S.ForcedLOD=M->GetForcedLodModel();if(auto* M=Cast<UInstancedStaticMeshComponent>(*I))M->GetCullDistances(S.CullStart,S.CullEnd);Components.Add(S);}
+  PlayerBefore=Player->GetActorTransform();for(TObjectIterator<UPrimitiveComponent> I;I;++I)if(I->GetWorld()==W&&I->IsRegistered()){FComponentState S{*I,I->IsVisible(),!!I->CastShadow};if(auto* M=Cast<UStaticMeshComponent>(*I))S.ForcedLOD=M->GetForcedLodModel();if(auto* M=Cast<UInstancedStaticMeshComponent>(*I))M->GetCullDistances(S.CullStart,S.CullEnd);if(Vegetation(*I))for(int32 Slot=0;Slot<I->GetNumMaterials();++Slot)S.DiagnosticMaterials.Emplace(I->GetMaterial(Slot));Components.Add(S);}
   for(TActorIterator<APostProcessVolume> I(W);I;++I)PostVolumes.Add({*I,I->Settings});
   Set(TEXT("r.VSync"),TEXT("0"));Set(TEXT("t.MaxFPS"),TEXT("0"));Set(TEXT("r.GPUCsvStatsEnabled"),TEXT("1"));Set(TEXT("r.DynamicRes.OperationMode"),TEXT("0"));Set(TEXT("r.Editor.Viewport.OverridePIEScreenPercentage"),TEXT("0"));Set(TEXT("r.SecondaryScreenPercentage.GameViewport"),TEXT("100"));
   Observer=FSceneViewExtensions::NewExtension<FResolutionObserver>(Resolution,Viewport());
@@ -74,9 +76,13 @@ struct FProbe : public TSharedFromThis<FProbe>
  {
   RestoreFactors();const auto& R=Rows[Index];const auto& C=R.Condition;
   for(const TCHAR* N:{TEXT("sg.ViewDistanceQuality"),TEXT("sg.AntiAliasingQuality"),TEXT("sg.ShadowQuality"),TEXT("sg.GlobalIlluminationQuality"),TEXT("sg.ReflectionQuality"),TEXT("sg.PostProcessQuality"),TEXT("sg.TextureQuality"),TEXT("sg.EffectsQuality"),TEXT("sg.FoliageQuality"),TEXT("sg.ShadingQuality")})Set(N,FString::FromInt(R.Quality));
-  // Every row begins at the preserved V1 rendering profile after scalability applies.
-  Set(TEXT("r.Lumen.ScreenProbeGather.IntegrateDownsampleFactor"),TEXT("2"),true);
-  Set(TEXT("r.Shadow.Virtual.SMRT.RayCountDirectional"),TEXT("2"),true);
+  // Legacy EnvironmentPerfV2 experiments preserve their V1 profile. New VisualV2
+  // diagnostics must measure stock scalability, never silently inherit that candidate.
+  if(!Label.StartsWith(TEXT("VGB1_")))
+  {
+   Set(TEXT("r.Lumen.ScreenProbeGather.IntegrateDownsampleFactor"),TEXT("2"),true);
+   Set(TEXT("r.Shadow.Virtual.SMRT.RayCountDirectional"),TEXT("2"),true);
+  }
   Set(TEXT("r.ScreenPercentage"),FString::FromInt(R.Percentage));Viewport()->SetFixedViewportSize(R.Width,R.Height);
   // Explicit benchmark window preparation, before warm-up; never changes the gameplay camera.
   if (auto Window = Viewport()->FindWindow(); Window.IsValid())
@@ -87,7 +93,8 @@ struct FProbe : public TSharedFromThis<FProbe>
   FVector P=R.Site==TEXT("Dorf")?FVector(-4100,450,50.15):R.Site==TEXT("Wald")?FVector(-4300,1550,50.15):R.Site==TEXT("NPCWald")?FVector(-760,-1410,50.15):FVector(-36.6,-47.1,50.15);
   Player->SetActorLocation(P,false,nullptr,ETeleportType::TeleportPhysics);
   for(const auto& S:Components)if(auto* PComp=S.C.Get())if(Vegetation(PComp))
-  {if(C==TEXT("VegetationHidden"))PComp->SetVisibility(false);if(C==TEXT("VegetationNoShadow")||(C==TEXT("TreeNoShadow")&&Vegetation(PComp,true)))PComp->SetCastShadow(false);
+  {if(C==TEXT("VegetationDefaultMaterial")&&Label.StartsWith(TEXT("VGB1_"))&&World->GetMapName().Contains(TEXT("Dev_TestMap_VisualV2GPUBottleneckV1")))for(int32 Slot=0;Slot<PComp->GetNumMaterials();++Slot)PComp->SetMaterial(Slot,UMaterial::GetDefaultMaterial(MD_Surface));
+   if(C==TEXT("VegetationHidden"))PComp->SetVisibility(false);if(C==TEXT("VegetationNoShadow")||(C==TEXT("TreeNoShadow")&&Vegetation(PComp,true)))PComp->SetCastShadow(false);
    if(C==TEXT("TreeLOD1")&&Vegetation(PComp,true))CastChecked<UStaticMeshComponent>(PComp)->SetForcedLodModel(2);
    if(C==TEXT("FernLOD1")&&CastChecked<UStaticMeshComponent>(PComp)->GetStaticMesh()->GetName().Contains(TEXT("Fern")))CastChecked<UStaticMeshComponent>(PComp)->SetForcedLodModel(2);
    if(C==TEXT("SmallFoliageCull"))if(auto* I=Cast<UInstancedStaticMeshComponent>(PComp)){const auto N=I->GetStaticMesh()->GetName();if(!N.Contains(TEXT("Bush"))&&!Vegetation(PComp,true))I->SetCullDistances(3200,4300);}
@@ -128,6 +135,7 @@ struct FProbe : public TSharedFromThis<FProbe>
   {V->Settings.bOverride_DynamicGlobalIlluminationMethod=true;V->Settings.DynamicGlobalIlluminationMethod=(EDynamicGlobalIlluminationMethod::Type)FCString::Atoi(*C.Mid(3));}
   Settings+=FString::Printf(TEXT("segment=%d site=%s condition=%s repeat=%d utc=%s\n"),Index,*R.Site,*C,R.Repeat,*FDateTime::UtcNow().ToIso8601());
   for(const TCHAR* N:{TEXT("r.Lumen.ScreenProbeGather.IntegrateDownsampleFactor"),TEXT("r.Lumen.ScreenProbeGather.DownsampleFactor"),TEXT("r.Lumen.ScreenProbeGather.RadianceCache.ProbeResolution"),TEXT("r.Shadow.Virtual.SMRT.SamplesPerRayDirectional"),TEXT("r.VSyncEditor"),TEXT("rhi.SyncInterval"),TEXT("sg.ViewDistanceQuality"),TEXT("sg.AntiAliasingQuality"),TEXT("sg.ShadowQuality"),TEXT("sg.GlobalIlluminationQuality"),TEXT("sg.ReflectionQuality"),TEXT("sg.PostProcessQuality"),TEXT("sg.TextureQuality"),TEXT("sg.EffectsQuality"),TEXT("sg.FoliageQuality"),TEXT("sg.ShadingQuality"),TEXT("r.ScreenPercentage"),TEXT("r.DynamicRes.OperationMode"),TEXT("r.VSync"),TEXT("t.MaxFPS"),TEXT("r.Shadow.Virtual.Enable"),TEXT("r.Shadow.Virtual.SMRT.RayCountDirectional"),TEXT("r.Shadow.Virtual.ResolutionLodBiasDirectional"),TEXT("r.Shadow.MaxResolution"),TEXT("r.Shadow.DistanceScale"),TEXT("r.AntiAliasingMethod"),TEXT("r.Lumen.FinalGatherMethod"),TEXT("r.Lumen.Reflections.Allow"),TEXT("r.BloomQuality"),TEXT("r.MotionBlurQuality")})if(auto* V=IConsoleManager::Get().FindConsoleVariable(N))Settings+=FString::Printf(TEXT("%s=%s priority=%d\n"),N,*V->GetString(),(int32)(V->GetFlags()&ECVF_SetByMask));
+  for(const auto& Factor:Factors)if(auto* V=IConsoleManager::Get().FindConsoleVariable(*Factor.Key))Settings+=FString::Printf(TEXT("factor_verified %s=%s original=%s\n"),*Factor.Key,*V->GetString(),*Factor.Value);
   for(const auto& Post:PostVolumes)if(auto* V=Post.V.Get())Settings+=FString::Printf(TEXT("volume=%s unbound=%d bloom=%.6f override_bloom=%d motionblur=%.6f override_motionblur=%d finalgather=%.6f override_finalgather=%d\n"),*V->GetName(),V->bUnbound,V->Settings.BloomIntensity,V->Settings.bOverride_BloomIntensity,V->Settings.MotionBlurAmount,V->Settings.bOverride_MotionBlurAmount,V->Settings.LumenFinalGatherQuality,V->Settings.bOverride_LumenFinalGatherQuality);
   Start=Last=FPlatformTime::Seconds();Capturing=false;
  }

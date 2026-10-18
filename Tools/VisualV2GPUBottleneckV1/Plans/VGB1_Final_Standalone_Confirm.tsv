@@ -1,0 +1,26 @@
+VGB1_Final_Standalone_Confirm	Standalone	6	8
+Dorf	Control	1	2560	1440	2	100
+Dorf	CV:r.Lumen.DiffuseIndirect.Allow=0	1	2560	1440	2	100
+Dorf	Control	1	2560	1440	2	100
+Dorf	CV:r.Shadow.Virtual.Enable=0	1	2560	1440	2	100
+Dorf	CV:r.Lumen.DiffuseIndirect.Allow=0	2	2560	1440	2	100
+Dorf	Control	2	2560	1440	2	100
+Dorf	CV:r.Shadow.Virtual.Enable=0	2	2560	1440	2	100
+Dorf	Control	2	2560	1440	2	100
+Dorf	Control	3	2560	1440	2	100
+Dorf	CV:r.Lumen.DiffuseIndirect.Allow=0	3	2560	1440	2	100
+Dorf	Control	3	2560	1440	2	100
+Dorf	CV:r.Shadow.Virtual.Enable=0	3	2560	1440	2	100
+Weg	Control	1	2560	1440	2	100
+Weg	CV:r.Lumen.DiffuseIndirect.Allow=0	1	2560	1440	2	100
+Weg	Control	1	2560	1440	2	100
+Weg	CV:r.Shadow.Virtual.Enable=0	1	2560	1440	2	100
+Weg	CV:r.Lumen.DiffuseIndirect.Allow=0	2	2560	1440	2	100
+Weg	Control	2	2560	1440	2	100
+Weg	CV:r.Shadow.Virtual.Enable=0	2	2560	1440	2	100
+Weg	Control	2	2560	1440	2	100
+Weg	Control	3	2560	1440	2	100
+Weg	CV:r.Lumen.DiffuseIndirect.Allow=0	3	2560	1440	2	100
+Weg	Control	3	2560	1440	2	100
+Weg	CV:r.Shadow.Virtual.Enable=0	3	2560	1440	2	100
+CSVDrain	Control	0	2560	1440	2	100

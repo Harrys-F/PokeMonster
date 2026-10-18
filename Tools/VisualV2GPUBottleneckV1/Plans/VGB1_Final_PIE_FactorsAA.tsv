@@ -1,0 +1,25 @@
+VGB1_Final_PIE_FactorsAA	PIE	6	8
+Wald	Control	1	2560	1440	2	100
+Wald	CV:r.AntiAliasingMethod=0	1	2560	1440	2	100
+Wald	Control	1	2560	1440	2	100
+Wald	CV:r.AntiAliasingMethod=2	1	2560	1440	2	100
+Wald	Control	1	2560	1440	2	100
+Wald	CV:r.TSR.AsyncCompute=0	1	2560	1440	2	100
+Wald	Control	1	2560	1440	2	100
+Wald	CV:r.GPUCsvStatsEnabled=0	1	2560	1440	2	100
+Wald	CV:r.AntiAliasingMethod=0	2	2560	1440	2	100
+Wald	Control	2	2560	1440	2	100
+Wald	CV:r.AntiAliasingMethod=2	2	2560	1440	2	100
+Wald	Control	2	2560	1440	2	100
+Wald	CV:r.TSR.AsyncCompute=0	2	2560	1440	2	100
+Wald	Control	2	2560	1440	2	100
+Wald	CV:r.GPUCsvStatsEnabled=0	2	2560	1440	2	100
+Wald	Control	2	2560	1440	2	100
+Wald	Control	3	2560	1440	2	100
+Wald	CV:r.AntiAliasingMethod=0	3	2560	1440	2	100
+Wald	Control	3	2560	1440	2	100
+Wald	CV:r.AntiAliasingMethod=2	3	2560	1440	2	100
+Wald	Control	3	2560	1440	2	100
+Wald	CV:r.TSR.AsyncCompute=0	3	2560	1440	2	100
+Wald	Control	3	2560	1440	2	100
+Wald	CV:r.GPUCsvStatsEnabled=0	3	2560	1440	2	100
