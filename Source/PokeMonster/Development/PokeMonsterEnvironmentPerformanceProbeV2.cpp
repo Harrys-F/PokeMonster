@@ -1,3 +1,4 @@
+#include "PokeMonsterSoftShadowTest.h"
 // Explicit opt-in profiling only; no production gameplay or automatic quality changes.
 #include "CoreMinimal.h"
 #include "Engine/Engine.h"
@@ -58,7 +59,7 @@ struct FProbe : public TSharedFromThis<FProbe>
  FSceneViewport* Viewport(){auto* W=World.Get();auto* C=W&&W->GetGameInstance()?W->GetGameInstance()->GetGameViewportClient():nullptr;return C?C->GetGameViewport():nullptr;}
  void Set(const FString& N,const FString& Value,bool Factor=false){if(auto* V=IConsoleManager::Get().FindConsoleVariable(*N)){auto Priority=(EConsoleVariableFlags)(V->GetFlags()&ECVF_SetByMask);if(!CVars.Contains(N)){CVars.Add(N,V->GetString());Priorities.Add(N,Priority);}if(Factor&&!Factors.Contains(N)){Factors.Add(N,V->GetString());FactorPriorities.Add(N,Priority);}V->Set(*Value,ECVF_SetByConsole,TEXT("PM_EnvPerf2"));}}
  void RestoreVar(const FString& N,const FString& Value,EConsoleVariableFlags Priority){if(auto* V=IConsoleManager::Get().FindConsoleVariable(*N)){V->Unset(ECVF_SetByConsole,TEXT("PM_EnvPerf2"));V->ClearFlags(ECVF_SetByMask);V->Set(*Value,Priority);}}
- void RestoreFactors(){for(const auto& P:Factors)RestoreVar(P.Key,P.Value,FactorPriorities[P.Key]);Factors.Empty();FactorPriorities.Empty();for(const auto& S:Components)if(auto* C=S.C.Get()){C->SetVisibility(S.Visible);C->SetCastShadow(S.Shadow);for(int32 Slot=0;Slot<S.DiagnosticMaterials.Num();++Slot)C->SetMaterial(Slot,S.DiagnosticMaterials[Slot].Get());if(auto* M=Cast<UStaticMeshComponent>(C))M->SetForcedLodModel(S.ForcedLOD);if(auto* I=Cast<UInstancedStaticMeshComponent>(C))I->SetCullDistances(S.CullStart,S.CullEnd);}for(const auto& P:PostVolumes)if(auto* V=P.V.Get())V->Settings=P.Settings;}
+ void RestoreFactors(){PMSoftShadowTest::Stop();for(const auto& P:Factors)RestoreVar(P.Key,P.Value,FactorPriorities[P.Key]);Factors.Empty();FactorPriorities.Empty();for(const auto& S:Components)if(auto* C=S.C.Get()){C->SetVisibility(S.Visible);C->SetCastShadow(S.Shadow);for(int32 Slot=0;Slot<S.DiagnosticMaterials.Num();++Slot)C->SetMaterial(Slot,S.DiagnosticMaterials[Slot].Get());if(auto* M=Cast<UStaticMeshComponent>(C))M->SetForcedLodModel(S.ForcedLOD);if(auto* I=Cast<UInstancedStaticMeshComponent>(C))I->SetCullDistances(S.CullStart,S.CullEnd);}for(const auto& P:PostVolumes)if(auto* V=P.V.Get())V->Settings=P.Settings;}
  bool Vegetation(UPrimitiveComponent* C,bool TreesOnly=false){auto* S=Cast<UStaticMeshComponent>(C);if(!S||!S->GetStaticMesh())return false;auto N=S->GetStaticMesh()->GetName();if(!N.StartsWith(TEXT("SM_WLA_")))return false;return N.Contains(TEXT("Oak"))||N.Contains(TEXT("Birch"))||(!TreesOnly&&(N.Contains(TEXT("Bush"))||N.Contains(TEXT("Grass"))||N.Contains(TEXT("Fern"))||N.Contains(TEXT("Flower"))||N.Contains(TEXT("Herb"))));}
  bool Initialize()
  {
@@ -130,6 +131,18 @@ struct FProbe : public TSharedFromThis<FProbe>
   {
    TArray<FString> Pairs;C.Mid(3).ParseIntoArray(Pairs,TEXT("|"));
    for(const auto& Pair:Pairs){FString Name,Value;if(Pair.Split(TEXT("="),&Name,&Value))Set(Name,Value,true);}
+  }
+  // The four explicit AA/shadow variants are isolated to the existing GPU test map.
+  if(C.StartsWith(TEXT("SoftAA:")))
+  {
+   const FString Variant=C.Mid(7);
+   if(!World->GetMapName().Contains(TEXT("Dev_TestMap_VisualV2GPUBottleneckV1"))||!(Variant==TEXT("A")||Variant==TEXT("B")||Variant==TEXT("C")||Variant==TEXT("D")))
+   { UE_LOG(LogTemp,Error,TEXT("Invalid SoftAA test map or variant")); }
+   else
+   {
+    Set(TEXT("r.AntiAliasingMethod"),(Variant==TEXT("B")||Variant==TEXT("D"))?TEXT("2"):TEXT("4"),true);
+    if((Variant==TEXT("C")||Variant==TEXT("D"))&&!PMSoftShadowTest::Enable(World.Get()))UE_LOG(LogTemp,Error,TEXT("SoftAA blob assets unavailable"));
+   }
   }
   if(C.StartsWith(TEXT("GI:")))for(const auto& Post:PostVolumes)if(auto* V=Post.V.Get())if(V->bUnbound)
   {V->Settings.bOverride_DynamicGlobalIlluminationMethod=true;V->Settings.DynamicGlobalIlluminationMethod=(EDynamicGlobalIlluminationMethod::Type)FCString::Atoi(*C.Mid(3));}
