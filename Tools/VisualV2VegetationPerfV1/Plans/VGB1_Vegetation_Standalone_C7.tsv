@@ -1,0 +1,20 @@
+VGB1_Vegetation_Standalone_C7	Standalone	5	4
+Dorf	VegPerf:Control	1	2560	1440	2	75
+Dorf	VegPerf:FullyRough	1	2560	1440	2	75
+Wald	VegPerf:Control	1	2560	1440	2	75
+Wald	VegPerf:FullyRough	1	2560	1440	2	75
+Weg	VegPerf:Control	1	2560	1440	2	75
+Weg	VegPerf:FullyRough	1	2560	1440	2	75
+Dorf	VegPerf:FullyRough	2	2560	1440	2	75
+Dorf	VegPerf:Control	2	2560	1440	2	75
+Wald	VegPerf:FullyRough	2	2560	1440	2	75
+Wald	VegPerf:Control	2	2560	1440	2	75
+Weg	VegPerf:FullyRough	2	2560	1440	2	75
+Weg	VegPerf:Control	2	2560	1440	2	75
+Dorf	VegPerf:Control	3	2560	1440	2	75
+Dorf	VegPerf:FullyRough	3	2560	1440	2	75
+Wald	VegPerf:Control	3	2560	1440	2	75
+Wald	VegPerf:FullyRough	3	2560	1440	2	75
+Weg	VegPerf:Control	3	2560	1440	2	75
+Weg	VegPerf:FullyRough	3	2560	1440	2	75
+Weg	VegPerf:Control	99	2560	1440	2	75

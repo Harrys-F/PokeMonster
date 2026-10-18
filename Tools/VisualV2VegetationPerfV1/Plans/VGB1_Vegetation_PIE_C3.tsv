@@ -1,0 +1,20 @@
+VGB1_Vegetation_PIE_C3	PIE	5	4
+Dorf	VegPerf:Control	1	1280	720	2	75
+Dorf	VegPerf:FullyRough	1	1280	720	2	75
+Wald	VegPerf:Control	1	1280	720	2	75
+Wald	VegPerf:FullyRough	1	1280	720	2	75
+Weg	VegPerf:Control	1	1280	720	2	75
+Weg	VegPerf:FullyRough	1	1280	720	2	75
+Dorf	VegPerf:FullyRough	2	1280	720	2	75
+Dorf	VegPerf:Control	2	1280	720	2	75
+Wald	VegPerf:FullyRough	2	1280	720	2	75
+Wald	VegPerf:Control	2	1280	720	2	75
+Weg	VegPerf:FullyRough	2	1280	720	2	75
+Weg	VegPerf:Control	2	1280	720	2	75
+Dorf	VegPerf:Control	3	1280	720	2	75
+Dorf	VegPerf:FullyRough	3	1280	720	2	75
+Wald	VegPerf:Control	3	1280	720	2	75
+Wald	VegPerf:FullyRough	3	1280	720	2	75
+Weg	VegPerf:Control	3	1280	720	2	75
+Weg	VegPerf:FullyRough	3	1280	720	2	75
+Weg	VegPerf:Control	99	1280	720	2	75

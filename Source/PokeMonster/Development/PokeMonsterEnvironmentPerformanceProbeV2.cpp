@@ -22,6 +22,7 @@
 #include "Components/InstancedStaticMeshComponent.h"
 #include "Components/LightComponent.h"
 #include "Materials/Material.h"
+#include "Materials/MaterialInstanceDynamic.h"
 #include "UObject/StrongObjectPtr.h"
 #include "SceneView.h"
 #include "SceneViewExtension.h"
@@ -54,13 +55,15 @@ struct FRow { FString Site,Condition;int32 Repeat=0,Width=1280,Height=740,Qualit
 struct FProbe : public TSharedFromThis<FProbe>
 {
  TWeakObjectPtr<UWorld> World;TWeakObjectPtr<APawn> Player;FTransform PlayerBefore;TArray<FComponentState> Components;TArray<FPostState> PostVolumes;
+ // Explicit vegetation test instances retain the original camera-reveal fade.
+ TArray<TPair<TWeakObjectPtr<UMaterialInstanceDynamic>,TStrongObjectPtr<UMaterialInstanceDynamic>>> VegetationTestMIDs;
  TMap<FString,FString> CVars,Factors;TMap<FString,EConsoleVariableFlags> Priorities,FactorPriorities;TArray<FRow> Rows;int32 Index=0;float Warmup=5,Duration=8;FString Label,Mode,Directory,Frames,Segments,Settings;double Start=0,Last=0;bool Capturing=false,Initialized=false;
  TSharedPtr<FResolutionObserver,ESPMode::ThreadSafe> Observer;TSharedRef<FResolutionState,ESPMode::ThreadSafe> Resolution=MakeShared<FResolutionState,ESPMode::ThreadSafe>();FTSTicker::FDelegateHandle Handle;
  UWorld* FindWorld(){for(const auto& C:GEngine->GetWorldContexts())if(C.World()&&(C.WorldType==EWorldType::PIE||C.WorldType==EWorldType::Game))return C.World();return nullptr;}
  FSceneViewport* Viewport(){auto* W=World.Get();auto* C=W&&W->GetGameInstance()?W->GetGameInstance()->GetGameViewportClient():nullptr;return C?C->GetGameViewport():nullptr;}
  void Set(const FString& N,const FString& Value,bool Factor=false){if(auto* V=IConsoleManager::Get().FindConsoleVariable(*N)){auto Priority=(EConsoleVariableFlags)(V->GetFlags()&ECVF_SetByMask);if(!CVars.Contains(N)){CVars.Add(N,V->GetString());Priorities.Add(N,Priority);}if(Factor&&!Factors.Contains(N)){Factors.Add(N,V->GetString());FactorPriorities.Add(N,Priority);}V->Set(*Value,ECVF_SetByConsole,TEXT("PM_EnvPerf2"));}}
  void RestoreVar(const FString& N,const FString& Value,EConsoleVariableFlags Priority){if(auto* V=IConsoleManager::Get().FindConsoleVariable(*N)){V->Unset(ECVF_SetByConsole,TEXT("PM_EnvPerf2"));V->ClearFlags(ECVF_SetByMask);V->Set(*Value,Priority);}}
- void RestoreFactors(){PMSoftShadowTest::Stop();for(const auto& P:Factors)RestoreVar(P.Key,P.Value,FactorPriorities[P.Key]);Factors.Empty();FactorPriorities.Empty();for(const auto& S:Components)if(auto* C=S.C.Get()){C->SetVisibility(S.Visible);C->SetCastShadow(S.Shadow);for(int32 Slot=0;Slot<S.DiagnosticMaterials.Num();++Slot)C->SetMaterial(Slot,S.DiagnosticMaterials[Slot].Get());if(auto* M=Cast<UStaticMeshComponent>(C))M->SetForcedLodModel(S.ForcedLOD);if(auto* I=Cast<UInstancedStaticMeshComponent>(C))I->SetCullDistances(S.CullStart,S.CullEnd);}for(const auto& P:PostVolumes)if(auto* V=P.V.Get())V->Settings=P.Settings;}
+ void RestoreFactors(){VegetationTestMIDs.Empty();PMSoftShadowTest::Stop();for(const auto& P:Factors)RestoreVar(P.Key,P.Value,FactorPriorities[P.Key]);Factors.Empty();FactorPriorities.Empty();for(const auto& S:Components)if(auto* C=S.C.Get()){C->SetVisibility(S.Visible);C->SetCastShadow(S.Shadow);for(int32 Slot=0;Slot<S.DiagnosticMaterials.Num();++Slot)C->SetMaterial(Slot,S.DiagnosticMaterials[Slot].Get());if(auto* M=Cast<UStaticMeshComponent>(C))M->SetForcedLodModel(S.ForcedLOD);if(auto* I=Cast<UInstancedStaticMeshComponent>(C))I->SetCullDistances(S.CullStart,S.CullEnd);}for(const auto& P:PostVolumes)if(auto* V=P.V.Get())V->Settings=P.Settings;}
  bool Vegetation(UPrimitiveComponent* C,bool TreesOnly=false){auto* S=Cast<UStaticMeshComponent>(C);if(!S||!S->GetStaticMesh())return false;auto N=S->GetStaticMesh()->GetName();if(!N.StartsWith(TEXT("SM_WLA_")))return false;return N.Contains(TEXT("Oak"))||N.Contains(TEXT("Birch"))||(!TreesOnly&&(N.Contains(TEXT("Bush"))||N.Contains(TEXT("Grass"))||N.Contains(TEXT("Fern"))||N.Contains(TEXT("Flower"))||N.Contains(TEXT("Herb"))));}
  bool Initialize()
  {
@@ -100,6 +103,35 @@ struct FProbe : public TSharedFromThis<FProbe>
    if(C==TEXT("TreeLOD1")&&Vegetation(PComp,true))CastChecked<UStaticMeshComponent>(PComp)->SetForcedLodModel(2);
    if(C==TEXT("FernLOD1")&&CastChecked<UStaticMeshComponent>(PComp)->GetStaticMesh()->GetName().Contains(TEXT("Fern")))CastChecked<UStaticMeshComponent>(PComp)->SetForcedLodModel(2);
    if(C==TEXT("SmallFoliageCull"))if(auto* I=Cast<UInstancedStaticMeshComponent>(PComp)){const auto N=I->GetStaticMesh()->GetName();if(!N.Contains(TEXT("Bush"))&&!Vegetation(PComp,true))I->SetCullDistances(3200,4300);}
+  }
+  // Opt-in diagnostics only on the existing GPU map. Never changes saved assets,
+  // shadow flags, tree positions, instancing or the production reveal component.
+  if(C.StartsWith(TEXT("VegPerf:")))
+  {
+   if(!Label.StartsWith(TEXT("VGB1_Vegetation_"))||UWorld::RemovePIEPrefix(World->GetPackage()->GetName())!=TEXT("/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1"))
+   { UE_LOG(LogTemp,Error,TEXT("VegPerf requires the explicit existing GPU test map")); }
+   else
+   {
+    Set(TEXT("r.AntiAliasingMethod"),TEXT("2"),true);
+    int32 ChangedSlots=0;
+    for(const auto& State:Components)if(auto* Mesh=Cast<UStaticMeshComponent>(State.C.Get()))if(Vegetation(Mesh))
+    {
+     if((C==TEXT("VegPerf:TreeLOD1")&&Vegetation(Mesh,true))||(C==TEXT("VegPerf:BushLOD1")&&Mesh->GetStaticMesh()->GetName().Contains(TEXT("Bush"))))Mesh->SetForcedLodModel(2);
+     if(C!=TEXT("VegPerf:FullyRough"))continue;
+     for(int32 Slot=0;Slot<State.DiagnosticMaterials.Num();++Slot)
+     {
+      auto* Original=State.DiagnosticMaterials[Slot].Get();if(!Original)continue;
+      const FString Parent=Original->GetMaterial()->GetPathName();const TCHAR* CandidatePath=nullptr;
+      if(Parent==TEXT("/Game/Environment/DevTestMapVisualV2/Materials/M_V2_CrownReveal.M_V2_CrownReveal"))CandidatePath=TEXT("/Game/Environment/VegetationPerfV1/Materials/M_VVP1_CrownFullyRough.M_VVP1_CrownFullyRough");
+      if(Parent==TEXT("/Game/Environment/WestlandAssetLibrary/QualityV3/Materials/M_WLA_FoliageGroups_V3.M_WLA_FoliageGroups_V3"))CandidatePath=TEXT("/Game/Environment/VegetationPerfV1/Materials/M_VVP1_FoliageFullyRough.M_VVP1_FoliageFullyRough");
+      if(!CandidatePath)continue;
+      auto* ParentMaterial=LoadObject<UMaterialInterface>(nullptr,CandidatePath);if(!ParentMaterial){UE_LOG(LogTemp,Error,TEXT("Missing VegPerf candidate"));continue;}
+      auto* MID=UMaterialInstanceDynamic::Create(ParentMaterial,Mesh);MID->CopyMaterialUniformParameters(Original);Mesh->SetMaterial(Slot,MID);++ChangedSlots;
+      VegetationTestMIDs.Emplace(Cast<UMaterialInstanceDynamic>(Original),TStrongObjectPtr<UMaterialInstanceDynamic>(MID));
+     }
+    }
+    Settings+=FString::Printf(TEXT("vegetation_candidate_slots=%d shadow_cast_flags_unchanged=1 source_mesh_assets_unchanged=1\n"),ChangedSlots);
+   }
   }
   for(const auto& Post:PostVolumes)if(auto* V=Post.V.Get())if(V->bUnbound)
   {
@@ -182,6 +214,8 @@ struct FProbe : public TSharedFromThis<FProbe>
  bool Tick(float)
  {
   if(!Initialized){if(!Initialize())return true;}if(!Player.IsValid()||!Viewport()){Stop(TEXT("PIE or viewport lost"));return false;}
+  for(const auto& Pair:VegetationTestMIDs)if(auto* Source=Pair.Key.Get())
+   Pair.Value->SetScalarParameterValue(TEXT("PlayerRevealStrength"),Source->K2_GetScalarParameterValue(TEXT("PlayerRevealStrength")));
   double Now=FPlatformTime::Seconds(),Elapsed=Now-Start,Ms=(Now-Last)*1000;Last=Now;if(Elapsed<Warmup)return true;const auto& R=Rows[Index];
   if(!Capturing){GEngine->Exec(World.Get(),*FString::Printf(TEXT("csvprofile startfile=ENV2_%s_%03d"),*Label,Index));GEngine->Exec(World.Get(),TEXT("csvprofile start"));Capturing=true;Segments+=FString::Printf(TEXT("%d,%s,%s,%d,%s,"),Index,*R.Site,*R.Condition,R.Repeat,*FDateTime::UtcNow().ToIso8601());return true;}
   auto* VP=Viewport();auto Size=VP->GetSizeXY(),Target=VP->GetRenderTargetTextureSizeXY();auto Window=VP->FindWindow();auto WS=Window.IsValid()?Window->GetSizeInScreen():FVector2D::ZeroVector;float DPI=Window.IsValid()?Window->GetDPIScaleFactor():0;

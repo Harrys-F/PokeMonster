@@ -1,0 +1,24 @@
+VGB1_Vegetation_PIE_CScout	PIE	5	4
+Wald	VegPerf:Control	1	2560	1440	2	100
+Wald	VegPerf:FullyRough	1	2560	1440	2	100
+Wald	VegPerf:Control	1	2560	1440	2	100
+Wald	VegPerf:TreeLOD1	1	2560	1440	2	100
+Wald	VegPerf:Control	1	2560	1440	2	100
+Wald	VegPerf:BushLOD1	1	2560	1440	2	100
+Wald	VegPerf:FullyRough	2	2560	1440	2	100
+Wald	VegPerf:Control	2	2560	1440	2	100
+Wald	VegPerf:TreeLOD1	2	2560	1440	2	100
+Wald	VegPerf:Control	2	2560	1440	2	100
+Wald	VegPerf:BushLOD1	2	2560	1440	2	100
+Wald	VegPerf:Control	2	2560	1440	2	100
+Wald	VegPerf:Control	3	2560	1440	2	100
+Wald	VegPerf:FullyRough	3	2560	1440	2	100
+Wald	VegPerf:Control	3	2560	1440	2	100
+Wald	VegPerf:TreeLOD1	3	2560	1440	2	100
+Wald	VegPerf:Control	3	2560	1440	2	100
+Wald	VegPerf:BushLOD1	3	2560	1440	2	100
+Wald	VegPerf:Control	90	2560	1440	2	100
+Wald	VegPerf:FullyRough	90	2560	1440	2	100
+Wald	VegPerf:TreeLOD1	90	2560	1440	2	100
+Wald	VegPerf:BushLOD1	90	2560	1440	2	100
+Weg	VegPerf:Control	99	2560	1440	2	100
