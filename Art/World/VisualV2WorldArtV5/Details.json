@@ -1,0 +1,44 @@
+{
+  "CloverPatch": {
+    "object": "WA5_CloverPatch",
+    "vertices": 2376,
+    "triangles": 3608,
+    "dimensions_m": [
+      0.4005826264619827,
+      0.4367307275533676,
+      0.14155386950005777
+    ],
+    "materials": [
+      "WA5_Foliage",
+      "WA5_Seed"
+    ]
+  },
+  "MossCushion": {
+    "object": "WA5_MossCushion",
+    "vertices": 4416,
+    "triangles": 6624,
+    "dimensions_m": [
+      0.6040175557136536,
+      0.5708489120006561,
+      0.056166995549574494
+    ],
+    "materials": [
+      "WA5_Foliage",
+      "WA5_Seed"
+    ]
+  },
+  "ReedTuft": {
+    "object": "WA5_ReedTuft",
+    "vertices": 2252,
+    "triangles": 3600,
+    "dimensions_m": [
+      0.7106841802597046,
+      0.664120078086853,
+      1.062905758168199
+    ],
+    "materials": [
+      "WA5_Foliage",
+      "WA5_Seed"
+    ]
+  }
+}

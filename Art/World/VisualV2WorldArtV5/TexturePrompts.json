@@ -1,0 +1,16 @@
+[
+  {
+    "name": "ForestFloor",
+    "source": "/Users/harry/.codex/generated_images/01a0ac33-17a2-7000-a83d-bf800bb4af2e/exec-04ad953c-4f2d-4457-9038-244eed07f642.png",
+    "prompt": "Use case: stylized-concept. Asset type: seamless square BASE COLOR texture for a high quality hand painted fantasy game forest floor, covers 2.4m of actual earth. Flat orthographic material sample, no perspective or frame. Uneven moss carpets, small soft clover patches, brown leaf litter in clear readable groups with curled oak leaves 4 to 8cm wide, glimpses of warm dark humus and tiny bark fragments. Mostly muted olive/sage greens and softly contrasting warm brown ochre leaf clusters. Detailed organic painterly strokes, not fine pixel noise, not a photographic surface. Avoid uniform density, repeated leaf symbols, oversized leaves, flowers, grass forests or tree trunks. The shapes must read from a raised 2.5D game camera. No directional illumination, no shadows, no AO baked in, no bright center or vignette. Seamless all four edges, 2048x2048 square.",
+    "mode": "built-in imagegen",
+    "project_asset": "/Users/harry/Documents/Codex/PokeMonster_GitSicherung_V5_2026-10-16/Worktree/Art/World/VisualV2WorldArtV5/Textures/T_WA5_ForestFloor.png"
+  },
+  {
+    "name": "WetBank",
+    "source": "/Users/harry/.codex/generated_images/01a0ac33-17a2-7000-a83d-bf800bb4af2e/exec-2f79180d-c435-4919-abdb-a31c0f78d880.png",
+    "prompt": "Use case: stylized-concept. Asset type: seamless square BASE COLOR texture for a high quality hand painted fantasy game riverbank, covers 2.2m of ground. Flat orthographic material sample, no perspective or frame. Moist muted brown-grey silty earth with small irregular flat pebbles 1 to 5cm, occasional pale rounded river stones no bigger than 8cm, tiny straw/root fragments and scattered dark olive moss low to ground. Unevenly distributed gravel pockets, gently worn open mud between them. Calm painterly brushwork with large readable details, no tiny high-contrast noise. No water itself, no puddles, no specular shine, no reeds, no giant rocks, no directional illumination, no shadows or baked ambient occlusion, no vignette. Seamless all four edges, 2048x2048 square.",
+    "mode": "built-in imagegen",
+    "project_asset": "/Users/harry/Documents/Codex/PokeMonster_GitSicherung_V5_2026-10-16/Worktree/Art/World/VisualV2WorldArtV5/Textures/T_WA5_WetBank.png"
+  }
+]

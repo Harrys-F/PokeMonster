@@ -51,3 +51,6 @@ Art/World/VisualV2HealingArtV3/Textures/*.png filter=lfs diff=lfs merge=lfs -tex
 # Heilhaus V4: required authored art inputs, not review captures
 Art/World/VisualV2HealingArtV4/Textures/*.png filter=lfs diff=lfs merge=lfs -text
 Art/World/VisualV2HealingArtV4/References/*.jpg filter=lfs diff=lfs merge=lfs -text
+
+# World Art V5: authored floor textures, no review media
+Art/World/VisualV2WorldArtV5/Textures/*.png filter=lfs diff=lfs merge=lfs -text
