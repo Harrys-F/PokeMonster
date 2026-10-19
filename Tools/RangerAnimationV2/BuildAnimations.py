@@ -2,7 +2,7 @@
 import bpy,math,json,numpy as np,hashlib
 from pathlib import Path
 from mathutils import Vector,Quaternion,Matrix
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');C=R/'Art/Characters/NPCs/Ranger';O=C/'Review/AnimationV2';E=C/'Exports/AnimationV2';s=bpy.context.scene
+R=Path('/Users/harry/Developer/PokeMonster');C=R/'Art/Characters/NPCs/Ranger';O=C/'Review/AnimationV2';E=C/'Exports/AnimationV2';s=bpy.context.scene
 assert bpy.app.background and Path(bpy.data.filepath).name=='Ranger_NPC_V2_Protected.blend'
 out=C/'Source/Ranger_NPC_AnimationQuality_V2.blend';assert not out.exists()
 rig=s.objects['Ranger_Pilot_Rig'];models=[s.objects[n] for n in ['Ranger_Runtime_Pilot','Ranger_V2_LOD0','Ranger_V2_LOD1']];run=models[1];rig.animation_data.action=None;rig.data.pose_position='REST'

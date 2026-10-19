@@ -12,5 +12,5 @@ else:f.write_text(json.dumps(state,indent=2))
 sha=state['maps']['Content/Maps/Dev_TestMap_VisualV2.umap']
 if backup.exists():assert hashlib.sha256(backup.read_bytes()).hexdigest()==sha
 else:shutil.copy2(R/'Content/Maps/Dev_TestMap_VisualV2.umap',backup)
-assert subprocess.check_output(['git','rev-parse','main'],cwd=R,text=True).strip()=='03492bd96b4dba44692f675c19d5f11abfa86b4b'
+assert subprocess.check_output(['git','rev-parse','backup/full-03492bd'],cwd=R,text=True).strip()=='03492bd96b4dba44692f675c19d5f11abfa86b4b'
 print('Original safety baseline available; no project asset changed')

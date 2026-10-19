@@ -2,7 +2,7 @@
 import bpy, math, json, ast
 from pathlib import Path
 from mathutils import Vector, Matrix, Quaternion
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');scene=bpy.context.scene
+R=Path('/Users/harry/Developer/PokeMonster');scene=bpy.context.scene
 assert scene.name=='Meshy_Sprint_Work_V1'
 arm=scene.objects['Player_Meshy_Rig'];obj=scene.objects['Player_Meshy_Body'];pb=arm.pose.bones
 assert len(arm.data.bones)==25

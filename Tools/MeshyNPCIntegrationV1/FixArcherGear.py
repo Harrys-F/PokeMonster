@@ -1,7 +1,7 @@
 import bpy,json
 from pathlib import Path
 from mathutils import Vector
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');C=R/'Art/Characters/NPCs/ElvenArcher';s=bpy.context.scene;obj=s.objects['ElvenArcher_Runtime'];rig=s.objects['ElvenArcher_Rig'];count=0
+R=Path('/Users/harry/Developer/PokeMonster');C=R/'Art/Characters/NPCs/ElvenArcher';s=bpy.context.scene;obj=s.objects['ElvenArcher_Runtime'];rig=s.objects['ElvenArcher_Rig'];count=0
 for v in obj.data.vertices:
  x,y,z=v.co
  # Only the rear head/upper-gear band, above sleeve bulk, in the source's local coordinates.

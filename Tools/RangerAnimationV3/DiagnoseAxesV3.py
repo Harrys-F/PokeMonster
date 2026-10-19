@@ -2,7 +2,7 @@
 import bpy, json, math
 from pathlib import Path
 from mathutils import Vector
-R = Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster')
+R = Path('/Users/harry/Developer/PokeMonster')
 O = R/'Art/Characters/NPCs/Ranger/Review/AnimationV3/Data'
 s = bpy.context.scene
 r = s.objects['Ranger_Pilot_Rig']

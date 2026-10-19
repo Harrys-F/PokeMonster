@@ -2,7 +2,7 @@
 import bpy, math, json
 from pathlib import Path
 from mathutils import Vector, Matrix, Quaternion
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster')
+R=Path('/Users/harry/Developer/PokeMonster')
 S=R/'Art/Characters/YoungTrainer/Source/Player_Meshy_GameReady_V1.blend'
 E=R/'Art/Characters/YoungTrainer/Exports/MeshyV1'; E.mkdir(parents=True,exist_ok=True)
 T=R/'Art/Characters/YoungTrainer/Textures/MeshyV1'; T.mkdir(parents=True,exist_ok=True)

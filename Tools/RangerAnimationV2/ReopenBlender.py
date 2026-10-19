@@ -1,6 +1,6 @@
 import bpy,json,numpy as np
 from pathlib import Path
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');O=R/'Art/Characters/NPCs/Ranger/Review/AnimationV2/Data';s=bpy.context.scene;r=s.objects['Ranger_Pilot_Rig'];r.data.pose_position='REST';s.frame_set(1);a={'reopened':bpy.data.filepath,'bones':len(r.data.bones),'actions':[(x.name,x.frame_range[:]) for x in bpy.data.actions],'meshes':[],'clips':[]}
+R=Path('/Users/harry/Developer/PokeMonster');O=R/'Art/Characters/NPCs/Ranger/Review/AnimationV2/Data';s=bpy.context.scene;r=s.objects['Ranger_Pilot_Rig'];r.data.pose_position='REST';s.frame_set(1);a={'reopened':bpy.data.filepath,'bones':len(r.data.bones),'actions':[(x.name,x.frame_range[:]) for x in bpy.data.actions],'meshes':[],'clips':[]}
 for n in ['Ranger_V2_LOD0','Ranger_V2_LOD1']:
  o=s.objects[n];m=o.data;m.calc_loop_triangles();co=np.array([v.co[:] for v in m.vertices]);weights=np.array([sum(g.weight for g in v.groups) for v in m.vertices]);a['meshes'].append({'name':n,'vertices':len(m.vertices),'triangles':len(m.loop_triangles),'height_m':float(co[:,2].max()-co[:,2].min()),'min_z_m':float(co[:,2].min()),'uv_layers':[x.name for x in m.uv_layers],'material_slots':len(m.materials),'weights_min':float(weights.min()),'weights_max':float(weights.max()),'nonfinite_coordinates':int((~np.isfinite(co)).sum())})
 r.data.pose_position='POSE'

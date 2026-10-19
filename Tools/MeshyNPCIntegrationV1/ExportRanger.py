@@ -1,7 +1,7 @@
 import bpy,json,math,numpy as np
 from pathlib import Path
 from mathutils import Vector
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');C=R/'Art/Characters/NPCs/Ranger';I=R/'Art/Characters/NPCs/IntegrationV1';s=bpy.context.scene;mesh=s.objects['Ranger_Runtime_Pilot'];rig=s.objects['Ranger_Pilot_Rig']
+R=Path('/Users/harry/Developer/PokeMonster');C=R/'Art/Characters/NPCs/Ranger';I=R/'Art/Characters/NPCs/IntegrationV1';s=bpy.context.scene;mesh=s.objects['Ranger_Runtime_Pilot'];rig=s.objects['Ranger_Pilot_Rig']
 # Back-carried sword must follow chest, not upper arm/head. Explicit Ranger-only ROI.
 count=0
 for v in mesh.data.vertices:

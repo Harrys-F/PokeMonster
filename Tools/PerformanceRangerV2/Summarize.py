@@ -1,6 +1,6 @@
 import csv,json,statistics,math
 from pathlib import Path
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');P=R/'Saved/PerformanceRangerV2';O=R/'Art/Characters/NPCs/Ranger/Review/V2';out={}
+R=Path('/Users/harry/Developer/PokeMonster');P=R/'Saved/PerformanceRangerV2';O=R/'Art/Characters/NPCs/Ranger/Review/V2';out={}
 def pct(a,p):
  s=sorted(a);x=(len(s)-1)*p;lo=int(x);return s[lo]+(s[min(lo+1,len(s)-1)]-s[lo])*(x-lo)
 for f in P.glob('*_Frames.csv'):

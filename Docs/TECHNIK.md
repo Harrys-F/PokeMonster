@@ -1,5 +1,20 @@
 # Technisches Konzept – PokeMonster
 
+## Aktiver Projektpfad ab 19.10.2026
+
+Der einzige aktive Entwicklungsordner ist `/Users/harry/Developer/PokeMonster`.
+`PokeMonster.uproject`, `Art`, `Content`, `Source`, `Docs` und `Tools` liegen direkt darin.
+Das bestehende Repository und seine Git-/LFS-Objekte wurden ohne neue Projektkopie
+an diesen Pfad angehoben. `main` folgt dem bisherigen GitHub-Repository `origin/main`.
+Der vollständige lokale Backup-Commit bleibt auf `backup/full-03492bd` und dem
+Archiv-Ref erhalten; er gehört weiterhin nicht zur schlanken Remote-Historie.
+
+Der alte schlanke Worktree ist bis zur ausdrücklichen Bereinigungsfreigabe erhalten,
+aber kein aktiver Entwicklungsort. Historische Berichte behalten die damaligen
+Pfadbezeichnungen; diese sind keine aktuelle Pfadanweisung. Keine neuen Projektkopien,
+Versionsordner oder Maps ohne Freigabe; vor zusätzlichen Worktrees nachfragen.
+Prüfprotokolle und Kontrollmedien bleiben lokal unter `Saved`, außerhalb von Git.
+
 ## Projektstatus
 
 PokeMonster befindet sich am Anfang der Entwicklung. Zunächst wird eine kleine, technisch saubere und spielbare Demo erstellt. Das Projekt soll schrittweise erweitert werden.

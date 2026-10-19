@@ -1,23 +1,25 @@
 {
  "schema": 1,
  "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
- "base": "351a3efa57f3b56cdaabc7ee165e861ce2a82dcf",
+ "base": "30a165b034114ba4b0940a369e73143db988afad",
+ "snapshot_kind": "checked_primary_project_after_relocation",
+ "generated_at": "2026-10-19 18:22:29 +0200",
  "files": {
   ".codex/config.toml": {
    "bytes": 59,
    "sha256": "57333356855370cd842784b90fe5936a4cc9971028e43b8e1fc7889c2e2c47b5"
   },
   ".gitattributes": {
-   "bytes": 3674,
-   "sha256": "8bbc7b94acf7f9c0fe7c938b0e4a1dd841802e96951ff114ec8f2b820ad86bb3"
+   "bytes": 4191,
+   "sha256": "28fff1d0a2d2526ea58622fad5c9650c74ac9f70e3664333d6e83f8a31503fe3"
   },
   ".gitignore": {
-   "bytes": 726944,
-   "sha256": "2986f13f553c4d68a92feee4c7aa63e145c5c7751f652fcfbb800ba366643dbe"
+   "bytes": 727124,
+   "sha256": "a965cd7ccf822fc0ed7766d3ab0c9fe489522cde99da93e60258d88c77eddef9"
   },
   "AGENTS.md": {
-   "bytes": 3119,
-   "sha256": "a409d25acd734fec69f2dd7fa8c0cc69ca22b556c3a3c945f37787250178a0da"
+   "bytes": 4221,
+   "sha256": "32b67e3556b8f4682493cf88418f5f36da7f0dc06b1d19a2f39e891e70cb8b59"
   },
   "Art/Architecture/Westland/Buildings/WL_Cottage_V1.json": {
    "bytes": 29735,
@@ -4364,8 +4366,268 @@
    "sha256": "f9400643047e7e15308f9c36d008b9f39587e3970ead270f37bc24998f3e8dd0"
   },
   "Art/World/TreeShadowProxyV1/Source/OakAncient_ShadowProxy_V1.blend": {
-   "bytes": 21205825,
-   "sha256": "ecc46d869edffdcc99d410fcbf1b89b5b8aeaa378f31ade9cbbc47926ba42efa"
+   "bytes": 21362751,
+   "sha256": "cd801a5120a24af8fb174713bc47b7356a315e34abd7a2ea22440f202bf3175e"
+  },
+  "Art/World/VisualV2HealingArtV3/AssetManifest.json": {
+   "bytes": 2966,
+   "sha256": "22c756fed91400d6eed8ddff21f3c311d74437ade93c1c3e7b1ec7f76597f5be"
+  },
+  "Art/World/VisualV2HealingArtV3/Exports/SM_HA3_BroadHerb.fbx": {
+   "bytes": 269580,
+   "sha256": "49cefe160601ed89a182c1a8e1c13e415dcf7294f8575916c8dd7591536616da"
+  },
+  "Art/World/VisualV2HealingArtV3/Exports/SM_HA3_FlowerPlant.fbx": {
+   "bytes": 387740,
+   "sha256": "3230eaa80db97d6f142faa5d3e366cb7a618476573a0831a46a1e59f4d88b4f8"
+  },
+  "Art/World/VisualV2HealingArtV3/Exports/SM_HA3_LeafPlant.fbx": {
+   "bytes": 253628,
+   "sha256": "d041d60b73d3f7d7bc75bbacd36b0ae696f44879b77251dce06eb2c3811075a1"
+  },
+  "Art/World/VisualV2HealingArtV3/Exports/SM_HA3_NarrowHerb.fbx": {
+   "bytes": 314684,
+   "sha256": "33991fc6fbe71fe709ca9937fcfae49be885094b8596e5065baf0c7edc376d34"
+  },
+  "Art/World/VisualV2HealingArtV3/Exports/SM_HA3_TrailingHerb.fbx": {
+   "bytes": 206380,
+   "sha256": "ee06551de8493273e95c90733f36a53a8066062b2cfabe5880687784608fd933"
+  },
+  "Art/World/VisualV2HealingArtV3/Plants.json": {
+   "bytes": 1538,
+   "sha256": "ada0b57c351579fb450362b85d7a3fa82d6c06d75fa4cca1d159bedc9a033556"
+  },
+  "Art/World/VisualV2HealingArtV3/README.md": {
+   "bytes": 1715,
+   "sha256": "ebfce5578af015cd5eb858499b2166df6580835f90a7d01bcffb5d02e61eeac8"
+  },
+  "Art/World/VisualV2HealingArtV3/Scope.json": {
+   "bytes": 16398,
+   "sha256": "2a9b83b382b2ee7faee1bae38216dd0e8d683e8f96479c9169f597ef639c8ec3"
+  },
+  "Art/World/VisualV2HealingArtV3/Source/HealingHouse_PottedPlants_V3.blend": {
+   "bytes": 3205621,
+   "sha256": "a3d0f94aecd9324637ddc7fb8cc3e864532c242eb6ccce895549357b59fc7e21"
+  },
+  "Art/World/VisualV2HealingArtV3/TexturePrompts.json": {
+   "bytes": 2387,
+   "sha256": "9c747de0612ac06649350c07137301e0c4bbff2c0ab6b56fee7d32a51b6026af"
+  },
+  "Art/World/VisualV2HealingArtV3/Textures/T_HA3_Earth.png": {
+   "bytes": 2929551,
+   "sha256": "445f4c1c1dd13980de7d0b797765a640db167ecd112a468f3f69b6e8f0b739a1"
+  },
+  "Art/World/VisualV2HealingArtV3/Textures/T_HA3_Meadow.png": {
+   "bytes": 4166843,
+   "sha256": "98628b8452d5cfbdd0b18eca906a83eceeada7e45b4205287f57241a8a323bbe"
+  },
+  "Art/World/VisualV2HealingArtV4/AssetManifest.json": {
+   "bytes": 6196,
+   "sha256": "9fc9476890a2282474faa26ff9933da19ed4c193ba75645f94f924063665eeb6"
+  },
+  "Art/World/VisualV2HealingArtV4/Details.json": {
+   "bytes": 1615,
+   "sha256": "b56c023cf10f410da20f815a33fa9661156a900295ecbbd791d81cccdf7e98a1"
+  },
+  "Art/World/VisualV2HealingArtV4/Exports/SM_HA4_BroadHerb.fbx": {
+   "bytes": 291340,
+   "sha256": "5b5ea6a6cd0cf30b83cb4afb8ca9c2a77fb8b1078649cdedbfe79da90c623709"
+  },
+  "Art/World/VisualV2HealingArtV4/Exports/SM_HA4_Flagstone.fbx": {
+   "bytes": 17612,
+   "sha256": "591f8f0222d3ecfce9e144e3d1dc2c19446e3f5dfa6423f0b5a5f77c26fcd4e3"
+  },
+  "Art/World/VisualV2HealingArtV4/Exports/SM_HA4_FlowerPlant.fbx": {
+   "bytes": 725548,
+   "sha256": "1021aa227403a072f449ec3ff0458e1fceaa933f9021d780380062d20ad31860"
+  },
+  "Art/World/VisualV2HealingArtV4/Exports/SM_HA4_GardenFlowers.fbx": {
+   "bytes": 712252,
+   "sha256": "e515c3cc6c4b4334af999542b397453099e979df3bd64cf723a7b70c13909246"
+  },
+  "Art/World/VisualV2HealingArtV4/Exports/SM_HA4_GardenHerb.fbx": {
+   "bytes": 277788,
+   "sha256": "838b7f66a1ab77d6d6fe4837d2cf58de7b0da44912865ba4d849c53a80aef5ef"
+  },
+  "Art/World/VisualV2HealingArtV4/Exports/SM_HA4_GrassTuft.fbx": {
+   "bytes": 50380,
+   "sha256": "36d0511860a32c3a15a97fa5f4b5f61079403dc892a1812e4a70cf541fdcff38"
+  },
+  "Art/World/VisualV2HealingArtV4/Exports/SM_HA4_IvySprigA.fbx": {
+   "bytes": 23084,
+   "sha256": "30481d4791e1c4f7f40aed5751e7e719abf63c46508cdea5e316c1ef1cc4a00f"
+  },
+  "Art/World/VisualV2HealingArtV4/Exports/SM_HA4_IvySprigB.fbx": {
+   "bytes": 23100,
+   "sha256": "c46cd221fe978b6901d13c3160fe745dfb2a6823480cab8243ff9e7f5d302101"
+  },
+  "Art/World/VisualV2HealingArtV4/Exports/SM_HA4_LeafPlant.fbx": {
+   "bytes": 209452,
+   "sha256": "0f5759d0f8265c16232829f698a2e5e0fca4084adc6a1e07ab181786d721ef00"
+  },
+  "Art/World/VisualV2HealingArtV4/Exports/SM_HA4_NarrowHerb.fbx": {
+   "bytes": 1030780,
+   "sha256": "6c3fc4bcbb374cc422c2c7d7086264260e84814821a340aa209ae96305b40358"
+  },
+  "Art/World/VisualV2HealingArtV4/Exports/SM_HA4_TrailingHerb.fbx": {
+   "bytes": 177548,
+   "sha256": "56b2df746565ab1968e5c0af6cc1447b1fe2b868f31be21ba4924edbc575c79b"
+  },
+  "Art/World/VisualV2HealingArtV4/GroundChanges.json": {
+   "bytes": 26543,
+   "sha256": "30d88b965b130c540e17fc1935ff2a3e305a3f3506f65378db6c2cfa46d31d9e"
+  },
+  "Art/World/VisualV2HealingArtV4/Plants.json": {
+   "bytes": 1543,
+   "sha256": "4898bb26868baf0d07ac24554518c3dd3d76b3743c52481495233b4988052aa6"
+  },
+  "Art/World/VisualV2HealingArtV4/README.md": {
+   "bytes": 2378,
+   "sha256": "a4f430831f4b1184f6783d7c63984c39ae449d5a7879710039b240ea3a800fa0"
+  },
+  "Art/World/VisualV2HealingArtV4/References/Heilhaus_V4_UserTarget.jpg": {
+   "bytes": 515564,
+   "sha256": "af759954b1f871829cda082faf9ead6b82aae5b801bb0b3b12915be9bebfc671"
+  },
+  "Art/World/VisualV2HealingArtV4/Scope.json": {
+   "bytes": 102333,
+   "sha256": "1948a7fc4fc8ad817a58adc79dcd0f99bb39ab523dbbc1308218699f9ba7b49c"
+  },
+  "Art/World/VisualV2HealingArtV4/Source/HealingHouse_GardenDetails_V4.blend": {
+   "bytes": 2971983,
+   "sha256": "d2db7cd9a000edcd4f8d64d0cc4201bd775fb64037493507ac804f152e6bc72a"
+  },
+  "Art/World/VisualV2HealingArtV4/Source/HealingHouse_PottedPlants_V4.blend": {
+   "bytes": 3997758,
+   "sha256": "52aa017597d07d4ff5307fa60e5fa73830ac40279a4ff0d0822bbe2c0fab6223"
+  },
+  "Art/World/VisualV2HealingArtV4/TexturePrompts.json": {
+   "bytes": 3486,
+   "sha256": "a7aa4ef3d607f86aa6a95f30af85f91fa4d1d30b65a0904bf56286c3167b0aae"
+  },
+  "Art/World/VisualV2HealingArtV4/Textures/T_HA4_Earth.png": {
+   "bytes": 3341209,
+   "sha256": "61d1e554eb2864048a8a9a47fb8d901d72ca40048a4444003bb480a9b4e19748"
+  },
+  "Art/World/VisualV2HealingArtV4/Textures/T_HA4_Meadow.png": {
+   "bytes": 3183900,
+   "sha256": "e582bb453962a76d57ec8257ac13c87167756e870a6932fe728d2cca757684f0"
+  },
+  "Art/World/VisualV2HealingArtV4/Textures/T_HA4_Wood.png": {
+   "bytes": 2268292,
+   "sha256": "0cf96a8b39e8b93dcd1bfaf29c409f75966c16af37a0b7f082b53ba7f40498b5"
+  },
+  "Art/World/VisualV2ShadowQualityV8/ShadowLift.hlsl": {
+   "bytes": 2407,
+   "sha256": "bb1e024630954136c379e189d5f050f4b67c80cb596f0b8b11150d819b2bb21d"
+  },
+  "Art/World/VisualV2ShadowQualityV8/Variants.json": {
+   "bytes": 540,
+   "sha256": "832c491b3b6cc78109f26aa5e9410d1e547f451cf1492dbe8434c79b5039f1f9"
+  },
+  "Art/World/VisualV2WorldArtV1/HealingHouseDressing.json": {
+   "bytes": 25964,
+   "sha256": "13f3024ca43f90da58dbfd21f8def877918e2120d3fd915896686c483a66c97f"
+  },
+  "Art/World/VisualV2WorldArtV2/ArtCandidate.json": {
+   "bytes": 49632,
+   "sha256": "418f49516606ff448e6b468eb59f8ad0e2e2cf9e8bb49a6e1f5709c0f2b1fa31"
+  },
+  "Art/World/VisualV2WorldArtV2/BaselineInstances.json": {
+   "bytes": 33273,
+   "sha256": "f7ba5b31b016a0878a562163c133c0f4dcb899eaac3abe2148893db294ff6fb7"
+  },
+  "Art/World/VisualV2WorldArtV2/MeshCandidates.json": {
+   "bytes": 2052,
+   "sha256": "6b0332132aed2c5bb3af10060889944ca310110c3f861bcdf09aa6b2d5067a8d"
+  },
+  "Art/World/VisualV2WorldArtV2/README.md": {
+   "bytes": 1434,
+   "sha256": "312c0d2a60108a5b301977d0c0f1dc76e9e447b37047bbb795ce0501cb169b44"
+  },
+  "Art/World/VisualV2WorldArtV5/AssetManifest.json": {
+   "bytes": 22531,
+   "sha256": "9dd433a3d053ee5094af5e96018439e4c27e81ea0e316f7350009abe045d78bc"
+  },
+  "Art/World/VisualV2WorldArtV5/Details.json": {
+   "bytes": 810,
+   "sha256": "e53b61c374bcf43a81e535180c62898a2c418a1cec3961bed793351edfac1701"
+  },
+  "Art/World/VisualV2WorldArtV5/Exports/SM_WA5_CloverPatch.fbx": {
+   "bytes": 112924,
+   "sha256": "b09a35ff0f4832c3390fae957e9e4e7856aca2a3f0dbfdd1e6782842b5b40657"
+  },
+  "Art/World/VisualV2WorldArtV5/Exports/SM_WA5_MossCushion.fbx": {
+   "bytes": 187612,
+   "sha256": "60c2a16b32b09c07dda702fc78cd42900138f67a84278658c127e6faa1ae142e"
+  },
+  "Art/World/VisualV2WorldArtV5/Exports/SM_WA5_ReedTuft.fbx": {
+   "bytes": 109708,
+   "sha256": "de990d6bc21de3f46953785a9b21a67b3f52760d11f4633653f988fdaf244898"
+  },
+  "Art/World/VisualV2WorldArtV5/RegionalMasks.hlsl": {
+   "bytes": 595,
+   "sha256": "84f985bccc8107262d1da85c9ce1a9a872e3f87ce75ff8cb86a34398a4a4a4be"
+  },
+  "Art/World/VisualV2WorldArtV5/Scope.json": {
+   "bytes": 134535,
+   "sha256": "a9c16fe30767d9dc3c48d792edb5668714298a280f3433b866fe6f0cd4e15514"
+  },
+  "Art/World/VisualV2WorldArtV5/Source/Westland_ThreeBiomes_Details_V5.blend": {
+   "bytes": 357784,
+   "sha256": "482ece63aa1a3f257b17d1f6347dd98e9d2f97ba939c59d7e5dc174c7b9ff421"
+  },
+  "Art/World/VisualV2WorldArtV5/TexturePrompts.json": {
+   "bytes": 2397,
+   "sha256": "4889f43bef289cc7c4ddab4a4963698803b315628324ee35e1fef8ab91c09581"
+  },
+  "Art/World/VisualV2WorldArtV5/Textures/T_WA5_ForestFloor.png": {
+   "bytes": 3457494,
+   "sha256": "71bdee5eb647c981bd114218eab269265a664391d8d9cad05c96e186e5d0c9b7"
+  },
+  "Art/World/VisualV2WorldArtV5/Textures/T_WA5_WetBank.png": {
+   "bytes": 3132925,
+   "sha256": "53759798be10b83335d76be6ffb4b2d8e480461c4ac2a27eb9d4e32e699f68c3"
+  },
+  "Art/World/VisualV2WorldArtV6/AssetManifest.json": {
+   "bytes": 77640,
+   "sha256": "e1e057bff7c8b7cc3e44e51c491dc94cba0910aff3e390f051fb8e7c6842a851"
+  },
+  "Art/World/VisualV2WorldArtV6/RouteField.hlsl": {
+   "bytes": 8809,
+   "sha256": "cd0fd235af5db65e75c58f9f371f467cdce4caabbab91801e0bb4d628005bd67"
+  },
+  "Art/World/VisualV2WorldArtV6/RouteField.json": {
+   "bytes": 16475,
+   "sha256": "01cedbef06264f0b3011b6c5a263d52056843bd95acad563114e5022bbb1256d"
+  },
+  "Art/World/VisualV2WorldArtV6/Scope.json": {
+   "bytes": 183731,
+   "sha256": "4aca7197e37d2108747b6862ea8ab62da7692f893d95ee2a1101ac0cb21420be"
+  },
+  "Art/World/VisualV2WorldArtV6/SurfaceColor.hlsl": {
+   "bytes": 1358,
+   "sha256": "10b5ce74dae8f412fc7269a2305348b08f5389fa7e420e9d0e0bba81d54cb1b1"
+  },
+  "Art/World/VisualV2WorldArtV7/AssetManifest.json": {
+   "bytes": 1063,
+   "sha256": "ee593dde7316d7dcafead34d0e4018d0a6a49be5a6293dc191e102197f3d3134"
+  },
+  "Art/World/VisualV2WorldArtV7/README.md": {
+   "bytes": 2634,
+   "sha256": "1e57dcd52991ccf8630ff9d1e0862930230014d1154f19778f8cf34594bb640f"
+  },
+  "Art/World/VisualV2WorldArtV7/RouteField.hlsl": {
+   "bytes": 13993,
+   "sha256": "31dd49a940c5268e3a651ad52dd20aba9da3c36d047729ab5c103df411840c39"
+  },
+  "Art/World/VisualV2WorldArtV7/RouteField.json": {
+   "bytes": 26055,
+   "sha256": "00c3a4c2dd2e0cadfa69dfa44255b1483b889e24eaf02b186c0a1572ef208fec"
+  },
+  "Art/World/VisualV2WorldArtV7/Scope.json": {
+   "bytes": 353059,
+   "sha256": "1c774cbc76d150735df963775efab3d424e54fb69ef2ad26d0a401e165d30b36"
   },
   "Art/World/Westland/WestlandVillage_V1.json": {
    "bytes": 207984,
@@ -4652,8 +4914,8 @@
    "sha256": "fa13b4e5af841c36d095798620c139d5a4099a084c0f9d2b89b9297d5d81fa8c"
   },
   "Art/World/WestlandAssetLibrary/Source/WestlandAssetLibrary_V3.blend": {
-   "bytes": 21546579,
-   "sha256": "52612fc7299a8aabc83733941fc62814938879106dcda20d761aa5c91d14767d"
+   "bytes": 21718034,
+   "sha256": "a0ef956ed848be4b39e1af4d079adffc8e32c7ad58f39375933e8b37c327f2cc"
   },
   "Art/World/WestlandAssetLibrary/TextureProvenance_V3.md": {
    "bytes": 2256,
@@ -5706,6 +5968,18 @@
   "Content/Dev/Materials/MI_Dev_Wood.uasset": {
    "bytes": 8314,
    "sha256": "a47f08612a3e2cc6668ab0e49e0f14bc5aeffd0b666417e101ecc6680ea648df"
+  },
+  "Content/Development/VisualV2AASoftShadowsV1/MI_FigureBlob.uasset": {
+   "bytes": 7144,
+   "sha256": "e91b64ca10d28f80a60b8224f6b6068c8114c4c0c4ca30f816fde6e048d50c7e"
+  },
+  "Content/Development/VisualV2AASoftShadowsV1/MI_TreeBlob.uasset": {
+   "bytes": 7164,
+   "sha256": "c43e2cb4a31c80cdeec7286b2e09ff78c7015f7f5a4117dd431594ab5a68fc9a"
+  },
+  "Content/Development/VisualV2AASoftShadowsV1/M_SoftGroundBlob.uasset": {
+   "bytes": 10235,
+   "sha256": "da1180aeb81667645b5b1e03632f9874705330de7d2e8922526220dd3b3fb547"
   },
   "Content/Environment/Architecture/Westland/Materials/M_WL_Glass.uasset": {
    "bytes": 14740,
@@ -6963,6 +7237,362 @@
    "bytes": 33061,
    "sha256": "3004b90598bf4c66786f48521832a605cdba6f95946476c983fb567ba4fb8a8e"
   },
+  "Content/Environment/VegetationPerfV1/Materials/M_VVP1_CrownFullyRough.uasset": {
+   "bytes": 29655,
+   "sha256": "7cd101fcfc11eb571a75c707932af931cb1e731de12502cf49e16a9b8783c02d"
+  },
+  "Content/Environment/VegetationPerfV1/Materials/M_VVP1_FoliageFullyRough.uasset": {
+   "bytes": 19038,
+   "sha256": "99bd0a89682c21ed44109d721f42b2287765db46d56678c69efae87f040693da"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Materials/M_HA3_Blossom.uasset": {
+   "bytes": 16163,
+   "sha256": "170e6c5e81bf1db705b772818f087922973cdcc37d6c1c816fb58205abd8aeff"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.uasset": {
+   "bytes": 16330,
+   "sha256": "525f712278c4e570458bbce6f507db4b76a70e3ee20160897dabb731251a9de1"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingForecourt.uasset": {
+   "bytes": 22724,
+   "sha256": "8e922624fefd456399727ba5d07d71e546c4e68f4ba67e234380ba87d74869c5"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingMeadow.uasset": {
+   "bytes": 23987,
+   "sha256": "b9dee0766dff40a310b3d6cf607ce2ec288df207c3df807a195c84a3d0e10471"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingPath.uasset": {
+   "bytes": 28846,
+   "sha256": "d68853b8d1499869eafac9b9c00794ca3dfb610f6e6fd7588255c1419311d596"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Materials/M_HA3_LegacyApproach.uasset": {
+   "bytes": 27329,
+   "sha256": "2348facf5a20d181908d5e73a0ab1ffed99b11fe538e5483fb9215e7ec905588"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.uasset": {
+   "bytes": 11991,
+   "sha256": "08d5b7932c0fb65d3c7652cc8cae31dd4ba5a5eef107dff332894f23156b900f"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.uasset": {
+   "bytes": 9045,
+   "sha256": "1b18e7c31f09ea8b2417c14cb1b887d1b3762930c31cd6152cc92c73d4fb5431"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.uasset": {
+   "bytes": 338300,
+   "sha256": "8587425840d3d69a35b54a346bee9563a04f8db84811f7d7130d02f41392146c"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.uasset": {
+   "bytes": 466326,
+   "sha256": "412e97fd5b15a479764d0f18bdf21bad5d469ee8a62532187acdda9505917868"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_LeafPlant.uasset": {
+   "bytes": 315616,
+   "sha256": "b7d87a43928a0094ce505337b3e5adddef54efe3ab8345674dd7856786082144"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_NarrowHerb.uasset": {
+   "bytes": 420332,
+   "sha256": "08b72ffc625243374878050e12f3175d1bf1719bf92167662e92e08f86cf95a9"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb.uasset": {
+   "bytes": 299684,
+   "sha256": "e6474c684b964c3498e78e312babd8162321d02fd1f5b7abf1ada7eb8f20e5ae"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Textures/T_HA3_Earth.uasset": {
+   "bytes": 2872463,
+   "sha256": "e213b0bce994c2e9dc51b220ead00f721e1214abcd76e177e7af34cc0240ee2a"
+  },
+  "Content/Environment/VisualV2HealingArtV3/Textures/T_HA3_Meadow.uasset": {
+   "bytes": 3756707,
+   "sha256": "bb01a13f0660ee761dc3ea91af4703c1471387c59a99d1c04c4c30e44aee25ec"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.uasset": {
+   "bytes": 15595,
+   "sha256": "e83265a4e85c0356850ca9b1eb0e1346f5894cb10502de694de9d42f539fcc68"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadePlaster.uasset": {
+   "bytes": 19056,
+   "sha256": "75c26307be43504f01b86acc5516f64a7b22aa84b5d07a428ebca54ebd87d079"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeRoof.uasset": {
+   "bytes": 19549,
+   "sha256": "ba1602c21fcfb62fa74246c3ff24ac5b5696d466ae5513ec7c96781ae11b9b35"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.uasset": {
+   "bytes": 19572,
+   "sha256": "7f53b4c08d1ff1fbcb428c49af1c839c317c9a499c5ae63a6e84bf6fdfaacd48"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.uasset": {
+   "bytes": 21933,
+   "sha256": "6ace63a31ff63b072492f4be692f07226bb67151bd4f9878d66f11d66bb2850b"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.uasset": {
+   "bytes": 23085,
+   "sha256": "e6ca25034458fdf14b54364f1a3e9e70e29d040eb071189f20f902882418f7cf"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.uasset": {
+   "bytes": 15762,
+   "sha256": "07747426fb357bb899e786922d2d55fc5c875bdbc29074cf5a62acf1007c0e02"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Materials/M_HA4_HealingForecourt.uasset": {
+   "bytes": 23158,
+   "sha256": "83bd3e6ebe47a8a5a735003d8bf91774f6d3bc6aaf5d6ab7916a433958cd7f83"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Materials/M_HA4_HealingMeadow.uasset": {
+   "bytes": 24061,
+   "sha256": "3a3cd2ba123697e7e1212057115ddb56cfc4121b6a4974047fc437467b167aaf"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Materials/M_HA4_HealingPath.uasset": {
+   "bytes": 29136,
+   "sha256": "1ae3b61110f014f58940f3985db1327bfbbde31c9f88f9ccdea6ef4d89606b1b"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.uasset": {
+   "bytes": 14178,
+   "sha256": "3d8e5f653498a3e776c6675470f990d996cdacc2839cc37e25c45f58419ec5c6"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Materials/M_HA4_LegacyApproach.uasset": {
+   "bytes": 27521,
+   "sha256": "23bdc935d21be673e4b177653db4e531002cda0cf779917f734dbb30abde7b0a"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.uasset": {
+   "bytes": 11991,
+   "sha256": "af35ef751ee1540e56f59e0c6f1fa20dc9f824623a9c820535f19484d942d497"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.uasset": {
+   "bytes": 9045,
+   "sha256": "fb4aee6d3f167d9eb8d7754a488de197af625f31ab083927ec90a601536e9075"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_BroadHerb.uasset": {
+   "bytes": 339742,
+   "sha256": "ce01e2fb2940c826f5d9144be8139a3f9fda05fcee1e67792e6bb685f56b47c7"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_Flagstone.uasset": {
+   "bytes": 72660,
+   "sha256": "eeaf20e9008290fa8834d23edcf09db539396e7a279c01578d3d225004d65e8b"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_FlowerPlant.uasset": {
+   "bytes": 761881,
+   "sha256": "83e2457c15cec7c4a1b1b82bdf8658de4f0aeab98dce57a5fec8c6d59902e819"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_GardenFlowers.uasset": {
+   "bytes": 765269,
+   "sha256": "e78c9820b1d69d38e7bffce4f7c8d81e63f160fc6f89131f8d0c9968998947ea"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_GardenHerb.uasset": {
+   "bytes": 369582,
+   "sha256": "500061c9f729bd2e52519b7885e3e94686f9834f7921efd8846191a35ea01ae8"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_GrassTuft.uasset": {
+   "bytes": 108930,
+   "sha256": "f41923c63b06d93a80a9fa2717acfc138d34927840dc2d558c1817dd0320437c"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigA.uasset": {
+   "bytes": 81146,
+   "sha256": "ea75cb8439983753c147813f4c43838aceb110aa933e70999c98e231e74b5fd8"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigB.uasset": {
+   "bytes": 80813,
+   "sha256": "789bdb2ec75e8ccf9d32ad06266bf6f00663c1239e305468e9584ab4d370457b"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_LeafPlant.uasset": {
+   "bytes": 299789,
+   "sha256": "d6b62e161708541178698f016dd26a93e4039fceb2c1589013359251e06d3996"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_NarrowHerb.uasset": {
+   "bytes": 1025417,
+   "sha256": "d92f43d795b0afc926a4447994625f4178d2a3aba430a10551c338d2b0741fc2"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_TrailingHerb.uasset": {
+   "bytes": 233717,
+   "sha256": "237dd8a4e126da7b3f659855811f05234f448cd0b2b61649b38911a8b44c7241"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Textures/T_HA4_Earth.uasset": {
+   "bytes": 3233647,
+   "sha256": "43b1ddf985ec2a806eed8beac01c90dba1f9c1857114f877a5f961ae6aa6e389"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Textures/T_HA4_Meadow.uasset": {
+   "bytes": 3102757,
+   "sha256": "4ed1ee5f52c85dccf75ccbe014ce9e2107485d7a4b3af76d601ef972a1fd60ab"
+  },
+  "Content/Environment/VisualV2HealingArtV4/Textures/T_HA4_Wood.uasset": {
+   "bytes": 2445801,
+   "sha256": "946c9e8b32696c559652e915501fc0c8b86455658dd51879bb28efc2e8612096"
+  },
+  "Content/Environment/VisualV2ShadowQualityV8/Materials/M_SV8_ShadowLift_Experimental.uasset": {
+   "bytes": 26863,
+   "sha256": "046d89aa7a8217640f14cbd086901e834a95f4c58e437b9ac6776c3eb3fe49c4"
+  },
+  "Content/Environment/VisualV2WorldArtV1/Materials/MI_WLA_FlowerBlue_Instanced.uasset": {
+   "bytes": 9513,
+   "sha256": "951740ad8445cf277b3804751b65cecbb040cefbba8183ef4b3cc9539e6c1305"
+  },
+  "Content/Environment/VisualV2WorldArtV1/Materials/MI_WLA_FlowerCream_Instanced.uasset": {
+   "bytes": 9487,
+   "sha256": "e1244be19f20712137fb425424d2fa0c1613156120bce26505839af07a8bf614"
+  },
+  "Content/Environment/VisualV2WorldArtV1/Materials/MI_WLA_LeafDark_Instanced.uasset": {
+   "bytes": 14659,
+   "sha256": "63c8bbecffdee1bd92b4f17f9b75829e26deb0aa76798bd5320cf154eafed574"
+  },
+  "Content/Environment/VisualV2WorldArtV1/Materials/MI_WLA_LeafFern_Instanced.uasset": {
+   "bytes": 14065,
+   "sha256": "c56e8493cca520acebaf2cb3d0ed78ec5bed2a0b174c7726fca37147adf45897"
+  },
+  "Content/Environment/VisualV2WorldArtV1/Materials/MI_WLA_LeafLight_Instanced.uasset": {
+   "bytes": 15379,
+   "sha256": "5e4a336712979c82c46c6661a8ae0f6d83e127ae35b686113d8f813b2ebfb969"
+  },
+  "Content/Environment/VisualV2WorldArtV1/Materials/MI_WLA_Leaf_Instanced.uasset": {
+   "bytes": 15137,
+   "sha256": "ddb23a7072614db0c6c79ff7c92b9091e7235a4ceb1b4ad433a94b8f7d0df45d"
+  },
+  "Content/Environment/VisualV2WorldArtV1/Materials/M_WAQ1_HealingForecourt.uasset": {
+   "bytes": 21913,
+   "sha256": "d35e78f45f44aef03fd30f42d5f9b574c1fdb3f8d6a12aee322ae6e9aad59079"
+  },
+  "Content/Environment/VisualV2WorldArtV1/Materials/M_WAQ1_HealingMeadow.uasset": {
+   "bytes": 23011,
+   "sha256": "bee3515738c8c413d7d7fca9f01a518bc239ed665c5699927ca575ca7897c5a4"
+  },
+  "Content/Environment/VisualV2WorldArtV1/Materials/M_WAQ1_HealingPath.uasset": {
+   "bytes": 27435,
+   "sha256": "4aaec5e2693c1409d88f72623c8a8e281736e43d290dbd85e5295badf40b18e7"
+  },
+  "Content/Environment/VisualV2WorldArtV1/Materials/M_WAQ1_LegacyApproach.uasset": {
+   "bytes": 26223,
+   "sha256": "3f86e65da6a502db01233c3c5f813ed3fff52b680e9c433e4d61fb0ba7f4c4b2"
+  },
+  "Content/Environment/VisualV2WorldArtV1/Materials/M_WLA_PaintedLeaf_Instanced.uasset": {
+   "bytes": 17182,
+   "sha256": "e40b1ab46692e1a92fa918013daa9eb8fe8d4923e3a60a93ec54cb4f52b2797e"
+  },
+  "Content/Environment/VisualV2WorldArtV1/Materials/M_WLA_Painted_Instanced.uasset": {
+   "bytes": 17110,
+   "sha256": "e26eec40c826d154df74ec41e201a7c856d330f422acddadc0f061cc401f64b4"
+  },
+  "Content/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_HealingForecourt.uasset": {
+   "bytes": 22236,
+   "sha256": "37e543a8bea057432380bfbe3685c68697ac0ac76a93ea5801260c926ea72647"
+  },
+  "Content/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_HealingMeadow.uasset": {
+   "bytes": 23020,
+   "sha256": "ea7c576c10ef0741f6f6ba81dbb618ba57510d8980df7135a45ff8e64670f96d"
+  },
+  "Content/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_HealingPath.uasset": {
+   "bytes": 27514,
+   "sha256": "9e9b31f5edc5586cf9c7cfeffd57edfcd6084dbe82406015cef8a40dfe57a402"
+  },
+  "Content/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_LegacyApproach.uasset": {
+   "bytes": 26300,
+   "sha256": "dc82dd354547dc86fadca6d34581f26c537837c218a810318a2020846aaa18e4"
+  },
+  "Content/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_PlantVertexColour.uasset": {
+   "bytes": 9992,
+   "sha256": "ebbe601d8d398494a22ca6d36f574ea2863f02040f6ae81b322187957c20ac5d"
+  },
+  "Content/Environment/VisualV2WorldArtV2/Meshes/SM_WAQ2_GrassMedium.uasset": {
+   "bytes": 20829,
+   "sha256": "38d2f8564be6f03df095eca61a2435a01224cd91d1bed5c361696062224df4cd"
+  },
+  "Content/Environment/VisualV2WorldArtV2/Meshes/SM_WAQ2_GrassSmall.uasset": {
+   "bytes": 17631,
+   "sha256": "14e0301b37da574b8de3bd47c415412e70b0900296b8432a512f24e1c754eed2"
+  },
+  "Content/Environment/VisualV2WorldArtV2/Meshes/SM_WAQ2_MeadowHerbs.uasset": {
+   "bytes": 20212,
+   "sha256": "fcef386994fc6aed6af63a67f882c5d6516fe44f49e527fdf88d2bf78d9ffaa1"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Materials/MI_WLA_Bark_Instanced.uasset": {
+   "bytes": 16632,
+   "sha256": "c02f0714e14dc7459495d6590c4cf615a4b25cd5a453f8968cb580a171c12d98"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Materials/MI_WLA_LeafFern_Instanced.uasset": {
+   "bytes": 13899,
+   "sha256": "5f5a9633d98b98657abd982275c47d259c7123a62d10b51882b993c91071b7b6"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Materials/MI_WLA_LeafLight_Instanced.uasset": {
+   "bytes": 15248,
+   "sha256": "a6f720d31f634114d795905655133ceabb247af5c896d1168a9fbc3e2454e5e6"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Materials/MI_WLA_Leaf_Instanced.uasset": {
+   "bytes": 15001,
+   "sha256": "de517930f77b87cf4d5d2ddbdd6d85f6d0849e953ac79318f9719ea7dbfd946a"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Materials/MI_WLA_MossStone_Instanced.uasset": {
+   "bytes": 11470,
+   "sha256": "da65f2bc082c42d9a8b83903cc529bd06b8619a1a30fe928022e8115c8491028"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Materials/M_WA5_Foliage.uasset": {
+   "bytes": 15944,
+   "sha256": "89c8ed4cc1e98fc5847479af1cfda992e3e81854c7fbac1eb60811e611f6e26b"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Materials/M_WA5_Ground.uasset": {
+   "bytes": 27296,
+   "sha256": "ce9d101ded90149b82a6513427b3b2251627bfdfa5c8c44b7d69fe1630cd946d"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Materials/M_WA5_MainPath.uasset": {
+   "bytes": 29235,
+   "sha256": "de8adec737f18f2f029b83a905d9b3e341b8541170a7100146f1589fae58a55e"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Materials/M_WA5_NorthPath.uasset": {
+   "bytes": 31828,
+   "sha256": "9dd31bb0d12607884e78c450cdb96e5c2283726ab027b27b2f86d6af95fc31c5"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Materials/M_WA5_Seed.uasset": {
+   "bytes": 15759,
+   "sha256": "0c3c1985519e5f69cddb686e32b8833dfcba77a6ba07a6ca9d91a9a94d475cca"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Materials/M_WLA_PaintedLeaf_Instanced.uasset": {
+   "bytes": 17081,
+   "sha256": "949de27d716ab610e535aa4ff8a179ba7b71339d4b1a52e58d1dd82b1b57e1cb"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Materials/M_WLA_Painted_Instanced.uasset": {
+   "bytes": 17013,
+   "sha256": "e913f9eabf8da9eba7fbb931b9938a4cb012b2d849ed1afccbb95696b343fe37"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Meshes/SM_WA5_CloverPatch.uasset": {
+   "bytes": 187179,
+   "sha256": "8d6fb4aed4740e8c38c0dc25a8c9b0213963534dda64700bddfdb1a84abe5443"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Meshes/SM_WA5_MossCushion.uasset": {
+   "bytes": 239627,
+   "sha256": "522835a1d1084c53afe93b4b0fa22f3bb1b6b886794bc1b245fdae7de1a7b53c"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Meshes/SM_WA5_ReedTuft.uasset": {
+   "bytes": 186137,
+   "sha256": "3ec6ad80aafaa0f1ba093b67016f77e5753e528a2ae1fc8715821d5b16867760"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Textures/T_WA5_ForestFloor.uasset": {
+   "bytes": 3460164,
+   "sha256": "0cf2c8424dd967be0e085e16dfbbb88bc649719bf0e3b26b25be2ba742197c47"
+  },
+  "Content/Environment/VisualV2WorldArtV5/Textures/T_WA5_WetBank.uasset": {
+   "bytes": 3106911,
+   "sha256": "e1311a95db8750424875042fdca03c300d22d8499af3f55936dbe57fb545a395"
+  },
+  "Content/Environment/VisualV2WorldArtV6/Materials/M_WA6_Ground.uasset": {
+   "bytes": 38035,
+   "sha256": "813491f987af4bdb06f48e0c5dc8b2feb73a5d67519a3fd4de2007a9edf66841"
+  },
+  "Content/Environment/VisualV2WorldArtV6/Materials/M_WA6_MainPath.uasset": {
+   "bytes": 49700,
+   "sha256": "a4fb2e7796e7f7b106cf12fb103d31f02d87c39ebe9ca3a18b635cefc712a34c"
+  },
+  "Content/Environment/VisualV2WorldArtV6/Materials/M_WA6_NorthPath.uasset": {
+   "bytes": 52077,
+   "sha256": "01ef60979bd7d06ae0207dbbe1fb4dd865b52b7a17871cbf990e2dce7df8e94e"
+  },
+  "Content/Environment/VisualV2WorldArtV7/Materials/M_WA7_Ground.uasset": {
+   "bytes": 43626,
+   "sha256": "dd5f97716ee4b5d1d6e0e280c826f0febc91f8d5fe77f06001b5fb6c2068abb0"
+  },
+  "Content/Environment/VisualV2WorldArtV7/Materials/M_WA7_MainPath.uasset": {
+   "bytes": 61192,
+   "sha256": "c58f31f824dda620e8c231c2b0e45105eb42b2e2d7f64cfee6f89c5a9825b7ab"
+  },
+  "Content/Environment/VisualV2WorldArtV7/Materials/M_WA7_NorthPath.uasset": {
+   "bytes": 63571,
+   "sha256": "02846235904177b31384ed93a336ec044a324983f0abfcf857fa0bd6774c5570"
+  },
   "Content/Environment/Westland/NaturalGroundV1/Materials/M_WL_NG_Earth.uasset": {
    "bytes": 21202,
    "sha256": "f256a9ba0e14b60bcbb2e722dced7e937cd3db4e4ffe89f15226c36251e4f768"
@@ -7304,12 +7934,12 @@
    "sha256": "c69a7ee1ea7b4d1d5778c8720c4acbf22b8d9f088f5d245f788ac100fce050ea"
   },
   "Content/Environment/WestlandAssetLibrary/QualityV3/Materials/MI_WLA_FoliageGroups_V3.uasset": {
-   "bytes": 12342,
-   "sha256": "57439d096dcc73327e5ed8e3109681b67960ccece691a9939fe07f07e7db4191"
+   "bytes": 14250,
+   "sha256": "61954ee0bd6585c056785b5792fdbd135caa2574e8259f3d0b092b408b215e30"
   },
   "Content/Environment/WestlandAssetLibrary/QualityV3/Materials/M_WLA_FoliageGroups_V3.uasset": {
-   "bytes": 22162,
-   "sha256": "877c0ee43426322e3e67c20296e94d463655357ff7af338480eeee699c3a406d"
+   "bytes": 20143,
+   "sha256": "0c2e016712782dd0a392adc40a039e8eb4b6f3f6b144a8473cb5f66149033ec4"
   },
   "Content/Environment/WestlandAssetLibrary/QualityV3/Meshes/Review/SM_WLA_V3_ForestPath.uasset": {
    "bytes": 41818,
@@ -7932,8 +8562,12 @@
    "sha256": "237c3106e4e866b496026293cd3caaebb91dd1a2b6d7e81dbea04c88f889e290"
   },
   "Content/Maps/Dev_TestMap_VisualV2.umap": {
-   "bytes": 3259926,
-   "sha256": "811b73e759ec71334b5dbe6d39bcf6cbc9a7547b965dfad86e6e9483f13b7fd4"
+   "bytes": 3724794,
+   "sha256": "e06d3edcbb6bc6c8844f1734f22650f55454e8aa87507c8ee0422e37bafc6713"
+  },
+  "Content/Maps/Dev_TestMap_VisualV2GPUBottleneckV1.umap": {
+   "bytes": 3300685,
+   "sha256": "02bc480c3760889ba5af31e9e71db77b454320f7a03fea958ee316eb5ff323b8"
   },
   "Content/Maps/Dev_WestlandAssetLibrary.umap": {
    "bytes": 246335,
@@ -7967,9 +8601,17 @@
    "bytes": 30862,
    "sha256": "9b9790de3a2f31626924f3e3bef72872fa37093e816dba57c707f814219d450d"
   },
+  "Docs/Data/VisualV2WorldArtQualityV2/Messmethode.json": {
+   "bytes": 6417,
+   "sha256": "7c108840269701a2217f8cb8ab6e89b7488a55ab2d33a2be5b6e4568a5ca7bbb"
+  },
+  "Docs/Data/VisualV2WorldArtQualityV2/Messwerte.csv": {
+   "bytes": 37201,
+   "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
+  },
   "Docs/ENTSCHEIDUNGEN.md": {
-   "bytes": 100536,
-   "sha256": "b37ef9c7b0f896152e22369791fb5bd1d811b827f9451420088bb027f60a6453"
+   "bytes": 111330,
+   "sha256": "9cedb16594804179272d42a70aa098aa1b3c8cfa14f9be0b2ec1cacfb98e65d4"
   },
   "Docs/GRAFIKSTIL.md": {
    "bytes": 13867,
@@ -8052,8 +8694,68 @@
    "sha256": "cb4d28f53a50b73e952a013afd156e8afe62c2845ccacdc8fd91c4b7cd9f8350"
   },
   "Docs/TECHNIK.md": {
-   "bytes": 118728,
-   "sha256": "4d222fc30a99ec5bedbeaba44f02e83f78927b5bf470688927ac8b3fbfe8b2fb"
+   "bytes": 130613,
+   "sha256": "316e650507229786c6f77dca4ecb78909bc4e5bffda4372fb5a26a9f3c104e94"
+  },
+  "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
+   "bytes": 58217,
+   "sha256": "f6846ca82e7b787512df2be2e8e8f6aab4116d9fe613ebecc9bc232518c71342"
+  },
+  "Docs/VISUALV2_GPU_BOTTLENECK_V1_PRUEFBERICHT.md": {
+   "bytes": 41928,
+   "sha256": "0e5bf32dbc7372e6a156ab4a2f556e09aa98166a93a34aa6090bc8412c654bd1"
+  },
+  "Docs/VISUALV2_HEILHAUS_ART_QUALITY_V3_PRUEFBERICHT.md": {
+   "bytes": 18060,
+   "sha256": "470178f0539f9fabeb376d44b754019700f66a5ddbd0cdb8baffe02cc4a8136f"
+  },
+  "Docs/VISUALV2_HEILHAUS_ART_QUALITY_V4_PRUEFBERICHT.md": {
+   "bytes": 18059,
+   "sha256": "0568d4ddaa0387b1ac8d8fa2e24b2cae85f3ba6356b379d4e5f739b4dd5aef35"
+  },
+  "Docs/VISUALV2_MATERIAL_FIX_V1_PRUEFBERICHT.md": {
+   "bytes": 31568,
+   "sha256": "9f6aad27fa581f49b22f4120b018181a3dbfcfaab07d7b973ed9dc1b2458c050"
+  },
+  "Docs/VISUALV2_QUALITY_V2_PRUEFBERICHT.md": {
+   "bytes": 28251,
+   "sha256": "ba70288a68ef775ee15d50ad7340bfcbfa2004d17e4f72f144e4fee89658c525"
+  },
+  "Docs/VISUALV2_SHADOW_QUALITY_V8_PRUEFBERICHT.md": {
+   "bytes": 14526,
+   "sha256": "f9bd011803a8c1e0960ef91677d4201fa79edaa36e4bdb342f4cba6263ca398a"
+  },
+  "Docs/VISUALV2_TAA_INTEGRATION_V1_PRUEFBERICHT.md": {
+   "bytes": 25311,
+   "sha256": "3a3ea2a4c2f1f6cfc4ab32f4ec6420e876818c067dcc73624fab6c3172608acb"
+  },
+  "Docs/VISUALV2_TAA_TSR_SOFT_SHADOWS_V1_PRUEFBERICHT.md": {
+   "bytes": 41429,
+   "sha256": "5095adef75e0c1aad213aea1c4c9e750ddbd4780fd3fc77518a3fa2bed1f0bc7"
+  },
+  "Docs/VISUALV2_VEGETATION_PERFORMANCE_V1_PRUEFBERICHT.md": {
+   "bytes": 31640,
+   "sha256": "253d7af8db3d5864a267428ce43aa45a32c2644c14959f227778f1867bcebea8"
+  },
+  "Docs/VISUALV2_WORLD_ART_QUALITY_V1_PRUEFBERICHT.md": {
+   "bytes": 17418,
+   "sha256": "84b033a431af525e63cba68a33d1d4a2ce41fd0998bbabac2e7ce4f68b3ab83a"
+  },
+  "Docs/VISUALV2_WORLD_ART_QUALITY_V2_PRUEFBERICHT.md": {
+   "bytes": 29111,
+   "sha256": "982c1a3ab7a14839dee84d6dfa7f8cac5a9d1c7b2e3e880e22808d4067d26d1f"
+  },
+  "Docs/VISUALV2_WORLD_ART_QUALITY_V5_PRUEFBERICHT.md": {
+   "bytes": 16966,
+   "sha256": "26fb70f3f369a6473162706a172b345acd9db18f00fe6a1336ce82f0a5acd2af"
+  },
+  "Docs/VISUALV2_WORLD_ART_QUALITY_V6_PRUEFBERICHT.md": {
+   "bytes": 18589,
+   "sha256": "47cb208817f946f7e67c19e87f2a21f749bd89093f38c966ef03da308787be5e"
+  },
+  "Docs/VISUALV2_WORLD_ART_QUALITY_V7_PRUEFBERICHT.md": {
+   "bytes": 14632,
+   "sha256": "3ef171da1e0a60f91d409ee27c60b948f10b691bf2c8bfc2cefe1e846c2d7c12"
   },
   "Docs/WESTLAND_ASSET_LIBRARY_ART_QUALITY_V2_PRUEFBERICHT.md": {
    "bytes": 27830,
@@ -8244,8 +8946,8 @@
    "sha256": "d1cca1ab6ab7a4e81a16400586997552a11e74c223fca34729396af43af007b3"
   },
   "Source/PokeMonster/Development/PokeMonsterEnvironmentPerformanceProbeV2.cpp": {
-   "bytes": 18985,
-   "sha256": "9012541f3c5eb1323fa135f3ca9e80f78a732a433fa795a4bab86c3c2b1745e0"
+   "bytes": 24431,
+   "sha256": "14053186a5ef93bbd54147d8587bfb8ea29c6e5a5325dcc8d5665e2c4f6e0de9"
   },
   "Source/PokeMonster/Development/PokeMonsterEnvironmentPerformanceProbeV3.cpp": {
    "bytes": 20155,
@@ -8306,6 +9008,22 @@
   "Source/PokeMonster/Development/PokeMonsterPerformanceProbe.cpp": {
    "bytes": 13378,
    "sha256": "518582062b1d83111dc7d3e11ad3eddb2a4b303d32b9ef08f31776545dcda110"
+  },
+  "Source/PokeMonster/Development/PokeMonsterSoftShadowTest.cpp": {
+   "bytes": 11028,
+   "sha256": "a305c5e5426186e542b73819bae7abed005474a79e0b2eefb12471ebabf1659f"
+  },
+  "Source/PokeMonster/Development/PokeMonsterSoftShadowTest.h": {
+   "bytes": 192,
+   "sha256": "81e8ea7bd2921a2fe547560f74ec4eb72f5c6fc2c85d4ee5b1858ebf7071f623"
+  },
+  "Source/PokeMonster/Development/PokeMonsterTAAReviewCapture.cpp": {
+   "bytes": 3632,
+   "sha256": "f1d0e465a74b49fdf51ebf51b798b2ebf895f66e58d8284a4949ae83c826e93a"
+  },
+  "Source/PokeMonster/Development/PokeMonsterWorldArtPerformanceStudy.cpp": {
+   "bytes": 4949,
+   "sha256": "f40c0d9b6590f47c469d1592ba4d437572eb08523326aeb25ee4fa5d0e7574d5"
   },
   "Source/PokeMonster/Dialogue/PokeMonsterDialogueData.h": {
    "bytes": 1841,
@@ -8471,6 +9189,14 @@
    "bytes": 2998,
    "sha256": "3e0ee0496570790ed3b65debbcebad5f433f5303a5f4d1a894ea8388eb2a345b"
   },
+  "Source/PokeMonster/Rendering/PokeMonsterTemporalAABlendable.cpp": {
+   "bytes": 836,
+   "sha256": "b12c63c347ca9a91179695f500250f6cb42dbbac71ee231a48f9ff40434d7098"
+  },
+  "Source/PokeMonster/Rendering/PokeMonsterTemporalAABlendable.h": {
+   "bytes": 535,
+   "sha256": "1209a97021f57f195344075c823547ccdca1a7990b198f8e0e8f7f35b96dc086"
+  },
   "Source/PokeMonster/Save/PokeMonsterSaveGame.h": {
    "bytes": 1611,
    "sha256": "679a74ae53c09ab4f207721c529c41dc61afb81784995cd626154ce3f8ab9053"
@@ -8619,6 +9345,10 @@
    "bytes": 8509,
    "sha256": "baf1a43d6a610810088a332110eee2c210007be6524b79fbe21fdd2a117fb8ce"
   },
+  "Source/PokeMonster/Tests/PokeMonsterTemporalAATest.cpp": {
+   "bytes": 2499,
+   "sha256": "6664552ce27f33cb284aee23ecac7225d226a2c8588bbeb423454a8c7af95eaf"
+  },
   "Source/PokeMonster/Tests/PokeMonsterTrainerEncounterTest.cpp": {
    "bytes": 5876,
    "sha256": "ee004e25fea436810640af605dc1bde8fa6c972f7b11cdcc2a9dc3ed2d94f421"
@@ -8712,8 +9442,8 @@
    "sha256": "a8209a828f353e29ce917946a62c8cecd508647a12ea9a082f1e352bb3566f9f"
   },
   "Tools/Blender/AnimateMeshyPlayerV2.py": {
-   "bytes": 6641,
-   "sha256": "3ffb87f8af001902f807eab368f8094b70c9cf8f9da0f8238ceaef9c0f8c367d"
+   "bytes": 6624,
+   "sha256": "5af0f57369cd96720339a10e8a6090b3e5e6884e129436926b076dee3fb00d8e"
   },
   "Tools/Blender/ApplyHealingHouseV2Proportions.py": {
    "bytes": 8345,
@@ -8772,8 +9502,8 @@
    "sha256": "d3e6c6ea91f4c470d40d1a0f88d9dae91f935540cadebf7d5de5333038771838"
   },
   "Tools/Blender/CreateMeshySprintV1.py": {
-   "bytes": 4311,
-   "sha256": "b5e3c9000b6c5b6df7930f4be5d2e712f72c19dacbfce0eb11232db71e676573"
+   "bytes": 4294,
+   "sha256": "10e71bb898e1bf7191cf641bb5715b953a9d1bbbbd721dcdfa4547323342af71"
   },
   "Tools/Blender/DressHealingHouseV3.py": {
    "bytes": 7752,
@@ -8792,12 +9522,12 @@
    "sha256": "2aea373da63896a032573e62b0293c0fd136f6cfaba275843adaab38288d4f87"
   },
   "Tools/Blender/ExportMeshyPlayerV1.py": {
-   "bytes": 1763,
-   "sha256": "01a24c5695463e0fe2b997f0e1daf0d1d3d4e02a958b8559f68bc818e8a5e7d4"
+   "bytes": 1746,
+   "sha256": "acc9fda9533ac3545eef73c57468a1a6e7c0500ecf7c7687f381ce70e498ed1c"
   },
   "Tools/Blender/ExportMeshyPlayerV2.py": {
-   "bytes": 1666,
-   "sha256": "30334212a3bab7a1a7b1dc538728e6ecef0306e7e5a6d02955f2f0f8ef39e400"
+   "bytes": 1649,
+   "sha256": "bee1647e80895ed119e22caadb1bea8e7f55d1e707cce6fda88f6875afd39e5d"
   },
   "Tools/Blender/ExportWestlandAssetLibraryV1.py": {
    "bytes": 1833,
@@ -8832,8 +9562,8 @@
    "sha256": "007a9ba412ec534c4c811858699ddf182662d0ef0038c77876d076ed8e3e0bd7"
   },
   "Tools/Blender/PrepareMeshyPlayerV1.py": {
-   "bytes": 8374,
-   "sha256": "d0b660b0e483ff2a4a40655989468c0ad03f5e0d90b63de7ea255dec1e2c369b"
+   "bytes": 8357,
+   "sha256": "33774fd352b3c2cbacb8eb14becbeff190f4a71c3c7b0898183c15dac54fefeb"
   },
   "Tools/Blender/RecomposeWestlandInnV1.py": {
    "bytes": 7611,
@@ -9208,8 +9938,8 @@
    "sha256": "194bbfef685a19076423fd3f41f9c8a4f37e91afbd438b84d2944f0454066f28"
   },
   "Tools/EnvironmentPerfV1/ThermalMonitor.py": {
-   "bytes": 1179,
-   "sha256": "c8275d357af8866a688b8dce6e21a4e6b069ef449ddf96ccbe8fc5923c094d02"
+   "bytes": 1162,
+   "sha256": "5080aa5cb38de941ecbf50c2c370cfd2e4fbe97baa811c99d616da1d8fc75797"
   },
   "Tools/EnvironmentPerfV1/WriteReport.py": {
    "bytes": 5874,
@@ -9440,8 +10170,8 @@
    "sha256": "3241d5fae90aa509ab2a77ce311834367fcc1ccbf1185af1fb98cea2581ba81f"
   },
   "Tools/EnvironmentPerfV2/ThermalMonitor.py": {
-   "bytes": 1244,
-   "sha256": "828222a5ba290d0572cfd7152a03cbe212882f1bce0a52b5508c0d259efa6604"
+   "bytes": 1227,
+   "sha256": "74b7ba8ae609bdd47ae8ad2a804d5df33d6f4d5f565a9dae70dd0a94f972ab29"
   },
   "Tools/EnvironmentPerfV2/VerifyPreservation.py": {
    "bytes": 1658,
@@ -9696,8 +10426,8 @@
    "sha256": "961b51b59f1ba0c4fe80443d6fe71b0c4d644ba157e7a75b5289f72c1a3ebc75"
   },
   "Tools/EnvironmentPerfV3/ThermalMonitor.py": {
-   "bytes": 1328,
-   "sha256": "6ec012087bcd9112d9fcc42356aefa0481d4ce38b1d30e98859bca1fa1ffe6b5"
+   "bytes": 1311,
+   "sha256": "0af0e2330e27fc4804b53bf4b8388e798aad5f5c899374f3dea0cc5fd8f22a5d"
   },
   "Tools/EnvironmentPerfV3/ValidateMeasurements.py": {
    "bytes": 1836,
@@ -9780,8 +10510,8 @@
    "sha256": "d59811786e47b981bbbdbe5c4023f1d34f03e2815d386bc6e810c441b0716839"
   },
   "Tools/ImportWestlandAssetLibraryV3.py": {
-   "bytes": 7179,
-   "sha256": "43b1ac4a224877da04a199047d7fdd823a45df4dcd9a994a2b8e211f84e4e4a4"
+   "bytes": 7478,
+   "sha256": "42a280737b3094ec44f875b4667c0abd7a71acb52af25375faf1735eb88716d7"
   },
   "Tools/ImportWestlandBuildingKitV1.py": {
    "bytes": 7686,
@@ -9832,20 +10562,20 @@
    "sha256": "61eaecf7bf1ef78fe2acd75eb13503bb0449c9d664a27a60feedfbce9e62eab6"
   },
   "Tools/MeshyNPCIntegrationV1/ConnectivityAudit.py": {
-   "bytes": 2053,
-   "sha256": "ec7a833f4f300c1416645faa82ad15106b7bf6a76a70952ede46e23ea86c372b"
+   "bytes": 2036,
+   "sha256": "323c4fbce05490a6dc455deb73e428ad4d41762908b6abe01274e21821365cb3"
   },
   "Tools/MeshyNPCIntegrationV1/ExportRanger.py": {
-   "bytes": 3165,
-   "sha256": "1efe5b7034d9432afbe21ea8c454c916a994d479389ba9bca2fe2200edccd52f"
+   "bytes": 3148,
+   "sha256": "6791104ff63001cbe794b33fc92fef165b947b0af8ec314026c342e4c1a051b2"
   },
   "Tools/MeshyNPCIntegrationV1/FinalEditorAudit.py": {
    "bytes": 2636,
    "sha256": "078e4509147efab4a51ac62107d1a4f72deb96424b52da8ac9d3d22cee146af9"
   },
   "Tools/MeshyNPCIntegrationV1/FixArcherGear.py": {
-   "bytes": 2246,
-   "sha256": "ee7d9027006892e5dc191d3f7de41ea4acb3d2e1c5203bedcb75de5bb03ba4ae"
+   "bytes": 2229,
+   "sha256": "46a290ec7ffc20ff5bdf790e5295d064f04b3e8893506792a615f4f52168e1d0"
   },
   "Tools/MeshyNPCIntegrationV1/FootTest.py": {
    "bytes": 12959,
@@ -9856,8 +10586,8 @@
    "sha256": "89ca01c39a377e78fb197d3b1cb197b644a666768c7e2ea4b7a361c3da1d6520"
   },
   "Tools/MeshyNPCIntegrationV1/HumanoidVariants.py": {
-   "bytes": 7510,
-   "sha256": "c0af6e3e818a4649c56ad73e372c22c637f50b9e736a71e740dec3c287112a0e"
+   "bytes": 7493,
+   "sha256": "3a114a73c7bf02516ee03cd6d7d7346dee99f3876e499b1d033bf0b5563b6144"
   },
   "Tools/MeshyNPCIntegrationV1/ImportBatch.py": {
    "bytes": 1002,
@@ -9880,8 +10610,8 @@
    "sha256": "f3bab2bca8fbad1962eeb61f0d40f6d30fbe9201e3a88ee442e2a094589ae346"
   },
   "Tools/MeshyNPCIntegrationV1/InspectStaticFBXUV.py": {
-   "bytes": 1214,
-   "sha256": "f743565915e9699c1ecaa19efd26e94bee2971757b230dab43991752045adece"
+   "bytes": 1197,
+   "sha256": "81d8640419b4c7f7582a404000fd5eea891fbf71e129246cab5a7faa3594c9a6"
   },
   "Tools/MeshyNPCIntegrationV1/InspectWorld.py": {
    "bytes": 1406,
@@ -9900,8 +10630,8 @@
    "sha256": "eab39b6a42003a5cb1be3d2c04a97b200242c1dbc9842d1f4dd942dbc2ad0bb2"
   },
   "Tools/MeshyNPCIntegrationV1/PrepareSource.py": {
-   "bytes": 6985,
-   "sha256": "7428b33ca9bdb98078c19f903c58c52cc9bf1475cb6b362e1590f5a6cb04dd63"
+   "bytes": 6968,
+   "sha256": "b621291f3f902b5622d57ecf66a9e8e298a8c850f2d524573262d2fea900925a"
   },
   "Tools/MeshyNPCIntegrationV1/Queue.py": {
    "bytes": 813,
@@ -9912,52 +10642,52 @@
    "sha256": "c8185029693798b8b071a6b730ebc735d49f0dd305c0ead42b84f7261cb173eb"
   },
   "Tools/MeshyNPCIntegrationV1/RangerRuntimePilot.py": {
-   "bytes": 6928,
-   "sha256": "80cd7f74caac42096055d49562520c71e8fe46fbbd55587361b3f38a0b15d9ca"
+   "bytes": 6911,
+   "sha256": "89a17b37f75b7309e977e7c8cb55578ad679c9d46d4a45505b62c321ea05673c"
   },
   "Tools/MeshyNPCIntegrationV1/ReadStaticLibraries.py": {
    "bytes": 1689,
    "sha256": "a8c2deb6338bb0dbe12df87777dd98a8b1dfd7d3ef0ee02c856ea3048f1f18db"
   },
   "Tools/MeshyNPCIntegrationV1/ReopenRuntime.py": {
-   "bytes": 927,
-   "sha256": "ae83a91f9bde02af9489535a69149e61a56a4523b030ae666a9c3c1fee903cba"
+   "bytes": 910,
+   "sha256": "2e9819ee9fc2d51e8ae124cc03fbc1a313e739e3231d1fad42bf40a3daacba09"
   },
   "Tools/MeshyNPCIntegrationV1/ReopenSources.py": {
-   "bytes": 1090,
-   "sha256": "231aa3903390e73cfaa99c7ea4854fad7bd865a80ba2b328bee7a5b20a436e00"
+   "bytes": 1073,
+   "sha256": "18f129830dcdc642e7a23cf017edcde3ceae8f1f9317cd52f8028453a7d97bf0"
   },
   "Tools/MeshyNPCIntegrationV1/ReopenStaticReviews.py": {
-   "bytes": 929,
-   "sha256": "a8ab534b0f2f08e02e3f116fb5822c604eca06c4741ee3aecb19f6719cf9d313"
+   "bytes": 912,
+   "sha256": "75fcc89f4b9f40c20747b1dd5d11ef489093b00943df8c3e359d76fcfb04c612"
   },
   "Tools/MeshyNPCIntegrationV1/RepairActionPersistence.py": {
-   "bytes": 598,
-   "sha256": "bf584e3a48e84676fb847a254a031e6faa4f2f51b84f5c421a39ee853848ea4f"
+   "bytes": 581,
+   "sha256": "e2fa1fa4a1eda4268e691d9288d41a7dbbca5b4d12a093999d573c0b866e16ed"
   },
   "Tools/MeshyNPCIntegrationV1/RepairMaterialUsage.py": {
    "bytes": 936,
    "sha256": "480d7beaecbe10ffcf77ba8296e63e13b8cd994add05210accddfa8b36051012"
   },
   "Tools/MeshyNPCIntegrationV1/RepairRangerPilot.py": {
-   "bytes": 2735,
-   "sha256": "ca0dc7c284b3c7d887706a8e6dc9c538ddb07a2c8e6cfdea2184eee73e931eab"
+   "bytes": 2718,
+   "sha256": "304abbd1490f57bd9160731250e29fdfde1338a519dde14fee4e992c27d16482"
   },
   "Tools/MeshyNPCIntegrationV1/ReviewAtWanderer.py": {
    "bytes": 3210,
    "sha256": "a39a6abd2caff33ceddf2eaca5f7fd171da30ce9407a326faee13393ddf9259d"
   },
   "Tools/MeshyNPCIntegrationV1/RunInEditor.py": {
-   "bytes": 579,
-   "sha256": "41882d926e64a27452cc281ab9bc938cf206e799adee106e44800fd03c3ea175"
+   "bytes": 562,
+   "sha256": "2027eb6f7b8ed12d0b6570a4a94c9bd9e80f7ab671bdb1114400eb25be6ed772"
   },
   "Tools/MeshyNPCIntegrationV1/ScopedPresentationCost.py": {
    "bytes": 1826,
    "sha256": "351c4e8d94bfa97d436cea3f7aa4df745398b3e6296fcba17f2c4e5be07edb1b"
   },
   "Tools/MeshyNPCIntegrationV1/StaticReviewExport.py": {
-   "bytes": 3104,
-   "sha256": "441f61a0ec922f3974030ec98a34089b4731a1a96755dd80a98139d60b165742"
+   "bytes": 3087,
+   "sha256": "0a73466b0a84bf5d7870fdbc65038d8275406fd7848d012f39fa19b86d612a14"
   },
   "Tools/MeshyNPCIntegrationV1/StopReviewInspectSpawn.py": {
    "bytes": 418,
@@ -9988,16 +10718,16 @@
    "sha256": "bd90f5173b765ceef847e4418c0568f0c852768a2d6556ec76bb8d5640996421"
   },
   "Tools/PerformanceRangerV2/BuildRangerV2.py": {
-   "bytes": 6292,
-   "sha256": "9185542674915d9a7af1b57fb660d2a69e1c6b8d868875e4b00495cad69630f6"
+   "bytes": 6275,
+   "sha256": "8e8ad9e5fbb1138d2f677f6c369218d3abde596a89315949a94414c3773f4690"
   },
   "Tools/PerformanceRangerV2/BuildRangerV2Protected.py": {
-   "bytes": 6838,
-   "sha256": "3cb3a1e1fd80095328d87ce457f43e9733feccc551d0e7f231f4675e745d713e"
+   "bytes": 6821,
+   "sha256": "2a2387f1a182c41911ef519d8d0aa73fc9b86d701744a92ab6c773e4b03976ed"
   },
   "Tools/PerformanceRangerV2/CheckFBXRigs.py": {
-   "bytes": 888,
-   "sha256": "dec88d7eb18cf16d2e4860c7326694a08c74fa6b8e019185d4aa14cf1f800834"
+   "bytes": 871,
+   "sha256": "eac4ee45c83eeaeedc73d317eb4db9560f7a507c753caa0c6d998c6302976c98"
   },
   "Tools/PerformanceRangerV2/CloseForBuild.py": {
    "bytes": 687,
@@ -10112,8 +10842,8 @@
    "sha256": "19779d94caecba109686b0b6750eae01d14430301540bc0cb842505132934df1"
   },
   "Tools/PerformanceRangerV2/MakePlans.py": {
-   "bytes": 1590,
-   "sha256": "32214a69e702bda1b4cab6677cd0447d1a14d442b693c5b14e169d01149be0cd"
+   "bytes": 1573,
+   "sha256": "3f9ad0e1caca3d4256f420f2b824f363b25ae55075a81d4561445ab4a479c22c"
   },
   "Tools/PerformanceRangerV2/NativeCleanReview.py": {
    "bytes": 1974,
@@ -10212,8 +10942,8 @@
    "sha256": "9c4d0605f3e73907d2e126e841eb5625cfe610f775563f2245f1858f81a3f7a8"
   },
   "Tools/PerformanceRangerV2/ProbeReductionBias.py": {
-   "bytes": 1275,
-   "sha256": "3056ab24193469589f7013055717594912fa64c1c47008c65adf42020fa7b09c"
+   "bytes": 1258,
+   "sha256": "fe3ae3ad8e1db5de35e01ad5a4a13ef1ea8bbd1635da1c7aad6d034348c7951b"
   },
   "Tools/PerformanceRangerV2/Queue.py": {
    "bytes": 784,
@@ -10228,52 +10958,52 @@
    "sha256": "07622eb9b75dfe104e09a83b7a3f80f781a531f19c52c8b5952b5541edb3d560"
   },
   "Tools/PerformanceRangerV2/ReopenV2.py": {
-   "bytes": 1363,
-   "sha256": "ff52e4adb70abbdcd9f6ec69ca21cb9c723e5fcf729ba5d536786ccf3aaadb5a"
+   "bytes": 1346,
+   "sha256": "b46891678f1ab55b2c3702509937399e900abb161d8bd3b809ac1086218b15fa"
   },
   "Tools/PerformanceRangerV2/RestoreSession.py": {
    "bytes": 1198,
    "sha256": "a756b7ed68c45095b22219c10daf30a01180726594df556742810c44ef796a33"
   },
   "Tools/PerformanceRangerV2/ResumeEditorQueue.py": {
-   "bytes": 1260,
-   "sha256": "87426876cdf2264eab04953ba9be5ead47116ba9efb3daee9538f3a09fc9d411"
+   "bytes": 1243,
+   "sha256": "108bd7144c72c7ebfb479965bb84322c3b83eaaf2dd0ae9d5bdb3724a396102c"
   },
   "Tools/PerformanceRangerV2/RunEditorPlans.py": {
-   "bytes": 754,
-   "sha256": "cbc1a58919d1f60fede6b3e0bf2c1204afbe073b9a4eee07cba408382db1248c"
+   "bytes": 737,
+   "sha256": "edae95cfad27df502892e0c9d89be8bad56a296f59a30bc60c1f1b45afe09e88"
   },
   "Tools/PerformanceRangerV2/RunInEditor.py": {
-   "bytes": 565,
-   "sha256": "d4a0818c55274f55775692d81294ef6782f3bab241554ecb0de74977bf134c91"
+   "bytes": 548,
+   "sha256": "7f1034fe6a96fcb10648ea2011e3ac1185ef1b12a03ef63906a5f1ee2fb70176"
   },
   "Tools/PerformanceRangerV2/RunStandaloneFinal.py": {
-   "bytes": 1199,
-   "sha256": "5dee687b18df6090c4b7a2fb0d0e6056f2a6dad028730c34acac9819961477a8"
+   "bytes": 1182,
+   "sha256": "432da7246a0a7b13a535c2484aae60f90ed47ee7311f87d8fcc9db9a4dc00925"
   },
   "Tools/PerformanceRangerV2/StartProbe.py": {
    "bytes": 1029,
    "sha256": "65036434425b1b146f39883a4ca27d935721e7da20ea26bdef1663d504ed40df"
   },
   "Tools/PerformanceRangerV2/Summarize.py": {
-   "bytes": 2401,
-   "sha256": "da0572ea3068edade505b90271bc0da23108ae478a4ea71e1a0e9f9387699eab"
+   "bytes": 2384,
+   "sha256": "698f29c83d7b6341f4d807bfb8ce42aa6978ba7949d6e2d0f8cbd3c5fe30c3de"
   },
   "Tools/PerformanceRangerV2/ThermalMonitor.py": {
-   "bytes": 1181,
-   "sha256": "1f3632ba5814b39d31334251c86ba300017ccf7ffb661e277fd880546a641f65"
+   "bytes": 1164,
+   "sha256": "c1a541c0172c437433d63427e60f6367fbbdf1ce015d39e3acf914a11b4e64e2"
   },
   "Tools/PerformanceRangerV2/ValidateImport.py": {
    "bytes": 1151,
    "sha256": "4397d0ed36fea46429ad5fc76d215768d15fc1e223eaaf3f07ffceb48abb63d8"
   },
   "Tools/PerformanceRangerV2/WriteFinalMetricTables.py": {
-   "bytes": 3808,
-   "sha256": "e5690fec965cd4455c8e9b658484dd37aef25c5a5097d54ada68348febdf811f"
+   "bytes": 3791,
+   "sha256": "ce6ebb0ca320b9e670c1d365bcbe71657ca3fde608e91daa8e3e9b9c8d798c52"
   },
   "Tools/PerformanceRangerV2/WriteMetricTables.py": {
-   "bytes": 3198,
-   "sha256": "3914a3eb81fc9c0ccdae813d4b611595cc5f58842885bef39f67116bfa8209c9"
+   "bytes": 3181,
+   "sha256": "b83c29ca18959bd65f210383f574c59a60df928a2c92b66a9ee408db3207f0e8"
   },
   "Tools/PerformanceRangerV2/WriteReport.py": {
    "bytes": 27943,
@@ -10286,6 +11016,26 @@
   "Tools/PolishWestlandRegionV1.py": {
    "bytes": 5292,
    "sha256": "163e47fe32d049307297964760017fab8aa723832c58ab3ff4a5c434bcb6da34"
+  },
+  "Tools/ProjectMaintenance/BlenderSources.py": {
+   "bytes": 3069,
+   "sha256": "9924f0d74167d6e49827750aad63d97b96ab5191653cb8b918870db1032f37e4"
+  },
+  "Tools/ProjectMaintenance/EditorSession.py": {
+   "bytes": 5273,
+   "sha256": "0cf543a080b84dd6d6aa42012725c053204e9cc3e98b772f8e0688c816084ce9"
+  },
+  "Tools/ProjectMaintenance/FixMovedTexturePaths.py": {
+   "bytes": 5138,
+   "sha256": "c3c80079489ddd7035692ed14c9c6149a0f0fcb7170d5bb8a49de5123642daf8"
+  },
+  "Tools/ProjectMaintenance/README.md": {
+   "bytes": 2526,
+   "sha256": "712efe585de624a6e207472f61b7d526c892dc1227f2c78354c27993494704bd"
+  },
+  "Tools/ProjectMaintenance/RunGameplay.py": {
+   "bytes": 2560,
+   "sha256": "797c4e21e02beae4fc109de6057e8f71795750783a4f0fc0e5f2b60bee394624"
   },
   "Tools/RangerAnimationV2/AfterFoot.py": {
    "bytes": 968,
@@ -10304,8 +11054,8 @@
    "sha256": "093aff60b47365e7159db1bfe7f20375bf5b7d8c3db29b3a76fbf813c8461916"
   },
   "Tools/RangerAnimationV2/BuildAnimations.py": {
-   "bytes": 12009,
-   "sha256": "36ebc64e6886feeb8266b7d17c2bf763e571d7c33629c06716b5897059eaf4a5"
+   "bytes": 11992,
+   "sha256": "2f64b1e841dc5c8fe65cc59027d9bb127eca9cffbb16036fe4792d63101d1402"
   },
   "Tools/RangerAnimationV2/CaptureMotionSequence.py": {
    "bytes": 3468,
@@ -10340,8 +11090,8 @@
    "sha256": "bba78d76cba5506e7506ec97f1d9e6c0bc096940aef45c08a3a914f9fb7febd8"
   },
   "Tools/RangerAnimationV2/DiagnoseCape.py": {
-   "bytes": 776,
-   "sha256": "5a0c185502723f789ef77500868fb3e3a55bc60200fdb2939894cbabcc554f1e"
+   "bytes": 759,
+   "sha256": "4dbc32adf742cecd9135f0cac0b43f846696d735e21d85f4f1a8a4f9016230b3"
   },
   "Tools/RangerAnimationV2/FinalEditorState.py": {
    "bytes": 1393,
@@ -10364,8 +11114,8 @@
    "sha256": "14b2f02941ec99f5c9a2006c2aa8e7be959bcd5542e722d52569611319c66446"
   },
   "Tools/RangerAnimationV2/InspectBlender.py": {
-   "bytes": 1327,
-   "sha256": "5626c46c3463f5aa60a5b18e932c33e78c1b1d369391f936e57669a94dc82183"
+   "bytes": 1310,
+   "sha256": "17084b0a4227be2bbf97ee18239cd3a465e8b0e9804fd8ce9ad0e3462b7f82d1"
   },
   "Tools/RangerAnimationV2/InspectEditor.py": {
    "bytes": 659,
@@ -10452,8 +11202,8 @@
    "sha256": "6aea2ee3025fcc382e67d8db4b6eaedf3144b97de8cb827cada2b129e8674681"
   },
   "Tools/RangerAnimationV2/ReopenBlender.py": {
-   "bytes": 1970,
-   "sha256": "379141e7b98642f292956f8b02eb235cd6667afdab0e9c3be602db1dcfd998e2"
+   "bytes": 1953,
+   "sha256": "e64606eb2ee2194a6733d42e24a27a57de7b332e19f4f10908b4383d47170c9b"
   },
   "Tools/RangerAnimationV2/ReopenEditor.py": {
    "bytes": 664,
@@ -10520,8 +11270,8 @@
    "sha256": "207dd0613c7c3ab3fea8a15da8cf61d439aef9c6d07eca7033f0420d512d653f"
   },
   "Tools/RangerAnimationV2/ThermalMonitor.py": {
-   "bytes": 1328,
-   "sha256": "f57e3510903c6b9c9816ec85a6dc3060a54bbe546d0c9dd0904fb84a9f4ef0dc"
+   "bytes": 1311,
+   "sha256": "9f7c9c75b37628b22558b108afd629f902d8721f6acda034e5fe90eeb4033861"
   },
   "Tools/RangerAnimationV2/UpgradePreviewSource.py": {
    "bytes": 1586,
@@ -10552,8 +11302,8 @@
    "sha256": "7196b63797fbf19d4ba418286c3c1c7a072a67bcbd600da8e6b7f1b671e7853f"
   },
   "Tools/RangerAnimationV3/BuildAnimations.py": {
-   "bytes": 9467,
-   "sha256": "4142f7e897deb710e67f4808d57cd71fbaed13b736896062c4240128cb0351d9"
+   "bytes": 9450,
+   "sha256": "7e5bd4b4af5089a8c6a4cee57fd6424d5edcaaf9029b0538dcf8b2d032abcc05"
   },
   "Tools/RangerAnimationV3/CloseForBuild.py": {
    "bytes": 564,
@@ -10584,12 +11334,12 @@
    "sha256": "6c2236296016133906d86ce61811a7d70eeb34c7786ab1a32c998807eb750b71"
   },
   "Tools/RangerAnimationV3/DiagnoseAxes.py": {
-   "bytes": 1479,
-   "sha256": "ebbca10190d69c21454b9d05d9ba1373069e4f94de77e7ea612070c0bc542e7e"
+   "bytes": 1462,
+   "sha256": "5c7baf7e762d335a71a19f872384a715f001975d60794d8f555b30266ccbb3d4"
   },
   "Tools/RangerAnimationV3/DiagnoseAxesV3.py": {
-   "bytes": 1479,
-   "sha256": "7e241973c9b4ce22c12553fbe5de117c60beca0bc544f8f7ac006c70ad0997b9"
+   "bytes": 1462,
+   "sha256": "c599e317cc5e658c64d38d4137f45d698242edb0a25459d58954cc4b9c26de95"
   },
   "Tools/RangerAnimationV3/EncodeRecording.swift": {
    "bytes": 4483,
@@ -10720,8 +11470,8 @@
    "sha256": "2ccf9720be7ef489ef71d963ba49193f0f9453973db36dec3759b797ff0637ae"
   },
   "Tools/RangerAnimationV3/ReopenBlender.py": {
-   "bytes": 1970,
-   "sha256": "3b9ccb520343ed512773462400d680e1d91c2bc670632f76b25d4ccb5febb48d"
+   "bytes": 1953,
+   "sha256": "01d5a9ae50bfe5e0a1963e86943a213c790c2bfd730af3702e3864741aa08af7"
   },
   "Tools/RangerAnimationV3/ReopenEditor.py": {
    "bytes": 664,
@@ -10776,8 +11526,8 @@
    "sha256": "148af901df019cad444dab3147c616771d15832907ad0e656e9711b040be5297"
   },
   "Tools/RangerAnimationV3/ThermalMonitor.py": {
-   "bytes": 1328,
-   "sha256": "c630c384d08a2da0dd50e20404fb8d896a7ce2bdf4df28ef892165e45df6129e"
+   "bytes": 1311,
+   "sha256": "47c291cf2318d34f35f8a04cac051ea25ce34e722cd245a0c9dcc58641aaea90"
   },
   "Tools/RangerAnimationV3/ValidateMeasurements.py": {
    "bytes": 4387,
@@ -11000,8 +11750,8 @@
    "sha256": "b356bc9e2cac10c5d07fdd633c26fdbf4461fa26a6d0c7b8cee7b6b54c4f6013"
   },
   "Tools/TreeShadowProxyV1/ThermalMonitor.py": {
-   "bytes": 1244,
-   "sha256": "69cdc63a599a8cc4d8545793ed60f7f61f3297f436d1edc79fbac23eb96303c8"
+   "bytes": 1227,
+   "sha256": "3516ab9b6dbc4ac9399d47af8d782b466f1d9d345d6ca3b78002580b0b007a38"
   },
   "Tools/TreeShadowProxyV1/ValidateMap.py": {
    "bytes": 4768,
@@ -11048,8 +11798,8 @@
    "sha256": "0446fd5f5a6c90cbd8ca07ec6c6a454b0ef1be8d6e475d690fce57fed7caaffe"
   },
   "Tools/ValidateWestlandAssetLibraryV3.py": {
-   "bytes": 4323,
-   "sha256": "379fcf9734a9a97458d43d651014e9c512984c3b7cf59344bc2c92e917067763"
+   "bytes": 4480,
+   "sha256": "cbf54146f6d7a4ef236ae73aa7e17e138bbdeedf5216e81566c0f94605771fb1"
   },
   "Tools/ValidateWestlandBuildingKitV1.py": {
    "bytes": 4069,
@@ -11066,6 +11816,2234 @@
   "Tools/ValidateWestlandVillageV1.py": {
    "bytes": 7209,
    "sha256": "372dd10aa20723d80bec1ea85cc621b59e40132d81cb3e625e079fb7f6e5c94c"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Analyze.py": {
+   "bytes": 6295,
+   "sha256": "d8360323516993df1e1ddf5bb935f231e09f9dc3d53d0585ee54e6201c660755"
+  },
+  "Tools/VisualV2AASoftShadowsV1/AnalyzeCost.py": {
+   "bytes": 2474,
+   "sha256": "5081376ec093e33ad2d3bcc8068e43342dd9cf2fb9bb35309d304650ab2702c2"
+  },
+  "Tools/VisualV2AASoftShadowsV1/AnalyzeFollowSpotcheck.py": {
+   "bytes": 2112,
+   "sha256": "4276febded2b80decfdf3ee3b69071b2d2522f3ff3d546bde56ad941d0cee2bb"
+  },
+  "Tools/VisualV2AASoftShadowsV1/ArchiveEvidence.py": {
+   "bytes": 1612,
+   "sha256": "e5bc9ee4d8cb5754c15a76ccf3661c534e579b041c1ee4401de3688e80e32485"
+  },
+  "Tools/VisualV2AASoftShadowsV1/BeginCost.py": {
+   "bytes": 2719,
+   "sha256": "7635a337775a24ea26562a176cfda8972620bf73b049472fc111cfdea1b791dd"
+  },
+  "Tools/VisualV2AASoftShadowsV1/BeginPhase.py": {
+   "bytes": 3871,
+   "sha256": "37d7eadd8d8e21b58bef5754366f17d2532179652f93dec69c62d949e0c9ee78"
+  },
+  "Tools/VisualV2AASoftShadowsV1/CheckCurrentMap.py": {
+   "bytes": 1583,
+   "sha256": "1007e970302628f10d93b4d74aff457144677a82ba36bffc49f22d509607c413"
+  },
+  "Tools/VisualV2AASoftShadowsV1/CloseEditor.py": {
+   "bytes": 518,
+   "sha256": "1dfb3d0da554d99a693ed392cf897ddadadbd27cd8c2886e4d8f4e1155d1c765"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Control.py": {
+   "bytes": 630,
+   "sha256": "e6c5d5c9e057f46d589806dea3c8107625dc8bdb11a42fd4c7c36b3508e5591b"
+  },
+  "Tools/VisualV2AASoftShadowsV1/LaunchEditor.py": {
+   "bytes": 733,
+   "sha256": "969794f33f3f176d5ab67473fd82c67b016eeb2eb12b95a5bc336abfa90b249a"
+  },
+  "Tools/VisualV2AASoftShadowsV1/NativePhase.py": {
+   "bytes": 779,
+   "sha256": "a1612339cb4b86db398ae6f3a8e97af008872acd584ee60b8f5f81e5eb44b50c"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_FinalFollow_PIE.tsv": {
+   "bytes": 591,
+   "sha256": "61b39111cd44b36dcf6e84b30ec1fb55aa913a7a824cda438d0dbe15a8f09ed1"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_FinalFollow_Standalone.tsv": {
+   "bytes": 605,
+   "sha256": "8145e912d9e3d6d9da36a34b41230803704b079294b7115940e6ae54db56a2ac"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_PIE_C1.tsv": {
+   "bytes": 1636,
+   "sha256": "21ed0f02ce3068a751530baef3005d411c5b5b0ff91dc544efd83707b09fbe93"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_PIE_C2.tsv": {
+   "bytes": 1169,
+   "sha256": "90ad7f2c3db6975d90704a4001fe9e9d78f7817257de6bdc4419786e979d5305"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_PIE_C3.tsv": {
+   "bytes": 1132,
+   "sha256": "6ba2e2b38fd4de17b17f84f0a1d63133cf9fda77de08cd56d0814af8bc281db4"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_PIE_C4.tsv": {
+   "bytes": 1169,
+   "sha256": "53d5b2ffa6d0c4cb3dc9a02c948480b3e88f37981aedccf566dc028144b857f4"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_PIE_C5.tsv": {
+   "bytes": 1169,
+   "sha256": "7cd34f3a51138ddb8cf51c23a3dc076cd25b0a75c27b0bb120c9f6a8809dd30e"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_PIE_C6.tsv": {
+   "bytes": 1206,
+   "sha256": "53bf90b5d88cadb1cc7a6e3efd31b0e0c16d09284f75e16ae8b14cde7c8808b5"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_PIE_C7.tsv": {
+   "bytes": 1169,
+   "sha256": "8f91575e104201c7237fe0eedfb0f5c7c7f450abc003895db85b57023dae7594"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_PIE_C8.tsv": {
+   "bytes": 1742,
+   "sha256": "4820d067f048342b1840f0081ec14b7b5f105cb68dd8fbb12e4bf96ca06c5c52"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_Standalone_C1.tsv": {
+   "bytes": 1650,
+   "sha256": "87d4a66c590a340294241fe83c35c3063f47014e432ede8c23af5c050894d54e"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_Standalone_C2.tsv": {
+   "bytes": 1183,
+   "sha256": "9ab2586813bab7e5effdb7e20c164f5c024916375e1d97def9e5ea1a09b4eb2d"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_Standalone_C3.tsv": {
+   "bytes": 1146,
+   "sha256": "afb2c36457e980d75e3224e8dfd3b5b31bff6870587535591111b074d1fb7d08"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_Standalone_C4.tsv": {
+   "bytes": 1183,
+   "sha256": "174b5b64f4f11ae3fb93e38e0f78af78341928900ed5f7166c87cbd40ddbbcf4"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_Standalone_C5.tsv": {
+   "bytes": 1183,
+   "sha256": "dcbc71fc640bdadaac1789136c7818d204754dea58c8a94b812ef6802a900ba5"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_Standalone_C6.tsv": {
+   "bytes": 1220,
+   "sha256": "1441d1518173526395c02d4b37fa43987b6eed9dcbb11333f76f0dc3be6999b6"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_Standalone_C7.tsv": {
+   "bytes": 1183,
+   "sha256": "1695e3da1bf0ae7376e9391466a459794afb652fc200199108f04531f89f9a46"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Plans/VGB1_AASoftShadows_Standalone_C8.tsv": {
+   "bytes": 1756,
+   "sha256": "1f31191f67561ad69d394b1591c289218bd91e5ff974b31de82b6b4eca0483fa"
+  },
+  "Tools/VisualV2AASoftShadowsV1/PrepareAssets.py": {
+   "bytes": 3112,
+   "sha256": "4237492c2ccea840912305aa30ca06c5a8d74294de00d48ece73cef3add5805a"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Preset.py": {
+   "bytes": 1194,
+   "sha256": "bd20bd24fad4cf6077f01bfa771f3d0a5d963e1ac1ec6262c6c2b60db0d4c793"
+  },
+  "Tools/VisualV2AASoftShadowsV1/README.md": {
+   "bytes": 5064,
+   "sha256": "1a293816973beac5a906d49f1593ae1a4f94eaa0f3e3bde77b37fd5b0ac58008"
+  },
+  "Tools/VisualV2AASoftShadowsV1/RunAcceptance.py": {
+   "bytes": 2125,
+   "sha256": "5ca21a5d276fb388886ccbddd3673301f6c8e143f86fdf598c8b9a193b16d43e"
+  },
+  "Tools/VisualV2AASoftShadowsV1/RunCost.py": {
+   "bytes": 2102,
+   "sha256": "1a9ed21ad3846d59299f396e37da1371b47b83ae69f66025a145a5f5992e5a65"
+  },
+  "Tools/VisualV2AASoftShadowsV1/RunFollowSpotcheck.py": {
+   "bytes": 2188,
+   "sha256": "2b4597b2236a8dff0d3bef26257794eb566397a5d77eb500fcc6ecd024468fde"
+  },
+  "Tools/VisualV2AASoftShadowsV1/RunMapChecks.py": {
+   "bytes": 1235,
+   "sha256": "1d75c28597ef44c5a4f7f45dfa6c329ae4d134f218a4ca9e6f397ed55e14cf0f"
+  },
+  "Tools/VisualV2AASoftShadowsV1/RunPhase.py": {
+   "bytes": 2303,
+   "sha256": "c8038b693dfed9d988ef1b45f194c584e0e0c3c405a45242f891f11a26084f35"
+  },
+  "Tools/VisualV2AASoftShadowsV1/RunQA.py": {
+   "bytes": 1868,
+   "sha256": "5fcdfd29169a5273057bdab0874d30ec0642482c4cf1c204b887e73b3d7cf7f9"
+  },
+  "Tools/VisualV2AASoftShadowsV1/RunStudy.py": {
+   "bytes": 658,
+   "sha256": "52460d204aa4b03506617e62f45cd201fbcdcfdc1a21f74201c46f7c34a290f1"
+  },
+  "Tools/VisualV2AASoftShadowsV1/RuntimeInvariant.py": {
+   "bytes": 3594,
+   "sha256": "42570388989c8ddd04ea64ad4e77b7625ae976cc6292ad3f7db97ee4547a035c"
+  },
+  "Tools/VisualV2AASoftShadowsV1/SlopeCheck.py": {
+   "bytes": 3602,
+   "sha256": "8e874d41d390a0eaa08f61faa1a7d9701df06453330cf6925027397270e22aa2"
+  },
+  "Tools/VisualV2AASoftShadowsV1/StartAcceptance.py": {
+   "bytes": 5037,
+   "sha256": "284bf2e01c533b1176bd1b29ccf01914c19475f2a59f9cb42ded6a742399493e"
+  },
+  "Tools/VisualV2AASoftShadowsV1/StartPIE.py": {
+   "bytes": 189,
+   "sha256": "8c32ee546ee98e1ef7ec384c26f6f344b34be16f8d92bc12826b1f8fb4b75359"
+  },
+  "Tools/VisualV2AASoftShadowsV1/Startup.py": {
+   "bytes": 3126,
+   "sha256": "2f3773dae697a9a5edaaf987643a6746f88b21351d2ea5a17f86b16bbba9e00e"
+  },
+  "Tools/VisualV2AASoftShadowsV1/StopPIE.py": {
+   "bytes": 97,
+   "sha256": "9b7f4a0f5002eccf85d17bddd07fb8cb928c6becc386850e13f4642e6417fe1e"
+  },
+  "Tools/VisualV2AASoftShadowsV1/ThermalMonitor.py": {
+   "bytes": 1312,
+   "sha256": "972bf93703d334adbdd8c03219343acc6716b90dcd7b38a6c853f40fb3bffb51"
+  },
+  "Tools/VisualV2AASoftShadowsV1/VerifyAssets.py": {
+   "bytes": 1481,
+   "sha256": "a18010d452a72a9d67547aa9e3719a30a87729c88efceaa45d4cb941b97c39ba"
+  },
+  "Tools/VisualV2AASoftShadowsV1/WriteReport.py": {
+   "bytes": 12177,
+   "sha256": "737c07336d92c50de17288c6338ddd82bb9ebc91af7eed691d194a85e2aa09f7"
+  },
+  "Tools/VisualV2GPUBottleneckV1/AllMeshInventory.py": {
+   "bytes": 1298,
+   "sha256": "e5fe3d0bdc2d3335d87aa15fc99f15298eeeb657858c00df445b3007071e70c3"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Analyze.py": {
+   "bytes": 6031,
+   "sha256": "5d5530fa04dff3fd04e0f540947d2078cf40753a6ba3bfaeb1dd23f0abc173b3"
+  },
+  "Tools/VisualV2GPUBottleneckV1/ArchiveEvidence.py": {
+   "bytes": 1706,
+   "sha256": "cd417803b3dece46342d21ae512c1e3dc163b8fa168025de80a4a883fc88022e"
+  },
+  "Tools/VisualV2GPUBottleneckV1/CaptureGPU.py": {
+   "bytes": 1885,
+   "sha256": "05378946d7fb2874aa5728758e42fed2592c85f50fd4fe66e614f040680fea26"
+  },
+  "Tools/VisualV2GPUBottleneckV1/CloseEditor.py": {
+   "bytes": 518,
+   "sha256": "c4b03f32c27a3e9510d6a51a609eddef324efbf67df24d2c858a33fb564b236b"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Control.py": {
+   "bytes": 928,
+   "sha256": "b54dbb561dae296c6dae47b46ec5eab6cd7bc6f82fcc65cccefd6502c7673251"
+  },
+  "Tools/VisualV2GPUBottleneckV1/FinalMapAudit.py": {
+   "bytes": 2963,
+   "sha256": "17c2fbbb8fe13bb6fa7001d930e7d7faf7a3f72bb9d75d387306656e6c4343b5"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Inventory.py": {
+   "bytes": 3541,
+   "sha256": "4733e957419085731dc0a641d92d5a3c9d39047897cd29fdd21fd695dd25a97d"
+  },
+  "Tools/VisualV2GPUBottleneckV1/MCPClient.py": {
+   "bytes": 1159,
+   "sha256": "4824cc812c8fd115466a8db8e0d78226f0797738f06824ac67d86176029c2045"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Monitor.py": {
+   "bytes": 2973,
+   "sha256": "337cb2c9806dbef0e6f3da1def26cd8f8ed4043b6fd02dfef89a42173185ace3"
+  },
+  "Tools/VisualV2GPUBottleneckV1/NativeReview.py": {
+   "bytes": 1223,
+   "sha256": "87c2f50da05bec2a15951316284222d5a8936c3ed0101072560ef701d983b3f7"
+  },
+  "Tools/VisualV2GPUBottleneckV1/PhotoThenProbe.py": {
+   "bytes": 2438,
+   "sha256": "bc391e8e565a0ae538159427c79ac2ebb5696ff23a82238a5d635c1b7ad6c4b8"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_PIE_Base_1.tsv": {
+   "bytes": 288,
+   "sha256": "c344e9cf78544a3b839e32d74e21bd85b54d8b91793b2bd9e730ff41d09446cc"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_PIE_Base_2.tsv": {
+   "bytes": 297,
+   "sha256": "5bb516d163f9fa0f80eae08e598d62fbe894ce3771d156695df25537007c0de1"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_PIE_Base_3.tsv": {
+   "bytes": 288,
+   "sha256": "892dc9cb2ad4f69f56c921881e49a2d34aae594c07f0b1d769e7d8a690bad58b"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_PIE_Base_4.tsv": {
+   "bytes": 297,
+   "sha256": "0ce9cb76ed931700ed7cfa34c1500dd9fda8167a0f82882562207d318799a79f"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_PIE_Base_5.tsv": {
+   "bytes": 297,
+   "sha256": "7c213520a45e0323a52efbece4ff6f3cad58087a0091bbd403e250021adfcfc2"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_PIE_Base_6.tsv": {
+   "bytes": 306,
+   "sha256": "5384b3fc0da78d8d19e289b737c67a98da999302b8b6052069a6eddf30f20300"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_PIE_Base_7.tsv": {
+   "bytes": 297,
+   "sha256": "1eb425591de70af0f78775199a09bffb40b604e77a82768ad818ca7ea06bf2fd"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_PIE_Base_8.tsv": {
+   "bytes": 306,
+   "sha256": "a41c6ccfac85788f1b83dc6a616b3ef522de2e95eff16878752de38bf9f2f977"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_PIE_Confirm.tsv": {
+   "bytes": 1051,
+   "sha256": "70fd59b44c4a349c6b1ddefc2fe2f6bf250d03d38ec57f63b8f8482e46691cfd"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_PIE_FactorsAA.tsv": {
+   "bytes": 987,
+   "sha256": "71457ae5e5db85a8409a8b1fad1e162c8fe08d142891286a56e25ccf01bd0117"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_PIE_FactorsWald.tsv": {
+   "bytes": 2909,
+   "sha256": "112bb38afdd19b82b7211eecebac7878e16900f193372e9a1006fcec438686c8"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_Standalone_Base_1.tsv": {
+   "bytes": 335,
+   "sha256": "7606b11b38a877efff33e8be47c16a8d677e715c14d26b1066b13a9debe89963"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_Standalone_Base_2.tsv": {
+   "bytes": 345,
+   "sha256": "a8184caafce150ecd8c489ecfb31a13cbef10e6a688b750ed169e1b27ef3c3fa"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_Standalone_Base_3.tsv": {
+   "bytes": 335,
+   "sha256": "27d4c07cde74aee5e53d48f63cb75c1c05ad06f5fd8aa82385a33e245e44ab16"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_Standalone_Base_4.tsv": {
+   "bytes": 345,
+   "sha256": "dc1e2c509b834b5715f1f8b34de4c6d650e327c747e076ab68910c096c8b98b6"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_Standalone_Base_5.tsv": {
+   "bytes": 345,
+   "sha256": "b0835ba935431ea9edaface107b66c92c283e71124d8ebaa5119328d63050f4a"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_Standalone_Base_6.tsv": {
+   "bytes": 355,
+   "sha256": "78b4a66bb3f89dbf6230259e2b29b998755a858c24d682a469c72dd9289664d2"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_Standalone_Base_7.tsv": {
+   "bytes": 345,
+   "sha256": "eb76f229b81bbfdedbcf5931538f7ab8af54a1d7846c926c53a3c4524b1e12da"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_Standalone_Base_8.tsv": {
+   "bytes": 355,
+   "sha256": "a53012828cc6fa16f7c93852a536162aa4a37719296312f1eb0fff215b9ca6c2"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_Standalone_Confirm.tsv": {
+   "bytes": 1100,
+   "sha256": "02d448764e8ef3424b17601e50d9c0b3904fea6b748869f8864bc3b082ef479b"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_Standalone_FactorsAA.tsv": {
+   "bytes": 562,
+   "sha256": "820f2d9e883df0a525379978adaa92753b213cf2f685a4bae27315d43cfbb3b9"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_Standalone_FactorsPost.tsv": {
+   "bytes": 1137,
+   "sha256": "d3ee7b982c13c5ce48921e673233ae73705577d8f2bcb42f3d3790959963bab8"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Plans/VGB1_Final_Standalone_FactorsWald.tsv": {
+   "bytes": 2958,
+   "sha256": "f7fbbe0eeac08e9225fa281cd402d9b00a9976ae6990b17ed96c0720c0646d14"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Preset.py": {
+   "bytes": 1194,
+   "sha256": "a1c046fd260e2a6db7cc71f73b6c82aa3497712cb82da13b3f4757f37c651dd5"
+  },
+  "Tools/VisualV2GPUBottleneckV1/README.md": {
+   "bytes": 5007,
+   "sha256": "2a1a25dc2c3fc7365f63cace92ca2c702957a2b48e423535e895a1c0af40574d"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Reopen.py": {
+   "bytes": 3111,
+   "sha256": "664e25baef28f020c0a3a0b58d2f4817ca46b8aa3ffd088fa139c32b2941dd56"
+  },
+  "Tools/VisualV2GPUBottleneckV1/ReviewShots.py": {
+   "bytes": 3249,
+   "sha256": "2972ba7cca4f14c5a8f9b8d285904c9cb5881ba48c078fe792647ef8a8bd14fa"
+  },
+  "Tools/VisualV2GPUBottleneckV1/RunAutomation.py": {
+   "bytes": 1017,
+   "sha256": "57772fa260ef1f63f78c23f857c5c181800b52bd21c70cf9e759c064555708a0"
+  },
+  "Tools/VisualV2GPUBottleneckV1/RunNativeReview.py": {
+   "bytes": 2371,
+   "sha256": "705583e955ee79992bd881a269ad663f3ad15f1beecac0f4b207cf3e6fa1a739"
+  },
+  "Tools/VisualV2GPUBottleneckV1/RunPIE.py": {
+   "bytes": 1275,
+   "sha256": "64e6594c258d37c99f847413f719c25ce9117071589717ee7e891d064fb73ab5"
+  },
+  "Tools/VisualV2GPUBottleneckV1/RunStandalone.py": {
+   "bytes": 2407,
+   "sha256": "c9609447f575eb688b5b91c7e2ed8e84d0666a7227ee16672df59fb1afa3dbef"
+  },
+  "Tools/VisualV2GPUBottleneckV1/RuntimeMaterials.py": {
+   "bytes": 2658,
+   "sha256": "ec18257b6fb47dd9aafaa192a99f087a201ae7753b9e0a3382f44ceeb1cc5a87"
+  },
+  "Tools/VisualV2GPUBottleneckV1/StartProbe.py": {
+   "bytes": 781,
+   "sha256": "31e4ea156afa325e5ee80491ac4abf11a3febaadba0d4510fb8580952cc83a95"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Startup.py": {
+   "bytes": 3646,
+   "sha256": "c22e23485ea28b9349a46876fa94a127c4ad30c372743e6ef22785fb063ca8b9"
+  },
+  "Tools/VisualV2GPUBottleneckV1/StopProbe.py": {
+   "bytes": 163,
+   "sha256": "88fc19ae80e6cccabb6f377cc13b2a4f7c57725bd22b2286453788f1ba3e2319"
+  },
+  "Tools/VisualV2GPUBottleneckV1/Summarize.py": {
+   "bytes": 2922,
+   "sha256": "71a8823e1a5318ad24c7ed57094eb9ea9b3d1d4e841f278b38ceb890e397ea95"
+  },
+  "Tools/VisualV2GPUBottleneckV1/ThermalMonitor.py": {
+   "bytes": 1312,
+   "sha256": "d942194566df9a392d2ce4a226a5bad9c8ca2d4916590f7b58aee9a22050f7b6"
+  },
+  "Tools/VisualV2HealingArtV3/ApplyCandidate.py": {
+   "bytes": 3536,
+   "sha256": "aabac9cfeccaabd40ebefedcf33037b9c8895bf7736db1bc20d301c71acc0a07"
+  },
+  "Tools/VisualV2HealingArtV3/BlenderAudit.py": {
+   "bytes": 1654,
+   "sha256": "48ed13350d12b30b969e13ce94d54441f5c9cc4e24ed9aa52b6afb9c83a260c5"
+  },
+  "Tools/VisualV2HealingArtV3/Build.py": {
+   "bytes": 742,
+   "sha256": "dd78af8982d3feadf01007bfff4291dbc2b51fc297268f5413ed652092320aba"
+  },
+  "Tools/VisualV2HealingArtV3/BuildPlants.py": {
+   "bytes": 8947,
+   "sha256": "151dedcebf2ecc0be3933dae201771d138151dc5d30e686edad8971e9997b4db"
+  },
+  "Tools/VisualV2HealingArtV3/CheckCurrentMap.py": {
+   "bytes": 1865,
+   "sha256": "17a523c2d3f675acede7439c42e751ef79bcd568cfc8a0ad84da1f2f47b55a45"
+  },
+  "Tools/VisualV2HealingArtV3/CloseEditor.py": {
+   "bytes": 515,
+   "sha256": "f255147afb5373a0e5dad31c187a6b73e931212288e199240dc808ea4b0d108c"
+  },
+  "Tools/VisualV2HealingArtV3/ColourProbe.py": {
+   "bytes": 1258,
+   "sha256": "448a3eb9fb57ad82d69ed01f83c1a53316b360cda456191e7fc8d97f8f5d3955"
+  },
+  "Tools/VisualV2HealingArtV3/ComposeReview.py": {
+   "bytes": 2495,
+   "sha256": "c15c04c3e1d0832cf29812b9c04a03d9c229729a3c9d0aee01954e57ae11bfc6"
+  },
+  "Tools/VisualV2HealingArtV3/Control.py": {
+   "bytes": 624,
+   "sha256": "0cbb4d1cc3796c637a30c0291129354de905d33a6250d5629b02c6c7c59fbddd"
+  },
+  "Tools/VisualV2HealingArtV3/CorrectVertexTransfer.py": {
+   "bytes": 1364,
+   "sha256": "c0898f8dfd09a7adba01bc52831564abef87dce9fe7556053b0aa0a63bd963ed"
+  },
+  "Tools/VisualV2HealingArtV3/GroundInventory.py": {
+   "bytes": 593,
+   "sha256": "28fcbbb033673de7da5b939a887835a9170e20a8248fffa68106b590f6eef8cf"
+  },
+  "Tools/VisualV2HealingArtV3/Inventory.py": {
+   "bytes": 2457,
+   "sha256": "900bfc680278cc5fc3d41fd5da078a73367bcf3d735f790446d1e2396922f992"
+  },
+  "Tools/VisualV2HealingArtV3/LaunchEditor.py": {
+   "bytes": 1047,
+   "sha256": "627378e1911ac3e157139e34981c099e1d1189b366e252b75520c8254de9c19f"
+  },
+  "Tools/VisualV2HealingArtV3/NativeReview.py": {
+   "bytes": 1411,
+   "sha256": "0a72d8990a0cb584e6b1f7ed60ea4b2ce10d599044d7a743c56ec984f876ce1e"
+  },
+  "Tools/VisualV2HealingArtV3/Photos.py": {
+   "bytes": 2661,
+   "sha256": "2237f0f576e165a15f4f456afee9ac46c87d7068a155e76892f462e6026827f0"
+  },
+  "Tools/VisualV2HealingArtV3/PrepareAssets.py": {
+   "bytes": 8205,
+   "sha256": "8859559043d2040bef8537b22d10703d05fea600382d5a0701432274e47cd79f"
+  },
+  "Tools/VisualV2HealingArtV3/Preset.py": {
+   "bytes": 1346,
+   "sha256": "cdbfa43269e8c254685013c1415e3718ea847ca81bee59fe4711b903863bfc12"
+  },
+  "Tools/VisualV2HealingArtV3/ProcessGuard.py": {
+   "bytes": 709,
+   "sha256": "67fc1137ca6a7182b3e2ce4934728f32264a2e19ea2ace8dbfd03f1150aad143"
+  },
+  "Tools/VisualV2HealingArtV3/README.md": {
+   "bytes": 2911,
+   "sha256": "1813ac2aaaff64cf16584f64090db14cc76066da08e0c5a7cf83702960964883"
+  },
+  "Tools/VisualV2HealingArtV3/RefineGround.py": {
+   "bytes": 2058,
+   "sha256": "aae39e07b05b0fc71d32083fa066fa2a1c2b4aaee70fe439ccb2330b2de8e30e"
+  },
+  "Tools/VisualV2HealingArtV3/ReimportOwnedUV.py": {
+   "bytes": 3736,
+   "sha256": "47524a0441cefb08f9b7b7dce0780300af2a026d0d068ddf0af7a5259c030227"
+  },
+  "Tools/VisualV2HealingArtV3/RunAcceptance.py": {
+   "bytes": 2187,
+   "sha256": "010602edbad8d98f5d2350767eb4a780e98f0679193a326f7d24f17039bbc41b"
+  },
+  "Tools/VisualV2HealingArtV3/RunMapCheck.py": {
+   "bytes": 1276,
+   "sha256": "aa7572e85eeede2c7677c3afeae3c8abb21ed7b3e0994332d83b66d09a394c17"
+  },
+  "Tools/VisualV2HealingArtV3/RunNativeReview.py": {
+   "bytes": 1280,
+   "sha256": "fead055e4f06df3719346da54b2a21ffb7499776e15d827af26a31278d0163d6"
+  },
+  "Tools/VisualV2HealingArtV3/RunPIEReview.py": {
+   "bytes": 877,
+   "sha256": "27590e570504b7db2df4458382218706be49ac3c2d654d1bc9474681321c1bde"
+  },
+  "Tools/VisualV2HealingArtV3/RunQA.py": {
+   "bytes": 1672,
+   "sha256": "8cf05f05dcde69b63575abaec0c09e1d47ab55530537084945adc7dda4ae7928"
+  },
+  "Tools/VisualV2HealingArtV3/SaveReviewed.py": {
+   "bytes": 1092,
+   "sha256": "3cb06839887c7a7a7f775eaa640c8cd8b99bd138daf625ba9e1c5be736615c52"
+  },
+  "Tools/VisualV2HealingArtV3/StartAcceptance.py": {
+   "bytes": 1622,
+   "sha256": "0a3042b45892056b0d95519ef1a7433182ef6d0a69e4da4d64622633c0073901"
+  },
+  "Tools/VisualV2HealingArtV3/StartPIE.py": {
+   "bytes": 189,
+   "sha256": "8c32ee546ee98e1ef7ec384c26f6f344b34be16f8d92bc12826b1f8fb4b75359"
+  },
+  "Tools/VisualV2HealingArtV3/Startup.py": {
+   "bytes": 3237,
+   "sha256": "b950528ff0d7a806b30bf26cd7fbdba834528d4c3f72857af430a4b224fb0ee5"
+  },
+  "Tools/VisualV2HealingArtV3/StopPIE.py": {
+   "bytes": 216,
+   "sha256": "5510c9ac883f21cc368ba4a95763c4d9d2b174d718846f8932b337aed41983ff"
+  },
+  "Tools/VisualV2HealingArtV3/VerifyAssets.py": {
+   "bytes": 1888,
+   "sha256": "0016af13f143eee2d5978d57baabc091cd76a47bfe1add3109481250a1f8723e"
+  },
+  "Tools/VisualV2HealingArtV4/.gitignore": {
+   "bytes": 19,
+   "sha256": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793"
+  },
+  "Tools/VisualV2HealingArtV4/ApplyCandidate.py": {
+   "bytes": 7704,
+   "sha256": "9ec97d2cd054aab5a64d647cf1b8df8484b9515bf9f92966193501c5c0eb7bff"
+  },
+  "Tools/VisualV2HealingArtV4/BlenderAudit.py": {
+   "bytes": 1654,
+   "sha256": "b90224069693c6ed3e756ed9cbcf38286154bfea92f589248530f7576f1aa464"
+  },
+  "Tools/VisualV2HealingArtV4/BlenderDetailsAudit.py": {
+   "bytes": 1651,
+   "sha256": "7d05f92b41dac3899335c776ad30af14436906ad03a3da6decba2107d031a82a"
+  },
+  "Tools/VisualV2HealingArtV4/Build.py": {
+   "bytes": 742,
+   "sha256": "37426fec97d1770241816c47270e4d7519faef6b773962a6cee3ab01974a2633"
+  },
+  "Tools/VisualV2HealingArtV4/BuildDetails.py": {
+   "bytes": 6375,
+   "sha256": "6405c81f34174a230620791320ed8946a462038bc93f316c93f2b54915468920"
+  },
+  "Tools/VisualV2HealingArtV4/BuildPlants.py": {
+   "bytes": 9613,
+   "sha256": "74963172db3c658cc599bcef52d3357337a040385ba9138815b017ea38dd15a3"
+  },
+  "Tools/VisualV2HealingArtV4/CheckCurrentMap.py": {
+   "bytes": 1865,
+   "sha256": "b55925545721799ae3a864ca7e25b9816a2a1c73156431b20675c8a7c99ad96c"
+  },
+  "Tools/VisualV2HealingArtV4/CloseEditor.py": {
+   "bytes": 515,
+   "sha256": "286dee14e2fef7c6fd87ee20b81a7e1a6f39c979140e417233c150a3b95e7856"
+  },
+  "Tools/VisualV2HealingArtV4/ComposeReview.py": {
+   "bytes": 2495,
+   "sha256": "2c4c48bb8997ad2a1be1ef5f4297e484562587b51fc8d2fe7700661b96eeb4ac"
+  },
+  "Tools/VisualV2HealingArtV4/Control.py": {
+   "bytes": 624,
+   "sha256": "e16b31d010e4e533980ba9181789ef7756dde726f7b12b4f1e89e46d97fe6f9c"
+  },
+  "Tools/VisualV2HealingArtV4/CorrectLegacyWindows.py": {
+   "bytes": 4323,
+   "sha256": "f407b1d31e49476190ea63e471983c848df0c4dbd5f6d63b822a65aa975c0a38"
+  },
+  "Tools/VisualV2HealingArtV4/CurlIvy.py": {
+   "bytes": 1628,
+   "sha256": "83ca48ed8b2e4e0d8b219f0bd0e4a8e16742c6f472b0fa17db71787896584c29"
+  },
+  "Tools/VisualV2HealingArtV4/FixIvyPlacement.py": {
+   "bytes": 1406,
+   "sha256": "d29246b3be0105cc30e3cb09f2e5b72479d6d2b81d801f9eae856f842369e77e"
+  },
+  "Tools/VisualV2HealingArtV4/Inventory.py": {
+   "bytes": 2261,
+   "sha256": "abf579d33b194f17f1d88fe8f6b3ce29c2efacf5cc4d8e903c7f022d048f9244"
+  },
+  "Tools/VisualV2HealingArtV4/LaunchEditor.py": {
+   "bytes": 1047,
+   "sha256": "9ff9e64008faa544a29c7851043788a224fa26e8960b3d17238123d537c26294"
+  },
+  "Tools/VisualV2HealingArtV4/NativeReview.py": {
+   "bytes": 1411,
+   "sha256": "4d2c614eb576cf71f5ad3329fa6ab743f015ae7890bf5830965870cee5ef2d30"
+  },
+  "Tools/VisualV2HealingArtV4/Photos.py": {
+   "bytes": 2637,
+   "sha256": "bf7bd1983ee97587c579381d061d7586bc4aeb547c3c264724940064cbb50d54"
+  },
+  "Tools/VisualV2HealingArtV4/PrepareAssets.py": {
+   "bytes": 10661,
+   "sha256": "534b5483799254f2ca1eb681e472728e4793db000c062998e0ad13e814335d39"
+  },
+  "Tools/VisualV2HealingArtV4/Preset.py": {
+   "bytes": 1346,
+   "sha256": "29aceb2ee364907c28a911357a3344481f73ba7e63cfe603c05a2f3aa2b984e1"
+  },
+  "Tools/VisualV2HealingArtV4/ProcessGuard.py": {
+   "bytes": 709,
+   "sha256": "67fc1137ca6a7182b3e2ce4934728f32264a2e19ea2ace8dbfd03f1150aad143"
+  },
+  "Tools/VisualV2HealingArtV4/README.md": {
+   "bytes": 2816,
+   "sha256": "d57e8f7ae3177e775a2f5db4c7ef857dcc46d1175ada6e3f22617c5f80a659ed"
+  },
+  "Tools/VisualV2HealingArtV4/RefineCandidate.py": {
+   "bytes": 3683,
+   "sha256": "e28f3a90501b93e2ed13273252014214ca7279e20440aea7d8c6e6e83b90ef95"
+  },
+  "Tools/VisualV2HealingArtV4/ReimportIvy.py": {
+   "bytes": 2254,
+   "sha256": "f991f5db2682541f7d2e75a6614e5d91091cfa0f1c091ae5b2cf8c472b24c404"
+  },
+  "Tools/VisualV2HealingArtV4/RunAcceptance.py": {
+   "bytes": 2187,
+   "sha256": "010602edbad8d98f5d2350767eb4a780e98f0679193a326f7d24f17039bbc41b"
+  },
+  "Tools/VisualV2HealingArtV4/RunMapCheck.py": {
+   "bytes": 1276,
+   "sha256": "e50e922aebcb411030886f2378592387f40fdf3fdeea78bf4160790a68f90151"
+  },
+  "Tools/VisualV2HealingArtV4/RunNativeReview.py": {
+   "bytes": 1266,
+   "sha256": "a4595c1dda9f1e29022789c674b8ae646bc64fbaf529869c88ec36f30275ede0"
+  },
+  "Tools/VisualV2HealingArtV4/RunPIEReview.py": {
+   "bytes": 888,
+   "sha256": "9b239c5a57b7f0f732e181b1a5d7e9fdf987e35efd90fa7a78bed0eea3897cce"
+  },
+  "Tools/VisualV2HealingArtV4/RunQA.py": {
+   "bytes": 1672,
+   "sha256": "d97ffc3662eba1e4a5e0daa40b2bd492109d77b96dfc17c4233a521744acdf2c"
+  },
+  "Tools/VisualV2HealingArtV4/SaveReviewed.py": {
+   "bytes": 1092,
+   "sha256": "a77ef589de2f508a5ee646e3187c1b2966eb81998da124847232e40e08ea087a"
+  },
+  "Tools/VisualV2HealingArtV4/StartAcceptance.py": {
+   "bytes": 1622,
+   "sha256": "55b6322095d6979b1acaeaa3790e2936a18a6c9e70a224cf30a08cfac31eb822"
+  },
+  "Tools/VisualV2HealingArtV4/StartPIE.py": {
+   "bytes": 189,
+   "sha256": "8c32ee546ee98e1ef7ec384c26f6f344b34be16f8d92bc12826b1f8fb4b75359"
+  },
+  "Tools/VisualV2HealingArtV4/Startup.py": {
+   "bytes": 3237,
+   "sha256": "7f51fcf87e938e8472116dfe15e7a0d29b8c78feacdf4bf28cbbf2707fde0091"
+  },
+  "Tools/VisualV2HealingArtV4/StopPIE.py": {
+   "bytes": 216,
+   "sha256": "5510c9ac883f21cc368ba4a95763c4d9d2b174d718846f8932b337aed41983ff"
+  },
+  "Tools/VisualV2HealingArtV4/VerifyAssets.py": {
+   "bytes": 1981,
+   "sha256": "0dea11a7a65384ffeb15e0c18b35712b0d0f3886f679bfcafc40bc6ed2c3c8b1"
+  },
+  "Tools/VisualV2HealingArtV4/VerifyLegacyVisibility.py": {
+   "bytes": 997,
+   "sha256": "cf8fcf9737467263273c201f8fe6cd26559d06b306c0bc9f32878ee36fbcc1fe"
+  },
+  "Tools/VisualV2MaterialFixV1/Analyze.py": {
+   "bytes": 5736,
+   "sha256": "f1f02eeb296b6786900cfbef295494804f3f9ddc8aabc927f133e08ca192affe"
+  },
+  "Tools/VisualV2MaterialFixV1/ApplyFix.py": {
+   "bytes": 2177,
+   "sha256": "66064079616a56ff24a3952720780bf67148291ceffc82fb4bc32b32c0e5bacd"
+  },
+  "Tools/VisualV2MaterialFixV1/ArchiveEvidence.py": {
+   "bytes": 1757,
+   "sha256": "c5104168e8184e895f15d19aba16b3a969b6432687ac4c065bd50cfab9d0ce94"
+  },
+  "Tools/VisualV2MaterialFixV1/AuditMaterial.py": {
+   "bytes": 3667,
+   "sha256": "262a8dc92a94ef10937d65b91fa03c28dd82322b0e7aa2768503222e3c15ad81"
+  },
+  "Tools/VisualV2MaterialFixV1/BeginPhase.py": {
+   "bytes": 2895,
+   "sha256": "65ec48bd2f45587654a4d533a1fa187b5cb32d61fe4d6a045b82f05b89a405c9"
+  },
+  "Tools/VisualV2MaterialFixV1/CloseEditor.py": {
+   "bytes": 516,
+   "sha256": "4fd260daae1bbf03f2a186232452d341dfc523b24a9945c6145cb86e40601de3"
+  },
+  "Tools/VisualV2MaterialFixV1/Control.py": {
+   "bytes": 626,
+   "sha256": "233678252997ba6454b8da6cc698c349a03497fefe0d92dd0715ae07470557a1"
+  },
+  "Tools/VisualV2MaterialFixV1/FinalAudit.py": {
+   "bytes": 2313,
+   "sha256": "97db5795b8a0e034a63d6817faa0cedda428f7bc1082f611e4e0e8fd6e5568ad"
+  },
+  "Tools/VisualV2MaterialFixV1/GraphAudit.py": {
+   "bytes": 1193,
+   "sha256": "c229e5b46f8715fe645964c04e84a022ee02209c730a474b0e71c299fba70043"
+  },
+  "Tools/VisualV2MaterialFixV1/NativePhase.py": {
+   "bytes": 646,
+   "sha256": "ab74408d71afe39cd9e5e19b01325238f56873e10c1ddb60695979b29f445dc9"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_PIE_C1.tsv": {
+   "bytes": 355,
+   "sha256": "f46621a98dad851984280d5dff5624335c8a54814efc5de752dec8c8dd724b3f"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_PIE_C2.tsv": {
+   "bytes": 366,
+   "sha256": "ca682ad54357f85be76f2447898e9d9eecb6666ebac449e717bc21c3d149a307"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_PIE_C3.tsv": {
+   "bytes": 355,
+   "sha256": "6c412fb67d8e0070a0bcc973853073ec1f77434fe643f82df7c5f14fdacb73d3"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_PIE_C4.tsv": {
+   "bytes": 366,
+   "sha256": "91ddfc9cd435cb2197f5b0e0f0619ca2ea7675913a563887539aa41f74db809d"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_PIE_C5.tsv": {
+   "bytes": 366,
+   "sha256": "d245cde0a87a8b6ca7828e33d50b1af8f65065f5b7f540e1e18a80dbffe9bb94"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_PIE_C6.tsv": {
+   "bytes": 377,
+   "sha256": "4ee7ab13810356d4194d4d03ac7625a90a72b8058cb8b80c70dd3d6746f609a0"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_PIE_C7.tsv": {
+   "bytes": 366,
+   "sha256": "3b1ea419bc19856d60464dce785947e96c3349de8814424722fae25f4b59d923"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_PIE_C8.tsv": {
+   "bytes": 440,
+   "sha256": "978802edbc22602b534e5ff40b6298467e76c2e50e0578ac8bf1c41f01603ed0"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_Standalone_C1.tsv": {
+   "bytes": 369,
+   "sha256": "e28dad145505fcaf536ff5811faf986714015274959d8f0acdfdf0d55312a240"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_Standalone_C2.tsv": {
+   "bytes": 380,
+   "sha256": "056f4560b49eb0d93aba30883faae14ab0db773f802fcea300568a03d2e16624"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_Standalone_C3.tsv": {
+   "bytes": 369,
+   "sha256": "75305f81c7b3cc3171352ffe91e1c63420633cd174518f6085cd99a28eeb5541"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_Standalone_C4.tsv": {
+   "bytes": 380,
+   "sha256": "1f57c9ec7596c043b38c38d956a26a6a094619a3f60d42b0ef464f1050d1be31"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_Standalone_C5.tsv": {
+   "bytes": 380,
+   "sha256": "54e18f9c7fa2647cfcee4ca63bc54456504324e594bfc967417c394e456c7098"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_Standalone_C6.tsv": {
+   "bytes": 391,
+   "sha256": "ea6bbb6acc58e76e24156c1b6e69b50030cdd89824846106105fef0ccb54e086"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_Standalone_C7.tsv": {
+   "bytes": 380,
+   "sha256": "8becf3274457ec43ff6d6a1a43f2859963f21726044af2a447b27ce791afb0af"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_After_Standalone_C8.tsv": {
+   "bytes": 454,
+   "sha256": "2232fdeb160e4cb7040ab5b6cd1f0cc0fcd3c99a8839f8d064e37f1771efac67"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_PIE_C1.tsv": {
+   "bytes": 356,
+   "sha256": "6d3fc33d48dac3d9708638be0fc500e33ddc6dcbde9dcf4cc46706a774414208"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_PIE_C2.tsv": {
+   "bytes": 367,
+   "sha256": "93ca2964efc9b712fc904f90428e893438a0bd480bed7d4ac9736c13fe783ff6"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_PIE_C3.tsv": {
+   "bytes": 356,
+   "sha256": "1bce41751e7e838ab4e66d5e139fc5123e0c6e42b00ac3ed1d12f472cc590fcc"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_PIE_C4.tsv": {
+   "bytes": 367,
+   "sha256": "4808a36068d5144db448998bebfb6b372e1a499f204f11a6a21c67d243f65488"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_PIE_C5.tsv": {
+   "bytes": 367,
+   "sha256": "97255f3cf784079851e5371c23aed6a11a4e567b4cedf9a18b358e1b942538e4"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_PIE_C6.tsv": {
+   "bytes": 378,
+   "sha256": "bb2cab3187ae620c9a9f9d1cad4beba77b2e34731da3f590eaa2aec32dba6b17"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_PIE_C7.tsv": {
+   "bytes": 367,
+   "sha256": "b1d71c8b6b16803a86e554663977f9ab707cef57a6fcb0a3e448212b45b392f9"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_PIE_C8.tsv": {
+   "bytes": 441,
+   "sha256": "39f658385c58c56f8fae6ac5183557093dc266a84995bf68317cc1e3ae36a636"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_Standalone_C1.tsv": {
+   "bytes": 370,
+   "sha256": "794efe12c6828a2623d463bbd13ab7ce977bd65892d2a68eeeefdc65bc42379a"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_Standalone_C2.tsv": {
+   "bytes": 381,
+   "sha256": "0bae76f5c926a954ecc69df6d230c98460ab9d79002fea4ca0b0a68ecedb15a0"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_Standalone_C3.tsv": {
+   "bytes": 370,
+   "sha256": "8a3a614b4b768203b0109546464068c08d24f73f6f0c554d8aa8f35ac5f57501"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_Standalone_C4.tsv": {
+   "bytes": 381,
+   "sha256": "75a84afcc21ae8e0f563846cda25a7fc2621f154143d8a8c2fd6214fb651d013"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_Standalone_C5.tsv": {
+   "bytes": 381,
+   "sha256": "fb0260dc4b6340bd610a1bb12b15e8ad398edd3011dc48722429c93f36e70fe2"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_Standalone_C6.tsv": {
+   "bytes": 392,
+   "sha256": "679c03c74b85ea1ffdd3eda72a572e8985156ccd320decc107355ce87f8230d7"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_Standalone_C7.tsv": {
+   "bytes": 381,
+   "sha256": "c394551d9e99e03324d38620cc96667931c3a09c1a4dabfd13bd90adf71a7646"
+  },
+  "Tools/VisualV2MaterialFixV1/Plans/VGB1_MaterialFix_Before_Standalone_C8.tsv": {
+   "bytes": 455,
+   "sha256": "15d51bededda89b6b99175037cb8d987ba9e6a75ebc01938ad411e3b318a916e"
+  },
+  "Tools/VisualV2MaterialFixV1/Preset.py": {
+   "bytes": 1177,
+   "sha256": "a36bae35e3e5efbeddc1dab01cdafe8b1139884ed7217e47256f5bc7383bff19"
+  },
+  "Tools/VisualV2MaterialFixV1/README.md": {
+   "bytes": 1969,
+   "sha256": "be53b6f719f349e12920b3293c6059aadb1887b56e90959870dc1433ba941fb5"
+  },
+  "Tools/VisualV2MaterialFixV1/RunAcceptance.py": {
+   "bytes": 1871,
+   "sha256": "aa79db69b66b0ffa1be093e58855f4c0ef0655c7ce13a9c1617c5fa7da65bfc3"
+  },
+  "Tools/VisualV2MaterialFixV1/RunPhase.py": {
+   "bytes": 2252,
+   "sha256": "5f0f2a81b50e4681cbbca0f49c015841dc8fa2d54aca404a098591ab5366b822"
+  },
+  "Tools/VisualV2MaterialFixV1/RunQA.py": {
+   "bytes": 1873,
+   "sha256": "fa22d9e490eaed547be992a9e5e8ffdf0e8ff22231cfc032d1abbbe9cf5ff23b"
+  },
+  "Tools/VisualV2MaterialFixV1/StartAcceptance.py": {
+   "bytes": 2876,
+   "sha256": "95cea7c6ffdfc495915bf762b47bf8660523ea084b937d4ebe379b084b8ba1b1"
+  },
+  "Tools/VisualV2MaterialFixV1/StartPIE.py": {
+   "bytes": 189,
+   "sha256": "8c32ee546ee98e1ef7ec384c26f6f344b34be16f8d92bc12826b1f8fb4b75359"
+  },
+  "Tools/VisualV2MaterialFixV1/Startup.py": {
+   "bytes": 3092,
+   "sha256": "129aec9bf517b01e6a74a48cc2581474db2064ac0ff7ccdf0078b633bb4272d5"
+  },
+  "Tools/VisualV2MaterialFixV1/StopPIE.py": {
+   "bytes": 97,
+   "sha256": "9b7f4a0f5002eccf85d17bddd07fb8cb928c6becc386850e13f4642e6417fe1e"
+  },
+  "Tools/VisualV2MaterialFixV1/ThermalMonitor.py": {
+   "bytes": 1310,
+   "sha256": "988da85b3f10d1c4daf138285f87edee9a9c6371cbfd1631df74088968d14957"
+  },
+  "Tools/VisualV2MaterialFixV1/WarningAudit.py": {
+   "bytes": 1287,
+   "sha256": "be8aa51f7702f00fefbbb887544edd0be485fcef8c85e800a7c2d0a553e80acc"
+  },
+  "Tools/VisualV2QualityV2/AnalyzeGPU.py": {
+   "bytes": 3622,
+   "sha256": "b2a48c26cec9de3f1ae9f35516cb0cb77d2825f85cf7cf3bd34fcd8b4a675c04"
+  },
+  "Tools/VisualV2QualityV2/ApplyMotionBlur.py": {
+   "bytes": 3287,
+   "sha256": "dfd4c1a3a777cf6d612550fbac0ae712ffa0a6d99929dd2fd70e14d1d4049a54"
+  },
+  "Tools/VisualV2QualityV2/AuditScene.py": {
+   "bytes": 2249,
+   "sha256": "abc8dd5c30b8e74d3b8d7609428f4a4d2cd29490eda24efe7338433c63e893fd"
+  },
+  "Tools/VisualV2QualityV2/CloseEditor.py": {
+   "bytes": 512,
+   "sha256": "89adf92ebfc6560a4f4ab4a3efdf48be23ab3bb9427ba37e0003197f8f3a0125"
+  },
+  "Tools/VisualV2QualityV2/Control.py": {
+   "bytes": 910,
+   "sha256": "5d583f772cf6244a2ef12e4d7474e66f5ccd45aafeec6494acff57285f4a7655"
+  },
+  "Tools/VisualV2QualityV2/FootTest.py": {
+   "bytes": 16042,
+   "sha256": "a2995c77fcba8c860ba7308a24c3f19e7475d47148b9a934f599b921fe512820"
+  },
+  "Tools/VisualV2QualityV2/MCPClient.py": {
+   "bytes": 1147,
+   "sha256": "f534cba05d61e126d60bf6c3057ae0d1841ef68bdef5750c619a38448117a2d6"
+  },
+  "Tools/VisualV2QualityV2/Monitor.py": {
+   "bytes": 1592,
+   "sha256": "c966bbbbe9b6e90b83904c45b95bbf58cef5d56726ceb9b817c4b5c93724867f"
+  },
+  "Tools/VisualV2QualityV2/NativeAcceptance.py": {
+   "bytes": 1470,
+   "sha256": "3c99bad5af50139924a3a0093e79e5a887cc0a513fb6727cc56e3e5c5625a9d7"
+  },
+  "Tools/VisualV2QualityV2/Plans/VEQ2_PIE_1.tsv": {
+   "bytes": 277,
+   "sha256": "d58ab77fdc9cd4c9bfbf8d6fca00c866bce1053da68c843aca7cfc5b94eeb102"
+  },
+  "Tools/VisualV2QualityV2/Plans/VEQ2_PIE_2.tsv": {
+   "bytes": 286,
+   "sha256": "bce27e5aa9d4e68175decb6d942e96c2a4c840a919224366c4cbcf5fc996a354"
+  },
+  "Tools/VisualV2QualityV2/Plans/VEQ2_PIE_3.tsv": {
+   "bytes": 286,
+   "sha256": "013f1f08f0a9eabad31f9b6e82dc1e94b1d5a90523fa90203c2b920003610c08"
+  },
+  "Tools/VisualV2QualityV2/Plans/VEQ2_PIE_4.tsv": {
+   "bytes": 295,
+   "sha256": "fc1e61be4ad2ae70a3ae468cbf2a935965b621d41c1805d25dcbda02d59ae8ed"
+  },
+  "Tools/VisualV2QualityV2/Plans/VEQ2_PIE_5.tsv": {
+   "bytes": 286,
+   "sha256": "2883c8639b0ffa091d95b4a673967c3485725bee9076c7dab6c5e6eb2e63616a"
+  },
+  "Tools/VisualV2QualityV2/Plans/VEQ2_PIE_6.tsv": {
+   "bytes": 295,
+   "sha256": "9cadab3f6706064528621f064dc114da3205d7ab75211c71a41aa23ffcc0683f"
+  },
+  "Tools/VisualV2QualityV2/Plans/VEQ2_Standalone_1.tsv": {
+   "bytes": 324,
+   "sha256": "130aa2eea096fb57dd77b7889760dc3e1b142afd226d1046d57df25b5e05f767"
+  },
+  "Tools/VisualV2QualityV2/Plans/VEQ2_Standalone_2.tsv": {
+   "bytes": 334,
+   "sha256": "09950b8b6d83ddf825b327d98a447d434369741577e92b21b07a9afd3110e704"
+  },
+  "Tools/VisualV2QualityV2/Plans/VEQ2_Standalone_3.tsv": {
+   "bytes": 334,
+   "sha256": "c40da98e7a3a24b1b71d4b2cb7fb450facade7d125f0f3804ef11cb31697642b"
+  },
+  "Tools/VisualV2QualityV2/Plans/VEQ2_Standalone_4.tsv": {
+   "bytes": 344,
+   "sha256": "5639fa44297ba6ac351fc4c48a71273fedb3603c8e8063428fe4d49abf33fc97"
+  },
+  "Tools/VisualV2QualityV2/Plans/VEQ2_Standalone_5.tsv": {
+   "bytes": 334,
+   "sha256": "fc94d48b36f8eccdfda0fc6587e89638bdff889258095fd22c89758a650cb5dc"
+  },
+  "Tools/VisualV2QualityV2/Plans/VEQ2_Standalone_6.tsv": {
+   "bytes": 344,
+   "sha256": "6d7a24be2d838cbaee05c537eb956ea476ecbcf04af97ab8662a98e7e2d537c2"
+  },
+  "Tools/VisualV2QualityV2/Preset.py": {
+   "bytes": 1173,
+   "sha256": "56bbc085ded7869ddb3cdaafa54a4d1424bf75efae5c4fa588da02e498732578"
+  },
+  "Tools/VisualV2QualityV2/README.md": {
+   "bytes": 3563,
+   "sha256": "fa3646a5dca5ecf5bd65c87585e53987f75af4a22f1e6b10457cff203b9790e0"
+  },
+  "Tools/VisualV2QualityV2/RunAcceptance.py": {
+   "bytes": 2036,
+   "sha256": "5ea994052ebfa10a19db97d1c29863cdb2ea8c7082131b408fa5b9a6af5b5970"
+  },
+  "Tools/VisualV2QualityV2/RunNativeAcceptance.py": {
+   "bytes": 2923,
+   "sha256": "e7d02b7e9d735be9ab584213d3bbc626df68b9f88519e230c6dc7eecac3c86e4"
+  },
+  "Tools/VisualV2QualityV2/RunPIE.py": {
+   "bytes": 1269,
+   "sha256": "50ea6245840a64714380889716f6bd060bcd2ddd5f35037e10194478d37419e1"
+  },
+  "Tools/VisualV2QualityV2/RunStandalone.py": {
+   "bytes": 2379,
+   "sha256": "228458f1bb6fe5396be6cdba151d2a56985764b75654cfb8c15b29dbad781e0c"
+  },
+  "Tools/VisualV2QualityV2/StartAcceptance.py": {
+   "bytes": 2775,
+   "sha256": "bfbf3c1d044f4aa4e460bf83b43fcb0d4b59082cf942193360fbb38b0efb78e9"
+  },
+  "Tools/VisualV2QualityV2/StartProbe.py": {
+   "bytes": 589,
+   "sha256": "53b37b5393578934d5414f7c369df10c6bbe96581487619cae5d433a96a8f4ab"
+  },
+  "Tools/VisualV2QualityV2/Startup.py": {
+   "bytes": 2571,
+   "sha256": "8a7a8ef89c9b52b0f4df65b8b45a509c1e78066f29de1ed4d032b3cb2108d6db"
+  },
+  "Tools/VisualV2QualityV2/Summarize.py": {
+   "bytes": 2765,
+   "sha256": "4dfc1a9c2a8538d343c596111a9f558973a179fd06709cfc8bb0ca5a556da82d"
+  },
+  "Tools/VisualV2QualityV2/VerifyMap.py": {
+   "bytes": 2410,
+   "sha256": "eeb897bdd06aa6a952990cfab11247248b03eca0b7f8251122065d94f18876c4"
+  },
+  "Tools/VisualV2ShadowQualityV8/.gitignore": {
+   "bytes": 13,
+   "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b"
+  },
+  "Tools/VisualV2ShadowQualityV8/Build.py": {
+   "bytes": 745,
+   "sha256": "e69029e1bb7b94522fea2d483011ae557469aa1a57aed84ff7ff0b89f067b853"
+  },
+  "Tools/VisualV2ShadowQualityV8/CaptureProtectedLighting.py": {
+   "bytes": 1526,
+   "sha256": "22b4c385f57272ac9d7963b7a0bded6f808dc945ad54603107a1d5f935ee8fbf"
+  },
+  "Tools/VisualV2ShadowQualityV8/CheckCurrentMap.py": {
+   "bytes": 1800,
+   "sha256": "f118a0cd491ef6fc4f030da02a1a5d600fa2db1920236c9fef74cf200205cb04"
+  },
+  "Tools/VisualV2ShadowQualityV8/CloseEditor.py": {
+   "bytes": 518,
+   "sha256": "6349e81af89287c8eff37d9521198aab83cf2ada796bb8a60dadcdd37abaf533"
+  },
+  "Tools/VisualV2ShadowQualityV8/ComposeReview.py": {
+   "bytes": 4099,
+   "sha256": "e1461f03bee38c72a66f957ef53e8c741cc2368c6a94fa77b3ed5b21954c0b2f"
+  },
+  "Tools/VisualV2ShadowQualityV8/Control.py": {
+   "bytes": 630,
+   "sha256": "d7b6c7f9e694f40f354bca92a582f73ba47c990984588d02bebafc2289a1e60a"
+  },
+  "Tools/VisualV2ShadowQualityV8/Initialize.py": {
+   "bytes": 1418,
+   "sha256": "46ebec28136ddc88c9c03482add15c47d86c7995648d36036c804feacce6c5b3"
+  },
+  "Tools/VisualV2ShadowQualityV8/Inspect.py": {
+   "bytes": 752,
+   "sha256": "5bb41f223d2696599e6f6a78f9c3400480fffcfa0401691b5aee26ee44efa4df"
+  },
+  "Tools/VisualV2ShadowQualityV8/LaunchEditor.py": {
+   "bytes": 1046,
+   "sha256": "238a426851ae646d2c1368109fa9df7889bb1224f3f68d1962002f7d4e99efc4"
+  },
+  "Tools/VisualV2ShadowQualityV8/NativeABC.py": {
+   "bytes": 1398,
+   "sha256": "2a2fbf7e7c966f93c2261e02206d5c2605d2fec2962c400555eb84d608c38724"
+  },
+  "Tools/VisualV2ShadowQualityV8/ObserveFootContacts.py": {
+   "bytes": 1234,
+   "sha256": "1f1a04d27444228235bf69aad1bc40c741af739bc9a615c7f1df81e61ffb0558"
+  },
+  "Tools/VisualV2ShadowQualityV8/Photos.py": {
+   "bytes": 2978,
+   "sha256": "bb2e16849423b720bcbb7c258e5c7389984c1088c38bd9071317e406a68429b5"
+  },
+  "Tools/VisualV2ShadowQualityV8/PrepareMaterial.py": {
+   "bytes": 3306,
+   "sha256": "08c8796bfd484e1a69cbe370b7a689f194a568ceef506082c9c5275ea207689a"
+  },
+  "Tools/VisualV2ShadowQualityV8/Preset.py": {
+   "bytes": 1349,
+   "sha256": "2bfca7f0d05f2a4d82150f6dcefd36135b3f2fef9b5e6382aa462895a7c276a9"
+  },
+  "Tools/VisualV2ShadowQualityV8/ProcessGuard.py": {
+   "bytes": 709,
+   "sha256": "67fc1137ca6a7182b3e2ce4934728f32264a2e19ea2ace8dbfd03f1150aad143"
+  },
+  "Tools/VisualV2ShadowQualityV8/README.md": {
+   "bytes": 2697,
+   "sha256": "f64938d3c0c3aee9f8b28299fa7d4956b9190c58dcff055d8d72105472720a90"
+  },
+  "Tools/VisualV2ShadowQualityV8/RepairOwnMaterial.py": {
+   "bytes": 744,
+   "sha256": "54869e28369957678569f6ca602157da206e9c7ec924c6cd59a26701d3e0cae5"
+  },
+  "Tools/VisualV2ShadowQualityV8/RunABC.py": {
+   "bytes": 621,
+   "sha256": "396a04789182b9c17e38b165c3a6882937fdda3ee0ec8a6471de0c23a92515d6"
+  },
+  "Tools/VisualV2ShadowQualityV8/RunAcceptance.py": {
+   "bytes": 2217,
+   "sha256": "2efb691a1dc5d1a9b5f4bc4e95b16df50d87fa77d78b71f1d2c059bb1ca8938f"
+  },
+  "Tools/VisualV2ShadowQualityV8/RunMapCheck.py": {
+   "bytes": 1285,
+   "sha256": "abe9f990231a04ebc1039ad123c9a2f46beb01b6e306be54783a7086681897f1"
+  },
+  "Tools/VisualV2ShadowQualityV8/RunNativeABC.py": {
+   "bytes": 1124,
+   "sha256": "f5dccde452873d1a9ed441d1e4724db709300dc76cb37830bfa16c9538084169"
+  },
+  "Tools/VisualV2ShadowQualityV8/RunQA.py": {
+   "bytes": 1675,
+   "sha256": "6880481f1dbe3280c96a3ef298afc57f302a1ee0ba7951e8c81ebda975ae219d"
+  },
+  "Tools/VisualV2ShadowQualityV8/RunReview.py": {
+   "bytes": 670,
+   "sha256": "17c9d78c62945c8d0739da3f697dca948e22c44ed1576a97225d36c31e59d659"
+  },
+  "Tools/VisualV2ShadowQualityV8/RuntimeVariant.py": {
+   "bytes": 3059,
+   "sha256": "bec26ec4852873c971f2d9df717ef34097818cfb977dcb6e3eb287d3f511a114"
+  },
+  "Tools/VisualV2ShadowQualityV8/StartAcceptance.py": {
+   "bytes": 2000,
+   "sha256": "2a81a18b004512c87e3250fa6e6afd848fd164f3c39a64bd249f8329e5c27950"
+  },
+  "Tools/VisualV2ShadowQualityV8/StartPIE.py": {
+   "bytes": 189,
+   "sha256": "8c32ee546ee98e1ef7ec384c26f6f344b34be16f8d92bc12826b1f8fb4b75359"
+  },
+  "Tools/VisualV2ShadowQualityV8/Startup.py": {
+   "bytes": 3243,
+   "sha256": "7ae7f5a642bff1a47516f94d2318c5940ee8c3cedc931e1f32240709da4c75a0"
+  },
+  "Tools/VisualV2ShadowQualityV8/StopPIE.py": {
+   "bytes": 566,
+   "sha256": "8eb1decd674e4a0cda7689af491b79f2c43e8d14c0461c1468f0e3e84d62a21b"
+  },
+  "Tools/VisualV2ShadowQualityV8/ValidateOriginal.py": {
+   "bytes": 1278,
+   "sha256": "1233cacf617ac6d10b6ca4a13e92aa2fcb78afe1bdf2bf8effc2732769c22de8"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Analyze.py": {
+   "bytes": 6394,
+   "sha256": "744053f6a610274741d31206154a7cd451c7f35634a36d207cfce7d952cfc60f"
+  },
+  "Tools/VisualV2TAAIntegrationV1/ApplyTAA.py": {
+   "bytes": 2878,
+   "sha256": "bb6af7355cad80ecb02c5dbef2feb817418f17de212264b8d01911e3ac9e0a75"
+  },
+  "Tools/VisualV2TAAIntegrationV1/ArchiveEvidence.py": {
+   "bytes": 2351,
+   "sha256": "2b67a8c50e89b074fa95372e742358eedfb416e19e1daed26d53be081cf2c5f8"
+  },
+  "Tools/VisualV2TAAIntegrationV1/BeginPhase.py": {
+   "bytes": 3717,
+   "sha256": "5a06fd3a86f9f0bab6c0db976f761df6baa9a5f2ee7086487aa6396b042777b6"
+  },
+  "Tools/VisualV2TAAIntegrationV1/BuildVideos.py": {
+   "bytes": 3052,
+   "sha256": "b8147ff80281bbd719a97262dc4519e09f9b94367343ca8ce6d4840810d166ac"
+  },
+  "Tools/VisualV2TAAIntegrationV1/CheckCurrentMap.py": {
+   "bytes": 1423,
+   "sha256": "a394f440fb56f333273436f30db1c3ed76d0546c9bcaa03728dc71d2ed8540f5"
+  },
+  "Tools/VisualV2TAAIntegrationV1/CloseEditor.py": {
+   "bytes": 519,
+   "sha256": "ce6223cf6a372eef031fb2c363078bac22ee5c97d64b8770d0a6700188cc1e7d"
+  },
+  "Tools/VisualV2TAAIntegrationV1/ComposeReview.py": {
+   "bytes": 1189,
+   "sha256": "5868181c5bd2eea8f2820f2a5157511e289b9358ec044121b51ce07d48a8df3c"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Control.py": {
+   "bytes": 632,
+   "sha256": "5b561bedc4f70c217b7b0f5004d0e550555d2aefa982a4c8c69ca4ea8df5c37b"
+  },
+  "Tools/VisualV2TAAIntegrationV1/EncodeRecording.swift": {
+   "bytes": 4484,
+   "sha256": "8584abd7388b1468abf9a9b12bd8f7e073c4d4ca57e685c6bf097061647a09e7"
+  },
+  "Tools/VisualV2TAAIntegrationV1/LaunchEditor.py": {
+   "bytes": 1179,
+   "sha256": "aa63afa171247c4ae525a73471f04bea0a4390118a669fa776f29e46db31af48"
+  },
+  "Tools/VisualV2TAAIntegrationV1/MakePlans.py": {
+   "bytes": 984,
+   "sha256": "2213ac1ff038b04a8c73bdfe1a5b09d9a0e7f05c38930f8804020e0cf3151438"
+  },
+  "Tools/VisualV2TAAIntegrationV1/NativeAcceptance.py": {
+   "bytes": 986,
+   "sha256": "5cf68e3fe4ffd475a7855b2612c183e795a41419fa00867a4635a97405828033"
+  },
+  "Tools/VisualV2TAAIntegrationV1/NativePhase.py": {
+   "bytes": 539,
+   "sha256": "ae91e865f54c58f101918c6c43301f7034e32108e7a50246964cdaa90be0fd7e"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_PIE_C1.tsv": {
+   "bytes": 951,
+   "sha256": "e9f1090bdd959f2794cca27e732b052f8cab03ad0bcfe843deb442324833fa63"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_PIE_C2.tsv": {
+   "bytes": 650,
+   "sha256": "2278a3a4fa7902d611e3a32556adf53cc014cc9a7158a9a323c4991466043152"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_PIE_C3.tsv": {
+   "bytes": 650,
+   "sha256": "e29c7760b0e22fdf5af27ea00b17df73104e27c57fa8ff7c89ae46981340b33f"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_PIE_C4.tsv": {
+   "bytes": 668,
+   "sha256": "1c9d2ede2a7a1403eebf4d9547c4272b025829c56448cdb2af7cb81ccf5a095a"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_PIE_C5.tsv": {
+   "bytes": 650,
+   "sha256": "38b3e1758e6472b6a05b0d9cd6bdcc014e1c179781d1c21d673c35fe1b0d59e7"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_PIE_C6.tsv": {
+   "bytes": 1005,
+   "sha256": "efd9b46cf1f86da97fbb13157e7f5987840a87423b9de0daf556bb11a88be002"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_PIE_CPhotoC1.tsv": {
+   "bytes": 360,
+   "sha256": "94a3f100b24d7c0c164c0a3a5a235a9eaec741cde5b0ef692846c3e4d87631a9"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_Standalone_C1.tsv": {
+   "bytes": 965,
+   "sha256": "6aaabb8382de8d938a43961178638162d569bb468ddc14653a2e61d14cb3153f"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_Standalone_C2.tsv": {
+   "bytes": 664,
+   "sha256": "9455b791bca1ef057d0d428ff5cdd55e52b6dfece7266383b25564a782e794f8"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_Standalone_C3.tsv": {
+   "bytes": 664,
+   "sha256": "e5c6a1ab1b389f1747b8876c640a47f36813584e4a1f5ec47a05ef44edef9581"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_Standalone_C4.tsv": {
+   "bytes": 682,
+   "sha256": "22606670dda633192804ab291f49a62edcbbb1841958c01a2b85a09eb122af8c"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_Standalone_C5.tsv": {
+   "bytes": 664,
+   "sha256": "6cb59ed527788ec06ecdfa54db20f7de9d4b30aa580879ec425e91883508f8b6"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_Standalone_C6.tsv": {
+   "bytes": 1019,
+   "sha256": "7c221377a2fcc31a7d28cff3f9f9f2e71ed9b5c13638bd894a611ba894d8d406"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_Standalone_CRecheck2.tsv": {
+   "bytes": 293,
+   "sha256": "0bc85a158671482fd50d27b1915bc9054f9c56b6a83899f17f4ce302854dfb68"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_Standalone_CRecheck3.tsv": {
+   "bytes": 293,
+   "sha256": "f9c529252609fc752f4d970f1a84de593c723a5dd08a7f0c90683140a456b238"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_Standalone_CRecheck4.tsv": {
+   "bytes": 300,
+   "sha256": "ce95d6e8396946aeacb24d1bf95c819f0fd4dc1f2987e12c9c45924594d7e554"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Plans/VGB1_TAAIntegration_Standalone_CRecheck5.tsv": {
+   "bytes": 293,
+   "sha256": "724d5c5693337a8f68aa90ab8446f3ad83e2838860a3de72b20e1c507076fef0"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Preset.py": {
+   "bytes": 1222,
+   "sha256": "c5bfe513acb3b6574408a8ceedd1c2479ee70b56103daeb79182a0b61178e222"
+  },
+  "Tools/VisualV2TAAIntegrationV1/ProtectionAudit.py": {
+   "bytes": 2250,
+   "sha256": "74a56800fd54182e2516a562f79edb30c213290836b5596228e7d21bd7675ffa"
+  },
+  "Tools/VisualV2TAAIntegrationV1/README.md": {
+   "bytes": 5105,
+   "sha256": "e714d725fc695ba7a59d0a1fa126efd3e52176df43a654e45bba865ce7de7517"
+  },
+  "Tools/VisualV2TAAIntegrationV1/ReviewIntegratedMotion.py": {
+   "bytes": 1949,
+   "sha256": "00c1ec2dd4209c3df6fbe8d4437a33504728828444870784b72f0c4b040e2362"
+  },
+  "Tools/VisualV2TAAIntegrationV1/ReviewMotion.py": {
+   "bytes": 2659,
+   "sha256": "2d84ca8dd51e7281c8eba558bf67b9c26c7b53c58326f5b0ba305460c1d6495a"
+  },
+  "Tools/VisualV2TAAIntegrationV1/RunAcceptance.py": {
+   "bytes": 3050,
+   "sha256": "1d03bb52b27f9a01cc181315be197d10df517c7111f7cc6ba04bacafc334953b"
+  },
+  "Tools/VisualV2TAAIntegrationV1/RunIntegratedMotion.py": {
+   "bytes": 1045,
+   "sha256": "287cc46e2cfae8cdea41d8c3b99a859f65894aef8e097d41974dfb1fcd0236cd"
+  },
+  "Tools/VisualV2TAAIntegrationV1/RunIntegratedPIEReview.py": {
+   "bytes": 977,
+   "sha256": "5dad858f3786216b696cb1ab7efc2f9e2f3050cef7f67ced6e80ef3a4ce17916"
+  },
+  "Tools/VisualV2TAAIntegrationV1/RunMapChecks.py": {
+   "bytes": 1237,
+   "sha256": "4efff5a31555183f08b2be76a1f0c4fade1130383bddf2316697198e39eadbb1"
+  },
+  "Tools/VisualV2TAAIntegrationV1/RunMotion.py": {
+   "bytes": 1007,
+   "sha256": "d89ff736b9f76b442c9832ea162253b5b28d0daf4bc8fe45f746d61d6e157e9f"
+  },
+  "Tools/VisualV2TAAIntegrationV1/RunNativeValidation.py": {
+   "bytes": 864,
+   "sha256": "06f81ca98ecd73d5b4850915a8c750eb9d6ade699aa171ed921fe8ea74fa4bc1"
+  },
+  "Tools/VisualV2TAAIntegrationV1/RunPIEMatrix.py": {
+   "bytes": 593,
+   "sha256": "a1aa1696204ca44304fae71b0e0757dd33775a130daef4f848c1092980f93383"
+  },
+  "Tools/VisualV2TAAIntegrationV1/RunPhase.py": {
+   "bytes": 2121,
+   "sha256": "2eed5b5cde2f273bfaaf75bf3c2991d25abffcbc42bb6c564683c1868fc97171"
+  },
+  "Tools/VisualV2TAAIntegrationV1/RunQA.py": {
+   "bytes": 1706,
+   "sha256": "d92fe4dbb8bf8c37000fc01ec619e9fc836e312d20f3cc245bce76a693f71721"
+  },
+  "Tools/VisualV2TAAIntegrationV1/StartAcceptance.py": {
+   "bytes": 2806,
+   "sha256": "b86e56d03b377855f8e5e801e7880a12a64c794015283887a6cc5b04fe2ee50f"
+  },
+  "Tools/VisualV2TAAIntegrationV1/StartIntegratedMotion.py": {
+   "bytes": 574,
+   "sha256": "8e03d8dc4e7f2f1449fd68394f1aa0345589659d4346c433979cd7bf9ac9a0de"
+  },
+  "Tools/VisualV2TAAIntegrationV1/StartMotion.py": {
+   "bytes": 4805,
+   "sha256": "829df00ceecdb6cca4e564c89634d29bf08de932525c6657deebad4e93d5b4fa"
+  },
+  "Tools/VisualV2TAAIntegrationV1/StartPIE.py": {
+   "bytes": 189,
+   "sha256": "8c32ee546ee98e1ef7ec384c26f6f344b34be16f8d92bc12826b1f8fb4b75359"
+  },
+  "Tools/VisualV2TAAIntegrationV1/Startup.py": {
+   "bytes": 3142,
+   "sha256": "8f4d6537daf455babb29022939ce8bab2531c48cd56342d70ea089d2f5d9c16d"
+  },
+  "Tools/VisualV2TAAIntegrationV1/StopPIE.py": {
+   "bytes": 97,
+   "sha256": "9b7f4a0f5002eccf85d17bddd07fb8cb928c6becc386850e13f4642e6417fe1e"
+  },
+  "Tools/VisualV2TAAIntegrationV1/ThermalMonitor.py": {
+   "bytes": 1313,
+   "sha256": "461ce529900f964ecb087dc9d087018a0653b5641b78e9a772cfbfa420d40ae0"
+  },
+  "Tools/VisualV2TAAIntegrationV1/VerifyMap.py": {
+   "bytes": 1108,
+   "sha256": "28cba1592045ad7ad08710f4f2617fabe07231a0e00224e158354328e85dcf6d"
+  },
+  "Tools/VisualV2TAAIntegrationV1/WarningAudit.py": {
+   "bytes": 2666,
+   "sha256": "7470626e4b157c8db3d4abf2770912941816f48b00a17ce18156bda5c22bccf8"
+  },
+  "Tools/VisualV2TAAIntegrationV1/WriteReport.py": {
+   "bytes": 19262,
+   "sha256": "e0d18a4bf7318ee0c2246cf8bd3e66050d7e2690b267a191387822d5c2a73cc8"
+  },
+  "Tools/VisualV2VegetationPerfV1/Analyze.py": {
+   "bytes": 5608,
+   "sha256": "afe05887bc010e54ec2e61aee85072e5dda3db850a5c6a0a628930330d0e124a"
+  },
+  "Tools/VisualV2VegetationPerfV1/ArchiveEvidence.py": {
+   "bytes": 1967,
+   "sha256": "f9deb03e5bdb787cc942ec6e0a8030ea61303f5accee290ad0b0db8b63e3d9e6"
+  },
+  "Tools/VisualV2VegetationPerfV1/BeginPhase.py": {
+   "bytes": 3732,
+   "sha256": "42078ac27bcb0961d17c1042b27767b9ac492f0bbdae11071db91731078c866c"
+  },
+  "Tools/VisualV2VegetationPerfV1/BuildVideos.py": {
+   "bytes": 2331,
+   "sha256": "d71278d60849ceb06759cef36fb94133097dc49c1b2ff087319d761c1cd0b76e"
+  },
+  "Tools/VisualV2VegetationPerfV1/CheckCurrentMap.py": {
+   "bytes": 1486,
+   "sha256": "51fc5b05798cc64025f3e1befc69926dd50a14261106840a9e29edfed0e2a2e1"
+  },
+  "Tools/VisualV2VegetationPerfV1/ClassifyFinalAutomation.py": {
+   "bytes": 2404,
+   "sha256": "ad48bcb2f60fba90a2ea61928db94a152108c6e0e64a51371340df5733d1ae91"
+  },
+  "Tools/VisualV2VegetationPerfV1/CloseEditor.py": {
+   "bytes": 519,
+   "sha256": "6d884e263cd772c9ac8d6776738d199f5dfc90684db18ea2e091c1b244cbb2ae"
+  },
+  "Tools/VisualV2VegetationPerfV1/CompareMaps.py": {
+   "bytes": 1314,
+   "sha256": "d6349d6af6bbb545ae5573a42f5f3ce93aa9677bd61fa6d8727b7b263bf37832"
+  },
+  "Tools/VisualV2VegetationPerfV1/ComposePhotos.py": {
+   "bytes": 1325,
+   "sha256": "0248efaf7bf0a0346a0578751c31cc075a02cf47dcc4818835d2572a15b8c2bb"
+  },
+  "Tools/VisualV2VegetationPerfV1/ContinueStudy.py": {
+   "bytes": 2189,
+   "sha256": "a5e77aec4a9681f5c8f9e80baa1af8e901c4fe308b23c0b9e5cee861def60e09"
+  },
+  "Tools/VisualV2VegetationPerfV1/Control.py": {
+   "bytes": 632,
+   "sha256": "4b741c032cbd95214f17310cd1618de8ab42a12e9b6dd7e6c79bc8b82deeabe9"
+  },
+  "Tools/VisualV2VegetationPerfV1/DebugRetry.py": {
+   "bytes": 2146,
+   "sha256": "eaeca31a3ab8fbe74047231cc57ec83695d7b5fd807d198f9e2c8e037e451dc4"
+  },
+  "Tools/VisualV2VegetationPerfV1/DebugViews.py": {
+   "bytes": 2244,
+   "sha256": "9b590690069696cff3f3a6bd98305aa36d317d27b9c9624b37cd1f9866165594"
+  },
+  "Tools/VisualV2VegetationPerfV1/FinalChecks.py": {
+   "bytes": 2019,
+   "sha256": "c376e0ae9caca2bd110460e37d45dc9be8a4023ac888e25504862db54fea8f57"
+  },
+  "Tools/VisualV2VegetationPerfV1/FinishStudy.py": {
+   "bytes": 2407,
+   "sha256": "adc8b076523ee28086904d6f7a9a18375ff05ecafc79acbb517ee42cdbe8c1a7"
+  },
+  "Tools/VisualV2VegetationPerfV1/Inventory.py": {
+   "bytes": 2953,
+   "sha256": "bf200e073d91af87a27b15af4f047fbf9794c629231e7efa4c9842a49eb75e07"
+  },
+  "Tools/VisualV2VegetationPerfV1/LaunchEditor.py": {
+   "bytes": 1179,
+   "sha256": "f876c78dae5f33d1f8a261a6c9d3f24d797de704b2abdbef58133234ccf78042"
+  },
+  "Tools/VisualV2VegetationPerfV1/MakePlans.py": {
+   "bytes": 1869,
+   "sha256": "a7afa76e093093577877aedaa596899120a0c9354e0478d59aef1bfad6ea9821"
+  },
+  "Tools/VisualV2VegetationPerfV1/NativeAcceptance.py": {
+   "bytes": 1016,
+   "sha256": "7f10c5f8ca57cd72d808a82a9835e0139b1d0ac41f563480245a91acb7a4ad96"
+  },
+  "Tools/VisualV2VegetationPerfV1/NativePhase.py": {
+   "bytes": 841,
+   "sha256": "f55ff5946f218e3cc454a4dd040c9f53f848fcfb94cde7f5504bc13c7c0b4d65"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_PIE_C1.tsv": {
+   "bytes": 1075,
+   "sha256": "55f75a5dcb97e946b16e477f25c460b079122e12369c780685f461a37f1d6fc1"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_PIE_C2.tsv": {
+   "bytes": 774,
+   "sha256": "ab2b6f8c80542ee21660fb2f7708762e6532a10b313e436db6b6fb4e09985add"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_PIE_C3.tsv": {
+   "bytes": 755,
+   "sha256": "3497b69c7d64c52d3f2cb1564d52866a58666445325a2fc072eae259a0865c29"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_PIE_C4.tsv": {
+   "bytes": 774,
+   "sha256": "0ec62c6c6086193da47613260ee26bb24ea00b04626d9bf9cff501dea002c812"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_PIE_C5.tsv": {
+   "bytes": 774,
+   "sha256": "08704d8fe3da23963c5047d3906d5c3cd5c0d479210b7a55803b38a042dea0b0"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_PIE_C6.tsv": {
+   "bytes": 793,
+   "sha256": "ec61c364ee3abda9ef0c87f087fef3f088d4f5bc21847b7db551eadd309e740e"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_PIE_C7.tsv": {
+   "bytes": 774,
+   "sha256": "9521ab2f7ae4c79312eea8a60860f4070f7e57642e76957bed532a412d6be2b8"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_PIE_C8.tsv": {
+   "bytes": 1129,
+   "sha256": "aa556058f3ad3a6cebc89154551c0aaac3286196d4e5d58efb516cd7e41a8aa6"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_PIE_CRecheck1.tsv": {
+   "bytes": 1082,
+   "sha256": "c135f643ef9d7b7cf3f4d2d748d64e844cdc1a177a8b2be8b183624a45985f36"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_PIE_CScout.tsv": {
+   "bytes": 956,
+   "sha256": "cafc0c7e647ad259c05e03e9d5c9fe370961b808c9ca6553565177fbbc21a45c"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_Standalone_C1.tsv": {
+   "bytes": 1089,
+   "sha256": "7a98cb01e9ea754ead66972b02f7d3b00ff6ce46800d51b77b09f66e5dea1d21"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_Standalone_C2.tsv": {
+   "bytes": 788,
+   "sha256": "eaac72da684e34b0ca902b9702771b0f656bc7262e20d106b76791815dddfc87"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_Standalone_C3.tsv": {
+   "bytes": 769,
+   "sha256": "afebb1c3b0393da14c9f4fedb8c73ce4a485cf8d92fcf5e76446b556abc6db1b"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_Standalone_C4.tsv": {
+   "bytes": 788,
+   "sha256": "9fd6073777c70f4732eefae9669bfd0dd8ec1556dbd9c1a688762dbf8df717ec"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_Standalone_C5.tsv": {
+   "bytes": 788,
+   "sha256": "29d602c02c83687e8ad6c5db5916e97676d7baabb56f821d707ae7528a7da451"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_Standalone_C6.tsv": {
+   "bytes": 807,
+   "sha256": "36a57427d704666cc37323abb4db0d67f5ea29e7bc6e3e45ad84e1c9e63fa473"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_Standalone_C7.tsv": {
+   "bytes": 788,
+   "sha256": "b034d9cb8e606e3ffcb8221ce7aaf3eb6ec828f3d6aa6a75236c8d69add20f94"
+  },
+  "Tools/VisualV2VegetationPerfV1/Plans/VGB1_Vegetation_Standalone_C8.tsv": {
+   "bytes": 1143,
+   "sha256": "952d28a429f9733eb6dbceab529da5bf5020ab24d51734c77bd558ef77cecffb"
+  },
+  "Tools/VisualV2VegetationPerfV1/PrepareCandidates.py": {
+   "bytes": 1734,
+   "sha256": "bfd906a3dfea163a6f56cffee8baa033ffb573031fde411e15b63af49cb553bd"
+  },
+  "Tools/VisualV2VegetationPerfV1/Preset.py": {
+   "bytes": 1507,
+   "sha256": "354fd8b20414b01b120eb478bd509d20d9c94bd533007a32974f0b4cc4252b07"
+  },
+  "Tools/VisualV2VegetationPerfV1/ProtectionAudit.py": {
+   "bytes": 1515,
+   "sha256": "5b9af3fd9843ffc0460eeb6d93e403e5dd25053a7c29bf2ab23fb7e322066fd2"
+  },
+  "Tools/VisualV2VegetationPerfV1/README.md": {
+   "bytes": 3599,
+   "sha256": "9dffbaaf07e6f743b5ace6fa8ca16c9123be5c712d759774bc099b3a9af3969a"
+  },
+  "Tools/VisualV2VegetationPerfV1/ReviewMotion.py": {
+   "bytes": 3443,
+   "sha256": "a15893e8c808fd5b0bba51f322d241900a7ef4a8325117a2009c00d39f726749"
+  },
+  "Tools/VisualV2VegetationPerfV1/RunAcceptance.py": {
+   "bytes": 3065,
+   "sha256": "da916e6cd0590905d6fb6a9acf8c1318a19c3ce61079985472f9757544b20fbf"
+  },
+  "Tools/VisualV2VegetationPerfV1/RunMapChecks.py": {
+   "bytes": 1237,
+   "sha256": "7c75332943d84144b952fa83e2a6ca52ea655befbb8acfd0e885e35be975edc1"
+  },
+  "Tools/VisualV2VegetationPerfV1/RunMatrix.py": {
+   "bytes": 1060,
+   "sha256": "3c5320a2b41dbf8c78b33b428bc7b358864c7f102db01c3ddbf62bb28030f7b8"
+  },
+  "Tools/VisualV2VegetationPerfV1/RunMotion.py": {
+   "bytes": 1471,
+   "sha256": "d902c71d2759beddb78ad83302694331314d81ba4415183bdee8eb8f152d827e"
+  },
+  "Tools/VisualV2VegetationPerfV1/RunPhase.py": {
+   "bytes": 2132,
+   "sha256": "f0f1bbac25b59a154cee7e9a58c6d9ee0004218f8ab85237ce734239d0b2b9f3"
+  },
+  "Tools/VisualV2VegetationPerfV1/RunQA.py": {
+   "bytes": 1706,
+   "sha256": "3f7b731e24f6ceae79256df50b191d403c810a686bc387c6feea3ba3a155ada0"
+  },
+  "Tools/VisualV2VegetationPerfV1/RunQAFinal.py": {
+   "bytes": 1716,
+   "sha256": "ec531ff83e0cc2a6335219bbb4a14b29129fdddf82c3c73b1e0c254b2c351ea9"
+  },
+  "Tools/VisualV2VegetationPerfV1/StartAcceptance.py": {
+   "bytes": 898,
+   "sha256": "7c63e576bc57bca4a82fb556db9825395b7904a438701a5082d0214b1804dbc0"
+  },
+  "Tools/VisualV2VegetationPerfV1/StartMotion.py": {
+   "bytes": 4901,
+   "sha256": "7439e1b522ffa1e854ea491a0dcf7ec0dce3600be803516bfa677b78bb5510b9"
+  },
+  "Tools/VisualV2VegetationPerfV1/StartPIE.py": {
+   "bytes": 189,
+   "sha256": "8c32ee546ee98e1ef7ec384c26f6f344b34be16f8d92bc12826b1f8fb4b75359"
+  },
+  "Tools/VisualV2VegetationPerfV1/Startup.py": {
+   "bytes": 3157,
+   "sha256": "39b75bba88ced6d8849d1e07aa0c353b68a2cf94fcffe50704d8575ab6920678"
+  },
+  "Tools/VisualV2VegetationPerfV1/StopPIE.py": {
+   "bytes": 97,
+   "sha256": "9b7f4a0f5002eccf85d17bddd07fb8cb928c6becc386850e13f4642e6417fe1e"
+  },
+  "Tools/VisualV2VegetationPerfV1/StopProbe.py": {
+   "bytes": 171,
+   "sha256": "3ca4071b459de7d62cb3481093a1a8606f0755893179ce52bde89c9dd4cc5b1e"
+  },
+  "Tools/VisualV2VegetationPerfV1/ThermalMonitor.py": {
+   "bytes": 1313,
+   "sha256": "2f5b61309604a7fe8e9c3815f2130501251afd6ae0b21842a9b6e513b8a462cd"
+  },
+  "Tools/VisualV2VegetationPerfV1/VerifyVideo.swift": {
+   "bytes": 1189,
+   "sha256": "4ed55a00620c6e0d6d4afc778ba6979fd4af7f5863937c0b4290417d0c18ac4a"
+  },
+  "Tools/VisualV2VegetationPerfV1/WarningAudit.py": {
+   "bytes": 2730,
+   "sha256": "09bbcadb95cb45b1aa1cb3fa690ae2b9c38c4248b45014b74ce959f19aa157a0"
+  },
+  "Tools/VisualV2VegetationPerfV1/WriteReport.py": {
+   "bytes": 17797,
+   "sha256": "9464f8bf20851970e19d02c2a4d6bc5585ffedcc8c549007f07f0ea8fc995dfe"
+  },
+  "Tools/VisualV2WorldArtQualityV1/ApplyArt.py": {
+   "bytes": 10057,
+   "sha256": "a510ac11faa15766e418cf8631872c78aaca00aa0923972b9a36c493bcb3da9d"
+  },
+  "Tools/VisualV2WorldArtQualityV1/BasicPerformance.py": {
+   "bytes": 547,
+   "sha256": "f63a4f42e47d978c7e889869346c145e84f1737700d27a36059eb690f68abe67"
+  },
+  "Tools/VisualV2WorldArtQualityV1/Build.py": {
+   "bytes": 768,
+   "sha256": "e2ceb00281f17157258116851269cfd681c76835a9281eb045dc3fe2d6b91e06"
+  },
+  "Tools/VisualV2WorldArtQualityV1/CheckCurrentMap.py": {
+   "bytes": 1870,
+   "sha256": "8776c7d89826428dba9b27265df43997bef8ed9b96129d6de9be8e0b7b476e37"
+  },
+  "Tools/VisualV2WorldArtQualityV1/CloseEditor.py": {
+   "bytes": 520,
+   "sha256": "8a7a2b572d80bb892f6597380d127f350ae4895c54c16fe9ae105504dc9e261c"
+  },
+  "Tools/VisualV2WorldArtQualityV1/ComposeReview.py": {
+   "bytes": 2070,
+   "sha256": "06d56d3529135d26a1ff0a7c1b76e7e406c9ba0c353ba1f1becc9a30957f81b3"
+  },
+  "Tools/VisualV2WorldArtQualityV1/Control.py": {
+   "bytes": 634,
+   "sha256": "02e7adbee40cb0cb0201a12e970618050da2538e7e9ef96d8cc0a266f409bcab"
+  },
+  "Tools/VisualV2WorldArtQualityV1/FixLegacyApproach.py": {
+   "bytes": 4542,
+   "sha256": "f2bd401e99bfa867314a81842171e36ab047187c17ad7dfe56f5b182fda10d63"
+  },
+  "Tools/VisualV2WorldArtQualityV1/JoinForecourt.py": {
+   "bytes": 1313,
+   "sha256": "ce54d839a5c511c50de9f8056d7d767b4442124c5e8fd53d7b85aee7ce29115a"
+  },
+  "Tools/VisualV2WorldArtQualityV1/LaunchEditor.py": {
+   "bytes": 1182,
+   "sha256": "79a0d0d503543f960cc86142848bb0cd982d4737100ab579a0f0ddaffd0377c5"
+  },
+  "Tools/VisualV2WorldArtQualityV1/Photos.py": {
+   "bytes": 2255,
+   "sha256": "0846187dc56ec7333c9cb2eee97f831895bb22f0f8138e198b0ef3e9ea4d5cf2"
+  },
+  "Tools/VisualV2WorldArtQualityV1/Plans/VGB1_WorldArt_AfterFinal_PIE.tsv": {
+   "bytes": 217,
+   "sha256": "0d636ac523ae3c67bc83d4491bc8daa97740efde7997affbb77a1c512f8fea2a"
+  },
+  "Tools/VisualV2WorldArtQualityV1/Plans/VGB1_WorldArt_After_PIE.tsv": {
+   "bytes": 212,
+   "sha256": "8197a6864b6f32a71546326dae91af45f063a40bb40f0adccd67f43274cbc2af"
+  },
+  "Tools/VisualV2WorldArtQualityV1/Plans/VGB1_WorldArt_Before_PIE.tsv": {
+   "bytes": 213,
+   "sha256": "7fbeff1e77c88817b2a31882f164081f37897e9184f48033250bcd1a61640eab"
+  },
+  "Tools/VisualV2WorldArtQualityV1/PolishForecourt.py": {
+   "bytes": 3103,
+   "sha256": "9b0a0934920f1b509bb40f1876a5da61bf57283f941e580ef09a8ed88d215d2c"
+  },
+  "Tools/VisualV2WorldArtQualityV1/Preset.py": {
+   "bytes": 1223,
+   "sha256": "e84bbc2c303abcc11473bfcdd9f3934ed8dcfd8c327894cc6adeada94541ee2f"
+  },
+  "Tools/VisualV2WorldArtQualityV1/ProtectionAudit.py": {
+   "bytes": 1501,
+   "sha256": "f92147f23c8463d3ee35e13ccde65a2bffa9b992053bb3e9335af3adfe55988c"
+  },
+  "Tools/VisualV2WorldArtQualityV1/README.md": {
+   "bytes": 3623,
+   "sha256": "a873476b24cf3ba748579e03f43a79f11e0da43d50afbd71574066f116002c77"
+  },
+  "Tools/VisualV2WorldArtQualityV1/RunAcceptance.py": {
+   "bytes": 3098,
+   "sha256": "b613cd1d133a342a7c771ae184e22d82a137734633f5f659f4a0ce46fcf084f2"
+  },
+  "Tools/VisualV2WorldArtQualityV1/RunMapCheck.py": {
+   "bytes": 1359,
+   "sha256": "b1201f88c0d8f720ca6f2588b14776eff416c05dc76dc8bf0eae14c235fcbc5c"
+  },
+  "Tools/VisualV2WorldArtQualityV1/RunQA.py": {
+   "bytes": 1707,
+   "sha256": "c3bcc453f710ae2af0d8e14619e784e429163f02dec19318d7967abeff175a2b"
+  },
+  "Tools/VisualV2WorldArtQualityV1/StartAcceptance.py": {
+   "bytes": 2836,
+   "sha256": "702dabdb87db520fb380191f1bf7c0c03dd5a30d2d3d6b71ab5a994caef3a4c0"
+  },
+  "Tools/VisualV2WorldArtQualityV1/StartPIE.py": {
+   "bytes": 189,
+   "sha256": "8c32ee546ee98e1ef7ec384c26f6f344b34be16f8d92bc12826b1f8fb4b75359"
+  },
+  "Tools/VisualV2WorldArtQualityV1/Startup.py": {
+   "bytes": 3144,
+   "sha256": "518438cdd94ede3780a70691db3825ce329132632074ab11141590a983593680"
+  },
+  "Tools/VisualV2WorldArtQualityV1/StopPIE.py": {
+   "bytes": 97,
+   "sha256": "9b7f4a0f5002eccf85d17bddd07fb8cb928c6becc386850e13f4642e6417fe1e"
+  },
+  "Tools/VisualV2WorldArtQualityV1/Summarize.py": {
+   "bytes": 2885,
+   "sha256": "d10cd22bbeeae2a1987566bb8c9061d81886643947cd0a918e553e4e7c2f7235"
+  },
+  "Tools/VisualV2WorldArtQualityV1/ValidateArt.py": {
+   "bytes": 2233,
+   "sha256": "c422ef5ac57f197b2ba470e45225aeb53315a75ef9cb6161e8c90897eff43ff8"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Aggregate.py": {
+   "bytes": 3992,
+   "sha256": "474be440cc659c55267ace2e4f4073bb51d662de29a506e7f3c1d5a99ca9addc"
+  },
+  "Tools/VisualV2WorldArtQualityV2/ApplyProduction.py": {
+   "bytes": 4044,
+   "sha256": "567954fb20ef7587ce0802ac08b9f007d7fd4b9c62ef7e685a12d53322d6f373"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Build.py": {
+   "bytes": 768,
+   "sha256": "c890807aef1544dbf0b95f4b5f26e770627a5d6b45ae686ccf78431728e26724"
+  },
+  "Tools/VisualV2WorldArtQualityV2/BuildGrassCandidate.py": {
+   "bytes": 4885,
+   "sha256": "df9a73146a85921189afc2260f9f7b2cd68c585fc5d82f515d068fdeb7384b4d"
+  },
+  "Tools/VisualV2WorldArtQualityV2/CheckCurrentMap.py": {
+   "bytes": 1870,
+   "sha256": "dab041b1c70d4c7e9bc888c765cd14fdf0ac5d0d00bd63d7ce32a99b96052a7e"
+  },
+  "Tools/VisualV2WorldArtQualityV2/CloseEditor.py": {
+   "bytes": 520,
+   "sha256": "feab4d8da77ff271ed64c2e679259c6943443aece0bb527da50d7e8a04c5d75b"
+  },
+  "Tools/VisualV2WorldArtQualityV2/ComposeReview.py": {
+   "bytes": 2019,
+   "sha256": "4dc40cd0c273d63c866bdbf0f2c0cca88562206a61d5c6c2689e6e49fa52cf99"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Control.py": {
+   "bytes": 634,
+   "sha256": "a165ffd105afc51d0054a694aacdfbb042a937c6ce61a153503584d60cd4383c"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Inventory.py": {
+   "bytes": 2166,
+   "sha256": "50901ff5db09e4831dbb68c7c922b81aaaa909519c76ea8a500a4255b2c21b1f"
+  },
+  "Tools/VisualV2WorldArtQualityV2/LaunchEditor.py": {
+   "bytes": 1182,
+   "sha256": "ac7e4d62e6aef13707e457740764629473e43cb72e42ef13c5175019de35a0c3"
+  },
+  "Tools/VisualV2WorldArtQualityV2/NativeReview.py": {
+   "bytes": 1758,
+   "sha256": "f2cb4131222c5d97c80419f6321395200ca0b640918f8cc11a6595aaa2b0618b"
+  },
+  "Tools/VisualV2WorldArtQualityV2/NativeStudy.py": {
+   "bytes": 1095,
+   "sha256": "589ee16354544c51ad849999fae4684a7fa4b7664df808d6705d5ac2874ead54"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Photos.py": {
+   "bytes": 2271,
+   "sha256": "bac5907818d4444e113d049f6c935d56975ed431fdf34f95cc6c09e0c833446f"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Cost_PIE_Q1.tsv": {
+   "bytes": 594,
+   "sha256": "f5fb0491d972d5eb57818f7d19d4215cbfdb578eca77e6db843c5a213d755272"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Cost_PIE_Q2.tsv": {
+   "bytes": 594,
+   "sha256": "ccbe54a15b143d4f1c074796fe64085d04542d15fd4249b0546e3fd6f937165e"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Cost_Standalone_Q1.tsv": {
+   "bytes": 608,
+   "sha256": "971ace5f391152e9ceba57801ea853f4ba90a0cd688190ec2ae6cbbb8f585a5f"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Cost_Standalone_Q2.tsv": {
+   "bytes": 608,
+   "sha256": "7446826a19e86d0d1f0fc7f6b2fbfcb54f94a2d38ed2a52ff673d3b921c704c8"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Final_PIE_Q1.tsv": {
+   "bytes": 2575,
+   "sha256": "6a71f8d7cae45e0aa3586b506e8f42dff06785cb6ba4593cf7795603e7d1c3b4"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Final_PIE_Q2.tsv": {
+   "bytes": 2575,
+   "sha256": "c2fd05aada46514331948c733fad490e29b790dda911688eda72996d2da80e52"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Final_Standalone_Q1.tsv": {
+   "bytes": 2589,
+   "sha256": "9a141bb07a196b7d03132beb1f0fb66adecd9e07b7af05cee89d0a952314ed31"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Final_Standalone_Q2.tsv": {
+   "bytes": 2589,
+   "sha256": "a1904b1c19fabf7224d111ee4f4528e3a49170aacae8f9f4e4d63f257c87cd7e"
+  },
+  "Tools/VisualV2WorldArtQualityV2/PrepareArtCandidate.py": {
+   "bytes": 4589,
+   "sha256": "c399cecbb3d6a62859220252eba2c52f3de6a6db8f5fcf050e6dc0c4a4425503"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Preset.py": {
+   "bytes": 1223,
+   "sha256": "75f52b47428b0994d8b277ea86181bce7dff4baebde0f1df3c7b9b442f482785"
+  },
+  "Tools/VisualV2WorldArtQualityV2/ProtectionAudit.py": {
+   "bytes": 1613,
+   "sha256": "a0e2cffc5993e904bd029b5a97d5d239f694e774ebad6f000f52e276f0806800"
+  },
+  "Tools/VisualV2WorldArtQualityV2/PublishSummary.py": {
+   "bytes": 1990,
+   "sha256": "a5432f4f45b01cb99fe72c1ca5195a5e56dccbfb80a79910f80c7a203688cdd8"
+  },
+  "Tools/VisualV2WorldArtQualityV2/README.md": {
+   "bytes": 5143,
+   "sha256": "d00f1bcb3b5dd3fb579f5e8d86be6beb708956fa48fc60cb6671c3731523d0ca"
+  },
+  "Tools/VisualV2WorldArtQualityV2/RunAcceptance.py": {
+   "bytes": 2187,
+   "sha256": "010602edbad8d98f5d2350767eb4a780e98f0679193a326f7d24f17039bbc41b"
+  },
+  "Tools/VisualV2WorldArtQualityV2/RunCandidateReview.py": {
+   "bytes": 556,
+   "sha256": "f5941aafa39ebc586f01fc9491b513de36292325dae323e7fe096dff563133cb"
+  },
+  "Tools/VisualV2WorldArtQualityV2/RunFinalQA.py": {
+   "bytes": 1325,
+   "sha256": "e9211d873ef325ef84eda7095010d850d96389f7fd596f77c4b9293299aa01f4"
+  },
+  "Tools/VisualV2WorldArtQualityV2/RunMapCheck.py": {
+   "bytes": 1359,
+   "sha256": "d36a38cab19f807afaecbbeba6f704f5deef7445578bae338eeb1d4a438125b6"
+  },
+  "Tools/VisualV2WorldArtQualityV2/RunMatrix.py": {
+   "bytes": 2292,
+   "sha256": "e6a757f715404328ed6bc956f34b951e7fca6abf17148607d6d3079aed2c945e"
+  },
+  "Tools/VisualV2WorldArtQualityV2/RunNativeReview.py": {
+   "bytes": 1267,
+   "sha256": "c611c86ea580c1b6cc82a01aa0d92a4e99d1a98b937fa0abfc6e567c9b901357"
+  },
+  "Tools/VisualV2WorldArtQualityV2/RunPIEReview.py": {
+   "bytes": 994,
+   "sha256": "245f73184e7c7802049683f1ad8c67adb0b58ccc698b394da8847d1e8e37660b"
+  },
+  "Tools/VisualV2WorldArtQualityV2/RunQA.py": {
+   "bytes": 1707,
+   "sha256": "a6276d9ab1a4e60837580de4a512d770c7e222d1677c541348905d07fb789aa6"
+  },
+  "Tools/VisualV2WorldArtQualityV2/RunRemainingStudies.py": {
+   "bytes": 1666,
+   "sha256": "d715185045d3e49c45caf165d0dbdd1a8c54ff742af1775032cdc0a03d279207"
+  },
+  "Tools/VisualV2WorldArtQualityV2/RunStudy.py": {
+   "bytes": 2301,
+   "sha256": "31d1941cd401ef93a6a8034689d294c08dfa19f7c2fe5f5e6a0f1e4c799e3e96"
+  },
+  "Tools/VisualV2WorldArtQualityV2/RuntimeMatrix.py": {
+   "bytes": 1889,
+   "sha256": "b9e671eb69c304d07e0b5bc9aff0c04e12533070a638662bf83a18afbb1045ee"
+  },
+  "Tools/VisualV2WorldArtQualityV2/RuntimeStudy.py": {
+   "bytes": 3038,
+   "sha256": "62824a7cf86cf5550ee3d2f53e884e8395b3e8573fd995f5c2e826562dbf4c7c"
+  },
+  "Tools/VisualV2WorldArtQualityV2/RuntimeVariants.py": {
+   "bytes": 3398,
+   "sha256": "28b9c7dd0e323d6eb8ae7f1d87bc193593e58356c99faea8aee18f53a01c91b7"
+  },
+  "Tools/VisualV2WorldArtQualityV2/SetReviewVariant.py": {
+   "bytes": 556,
+   "sha256": "9d4c40daa9e852f040ea198700213bf55a6bc7de0d54796a57e4903f8bf6a2cc"
+  },
+  "Tools/VisualV2WorldArtQualityV2/StartAcceptance.py": {
+   "bytes": 2836,
+   "sha256": "34af07fb630ba86660c9a606b874007b3e926e1c52a89398968b2de445b66cd0"
+  },
+  "Tools/VisualV2WorldArtQualityV2/StartPIE.py": {
+   "bytes": 189,
+   "sha256": "8c32ee546ee98e1ef7ec384c26f6f344b34be16f8d92bc12826b1f8fb4b75359"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Startup.py": {
+   "bytes": 3144,
+   "sha256": "e31af7e444f13cfe44deb84754d29dc5886a81cdca45eecc380964347274b4f3"
+  },
+  "Tools/VisualV2WorldArtQualityV2/StopPIE.py": {
+   "bytes": 216,
+   "sha256": "5510c9ac883f21cc368ba4a95763c4d9d2b174d718846f8932b337aed41983ff"
+  },
+  "Tools/VisualV2WorldArtQualityV2/Summarize.py": {
+   "bytes": 2884,
+   "sha256": "912f8048ef5cfb4824cfec605ec8922a681a3cdb27b91527f9f7ef1dae5491cc"
+  },
+  "Tools/VisualV2WorldArtQualityV2/ThermalMonitor.py": {
+   "bytes": 1314,
+   "sha256": "1b155a29ff4b19cb3036ad0d76c83b63723c781d560adce77efa577a879f2f29"
+  },
+  "Tools/VisualV2WorldArtQualityV2/ValidateArt.py": {
+   "bytes": 2302,
+   "sha256": "b9d11bb7b7b794318e1c3461820a5de8886eeaf0b7f8ff7ce51d4a9d78d8c84d"
+  },
+  "Tools/VisualV2WorldArtV5/.gitignore": {
+   "bytes": 19,
+   "sha256": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793"
+  },
+  "Tools/VisualV2WorldArtV5/ApplyCandidate.py": {
+   "bytes": 10117,
+   "sha256": "d6699905718802818355f533b27bfda5c105fdb6de4b2aa23f88270060b96d89"
+  },
+  "Tools/VisualV2WorldArtV5/BlenderAudit.py": {
+   "bytes": 1649,
+   "sha256": "e28fc752a69573eb5dd52c17f50e2dc7b7c4d947453b8a25fb6361ec8cdc3d09"
+  },
+  "Tools/VisualV2WorldArtV5/Build.py": {
+   "bytes": 740,
+   "sha256": "33af54062abdbea17f9bf025d731b1de3d63c3355ba54969f4541aeda9be56c2"
+  },
+  "Tools/VisualV2WorldArtV5/BuildDetails.py": {
+   "bytes": 7085,
+   "sha256": "13f24fe1da0cb78a1d0f71ab06be8d12b3fe3ff4545b2ea5e2c57c4c58bd9369"
+  },
+  "Tools/VisualV2WorldArtV5/CheckCurrentMap.py": {
+   "bytes": 1794,
+   "sha256": "ff4af169f4aec80624f5cade53fcae6b91eb50ce95b1052e67d01f3ce97d3ecd"
+  },
+  "Tools/VisualV2WorldArtV5/CloseEditor.py": {
+   "bytes": 513,
+   "sha256": "4026dd9f80469b2f3fdeaf5e0ae3d42acb3e188e91ab21b49cc5d079595210f9"
+  },
+  "Tools/VisualV2WorldArtV5/ComposeReview.py": {
+   "bytes": 2549,
+   "sha256": "bc9cde6e741e1613de5aad2d8cca4f53075c5f9b7e289bc1b8ab4ace8e2507a0"
+  },
+  "Tools/VisualV2WorldArtV5/Control.py": {
+   "bytes": 620,
+   "sha256": "0ac4582a270fd2ec9160e8e01e3fa0703f14e210e79c154475c0c2336668a87d"
+  },
+  "Tools/VisualV2WorldArtV5/Inventory.py": {
+   "bytes": 2014,
+   "sha256": "d15f11cd721427718a0826fd7f0253ba432a2c2dd89ca22a9e78f10ad63929b3"
+  },
+  "Tools/VisualV2WorldArtV5/LaunchEditor.py": {
+   "bytes": 1031,
+   "sha256": "271c9203793ef1d3e6d19c4e7be1fad7cbd8c019e893e0c45e1392db88f05368"
+  },
+  "Tools/VisualV2WorldArtV5/NativeReview.py": {
+   "bytes": 1396,
+   "sha256": "95b668727dddf4bbf68ff0cebe8014a12f94e00008aa7b7ce543789ab72884f0"
+  },
+  "Tools/VisualV2WorldArtV5/Photos.py": {
+   "bytes": 2610,
+   "sha256": "af2be12effe079b885ff04ca807218c5a79a616dcafee8cc18f137829a6cfa37"
+  },
+  "Tools/VisualV2WorldArtV5/PrepareAssets.py": {
+   "bytes": 7500,
+   "sha256": "833adb54e7405ad3b00f4966feddc49d1289dc69a0c940496bf691bffe47fb58"
+  },
+  "Tools/VisualV2WorldArtV5/Preset.py": {
+   "bytes": 1344,
+   "sha256": "dc668c7aca6db5da1e84e5d165eee20f10662ae2783914514f8f0a5fcdb58266"
+  },
+  "Tools/VisualV2WorldArtV5/ProcessGuard.py": {
+   "bytes": 709,
+   "sha256": "67fc1137ca6a7182b3e2ce4934728f32264a2e19ea2ace8dbfd03f1150aad143"
+  },
+  "Tools/VisualV2WorldArtV5/README.md": {
+   "bytes": 3658,
+   "sha256": "4cbed593df40ea37f936be097ee7a5580c85b02d817481a5c5e4e8ffe1dbb77d"
+  },
+  "Tools/VisualV2WorldArtV5/RunAcceptance.py": {
+   "bytes": 2187,
+   "sha256": "010602edbad8d98f5d2350767eb4a780e98f0679193a326f7d24f17039bbc41b"
+  },
+  "Tools/VisualV2WorldArtV5/RunMapCheck.py": {
+   "bytes": 1270,
+   "sha256": "e2a3574f08e8329b24f30e8c392772eabf4ffc6a3018d25d7eed975c3450806d"
+  },
+  "Tools/VisualV2WorldArtV5/RunNativeReview.py": {
+   "bytes": 1262,
+   "sha256": "e8713adb37d03438bb5067eeb0887f47f0a5d2839ebee8876825560a27a463fc"
+  },
+  "Tools/VisualV2WorldArtV5/RunPIEReview.py": {
+   "bytes": 891,
+   "sha256": "977c2ee069ea2692afd36535281821199a10bbe464d8f17944a0841286caea61"
+  },
+  "Tools/VisualV2WorldArtV5/RunQA.py": {
+   "bytes": 1670,
+   "sha256": "a90b034e470ca8a4c5dd0e1761a5cb38e5810aed8e31d9788a74e98fa4df996a"
+  },
+  "Tools/VisualV2WorldArtV5/SaveReviewed.py": {
+   "bytes": 1090,
+   "sha256": "f423633c1b1d09af91ecd533cc1bb9d0f2efefca6a986683623241c100ac6f6c"
+  },
+  "Tools/VisualV2WorldArtV5/StartAcceptance.py": {
+   "bytes": 1618,
+   "sha256": "b62205e07e06f3cf360962eff6473d06020ef9f5996b6ff06ef48e4238de9822"
+  },
+  "Tools/VisualV2WorldArtV5/StartPIE.py": {
+   "bytes": 189,
+   "sha256": "8c32ee546ee98e1ef7ec384c26f6f344b34be16f8d92bc12826b1f8fb4b75359"
+  },
+  "Tools/VisualV2WorldArtV5/Startup.py": {
+   "bytes": 3233,
+   "sha256": "e0fe7586e5a608089f06f0261b32d68ffa3593b1b206c921534667b717fc18f2"
+  },
+  "Tools/VisualV2WorldArtV5/StopPIE.py": {
+   "bytes": 216,
+   "sha256": "5510c9ac883f21cc368ba4a95763c4d9d2b174d718846f8932b337aed41983ff"
+  },
+  "Tools/VisualV2WorldArtV5/VerifyAssets.py": {
+   "bytes": 1955,
+   "sha256": "9cb27963fcd45364c2189beab7d6140303c4ead8dc2b864be9d7a492e4b99b46"
+  },
+  "Tools/VisualV2WorldArtV6/.gitignore": {
+   "bytes": 19,
+   "sha256": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793"
+  },
+  "Tools/VisualV2WorldArtV6/ApplyCandidate.py": {
+   "bytes": 8495,
+   "sha256": "0480d806b86946ff8577a2affd2c464aa6a778e99ab35c178f42e6951573ab85"
+  },
+  "Tools/VisualV2WorldArtV6/Build.py": {
+   "bytes": 740,
+   "sha256": "8c4ed404d1c9d4bb25d9b3a45243b0a765fc6afaa4ad5ecdde602b9fa3d6dd57"
+  },
+  "Tools/VisualV2WorldArtV6/BuildRouteField.py": {
+   "bytes": 4828,
+   "sha256": "0f97e0f1cfeca5ce434226bfe92ab8d39dee62f3fc185c9fcc506708833ec46a"
+  },
+  "Tools/VisualV2WorldArtV6/CheckCurrentMap.py": {
+   "bytes": 1794,
+   "sha256": "8ab8b6ea6b41068b01a3a5f86b09f030bb9da769551116b81c52da1a2480a917"
+  },
+  "Tools/VisualV2WorldArtV6/CloseEditor.py": {
+   "bytes": 513,
+   "sha256": "ee3114713548e26c6cc90e26e0453b6b5473f99abb5533a1c99bad71962462c4"
+  },
+  "Tools/VisualV2WorldArtV6/ComposeReview.py": {
+   "bytes": 2591,
+   "sha256": "bf882ea53a7e4aedd66e53370ad197f087034e0e3daa2bf7101a355ddf628fd5"
+  },
+  "Tools/VisualV2WorldArtV6/Control.py": {
+   "bytes": 620,
+   "sha256": "f7f709a982fa34955d320f5691972e4f650643d97b16590ed17b6eeac5658b51"
+  },
+  "Tools/VisualV2WorldArtV6/InspectSession.py": {
+   "bytes": 570,
+   "sha256": "a852d48e260ce8b4a999350830e63b81cb5bcd5e0748d074e6b2bb912ec38c10"
+  },
+  "Tools/VisualV2WorldArtV6/Inventory.py": {
+   "bytes": 2014,
+   "sha256": "39ac550ea2ddd50997c55386826148c234f030c5aeee17b5549c24229fc5ddca"
+  },
+  "Tools/VisualV2WorldArtV6/LaunchEditor.py": {
+   "bytes": 1031,
+   "sha256": "5aa4c3701ae72aad126fb6a3e3e8ed3feee140118e5ac4347dacb938836fb6e5"
+  },
+  "Tools/VisualV2WorldArtV6/NativeReview.py": {
+   "bytes": 1396,
+   "sha256": "fe909ff29ad5db764273e334c5c568655ba25af7e51f6696f7755c4b9efcfc9b"
+  },
+  "Tools/VisualV2WorldArtV6/Photos.py": {
+   "bytes": 2635,
+   "sha256": "7df92b6f7685a115fda279e9f27c7473ac5c9d10ab9fdc38128da06ed70a55fd"
+  },
+  "Tools/VisualV2WorldArtV6/PrepareAssets.py": {
+   "bytes": 5190,
+   "sha256": "1c369cdf819433ea9df4af9b58ebe1888c906c9b18bfbdf364c2d6b6ef8ddf18"
+  },
+  "Tools/VisualV2WorldArtV6/Preset.py": {
+   "bytes": 1344,
+   "sha256": "9334661503c06c4285eee6787691eefdf29662a75672e89306266f47f614a59a"
+  },
+  "Tools/VisualV2WorldArtV6/ProcessGuard.py": {
+   "bytes": 709,
+   "sha256": "67fc1137ca6a7182b3e2ce4934728f32264a2e19ea2ace8dbfd03f1150aad143"
+  },
+  "Tools/VisualV2WorldArtV6/README.md": {
+   "bytes": 4171,
+   "sha256": "4de003685d47757f7b3b55cee2c30df754d1770f9e2592b22a25a18fba2ce1e7"
+  },
+  "Tools/VisualV2WorldArtV6/RunAcceptance.py": {
+   "bytes": 2187,
+   "sha256": "010602edbad8d98f5d2350767eb4a780e98f0679193a326f7d24f17039bbc41b"
+  },
+  "Tools/VisualV2WorldArtV6/RunMapCheck.py": {
+   "bytes": 1270,
+   "sha256": "e78336e2d33a4ae6aa0ed25b6d5541d66bb79bcbb3d2d55a572c204c3cb35a80"
+  },
+  "Tools/VisualV2WorldArtV6/RunNativeReview.py": {
+   "bytes": 1262,
+   "sha256": "14f4ccf7dda48c23b5f9417146a2d151d447b240f14714bedf067a15d04b9c89"
+  },
+  "Tools/VisualV2WorldArtV6/RunPIEReview.py": {
+   "bytes": 906,
+   "sha256": "2be79e14709766a182f289109baa5ddc66078e33baf7e36c4245c780bb8d5633"
+  },
+  "Tools/VisualV2WorldArtV6/RunQA.py": {
+   "bytes": 1670,
+   "sha256": "bd51f9c6430da65a49cc70ec433ff5fec1920744344cd3170ae07d3f5b9f68ea"
+  },
+  "Tools/VisualV2WorldArtV6/SaveReviewed.py": {
+   "bytes": 1090,
+   "sha256": "a2a1be15ccdd34c6a5d3d6314b7eb7cb83f84ef058db9b267501348a8c0c23be"
+  },
+  "Tools/VisualV2WorldArtV6/StartAcceptance.py": {
+   "bytes": 1618,
+   "sha256": "57a92d1cbd2826dc3ea79685ecf55fab13d3faddc3ec0dbc230a9ee75ec17908"
+  },
+  "Tools/VisualV2WorldArtV6/StartPIE.py": {
+   "bytes": 189,
+   "sha256": "8c32ee546ee98e1ef7ec384c26f6f344b34be16f8d92bc12826b1f8fb4b75359"
+  },
+  "Tools/VisualV2WorldArtV6/Startup.py": {
+   "bytes": 3233,
+   "sha256": "4e6ea5e56bd208581ddbeafbbc39158777935109f7c827e9ec57e210ef7f5550"
+  },
+  "Tools/VisualV2WorldArtV6/StopPIE.py": {
+   "bytes": 216,
+   "sha256": "5510c9ac883f21cc368ba4a95763c4d9d2b174d718846f8932b337aed41983ff"
+  },
+  "Tools/VisualV2WorldArtV6/VerifyMaterials.py": {
+   "bytes": 2199,
+   "sha256": "e2ac954aea05ed4d32a41f90d55ea12c7ed5e28bda93bf4b5060b449d87e3cfb"
+  },
+  "Tools/VisualV2WorldArtV7/.gitignore": {
+   "bytes": 13,
+   "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b"
+  },
+  "Tools/VisualV2WorldArtV7/AnalyzeShadowProbe.py": {
+   "bytes": 1793,
+   "sha256": "5f29555ff94c6b38ec8a3e288bb19fd279c8f09c3586223c57943a92eef54013"
+  },
+  "Tools/VisualV2WorldArtV7/ApplyCandidate.py": {
+   "bytes": 8565,
+   "sha256": "055b845a68fa55e6b633b61e457568e3bf08ea08739fcc37eb2b8a86cde3dbb9"
+  },
+  "Tools/VisualV2WorldArtV7/AuditSavedScope.py": {
+   "bytes": 2196,
+   "sha256": "f6f177f0206d3116a64d5e8526b337a2de1cc25f43f15fd717ce13f9afc724e6"
+  },
+  "Tools/VisualV2WorldArtV7/Build.py": {
+   "bytes": 740,
+   "sha256": "32905c2c86fd81031145e43faccafaba5ebdf175ef13c4f16833e7cafcd38bcc"
+  },
+  "Tools/VisualV2WorldArtV7/BuildRouteField.py": {
+   "bytes": 5775,
+   "sha256": "d8a36a9b4b6c8bcda590bf953dac7b72a41b99c91acd50180820546ad4bd1595"
+  },
+  "Tools/VisualV2WorldArtV7/CaptureProtectedLighting.py": {
+   "bytes": 1521,
+   "sha256": "b7a63dfd0e8a3627d86fc539a9013d592f814d5c46aa641fd7135aaba79c282f"
+  },
+  "Tools/VisualV2WorldArtV7/CheckCurrentMap.py": {
+   "bytes": 1794,
+   "sha256": "6e58b76558147a9cc63d1251df2619eab5067dc07610962e6d5f5db8493e652f"
+  },
+  "Tools/VisualV2WorldArtV7/CloseEditor.py": {
+   "bytes": 513,
+   "sha256": "43c1dbae6ce7f493779b7b44df6bd97e9575933e52fd6a9577b84c3781b4ca98"
+  },
+  "Tools/VisualV2WorldArtV7/ComposeReview.py": {
+   "bytes": 2917,
+   "sha256": "04de7cca3477ac6257384ce838ccf14615eb88f3a8cdefa01dc4197deb52a6bd"
+  },
+  "Tools/VisualV2WorldArtV7/Control.py": {
+   "bytes": 620,
+   "sha256": "77666f6a441db596b37ddcaf97a1990e93613b000a86e93c02610d331673bf18"
+  },
+  "Tools/VisualV2WorldArtV7/InspectSession.py": {
+   "bytes": 570,
+   "sha256": "7bdd5037d70dbcca73c4e5e267d0562ebc1e7881bd0b02f28f41002727f8a0b1"
+  },
+  "Tools/VisualV2WorldArtV7/InspectShadows.py": {
+   "bytes": 1360,
+   "sha256": "b809c05b8e949bed4031514d57957a84ee4552a2b13653860d7036dfbeb20db4"
+  },
+  "Tools/VisualV2WorldArtV7/Inventory.py": {
+   "bytes": 2014,
+   "sha256": "12e222f09d42b5a45ee2c1e154d7572a4941f24d9e83924c5e3c38a02e817eb8"
+  },
+  "Tools/VisualV2WorldArtV7/LaunchEditor.py": {
+   "bytes": 1031,
+   "sha256": "7a07c46377d53ad6c21a14ea211a9d20ea19a9cfb8c9bbe54d7617dba5eb117f"
+  },
+  "Tools/VisualV2WorldArtV7/NativeReview.py": {
+   "bytes": 1396,
+   "sha256": "4b521427652566de87c7029673aba43a273f62dc9ce2b354bff163bdbffa16a9"
+  },
+  "Tools/VisualV2WorldArtV7/Photos.py": {
+   "bytes": 3079,
+   "sha256": "e9c401bc4cd05e206548d7b885a0082ae482cc360fcdcf6747f0449b121b6df4"
+  },
+  "Tools/VisualV2WorldArtV7/PrepareAssets.py": {
+   "bytes": 2122,
+   "sha256": "110cf3d7c0ce8d0cb659b26b017c932d7f01805a66a843b1cae6502582ec4d20"
+  },
+  "Tools/VisualV2WorldArtV7/Preset.py": {
+   "bytes": 1344,
+   "sha256": "82595912c4f1d0f2d361952bf3bd0d6c957c251574cd598a944a809de916a757"
+  },
+  "Tools/VisualV2WorldArtV7/ProcessGuard.py": {
+   "bytes": 709,
+   "sha256": "67fc1137ca6a7182b3e2ce4934728f32264a2e19ea2ace8dbfd03f1150aad143"
+  },
+  "Tools/VisualV2WorldArtV7/Quit.py": {
+   "bytes": 278,
+   "sha256": "8e01447cd92be2a84512b103ccb4f4d9993ecdb0d1fdb3679145a3bed6b4635b"
+  },
+  "Tools/VisualV2WorldArtV7/RunAcceptance.py": {
+   "bytes": 2187,
+   "sha256": "010602edbad8d98f5d2350767eb4a780e98f0679193a326f7d24f17039bbc41b"
+  },
+  "Tools/VisualV2WorldArtV7/RunMapCheck.py": {
+   "bytes": 1270,
+   "sha256": "bccba18f39f6b8da9d3ea7068c5b51f8b52086fd0766ae39915273e069743bb1"
+  },
+  "Tools/VisualV2WorldArtV7/RunNativeReview.py": {
+   "bytes": 1262,
+   "sha256": "9553b8042360bf6f15eb8f8bec1b7bcf3a6f15f75ce09eae7f8d5ccb8e54dcde"
+  },
+  "Tools/VisualV2WorldArtV7/RunPIEReview.py": {
+   "bytes": 902,
+   "sha256": "f0fd4d00be66bdfcbd31430faef668624b3cf71836043addccf7b85973878188"
+  },
+  "Tools/VisualV2WorldArtV7/RunQA.py": {
+   "bytes": 1670,
+   "sha256": "ba675ae22455cf0367b32a33db7c3aa9074a5909cfcc911bfb6aad238366ff15"
+  },
+  "Tools/VisualV2WorldArtV7/SaveReviewed.py": {
+   "bytes": 1090,
+   "sha256": "f91f9e888bfbf55ab00d9282a0b17b2b94861530bb74cb8e8951cefca1ce5e8d"
+  },
+  "Tools/VisualV2WorldArtV7/StartAcceptance.py": {
+   "bytes": 1618,
+   "sha256": "1dc0f92503d3f636c980136a1f8150b1b882a97feec7082680c56647e93e023f"
+  },
+  "Tools/VisualV2WorldArtV7/StartPIE.py": {
+   "bytes": 189,
+   "sha256": "8c32ee546ee98e1ef7ec384c26f6f344b34be16f8d92bc12826b1f8fb4b75359"
+  },
+  "Tools/VisualV2WorldArtV7/Startup.py": {
+   "bytes": 3233,
+   "sha256": "1b1af2f90beafaff26379a3acb8fbd5ba019de3044783093e698a3baafd07ccf"
+  },
+  "Tools/VisualV2WorldArtV7/StopPIE.py": {
+   "bytes": 216,
+   "sha256": "5510c9ac883f21cc368ba4a95763c4d9d2b174d718846f8932b337aed41983ff"
+  },
+  "Tools/VisualV2WorldArtV7/VerifyMaterials.py": {
+   "bytes": 2099,
+   "sha256": "b45c45021467ba175870ad5ce460c5727f591a35a507b1b22aa12a8d3189838d"
   },
   "Tools/WestlandRegionLayout.py": {
    "bytes": 5231,

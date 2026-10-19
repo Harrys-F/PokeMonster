@@ -1,7 +1,7 @@
 """Derived tables, never substitutes for raw observations. Run after measurements, not alongside profiling."""
 import json,statistics,csv
 from pathlib import Path
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');O=R/'Art/Characters/NPCs/Ranger/Review/V2';m=json.loads((O/'Measurements.json').read_text());lines=[]
+R=Path('/Users/harry/Developer/PokeMonster');O=R/'Art/Characters/NPCs/Ranger/Review/V2';m=json.loads((O/'Measurements.json').read_text());lines=[]
 def med(xs):return statistics.median(xs)
 def metric(rows,n):
  vals=[r.get('csv',{}).get(n,{}).get('median') for r in rows];vals=[v for v in vals if v is not None];return f'{med(vals):.3f}' if vals else 'nicht erfasst'

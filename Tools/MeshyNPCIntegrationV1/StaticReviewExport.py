@@ -1,7 +1,7 @@
 import bpy,json,numpy as np
 from pathlib import Path
 from mathutils import Vector
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');C=Path(bpy.data.filepath).parent.parent;id=C.name;I=R/'Art/Characters/NPCs/IntegrationV1';s=bpy.context.scene;hp=next(o for o in s.objects if o.type=='MESH')
+R=Path('/Users/harry/Developer/PokeMonster');C=Path(bpy.data.filepath).parent.parent;id=C.name;I=R/'Art/Characters/NPCs/IntegrationV1';s=bpy.context.scene;hp=next(o for o in s.objects if o.type=='MESH')
 # Trace the actual Blender material bindings, not guessed image indices.
 mat=hp.data.materials[0];bs=next(n for n in mat.node_tree.nodes if n.type=='BSDF_PRINCIPLED')
 def tex_upstream(socket,seen=None):

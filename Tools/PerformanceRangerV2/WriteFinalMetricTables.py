@@ -1,6 +1,6 @@
 import json,statistics
 from pathlib import Path
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');O=R/'Art/Characters/NPCs/Ranger/Review/V2';data=json.loads((O/'Measurements.json').read_text());out=[];med=statistics.median
+R=Path('/Users/harry/Developer/PokeMonster');O=R/'Art/Characters/NPCs/Ranger/Review/V2';data=json.loads((O/'Measurements.json').read_text());out=[];med=statistics.median
 out+=['## Gültige Baselines und finale Messungen','','A: 1280 × 740; B: 2331 × 1346; C: Standalone 1280 × 740. Medium / 75 %, VSync aus / uncapped. „Dorf“ in den Rohdaten bezeichnet den NPC-Vorplatz; die eigentliche Gebäudemessung heißt „DorfBauten“.','','| Reihe | Standort | Mesh | FPS der 3 Läufe | Median FPS | Median ms | Median der 3 P95 ms | Game ms | Render ms | GPU ms |','|---|---|---|---|---:|---:|---:|---:|---:|---:|']
 for name in ['BeforeA','FinalPairedA','BeforeB','FinalPairedB','BeforeC','FinalAfterC','VillageA','VillageB','VillageC']:
  rows=data.get(name,[])

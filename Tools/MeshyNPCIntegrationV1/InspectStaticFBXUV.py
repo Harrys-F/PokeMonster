@@ -1,6 +1,6 @@
 import bpy,numpy as np,json
 from pathlib import Path
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');I=R/'Art/Characters/NPCs/IntegrationV1';out=[]
+R=Path('/Users/harry/Developer/PokeMonster');I=R/'Art/Characters/NPCs/IntegrationV1';out=[]
 for id in ['SilverLady','TreeBeing','ElvenScholar','Wizard','DarkArmored','CrouchedCreature']:
  for o in list(bpy.data.objects):bpy.data.objects.remove(o,do_unlink=True)
  bpy.ops.import_scene.fbx(filepath=str(R/'Art/Characters/NPCs'/id/'Exports'/('SM_'+id+'_Reference_V1.fbx')),use_anim=False)

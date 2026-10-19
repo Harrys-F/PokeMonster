@@ -2,7 +2,7 @@
 import unreal,json,runpy,copy,hashlib
 from pathlib import Path
 R=Path(unreal.Paths.project_dir()).resolve();O=R/'Saved/VisualV2QualityV2';e=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem)
-assert R==Path('/Users/harry/Documents/Codex/PokeMonster_GitSicherung_V5_2026-10-16/Worktree')
+assert R==Path('/Users/harry/Developer/PokeMonster')
 assert not e.get_game_world();w=e.get_editor_world();assert w.get_path_name()=='/Game/Maps/Dev_TestMap_VisualV2.Dev_TestMap_VisualV2'
 assert not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages() and not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()
 assert not (O/'BeforeScene.json').exists(), 'Do not apply twice; inspect previous result'

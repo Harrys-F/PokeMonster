@@ -1,7 +1,7 @@
 """Export reviewed Animation Quality V2 only; V1 exports and sources are preserved."""
 import bpy
 from pathlib import Path
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');E=R/'Art/Characters/YoungTrainer/Exports/MeshyV2';E.mkdir(exist_ok=True,parents=True)
+R=Path('/Users/harry/Developer/PokeMonster');E=R/'Art/Characters/YoungTrainer/Exports/MeshyV2';E.mkdir(exist_ok=True,parents=True)
 assert Path(bpy.data.filepath).name=='Player_Meshy_AnimationQuality_V2.blend'
 a=bpy.data.objects['Player_Meshy_Rig'];m=bpy.data.objects['Player_Meshy_Body']
 for o in bpy.context.selected_objects:o.select_set(False)

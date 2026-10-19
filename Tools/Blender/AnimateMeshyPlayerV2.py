@@ -2,7 +2,7 @@
 import bpy, math, json
 from pathlib import Path
 from mathutils import Vector, Matrix, Quaternion
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster')
+R=Path('/Users/harry/Developer/PokeMonster')
 assert Path(bpy.data.filepath).name=='Player_Meshy_AnimationQuality_V2.blend'
 arm=bpy.data.objects['Player_Meshy_Rig'];obj=bpy.data.objects['Player_Meshy_Body'];scene=bpy.context.scene
 arm.animation_data.action=None;arm.data.pose_position='POSE'

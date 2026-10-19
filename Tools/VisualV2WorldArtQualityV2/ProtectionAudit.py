@@ -15,7 +15,7 @@ for rel,row in before.items():
 assert set(changes)<=allowed,('Unexpected original file changes',set(changes)-allowed)
 assert sha(O/'Dev_TestMap_VisualV2_V1_Backup.umap')==before['Content/Maps/Dev_TestMap_VisualV2.umap']['sha256']
 backup='03492bd96b4dba44692f675c19d5f11abfa86b4b'
-for ref in ['main','refs/archive/pokemonster/full-backup-03492bd']:assert subprocess.check_output(['git','rev-parse',ref],cwd=R,text=True).strip()==backup
+for ref in ['backup/full-03492bd','refs/archive/pokemonster/full-backup-03492bd']:assert subprocess.check_output(['git','rev-parse',ref],cwd=R,text=True).strip()==backup
 assert subprocess.run(['git','merge-base','--is-ancestor',backup,'HEAD'],cwd=R).returncode==1
 result={'protected_files':len(before),'protected_bytes':sum(r['bytes'] for r in before.values()),'unchanged_original_files':len(before)-len(changes),'permitted_changed_files':changes,'no_original_file_missing':True,'full_backup_ref_and_main_unchanged':backup,'map_backup_sha256_verified':True}
 (O/'ProtectionAfter.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))

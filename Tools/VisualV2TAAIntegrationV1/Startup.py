@@ -6,7 +6,7 @@ import sys
 sys.dont_write_bytecode=True
 R=Path(unreal.Paths.project_dir()).resolve();O=R/'Saved/VisualV2TAAIntegrationV1'
 O.mkdir(parents=True,exist_ok=True)
-assert R==Path('/Users/harry/Documents/Codex/PokeMonster_GitSicherung_V5_2026-10-16/Worktree')
+assert R==Path('/Users/harry/Developer/PokeMonster')
 e=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem)
 def dirty():return {'maps':[x.get_path_name() for x in unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()],'content':[x.get_path_name() for x in unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()]}
 assert not e.get_game_world() and not any(dirty().values()),dirty()

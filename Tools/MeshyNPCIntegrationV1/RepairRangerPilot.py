@@ -1,7 +1,7 @@
 import bpy,math,json,numpy as np
 from pathlib import Path
 from mathutils import Vector
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');C=R/'Art/Characters/NPCs/Ranger';I=R/'Art/Characters/NPCs/IntegrationV1';s=bpy.context.scene;run=s.objects['Ranger_Runtime_Pilot'];rig=s.objects['Ranger_Pilot_Rig'];groups={g.name:g for g in run.vertex_groups}
+R=Path('/Users/harry/Developer/PokeMonster');C=R/'Art/Characters/NPCs/Ranger';I=R/'Art/Characters/NPCs/IntegrationV1';s=bpy.context.scene;run=s.objects['Ranger_Runtime_Pilot'];rig=s.objects['Ranger_Pilot_Rig'];groups={g.name:g for g in run.vertex_groups}
 def smooth(a,b,x):
  t=max(0,min(1,(x-a)/(b-a)));return t*t*(3-2*t)
 count=0

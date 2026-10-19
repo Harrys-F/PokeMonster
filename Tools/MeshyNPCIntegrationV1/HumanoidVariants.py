@@ -1,7 +1,7 @@
 import bpy,bmesh,numpy as np,json,math
 from pathlib import Path
 from mathutils import Vector
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');I=R/'Art/Characters/NPCs/IntegrationV1';C=Path(bpy.data.filepath).parent.parent;id=C.name;s=bpy.context.scene
+R=Path('/Users/harry/Developer/PokeMonster');I=R/'Art/Characters/NPCs/IntegrationV1';C=Path(bpy.data.filepath).parent.parent;id=C.name;s=bpy.context.scene
 # Per-model landmarks chosen from actual front/profile renders, not a globally scaled human rig.
 configs={
  'WhiteHairedWarrior':dict(h=1.85,hip=.91,knee=.47,ankle=.11,shoulder=1.43,neck=1.53,head=1.61,sx=.25,ex=.54,wx=.80,hx=.92,fx=.12,arm_floor=1.23),

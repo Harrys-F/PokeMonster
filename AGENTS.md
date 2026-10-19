@@ -59,3 +59,14 @@ Wenn eine Entscheidung geändert wird:
 1. betroffene Dokumentation aktualisieren,
 2. alten Stand in `Docs/ENTSCHEIDUNGEN.md` als ersetzt kennzeichnen,
 3. anschließend die technische Umsetzung anpassen.
+
+
+## Verbindlicher aktiver Projektordner (19.10.2026)
+
+- Ausschließlich `/Users/harry/Developer/PokeMonster` aktiv verwenden; Unreal-Projekt: `PokeMonster.uproject` direkt darin.
+- Lokales `main` folgt dem bestehenden `origin/main` von `git@github.com:Harrys-F/PokeMonster.git`.
+- Das lokale Vollbackup `03492bd96b4dba44692f675c19d5f11abfa86b4b` bleibt unter `backup/full-03492bd` und `refs/archive/pokemonster/full-backup-03492bd` erreichbar. Diese Backup-Verweise nicht pushen oder umschreiben; kein LFS-Prune.
+- Keine zusätzlichen Projektkopien oder Versionsordner anlegen. Vor einem technisch notwendigen separaten Worktree ausdrücklich um Erlaubnis fragen.
+- Vorhandene Testumgebungen verwenden; neue Unreal-Maps nur nach ausdrücklicher Freigabe.
+- Der frühere schlanke Worktree bleibt vorerst bestehen. Keine Entfernung oder Bereinigung ohne weitere Freigabe.
+- Nach erfolgreich geprüften Arbeitspaketen nur benötigte Quellen, Assets, Werkzeuge und Dokumentation sinnvoll committen und regulär pushen; Remote und LFS überprüfen. Keine Kontrollmedien oder temporären Dateien hochladen.

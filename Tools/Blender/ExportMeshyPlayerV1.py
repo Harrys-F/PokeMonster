@@ -1,7 +1,7 @@
 """Export only the reviewed game-ready copy; never save the Meshy original."""
 import bpy,json,math
 from pathlib import Path
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');E=R/'Art/Characters/YoungTrainer/Exports/MeshyV1'
+R=Path('/Users/harry/Developer/PokeMonster');E=R/'Art/Characters/YoungTrainer/Exports/MeshyV1'
 assert Path(bpy.data.filepath).name=='Player_Meshy_GameReady_V1.blend'
 arm=bpy.data.objects['Player_Meshy_Rig'];mesh=bpy.data.objects['Player_Meshy_Body']
 for o in bpy.context.selected_objects:o.select_set(False)

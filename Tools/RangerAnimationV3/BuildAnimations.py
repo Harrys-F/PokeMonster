@@ -4,7 +4,7 @@ No original mesh, UV, source, material, V2 rig or animation is overwritten.
 import bpy,math,json,hashlib,numpy as np
 from pathlib import Path
 from mathutils import Vector,Quaternion,Matrix
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster')
+R=Path('/Users/harry/Developer/PokeMonster')
 C=R/'Art/Characters/NPCs/Ranger';O=C/'Review/AnimationV3';E=C/'Exports/AnimationV3'
 s=bpy.context.scene;r=s.objects['Ranger_Pilot_Rig'];pb=r.pose.bones
 out=C/'Source/Ranger_NPC_AnimationQuality_V3.blend'

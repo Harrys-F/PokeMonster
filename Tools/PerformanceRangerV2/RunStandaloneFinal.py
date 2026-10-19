@@ -1,7 +1,7 @@
 """Serial native standalone processes, same options as BeforeC. Each probe quits its own game through the console, never by closing a floating PIE window."""
 import subprocess,sys
 from pathlib import Path
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');O=R/'Art/Characters/NPCs/Ranger/Review/V2';exe='/Users/Shared/Epic Games/UE_5.8/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor'
+R=Path('/Users/harry/Developer/PokeMonster');O=R/'Art/Characters/NPCs/Ranger/Review/V2';exe='/Users/Shared/Epic Games/UE_5.8/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor'
 for label in ['FinalAfterC','VillageC']:
  assert not (R/'Saved/PerformanceRangerV2'/(label+'_Done.txt')).exists()
  args=[exe,str(R/'PokeMonster.uproject'),'/Game/Maps/Dev_TestMap_VisualV2','-game','-windowed','-ResX=1280','-ResY=740','-ForceRes','-NoVSync','-NoSound','-NoSplash','-NoLiveCoding','-ExecCmds=r.Editor.Viewport.OverridePIEScreenPercentage 0,r.SecondaryScreenPercentage.GameViewport 100,pm.Perf.Run '+str(R/'Tools/PerformanceRangerV2/Plans'/(label+'.tsv'))]

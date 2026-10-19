@@ -1,6 +1,6 @@
 import bpy,numpy as np,json,time
 from pathlib import Path
-p=Path(bpy.data.filepath);id=p.parent.parent.name;I=p.parents[3]/'IntegrationV1';I=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster/Art/Characters/NPCs/IntegrationV1');out=[]
+p=Path(bpy.data.filepath);id=p.parent.parent.name;I=p.parents[3]/'IntegrationV1';I=Path('/Users/harry/Developer/PokeMonster/Art/Characters/NPCs/IntegrationV1');out=[]
 for o in [o for o in bpy.context.scene.objects if o.type=='MESH']:
  m=o.data;n=len(m.vertices);co=np.empty(n*3,np.float32);m.vertices.foreach_get('co',co);co=co.reshape(-1,3);edges=np.empty(len(m.edges)*2,np.int32);m.edges.foreach_get('vertices',edges);edges=edges.reshape(-1,2)
  def components(edges,n):

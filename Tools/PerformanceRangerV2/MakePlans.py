@@ -1,5 +1,5 @@
 from pathlib import Path
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');P=R/'Tools/PerformanceRangerV2/Plans';P.mkdir(exist_ok=True)
+R=Path('/Users/harry/Developer/PokeMonster');P=R/'Tools/PerformanceRangerV2/Plans';P.mkdir(exist_ok=True)
 orders=[['Dorf','Wald','Weg'],['Weg','Wald','Dorf'],['Wald','Dorf','Weg']]
 def plan(label,mode,w,h,rows,warm=8,duration=10):
  (P/(label+'.tsv')).write_text('\t'.join(map(str,[label,mode,w,h,warm,duration]))+'\n'+'\n'.join('\t'.join(map(str,row)) for row in rows)+'\n')

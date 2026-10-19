@@ -1,7 +1,7 @@
 import bpy,bmesh,numpy as np,math,json,sys
 from pathlib import Path
 from mathutils import Vector,Quaternion,Matrix
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');C=R/'Art/Characters/NPCs/Ranger';I=R/'Art/Characters/NPCs/IntegrationV1';s=bpy.context.scene;assert bpy.app.background and Path(bpy.data.filepath).name=='Ranger_NPC_Source_V1.blend'
+R=Path('/Users/harry/Developer/PokeMonster');C=R/'Art/Characters/NPCs/Ranger';I=R/'Art/Characters/NPCs/IntegrationV1';s=bpy.context.scene;assert bpy.app.background and Path(bpy.data.filepath).name=='Ranger_NPC_Source_V1.blend'
 hp=next(o for o in s.objects if o.type=='MESH');run=hp.copy();run.data=hp.data.copy();run.name='Ranger_Runtime_Pilot';c=bpy.data.collections.new('RUNTIME_PILOT');s.collection.children.link(c);c.objects.link(run)
 run.data.transform(run.matrix_world);run.matrix_world.identity();hp.hide_render=True;hp.hide_set(True)
 bpy.context.view_layer.objects.active=run;run.select_set(True);hp.select_set(False)

@@ -19,7 +19,7 @@ for rel,sha in initial['map_sha256'].items():
  assert hashlib.sha256((R/rel).read_bytes()).hexdigest()==sha,rel;unchanged.append(rel)
 assert set(p.name for p in (R/'Content/Maps').glob('*.umap'))=={Path(k).name for k in initial['map_sha256']},'Map added or removed'
 assert (S/'ProtectedLightingAfter.json').read_bytes()==(S/'ProtectedLightingBefore.json').read_bytes()
-for ref in ['main','refs/archive/pokemonster/full-backup-03492bd']:
+for ref in ['backup/full-03492bd','refs/archive/pokemonster/full-backup-03492bd']:
  assert subprocess.check_output(['git','rev-parse',ref],cwd=R,text=True).strip()=='03492bd96b4dba44692f675c19d5f11abfa86b4b'
 assert subprocess.run(['git','merge-base','--is-ancestor','03492bd','HEAD'],cwd=R).returncode==1
 result={'existing_actors_preserved':len(before['actors']),'only_existing_changes':'six ground/path material bindings','new_hism_groups':d['new_actors'],'new_decorative_instances':d['new_instances'],'other_maps_unchanged':unchanged,'no_map_added_or_removed':True,'protected_lighting_exact':True,'backup_refs_unchanged_and_not_ancestor':True};(S/'FinalScopeAudit.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))

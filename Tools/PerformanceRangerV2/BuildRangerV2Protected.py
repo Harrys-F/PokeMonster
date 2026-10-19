@@ -2,7 +2,7 @@ import bpy,json,math,numpy as np,hashlib
 from pathlib import Path
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');C=R/'Art/Characters/NPCs/Ranger';O=C/'Review/V2';B=O/'BlenderProtected';B.mkdir(exist_ok=True);E=C/'Exports/V2_Protected';E.mkdir(exist_ok=True);target=C/'Source/Ranger_NPC_V2_Protected.blend';assert not target.exists()
+R=Path('/Users/harry/Developer/PokeMonster');C=R/'Art/Characters/NPCs/Ranger';O=C/'Review/V2';B=O/'BlenderProtected';B.mkdir(exist_ok=True);E=C/'Exports/V2_Protected';E.mkdir(exist_ok=True);target=C/'Source/Ranger_NPC_V2_Protected.blend';assert not target.exists()
 s=bpy.context.scene;v1=s.objects['Ranger_Runtime_Pilot'];rig=s.objects['Ranger_Pilot_Rig'];assert len(rig.data.bones)==24;rig.data.pose_position='REST';s.frame_set(1)
 reference_hash=hashlib.sha256(np.array([v.co[:] for v in v1.data.vertices],dtype=np.float32).tobytes()).hexdigest();bone_hash=hashlib.sha256(str([(b.name,b.parent.name if b.parent else None,[list(x) for x in b.matrix_local]) for b in rig.data.bones]).encode()).hexdigest()
 coll=bpy.data.collections.new('RANGER_V2_LODS');s.collection.children.link(coll);objects=[];audits=[]

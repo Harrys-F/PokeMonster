@@ -8661,3 +8661,6 @@ Plugins/Developer/RiderLink/
 
 # Local bytecode of the scoped Heilhaus art tools.
 /Tools/VisualV2HealingArtV3/__pycache__/
+
+# Local bytecode of project relocation checks.
+/Tools/ProjectMaintenance/__pycache__/

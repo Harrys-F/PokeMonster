@@ -1,7 +1,7 @@
 import bpy,numpy as np,json,sys,math,hashlib
 from pathlib import Path
 from mathutils import Vector
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');I=R/'Art/Characters/NPCs/IntegrationV1';rows=json.loads((I/'Characters.json').read_text());arg=sys.argv[sys.argv.index('--')+1:];cfg=next(x for x in rows if x['id']==arg[0]);C=R/'Art/Characters/NPCs'/cfg['id']
+R=Path('/Users/harry/Developer/PokeMonster');I=R/'Art/Characters/NPCs/IntegrationV1';rows=json.loads((I/'Characters.json').read_text());arg=sys.argv[sys.argv.index('--')+1:];cfg=next(x for x in rows if x['id']==arg[0]);C=R/'Art/Characters/NPCs'/cfg['id']
 assert not C.exists(), 'Existing character folder must be reviewed, not overwritten'
 for d in ['Source','Exports','Textures','Previews']:(C/d).mkdir(parents=True,exist_ok=True)
 # This script is exclusively a separate factory-startup Blender process, never user's live scene.

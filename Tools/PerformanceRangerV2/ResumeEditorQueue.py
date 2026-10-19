@@ -1,7 +1,7 @@
 import json,re,time
 from pathlib import Path
 from MCPClient import rpc
-R=Path('/Users/harry/Developer/PokeMonster/Game/PokeMonster');P=R/'Art/Characters/NPCs/Ranger/Review/V2'
+R=Path('/Users/harry/Developer/PokeMonster');P=R/'Art/Characters/NPCs/Ranger/Review/V2'
 rpc('initialize',{'protocolVersion':'2024-11-05','capabilities':{},'clientInfo':{'name':'RangerV2','version':'1'}})
 def call(name,args):
  r=rpc('tools/call',{'name':'call_tool','arguments':{'toolset_name':'SlateInspectorToolset.SlateInspectorToolset','tool_name':name,'arguments':args}});return json.loads(r['result']['content'][0]['text'])['returnValue']
