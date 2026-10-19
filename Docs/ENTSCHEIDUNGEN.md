@@ -745,3 +745,15 @@ vorhandene botanische Quellen und drei neue Blenderformen erhalten bestehende
 Originalassets. Der technisch geprüfte Stand wird gesichert, aber erst Harrys
 visuelle Abnahme erlaubt eine weitere Verbreitung des V5-Stils. Keine automatische
 Übertragung und keine Performancefreigabe; Prüfnachweise im V5-Bericht.
+
+
+### 19.10.2026 – World Art V6: vorhandene Wege örtlich verfeinern
+
+Im ausdrücklich beauftragten V6-Folgepass ersetzen private V6-Graphen nur die
+vier bisherigen V5-Boden-/Wegbindungen. V5 bleibt unveränderte Quellreferenz.
+Die Wegbreite variiert sichtbar über Materialmasken, ohne die bestehenden
+Wegmeshes, Navigation oder Collision zu ändern. 399 vorhandene Deko-Instanzen
+werden neu gruppiert, alle 407 erhalten. Kein neuer Map-/Gameplayaufbau und keine
+Änderung an Licht, Schatten, Lumen, Bloom, TAA oder Kamera. Der technisch geprüfte
+Stand wird gesichert; Harry entscheidet anhand der echten QHD-Vergleiche über
+die visuelle Freigabe. Keine globale Stilübernahme oder Performancefreigabe.

@@ -718,3 +718,20 @@ Projekttests, Map Check 0/0 und 102-Schritt-PIE-Fußlauf erfolgreich. Echte QHD-
 Vergleiche in Medium/High, PIE/Standalone, ohne FPS-/GPU-Benchmark. Grenzen und
 Nachweise: VISUALV2_WORLD_ART_QUALITY_V5_PRUEFBERICHT.md. Die visuelle Abnahme
 der drei V5-Muster bleibt offen; keine Ausweitung auf die gesamte Karte.
+
+
+### World Art Quality V6 – Wegsäume und Gruppierung, 19.10.2026
+
+Die vier örtlichen V5-Bodenbindungen werden in derselben VisualV2 durch drei
+private V6-Materialvarianten ersetzt; V5-Assets/Quellen bleiben unverändert.
+Die sichtbare Breite folgt örtlich den vorhandenen Wegkurven, einschließlich der
+unmittelbar angrenzenden Wiesenwegkreuzung. Keine neue Weggeometrie oder Navigation.
+399 Instanzen in 16 V5-Dekorationsgruppen neu gruppiert, acht Wurzeln unverändert,
+insgesamt weiterhin 407 Instanzen. Keine neuen Actor, Meshes oder Texturen.
+Licht, Originalschatten, Lumen, Bloom, TAA, Kamera, Player und Gameplay unverändert.
+Build, 49/49 Projekttests, Map Check 0/0 und 102-Schritt-PIE-Fußlauf erfolgreich.
+40 finale QHD-Originalaufnahmen in Medium/High und PIE/Standalone; keine FPS-/GPU-
+Benchmarks. Quellen: Art/World/VisualV2WorldArtV6 und Tools/VisualV2WorldArtV6;
+Grenzen und Nachweise in VISUALV2_WORLD_ART_QUALITY_V6_PRUEFBERICHT.md.
+V6 bleibt auf die drei Muster und angrenzenden Wegabschnitte begrenzt;
+Harrys visuelle Freigabe steht aus, keine automatische Ausweitung.
