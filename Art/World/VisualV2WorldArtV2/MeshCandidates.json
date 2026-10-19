@@ -1,0 +1,54 @@
+[
+  {
+    "key": "GrassSmall",
+    "source": "/Game/Environment/Westland/NaturalGroundV1/Meshes/SM_WL_NG_GrassSmall.SM_WL_NG_GrassSmall",
+    "candidate": "/Game/Environment/VisualV2WorldArtV2/Meshes/SM_WAQ2_GrassSmall.SM_WAQ2_GrassSmall",
+    "triangles": 45,
+    "sections_before": 3,
+    "sections_after": 1,
+    "material_slots_before": 3,
+    "material_slots_after": 1,
+    "positions_exact_to_1e5_cm": true,
+    "uvs_and_corner_normals_copied": true,
+    "vertex_colour_palette": [
+      "(R=0.080000,G=0.140000,B=0.047000,A=1.000000)",
+      "(R=0.130000,G=0.200000,B=0.070000,A=1.000000)",
+      "(R=0.210000,G=0.250000,B=0.090000,A=1.000000)"
+    ]
+  },
+  {
+    "key": "GrassMedium",
+    "source": "/Game/Environment/Westland/NaturalGroundV1/Meshes/SM_WL_NG_GrassMedium.SM_WL_NG_GrassMedium",
+    "candidate": "/Game/Environment/VisualV2WorldArtV2/Meshes/SM_WAQ2_GrassMedium.SM_WAQ2_GrassMedium",
+    "triangles": 90,
+    "sections_before": 3,
+    "sections_after": 1,
+    "material_slots_before": 3,
+    "material_slots_after": 1,
+    "positions_exact_to_1e5_cm": true,
+    "uvs_and_corner_normals_copied": true,
+    "vertex_colour_palette": [
+      "(R=0.080000,G=0.140000,B=0.047000,A=1.000000)",
+      "(R=0.130000,G=0.200000,B=0.070000,A=1.000000)",
+      "(R=0.210000,G=0.250000,B=0.090000,A=1.000000)"
+    ]
+  },
+  {
+    "key": "MeadowHerbs",
+    "source": "/Game/Environment/Westland/NaturalGroundV1/Meshes/SM_WL_NG_MeadowHerbs.SM_WL_NG_MeadowHerbs",
+    "candidate": "/Game/Environment/VisualV2WorldArtV2/Meshes/SM_WAQ2_MeadowHerbs.SM_WAQ2_MeadowHerbs",
+    "triangles": 100,
+    "sections_before": 4,
+    "sections_after": 1,
+    "material_slots_before": 4,
+    "material_slots_after": 1,
+    "positions_exact_to_1e5_cm": true,
+    "uvs_and_corner_normals_copied": true,
+    "vertex_colour_palette": [
+      "(R=0.080000,G=0.140000,B=0.047000,A=1.000000)",
+      "(R=0.130000,G=0.200000,B=0.070000,A=1.000000)",
+      "(R=0.210000,G=0.250000,B=0.090000,A=1.000000)",
+      "(R=0.720000,G=0.580000,B=0.320000,A=1.000000)"
+    ]
+  }
+]

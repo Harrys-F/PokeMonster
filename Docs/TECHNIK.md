@@ -667,8 +667,33 @@ Lichtquellen, Lumen, Bloom, Exposure, Originalschatten, Vegetation, Kamera B, Pl
 49/49 Automationstests, drei Map Checks ohne Fehler/Warnungen und drei vollständige Enhanced-Input-Fußläufe bestanden. Tatsächliche Ausgabe-/Treibergrößen bei 1280×720 Medium sowie QHD Medium/High, jeweils 75/100 %, in PIE und eigenständigem Development-Prozess geprüft. TAA bei 75 % etwas weicher; feine Vegetation und bestehendes temporales Dither bleiben nicht vollständig ruhig. QHD/High/100 im geprüften nativen Wald: TSR 17,23 FPS/56,10 ms GPU, integriertes TAA 23,86 FPS/39,88 ms GPU. Kurze interleavte Messfenster, keine Dauer-FPS-Garantie und kein Shipping-Test. Bekannte native Engine-Toolset-Startfehler sind zur Vorher-Baseline identisch und im Bericht getrennt aufgeführt. Bericht: `VISUALV2_TAA_INTEGRATION_V1_PRUEFBERICHT.md`.
 
 
-## VisualV2 World Art Quality V1: lokaler Heilhausbereich (19.10.2026)
+## VisualV2 World Art Quality V1: lokaler Heilhausbereich (19.10.2026, örtlich durch V2 ersetzt)
 
-Die zentrale Map verwendet im begrenzten Heilhaus-Vorplatz und Wegsaum fünf private Materialzuweisungen aus `/Game/Environment/VisualV2WorldArtV1/Materials`. Die Originalmaterialien und Wegmeshes bleiben erhalten. Die Änderungen an Gras-/Erdtönen und Wegkanten sind im Shader räumlich begrenzt; ein altes opakes Heilhaus-Wegband erhält lokal eine maskierte Kante, damit es keinen grünen Streifen über den neuen Vorplatz malt. Sechs zusätzliche HISM-Gruppen enthalten 175 vorhandene Gras-, Kräuter-, Blüten-, Farn- und Steininstanzen ohne Collision, Schattenwurf oder zusätzlichen Distance-Field-/Indirect-Lighting-Beitrag; Culling 4500–6500 cm. Keine neue Map, keine neuen Meshes oder Texturen. Licht, Originalschatten, TAA, Kamera und Gameplay bleiben erhalten.
+Im V1-Stand verwendet die zentrale Map im begrenzten Heilhaus-Vorplatz und Wegsaum fünf private Materialzuweisungen aus `/Game/Environment/VisualV2WorldArtV1/Materials`. Die Originalmaterialien und Wegmeshes bleiben erhalten. Die Änderungen an Gras-/Erdtönen und Wegkanten sind im Shader räumlich begrenzt; ein altes opakes Heilhaus-Wegband erhält lokal eine maskierte Kante, damit es keinen grünen Streifen über den neuen Vorplatz malt. Sechs zusätzliche HISM-Gruppen enthalten 175 vorhandene Gras-, Kräuter-, Blüten-, Farn- und Steininstanzen ohne Collision, Schattenwurf oder zusätzlichen Distance-Field-/Indirect-Lighting-Beitrag; Culling 4500–6500 cm. Keine neue Map, keine neuen Meshes oder Texturen. Licht, Originalschatten, TAA, Kamera und Gameplay bleiben erhalten.
 
 Dies ist ein begrenzter Gestaltungsschritt zur menschlichen Abnahme, keine Freigabe für die übrige Welt. Autorenfolge und Wiederherstellungsdaten liegen unter `Tools/VisualV2WorldArtQualityV1` und `Art/World/VisualV2WorldArtV1/HealingHouseDressing.json`; Medien sind optional und nicht in Git. Prüfungen, gemessene Mehrkosten und offene Artgrenzen: `VISUALV2_WORLD_ART_QUALITY_V1_PRUEFBERICHT.md`.
+
+## VisualV2 World Art Quality V2: Gruppierung und Materialabschnitte (19.10.2026)
+
+V2 ersetzt im selben begrenzten Heilhausbereich die V1-Instanzpositionen und
+lokalen Bodenmaterialvarianten. Die sechs HISM-Gruppen behalten exakt 175
+Instanzen, ihre Größen, Bodenhöhen, Collision-/Schattenvorgaben und Culling
+4500–6500 cm. Unterschiedlich große Pflanzentaschen und freie Bodenstellen
+ersetzen die gleichmäßigere V1-Verteilung. Bestehende Topfpflanzen bleiben
+unverändert. Vier private Bodenmaterialien variieren lokal die vorhandenen
+Texturkoordinaten, ohne neue Texturen, zusätzliche Texturabfragen oder Änderungen
+an den Wegmasken.
+
+Drei private Gras-/Kräutermeshes verwenden positionsgleiche Dreiecke, kopierte
+UVs/Corner-Normalen und ein gemeinsames Vertexfarben-Material. Über alle sechs
+Gruppen sinken LOD0-Mesh-Abschnitte von 17 auf 10 und Komponenten-Materialbindungen
+von 19 auf 12; zwei historische Farnbindungen sind keine zusätzlichen
+Renderabschnitte. Das ist keine gemessene Draw-Call-Zahl. Kein LOD wird reduziert.
+Keine Änderung an Beleuchtung, Originalschatten, TAA, Lumen, Kamera oder Gameplay.
+
+Interleavte V1/Merged/V2- und HISM/Einzelobjekt-Diagnosen ergeben keinen
+belastbaren allgemeinen FPS-Gewinn. Die Materialvereinfachung wird wegen ihrer
+geringeren Abschnittszahl und erhaltenen sichtbaren Form genutzt, nicht als
+behauptete QHD-Lösung. Quellen und Werkzeuge: `Art/World/VisualV2WorldArtV2` und
+`Tools/VisualV2WorldArtQualityV2`; kompakte Messwerte und Grenzen stehen im
+`VISUALV2_WORLD_ART_QUALITY_V2_PRUEFBERICHT.md`. Keine Kontrollmedien in Git.

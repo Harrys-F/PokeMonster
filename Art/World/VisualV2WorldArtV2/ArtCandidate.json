@@ -1,0 +1,1221 @@
+{
+  "materials": [
+    {
+      "old": "/Game/Environment/VisualV2WorldArtV1/Materials/M_WAQ1_HealingMeadow.M_WAQ1_HealingMeadow",
+      "new": "/Game/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_HealingMeadow.M_WAQ2_HealingMeadow"
+    },
+    {
+      "old": "/Game/Environment/VisualV2WorldArtV1/Materials/M_WAQ1_HealingPath.M_WAQ1_HealingPath",
+      "new": "/Game/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_HealingPath.M_WAQ2_HealingPath"
+    },
+    {
+      "old": "/Game/Environment/VisualV2WorldArtV1/Materials/M_WAQ1_HealingForecourt.M_WAQ1_HealingForecourt",
+      "new": "/Game/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_HealingForecourt.M_WAQ2_HealingForecourt"
+    },
+    {
+      "old": "/Game/Environment/VisualV2WorldArtV1/Materials/M_WAQ1_LegacyApproach.M_WAQ1_LegacyApproach",
+      "new": "/Game/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_LegacyApproach.M_WAQ2_LegacyApproach"
+    }
+  ],
+  "placements": [
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 0,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.220660,W=-0.975351),Translation=(X=-4425.221294,Y=771.409438,Z=0.400000),Scale3D=(X=0.872242,Y=0.821543,Z=0.837298))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 1,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.541240,W=-0.840868),Translation=(X=-4483.755714,Y=-504.625650,Z=0.400000),Scale3D=(X=0.791382,Y=0.774293,Z=0.774839))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 2,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.774332,W=-0.632780),Translation=(X=-3859.575909,Y=818.886096,Z=0.400000),Scale3D=(X=1.068877,Y=1.008240,Z=0.983883))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 3,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.985297,W=-0.170848),Translation=(X=-3770.159216,Y=889.603992,Z=0.400000),Scale3D=(X=0.812683,Y=0.804132,Z=0.859732))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 4,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.865108,W=0.501586),Translation=(X=-3842.374123,Y=300.562669,Z=0.400000),Scale3D=(X=0.840639,Y=0.848036,Z=0.859663))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 5,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.301012,W=-0.953620),Translation=(X=-4467.470055,Y=-361.071343,Z=0.400000),Scale3D=(X=0.799931,Y=0.846380,Z=0.909196))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 6,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.336839,W=0.941562),Translation=(X=-4363.728658,Y=741.698022,Z=0.400000),Scale3D=(X=0.836169,Y=0.922141,Z=0.945404))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 7,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.511118,W=-0.859511),Translation=(X=-4415.686671,Y=-327.464806,Z=0.400000),Scale3D=(X=1.010605,Y=0.941798,Z=1.025154))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 8,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.999998,W=-0.002122),Translation=(X=-4490.388506,Y=749.265573,Z=0.400000),Scale3D=(X=1.049309,Y=1.092551,Z=1.051219))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 9,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.431842,W=0.901949),Translation=(X=-3892.604311,Y=905.896929,Z=0.400000),Scale3D=(X=0.803724,Y=0.785264,Z=0.757942))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 10,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.216021,W=-0.976389),Translation=(X=-3858.301519,Y=131.790250,Z=0.400000),Scale3D=(X=1.013236,Y=1.125652,Z=1.221358))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 11,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.595487,W=-0.803365),Translation=(X=-3723.961700,Y=1039.739336,Z=0.400000),Scale3D=(X=0.836329,Y=0.869653,Z=0.786779))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 12,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.758478,W=0.651699),Translation=(X=-4442.654551,Y=-373.102859,Z=0.400000),Scale3D=(X=0.834145,Y=0.869727,Z=0.820170))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 13,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.910278,W=0.413998),Translation=(X=-4385.420424,Y=-186.804078,Z=0.400000),Scale3D=(X=0.878457,Y=0.861681,Z=0.788469))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 14,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.600847,W=0.799364),Translation=(X=-3846.582861,Y=965.373459,Z=0.400000),Scale3D=(X=1.015799,Y=0.944013,Z=0.965748))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 15,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.999128,W=-0.041758),Translation=(X=-3893.053375,Y=28.998986,Z=0.400000),Scale3D=(X=1.040105,Y=0.964045,Z=1.053381))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 16,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.961106,W=0.276180),Translation=(X=-4435.403981,Y=307.742990,Z=0.400000),Scale3D=(X=0.832430,Y=0.797081,Z=0.777295))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 17,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.561792,W=0.827279),Translation=(X=-4487.909697,Y=330.161947,Z=0.400000),Scale3D=(X=0.910507,Y=0.884522,Z=0.892939))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 18,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.336150,W=-0.941808),Translation=(X=-3933.866272,Y=859.596352,Z=0.400000),Scale3D=(X=1.111090,Y=1.148521,Z=1.209332))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 19,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.438177,W=0.898889),Translation=(X=-3933.668459,Y=830.747832,Z=0.400000),Scale3D=(X=1.181195,Y=1.146087,Z=1.190638))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 20,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.775181,W=-0.631740),Translation=(X=-3912.949239,Y=882.213122,Z=0.400000),Scale3D=(X=0.824254,Y=0.883038,Z=0.777878))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 21,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.199714,W=-0.979854),Translation=(X=-4404.985343,Y=843.845976,Z=0.400000),Scale3D=(X=0.813309,Y=0.827007,Z=0.839811))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 22,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.371029,W=-0.928621),Translation=(X=-3856.853971,Y=240.206766,Z=0.400000),Scale3D=(X=0.673709,Y=0.736058,Z=0.670060))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 23,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.281803,W=-0.959472),Translation=(X=-4401.107148,Y=-321.833313,Z=0.400000),Scale3D=(X=0.821146,Y=0.771926,Z=0.821371))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 24,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.893042,W=0.449973),Translation=(X=-4503.714037,Y=-381.510789,Z=0.400000),Scale3D=(X=0.818029,Y=0.901323,Z=0.854564))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 25,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.948470,W=0.316867),Translation=(X=-4405.494259,Y=116.771066,Z=0.400000),Scale3D=(X=1.105707,Y=1.051827,Z=1.134416))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 26,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.975838,W=-0.218494),Translation=(X=-3867.868453,Y=176.462540,Z=0.400000),Scale3D=(X=0.839730,Y=0.840707,Z=0.898287))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 27,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.408819,W=0.912615),Translation=(X=-4013.922319,Y=832.965467,Z=0.400000),Scale3D=(X=0.962277,Y=0.945618,Z=0.996272))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 28,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.942928,W=0.332996),Translation=(X=-3894.180636,Y=-384.513227,Z=0.400000),Scale3D=(X=0.672887,Y=0.723252,Z=0.741214))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 29,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.972168,W=-0.234284),Translation=(X=-3904.299928,Y=801.777842,Z=0.400000),Scale3D=(X=1.154719,Y=1.132062,Z=1.138745))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 30,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.240004,W=0.970772),Translation=(X=-3740.514710,Y=979.516817,Z=0.400000),Scale3D=(X=1.139104,Y=1.053654,Z=0.984453))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 31,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.952670,W=0.304007),Translation=(X=-4489.166827,Y=392.122932,Z=0.400000),Scale3D=(X=1.112535,Y=1.074408,Z=1.172697))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 32,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.250084,W=-0.968224),Translation=(X=-3899.963074,Y=44.330277,Z=0.400000),Scale3D=(X=1.057514,Y=0.978699,Z=0.979380))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 33,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.201625,W=-0.979463),Translation=(X=-4377.075606,Y=-441.305578,Z=0.400000),Scale3D=(X=0.891833,Y=0.826141,Z=0.736736))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 34,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.242151,W=0.970239),Translation=(X=-3897.383678,Y=-6.004785,Z=0.400000),Scale3D=(X=0.895895,Y=0.849659,Z=0.887774))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 35,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.995813,W=0.091416),Translation=(X=-3878.824658,Y=-330.185563,Z=0.400000),Scale3D=(X=0.817646,Y=0.844429,Z=0.810786))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 36,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.959021,W=-0.283336),Translation=(X=-4429.556808,Y=100.153786,Z=0.400000),Scale3D=(X=0.911283,Y=0.861518,Z=0.830782))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 37,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.598261,W=0.801302),Translation=(X=-4480.982093,Y=321.083465,Z=0.400000),Scale3D=(X=1.020568,Y=1.121723,Z=1.080458))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 38,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.158824,W=0.987307),Translation=(X=-4508.798839,Y=-266.730594,Z=0.400000),Scale3D=(X=1.041123,Y=0.955950,Z=1.021984))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 39,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.985504,W=0.169654),Translation=(X=-3849.134804,Y=175.564288,Z=0.400000),Scale3D=(X=0.828011,Y=0.789905,Z=0.703753))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 40,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.616594,W=-0.787282),Translation=(X=-3812.246454,Y=161.488326,Z=0.400000),Scale3D=(X=1.184410,Y=1.098689,Z=1.003989))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 41,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.925478,W=-0.378801),Translation=(X=-4464.994253,Y=269.332001,Z=0.400000),Scale3D=(X=0.901052,Y=0.978383,Z=0.904712))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 42,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.707400,W=0.706814),Translation=(X=-3875.959709,Y=111.110229,Z=0.400000),Scale3D=(X=1.211083,Y=1.148104,Z=1.109528))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 43,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.930777,W=-0.365587),Translation=(X=-3909.338603,Y=248.849158,Z=0.400000),Scale3D=(X=0.764966,Y=0.808925,Z=0.778366))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 44,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.478843,W=0.877901),Translation=(X=-4446.332711,Y=55.774641,Z=0.400000),Scale3D=(X=0.931594,Y=0.930650,Z=0.982028))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 45,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.194911,W=-0.980821),Translation=(X=-3895.386739,Y=-217.591215,Z=0.400000),Scale3D=(X=0.914119,Y=0.914394,Z=0.892170))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 46,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.658544,W=-0.752542),Translation=(X=-3872.533222,Y=-342.348846,Z=0.400000),Scale3D=(X=0.966119,Y=0.950671,Z=0.974318))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 47,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.505398,W=0.862886),Translation=(X=-4503.825358,Y=-369.340610,Z=0.400000),Scale3D=(X=0.873530,Y=0.860204,Z=0.855857))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 48,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.810606,W=0.585593),Translation=(X=-3836.201647,Y=-318.180839,Z=0.400000),Scale3D=(X=0.840226,Y=0.892323,Z=0.949958))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 49,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.969585,W=-0.244755),Translation=(X=-3914.122321,Y=70.924875,Z=0.400000),Scale3D=(X=0.877237,Y=0.801836,Z=0.710443))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 50,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.972085,W=-0.234630),Translation=(X=-3871.800999,Y=-232.867756,Z=0.400000),Scale3D=(X=0.790403,Y=0.752172,Z=0.725662))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 51,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.322995,W=-0.946401),Translation=(X=-3908.325304,Y=150.132432,Z=0.400000),Scale3D=(X=0.972698,Y=0.996698,Z=0.922697))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 52,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.999344,W=0.036215),Translation=(X=-3944.417716,Y=108.084433,Z=0.400000),Scale3D=(X=1.125172,Y=1.077073,Z=0.972856))"
+    },
+    {
+      "actor": "Actor_37",
+      "label": "WAQ1_GrassSmall",
+      "index": 53,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.181538,W=0.983384),Translation=(X=-4424.073305,Y=-456.465805,Z=0.400000),Scale3D=(X=1.079590,Y=1.102286,Z=1.114541))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 0,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.846476,W=0.532428),Translation=(X=-4378.364038,Y=-367.510606,Z=0.400000),Scale3D=(X=0.829169,Y=0.910508,Z=0.862455))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 1,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.408040,W=0.912964),Translation=(X=-3724.345819,Y=1001.037603,Z=0.400000),Scale3D=(X=0.883560,Y=0.952974,Z=0.936770))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 2,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.057300,W=-0.998357),Translation=(X=-4423.160325,Y=-293.386676,Z=0.400000),Scale3D=(X=1.102158,Y=1.117706,Z=1.218436))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 3,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.360450,W=0.932778),Translation=(X=-3828.259074,Y=902.169016,Z=0.400000),Scale3D=(X=0.833882,Y=0.872782,Z=0.780416))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 4,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.155547,W=-0.987828),Translation=(X=-4377.258205,Y=747.539251,Z=0.400000),Scale3D=(X=0.724040,Y=0.724883,Z=0.648638))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 5,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.751766,W=-0.659430),Translation=(X=-3868.824176,Y=-303.020739,Z=0.400000),Scale3D=(X=1.023397,Y=0.952140,Z=0.996621))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 6,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.995330,W=-0.096535),Translation=(X=-4371.604267,Y=682.159158,Z=0.400000),Scale3D=(X=0.895486,Y=0.845648,Z=0.845152))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 7,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.207846,W=-0.978162),Translation=(X=-3918.589867,Y=-209.351810,Z=0.400000),Scale3D=(X=1.069943,Y=1.117195,Z=1.177470))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 8,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.991454,W=0.130459),Translation=(X=-4423.723650,Y=-314.249099,Z=0.400000),Scale3D=(X=0.989879,Y=0.961158,Z=1.043471))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 9,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.045439,W=0.998967),Translation=(X=-4332.025416,Y=-589.540441,Z=0.400000),Scale3D=(X=0.747303,Y=0.758013,Z=0.790061))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 10,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.392427,W=-0.919783),Translation=(X=-4505.321813,Y=-313.297299,Z=0.400000),Scale3D=(X=0.877404,Y=0.907172,Z=0.874993))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 11,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.007067,W=0.999975),Translation=(X=-3849.003540,Y=140.390043,Z=0.400000),Scale3D=(X=0.973156,Y=0.993372,Z=1.061290))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 12,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.388425,W=0.921480),Translation=(X=-3855.928735,Y=-52.023232,Z=0.400000),Scale3D=(X=1.066208,Y=1.069395,Z=1.033030))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 13,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.236899,W=0.971534),Translation=(X=-3890.036027,Y=145.725568,Z=0.400000),Scale3D=(X=0.796609,Y=0.845635,Z=0.868622))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 14,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.339434,W=-0.940630),Translation=(X=-3952.723458,Y=-381.708863,Z=0.400000),Scale3D=(X=0.647849,Y=0.710629,Z=0.668957))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 15,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.091693,W=-0.995787),Translation=(X=-4491.751182,Y=-417.236769,Z=0.400000),Scale3D=(X=1.006018,Y=1.002998,Z=1.077976))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 16,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.180668,W=0.983544),Translation=(X=-4443.583041,Y=718.988218,Z=0.400000),Scale3D=(X=0.795004,Y=0.863019,Z=0.812962))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 17,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.126374,W=-0.991983),Translation=(X=-3842.152410,Y=931.595942,Z=0.400000),Scale3D=(X=0.993961,Y=1.096058,Z=1.102279))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 18,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.730411,W=0.683008),Translation=(X=-3863.333580,Y=939.613680,Z=0.400000),Scale3D=(X=1.043629,Y=0.991054,Z=0.973004))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 19,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.411983,W=-0.911192),Translation=(X=-4430.948576,Y=267.024829,Z=0.400000),Scale3D=(X=0.841305,Y=0.794894,Z=0.840093))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 20,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.645235,W=0.763985),Translation=(X=-3834.055234,Y=993.214400,Z=0.400000),Scale3D=(X=1.137805,Y=1.065820,Z=1.124254))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 21,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.771993,W=0.635631),Translation=(X=-3806.483503,Y=938.755916,Z=0.400000),Scale3D=(X=0.893575,Y=0.846913,Z=0.808342))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 22,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.509477,W=-0.860484),Translation=(X=-3951.719908,Y=-324.248457,Z=0.400000),Scale3D=(X=1.170606,Y=1.090308,Z=1.075884))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 23,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.648876,W=-0.760894),Translation=(X=-4445.250103,Y=889.276552,Z=0.400000),Scale3D=(X=1.155175,Y=1.077270,Z=1.035602))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 24,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.957144,W=-0.289613),Translation=(X=-3841.744849,Y=-263.806577,Z=0.400000),Scale3D=(X=0.851270,Y=0.830728,Z=0.875707))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 25,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.050366,W=-0.998731),Translation=(X=-3920.278010,Y=-280.429877,Z=0.400000),Scale3D=(X=1.010975,Y=0.970183,Z=1.045062))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 26,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.535476,W=0.844550),Translation=(X=-4368.847139,Y=-580.272416,Z=0.400000),Scale3D=(X=0.851643,Y=0.910296,Z=0.982936))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 27,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.999939,W=0.011042),Translation=(X=-4423.599005,Y=199.119912,Z=0.400000),Scale3D=(X=0.632765,Y=0.687827,Z=0.628389))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 28,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.183396,W=0.983039),Translation=(X=-4432.266984,Y=825.227690,Z=0.400000),Scale3D=(X=1.039759,Y=1.067556,Z=1.166094))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 29,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.999777,W=-0.021102),Translation=(X=-4485.465062,Y=-380.378542,Z=0.400000),Scale3D=(X=0.903202,Y=0.886218,Z=0.902085))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 30,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.993591,W=0.113033),Translation=(X=-4431.043164,Y=-340.765866,Z=0.400000),Scale3D=(X=0.942360,Y=1.012794,Z=0.954171))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 31,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.994588,W=-0.103901),Translation=(X=-3905.078619,Y=24.226401,Z=0.400000),Scale3D=(X=0.747257,Y=0.725516,Z=0.675019))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 32,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.316237,W=0.948680),Translation=(X=-3908.185419,Y=-386.857429,Z=0.400000),Scale3D=(X=1.091729,Y=0.992569,Z=1.027435))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 33,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.110330,W=-0.993895),Translation=(X=-3884.416550,Y=880.484762,Z=0.400000),Scale3D=(X=0.894980,Y=0.821123,Z=0.868799))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 34,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.285456,W=-0.958392),Translation=(X=-4407.248687,Y=-92.587752,Z=0.400000),Scale3D=(X=1.094558,Y=1.102445,Z=1.032605))"
+    },
+    {
+      "actor": "Actor_38",
+      "label": "WAQ1_GrassMedium",
+      "index": 35,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.344536,W=-0.938773),Translation=(X=-4409.635664,Y=-344.724599,Z=0.400000),Scale3D=(X=0.844233,Y=0.854153,Z=0.850722))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 0,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.670653,W=0.741772),Translation=(X=-4377.817412,Y=755.201220,Z=0.400000),Scale3D=(X=0.851628,Y=0.939377,Z=0.858182))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 1,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.445410,W=-0.895327),Translation=(X=-3696.854131,Y=-43.646189,Z=0.400000),Scale3D=(X=1.188374,Y=1.139157,Z=1.156951))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 2,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.143295,W=0.989680),Translation=(X=-4466.211954,Y=-399.666424,Z=0.400000),Scale3D=(X=1.134576,Y=1.062416,Z=1.111292))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 3,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.928008,W=0.372560),Translation=(X=-3851.411692,Y=136.683758,Z=0.400000),Scale3D=(X=1.012117,Y=1.099615,Z=1.151741))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 4,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.836849,W=0.547433),Translation=(X=-4434.950005,Y=-278.146569,Z=0.400000),Scale3D=(X=1.005460,Y=1.007603,Z=1.049101))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 5,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.993484,W=0.113975),Translation=(X=-4369.838775,Y=-236.466118,Z=0.400000),Scale3D=(X=0.851192,Y=0.822242,Z=0.823983))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 6,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.780698,W=-0.624909),Translation=(X=-4383.351654,Y=702.086407,Z=0.400000),Scale3D=(X=0.950620,Y=0.901298,Z=0.867840))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 7,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.144322,W=0.989531),Translation=(X=-3887.664441,Y=251.905686,Z=0.400000),Scale3D=(X=1.158427,Y=1.060245,Z=0.992039))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 8,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.879183,W=-0.476484),Translation=(X=-3688.611765,Y=1049.219651,Z=0.400000),Scale3D=(X=1.030995,Y=1.090131,Z=1.088518))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 9,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.199783,W=0.979840),Translation=(X=-4439.969441,Y=-374.537810,Z=0.400000),Scale3D=(X=1.107730,Y=1.062484,Z=1.005010))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 10,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.941148,W=-0.337994),Translation=(X=-4437.344664,Y=828.098541,Z=0.400000),Scale3D=(X=0.955198,Y=0.990232,Z=1.057681))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 11,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.512834,W=-0.858488),Translation=(X=-4339.142380,Y=648.121274,Z=0.400000),Scale3D=(X=1.268035,Y=1.153628,Z=1.025401))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 12,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.877127,W=0.480258),Translation=(X=-3822.994690,Y=187.823120,Z=0.400000),Scale3D=(X=0.717840,Y=0.766246,Z=0.766038))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 13,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.595318,W=-0.803490),Translation=(X=-4441.156497,Y=-258.959711,Z=0.400000),Scale3D=(X=0.693201,Y=0.743722,Z=0.782935))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 14,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.915223,W=0.402947),Translation=(X=-3901.097006,Y=883.005813,Z=0.400000),Scale3D=(X=0.825467,Y=0.880724,Z=0.792556))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 15,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.980490,W=0.196570),Translation=(X=-4416.778373,Y=-351.102067,Z=0.400000),Scale3D=(X=0.801945,Y=0.870498,Z=0.790061))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 16,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.121996,W=0.992531),Translation=(X=-4478.335744,Y=386.278333,Z=0.400000),Scale3D=(X=0.687121,Y=0.754689,Z=0.772137))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 17,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.988088,W=0.153889),Translation=(X=-3868.305661,Y=-56.695885,Z=0.400000),Scale3D=(X=0.959698,Y=1.013272,Z=0.988163))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 18,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.355228,W=0.934780),Translation=(X=-4470.100087,Y=-446.695157,Z=0.400000),Scale3D=(X=1.150767,Y=1.138924,Z=1.200022))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 19,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.915979,W=-0.401227),Translation=(X=-3929.763366,Y=126.832737,Z=0.400000),Scale3D=(X=1.111464,Y=1.065719,Z=1.113787))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 20,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.004480,W=0.999990),Translation=(X=-4474.672616,Y=934.800608,Z=0.400000),Scale3D=(X=0.816665,Y=0.756009,Z=0.756884))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 21,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.967650,W=-0.252296),Translation=(X=-4505.030895,Y=-557.956917,Z=0.400000),Scale3D=(X=0.995309,Y=1.092449,Z=1.134436))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 22,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.059215,W=0.998245),Translation=(X=-4402.450082,Y=790.157694,Z=0.400000),Scale3D=(X=1.179521,Y=1.175709,Z=1.113204))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 23,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.387841,W=-0.921726),Translation=(X=-3892.761390,Y=-285.042024,Z=0.400000),Scale3D=(X=0.990847,Y=1.002177,Z=0.926523))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 24,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.026974,W=0.999636),Translation=(X=-4397.091925,Y=722.956033,Z=0.400000),Scale3D=(X=1.071384,Y=1.039251,Z=0.934972))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 25,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.066927,W=-0.997758),Translation=(X=-3744.068882,Y=917.582761,Z=0.400000),Scale3D=(X=1.046041,Y=1.085706,Z=0.956836))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 26,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.551256,W=0.834336),Translation=(X=-4467.916125,Y=-302.648896,Z=0.400000),Scale3D=(X=0.845746,Y=0.834371,Z=0.902966))"
+    },
+    {
+      "actor": "Actor_39",
+      "label": "WAQ1_MeadowHerbs",
+      "index": 27,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.444275,W=-0.895890),Translation=(X=-4432.200980,Y=-510.589261,Z=0.400000),Scale3D=(X=0.913051,Y=0.855037,Z=0.773415))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 0,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.973734,W=-0.227689),Translation=(X=-3830.329299,Y=809.812320,Z=0.400000),Scale3D=(X=0.577698,Y=0.560452,Z=0.501094))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 1,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.340803,W=0.940135),Translation=(X=-3796.013292,Y=898.350877,Z=0.400000),Scale3D=(X=0.769523,Y=0.718605,Z=0.652252))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 2,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.986396,W=0.164385),Translation=(X=-3748.890223,Y=203.546980,Z=0.400000),Scale3D=(X=0.532392,Y=0.537198,Z=0.539294))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 3,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.676089,W=0.736820),Translation=(X=-3868.974935,Y=991.184946,Z=0.400000),Scale3D=(X=0.599908,Y=0.595319,Z=0.585619))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 4,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.847317,W=0.531088),Translation=(X=-4400.300591,Y=-519.165404,Z=0.400000),Scale3D=(X=0.681422,Y=0.716715,Z=0.650508))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 5,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.562751,W=0.826626),Translation=(X=-3902.283227,Y=-239.412551,Z=0.400000),Scale3D=(X=0.513642,Y=0.491847,Z=0.450662))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 6,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.424435,W=0.905459),Translation=(X=-3861.957651,Y=150.301034,Z=0.400000),Scale3D=(X=0.739979,Y=0.702855,Z=0.763123))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 7,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.448086,W=0.893990),Translation=(X=-3917.631184,Y=165.190282,Z=0.400000),Scale3D=(X=0.615909,Y=0.680817,Z=0.679772))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 8,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.317036,W=-0.948414),Translation=(X=-3868.036344,Y=-126.123313,Z=0.400000),Scale3D=(X=0.527200,Y=0.545205,Z=0.523830))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 9,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.991989,W=0.126321),Translation=(X=-3913.660452,Y=3.269511,Z=0.400000),Scale3D=(X=0.519109,Y=0.546777,Z=0.572660))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 10,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.861818,W=-0.507218),Translation=(X=-3896.672322,Y=882.219013,Z=0.400000),Scale3D=(X=0.692539,Y=0.666715,Z=0.611962))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 11,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.202948,W=-0.979189),Translation=(X=-4357.617452,Y=-458.149650,Z=0.400000),Scale3D=(X=0.672307,Y=0.622660,Z=0.679129))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 12,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.981914,W=-0.189329),Translation=(X=-4418.239221,Y=-139.698115,Z=0.400000),Scale3D=(X=0.637351,Y=0.658217,Z=0.642659))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 13,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.567925,W=-0.823080),Translation=(X=-3797.350665,Y=827.270180,Z=0.400000),Scale3D=(X=0.502488,Y=0.535570,Z=0.537761))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 14,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.222138,W=0.975015),Translation=(X=-4496.907100,Y=-336.441839,Z=0.400000),Scale3D=(X=0.586990,Y=0.622854,Z=0.582563))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 15,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.509284,W=0.860599),Translation=(X=-3855.787541,Y=855.350828,Z=0.400000),Scale3D=(X=0.566623,Y=0.596382,Z=0.547395))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 16,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.834621,W=-0.550825),Translation=(X=-4367.277079,Y=-578.176481,Z=0.400000),Scale3D=(X=0.571270,Y=0.522793,Z=0.517637))"
+    },
+    {
+      "actor": "Actor_40",
+      "label": "WAQ1_Flowers",
+      "index": 17,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.216113,W=0.976368),Translation=(X=-3877.319419,Y=-281.868996,Z=0.400000),Scale3D=(X=0.580285,Y=0.587226,Z=0.530561))"
+    },
+    {
+      "actor": "Actor_41",
+      "label": "WAQ1_Fern",
+      "index": 0,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.164890,W=0.986312),Translation=(X=-4424.496770,Y=-362.337201,Z=0.400000),Scale3D=(X=0.469852,Y=0.520308,Z=0.542626))"
+    },
+    {
+      "actor": "Actor_41",
+      "label": "WAQ1_Fern",
+      "index": 1,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.914077,W=-0.405541),Translation=(X=-4494.243799,Y=879.311418,Z=0.400000),Scale3D=(X=0.517882,Y=0.477202,Z=0.462342))"
+    },
+    {
+      "actor": "Actor_41",
+      "label": "WAQ1_Fern",
+      "index": 2,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.525089,W=-0.851047),Translation=(X=-3836.368931,Y=933.380193,Z=0.400000),Scale3D=(X=0.438641,Y=0.444588,Z=0.444674))"
+    },
+    {
+      "actor": "Actor_41",
+      "label": "WAQ1_Fern",
+      "index": 3,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.806300,W=0.591507),Translation=(X=-4382.290654,Y=-408.137296,Z=0.400000),Scale3D=(X=0.447320,Y=0.412080,Z=0.385499))"
+    },
+    {
+      "actor": "Actor_41",
+      "label": "WAQ1_Fern",
+      "index": 4,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.668238,W=-0.743948),Translation=(X=-4436.584360,Y=751.290959,Z=0.400000),Scale3D=(X=0.391316,Y=0.406506,Z=0.419864))"
+    },
+    {
+      "actor": "Actor_41",
+      "label": "WAQ1_Fern",
+      "index": 5,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.107169,W=0.994241),Translation=(X=-4417.546179,Y=-290.884835,Z=0.400000),Scale3D=(X=0.530989,Y=0.508549,Z=0.521704))"
+    },
+    {
+      "actor": "Actor_41",
+      "label": "WAQ1_Fern",
+      "index": 6,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.970248,W=0.242111),Translation=(X=-4404.584754,Y=817.642369,Z=0.400000),Scale3D=(X=0.357769,Y=0.390776,Z=0.381972))"
+    },
+    {
+      "actor": "Actor_41",
+      "label": "WAQ1_Fern",
+      "index": 7,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.501329,W=-0.865257),Translation=(X=-3743.042822,Y=970.169540,Z=0.400000),Scale3D=(X=0.375428,Y=0.346357,Z=0.329795))"
+    },
+    {
+      "actor": "Actor_41",
+      "label": "WAQ1_Fern",
+      "index": 8,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.405614,W=0.914044),Translation=(X=-3893.270138,Y=998.069804,Z=0.400000),Scale3D=(X=0.429576,Y=0.444979,Z=0.476395))"
+    },
+    {
+      "actor": "Actor_41",
+      "label": "WAQ1_Fern",
+      "index": 9,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.886170,W=-0.463359),Translation=(X=-4477.331434,Y=-32.074241,Z=0.400000),Scale3D=(X=0.433949,Y=0.411655,Z=0.374016))"
+    },
+    {
+      "actor": "Actor_41",
+      "label": "WAQ1_Fern",
+      "index": 10,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.891282,W=-0.453450),Translation=(X=-3909.681523,Y=172.942186,Z=0.400000),Scale3D=(X=0.492987,Y=0.472878,Z=0.429974))"
+    },
+    {
+      "actor": "Actor_41",
+      "label": "WAQ1_Fern",
+      "index": 11,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.720809,W=-0.693134),Translation=(X=-4414.061630,Y=-562.840502,Z=0.400000),Scale3D=(X=0.473822,Y=0.439281,Z=0.464753))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 0,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.864839,W=-0.502050),Translation=(X=-3882.379195,Y=-393.645848,Z=-0.300000),Scale3D=(X=0.596982,Y=0.578364,Z=0.289182))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 1,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.294529,W=-0.955643),Translation=(X=-3941.170228,Y=-273.929425,Z=-0.300000),Scale3D=(X=0.769700,Y=0.818933,Z=0.409466))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 2,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.996690,W=-0.081302),Translation=(X=-3820.699291,Y=-244.094467,Z=-0.300000),Scale3D=(X=0.789544,Y=0.825870,Z=0.412935))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 3,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.943015,W=0.332750),Translation=(X=-4424.415790,Y=116.985608,Z=-0.300000),Scale3D=(X=0.812090,Y=0.748973,Z=0.374486))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 4,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.969816,W=-0.243840),Translation=(X=-3902.279514,Y=919.321134,Z=-0.300000),Scale3D=(X=0.584422,Y=0.595745,Z=0.297873))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 5,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.013110,W=0.999914),Translation=(X=-4431.506943,Y=-356.216879,Z=-0.300000),Scale3D=(X=0.573739,Y=0.564307,Z=0.282153))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 6,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.320288,W=-0.947320),Translation=(X=-4386.077382,Y=376.459270,Z=-0.300000),Scale3D=(X=0.489518,Y=0.513207,Z=0.256603))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 7,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.191682,W=0.981457),Translation=(X=-4424.502066,Y=99.791660,Z=-0.300000),Scale3D=(X=0.674049,Y=0.624100,Z=0.312050))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 8,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.999913,W=0.013226),Translation=(X=-3929.269677,Y=-259.708849,Z=-0.300000),Scale3D=(X=0.642338,Y=0.629041,Z=0.314521))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 9,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.986112,W=-0.166080),Translation=(X=-4465.765040,Y=381.077719,Z=-0.300000),Scale3D=(X=0.501031,Y=0.522357,Z=0.261179))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 10,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.969165,W=0.246412),Translation=(X=-3745.373137,Y=1034.671352,Z=-0.300000),Scale3D=(X=0.608808,Y=0.618474,Z=0.309237))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 11,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.896714,W=0.442610),Translation=(X=-3905.610350,Y=876.208278,Z=-0.300000),Scale3D=(X=0.521121,Y=0.508942,Z=0.254471))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 12,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.779916,W=-0.625884),Translation=(X=-4334.772996,Y=676.595045,Z=-0.300000),Scale3D=(X=0.753771,Y=0.776145,Z=0.388073))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 13,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.949529,W=-0.313680),Translation=(X=-3895.413224,Y=-351.027533,Z=-0.300000),Scale3D=(X=0.727867,Y=0.775682,Z=0.387841))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 14,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.999994,W=-0.003456),Translation=(X=-3738.240843,Y=1042.927260,Z=-0.300000),Scale3D=(X=0.759331,Y=0.788075,Z=0.394038))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 15,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.731228,W=0.682133),Translation=(X=-3713.325377,Y=968.633036,Z=-0.300000),Scale3D=(X=0.567958,Y=0.570776,Z=0.285388))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 16,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.619812,W=0.784750),Translation=(X=-3885.490620,Y=-282.065293,Z=-0.300000),Scale3D=(X=0.544101,Y=0.562257,Z=0.281128))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 17,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.670477,W=0.741930),Translation=(X=-4375.621167,Y=751.909530,Z=-0.300000),Scale3D=(X=0.554270,Y=0.605952,Z=0.302976))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 18,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.352118,W=0.935956),Translation=(X=-4349.047356,Y=-310.052511,Z=-0.300000),Scale3D=(X=0.526502,Y=0.505866,Z=0.252933))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 19,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.612909,W=0.790154),Translation=(X=-4406.458727,Y=-366.267266,Z=-0.300000),Scale3D=(X=0.573589,Y=0.523928,Z=0.261964))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 20,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.047269,W=-0.998882),Translation=(X=-4452.985237,Y=287.130543,Z=-0.300000),Scale3D=(X=0.619527,Y=0.615981,Z=0.307990))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 21,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.695296,W=0.718724),Translation=(X=-4439.079827,Y=88.534296,Z=-0.300000),Scale3D=(X=0.561516,Y=0.527689,Z=0.263845))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 22,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.281504,W=-0.959560),Translation=(X=-4408.100319,Y=71.964230,Z=-0.300000),Scale3D=(X=0.749394,Y=0.695414,Z=0.347707))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 23,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.838836,W=-0.544383),Translation=(X=-4383.416956,Y=-462.482017,Z=-0.300000),Scale3D=(X=0.577199,Y=0.596830,Z=0.298415))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 24,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.826479,W=0.562968),Translation=(X=-4470.144467,Y=318.850226,Z=-0.300000),Scale3D=(X=0.668222,Y=0.716183,Z=0.358092))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 25,
+      "transform": "(Rotation=(X=0.000000,Y=0.000000,Z=0.619654,W=-0.784875),Translation=(X=-3942.832623,Y=110.593756,Z=-0.300000),Scale3D=(X=0.828165,Y=0.775267,Z=0.387634))"
+    },
+    {
+      "actor": "Actor_42",
+      "label": "WAQ1_Pebbles",
+      "index": 26,
+      "transform": "(Rotation=(X=0.000000,Y=-0.000000,Z=0.970168,W=0.242435),Translation=(X=-4475.349204,Y=40.238420,Z=-0.300000),Scale3D=(X=0.778517,Y=0.799814,Z=0.399907))"
+    }
+  ],
+  "pockets": [
+    [
+      -4430,
+      -350,
+      56,
+      120,
+      3.0
+    ],
+    [
+      -3910,
+      -320,
+      45,
+      58,
+      0.8
+    ],
+    [
+      -4410,
+      95,
+      35,
+      45,
+      0.4
+    ],
+    [
+      -3870,
+      95,
+      56,
+      95,
+      2.7
+    ],
+    [
+      -4440,
+      320,
+      32,
+      48,
+      0.35
+    ],
+    [
+      -4335,
+      815,
+      72,
+      78,
+      3.6
+    ],
+    [
+      -4205,
+      1030,
+      40,
+      35,
+      0.7
+    ],
+    [
+      -3860,
+      905,
+      78,
+      52,
+      2.2
+    ],
+    [
+      -3710,
+      1000,
+      28,
+      36,
+      0.4
+    ]
+  ],
+  "family_counts": {
+    "WAQ1_GrassSmall": 54,
+    "WAQ1_GrassMedium": 36,
+    "WAQ1_MeadowHerbs": 28,
+    "WAQ1_Flowers": 18,
+    "WAQ1_Fern": 12,
+    "WAQ1_Pebbles": 27
+  },
+  "pocket_counts": {
+    "WAQ1_GrassSmall": {
+      "0": 11,
+      "1": 6,
+      "2": 3,
+      "3": 14,
+      "4": 5,
+      "5": 4,
+      "6": 0,
+      "7": 9,
+      "8": 2
+    },
+    "WAQ1_GrassMedium": {
+      "0": 11,
+      "1": 7,
+      "2": 1,
+      "3": 4,
+      "4": 1,
+      "5": 5,
+      "6": 0,
+      "7": 6,
+      "8": 1
+    },
+    "WAQ1_MeadowHerbs": {
+      "0": 10,
+      "1": 1,
+      "2": 0,
+      "3": 6,
+      "4": 1,
+      "5": 7,
+      "6": 0,
+      "7": 2,
+      "8": 1
+    },
+    "WAQ1_Flowers": {
+      "0": 5,
+      "1": 3,
+      "2": 0,
+      "3": 4,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 6,
+      "8": 0
+    },
+    "WAQ1_Fern": {
+      "0": 5,
+      "1": 0,
+      "2": 0,
+      "3": 1,
+      "4": 0,
+      "5": 3,
+      "6": 0,
+      "7": 3,
+      "8": 0
+    },
+    "WAQ1_Pebbles": {
+      "0": 4,
+      "1": 6,
+      "2": 5,
+      "3": 1,
+      "4": 4,
+      "5": 2,
+      "6": 0,
+      "7": 2,
+      "8": 3
+    }
+  },
+  "bounding_region_cm": [
+    -4620,
+    -3560,
+    -720,
+    1190
+  ],
+  "unchanged_total_instances": 175,
+  "topfpflanzen_unchanged": true
+}

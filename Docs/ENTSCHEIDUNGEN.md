@@ -684,3 +684,25 @@ Messwerte, Bildfolgen/Videos, verworfene Fotosegmente, terminale CSV-Ausfälle m
 Auf Harrys Auftrag wird ausschließlich der zusammenhängende Heilhaus-Vorplatz mit seinen nächsten Wegsäumen in der zentralen VisualV2 gestaltet; keine neue Testmap und keine weitere Performanceoptimierung. Die vorhandene Architektur und ihre Interaktionen bleiben bestehen. Private, lokal begrenzte Boden-/Wegmaterialvarianten und instanzierte kleine Pflanzen-/Steingruppen ersetzen keine Originalquellen. Ein nachweislich darüberliegendes altes opakes Wegband wird nur über eine eigene Materialzuweisung bereinigt. Keine Änderungen an Kamera, TAA, Licht, Originalschatten, Bewegung oder Collision.
 
 Status: erster lokaler Stand zur visuellen Prüfung; keine automatische künstlerische Freigabe oder Ausweitung auf die übrige Karte. Bestehende einfache Topfpflanzen und weitere Artgrenzen bleiben benannt. Die kurze Performancekontrolle ist kein Optimierungsnachweis; Details und technische Prüfung im `VISUALV2_WORLD_ART_QUALITY_V1_PRUEFBERICHT.md`.
+
+Die örtliche V1-Pflanzenverteilung und ihre Bodenmaterialvarianten werden durch den folgenden V2-Pass ersetzt; die V1-Referenzdaten bleiben erhalten.
+
+## 2026-10-19 – VisualV2 World Art Quality V2: lokaler Heilhaus-Feinschliff
+
+- Ersetzt ausschließlich die örtliche V1-Pflanzenverteilung und deren vier
+  Bodenmaterialvarianten; V1-Originale und vollständige Transformationsdaten
+  bleiben als reproduzierbare Referenz erhalten. Keine neue Map und keine
+  Ausdehnung auf weitere Gebiete.
+- Alle 175 Instanzen und vorhandenen Topfpflanzen erhalten. Größere und kleinere
+  Pflanzentaschen wechseln mit freien Flächen; Eingang und Wege bleiben lesbar.
+- Drei geometrisch unveränderte Gras-/Kräutervarianten fassen konstante Farben
+  in einem gemeinsamen Vertexfarben-Material zusammen. 17→10 echte
+  LOD0-Abschnitte, 19→12 Komponenten-Materialbindungen. Unveränderte Dreieckzahlen;
+  keine Polygonreduktion oder Änderung gemeinsamer Originalassets.
+- HISM bleibt gegenüber 175 Einzelobjekten die Produktionsdarstellung. Die
+  Messungen beweisen keinen allgemeinen FPS-Gewinn der Einzelobjekte oder der
+  Materialvariante. Keine Verringerung der Pflanzenzahl, kein erzwungenes LOD0
+  und keine Diagnose-Ausblendung werden übernommen.
+- Licht, Originalschatten, TAA, Lumen, Bloom, Kamera und Gameplay bleiben
+  unverändert. Dies ist eine begrenzte gestalterische Überarbeitung zur
+  menschlichen Abnahme, keine automatische Freigabe für die gesamte Welt.

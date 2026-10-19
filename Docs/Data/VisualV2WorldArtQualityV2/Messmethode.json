@@ -1,0 +1,210 @@
+{
+  "source_commit": "371190e69776d906288e9772c7fdfcb0d635f4b1",
+  "method": "Median of three repeat medians; P95 range across repeats; wall-frame FPS; independent renderer extents/AA",
+  "series": {
+    "VGB1_WAQ2_Cost_Standalone_Q2": {
+      "segments": 15,
+      "frames": 1681,
+      "actual_aa": 2,
+      "utc": [
+        "2026-10-19T05:15:12.007Z",
+        "2026-10-19T05:16:55.106Z"
+      ],
+      "slate_window_dpi": [
+        [
+          "2560.00",
+          "1440.00",
+          "1.000"
+        ]
+      ],
+      "active_window_fraction": 1.0,
+      "frame_csv_sha256": "a77b708807859fe4cf1e13d0e6afc78512651bf490f004af76e688082f9819ff",
+      "variant_proof_sha256": "978e8cdc40d365393ccec31c9611602975addf6309f371c8dab3a451a69a6be7",
+      "plan": "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Cost_Standalone_Q2.tsv"
+    },
+    "VGB1_WAQ2_Final_PIE_Q2": {
+      "segments": 84,
+      "frames": 7848,
+      "actual_aa": 2,
+      "utc": [
+        "2026-10-19T04:58:22.133Z",
+        "2026-10-19T05:06:55.389Z"
+      ],
+      "slate_window_dpi": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "active_window_fraction": 1.0,
+      "frame_csv_sha256": "18f22f46d73a3088e964a70a2541d5fbc21008246e8de8604d7695b53e3cb336",
+      "variant_proof_sha256": "fed987fe011e131de025666b00d85e33234a2cf768035782d573f13205dc6eda",
+      "plan": "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Final_PIE_Q2.tsv"
+    },
+    "VGB1_WAQ2_Final_Standalone_Q2": {
+      "segments": 84,
+      "frames": 10909,
+      "actual_aa": 2,
+      "utc": [
+        "2026-10-19T05:32:00.410Z",
+        "2026-10-19T05:40:27.856Z"
+      ],
+      "slate_window_dpi": [
+        [
+          "1280.00",
+          "720.00",
+          "1.000"
+        ],
+        [
+          "1470.00",
+          "956.00",
+          "1.000"
+        ]
+      ],
+      "active_window_fraction": 1.0,
+      "frame_csv_sha256": "bacd1c8b244636354aa90c7cee904fa9b8cb1470f7982b11d04346b8920d3179",
+      "variant_proof_sha256": "7ebb39ec4efc880cb6adfa979fd1ed4bcb51747eda594a722c35761f37931936",
+      "plan": "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Final_Standalone_Q2.tsv"
+    },
+    "VGB1_WAQ2_Cost_PIE_Q1": {
+      "segments": 15,
+      "frames": 1818,
+      "actual_aa": 2,
+      "utc": [
+        "2026-10-19T04:36:22.876Z",
+        "2026-10-19T04:38:06.487Z"
+      ],
+      "slate_window_dpi": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "active_window_fraction": 1.0,
+      "frame_csv_sha256": "e3bafc32937b2f4ff94186c1b633d70fc004590b38da7eeafd1f0289394c3f97",
+      "variant_proof_sha256": "9167996a2370ad512703dbb98c2f1f3b0e98972900d506c0d47df3f539e3c8a9",
+      "plan": "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Cost_PIE_Q1.tsv"
+    },
+    "VGB1_WAQ2_Final_Standalone_Q1": {
+      "segments": 84,
+      "frames": 12676,
+      "actual_aa": 2,
+      "utc": [
+        "2026-10-19T05:22:52.148Z",
+        "2026-10-19T05:31:18.392Z"
+      ],
+      "slate_window_dpi": [
+        [
+          "1280.00",
+          "720.00",
+          "1.000"
+        ],
+        [
+          "1470.00",
+          "956.00",
+          "1.000"
+        ]
+      ],
+      "active_window_fraction": 1.0,
+      "frame_csv_sha256": "450085c3c92931546f606e9791c05a232efa8b49db2493aee10fc3273a79028b",
+      "variant_proof_sha256": "cbcfa97a75864f8ba0585091268123a8dbbd983bd91daef10a4e0d03cb356970",
+      "plan": "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Final_Standalone_Q1.tsv"
+    },
+    "VGB1_WAQ2_Final_PIE_Q1": {
+      "segments": 84,
+      "frames": 10244,
+      "actual_aa": 2,
+      "utc": [
+        "2026-10-19T04:48:18.855Z",
+        "2026-10-19T04:56:49.821Z"
+      ],
+      "slate_window_dpi": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "active_window_fraction": 1.0,
+      "frame_csv_sha256": "c60a47a36eea1a1e493885237762cd2b8b93e56097c0544976b9d0ca9c9f8a60",
+      "variant_proof_sha256": "6afa5410abc26231820f630d5a35bb9e780388e7729dbcfd2eb22fc32ee17c4a",
+      "plan": "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Final_PIE_Q1.tsv"
+    },
+    "VGB1_WAQ2_Cost_PIE_Q2": {
+      "segments": 15,
+      "frames": 1188,
+      "actual_aa": 2,
+      "utc": [
+        "2026-10-19T04:41:21.206Z",
+        "2026-10-19T04:43:05.315Z"
+      ],
+      "slate_window_dpi": [
+        [
+          "2940.00",
+          "1696.00",
+          "2.000"
+        ]
+      ],
+      "active_window_fraction": 1.0,
+      "frame_csv_sha256": "981ccb235d45954fba958d104d9c1ae991c253e5e9876b84fbbff879e6df9f6f",
+      "variant_proof_sha256": "a9790786549dcf0777210b184b301675b71df707b7aec1ed99965905a0d88b00",
+      "plan": "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Cost_PIE_Q2.tsv"
+    },
+    "VGB1_WAQ2_Cost_Standalone_Q1": {
+      "segments": 15,
+      "frames": 1822,
+      "actual_aa": 2,
+      "utc": [
+        "2026-10-19T05:07:44.024Z",
+        "2026-10-19T05:09:27.121Z"
+      ],
+      "slate_window_dpi": [
+        [
+          "2560.00",
+          "1440.00",
+          "1.000"
+        ]
+      ],
+      "active_window_fraction": 1.0,
+      "frame_csv_sha256": "a67726f86457888c0fbc8400da2fad6b2df30c71d232385f49f7b4fa5b093d58",
+      "variant_proof_sha256": "a662e994eb3863d252884323b3e230cb118abf22985f3e3bc6a3640f1daabc5d",
+      "plan": "Tools/VisualV2WorldArtQualityV2/Plans/VGB1_WAQ2_Cost_Standalone_Q1.tsv"
+    }
+  },
+  "counter_gaps": {
+    "VGB1_WAQ2_Cost_Standalone_Q2": [
+      14
+    ],
+    "VGB1_WAQ2_Final_Standalone_Q2": [
+      83
+    ],
+    "VGB1_WAQ2_Final_Standalone_Q1": [
+      83
+    ],
+    "VGB1_WAQ2_Cost_Standalone_Q1": [
+      14
+    ]
+  },
+  "hardware": {
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434",
+    "cpu": "Apple M4",
+    "memory": "17179869184",
+    "energy": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=23068771)\t100%; charged; 0:00 remaining present: true"
+  },
+  "thermal_samples": 338,
+  "thermal_states": {
+    "nominal": 338
+  },
+  "thermal_period_utc": [
+    "2026-10-19T04:44:53Z",
+    "2026-10-19T05:41:10Z"
+  ],
+  "known_counter_limitations": [
+    "All-zero DrawCall/RHI counters are unavailable, not zero real draws.",
+    "Three-second final measurement windows; no long-run FPS guarantee.",
+    "Separate CPU thread times include waits; not additive to GPU time."
+  ],
+  "normal_gameplay_cvars_unchanged": true
+}
