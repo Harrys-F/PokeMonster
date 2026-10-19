@@ -1,0 +1,26 @@
+{
+  "A": {
+    "variant": "A",
+    "gain": 0,
+    "low": 0.4,
+    "high": 1.2,
+    "debug": 0,
+    "target": "Original"
+  },
+  "B": {
+    "variant": "B",
+    "gain": 0.45,
+    "low": 0.4,
+    "high": 1.2,
+    "debug": 0,
+    "target": "approximately 25 percent brighter, calibrated on forest floor ROI, not uniform VSM opacity"
+  },
+  "C": {
+    "variant": "C",
+    "gain": 0.9,
+    "low": 0.4,
+    "high": 1.2,
+    "debug": 0,
+    "target": "approximately 50 percent brighter, calibrated on forest floor ROI, not uniform VSM opacity"
+  }
+}
