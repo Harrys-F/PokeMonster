@@ -1,0 +1,145 @@
+{
+  "assets": [
+    "/Game/Environment/VisualV2HealingArtV4/Textures/T_HA4_Meadow",
+    "/Game/Environment/VisualV2HealingArtV4/Textures/T_HA4_Earth",
+    "/Game/Environment/VisualV2HealingArtV4/Textures/T_HA4_Wood",
+    "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_HealingMeadow",
+    "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_HealingPath",
+    "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_HealingForecourt",
+    "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_LegacyApproach",
+    "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot",
+    "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage",
+    "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil",
+    "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom",
+    "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood",
+    "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber",
+    "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone",
+    "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadePlaster",
+    "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeRoof",
+    "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_BroadHerb",
+    "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_NarrowHerb",
+    "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_LeafPlant",
+    "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_FlowerPlant",
+    "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_TrailingHerb",
+    "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_GardenHerb",
+    "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_GardenFlowers",
+    "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_GrassTuft",
+    "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigA",
+    "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigB",
+    "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_Flagstone",
+    "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy"
+  ],
+  "ground": [
+    {
+      "old": "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingMeadow.M_HA3_HealingMeadow",
+      "new": "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_HealingMeadow.M_HA4_HealingMeadow"
+    },
+    {
+      "old": "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingPath.M_HA3_HealingPath",
+      "new": "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_HealingPath.M_HA4_HealingPath"
+    },
+    {
+      "old": "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingForecourt.M_HA3_HealingForecourt",
+      "new": "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_HealingForecourt.M_HA4_HealingForecourt"
+    },
+    {
+      "old": "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_LegacyApproach.M_HA3_LegacyApproach",
+      "new": "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_LegacyApproach.M_HA4_LegacyApproach"
+    }
+  ],
+  "facade": [
+    {
+      "key": "Wood",
+      "old": "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Wood.M_HH_Q3_Fade_Wood",
+      "new": "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood"
+    },
+    {
+      "key": "Timber",
+      "old": "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Timber.M_HH_Q3_Fade_Timber",
+      "new": "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber"
+    },
+    {
+      "key": "Stone",
+      "old": "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Stone.M_HH_Q3_Fade_Stone",
+      "new": "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.M_HA4_FacadeStone"
+    },
+    {
+      "key": "Plaster",
+      "old": "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Plaster.M_HH_Q3_Fade_Plaster",
+      "new": "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadePlaster.M_HA4_FacadePlaster"
+    },
+    {
+      "key": "Roof",
+      "old": "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Roof.M_HH_Q3_Fade_Roof",
+      "new": "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeRoof.M_HA4_FacadeRoof"
+    }
+  ],
+  "meshes": [
+    {
+      "family": "BroadHerb",
+      "path": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_BroadHerb.SM_HA4_BroadHerb",
+      "triangles": 9364,
+      "slots": 4
+    },
+    {
+      "family": "NarrowHerb",
+      "path": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_NarrowHerb.SM_HA4_NarrowHerb",
+      "triangles": 34320,
+      "slots": 4
+    },
+    {
+      "family": "LeafPlant",
+      "path": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_LeafPlant.SM_HA4_LeafPlant",
+      "triangles": 6332,
+      "slots": 3
+    },
+    {
+      "family": "FlowerPlant",
+      "path": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_FlowerPlant.SM_HA4_FlowerPlant",
+      "triangles": 24172,
+      "slots": 4
+    },
+    {
+      "family": "TrailingHerb",
+      "path": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_TrailingHerb.SM_HA4_TrailingHerb",
+      "triangles": 5300,
+      "slots": 3
+    },
+    {
+      "family": "GardenHerb",
+      "path": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_GardenHerb.SM_HA4_GardenHerb",
+      "triangles": 8708,
+      "slots": 2
+    },
+    {
+      "family": "GardenFlowers",
+      "path": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_GardenFlowers.SM_HA4_GardenFlowers",
+      "triangles": 23516,
+      "slots": 2
+    },
+    {
+      "family": "GrassTuft",
+      "path": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_GrassTuft.SM_HA4_GrassTuft",
+      "triangles": 1056,
+      "slots": 1
+    },
+    {
+      "family": "IvySprigA",
+      "path": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigA.SM_HA4_IvySprigA",
+      "triangles": 180,
+      "slots": 1
+    },
+    {
+      "family": "IvySprigB",
+      "path": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigB.SM_HA4_IvySprigB",
+      "triangles": 180,
+      "slots": 1
+    },
+    {
+      "family": "Flagstone",
+      "path": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_Flagstone.SM_HA4_Flagstone",
+      "triangles": 50,
+      "slots": 1
+    }
+  ]
+}

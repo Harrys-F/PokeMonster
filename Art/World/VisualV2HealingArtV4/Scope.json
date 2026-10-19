@@ -1,0 +1,2720 @@
+{
+  "changed": [
+    {
+      "name": "StaticMeshActor_339",
+      "label": "V2_House_Forecourt",
+      "mesh_before": "/Engine/BasicShapes/Cube.Cube",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingForecourt.M_HA3_HealingForecourt"
+      ],
+      "mesh_after": "/Engine/BasicShapes/Cube.Cube",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_HealingForecourt.M_HA4_HealingForecourt"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_399",
+      "label": "V2_House_HH_V2_Foundation",
+      "mesh_before": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Foundation.SM_HH_V2_Foundation",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Stone.M_HH_Q3_Fade_Stone"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Foundation.SM_HH_V2_Foundation",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.M_HA4_FacadeStone"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_400",
+      "label": "V2_House_HH_V2_Walls_Front",
+      "mesh_before": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Walls_Front.SM_HH_V2_Walls_Front",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Plaster.M_HH_Q3_Fade_Plaster"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Walls_Front.SM_HH_V2_Walls_Front",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadePlaster.M_HA4_FacadePlaster"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_401",
+      "label": "V2_House_HH_V2_Walls_CameraSide",
+      "mesh_before": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Walls_CameraSide.SM_HH_V2_Walls_CameraSide",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Plaster.M_HH_Q3_Fade_Plaster"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Walls_CameraSide.SM_HH_V2_Walls_CameraSide",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadePlaster.M_HA4_FacadePlaster"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_402",
+      "label": "V2_House_HH_V2_Walls_Rear",
+      "mesh_before": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Walls_Rear.SM_HH_V2_Walls_Rear",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Plaster.M_HH_Q3_Fade_Plaster"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Walls_Rear.SM_HH_V2_Walls_Rear",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadePlaster.M_HA4_FacadePlaster"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_403",
+      "label": "V2_House_HH_V2_Walls_Far",
+      "mesh_before": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Walls_Far.SM_HH_V2_Walls_Far",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Plaster.M_HH_Q3_Fade_Plaster"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Walls_Far.SM_HH_V2_Walls_Far",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadePlaster.M_HA4_FacadePlaster"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_405",
+      "label": "V2_House_HH_V2_Windows_Front",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Windows_Front.SM_HH_Q3_Windows_Front",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Wood.M_HH_Q3_Fade_Wood",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Stone.M_HH_Q3_Fade_Stone"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Windows_Front.SM_HH_Q3_Windows_Front",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.M_HA4_FacadeStone"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_407",
+      "label": "V2_House_HH_V2_Windows_CameraSide",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Windows_CameraSide.SM_HH_Q3_Windows_CameraSide",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Wood.M_HH_Q3_Fade_Wood",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Stone.M_HH_Q3_Fade_Stone"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Windows_CameraSide.SM_HH_Q3_Windows_CameraSide",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.M_HA4_FacadeStone"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_409",
+      "label": "V2_House_HH_V2_Windows_Far",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Windows_Far.SM_HH_Q3_Windows_Far",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Wood.M_HH_Q3_Fade_Wood",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Stone.M_HH_Q3_Fade_Stone"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Windows_Far.SM_HH_Q3_Windows_Far",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.M_HA4_FacadeStone"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_410",
+      "label": "V2_House_HH_V2_Gable_Front",
+      "mesh_before": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Gable_Front.SM_HH_V2_Gable_Front",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Plaster.M_HH_Q3_Fade_Plaster"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Gable_Front.SM_HH_V2_Gable_Front",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadePlaster.M_HA4_FacadePlaster"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_411",
+      "label": "V2_House_HH_V2_Gable_Rear",
+      "mesh_before": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Gable_Rear.SM_HH_V2_Gable_Rear",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Plaster.M_HH_Q3_Fade_Plaster"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Gable_Rear.SM_HH_V2_Gable_Rear",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadePlaster.M_HA4_FacadePlaster"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_413",
+      "label": "V2_House_HH_V2_Windows_Loft",
+      "mesh_before": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Windows_Loft.SM_HH_V2_Windows_Loft",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Wood.M_HH_Q3_Fade_Wood"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Windows_Loft.SM_HH_V2_Windows_Loft",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_414",
+      "label": "V2_House_HH_V2_Roof_Main",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Roof_Main.SM_HH_Q3_Roof_Main",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Roof.M_HH_Q3_Fade_Roof",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Timber.M_HH_Q3_Fade_Timber"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Roof_Main.SM_HH_Q3_Roof_Main",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeRoof.M_HA4_FacadeRoof",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_415",
+      "label": "V2_House_HH_V2_Roof_Trim",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Roof_Trim.SM_HH_Q3_Roof_Trim",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Wood.M_HH_Q3_Fade_Wood"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Roof_Trim.SM_HH_Q3_Roof_Trim",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_416",
+      "label": "V2_House_HH_V2_Roof_Porch",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Roof_Porch.SM_HH_Q3_Roof_Porch",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Roof.M_HH_Q3_Fade_Roof",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Wood.M_HH_Q3_Fade_Wood",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Roof.M_HH_Q3_Fade_Roof",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Timber.M_HH_Q3_Fade_Timber"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Roof_Porch.SM_HH_Q3_Roof_Porch",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeRoof.M_HA4_FacadeRoof",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeRoof.M_HA4_FacadeRoof",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_417",
+      "label": "V2_House_HH_V2_Timber_Porch",
+      "mesh_before": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Timber_Porch.SM_HH_V2_Timber_Porch",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Timber.M_HH_Q3_Fade_Timber",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Stone.M_HH_Q3_Fade_Stone"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Timber_Porch.SM_HH_V2_Timber_Porch",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.M_HA4_FacadeStone"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_418",
+      "label": "V2_House_HH_V2_PorchFloor",
+      "mesh_before": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_PorchFloor.SM_HH_V2_PorchFloor",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Stone.M_HH_Q3_Fade_Stone"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_PorchFloor.SM_HH_V2_PorchFloor",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.M_HA4_FacadeStone"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_419",
+      "label": "V2_House_HH_V2_Roof_Entry",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Roof_Entry.SM_HH_Q3_Roof_Entry",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Roof.M_HH_Q3_Fade_Roof",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Roof.M_HH_Q3_Fade_Roof",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Timber.M_HH_Q3_Fade_Timber"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Roof_Entry.SM_HH_Q3_Roof_Entry",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeRoof.M_HA4_FacadeRoof",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeRoof.M_HA4_FacadeRoof",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_420",
+      "label": "V2_House_HH_V2_Timber_Entry",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Timber_Entry.SM_HH_Q3_Timber_Entry",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Timber.M_HH_Q3_Fade_Timber"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Timber_Entry.SM_HH_Q3_Timber_Entry",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_421",
+      "label": "V2_House_HH_V2_DoorFrame",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_DoorFrame.SM_HH_Q3_DoorFrame",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Stone.M_HH_Q3_Fade_Stone",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Wood.M_HH_Q3_Fade_Wood",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Metal.M_HH_Q3_Fade_Metal"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_DoorFrame.SM_HH_Q3_DoorFrame",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.M_HA4_FacadeStone",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Metal.M_HH_Q3_Fade_Metal"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_422",
+      "label": "V2_House_HH_V2_DoorLeaf",
+      "mesh_before": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_DoorLeaf.SM_HH_V2_DoorLeaf",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Wood.M_HH_Q3_Fade_Wood",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Metal.M_HH_Q3_Fade_Metal"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_DoorLeaf.SM_HH_V2_DoorLeaf",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Metal.M_HH_Q3_Fade_Metal"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_423",
+      "label": "V2_House_HH_V2_Timber_Front",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Timber_Front.SM_HH_Q3_Timber_Front",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Timber.M_HH_Q3_Fade_Timber"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Timber_Front.SM_HH_Q3_Timber_Front",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_424",
+      "label": "V2_House_HH_V2_Timber_Rear",
+      "mesh_before": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Timber_Rear.SM_HH_V2_Timber_Rear",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Timber.M_HH_Q3_Fade_Timber"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Timber_Rear.SM_HH_V2_Timber_Rear",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_425",
+      "label": "V2_House_HH_V2_Timber_CameraSide",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Timber_CameraSide.SM_HH_Q3_Timber_CameraSide",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Timber.M_HH_Q3_Fade_Timber"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Timber_CameraSide.SM_HH_Q3_Timber_CameraSide",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_426",
+      "label": "V2_House_HH_V2_Timber_Far",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Timber_Far.SM_HH_Q3_Timber_Far",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Timber.M_HH_Q3_Fade_Timber"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Timber_Far.SM_HH_Q3_Timber_Far",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_427",
+      "label": "V2_House_HH_V2_Stone_Front",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Stone_Front.SM_HH_Q3_Stone_Front",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Stone.M_HH_Q3_Fade_Stone"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Stone_Front.SM_HH_Q3_Stone_Front",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.M_HA4_FacadeStone"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_428",
+      "label": "V2_House_HH_V2_Stone_CameraSide",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Stone_CameraSide.SM_HH_Q3_Stone_CameraSide",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Stone.M_HH_Q3_Fade_Stone"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Stone_CameraSide.SM_HH_Q3_Stone_CameraSide",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.M_HA4_FacadeStone"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_429",
+      "label": "V2_House_HH_V2_Stone_Rear",
+      "mesh_before": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Stone_Rear.SM_HH_V2_Stone_Rear",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Stone.M_HH_Q3_Fade_Stone"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/Meshes/SM_HH_V2_Stone_Rear.SM_HH_V2_Stone_Rear",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.M_HA4_FacadeStone"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_430",
+      "label": "V2_House_HH_V2_Stone_Far",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Stone_Far.SM_HH_Q3_Stone_Far",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Stone.M_HH_Q3_Fade_Stone"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Stone_Far.SM_HH_Q3_Stone_Far",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.M_HA4_FacadeStone"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_431",
+      "label": "V2_House_HH_V2_Chimney",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Chimney.SM_HH_Q3_Chimney",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Stone.M_HH_Q3_Fade_Stone",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Fade_Stone.M_HH_Q3_Fade_Stone"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Chimney.SM_HH_Q3_Chimney",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.M_HA4_FacadeStone",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeStone.M_HA4_FacadeStone"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_465",
+      "label": "V2_House_HH_V3_Ivy_-1_0",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigA.SM_HA4_IvySprigA",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.M_HA4_Ivy"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_466",
+      "label": "V2_House_HH_V3_Ivy_-1_1",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigB.SM_HA4_IvySprigB",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.M_HA4_Ivy"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_467",
+      "label": "V2_House_HH_V3_Ivy_-1_2",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigA.SM_HA4_IvySprigA",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.M_HA4_Ivy"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_468",
+      "label": "V2_House_HH_V3_Ivy_-1_3",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigB.SM_HA4_IvySprigB",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.M_HA4_Ivy"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_469",
+      "label": "V2_House_HH_V3_Ivy_-1_4",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigA.SM_HA4_IvySprigA",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.M_HA4_Ivy"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_470",
+      "label": "V2_House_HH_V3_Ivy_-1_5",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigB.SM_HA4_IvySprigB",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.M_HA4_Ivy"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_471",
+      "label": "V2_House_HH_V3_Ivy_-1_6",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigA.SM_HA4_IvySprigA",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.M_HA4_Ivy"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_492",
+      "label": "V2_House_HH_V3_Ivy_1_0",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigB.SM_HA4_IvySprigB",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.M_HA4_Ivy"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_493",
+      "label": "V2_House_HH_V3_Ivy_1_1",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigA.SM_HA4_IvySprigA",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.M_HA4_Ivy"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_494",
+      "label": "V2_House_HH_V3_Ivy_1_2",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigB.SM_HA4_IvySprigB",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.M_HA4_Ivy"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_495",
+      "label": "V2_House_HH_V3_Ivy_1_3",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigA.SM_HA4_IvySprigA",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.M_HA4_Ivy"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_496",
+      "label": "V2_House_HH_V3_Ivy_1_4",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigB.SM_HA4_IvySprigB",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.M_HA4_Ivy"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_497",
+      "label": "V2_House_HH_V3_Ivy_1_5",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigA.SM_HA4_IvySprigA",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.M_HA4_Ivy"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_498",
+      "label": "V2_House_HH_V3_Ivy_1_6",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_IvySprigB.SM_HA4_IvySprigB",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Ivy.M_HA4_Ivy"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_780",
+      "label": "V2_House_HH_Q2_OrganicApproach",
+      "mesh_before": "/Game/Environment/Westland/NaturalGroundV1/Meshes/SM_WL_NG_HealingApproach.SM_WL_NG_HealingApproach",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_LegacyApproach.M_HA3_LegacyApproach"
+      ],
+      "mesh_after": "/Game/Environment/Westland/NaturalGroundV1/Meshes/SM_WL_NG_HealingApproach.SM_WL_NG_HealingApproach",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_LegacyApproach.M_HA4_LegacyApproach"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_791",
+      "label": "V2_House_HH_Q3_WindowBox_0",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_WindowPlanter.SM_HH_Q3_WindowPlanter",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Wood.M_HH_Q2_Wood",
+        "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Timber.M_HH_Q2_Timber",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Metal.M_HH_Q3_Metal"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_WindowPlanter.SM_HH_Q3_WindowPlanter",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Metal.M_HH_Q3_Metal"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_792",
+      "label": "V2_House_HH_Q3_WindowHerb_0_0",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Blossom.M_HA3_Blossom"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_FlowerPlant.SM_HA4_FlowerPlant",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_793",
+      "label": "V2_House_HH_Q3_WindowHerb_0_1",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_BroadHerb.SM_HA4_BroadHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_794",
+      "label": "V2_House_HH_Q3_WindowHerb_0_2",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb.SM_HA3_TrailingHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_TrailingHerb.SM_HA4_TrailingHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_795",
+      "label": "V2_House_HH_Q3_WindowBox_1",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_WindowPlanter.SM_HH_Q3_WindowPlanter",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Wood.M_HH_Q2_Wood",
+        "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Timber.M_HH_Q2_Timber",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Metal.M_HH_Q3_Metal"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_WindowPlanter.SM_HH_Q3_WindowPlanter",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Metal.M_HH_Q3_Metal"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_796",
+      "label": "V2_House_HH_Q3_WindowHerb_1_0",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Blossom.M_HA3_Blossom"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_FlowerPlant.SM_HA4_FlowerPlant",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_797",
+      "label": "V2_House_HH_Q3_WindowHerb_1_1",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_BroadHerb.SM_HA4_BroadHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_798",
+      "label": "V2_House_HH_Q3_WindowHerb_1_2",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb.SM_HA3_TrailingHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_TrailingHerb.SM_HA4_TrailingHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_799",
+      "label": "V2_House_HH_Q3_WindowBox_2",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_WindowPlanter.SM_HH_Q3_WindowPlanter",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Wood.M_HH_Q2_Wood",
+        "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Timber.M_HH_Q2_Timber",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Metal.M_HH_Q3_Metal"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_WindowPlanter.SM_HH_Q3_WindowPlanter",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Metal.M_HH_Q3_Metal"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_800",
+      "label": "V2_House_HH_Q3_WindowHerb_2_0",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Blossom.M_HA3_Blossom"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_FlowerPlant.SM_HA4_FlowerPlant",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_801",
+      "label": "V2_House_HH_Q3_WindowHerb_2_1",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_BroadHerb.SM_HA4_BroadHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_802",
+      "label": "V2_House_HH_Q3_WindowHerb_2_2",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb.SM_HA3_TrailingHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_TrailingHerb.SM_HA4_TrailingHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_803",
+      "label": "V2_House_HH_Q3_WindowBox_3",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_WindowPlanter.SM_HH_Q3_WindowPlanter",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Wood.M_HH_Q2_Wood",
+        "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Timber.M_HH_Q2_Timber",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Metal.M_HH_Q3_Metal"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_WindowPlanter.SM_HH_Q3_WindowPlanter",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Metal.M_HH_Q3_Metal"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_804",
+      "label": "V2_House_HH_Q3_WindowHerb_3_0",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Blossom.M_HA3_Blossom"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_FlowerPlant.SM_HA4_FlowerPlant",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_805",
+      "label": "V2_House_HH_Q3_WindowHerb_3_1",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_BroadHerb.SM_HA4_BroadHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_806",
+      "label": "V2_House_HH_Q3_WindowHerb_3_2",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb.SM_HA3_TrailingHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_TrailingHerb.SM_HA4_TrailingHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_807",
+      "label": "V2_House_HH_Q3_WindowBox_4",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_WindowPlanter.SM_HH_Q3_WindowPlanter",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Wood.M_HH_Q2_Wood",
+        "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Timber.M_HH_Q2_Timber",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Metal.M_HH_Q3_Metal"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_WindowPlanter.SM_HH_Q3_WindowPlanter",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Metal.M_HH_Q3_Metal"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_808",
+      "label": "V2_House_HH_Q3_WindowHerb_4_0",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Blossom.M_HA3_Blossom"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_FlowerPlant.SM_HA4_FlowerPlant",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_809",
+      "label": "V2_House_HH_Q3_WindowHerb_4_1",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_BroadHerb.SM_HA4_BroadHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_810",
+      "label": "V2_House_HH_Q3_WindowHerb_4_2",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb.SM_HA3_TrailingHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_TrailingHerb.SM_HA4_TrailingHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_811",
+      "label": "V2_House_HH_Q3_WindowBox_5",
+      "mesh_before": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_WindowPlanter.SM_HH_Q3_WindowPlanter",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Wood.M_HH_Q2_Wood",
+        "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Timber.M_HH_Q2_Timber",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Metal.M_HH_Q3_Metal"
+      ],
+      "mesh_after": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_WindowPlanter.SM_HH_Q3_WindowPlanter",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeWood.M_HA4_FacadeWood",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_FacadeTimber.M_HA4_FacadeTimber",
+        "/Game/Environment/HealingHouse/QualityV3/Materials/M_HH_Q3_Metal.M_HH_Q3_Metal"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_812",
+      "label": "V2_House_HH_Q3_WindowHerb_5_0",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Blossom.M_HA3_Blossom"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_FlowerPlant.SM_HA4_FlowerPlant",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_813",
+      "label": "V2_House_HH_Q3_WindowHerb_5_1",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_BroadHerb.SM_HA4_BroadHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_814",
+      "label": "V2_House_HH_Q3_WindowHerb_5_2",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb.SM_HA3_TrailingHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_TrailingHerb.SM_HA4_TrailingHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_815",
+      "label": "V2_House_HH_Q3_EntranceHerb_0",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Blossom.M_HA3_Blossom"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_FlowerPlant.SM_HA4_FlowerPlant",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_816",
+      "label": "V2_House_HH_Q3_EntranceHerb_1",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_NarrowHerb.SM_HA3_NarrowHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_NarrowHerb.SM_HA4_NarrowHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_817",
+      "label": "V2_House_HH_Q3_EntranceHerb_2",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_BroadHerb.SM_HA4_BroadHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_818",
+      "label": "V2_House_HH_Q3_EntranceHerb_3",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_LeafPlant.SM_HA3_LeafPlant",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_LeafPlant.SM_HA4_LeafPlant",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_828",
+      "label": "V2_House_HH_Q3_ForecourtHerb_0",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_BroadHerb.SM_HA4_BroadHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_829",
+      "label": "V2_House_HH_Q3_ForecourtHerb_1",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_LeafPlant.SM_HA3_LeafPlant",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_LeafPlant.SM_HA4_LeafPlant",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_830",
+      "label": "V2_House_HH_Q3_ForecourtHerb_2",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Blossom.M_HA3_Blossom"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_FlowerPlant.SM_HA4_FlowerPlant",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_831",
+      "label": "V2_House_HH_Q3_ForecourtHerb_3",
+      "mesh_before": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_NarrowHerb.SM_HA3_NarrowHerb",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot.M_HA3_Pot",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage.M_HA3_Foliage",
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil.M_HA3_Soil"
+      ],
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_NarrowHerb.SM_HA4_NarrowHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_949",
+      "label": "V2_Ground",
+      "mesh_before": "/Engine/BasicShapes/Cube.Cube",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingMeadow.M_HA3_HealingMeadow"
+      ],
+      "mesh_after": "/Engine/BasicShapes/Cube.Cube",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_HealingMeadow.M_HA4_HealingMeadow"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_953",
+      "label": "V2_Path_VillageLoop",
+      "mesh_before": "/Game/Environment/DevTestMapVisualV2/Meshes/SM_V2_Path_VillageLoop.SM_V2_Path_VillageLoop",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingPath.M_HA3_HealingPath"
+      ],
+      "mesh_after": "/Game/Environment/DevTestMapVisualV2/Meshes/SM_V2_Path_VillageLoop.SM_V2_Path_VillageLoop",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_HealingPath.M_HA4_HealingPath"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_954",
+      "label": "V2_Path_NorthLoop",
+      "mesh_before": "/Game/Environment/DevTestMapVisualV2/Meshes/SM_V2_Path_NorthLoop.SM_V2_Path_NorthLoop",
+      "materials_before": [
+        "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingPath.M_HA3_HealingPath"
+      ],
+      "mesh_after": "/Game/Environment/DevTestMapVisualV2/Meshes/SM_V2_Path_NorthLoop.SM_V2_Path_NorthLoop",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_HealingPath.M_HA4_HealingPath"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_447",
+      "label": "V2_House_HH_V3_WindowHerb_-1_0_Pot",
+      "mesh_before": "/Engine/BasicShapes/Cylinder.Cylinder",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Ochre.M_HH_V3_Ochre"
+      ],
+      "location_before_cm": [
+        -3588.0,
+        185.0,
+        111.48
+      ],
+      "scale_before": [
+        0.1512,
+        0.1512,
+        0.1296
+      ],
+      "location_after_cm": [
+        -3588.0,
+        185.0,
+        105.0
+      ],
+      "scale_after": [
+        0.42,
+        0.42,
+        0.42
+      ],
+      "family": "FlowerPlant",
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_FlowerPlant.SM_HA4_FlowerPlant",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_448",
+      "label": "V2_House_HH_V3_WindowHerb_-1_0_Leaf0",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_449",
+      "label": "V2_House_HH_V3_WindowHerb_-1_0_Leaf1",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_450",
+      "label": "V2_House_HH_V3_WindowHerb_-1_0_Leaf2",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_451",
+      "label": "V2_House_HH_V3_WindowHerb_-1_0_Flower",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Flower.M_HH_V3_Flower"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Flower.M_HH_V3_Flower"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_452",
+      "label": "V2_House_HH_V3_WindowHerb_-1_1_Pot",
+      "mesh_before": "/Engine/BasicShapes/Cylinder.Cylinder",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Ochre.M_HH_V3_Ochre"
+      ],
+      "location_before_cm": [
+        -3588.0,
+        212.0,
+        111.48
+      ],
+      "scale_before": [
+        0.1512,
+        0.1512,
+        0.1296
+      ],
+      "location_after_cm": [
+        -3588.0,
+        212.0,
+        105.0
+      ],
+      "scale_after": [
+        0.42,
+        0.42,
+        0.42
+      ],
+      "family": "TrailingHerb",
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_TrailingHerb.SM_HA4_TrailingHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_453",
+      "label": "V2_House_HH_V3_WindowHerb_-1_1_Leaf0",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_454",
+      "label": "V2_House_HH_V3_WindowHerb_-1_1_Leaf1",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_455",
+      "label": "V2_House_HH_V3_WindowHerb_-1_1_Leaf2",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_456",
+      "label": "V2_House_HH_V3_WindowHerb_-1_2_Pot",
+      "mesh_before": "/Engine/BasicShapes/Cylinder.Cylinder",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Ochre.M_HH_V3_Ochre"
+      ],
+      "location_before_cm": [
+        -3588.0,
+        239.0,
+        111.48
+      ],
+      "scale_before": [
+        0.1512,
+        0.1512,
+        0.1296
+      ],
+      "location_after_cm": [
+        -3588.0,
+        239.0,
+        105.0
+      ],
+      "scale_after": [
+        0.42,
+        0.42,
+        0.42
+      ],
+      "family": "NarrowHerb",
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_NarrowHerb.SM_HA4_NarrowHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_457",
+      "label": "V2_House_HH_V3_WindowHerb_-1_2_Leaf0",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_458",
+      "label": "V2_House_HH_V3_WindowHerb_-1_2_Leaf1",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_459",
+      "label": "V2_House_HH_V3_WindowHerb_-1_2_Leaf2",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_460",
+      "label": "V2_House_HH_V3_WindowHerb_-1_2_Flower",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Flower.M_HH_V3_Flower"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Flower.M_HH_V3_Flower"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_461",
+      "label": "V2_House_HH_V3_WindowHerb_-1_3_Pot",
+      "mesh_before": "/Engine/BasicShapes/Cylinder.Cylinder",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Ochre.M_HH_V3_Ochre"
+      ],
+      "location_before_cm": [
+        -3588.0,
+        266.0,
+        111.48
+      ],
+      "scale_before": [
+        0.1512,
+        0.1512,
+        0.1296
+      ],
+      "location_after_cm": [
+        -3588.0,
+        266.0,
+        105.0
+      ],
+      "scale_after": [
+        0.42,
+        0.42,
+        0.42
+      ],
+      "family": "BroadHerb",
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_BroadHerb.SM_HA4_BroadHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_462",
+      "label": "V2_House_HH_V3_WindowHerb_-1_3_Leaf0",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_463",
+      "label": "V2_House_HH_V3_WindowHerb_-1_3_Leaf1",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_464",
+      "label": "V2_House_HH_V3_WindowHerb_-1_3_Leaf2",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_474",
+      "label": "V2_House_HH_V3_WindowHerb_1_0_Pot",
+      "mesh_before": "/Engine/BasicShapes/Cylinder.Cylinder",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Ochre.M_HH_V3_Ochre"
+      ],
+      "location_before_cm": [
+        -3588.0,
+        735.0,
+        111.48
+      ],
+      "scale_before": [
+        0.1512,
+        0.1512,
+        0.1296
+      ],
+      "location_after_cm": [
+        -3588.0,
+        735.0,
+        105.0
+      ],
+      "scale_after": [
+        0.42,
+        0.42,
+        0.42
+      ],
+      "family": "FlowerPlant",
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_FlowerPlant.SM_HA4_FlowerPlant",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_475",
+      "label": "V2_House_HH_V3_WindowHerb_1_0_Leaf0",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_476",
+      "label": "V2_House_HH_V3_WindowHerb_1_0_Leaf1",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_477",
+      "label": "V2_House_HH_V3_WindowHerb_1_0_Leaf2",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_478",
+      "label": "V2_House_HH_V3_WindowHerb_1_0_Flower",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Flower.M_HH_V3_Flower"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Flower.M_HH_V3_Flower"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_479",
+      "label": "V2_House_HH_V3_WindowHerb_1_1_Pot",
+      "mesh_before": "/Engine/BasicShapes/Cylinder.Cylinder",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Ochre.M_HH_V3_Ochre"
+      ],
+      "location_before_cm": [
+        -3588.0,
+        762.0,
+        111.48
+      ],
+      "scale_before": [
+        0.1512,
+        0.1512,
+        0.1296
+      ],
+      "location_after_cm": [
+        -3588.0,
+        762.0,
+        105.0
+      ],
+      "scale_after": [
+        0.42,
+        0.42,
+        0.42
+      ],
+      "family": "TrailingHerb",
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_TrailingHerb.SM_HA4_TrailingHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_480",
+      "label": "V2_House_HH_V3_WindowHerb_1_1_Leaf0",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_481",
+      "label": "V2_House_HH_V3_WindowHerb_1_1_Leaf1",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_482",
+      "label": "V2_House_HH_V3_WindowHerb_1_1_Leaf2",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_483",
+      "label": "V2_House_HH_V3_WindowHerb_1_2_Pot",
+      "mesh_before": "/Engine/BasicShapes/Cylinder.Cylinder",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Ochre.M_HH_V3_Ochre"
+      ],
+      "location_before_cm": [
+        -3588.0,
+        789.0,
+        111.48
+      ],
+      "scale_before": [
+        0.1512,
+        0.1512,
+        0.1296
+      ],
+      "location_after_cm": [
+        -3588.0,
+        789.0,
+        105.0
+      ],
+      "scale_after": [
+        0.42,
+        0.42,
+        0.42
+      ],
+      "family": "NarrowHerb",
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_NarrowHerb.SM_HA4_NarrowHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_484",
+      "label": "V2_House_HH_V3_WindowHerb_1_2_Leaf0",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_485",
+      "label": "V2_House_HH_V3_WindowHerb_1_2_Leaf1",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_486",
+      "label": "V2_House_HH_V3_WindowHerb_1_2_Leaf2",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_487",
+      "label": "V2_House_HH_V3_WindowHerb_1_2_Flower",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Flower.M_HH_V3_Flower"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Flower.M_HH_V3_Flower"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_488",
+      "label": "V2_House_HH_V3_WindowHerb_1_3_Pot",
+      "mesh_before": "/Engine/BasicShapes/Cylinder.Cylinder",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Ochre.M_HH_V3_Ochre"
+      ],
+      "location_before_cm": [
+        -3588.0,
+        816.0,
+        111.48
+      ],
+      "scale_before": [
+        0.1512,
+        0.1512,
+        0.1296
+      ],
+      "location_after_cm": [
+        -3588.0,
+        816.0,
+        105.0
+      ],
+      "scale_after": [
+        0.42,
+        0.42,
+        0.42
+      ],
+      "family": "BroadHerb",
+      "mesh_after": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_BroadHerb.SM_HA4_BroadHerb",
+      "materials_after": [
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Pot.M_HA4_Pot",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Foliage.M_HA4_Foliage",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Soil.M_HA4_Soil",
+        "/Game/Environment/VisualV2HealingArtV4/Materials/M_HA4_Blossom.M_HA4_Blossom"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_489",
+      "label": "V2_House_HH_V3_WindowHerb_1_3_Leaf0",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_490",
+      "label": "V2_House_HH_V3_WindowHerb_1_3_Leaf1",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_491",
+      "label": "V2_House_HH_V3_WindowHerb_1_3_Leaf2",
+      "mesh_before": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_before": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ],
+      "legacy_component_retained_invisible": true,
+      "mesh_after": "/Engine/BasicShapes/Sphere.Sphere",
+      "materials_after": [
+        "/Game/Environment/HealingHouse/V3/Materials/M_HH_V3_Herb.M_HH_V3_Herb"
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "name": "Actor_43",
+      "label": "HA4_GrassTuft",
+      "mesh": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_GrassTuft.SM_HA4_GrassTuft",
+      "count": 72,
+      "placements": [
+        [
+          -3759.3465000414335,
+          1001.2724181459606,
+          0.5,
+          0.9757556670449808
+        ],
+        [
+          -4382.069911669474,
+          31.03082292215035,
+          0.5,
+          0.8019836413972161
+        ],
+        [
+          -4443.532760368443,
+          672.087226666206,
+          0.5,
+          0.9131181150163996
+        ],
+        [
+          -4430.670070981974,
+          -345.66112747997107,
+          0.5,
+          0.9480280267870156
+        ],
+        [
+          -3746.864865977149,
+          -27.090115934990223,
+          0.5,
+          0.9670817075812914
+        ],
+        [
+          -3671.0418881251508,
+          84.31926636545188,
+          0.5,
+          0.9384044994005287
+        ],
+        [
+          -3772.156067871115,
+          141.86647491563167,
+          0.5,
+          1.0505055034930817
+        ],
+        [
+          -4509.672335102243,
+          922.2129696682504,
+          0.5,
+          0.896983265123941
+        ],
+        [
+          -4407.942342154909,
+          384.9120380823799,
+          0.5,
+          0.9077382351603813
+        ],
+        [
+          -3837.9483068947175,
+          802.519297244898,
+          0.5,
+          0.9046073998731163
+        ],
+        [
+          -3804.3545151693193,
+          4.815205730124518,
+          0.5,
+          1.170566417477038
+        ],
+        [
+          -3805.1780208411715,
+          872.7041793571866,
+          0.5,
+          1.0954772815520348
+        ],
+        [
+          -3712.76570383346,
+          -4.095211887890159,
+          0.5,
+          1.0715727782414068
+        ],
+        [
+          -3833.6762525117856,
+          -324.9464037467843,
+          0.5,
+          0.9393744200481632
+        ],
+        [
+          -4383.392367000037,
+          648.1895911326174,
+          0.5,
+          0.6833351536991148
+        ],
+        [
+          -3852.3815218214218,
+          -216.2781180746345,
+          0.5,
+          1.1800077679077787
+        ],
+        [
+          -3758.235638799653,
+          32.83535073088234,
+          0.5,
+          0.7625915838387954
+        ],
+        [
+          -3883.939575719922,
+          794.2885113622156,
+          0.5,
+          0.7866751011409877
+        ],
+        [
+          -4447.771655653141,
+          -256.1643918522808,
+          0.5,
+          0.875095409426065
+        ],
+        [
+          -3698.891835087188,
+          975.8108603792857,
+          0.5,
+          1.1273832061449574
+        ],
+        [
+          -3697.990394907891,
+          1058.5743533450157,
+          0.5,
+          0.9540663315441267
+        ],
+        [
+          -3804.1606213533164,
+          41.9455063360312,
+          0.5,
+          0.8880411730582329
+        ],
+        [
+          -3800.667036588093,
+          1052.630025131301,
+          0.5,
+          1.1783682568617864
+        ],
+        [
+          -4362.360324655309,
+          48.620363933157314,
+          0.5,
+          1.1331727235077853
+        ],
+        [
+          -3732.3580697896,
+          151.97656518868396,
+          0.5,
+          0.7212307231714451
+        ],
+        [
+          -4363.195545113671,
+          369.0893397575264,
+          0.5,
+          1.0903948059114126
+        ],
+        [
+          -3825.6867652843694,
+          830.3674121602594,
+          0.5,
+          0.8979917957148985
+        ],
+        [
+          -3820.554716260371,
+          201.12067742563804,
+          0.5,
+          0.9969411205342806
+        ],
+        [
+          -3879.933931006875,
+          -177.56713776998453,
+          0.5,
+          1.1757501608603933
+        ],
+        [
+          -4371.023756963015,
+          161.95306145854312,
+          0.5,
+          1.1458425589180725
+        ],
+        [
+          -4470.22743189443,
+          28.81622285845337,
+          0.5,
+          1.176804771737147
+        ],
+        [
+          -4504.585982024232,
+          735.0580841453246,
+          0.5,
+          1.076416544145169
+        ],
+        [
+          -3923.2318630213394,
+          -345.2623238247652,
+          0.5,
+          0.9877319161296478
+        ],
+        [
+          -4439.020585067211,
+          778.6232537804926,
+          0.5,
+          0.8348742569350848
+        ],
+        [
+          -3744.787279914796,
+          1016.1386152068178,
+          0.5,
+          1.2334351478070134
+        ],
+        [
+          -3859.651041858823,
+          804.6386668475604,
+          0.5,
+          1.0435757885037937
+        ],
+        [
+          -4423.898209177587,
+          -308.2909736170729,
+          0.5,
+          0.7620042807344405
+        ],
+        [
+          -3781.441571479215,
+          23.574440743318824,
+          0.5,
+          1.1712470179973717
+        ],
+        [
+          -4410.280954073091,
+          -432.89059082325093,
+          0.5,
+          0.8650331928089781
+        ],
+        [
+          -4486.547648981702,
+          725.6852051037529,
+          0.5,
+          0.7362530807829345
+        ],
+        [
+          -3862.9006361622346,
+          941.6726958527938,
+          0.5,
+          0.7241544577078288
+        ],
+        [
+          -4439.855008248897,
+          27.04908361574013,
+          0.5,
+          0.8272363755114345
+        ],
+        [
+          -3779.8426818692037,
+          868.1956187341082,
+          0.5,
+          1.022746932839307
+        ],
+        [
+          -3858.162972627404,
+          851.669400334158,
+          0.5,
+          0.948943860014643
+        ],
+        [
+          -3648.1284876333484,
+          998.3265992209192,
+          0.5,
+          0.7562393797637514
+        ],
+        [
+          -4355.005728115044,
+          94.53006662786683,
+          0.5,
+          1.196880000198549
+        ],
+        [
+          -3796.10457898631,
+          1025.010392572827,
+          0.5,
+          0.7893659136020107
+        ],
+        [
+          -3868.148787107261,
+          -369.6407408817222,
+          0.5,
+          0.7937434047235974
+        ],
+        [
+          -4402.45675977244,
+          -519.3261364354763,
+          0.5,
+          1.1042567751855579
+        ],
+        [
+          -3791.007951535678,
+          -297.21327278781934,
+          0.5,
+          1.0705216004895945
+        ],
+        [
+          -4442.357184534653,
+          -383.28743978986387,
+          0.5,
+          1.083393574423275
+        ],
+        [
+          -4378.490128356998,
+          6.766740939460647,
+          0.5,
+          0.9090601101545013
+        ],
+        [
+          -3841.463523063331,
+          888.8033891242881,
+          0.5,
+          1.2103121518896005
+        ],
+        [
+          -4496.138150621627,
+          423.9947482578562,
+          0.5,
+          0.8521585802015046
+        ],
+        [
+          -3844.6578686691614,
+          153.7183822965026,
+          0.5,
+          0.9942546073321408
+        ],
+        [
+          -4370.496127401101,
+          301.37846646006426,
+          0.5,
+          0.7844509411228618
+        ],
+        [
+          -4449.019883553149,
+          451.85830352390485,
+          0.5,
+          0.9242473636691448
+        ],
+        [
+          -3818.1975903798943,
+          167.0923928128602,
+          0.5,
+          1.1732914567949275
+        ],
+        [
+          -4381.535180813515,
+          -361.4693087593062,
+          0.5,
+          1.040825597549326
+        ],
+        [
+          -4490.69163520047,
+          631.4146752941456,
+          0.5,
+          1.172591853755855
+        ],
+        [
+          -4410.255643457339,
+          755.6048951494996,
+          0.5,
+          0.9621356688846678
+        ],
+        [
+          -3905.476489580574,
+          911.7476720721314,
+          0.5,
+          0.7979105026183597
+        ],
+        [
+          -3760.158349008773,
+          68.76223811783092,
+          0.5,
+          1.1505653460316134
+        ],
+        [
+          -3839.078076258844,
+          -201.16333307594425,
+          0.5,
+          0.7974176581301028
+        ],
+        [
+          -3729.577167531472,
+          1059.6073003757397,
+          0.5,
+          0.8290709495146584
+        ],
+        [
+          -3850.9453488493946,
+          743.2710121332125,
+          0.5,
+          1.2285000122648908
+        ],
+        [
+          -3800.5592375693886,
+          175.0165383276987,
+          0.5,
+          1.1914527208934795
+        ],
+        [
+          -4044.823156677323,
+          995.420279660009,
+          0.5,
+          0.7919087905930214
+        ],
+        [
+          -3690.4813879371477,
+          110.82299838779792,
+          0.5,
+          0.7507398385320792
+        ],
+        [
+          -3663.8741311864505,
+          -42.234618313405036,
+          0.5,
+          0.6811987733419368
+        ],
+        [
+          -3788.3495080537405,
+          956.830345493503,
+          0.5,
+          1.06733729418016
+        ],
+        [
+          -3750.9198433182805,
+          154.03995488639652,
+          0.5,
+          0.9394712107718127
+        ]
+      ]
+    },
+    {
+      "name": "Actor_44",
+      "label": "HA4_GardenHerb",
+      "mesh": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_GardenHerb.SM_HA4_GardenHerb",
+      "count": 18,
+      "placements": [
+        [
+          -4412.081031628253,
+          -420.6338455214154,
+          0.5,
+          0.8820658580306762
+        ],
+        [
+          -4447.282574679255,
+          458.79889359885044,
+          0.5,
+          0.8758425314694608
+        ],
+        [
+          -3902.6790983771343,
+          -245.7825148612466,
+          0.5,
+          1.0251695366065197
+        ],
+        [
+          -4475.5286099176055,
+          586.9349731301188,
+          0.5,
+          0.7557813665700523
+        ],
+        [
+          -4079.05580198601,
+          1034.9385945969411,
+          0.5,
+          0.7300856172637931
+        ],
+        [
+          -4470.169504658764,
+          648.9356259601741,
+          0.5,
+          1.110561031915379
+        ],
+        [
+          -3820.43148235299,
+          -230.45407672240805,
+          0.5,
+          1.1250153506165033
+        ],
+        [
+          -3827.801125544927,
+          -167.0106802168844,
+          0.5,
+          0.8508762191047694
+        ],
+        [
+          -3765.3752160944146,
+          1078.810764308943,
+          0.5,
+          0.8508536065887283
+        ],
+        [
+          -4396.241052206596,
+          397.59389474324917,
+          0.5,
+          0.6474418903866322
+        ],
+        [
+          -4310.9370334419145,
+          413.2565106614609,
+          0.5,
+          0.8646028967410848
+        ],
+        [
+          -3724.9008571666814,
+          864.0573132422795,
+          0.5,
+          0.9584184403105581
+        ],
+        [
+          -3870.747637767039,
+          -298.1923382632656,
+          0.5,
+          0.9041472261812817
+        ],
+        [
+          -3790.036968090275,
+          -318.93880538194344,
+          0.5,
+          0.6714210814320981
+        ],
+        [
+          -3794.8867224732494,
+          975.566487705948,
+          0.5,
+          0.833152317045745
+        ],
+        [
+          -3715.3817317828516,
+          235.87468396019872,
+          0.5,
+          0.7382392342392706
+        ],
+        [
+          -4497.745361085337,
+          706.4562258504722,
+          0.5,
+          1.0040555154689652
+        ],
+        [
+          -3845.1371725236877,
+          -341.4626405314059,
+          0.5,
+          0.7047935967993543
+        ]
+      ]
+    },
+    {
+      "name": "Actor_45",
+      "label": "HA4_GardenFlowers",
+      "mesh": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_GardenFlowers.SM_HA4_GardenFlowers",
+      "count": 12,
+      "placements": [
+        [
+          -3970.5472530371367,
+          -367.2064867464618,
+          0.5,
+          0.8798090669166702
+        ],
+        [
+          -3654.8186494038287,
+          1007.5544337073885,
+          0.5,
+          0.7155008001186814
+        ],
+        [
+          -4453.344368938304,
+          -5.29841165165567,
+          0.5,
+          1.1173641612851621
+        ],
+        [
+          -3766.4413884715714,
+          248.4776119227286,
+          0.5,
+          0.992599687981641
+        ],
+        [
+          -3689.2606582689896,
+          833.1013183249261,
+          0.5,
+          0.9405905640728998
+        ],
+        [
+          -3759.253096496517,
+          98.19756827135278,
+          0.5,
+          0.9033392815307527
+        ],
+        [
+          -4461.143706305174,
+          694.3319084108741,
+          0.5,
+          0.738555976167315
+        ],
+        [
+          -3848.524721358268,
+          912.1644465779736,
+          0.5,
+          0.889171684624591
+        ],
+        [
+          -4376.994178912847,
+          438.20248024535647,
+          0.5,
+          1.0336235893677648
+        ],
+        [
+          -4394.262411214079,
+          358.9534506731284,
+          0.5,
+          0.7422194625452346
+        ],
+        [
+          -3824.9363894769754,
+          816.5431130443926,
+          0.5,
+          1.1324906752204926
+        ],
+        [
+          -4373.781829082344,
+          -372.28476286232694,
+          0.5,
+          0.8611942742078731
+        ]
+      ]
+    },
+    {
+      "name": "Actor_46",
+      "label": "HA4_Flagstone",
+      "mesh": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HA4_Flagstone.SM_HA4_Flagstone",
+      "count": 45,
+      "placements": [
+        [
+          -3617.0727417543267,
+          602.5683964019458,
+          0.7,
+          0.9349253615698068
+        ],
+        [
+          -3866.4342455510146,
+          564.0804608457976,
+          0.7,
+          0.7129317681025793
+        ],
+        [
+          -3676.906232102686,
+          482.98816730110343,
+          0.7,
+          0.7358428269538776
+        ],
+        [
+          -3837.9780505610006,
+          462.5834340560635,
+          0.7,
+          0.8916493842538965
+        ],
+        [
+          -3644.9866596569896,
+          472.2775292503474,
+          0.7,
+          0.6942578740125838
+        ],
+        [
+          -3732.2847646580444,
+          601.2842434762713,
+          0.7,
+          0.6550547383739155
+        ],
+        [
+          -3848.572220302399,
+          403.7798525897351,
+          0.7,
+          0.6760908677726455
+        ],
+        [
+          -3638.175714413517,
+          434.1518792580489,
+          0.7,
+          0.7510798804264338
+        ],
+        [
+          -3719.4505320517815,
+          411.74736987313867,
+          0.7,
+          0.9375545761861312
+        ],
+        [
+          -3910.712430495519,
+          561.3073696407647,
+          0.7,
+          0.9095416082234515
+        ],
+        [
+          -3785.9977800568895,
+          400.2739067471433,
+          0.7,
+          1.0002528166857407
+        ],
+        [
+          -3619.3803263576233,
+          554.6002147185823,
+          0.7,
+          0.8889100148584593
+        ],
+        [
+          -3660.8399005492874,
+          554.9901412122603,
+          0.7,
+          0.7208441623063989
+        ],
+        [
+          -3883.4285451880282,
+          504.0198327326856,
+          0.7,
+          0.871226791592618
+        ],
+        [
+          -3903.987004635161,
+          489.1261671747168,
+          0.7,
+          0.6855767597742715
+        ],
+        [
+          -3865.8906763800646,
+          534.4952773955388,
+          0.7,
+          0.8465081901103281
+        ],
+        [
+          -3891.2665567828735,
+          445.53877101838344,
+          0.7,
+          0.805707025157734
+        ],
+        [
+          -3893.6546400787597,
+          602.5209757606561,
+          0.7,
+          0.868243039553362
+        ],
+        [
+          -3758.606283586406,
+          511.93061704294706,
+          0.7,
+          1.0113949084531944
+        ],
+        [
+          -3844.7785083607873,
+          582.5867541842124,
+          0.7,
+          0.8302259490839131
+        ],
+        [
+          -3720.491968092463,
+          446.2704276469957,
+          0.7,
+          0.8104748437472145
+        ],
+        [
+          -3696.8831979306497,
+          453.11762340251187,
+          0.7,
+          0.7974750961364543
+        ],
+        [
+          -3848.694898242813,
+          506.29723294142605,
+          0.7,
+          0.6942837948367007
+        ],
+        [
+          -3869.850894542633,
+          484.2893339169069,
+          0.7,
+          0.9224823162036582
+        ],
+        [
+          -3740.281350985627,
+          570.4499449197181,
+          0.7,
+          0.9310751534469281
+        ],
+        [
+          -3791.8176255826565,
+          444.0815043094299,
+          0.7,
+          0.7703546755096274
+        ],
+        [
+          -3865.312681161047,
+          426.9575466658864,
+          0.7,
+          0.7803628827520298
+        ],
+        [
+          -3662.618273821815,
+          582.6240580692826,
+          0.7,
+          0.714154978747996
+        ],
+        [
+          -3789.465698592463,
+          551.5355362488556,
+          0.7,
+          0.8215312960919252
+        ],
+        [
+          -3649.286026713951,
+          410.7751158950422,
+          0.7,
+          1.0324357374287627
+        ],
+        [
+          -3783.9238484782077,
+          495.27297772404796,
+          0.7,
+          0.6825116961132298
+        ],
+        [
+          -3700.7993113116418,
+          600.4018054462063,
+          0.7,
+          0.9208350011697515
+        ],
+        [
+          -3749.602599297999,
+          478.7726487329238,
+          0.7,
+          0.7451619340953175
+        ],
+        [
+          -3783.971240003075,
+          473.91224933080906,
+          0.7,
+          0.6788264490524387
+        ],
+        [
+          -3701.745786101355,
+          544.6597073598659,
+          0.7,
+          0.8001167659020206
+        ],
+        [
+          -3745.370502970763,
+          421.65021378727386,
+          0.7,
+          0.8871452383553718
+        ],
+        [
+          -3672.94252917711,
+          537.2402594711876,
+          0.7,
+          0.8204220497595639
+        ],
+        [
+          -3758.5689592489307,
+          583.9780840221532,
+          0.7,
+          1.0410877212594163
+        ],
+        [
+          -3725.910791549372,
+          507.40841439854705,
+          0.7,
+          0.9804734824743484
+        ],
+        [
+          -3796.551925493827,
+          579.577525745109,
+          0.7,
+          0.6576699532434547
+        ],
+        [
+          -3814.8898799830904,
+          417.7471552935499,
+          0.7,
+          1.0382186128710535
+        ],
+        [
+          -3868.055979327123,
+          452.2870690686807,
+          0.7,
+          0.8046007110212
+        ],
+        [
+          -3704.2664882961712,
+          473.6328669528365,
+          0.7,
+          0.9140410101242347
+        ],
+        [
+          -3653.77923884276,
+          495.3389421957206,
+          0.7,
+          0.8666550696594482
+        ],
+        [
+          -3818.3496409902527,
+          548.4858560095194,
+          0.7,
+          0.8662124688497991
+        ]
+      ]
+    }
+  ],
+  "existing_pots": 26,
+  "ivy_sprays": 14,
+  "existing_actors_unchanged": 1237,
+  "added_instances": 147,
+  "original_175_instances_unchanged": true,
+  "lights_postprocess_collision_gameplay_camera_unchanged": true,
+  "legacy_window_pots_replaced": 8,
+  "legacy_primitive_parts_retained_hidden": 28
+}

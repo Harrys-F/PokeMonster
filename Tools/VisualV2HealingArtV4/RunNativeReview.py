@@ -1,0 +1,6 @@
+from ProcessGuard import editor_pids
+from pathlib import Path
+import subprocess,json,sys
+R=Path(__file__).resolve().parents[2];S=R/'Saved/VisualV2HealingArtV4';q=int(sys.argv[1]);phase=sys.argv[2];assert q in [1,2];assert not editor_pids();done=S/('NativeReview_Q'+str(q)+'_'+phase+'_Done.json');assert not done.exists();(S/'NativeReviewRequest.json').write_text(json.dumps({'quality':q,'phase':phase,'full100':True}));log=S/('NativeReview_Q'+str(q)+'_'+phase+'_Engine.log');args=['/Users/Shared/Epic Games/UE_5.8/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor',str(R/'PokeMonster.uproject'),'/Game/Maps/Dev_TestMap_VisualV2','-game','-windowed','-ResX=1280','-ResY=720','-ForceRes','-NoSplash','-NoLiveCoding','-ModelContextProtocolPort=8016','-ExecCmds='+','.join(['sg.'+n+'Quality '+str(q) for n in ['ViewDistance','AntiAliasing','Shadow','GlobalIllumination','Reflection','PostProcess','Texture','Effects','Foliage','Shading']]+['py '+str(R/'Tools/VisualV2HealingArtV4/NativeReview.py')]),'-ABSLOG='+str(log)]
+with (S/('NativeReview_Q'+str(q)+'_'+phase+'_Console.log')).open('w') as f:p=subprocess.run(args,stdout=f,stderr=subprocess.STDOUT,timeout=250)
+assert p.returncode==0 and done.exists();print('STANDALONE REVIEW COMPLETE',q,flush=True)

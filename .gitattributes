@@ -47,3 +47,7 @@ Art/Characters/NPCs/Wizard/Textures/Wizard_Image_2.jpg filter=lfs diff=lfs merge
 
 # Hand-painted Heilhaus V3 source textures; no review captures.
 Art/World/VisualV2HealingArtV3/Textures/*.png filter=lfs diff=lfs merge=lfs -text
+
+# Heilhaus V4: required authored art inputs, not review captures
+Art/World/VisualV2HealingArtV4/Textures/*.png filter=lfs diff=lfs merge=lfs -text
+Art/World/VisualV2HealingArtV4/References/*.jpg filter=lfs diff=lfs merge=lfs -text

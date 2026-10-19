@@ -1,0 +1,20 @@
+[
+  {
+    "asset": "/Users/harry/Documents/Codex/PokeMonster_GitSicherung_V5_2026-10-16/Worktree/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Meadow.png",
+    "source": "/Users/harry/.codex/generated_images/01a0ac33-17a2-7000-a83d-bf800bb4af2e/exec-d658852d-2813-4411-b188-13a85164de85.png",
+    "prompt": "Use case: stylized-concept. Asset type: seamless square grass ground BASE COLOR albedo texture for a high quality hand-painted fantasy Unreal game. Orthographic flat material sample covering about 1.7 metres of meadow, no perspective, no border. Coherent large readable olive/sage green grass blades and varied clover leaves with small dark earthy gaps, natural randomly sized tufts, painterly brushwork. Rich organic structure readable from a distant top-down camera, NOT fine granular noise, not photographic, not a stylized low-poly surface. Mostly mid-dark muted greens with occasional warm straw blades. Soft broad natural color variation without a bright center. Absolutely no directional lighting, no cast shadows, no ambient occlusion baking, no highlights, no text, no stones larger than 2cm, no conspicuous big flowers. Tileable at all four edges. 2048 by 2048 square texture.",
+    "mode": "built-in imagegen"
+  },
+  {
+    "asset": "/Users/harry/Documents/Codex/PokeMonster_GitSicherung_V5_2026-10-16/Worktree/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Earth.png",
+    "source": "/Users/harry/.codex/generated_images/01a0ac33-17a2-7000-a83d-bf800bb4af2e/exec-f0946c99-533d-41fe-a70d-69d8f38b7de5.png",
+    "prompt": "Use case: stylized-concept. Asset type: seamless square dirt road BASE COLOR albedo texture for a high quality painterly fantasy Unreal game, covering about 1.7 metres. Flat orthographic top view only, no perspective, no frame. Warm muted ochre-brown trodden earth, varied compacted patches and subtle scuffs, individually readable scattered irregular small rounded grey-beige pebbles 1 to 4cm across, a few dry grass fragments. Hand painted with restrained organic brush strokes, detailed calm shapes not fine noise. No large cobbles, no repeated stamps or regular gravel grid, no road markings, no grass green edge (this texture fills an entire road surface). Seamless all edges. No cast shadows, no lighting gradients, no baked ambient occlusion, no bright center, no text. 2048 by 2048 square.",
+    "mode": "built-in imagegen"
+  },
+  {
+    "asset": "/Users/harry/Documents/Codex/PokeMonster_GitSicherung_V5_2026-10-16/Worktree/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Wood.png",
+    "source": "/Users/harry/.codex/generated_images/01a0ac33-17a2-7000-a83d-bf800bb4af2e/exec-19cb0a6f-8916-4870-ae22-ce7b6b3d2a75.png",
+    "prompt": "Use case: stylized-concept. Asset type: seamless square aged golden oak WOOD BASE COLOR albedo texture for a painterly fantasy medieval house. Flat material sample, uninterrupted timber, grain lengthwise vertically in the image, visible flowing broad and fine growth lines, very occasional subtle knot, hand carved marks, warm medium brown and golden tan natural irregular coloration. High quality hand painted stylized realism, large-scale grain readable from top-down game camera. NO plank seams, no frames, nails, handles or other objects. No artificial bevels, no cracks creating black cavities. No directional illumination, no shine, no shadows, no baked AO, no vignette. Moderate contrast, not orange. Seamless horizontally and vertically, 2048 by 2048 square.",
+    "mode": "built-in imagegen"
+  }
+]

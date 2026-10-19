@@ -1,0 +1,86 @@
+{
+  "GardenHerb": {
+    "object": "HA4_GardenHerb",
+    "vertices": 5656,
+    "triangles": 8708,
+    "materials": [
+      "HA4_Pot",
+      "HA4_Foliage",
+      "HA4_Soil",
+      "HA4_Blossom"
+    ],
+    "dimensions_m": [
+      0.4265567660331726,
+      0.42472684383392334,
+      0.4854017123579979
+    ]
+  },
+  "GardenFlowers": {
+    "object": "HA4_GardenFlowers",
+    "vertices": 15420,
+    "triangles": 23516,
+    "materials": [
+      "HA4_Pot",
+      "HA4_Foliage",
+      "HA4_Soil",
+      "HA4_Blossom"
+    ],
+    "dimensions_m": [
+      0.4233417212963104,
+      0.4390343129634857,
+      0.39203980180900544
+    ]
+  },
+  "GrassTuft": {
+    "object": "HA4_GrassTuft",
+    "vertices": 912,
+    "triangles": 1056,
+    "materials": [
+      "HA4_Foliage"
+    ],
+    "dimensions_m": [
+      0.6082489788532257,
+      0.5747261941432953,
+      0.26354289054870605
+    ]
+  },
+  "IvySprigA": {
+    "object": "HA4_IvySprigA",
+    "vertices": 189,
+    "triangles": 180,
+    "materials": [
+      "HA4_Foliage"
+    ],
+    "dimensions_m": [
+      0.8549999967217445,
+      1.1660482287406921,
+      1.3662970066070557
+    ]
+  },
+  "IvySprigB": {
+    "object": "HA4_IvySprigB",
+    "vertices": 189,
+    "triangles": 180,
+    "materials": [
+      "HA4_Foliage"
+    ],
+    "dimensions_m": [
+      0.8549999967217445,
+      1.2262293100357056,
+      1.2164321541786194
+    ]
+  },
+  "Flagstone": {
+    "object": "HA4_Flagstone",
+    "vertices": 27,
+    "triangles": 50,
+    "materials": [
+      "HA4_Stone"
+    ],
+    "dimensions_m": [
+      0.30734802782535553,
+      0.2542886883020401,
+      0.036251445999369025
+    ]
+  }
+}

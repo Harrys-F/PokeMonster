@@ -1,0 +1,82 @@
+{
+  "BroadHerb": {
+    "object": "HA4_BroadHerb",
+    "vertices": 6025,
+    "triangles": 9364,
+    "dimensions_m": [
+      0.6879947781562805,
+      0.6850432753562927,
+      0.8549150824546814
+    ],
+    "materials": [
+      "HA4_Pot",
+      "HA4_Foliage",
+      "HA4_Soil",
+      "HA4_Blossom"
+    ]
+  },
+  "NarrowHerb": {
+    "object": "HA4_NarrowHerb",
+    "vertices": 22449,
+    "triangles": 34320,
+    "dimensions_m": [
+      0.6986528635025024,
+      0.7058955430984497,
+      0.9550848007202148
+    ],
+    "materials": [
+      "HA4_Pot",
+      "HA4_Foliage",
+      "HA4_Soil",
+      "HA4_Blossom"
+    ]
+  },
+  "LeafPlant": {
+    "object": "HA4_LeafPlant",
+    "vertices": 4021,
+    "triangles": 6332,
+    "dimensions_m": [
+      0.6764919459819794,
+      0.6707397997379303,
+      0.8133724927902222
+    ],
+    "materials": [
+      "HA4_Pot",
+      "HA4_Foliage",
+      "HA4_Soil",
+      "HA4_Blossom"
+    ]
+  },
+  "FlowerPlant": {
+    "object": "HA4_FlowerPlant",
+    "vertices": 15789,
+    "triangles": 24172,
+    "dimensions_m": [
+      0.6828092336654663,
+      0.7081198692321777,
+      0.8553704619407654
+    ],
+    "materials": [
+      "HA4_Pot",
+      "HA4_Foliage",
+      "HA4_Soil",
+      "HA4_Blossom"
+    ]
+  },
+  "TrailingHerb": {
+    "object": "HA4_TrailingHerb",
+    "vertices": 3357,
+    "triangles": 5300,
+    "dimensions_m": [
+      0.7809085845947266,
+      0.7421322166919708,
+      0.4244188666343689
+    ],
+    "materials": [
+      "HA4_Pot",
+      "HA4_Foliage",
+      "HA4_Soil",
+      "HA4_Blossom"
+    ]
+  }
+}
