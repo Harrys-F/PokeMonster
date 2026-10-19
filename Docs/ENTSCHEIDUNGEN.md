@@ -757,3 +757,10 @@ werden neu gruppiert, alle 407 erhalten. Kein neuer Map-/Gameplayaufbau und kein
 Änderung an Licht, Schatten, Lumen, Bloom, TAA oder Kamera. Der technisch geprüfte
 Stand wird gesichert; Harry entscheidet anhand der echten QHD-Vergleiche über
 die visuelle Freigabe. Keine globale Stilübernahme oder Performancefreigabe.
+
+
+### 19.10.2026 – V6-Stilübertragung auf vorhandene VisualV2-Landschaft; Schattenentscheidung offen
+
+Die frühere Begrenzung auf die drei V6-Musterbereiche wird durch Harrys ausdrücklichen V7-Auftrag zur Übertragung dieses freigegebenen Stils auf die übrigen Wege und Landschaftsbereiche ersetzt. Die zentrale Karte wird weiterverwendet; keine zusätzliche Map. Die technische Umsetzung verwendet private Boden-/Wegmaterialien und dekorative HISM-Gruppen mit vorhandenen Assets, ohne alte Akteure zu entfernen oder deren Positionen/Kollisionen zu verändern. V7 selbst ist noch nicht visuell freigegeben.
+
+Die gewünschte Schattenaufhellung wird nicht automatisch übernommen: Der isoliert getestete Shadow-Amount-Regler erreicht im vorhandenen VSM-Setup keine brauchbare Wirkung. Allgemeine Tonwertanhebung, Emissive-Aufhellung oder geändertes Skylight/Lumen/Exposure sind dafür keine genehmigte Ersatzlösung. Die gespeicherten Schatten-/Lichtwerte bleiben beim Ausgangsstand. Rendererbezogene Alternativen bzw. eine eventuelle Lockerung der Lichtvorgaben bedürfen einer gesonderten Entscheidung. Prüfbericht: `Docs/VISUALV2_WORLD_ART_QUALITY_V7_PRUEFBERICHT.md`.

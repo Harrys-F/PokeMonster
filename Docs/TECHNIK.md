@@ -735,3 +735,12 @@ Benchmarks. Quellen: Art/World/VisualV2WorldArtV6 und Tools/VisualV2WorldArtV6;
 Grenzen und Nachweise in VISUALV2_WORLD_ART_QUALITY_V6_PRUEFBERICHT.md.
 V6 bleibt auf die drei Muster und angrenzenden Wegabschnitte begrenzt;
 Harrys visuelle Freigabe steht aus, keine automatische Ausweitung.
+
+
+### World Art V7 – vorhandene VisualV2-Wege und Landschaft (19.10.2026)
+
+Der ausdrücklich zur Ausweitung freigegebene V6-Stil wird in der bestehenden VisualV2 auf alle fünf Außenwegfamilien übertragen. Drei private Materialien unter `/Game/Environment/VisualV2WorldArtV7/Materials` erweitern das sichtbare Boden-/Wegfeld; Geometrie, Kollision und Steuerungsbasis bleiben unverändert. 23 neue kollisionsfreie HISM-Gruppen mit 658 Bestandsasset-Instanzen ergänzen Wald, Wiese und das weitere Ufer. Vorhandene V6-Gruppen, Originalmaterialien und andere Karten bleiben erhalten. Quellparameter und Instanzen: `Art/World/VisualV2WorldArtV7`; begrenzte Reproduktions-/Prüfwerkzeuge: `Tools/VisualV2WorldArtV7`.
+
+Lichtquellen, Belichtung, Lumen, TAA, Kamera und gespeicherte Schattenparameter bleiben unverändert. `DirectionalLightComponent.shadow_amount` bewirkte im isolierten VSM-Bildversuch keine geeignete Aufhellung; es wurde keine Schattenvariante gespeichert. Eine ungefähr 50 % hellere wahrgenommene Schattenwirkung bleibt eine offene visuelle Entscheidung, keine bestätigte technische Einstellung.
+
+Build, 49/49 Projekt-Automation, Map Check 0/0, realer 102-Schritt-PIE-Rundweg und QHD-Medium-100-%-Bildprüfung in PIE sowie nativem Standalone bestanden. Keine FPS-/GPU-Benchmarkfreigabe. V7 wartet auf visuelle Abnahme. Details und Einschränkungen: `Docs/VISUALV2_WORLD_ART_QUALITY_V7_PRUEFBERICHT.md`.
