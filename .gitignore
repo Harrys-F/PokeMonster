@@ -8658,3 +8658,6 @@ Plugins/Developer/RiderLink/
 
 # Local bytecode of the evidence tools, never source.
 /Tools/DevelopmentEvidence/__pycache__/
+
+# Local bytecode of the scoped Heilhaus art tools.
+/Tools/VisualV2HealingArtV3/__pycache__/

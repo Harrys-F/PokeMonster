@@ -1,0 +1,69 @@
+{
+  "assets": [
+    "/Game/Environment/VisualV2HealingArtV3/Textures/T_HA3_Meadow",
+    "/Game/Environment/VisualV2HealingArtV3/Textures/T_HA3_Earth",
+    "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingMeadow",
+    "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingPath",
+    "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingForecourt",
+    "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_LegacyApproach",
+    "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Pot",
+    "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Foliage",
+    "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Soil",
+    "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_Blossom",
+    "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb",
+    "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_NarrowHerb",
+    "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_LeafPlant",
+    "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant",
+    "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb"
+  ],
+  "ground": [
+    {
+      "old": "/Game/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_HealingMeadow.M_WAQ2_HealingMeadow",
+      "new": "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingMeadow.M_HA3_HealingMeadow"
+    },
+    {
+      "old": "/Game/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_HealingPath.M_WAQ2_HealingPath",
+      "new": "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingPath.M_HA3_HealingPath"
+    },
+    {
+      "old": "/Game/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_HealingForecourt.M_WAQ2_HealingForecourt",
+      "new": "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_HealingForecourt.M_HA3_HealingForecourt"
+    },
+    {
+      "old": "/Game/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_LegacyApproach.M_WAQ2_LegacyApproach",
+      "new": "/Game/Environment/VisualV2HealingArtV3/Materials/M_HA3_LegacyApproach.M_HA3_LegacyApproach"
+    }
+  ],
+  "plants": [
+    {
+      "family": "BroadHerb",
+      "path": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb",
+      "triangles": 8396,
+      "materials": 3
+    },
+    {
+      "family": "NarrowHerb",
+      "path": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_NarrowHerb.SM_HA3_NarrowHerb",
+      "triangles": 9944,
+      "materials": 3
+    },
+    {
+      "family": "LeafPlant",
+      "path": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_LeafPlant.SM_HA3_LeafPlant",
+      "triangles": 7880,
+      "materials": 3
+    },
+    {
+      "family": "FlowerPlant",
+      "path": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant",
+      "triangles": 13028,
+      "materials": 4
+    },
+    {
+      "family": "TrailingHerb",
+      "path": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb.SM_HA3_TrailingHerb",
+      "triangles": 6332,
+      "materials": 3
+    }
+  ]
+}

@@ -1,0 +1,510 @@
+{
+  "map": "/Game/Maps/Dev_TestMap_VisualV2.Dev_TestMap_VisualV2",
+  "removed_cube": {
+    "name": "StaticMeshActor_505",
+    "label": "V2_House_HH_V3_SupplyCrate",
+    "class": "/Script/Engine.StaticMeshActor",
+    "path": "/Game/Maps/Dev_TestMap_VisualV2.Dev_TestMap_VisualV2:PersistentLevel.StaticMeshActor_505",
+    "location": [
+      -3570.0,
+      -62.0,
+      18.0
+    ],
+    "scale": [
+      0.42,
+      0.42,
+      0.36
+    ],
+    "mesh": "/Engine/BasicShapes/Cube.Cube",
+    "materials": [
+      "/Game/Environment/HealingHouse/Materials/M_HH_V2_Wood.M_HH_V2_Wood"
+    ],
+    "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+    "shadow": false,
+    "tags": [
+      "HealingHouse_V3",
+      "HealingHouse_V3_Decoration",
+      "DevVisualV2_HealingHouse"
+    ]
+  },
+  "changed_actor_names": [
+    "StaticMeshActor_339",
+    "StaticMeshActor_780",
+    "StaticMeshActor_949",
+    "StaticMeshActor_953",
+    "StaticMeshActor_954",
+    "StaticMeshActor_792",
+    "StaticMeshActor_793",
+    "StaticMeshActor_794",
+    "StaticMeshActor_796",
+    "StaticMeshActor_797",
+    "StaticMeshActor_798",
+    "StaticMeshActor_800",
+    "StaticMeshActor_801",
+    "StaticMeshActor_802",
+    "StaticMeshActor_804",
+    "StaticMeshActor_805",
+    "StaticMeshActor_806",
+    "StaticMeshActor_808",
+    "StaticMeshActor_809",
+    "StaticMeshActor_810",
+    "StaticMeshActor_812",
+    "StaticMeshActor_813",
+    "StaticMeshActor_814",
+    "StaticMeshActor_815",
+    "StaticMeshActor_816",
+    "StaticMeshActor_817",
+    "StaticMeshActor_818",
+    "StaticMeshActor_828",
+    "StaticMeshActor_829",
+    "StaticMeshActor_830",
+    "StaticMeshActor_831"
+  ],
+  "ground_actors": [
+    {
+      "name": "StaticMeshActor_339",
+      "label": "V2_House_Forecourt",
+      "class": "/Script/Engine.StaticMeshActor",
+      "path": "/Game/Maps/Dev_TestMap_VisualV2.Dev_TestMap_VisualV2:PersistentLevel.StaticMeshActor_339",
+      "location": [
+        -3950.0,
+        500.0,
+        0.5
+      ],
+      "scale": [
+        6.5,
+        6.8,
+        0.01
+      ],
+      "mesh": "/Engine/BasicShapes/Cube.Cube",
+      "materials": [
+        "/Game/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_HealingForecourt.M_WAQ2_HealingForecourt"
+      ],
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+      "shadow": false,
+      "tags": [
+        "DevVisualV2_HealingHouse"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_780",
+      "label": "V2_House_HH_Q2_OrganicApproach",
+      "class": "/Script/Engine.StaticMeshActor",
+      "path": "/Game/Maps/Dev_TestMap_VisualV2.Dev_TestMap_VisualV2:PersistentLevel.StaticMeshActor_780",
+      "location": [
+        -3100.0,
+        500.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mesh": "/Game/Environment/Westland/NaturalGroundV1/Meshes/SM_WL_NG_HealingApproach.SM_WL_NG_HealingApproach",
+      "materials": [
+        "/Game/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_LegacyApproach.M_WAQ2_LegacyApproach"
+      ],
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+      "shadow": false,
+      "tags": [
+        "HealingHouse_QualityV2",
+        "DevVisualV2_HealingHouse"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_949",
+      "label": "V2_Ground",
+      "class": "/Script/Engine.StaticMeshActor",
+      "path": "/Game/Maps/Dev_TestMap_VisualV2.Dev_TestMap_VisualV2:PersistentLevel.StaticMeshActor_949",
+      "location": [
+        -1500.0,
+        0.0,
+        -10.0
+      ],
+      "scale": [
+        90.0,
+        65.0,
+        0.2
+      ],
+      "mesh": "/Engine/BasicShapes/Cube.Cube",
+      "materials": [
+        "/Game/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_HealingMeadow.M_WAQ2_HealingMeadow"
+      ],
+      "collision": "<CollisionEnabled.QUERY_AND_PHYSICS: 3>",
+      "shadow": false,
+      "tags": [
+        "DevVisualV2"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_953",
+      "label": "V2_Path_VillageLoop",
+      "class": "/Script/Engine.StaticMeshActor",
+      "path": "/Game/Maps/Dev_TestMap_VisualV2.Dev_TestMap_VisualV2:PersistentLevel.StaticMeshActor_953",
+      "location": [
+        0.0,
+        0.0,
+        0.44999999999999996
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mesh": "/Game/Environment/DevTestMapVisualV2/Meshes/SM_V2_Path_VillageLoop.SM_V2_Path_VillageLoop",
+      "materials": [
+        "/Game/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_HealingPath.M_WAQ2_HealingPath"
+      ],
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+      "shadow": false,
+      "tags": [
+        "DevVisualV2"
+      ]
+    },
+    {
+      "name": "StaticMeshActor_954",
+      "label": "V2_Path_NorthLoop",
+      "class": "/Script/Engine.StaticMeshActor",
+      "path": "/Game/Maps/Dev_TestMap_VisualV2.Dev_TestMap_VisualV2:PersistentLevel.StaticMeshActor_954",
+      "location": [
+        0.0,
+        0.0,
+        0.6
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mesh": "/Game/Environment/DevTestMapVisualV2/Meshes/SM_V2_Path_NorthLoop.SM_V2_Path_NorthLoop",
+      "materials": [
+        "/Game/Environment/VisualV2WorldArtV2/Materials/M_WAQ2_HealingPath.M_WAQ2_HealingPath"
+      ],
+      "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+      "shadow": false,
+      "tags": [
+        "DevVisualV2"
+      ]
+    }
+  ],
+  "pots": [
+    {
+      "name": "StaticMeshActor_792",
+      "label": "V2_House_HH_Q3_WindowHerb_0_0",
+      "family": "FlowerPlant",
+      "location_cm": [
+        -3593.0,
+        187.0,
+        91.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_FlowerPlant.SM_HH_Q3_FlowerPlant",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant"
+    },
+    {
+      "name": "StaticMeshActor_793",
+      "label": "V2_House_HH_Q3_WindowHerb_0_1",
+      "family": "BroadHerb",
+      "location_cm": [
+        -3593.0,
+        225.0,
+        91.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_BroadHerb.SM_HH_Q3_BroadHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb"
+    },
+    {
+      "name": "StaticMeshActor_794",
+      "label": "V2_House_HH_Q3_WindowHerb_0_2",
+      "family": "TrailingHerb",
+      "location_cm": [
+        -3593.0,
+        263.0,
+        91.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_TrailingHerb.SM_HH_Q3_TrailingHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb.SM_HA3_TrailingHerb"
+    },
+    {
+      "name": "StaticMeshActor_796",
+      "label": "V2_House_HH_Q3_WindowHerb_1_0",
+      "family": "FlowerPlant",
+      "location_cm": [
+        -3593.0,
+        737.0,
+        91.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_FlowerPlant.SM_HH_Q3_FlowerPlant",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant"
+    },
+    {
+      "name": "StaticMeshActor_797",
+      "label": "V2_House_HH_Q3_WindowHerb_1_1",
+      "family": "BroadHerb",
+      "location_cm": [
+        -3593.0,
+        775.0,
+        91.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_BroadHerb.SM_HH_Q3_BroadHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb"
+    },
+    {
+      "name": "StaticMeshActor_798",
+      "label": "V2_House_HH_Q3_WindowHerb_1_2",
+      "family": "TrailingHerb",
+      "location_cm": [
+        -3593.0,
+        813.0,
+        91.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_TrailingHerb.SM_HH_Q3_TrailingHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb.SM_HA3_TrailingHerb"
+    },
+    {
+      "name": "StaticMeshActor_800",
+      "label": "V2_House_HH_Q3_WindowHerb_2_0",
+      "family": "FlowerPlant",
+      "location_cm": [
+        -3398.0,
+        20.0,
+        95.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_FlowerPlant.SM_HH_Q3_FlowerPlant",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant"
+    },
+    {
+      "name": "StaticMeshActor_801",
+      "label": "V2_House_HH_Q3_WindowHerb_2_1",
+      "family": "BroadHerb",
+      "location_cm": [
+        -3360.0,
+        20.0,
+        95.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_BroadHerb.SM_HH_Q3_BroadHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb"
+    },
+    {
+      "name": "StaticMeshActor_802",
+      "label": "V2_House_HH_Q3_WindowHerb_2_2",
+      "family": "TrailingHerb",
+      "location_cm": [
+        -3322.0,
+        20.0,
+        95.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_TrailingHerb.SM_HH_Q3_TrailingHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb.SM_HA3_TrailingHerb"
+    },
+    {
+      "name": "StaticMeshActor_804",
+      "label": "V2_House_HH_Q3_WindowHerb_3_0",
+      "family": "FlowerPlant",
+      "location_cm": [
+        -2878.0,
+        20.0,
+        95.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_FlowerPlant.SM_HH_Q3_FlowerPlant",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant"
+    },
+    {
+      "name": "StaticMeshActor_805",
+      "label": "V2_House_HH_Q3_WindowHerb_3_1",
+      "family": "BroadHerb",
+      "location_cm": [
+        -2840.0,
+        20.0,
+        95.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_BroadHerb.SM_HH_Q3_BroadHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb"
+    },
+    {
+      "name": "StaticMeshActor_806",
+      "label": "V2_House_HH_Q3_WindowHerb_3_2",
+      "family": "TrailingHerb",
+      "location_cm": [
+        -2802.0,
+        20.0,
+        95.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_TrailingHerb.SM_HH_Q3_TrailingHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb.SM_HA3_TrailingHerb"
+    },
+    {
+      "name": "StaticMeshActor_808",
+      "label": "V2_House_HH_Q3_WindowHerb_4_0",
+      "family": "FlowerPlant",
+      "location_cm": [
+        -3398.0,
+        980.0,
+        95.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_FlowerPlant.SM_HH_Q3_FlowerPlant",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant"
+    },
+    {
+      "name": "StaticMeshActor_809",
+      "label": "V2_House_HH_Q3_WindowHerb_4_1",
+      "family": "BroadHerb",
+      "location_cm": [
+        -3360.0,
+        980.0,
+        95.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_BroadHerb.SM_HH_Q3_BroadHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb"
+    },
+    {
+      "name": "StaticMeshActor_810",
+      "label": "V2_House_HH_Q3_WindowHerb_4_2",
+      "family": "TrailingHerb",
+      "location_cm": [
+        -3322.0,
+        980.0,
+        95.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_TrailingHerb.SM_HH_Q3_TrailingHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb.SM_HA3_TrailingHerb"
+    },
+    {
+      "name": "StaticMeshActor_812",
+      "label": "V2_House_HH_Q3_WindowHerb_5_0",
+      "family": "FlowerPlant",
+      "location_cm": [
+        -2878.0,
+        980.0,
+        95.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_FlowerPlant.SM_HH_Q3_FlowerPlant",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant"
+    },
+    {
+      "name": "StaticMeshActor_813",
+      "label": "V2_House_HH_Q3_WindowHerb_5_1",
+      "family": "BroadHerb",
+      "location_cm": [
+        -2840.0,
+        980.0,
+        95.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_BroadHerb.SM_HH_Q3_BroadHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb"
+    },
+    {
+      "name": "StaticMeshActor_814",
+      "label": "V2_House_HH_Q3_WindowHerb_5_2",
+      "family": "TrailingHerb",
+      "location_cm": [
+        -2802.0,
+        980.0,
+        95.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_TrailingHerb.SM_HH_Q3_TrailingHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_TrailingHerb.SM_HA3_TrailingHerb"
+    },
+    {
+      "name": "StaticMeshActor_815",
+      "label": "V2_House_HH_Q3_EntranceHerb_0",
+      "family": "FlowerPlant",
+      "location_cm": [
+        -3640.0,
+        325.0,
+        0.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_FlowerPlant.SM_HH_Q3_FlowerPlant",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant"
+    },
+    {
+      "name": "StaticMeshActor_816",
+      "label": "V2_House_HH_Q3_EntranceHerb_1",
+      "family": "NarrowHerb",
+      "location_cm": [
+        -3650.0,
+        775.0,
+        0.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_NarrowHerb.SM_HH_Q3_NarrowHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_NarrowHerb.SM_HA3_NarrowHerb"
+    },
+    {
+      "name": "StaticMeshActor_817",
+      "label": "V2_House_HH_Q3_EntranceHerb_2",
+      "family": "BroadHerb",
+      "location_cm": [
+        -3780.0,
+        90.0,
+        0.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_BroadHerb.SM_HH_Q3_BroadHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb"
+    },
+    {
+      "name": "StaticMeshActor_818",
+      "label": "V2_House_HH_Q3_EntranceHerb_3",
+      "family": "LeafPlant",
+      "location_cm": [
+        -2780.0,
+        -30.0,
+        0.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_LeafPlant.SM_HH_Q3_LeafPlant",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_LeafPlant.SM_HA3_LeafPlant"
+    },
+    {
+      "name": "StaticMeshActor_828",
+      "label": "V2_House_HH_Q3_ForecourtHerb_0",
+      "family": "BroadHerb",
+      "location_cm": [
+        -4200.0,
+        70.0,
+        0.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_BroadHerb.SM_HH_Q3_BroadHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_BroadHerb.SM_HA3_BroadHerb"
+    },
+    {
+      "name": "StaticMeshActor_829",
+      "label": "V2_House_HH_Q3_ForecourtHerb_1",
+      "family": "LeafPlant",
+      "location_cm": [
+        -3800.0,
+        45.0,
+        0.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_LeafPlant.SM_HH_Q3_LeafPlant",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_LeafPlant.SM_HA3_LeafPlant"
+    },
+    {
+      "name": "StaticMeshActor_830",
+      "label": "V2_House_HH_Q3_ForecourtHerb_2",
+      "family": "FlowerPlant",
+      "location_cm": [
+        -4020.0,
+        950.0,
+        0.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_FlowerPlant.SM_HH_Q3_FlowerPlant",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_FlowerPlant.SM_HA3_FlowerPlant"
+    },
+    {
+      "name": "StaticMeshActor_831",
+      "label": "V2_House_HH_Q3_ForecourtHerb_3",
+      "family": "NarrowHerb",
+      "location_cm": [
+        -3660.0,
+        1150.0,
+        0.0
+      ],
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_NarrowHerb.SM_HH_Q3_NarrowHerb",
+      "new_mesh": "/Game/Environment/VisualV2HealingArtV3/Meshes/SM_HA3_NarrowHerb.SM_HA3_NarrowHerb"
+    }
+  ],
+  "unchanged_actors": 1322,
+  "instances_unchanged": 175,
+  "lights_postprocessing_gameplay_transforms_collision_shadows_unchanged": true,
+  "new_maps": 0,
+  "performance_benchmarks": false
+}

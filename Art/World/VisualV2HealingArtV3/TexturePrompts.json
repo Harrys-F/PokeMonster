@@ -1,0 +1,22 @@
+{
+  "mode": "built-in image_gen",
+  "asset_type": "flat painterly albedo",
+  "requested_size": [
+    2048,
+    2048
+  ],
+  "actual_source_size": [
+    1254,
+    1254
+  ],
+  "unreal_max_texture_size": 2048,
+  "note": "Power-of-two import stretches original pixels; no claim of native 2K source detail.",
+  "prompts": [
+    "Use case: stylized-concept. Asset type: seamless square base-color terrain texture for a high-quality painterly fantasy RPG viewed from an elevated 2.5D camera. Create a 2048 by 2048 flat orthographic albedo tile of a quiet meadow ground: soft muted olive and moss-green fine grass blades, tiny clover leaves, small moss textures, subtle warm dry-grass flecks and occasional barely exposed soil. Hand-painted with refined natural brushwork, natural fine-scale structure and gentle nonuniform color variation. All-over consistent detail; seamless tiling on every edge, no focal feature or large clump. Neutral diffuse surface color only: absolutely NO baked shadows, directional lighting, highlights, vignette, ambient occlusion or perspective. Avoid lime green, saturated emerald, regular repeated tufts, conspicuous bare patches, large rocks, flowers, text, symbols, borders and objects. This is a production ground texture, not a landscape illustration. Opaque.",
+    "Use case: stylized-concept. Asset type: seamless square base-color terrain texture for a high-quality painterly fantasy RPG viewed from an elevated 2.5D camera. Create a 2048 by 2048 flat orthographic albedo tile of warm muted ochre and soft earthen-brown footpath soil. Refined hand-painted fine crumbly earth, lightly compacted irregular patches, tiny sparse gray-brown stones, barely visible natural mineral flecks. Quiet gently varied surface without a dominant pattern. Seamless tiling on every edge, consistent all-over scale, no focal feature. Neutral diffuse surface color only: absolutely NO baked lighting, shadows, highlights, vignette, ambient occlusion, perspective or dark crevices. No footprints, ruts, paving, large cracks, grass, flowers, large rocks, objects, text or border. Low to moderate contrast, organic subtle brushwork, no photorealism, no pixel art. This is a production ground texture, not a landscape illustration. Opaque."
+  ],
+  "original_outputs": [
+    "exec-f33f2dc2-fe8b-4527-9192-6d749445b34d.png",
+    "exec-d479a048-d53b-4dd4-9fb1-84fce5a89513.png"
+  ]
+}

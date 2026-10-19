@@ -44,3 +44,6 @@ Art/Characters/NPCs/WhiteHairedWarrior/Textures/WhiteHairedWarrior_Image_2.jpg f
 Art/Characters/NPCs/Wizard/Textures/Wizard_Image_0.jpg filter=lfs diff=lfs merge=lfs -text
 Art/Characters/NPCs/Wizard/Textures/Wizard_Image_1.jpg filter=lfs diff=lfs merge=lfs -text
 Art/Characters/NPCs/Wizard/Textures/Wizard_Image_2.jpg filter=lfs diff=lfs merge=lfs -text
+
+# Hand-painted Heilhaus V3 source textures; no review captures.
+Art/World/VisualV2HealingArtV3/Textures/*.png filter=lfs diff=lfs merge=lfs -text
