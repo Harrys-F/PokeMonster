@@ -205,3 +205,27 @@ Nur benötigte private Assets, zentrale Map, Autoren-/Wiederherstellungsdaten, g
 GitHub-Grenzen wurden lesend überprüft: normale Dateien100 MiB, Push2 GB, LFS-Einzeldatei im Free-Plan2 GB. Der kleine gezielte Sicherungsumfang muss zusätzlich unter Harrys1-GiB-Regel für normale Git-Daten bleiben. Quellen: [große Dateien](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github), [LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage), [Repository-Limits](https://docs.github.com/en/repositories/creating-and-managing-repositories/repository-limits).
 
 **Empfehlung:** Den begrenzten V2-Bereich visuell abnehmen. HISM und vorhandene Detailstufen beibehalten; die Materialabschnitte sind vereinfacht, die Pflanzenzahl ist unverändert. Keine weitergehende Pflanzenreduktion und keine behauptete QHD-Beschleunigung. Größere Art-/Performance-Schritte benötigen einen eigenen Auftrag.
+
+## Tatsächlicher GitHub-Sicherungsabschluss
+
+Der geprüfte Fachstand wurde als **`3930307ecee53970b01cc907637eecc8fc0cfa13`**
+mit66 gezielt ausgewählten Pfaden regulär nach `origin/main` gepusht; direkter
+Remote-Hash bestätigt. Vorgemerkte normale Git-Inhalte485.333 Bytes, neun
+LFS-Objekte mit3.488.123 Bytes. Alle neun serverseitigen LFS-Payloads anschließend
+unabhängig heruntergeladen und mit Größe/SHA-256 bestätigt; weiterer
+LFS-Dry-run ohne Restupload. Kein Quota-/Kostenfehler, keine Käufe oder
+Budgetänderungen. Ein aktueller kontoübergreifender Abrechnungsverbrauch ist
+daraus nicht ablesbar. Keine Kontrollmedien übertragen.
+
+Vor dem Commit wurden ausschließlich CRLF-Zeilenenden der neu erzeugten
+verdichteten Messwert-CSV auf LF normalisiert; Vergleich aller132 geparsten
+Datensätze identisch. `git diff --cached --check` danach ohne Befund. Eine
+Sandbox-Dateisperre beim ersten Staging trat vor jeder Indexänderung auf;
+die autorisierte gezielte Sicherung wurde anschließend mit dem erforderlichen
+Dateizugriff durchgeführt. Keine Änderung vorhandener Projektdaten dafür.
+
+Nach dem Fachcommit bleiben nur die drei oben genannten vorbestehenden
+unversionierten Bereiche offen. Der lokale Vollbackup-main und Archivref03492bd
+bleiben unverändert; kein Vorfahr des neuen Remote-Stands. Dieser reine
+Dokumentationsabschluss wird separat gesichert; dessen endgültiger Hash steht
+im äußeren `GIT_ABSCHLUSS.json` und in der Abschlussantwort.
