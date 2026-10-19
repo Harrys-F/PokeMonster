@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "date": "2026-10-19",
+  "phase1_commit": "34e8bca0f9d14a817920800e52672f194ece4154",
+  "phase2_commit": "702201ea39ae7f078238d571d9ff32214eb48ed5",
+  "build": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 10.360713958740234
+  },
+  "automation": {
+    "mode": "Automation",
+    "exit": 0,
+    "seconds": 22.392632961273193,
+    "summary": {
+      "succeeded": 49,
+      "succeededWithWarnings": 0,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0
+    }
+  },
+  "map_checks": [
+    {
+      "map": "/Game/Maps/Dev_BattleTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BuildingKitTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_HealingHouseTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_NPCMotionV3",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2EnvironmentQualityV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandAssetLibrary",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandRegion",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandVillage",
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "footrun": {
+    "npc_sprite_fallback_checked": true,
+    "ranger_mesh": "SK_Ranger_NPC_V1",
+    "no_test_teleports": true,
+    "max_speed_cm_s": 315.0000000000111,
+    "passed": true,
+    "error": null,
+    "distance_m": 286.2689405408883,
+    "game_seconds": 178.13164909556508,
+    "wall_seconds": 209.92682383395731
+  },
+  "save_restored": true,
+  "art_scope": {
+    "passed": true,
+    "existing_actors_preserved": 1397,
+    "new_visual_actors": 22,
+    "new_hism_groups": 14,
+    "new_instances": 563,
+    "materials": [
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_RefinedPlaster.M_HH_RefinedPlaster",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_InteriorPlaster.M_HH_InteriorPlaster",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_InteriorSage.M_HH_InteriorSage",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_InteriorLinen.M_HH_InteriorLinen",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_InteriorTimber.M_HH_InteriorTimber",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_StreamSurface.M_HH_StreamSurface",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_LandscapeGround.M_HH_LandscapeGround",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_LandscapeNorthPath.M_HH_LandscapeNorthPath",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_LandscapeMainPath.M_HH_LandscapeMainPath",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_RefinedWood.M_HH_RefinedWood",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_InteriorFloor.M_HH_InteriorFloor",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_RefinedRoof.M_HH_RefinedRoof",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_RefinedTimber.M_HH_RefinedTimber",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_RefinedStone.M_HH_RefinedStone",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_InteriorWood.M_HH_InteriorWood",
+      "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_HandcraftedSurface.M_HH_HandcraftedSurface"
+    ],
+    "gameplay_camera_transforms_collision_instance_data_unchanged": true,
+    "cutaway_graph_parameters_retained": true,
+    "shader_errors_validated_separately_in_log": true
+  },
+  "new_blender_meshes": [
+    {
+      "name": "HerbalMortar",
+      "collapsed_faces_before": 0,
+      "vertices": 468,
+      "triangles": 760,
+      "materials": 1,
+      "uv_layer": "UVMap",
+      "dimensions_m": [
+        0.2856924533843994,
+        0.20999999344348907,
+        0.24966475367546082
+      ]
+    },
+    {
+      "name": "HerbalRemedyTray",
+      "collapsed_faces_before": 40,
+      "vertices": 1897,
+      "triangles": 3624,
+      "materials": 1,
+      "uv_layer": "UVMap",
+      "dimensions_m": [
+        0.4880000054836273,
+        0.30799999833106995,
+        0.3089999854564667
+      ]
+    },
+    {
+      "name": "PorchCorbel",
+      "collapsed_faces_before": 0,
+      "vertices": 160,
+      "triangles": 316,
+      "materials": 1,
+      "uv_layer": "UVMap",
+      "dimensions_m": [
+        0.44999998807907104,
+        0.07000000029802322,
+        0.4699999988079071
+      ]
+    }
+  ],
+  "photo_validation": {
+    "pairs": 9,
+    "output_resolution": [
+      2560,
+      1440
+    ],
+    "percentage": 100,
+    "quality": "High",
+    "mode": "embedded PIE",
+    "same_camera_verified": true,
+    "files_optional_local_evidence": true
+  },
+  "asset_references": {
+    "passed": true,
+    "removed_map_referencers": {
+      "/Game/Maps/Dev_TestMap_EnvironmentPerfV1": [],
+      "/Game/Maps/Dev_TestMap_EnvironmentPerfV2": [],
+      "/Game/Maps/Dev_TestMap_EnvironmentPerfV3": [],
+      "/Game/Maps/Dev_TestMap_NPCMotionV2": [],
+      "/Game/Maps/Dev_TestMap_RangerPerfV2": [],
+      "/Game/Maps/Dev_TestMap_TreeShadowProxyV1": []
+    },
+    "remaining_maps": 11
+  }
+}

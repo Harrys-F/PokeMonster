@@ -1,0 +1,47 @@
+{
+  "source": "Art/HealingHouse/Source/HealingHouse_ApothecaryDetails.blend",
+  "assets": [
+    {
+      "name": "HerbalMortar",
+      "collapsed_faces_before": 0,
+      "vertices": 468,
+      "triangles": 760,
+      "materials": 1,
+      "uv_layer": "UVMap",
+      "dimensions_m": [
+        0.2856924533843994,
+        0.20999999344348907,
+        0.24966475367546082
+      ]
+    },
+    {
+      "name": "HerbalRemedyTray",
+      "collapsed_faces_before": 40,
+      "vertices": 1897,
+      "triangles": 3624,
+      "materials": 1,
+      "uv_layer": "UVMap",
+      "dimensions_m": [
+        0.4880000054836273,
+        0.30799999833106995,
+        0.3089999854564667
+      ]
+    },
+    {
+      "name": "PorchCorbel",
+      "collapsed_faces_before": 0,
+      "vertices": 160,
+      "triangles": 316,
+      "materials": 1,
+      "uv_layer": "UVMap",
+      "dimensions_m": [
+        0.44999998807907104,
+        0.07000000029802322,
+        0.4699999988079071
+      ]
+    }
+  ],
+  "units": "metres",
+  "reopened": true,
+  "rig": false
+}

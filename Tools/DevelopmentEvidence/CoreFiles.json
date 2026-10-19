@@ -3,7 +3,7 @@
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "7d7b5bc199dc153b83bd614bd8233855e28dbf58",
   "snapshot_kind": "checked_primary_project_after_relocation",
-  "generated_at": "2026-10-19 18:29:12 +0200",
+  "generated_at": "2026-10-19T22:51:02.529232+02:00",
   "files": {
     ".codex/config.toml": {
       "bytes": 59,
@@ -8538,8 +8538,8 @@
       "sha256": "d9855c7a10dee76c73ab260871e220abc2371ef61e91d269b145a498bd26176f"
     },
     "Content/Maps/Dev_TestMap_VisualV2.umap": {
-      "bytes": 3724794,
-      "sha256": "e06d3edcbb6bc6c8844f1734f22650f55454e8aa87507c8ee0422e37bafc6713"
+      "bytes": 3900536,
+      "sha256": "9dc3c758b456514d173786ecdb7a37513dd42c23abd12b1a4d4e5638190defc9"
     },
     "Content/Maps/Dev_TestMap_VisualV2GPUBottleneckV1.umap": {
       "bytes": 3300685,
@@ -8586,8 +8586,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 112353,
-      "sha256": "e725f6c7e9da038d841ecc6f412e774467b21b96d5b97bd5938f5df10cb2196e"
+      "bytes": 113078,
+      "sha256": "8fe20b212b5048469258f6746bd2f363658e03bfff194eac449856d7bf11ef85"
     },
     "Docs/GRAFIKSTIL.md": {
       "bytes": 13867,
@@ -8674,8 +8674,8 @@
       "sha256": "cb4d28f53a50b73e952a013afd156e8afe62c2845ccacdc8fd91c4b7cd9f8350"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 132023,
-      "sha256": "c5be01e7aa0f4fef0c80702bf1b2cd42f37427d122d850478dcbf9b0ab9663aa"
+      "bytes": 132792,
+      "sha256": "d9c9d509e1671266331b805151ff8e10a778695ffd455d8150cd7dbc0297d83f"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -14064,6 +14064,166 @@
     "Tools/ProjectMaintenance/ArtControl.py": {
       "bytes": 818,
       "sha256": "a077cef0f3453c9820a58e4a2e452d104a626de0c3690c6c7148caff9c13e8b3"
+    },
+    "Art/HealingHouse/ApothecaryDetails.json": {
+      "bytes": 1031,
+      "sha256": "9d63be83aeae0bf422efaaef928622aa82e667c1c9b642f0e4d64061a47e236b"
+    },
+    "Art/HealingHouse/Exports/SM_HH_HerbalMortar.fbx": {
+      "bytes": 57228,
+      "sha256": "9f8dbea7f15bfbbab34cb7d932bc2c71fec2b6db5f7fce0e708bc1d43fe8c44a"
+    },
+    "Art/HealingHouse/Exports/SM_HH_HerbalRemedyTray.fbx": {
+      "bytes": 160348,
+      "sha256": "a5ec9e7ecdd159bf2676d3e36c29e8b7f3a7074bd7f56dd44bc480a835e3e77c"
+    },
+    "Art/HealingHouse/Exports/SM_HH_PorchCorbel.fbx": {
+      "bytes": 25596,
+      "sha256": "8d630fec0d7446ec5f1a2cc14a9b8455ca89020cc104ed49ae9537186cb04aae"
+    },
+    "Art/HealingHouse/RefinedGraphs.json": {
+      "bytes": 99967,
+      "sha256": "233740406f2828abee4e393f33273f60bcc07c0040a9afb12d1c9116f4d69711"
+    },
+    "Art/HealingHouse/Refinement.json": {
+      "bytes": 88461,
+      "sha256": "7f639d656a751fb46b474a8c973fb74a7a3ce0f46835d0c58031b3573e8909c6"
+    },
+    "Art/HealingHouse/Source/HealingHouse_ApothecaryDetails.blend": {
+      "bytes": 247997,
+      "sha256": "4659b1ee0af097fc1ff9c449da9e32b7287f856025a0e9b6f25daf9a759c5b0d"
+    },
+    "Art/World/VisualV2WorldArtV7/RefinedPlanting.json": {
+      "bytes": 211065,
+      "sha256": "e3fe9ba216bb1794cad920aac07d16b5d9ae8d6afdd92eb5cd52b065b853cd00"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_HandcraftedSurface.uasset": {
+      "bytes": 10885,
+      "sha256": "3915399b0bb7fd6051007bae8eeca3bab8cc7887958430e26aaed6e32ec0c329"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_InteriorFloor.uasset": {
+      "bytes": 18308,
+      "sha256": "81c973d0938560212a71e4e2223e80cccb6eda27d729eecaa5eb785db02c40d2"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_InteriorLinen.uasset": {
+      "bytes": 16126,
+      "sha256": "2ebfeddd480395da78148e7bfc57497e24d67242a4afda7afa0cd0e08d630f65"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_InteriorPlaster.uasset": {
+      "bytes": 12884,
+      "sha256": "38d6de05a37d0313946c2c555082538ac5cf20b5db542032ea1528bd8c93d431"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_InteriorSage.uasset": {
+      "bytes": 16552,
+      "sha256": "cac6aefcf5a32a2ec1c964f18fabc3d6acbe15316c6d54f671043bffc91eb6f5"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_InteriorTimber.uasset": {
+      "bytes": 16290,
+      "sha256": "0c4a9338aa76f9261beb8b490c07f518e3118b0b4a199f8d51462095096a4d96"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_InteriorWood.uasset": {
+      "bytes": 17037,
+      "sha256": "bc609b4b1ac0f54ce30a82a282d322f6ff198984d63db4f8752df867dfa7a206"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_LandscapeGround.uasset": {
+      "bytes": 44246,
+      "sha256": "5f880636a2123d3408473698ee40cc34c175f40254058a93012c45fdda4b5091"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_LandscapeMainPath.uasset": {
+      "bytes": 61360,
+      "sha256": "92f4e88e1a741dd7354483b0377ea472948b6f5c72d41012f6490e5bbc3b7fab"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_LandscapeNorthPath.uasset": {
+      "bytes": 63737,
+      "sha256": "46a2bb735ec27d4e05eeaf54f9e9e2fae9a34a695711fa89bd9371b3e598f47d"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_RefinedPlaster.uasset": {
+      "bytes": 19115,
+      "sha256": "a60ceefab211b5fb6ca140175932f2226b736d4308ef6bb95abcb0e9350197af"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_RefinedRoof.uasset": {
+      "bytes": 19663,
+      "sha256": "dcc035e4f9a11eae2db2327273e3204fcd44ad4c137cef4ae721899043b64dc9"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_RefinedStone.uasset": {
+      "bytes": 19680,
+      "sha256": "f2e4b6970748b9d6181eae006b3b3e7e7c2f82290a5eaf6f9674a4d720d003ff"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_RefinedTimber.uasset": {
+      "bytes": 22244,
+      "sha256": "db84b5471962113a5f3dacf58d79c50728a40d000adaba88a81694d08da00e98"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_RefinedWood.uasset": {
+      "bytes": 23213,
+      "sha256": "b492f88fd9167e9bf819cad2b34047beabe29602fbe55fa98d81d2d60d6946a6"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_StreamSurface.uasset": {
+      "bytes": 11885,
+      "sha256": "8a0d73e5fb3e928664880457e2ad514f79246bbb0c6958cb2d8917e8528b695a"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Meshes/SM_HH_HerbalMortar.uasset": {
+      "bytes": 106914,
+      "sha256": "69dadaa58cd9e6816be6bc3a9df8b966336422105ac2261546fb0cc5f30d6acb"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Meshes/SM_HH_HerbalRemedyTray.uasset": {
+      "bytes": 214569,
+      "sha256": "80cdcac1e021e2a5d50f8d20193ed319e5f5a4591471c6f0e04b450b421e8b85"
+    },
+    "Content/Environment/VisualV2HealingArtV4/Meshes/SM_HH_PorchCorbel.uasset": {
+      "bytes": 85893,
+      "sha256": "4e9bff4ba86b5d44a14ace31671daf1a305140bff55607ca484ebd8d89105074"
+    },
+    "Docs/PROJEKTBEREINIGUNG_GRAFIKVERBESSERUNG_V2_PRUEFBERICHT.md": {
+      "bytes": 17379,
+      "sha256": "bbb9e0d2516b3d626be2585f6b1017526471298c040fba92b0c5e75507fdeda0"
+    },
+    "Tools/ProjectMaintenance/Acceptance.json": {
+      "bytes": 5511,
+      "sha256": "d617cea86cfe6740baf22855f5083129b117277e21435fd514700c97c6461f16"
+    },
+    "Tools/ProjectMaintenance/ArtPhotos.py": {
+      "bytes": 2377,
+      "sha256": "2db92eb37db343a8016249d07c07746a92b4da81d4d42cdcf7e4f564279010e7"
+    },
+    "Tools/ProjectMaintenance/ArtPreset.py": {
+      "bytes": 847,
+      "sha256": "a4d93e890f2683158a3510f0374244e2e8b212e71e3fedbccf95d05bcba5fa8d"
+    },
+    "Tools/ProjectMaintenance/ArtSignatures.json": {
+      "bytes": 134033,
+      "sha256": "b33a64145b39b1fb96e8b6a951aca94e46f61fb204daa33f0184fae5c2685a65"
+    },
+    "Tools/ProjectMaintenance/BuildApothecary.py": {
+      "bytes": 6136,
+      "sha256": "520498359a6e333f83e58ef3a756b8c973e4b678e37b05151560adb51bf3d72f"
+    },
+    "Tools/ProjectMaintenance/CheckApothecary.py": {
+      "bytes": 1879,
+      "sha256": "5ffde8b259dd704c7515c199a0aaad7fd4e8b34437f0513e6c7fdedc6c3da303"
+    },
+    "Tools/ProjectMaintenance/FinishArtSurfaces.py": {
+      "bytes": 4896,
+      "sha256": "f8e448998f0e8d2503c5991bc289deec3dd335b15358a977908639dad682fb27"
+    },
+    "Tools/ProjectMaintenance/RefinePlanting.py": {
+      "bytes": 6094,
+      "sha256": "e824c3922052c76126a20d66103766541e50c51f67c9913e627d299c6189f369"
+    },
+    "Tools/ProjectMaintenance/RefineVisualV2.py": {
+      "bytes": 15363,
+      "sha256": "c7cd33a435f24800f0b5e8e61be352617c6d6d180799c61c0a0c560188e3acc6"
+    },
+    "Tools/ProjectMaintenance/RunFootAcceptance.py": {
+      "bytes": 2102,
+      "sha256": "3059b9e548db4c8889bf8ae4d43d351d1a1a3e29158bf1ccfba47270ece41b8b"
+    },
+    "Tools/ProjectMaintenance/ValidateRefinedArt.py": {
+      "bytes": 4740,
+      "sha256": "1ae9fc980f6b6b3622b64cb498aab007a2be50594fa82de814b3acd22109a22b"
+    },
+    "Tools/ProjectMaintenance/VerifyRemoteLFS.py": {
+      "bytes": 2453,
+      "sha256": "f2b3a1833000c390be254c66a33c8c87df13cc006bc88d63017b58ebac670acf"
     }
   }
 }
