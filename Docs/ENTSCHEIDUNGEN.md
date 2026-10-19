@@ -732,3 +732,16 @@ auf andere Bereiche und keine Performancefreigabe.
 ### 19.10.2026 – Heilhaus Art Quality V4 zur visuellen Abnahme
 
 Die vom Nutzer gelieferte V4-Konzeptillustration (rechte Hälfte) ist der gestalterische Maßstab des begrenzten Heilhauspasses. Die örtlichen V3-Material-/Pflanzenbindungen werden durch eigene V4-Varianten ersetzt; V3-Quellen und Originalassets bleiben erhalten. Größere lesbare Bodenmotive, ergänzende Kräuter-/Steingruppen und Fassadenmaterialdetails sind umgesetzt und technisch geprüft. Acht zusätzlich erkannte alte Fensterpflanzen werden visuell ersetzt, deren alte Grundkörper bleiben unsichtbar in der Karte. Keine Änderung an Licht, Schatten, Kamera oder Gameplay. Keine neue Karte und keine Ausweitung. Dies ist keine endgültige Stilfreigabe: Harrys visuelle Abnahme steht aus. Details und Restmängel im V4-Prüfbericht.
+
+
+### 19.10.2026 – World Art V5: nur drei Musterbereiche
+
+Harrys V5-Auftrag verwendet das bestehende Heilhaus V4 ausdrücklich als
+freigegebene Qualitätsreferenz; die frühere offene V4-Freigabebeschreibung gilt
+für diesen begrenzten Folgeauftrag damit als überholt. Drei kleine bestehende
+Wald-/Wiesen-/Uferabschnitte werden in VisualV2 gestaltet, ohne neue Karte oder
+Änderung an Licht, Originalschatten, Kamera und Gameplay. Private Materialmasken,
+vorhandene botanische Quellen und drei neue Blenderformen erhalten bestehende
+Originalassets. Der technisch geprüfte Stand wird gesichert, aber erst Harrys
+visuelle Abnahme erlaubt eine weitere Verbreitung des V5-Stils. Keine automatische
+Übertragung und keine Performancefreigabe; Prüfnachweise im V5-Bericht.
