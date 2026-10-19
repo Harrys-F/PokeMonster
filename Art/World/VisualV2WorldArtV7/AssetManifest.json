@@ -1,0 +1,33 @@
+{
+  "materials": [
+    {
+      "key": "Ground",
+      "old": "/Game/Environment/VisualV2WorldArtV6/Materials/M_WA6_Ground.M_WA6_Ground",
+      "new": "/Game/Environment/VisualV2WorldArtV7/Materials/M_WA7_Ground.M_WA7_Ground",
+      "changed_custom_nodes": [
+        "MaterialExpressionCustom_0"
+      ]
+    },
+    {
+      "key": "NorthPath",
+      "old": "/Game/Environment/VisualV2WorldArtV6/Materials/M_WA6_NorthPath.M_WA6_NorthPath",
+      "new": "/Game/Environment/VisualV2WorldArtV7/Materials/M_WA7_NorthPath.M_WA7_NorthPath",
+      "changed_custom_nodes": [
+        "MaterialExpressionCustom_1",
+        "MaterialExpressionCustom_0"
+      ]
+    },
+    {
+      "key": "MainPath",
+      "old": "/Game/Environment/VisualV2WorldArtV6/Materials/M_WA6_MainPath.M_WA6_MainPath",
+      "new": "/Game/Environment/VisualV2WorldArtV7/Materials/M_WA7_MainPath.M_WA7_MainPath",
+      "changed_custom_nodes": [
+        "MaterialExpressionCustom_1",
+        "MaterialExpressionCustom_0"
+      ]
+    }
+  ],
+  "new_meshes": 0,
+  "new_textures": 0,
+  "shadow_change": false
+}
