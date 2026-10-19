@@ -706,3 +706,24 @@ Die örtliche V1-Pflanzenverteilung und ihre Bodenmaterialvarianten werden durch
 - Licht, Originalschatten, TAA, Lumen, Bloom, Kamera und Gameplay bleiben
   unverändert. Dies ist eine begrenzte gestalterische Überarbeitung zur
   menschlichen Abnahme, keine automatische Freigabe für die gesamte Welt.
+
+## 2026-10-19 – Heilhaus Art Quality V3 als begrenzter Abnahmestand
+
+Die abschließende Vorgabe „Art Quality First“ hat für diesen Pass Vorrang:
+keine FPS-Benchmarks oder GPU-Profile, keine Qualitätsreduktion zur Leistungssteigerung.
+Nur Heilhaus-Außenbereich, keine neue Karte und keine Ausweitung der Gestaltung.
+
+Nach aktueller Instanz-/Referenzprüfung entfällt ausschließlich der dekorative
+`V2_House_HH_V3_SupplyCrate` in VisualV2; gemeinsame Mesh-/Materialquellen bleiben.
+Fünf örtliche Bodenbindungen und 26 bestehende Außentöpfe verwenden private V3-
+Varianten. Alle 175 kleinen Vegetationsinstanzen sowie Positionen, Collision,
+Originalschatten, Beleuchtung, Lumen, Bloom, TAA, Kamera und Gameplay bleiben erhalten.
+Die frühere V2-Bodenvariante wird nur in diesem örtlichen Bereich ersetzt;
+V2-Quellen und Referenzen bleiben verfügbar. Keine globale Stilentscheidung.
+
+Technisch bestätigt: explizite sRGB→linear-Übertragung der FBX-Vertexfarben,
+planare UVs an flachen Topfringen, erfolgreicher Reimport ohne Positionsänderung,
+Build, 49/49 Projekt-Automationstests, Map Check 0/0 und 102-Schritt-PIE-Fußlauf.
+Prüfbericht: `VISUALV2_HEILHAUS_ART_QUALITY_V3_PRUEFBERICHT.md`.
+Künstlerische Freigabe durch Harry bleibt offen; bis dahin keine Übernahme
+auf andere Bereiche und keine Performancefreigabe.
