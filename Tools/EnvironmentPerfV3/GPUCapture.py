@@ -1,4 +1,13 @@
 """One untimed verified GPU capture, separate from the completed genuine foot route."""
+
+# Historical map prerequisites; explicit unavailable result, never an implicit new map.
+from pathlib import Path as _MLPath
+import sys as _MLSys
+_MLSys.dont_write_bytecode = True
+_MLSys.path.insert(0, str(next(p for p in _MLPath(__file__).resolve().parents if (p / 'PokeMonster.uproject').is_file()) / 'Tools/ProjectMaintenance'))
+from MapLifecycle import require_historical_maps as _require_historical_maps
+_require_historical_maps(__file__)
+
 import unreal,json,time
 from pathlib import Path
 R=Path(unreal.Paths.project_dir()).resolve();O=R/'Saved/EnvironmentPerfV3';w=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_game_world();assert w and w.get_name()=='Dev_TestMap_EnvironmentPerfV3';p=unreal.GameplayStatics.get_player_pawn(w,0);pc=unreal.GameplayStatics.get_player_controller(w,0);before=p.get_actor_transform()

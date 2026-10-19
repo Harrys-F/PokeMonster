@@ -759,3 +759,8 @@ Der ausdrücklich zur Ausweitung freigegebene V6-Stil wird in der bestehenden Vi
 Lichtquellen, Belichtung, Lumen, TAA, Kamera und gespeicherte Schattenparameter bleiben unverändert. `DirectionalLightComponent.shadow_amount` bewirkte im isolierten VSM-Bildversuch keine geeignete Aufhellung; es wurde keine Schattenvariante gespeichert. Eine ungefähr 50 % hellere wahrgenommene Schattenwirkung bleibt eine offene visuelle Entscheidung, keine bestätigte technische Einstellung.
 
 Build, 49/49 Projekt-Automation, Map Check 0/0, realer 102-Schritt-PIE-Rundweg und QHD-Medium-100-%-Bildprüfung in PIE sowie nativem Standalone bestanden. Keine FPS-/GPU-Benchmarkfreigabe. V7 wartet auf visuelle Abnahme. Details und Einschränkungen: `Docs/VISUALV2_WORLD_ART_QUALITY_V7_PRUEFBERICHT.md`.
+
+
+## Map-Lebenszyklus: aktuelle Tests und historische Versuche
+
+`Tools/ProjectMaintenance/MapLifecycle.json` nennt exakt sechs nach QA zur Entfernung vorgesehene B-Karten und ihren Wiederherstellungspunkt `8cc96f9`. Der aktuelle NPCMotionV3-Audit benötigt die V2-Map nicht mehr: eine unveränderlich gehashte Actor-Signaturfixture erhält die Mesh-/Material-/Collision-/Transform-/LOD-/Instanz-/Lichtvergleiche. Historische Mapwerkzeuge prüfen ihre expliziten Voraussetzungen vor Arbeitsschritten und beenden fehlende Szenen mit Exit 2, niemals als Testpass oder mit stiller Kartenerzeugung. BuildingKit, HealingHouse, Dev_TestMap, NPCMotionV3, GPU-Diagnose, VisualV2, WestlandRegion und AssetLibrary bleiben reguläre Prüfkarten; zusätzlich die geschützte unversionierte EnvironmentQuality-Map und vorerst Village/BattleTest. Keine Assets oder Quellversionen werden zusammen mit einer Karte gelöscht.

@@ -1,3 +1,12 @@
+
+# Historical map prerequisites; explicit unavailable result, never an implicit new map.
+from pathlib import Path as _MLPath
+import sys as _MLSys
+_MLSys.dont_write_bytecode = True
+_MLSys.path.insert(0, str(next(p for p in _MLPath(__file__).resolve().parents if (p / 'PokeMonster.uproject').is_file()) / 'Tools/ProjectMaintenance'))
+from MapLifecycle import require_historical_maps as _require_historical_maps
+_require_historical_maps(__file__)
+
 import unreal,json
 from pathlib import Path
 R=Path(unreal.Paths.project_dir()).resolve();P=R/'Art/Characters/NPCs/Ranger/Review/V2';e=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);assert not e.get_game_world();w=e.get_editor_world();assert 'Dev_TestMap_RangerPerfV2.' in w.get_path_name();a=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.Actor);baseline=unreal.load_asset('/Game/Maps/Dev_TestMap_VisualV2');b=unreal.GameplayStatics.get_all_actors_of_class(baseline,unreal.Actor)

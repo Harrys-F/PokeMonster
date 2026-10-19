@@ -1,3 +1,12 @@
+
+# Historical map prerequisites; explicit unavailable result, never an implicit new map.
+from pathlib import Path as _MLPath
+import sys as _MLSys
+_MLSys.dont_write_bytecode = True
+_MLSys.path.insert(0, str(next(p for p in _MLPath(__file__).resolve().parents if (p / 'PokeMonster.uproject').is_file()) / 'Tools/ProjectMaintenance'))
+from MapLifecycle import require_historical_maps as _require_historical_maps
+_require_historical_maps(__file__)
+
 import unreal,json
 from pathlib import Path
 R=Path(unreal.Paths.project_dir()).resolve();e=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);w=e.get_editor_world();assert not e.get_game_world() and w.get_name()=='Dev_TestMap_NPCMotionV2';a=unreal.get_editor_subsystem(unreal.EditorActorSubsystem);v=next(x for x in a.get_all_level_actors() if 'NPCMotionV2_PreviewOnly' in [str(t) for t in x.tags] and isinstance(x,unreal.PokeMonsterNPCVisualActor));old=v.source_actor;assert isinstance(old,unreal.TargetPoint) and old.get_actor_label()=='NPCMotionV2_PreviewSource_NoGameplay'

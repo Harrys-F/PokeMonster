@@ -778,3 +778,8 @@ unverändert. Der frühere schlanke Worktree wird repariert und bis zur weiteren
 Freigabe erhalten. Künftige getrennte Worktrees und neue Maps benötigen eine
 vorherige ausdrückliche Freigabe. Diese Pfadentscheidung ersetzt die frühere
 Arbeitsanweisung, ausschließlich im schlanken Worktree zu entwickeln.
+
+
+## 19.10.2026 – Freigegebene Map-Konsolidierung und anschließender Artpass
+
+Der ausdrückliche Gesamtauftrag erlaubt die Entfernung ausschließlich vollständig abgelöster B-Karten nach Build, Automation und Map Checks. Sechs historische Performance-/NPC-/Schattenkarten werden aus dem aktuellen Pflichtvertrag gelöst; ihre Werkzeuge melden fehlende historische Szenen ausdrücklich als nicht ausgeführt. NPCMotionV3 prüft weiterhin streng gegen SHA-256-gepinnte Actor-Signaturen der originalen V2-Map. BattleTest und WestlandVillage bleiben wegen eigenständiger, noch nicht ersetzter Prüfszenarien erhalten. Alle A-Karten und die unversionierte Map bleiben geschützt. Der folgende Artpass darf die bestehende VisualV2 einschließlich Heilhaus außen/innen und ihrer bestehenden Lichtwirkung gezielt verbessern; TAA, Kamera-/Steuerungssystem, Gameplay und Außen-/Innenraumübergänge bleiben erhalten. Frühere automatische Übernahmesperren bedeuten weiterhin keine pauschale Freigabe beliebiger Experimente.

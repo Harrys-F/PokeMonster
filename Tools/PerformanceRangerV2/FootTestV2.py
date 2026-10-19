@@ -1,6 +1,15 @@
 """Complete walking/interaction route in the VisualV2 copy. No test teleports.
 Controlled runtime Save/Load test uses the real dev slot; back it up before running.
 """
+
+# Historical map prerequisites; explicit unavailable result, never an implicit new map.
+from pathlib import Path as _MLPath
+import sys as _MLSys
+_MLSys.dont_write_bytecode = True
+_MLSys.path.insert(0, str(next(p for p in _MLPath(__file__).resolve().parents if (p / 'PokeMonster.uproject').is_file()) / 'Tools/ProjectMaintenance'))
+from MapLifecycle import require_historical_maps as _require_historical_maps
+_require_historical_maps(__file__)
+
 import unreal,json,math,time,hashlib
 from pathlib import Path
 R=Path(unreal.Paths.project_dir()).resolve();O=R/'Art/Characters/NPCs/Ranger/Review/V2/FootTest';O.mkdir(exist_ok=True);w=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_game_world();assert w and w.get_name()=='Dev_TestMap_RangerPerfV2'

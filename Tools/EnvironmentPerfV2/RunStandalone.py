@@ -1,6 +1,15 @@
 """Serial native -game processes, not floating PIE or a packaged Shipping build.
 Run after closing the editor safely. Each resolution starts its own correctly sized window.
 """
+
+# Historical map prerequisites; explicit unavailable result, never an implicit new map.
+from pathlib import Path as _MLPath
+import sys as _MLSys
+_MLSys.dont_write_bytecode = True
+_MLSys.path.insert(0, str(next(p for p in _MLPath(__file__).resolve().parents if (p / 'PokeMonster.uproject').is_file()) / 'Tools/ProjectMaintenance'))
+from MapLifecycle import require_historical_maps as _require_historical_maps
+_require_historical_maps(__file__)
+
 import subprocess,json,sys,time
 from pathlib import Path
 R=Path(__file__).resolve().parents[2];O=R/'Saved/EnvironmentPerfV2';exe='/Users/Shared/Epic Games/UE_5.8/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor'

@@ -2,7 +2,10 @@
 import unreal,json
 from pathlib import Path
 R=Path(unreal.Paths.project_dir()).resolve();O=R/'Saved/RangerAnimationV3';e=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);assert not e.get_game_world();w=e.get_editor_world();assert w.get_name()=='Dev_TestMap_NPCMotionV3'
-baseline=unreal.load_asset('/Game/Maps/Dev_TestMap_NPCMotionV2')
+import sys
+sys.path.insert(0,str(R/'Tools/ProjectMaintenance'))
+from MapLifecycle import npc_baseline,actor_digest
+baseline=npc_baseline()
 def transform(t):
  return {'translation':t.translation.to_tuple(),'rotation':(t.rotation.x,t.rotation.y,t.rotation.z,t.rotation.w),'scale':t.scale3d.to_tuple()}
 def snap(world):
@@ -19,8 +22,8 @@ def snap(world):
    row['unbound']=a.get_editor_property('unbound')
   out[a.get_name()]=row
  return out
-b=snap(baseline);a=snap(w);new={k:v for k,v in a.items() if k not in b};missing=sorted(set(b)-set(a));diff={k:{'before':b[k],'after':a[k]} for k in set(a)&set(b) if a[k]!=b[k]}
-out={'map':w.get_path_name(),'baseline':baseline.get_path_name(),'actor_count':len(a),'baseline_actor_count':len(b),'new_actors':new,'missing_actors':missing,'existing_actor_transform_geometry_material_collision_differences':diff,'dirty_maps':[p.get_path_name() for p in unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()],'dirty_content':[p.get_path_name() for p in unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()]}
+b=baseline['actors'];a=snap(w);new={k:v for k,v in a.items() if k not in b};missing=sorted(set(b)-set(a));diff={k:{'before':b[k],'after':a[k]} for k in set(a)&set(b) if actor_digest(a[k])!=b[k]}
+out={'map':w.get_path_name(),'baseline':baseline['map'],'actor_count':len(a),'baseline_actor_count':len(b),'new_actors':new,'missing_actors':missing,'existing_actor_transform_geometry_material_collision_differences':diff,'dirty_maps':[p.get_path_name() for p in unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()],'dirty_content':[p.get_path_name() for p in unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()]}
 (O/'FinalMapAudit.json').write_text(json.dumps(out,indent=2));assert missing==['PokeMonsterNPCVisualActor_0'] and not diff,(missing,list(diff));assert len(new)==3,new
 src=next(x for x in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.PokeMonsterNPC) if x.get_actor_label()=='Slice_Wanderer_Hinweis');before=json.loads((R/'Art/Characters/NPCs/Ranger/Review/AnimationV3/Data/MapBefore.json').read_text());assert src.get_actor_location().to_tuple()==tuple(before['position']);assert src.dialogue.get_path_name()==before['dialogue'];assert str(src.display_name)==before['display_name']
 unreal.SystemLibrary.execute_console_command(w,'MAP CHECK');unreal.log('NPC_MOTION_FINAL_MAP_CHECK_REQUESTED')

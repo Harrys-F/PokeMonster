@@ -2,6 +2,15 @@
 The probe's built-in V1 CVars are explicitly overridden to the audited VisualV2
 renderer values on EVERY row, identically for original and proxy shadows.
 """
+
+# Historical map prerequisites; explicit unavailable result, never an implicit new map.
+from pathlib import Path as _MLPath
+import sys as _MLSys
+_MLSys.dont_write_bytecode = True
+_MLSys.path.insert(0, str(next(p for p in _MLPath(__file__).resolve().parents if (p / 'PokeMonster.uproject').is_file()) / 'Tools/ProjectMaintenance'))
+from MapLifecycle import require_historical_maps as _require_historical_maps
+_require_historical_maps(__file__)
+
 import unreal,json,time,csv,traceback
 from pathlib import Path
 R=Path(unreal.Paths.project_dir()).resolve();O=R/'Saved/TreeShadowProxyV1';N=R/'Saved/EnvironmentPerfV2';request=json.loads((O/'BenchmarkRequest.json').read_text());label=request['label'];assert not (N/(label+'_Done.txt')).exists()
