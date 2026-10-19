@@ -697,3 +697,8 @@ geringeren Abschnittszahl und erhaltenen sichtbaren Form genutzt, nicht als
 behauptete QHD-Lösung. Quellen und Werkzeuge: `Art/World/VisualV2WorldArtV2` und
 `Tools/VisualV2WorldArtQualityV2`; kompakte Messwerte und Grenzen stehen im
 `VISUALV2_WORLD_ART_QUALITY_V2_PRUEFBERICHT.md`. Keine Kontrollmedien in Git.
+
+
+### Heilhaus Art Quality V4 – begrenzter Abnahmestand, 19.10.2026
+
+Nur die bestehende Dev_TestMap_VisualV2: private V4-Boden-/Hausmaterialien und botanische Varianten unter /Game/Environment/VisualV2HealingArtV4. Zwei neue Blenderquellen, elf kollisionsfreie Meshes, vier neue HISM-Gruppen mit 147 örtlichen Instanzen. 26 neuere Töpfe ersetzt; zusätzlich acht alte dekorative Fensterpflanzen umgebunden und ihre 28 Grundkörper unsichtbar erhalten. Alle ursprünglichen 175 kleinen HISM-Instanzen bleiben bestehen. Geprüfte HouseCutaway-Funktion beibehalten. Licht, Schatten, Lumen, Bloom, TAA, Kamera und Gameplay unverändert. Keine neue Map und keine FPS-/GPU-Benchmarks. V3-Originalquellen bleiben als Referenz erhalten, visuelle V4-Freigabe durch Harry steht aus. Ergebnis: Build erfolgreich, 49/49 Projekttests, Map Check 0/0, echter 102-Schritt-PIE-Fußlauf. Einzelheiten und Grenzen in VISUALV2_HEILHAUS_ART_QUALITY_V4_PRUEFBERICHT.md.

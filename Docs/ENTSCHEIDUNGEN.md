@@ -727,3 +727,8 @@ Build, 49/49 Projekt-Automationstests, Map Check 0/0 und 102-Schritt-PIE-Fußlau
 Prüfbericht: `VISUALV2_HEILHAUS_ART_QUALITY_V3_PRUEFBERICHT.md`.
 Künstlerische Freigabe durch Harry bleibt offen; bis dahin keine Übernahme
 auf andere Bereiche und keine Performancefreigabe.
+
+
+### 19.10.2026 – Heilhaus Art Quality V4 zur visuellen Abnahme
+
+Die vom Nutzer gelieferte V4-Konzeptillustration (rechte Hälfte) ist der gestalterische Maßstab des begrenzten Heilhauspasses. Die örtlichen V3-Material-/Pflanzenbindungen werden durch eigene V4-Varianten ersetzt; V3-Quellen und Originalassets bleiben erhalten. Größere lesbare Bodenmotive, ergänzende Kräuter-/Steingruppen und Fassadenmaterialdetails sind umgesetzt und technisch geprüft. Acht zusätzlich erkannte alte Fensterpflanzen werden visuell ersetzt, deren alte Grundkörper bleiben unsichtbar in der Karte. Keine Änderung an Licht, Schatten, Kamera oder Gameplay. Keine neue Karte und keine Ausweitung. Dies ist keine endgültige Stilfreigabe: Harrys visuelle Abnahme steht aus. Details und Restmängel im V4-Prüfbericht.
