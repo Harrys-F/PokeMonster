@@ -1,0 +1,7 @@
+import unreal,json
+from pathlib import Path
+R=Path(unreal.Paths.project_dir()).resolve();O=R/'Saved/GlumandaV11';E=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);assert not E.get_game_world();dirty={'maps':[x.get_path_name()for x in unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()],'content':[x.get_path_name()for x in unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()]};assert not any(dirty.values()),dirty
+s=unreal.load_asset('/Game/Data/Creatures/DA_Zunderlauf');m=unreal.load_asset('/Game/Environment/DevTestMapVisualV2/Materials/MPC_PlayerSight');w=E.get_editor_world();lights=[]
+for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.DirectionalLight):
+ c=a.get_component_by_class(unreal.DirectionalLightComponent);lights.append({'actor':a.get_actor_label(),'rotation':a.get_actor_rotation().to_tuple(),'intensity':c.intensity,'source_angle':c.light_source_angle,'shadow_amount':c.shadow_amount,'lighting_channels':str(c.get_editor_property('lighting_channels'))})
+r={'dirty':dirty,'map':w.get_name(),'species_name':str(s.get_display_name()),'species_id':str(s.get_internal_id()),'presentation':s.visuals.presentation.get_path_name(),'sight_parameters':[{'name':str(x.get_editor_property('parameter_name')),'value':x.get_editor_property('default_value').to_tuple()}for x in m.get_editor_property('vector_parameters')],'directional':lights};(O/'LiveInitial.json').write_text(json.dumps(r,indent=2));print(r)

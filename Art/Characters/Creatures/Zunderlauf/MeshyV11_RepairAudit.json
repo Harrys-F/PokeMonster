@@ -1,0 +1,146 @@
+{
+  "original_vertices": 12227,
+  "vertices": 12284,
+  "original_body_triangles": 18198,
+  "body_triangles": 18245,
+  "caps": [
+    {
+      "perimeter_m": 0.11193502508103848,
+      "vertices": 5,
+      "triangles": 5,
+      "uv_method": "local_adjacent_face_projection_across_atlas_seam",
+      "uv_edge_energy": 0.0005643568647428765,
+      "center_m": [
+        -0.0774022787809372,
+        -0.003634293796494603,
+        0.2691991329193115
+      ]
+    },
+    {
+      "perimeter_m": 0.022974436171352863,
+      "vertices": 5,
+      "triangles": 5,
+      "uv_method": "coherent_boundary_chart",
+      "uv_edge_energy": 0.0007486918079848692,
+      "center_m": [
+        -0.27194035053253174,
+        -0.06455854326486588,
+        0.3186652660369873
+      ]
+    },
+    {
+      "perimeter_m": 0.07558642700314522,
+      "vertices": 4,
+      "triangles": 4,
+      "uv_method": "coherent_boundary_chart",
+      "uv_edge_energy": 0.0006185730826473446,
+      "center_m": [
+        0.11180689930915833,
+        0.09478963911533356,
+        0.04496914893388748
+      ]
+    },
+    {
+      "perimeter_m": 0.04762184293940663,
+      "vertices": 5,
+      "triangles": 5,
+      "uv_method": "local_adjacent_face_projection_across_atlas_seam",
+      "uv_edge_energy": 0.0003463265048821995,
+      "center_m": [
+        -0.05116008594632149,
+        -0.1978028267621994,
+        0.44464045763015747
+      ]
+    },
+    {
+      "perimeter_m": 0.05623940750956535,
+      "vertices": 5,
+      "triangles": 5,
+      "uv_method": "local_adjacent_face_projection_across_atlas_seam",
+      "uv_edge_energy": 0.00023744934895830738,
+      "center_m": [
+        0.08257698267698288,
+        -0.02821356989443302,
+        0.2932852506637573
+      ]
+    },
+    {
+      "perimeter_m": 0.04131551459431648,
+      "vertices": 5,
+      "triangles": 5,
+      "uv_method": "coherent_boundary_chart",
+      "uv_edge_energy": 0.009032803128320666,
+      "center_m": [
+        0.12471258640289307,
+        -0.13509228825569153,
+        0.0003078201843891293
+      ]
+    },
+    {
+      "perimeter_m": 0.013651965884491801,
+      "vertices": 5,
+      "triangles": 5,
+      "uv_method": "coherent_boundary_chart",
+      "uv_edge_energy": 2.41174690245316e-05,
+      "center_m": [
+        -0.07413750886917114,
+        -0.01416816096752882,
+        0.07232016324996948
+      ]
+    },
+    {
+      "perimeter_m": 0.03771969489753246,
+      "vertices": 4,
+      "triangles": 4,
+      "uv_method": "coherent_boundary_chart",
+      "uv_edge_energy": 0.0006548102505945508,
+      "center_m": [
+        0.07838818430900574,
+        -0.02371637150645256,
+        0.01678638905286789
+      ]
+    },
+    {
+      "perimeter_m": 0.025445105507969856,
+      "vertices": 5,
+      "triangles": 5,
+      "uv_method": "coherent_boundary_chart",
+      "uv_edge_energy": 0.00045898597863924806,
+      "center_m": [
+        -0.2453283816576004,
+        -0.03720714524388313,
+        0.2942093312740326
+      ]
+    },
+    {
+      "perimeter_m": 0.02502807416021824,
+      "vertices": 4,
+      "triangles": 4,
+      "uv_method": "coherent_boundary_chart",
+      "uv_edge_energy": 0.00023050190533524528,
+      "center_m": [
+        0.10272068530321121,
+        -0.14599567651748657,
+        0.011319238692522049
+      ]
+    }
+  ],
+  "intentional_open_boundaries": [
+    {
+      "edges": 43,
+      "perimeter_m": 0.4577618802431971,
+      "reason": "intentional original flame/body separation"
+    }
+  ],
+  "original_vertex_max_rest_displacement_m": 0,
+  "original_materials_uvs_normals_preserved": true,
+  "knee_regularization": {
+    "accepted": true,
+    "before_p99_absolute_log_edge_strain": 0.5487644331020829,
+    "after_p99_absolute_log_edge_strain": 0.538339136264619,
+    "neighbor_blend": 0.125,
+    "max_animated_surface_difference_m": 0.0020511353849508142
+  },
+  "animations_reused_unchanged": 7,
+  "height_m": 0.6
+}

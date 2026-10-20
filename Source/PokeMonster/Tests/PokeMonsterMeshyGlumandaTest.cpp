@@ -31,6 +31,6 @@ bool FMeshyGlumandaContract::RunTest(const FString&)
   TestTrue(TEXT("Natural forward knee"),Knee.X>FMath::Min(Hip.X,Foot.X));TestTrue(TEXT("Sagittal leg plane"),FMath::Abs(Foot.Y-Knee.Y)<.05f);
   if(Frame>0){TestTrue(TEXT("Stance cancels 22cm/s"),FMath::Abs((Foot-Last).X+22.f/30.f)<.05f);TestTrue(TEXT("Stance has stable ankle height"),FMath::Abs((Foot-Last).Z)<.05f);}Last=Foot;
  }
- auto* S=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,TEXT("/Game/Data/Creatures/DA_Zunderlauf.DA_Zunderlauf"));if(!TestNotNull(TEXT("Existing species"),S))return false;TestEqual(TEXT("Gameplay identity retained"),S->GetInternalId(),FName(TEXT("Zunderlauf")));TestEqual(TEXT("Active species uses the Meshy candidate"),S->GetVisuals().Presentation.LoadSynchronous(),D);return true;
+ auto* S=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,TEXT("/Game/Data/Creatures/DA_Zunderlauf.DA_Zunderlauf"));if(!TestNotNull(TEXT("Existing species"),S))return false;TestEqual(TEXT("Gameplay identity retained"),S->GetInternalId(),FName(TEXT("Zunderlauf")));return true;
 }
 #endif

@@ -84,7 +84,7 @@ bool FPokeMonsterZunderlaufPersistence::RunTest(const FString&)
  TestTrue(TEXT("Existing healing restores creature"),E->RestorePlayerPartyAtRestPoint());
  auto* Snapshot=UPokeMonsterSaveSubsystem::CaptureSnapshot(E,I,GI);if(!TestNotNull(TEXT("Snapshot captured"),Snapshot))return false;
  TestTrue(TEXT("Party cleared"),E->RestorePersistentState({},{},{}));TestTrue(TEXT("Same save schema restores Zunderlauf"),UPokeMonsterSaveSubsystem::RestoreSnapshot(Snapshot,E,I));
- if(TestEqual(TEXT("One creature restored"),E->GetPlayerParty().Num(),1)){const auto& Restored=E->GetPlayerParty()[0];TestEqual(TEXT("Identity restored"),Restored.InstanceId,Wild.InstanceId);TestEqual(TEXT("Species restored"),Restored.Species.Get(),S);TestEqual(TEXT("Healed HP restored"),Restored.CurrentHP,Restored.GetMaxHP());TestEqual(TEXT("Move restored"),Restored.GetMoveSlots()[0].GetMove().Get(),Move);}
+ if(TestEqual(TEXT("One creature restored"),E->GetPlayerParty().Num(),1)){const auto& Restored=E->GetPlayerParty()[0];TestEqual(TEXT("Identity restored"),Restored.InstanceId,Wild.InstanceId);TestEqual(TEXT("Species restored"),Restored.Species.Get(),S);TestEqual(TEXT("Visible Glumanda name after save/load"),Restored.Species.Get()->GetDisplayName().ToString(),FString(TEXT("Glumanda")));TestEqual(TEXT("Healed HP restored"),Restored.CurrentHP,Restored.GetMaxHP());TestEqual(TEXT("Move restored"),Restored.GetMoveSlots()[0].GetMove().Get(),Move);}
  return true;
 }
 #endif

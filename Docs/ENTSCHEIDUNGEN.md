@@ -839,3 +839,15 @@ Skinning und Animation sind neu. Originale Schwanzflamme statt zweitem Effekt.
 Speziesmutation. Meshy-Quelllöcher werden dokumentiert und nicht automatisch
 wegremesht. Weitere Kreaturen und eine finale visuelle Masterfreigabe folgen nicht
 automatisch aus diesem technischen Import. Einzelheiten im Integrationsbericht.
+
+## 20.10.2026 – Glumanda V1.1: sichtbarer Name und lokale Reparatur
+
+Auf ausdrücklichen Nutzerauftrag heißt die Spezies sichtbar Glumanda. Die bisherige
+Entscheidung, den Anzeigenamen Zunderlauf zunächst zu erhalten, ist dadurch ersetzt;
+`CreatureSpecies:Zunderlauf`, Assetpfade, Werte und Save-Version bleiben erhalten.
+Die originale V1-Quelle bleibt unverändert. Eigener V1.1-Skin schließt ausschließlich
+zehn diagnostizierte kleine Quelllöcher und regularisiert Kniegewichte sehr leicht.
+Originale Vertexpositionen/UVs, sieben Actions, Skeleton, Materialien und Schwanzflamme
+bleiben erhalten beziehungsweise werden direkt wiederverwendet. Die beabsichtigte
+Körper-/Flammennaht wird nicht als Defekt geschlossen. Prüfungen und Grenzen:
+`GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md`.

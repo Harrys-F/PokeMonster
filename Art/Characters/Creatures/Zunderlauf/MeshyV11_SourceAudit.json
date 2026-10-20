@@ -1,0 +1,17 @@
+{
+  "reopened": true,
+  "original_vertex_max_displacement_m": 0,
+  "original_uv_max_displacement": 0,
+  "original_normal_max_error": 0.0004979965665484664,
+  "body_vertices": 12284,
+  "body_triangles": 18245,
+  "closed_small_holes": 10,
+  "remaining_position_welded_boundary_edges": 43,
+  "remaining_boundary": "intentional original flame/body seam only",
+  "rig_rest_max_float_difference": 0.0,
+  "rig_rest_unchanged_within_float_precision": true,
+  "seven_original_actions_preserved": true,
+  "all_weights_unit": true,
+  "packed_images": 3,
+  "skin_fbx_roundtrip": true
+}

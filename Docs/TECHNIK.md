@@ -830,3 +830,13 @@ Socket-Skalierung wird im Effekt-Offset kompensiert. Kein zweiter Flammeneffekt.
 Vollständige Prüfungen und Grenzen: `MESHY_GLUMANDA_INTEGRATION_V1_PRUEFBERICHT.md`;
 Reproduktion: `Tools/MeshyGlumandaV1/README.md`. Keine abschließende künstlerische
 Freigabe oder universelle Rig-/LOD-Freigabe für weitere Arten daraus ableiten.
+
+### Glumanda V1.1 – lokaler Skin-/Namenspass
+
+Anzeigename Glumanda bei unveränderter Art-ID `Zunderlauf`. Das aktive Profil
+`/Game/Characters/Creatures/Zunderlauf/MeshyV11/DA_Glumanda_V11` verwendet einen
+lokal reparierten Skin (18.245 Körperdreiecke) auf exakt dem vorhandenen Skeleton.
+Alle sieben Originalclips, Materialien, Texturen und Schwanzflamme bleiben Referenzen
+auf V1. Quelle/UV-/Restpose-/Actionvergleich und FBX-Roundtrip sind eigenständig geprüft;
+zehn echte kleine Randloops geschlossen, nur die Flammennaht bleibt absichtlich offen.
+Kein neues Saveformat. `Tools/GlumandaV11/README.md` beschreibt den bewachten Ablauf.
