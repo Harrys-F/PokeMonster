@@ -206,6 +206,18 @@ Keine Videos, Screenshots, GIFs, Logs, Test-Saves oder Caches versionieren.
 59 zuvor unversionierte Dateien physisch bytegleich; nach Aufnahme der ausgewählten
 Glumanda verbleiben 58 davon bewusst unversioniert. Ein aktiver Worktree, beide
 Backup-Refs unverändert auf 03492bd; dieser Commit wird nicht Teil der Remote-Historie.
-Commit-/Remote-/LFS-Bestätigung wird nach der tatsächlich erfolgten Sicherung ergänzt.
+Technisches Paket: **`c03b776a9d97b83087d29d93294192d1a145130c`**,
+`feat: integrate Meshy Glumanda through creature pipeline`, 64 gezielt geprüfte Pfade.
+Regulär nach `origin/main` gepusht und direkt mit `git ls-remote` bestätigt.
+Alle **30 LFS-Objekte / 36.931.296 Bytes** anschließend von GitHub heruntergeladen
+und unabhängig nach Größe und SHA-256 verifiziert; kein bloßes Pointer-Vorhandensein.
+Normale Indexdaten unkomprimiert 1.109.079 Bytes, größte normale Datei 693.958 Bytes;
+kein gewöhnliches Git-Objekt nahe dem Einzeldateilimit und deutlich unter 1 GiB Pushziel.
+Nachweis: `Saved/MeshyGlumandaV1/PushTechnical.json`, `IndexAudit.json` und
+`RemoteLFS_Technical.json`. Der nachfolgende reine Nachweis-Commit aktualisiert
+nur diesen Bericht und dessen Pflichtdatei-Manifest; keine weiteren LFS-Objekte.
+Zuvor unversionierte übrige 58 Dateien bleiben außerhalb der Commits unverändert.
+`main`/Remote werden nach dem Nachweis-Commit nochmals direkt verglichen.
+Kein Force-Push, keine kostenpflichtige Aktion, keine Historien-/Backupänderung.
 
 Aktuelle GitHub-Dateigrenzen vor dem Upload geprüft: [normale Git-Dateien](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github), [Pushgröße](https://docs.github.com/en/repositories/creating-and-managing-repositories/repository-limits), [Git LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage). Der konkrete Index wird zusätzlich auf Pointer, SHA-256 und Objektgrößen geprüft. Kein Kauf, keine Budgetänderung; aktuelle kontoabhängige Abrechnung ist dadurch nicht eingesehen.
