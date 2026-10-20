@@ -381,5 +381,24 @@
     "No whole-character walking/cloth deformation rig; no video acceptance.",
     "No FPS benchmark, cooked package or standalone gameplay acceptance in this pass.",
     "Existing generic Engine startup Condition failed / idevice_id CPU-type / audio / MotionVectorSimulation warnings retained, separate from 50 successful project tests."
-  ]
+  ],
+  "final_automation": {
+    "mode": "Automation",
+    "exit": 0,
+    "seconds": 24.66068720817566,
+    "summary": {
+      "succeeded": 50,
+      "succeededWithWarnings": 0,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0
+    }
+  },
+  "github_art_commit": {
+    "commit": "b859e5757e1b37f80f753059655b352baaf61308",
+    "count": 36,
+    "bytes": 115335237,
+    "verified": true,
+    "no_credentials_or_download_urls_saved": true
+  }
 }

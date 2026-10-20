@@ -8586,8 +8586,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 114888,
-      "sha256": "1f61a7e174e017429ed9a62f40e159b0108486816181b0727e8f200b44305985"
+      "bytes": 116359,
+      "sha256": "437737bc43f535b60e1060fdb21e26676344070b055ee49b51268a5c478a2481"
     },
     "Docs/GRAFIKSTIL.md": {
       "bytes": 13867,
@@ -8674,8 +8674,8 @@
       "sha256": "cb4d28f53a50b73e952a013afd156e8afe62c2845ccacdc8fd91c4b7cd9f8350"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 135404,
-      "sha256": "875e25cbebb653c3002174269b8c9a398b88236462296cd30567264a449e3f61"
+      "bytes": 137115,
+      "sha256": "e00ae31d057485e2fd54ebf16bb0689a2c7ac57136b325195838ecd4629f3b9d"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -14618,8 +14618,12 @@
       "sha256": "8fd05ac7eaca93b41c3a5b56feb7b22452c946c2e8ee0a7f8ef18250d5657d9f"
     },
     "Tools/ProjectMaintenance/ArtV4Acceptance.json": {
-      "bytes": 12792,
-      "sha256": "e210c0a915b0ab2daed7d50c1d5c08449ecd351c17ee2bd54ab99662b8ff1ada"
+      "bytes": 13236,
+      "sha256": "093747031e7bfd077a761aa978e64b93a642b2067d28cd959e26a8bd8c5726a1"
+    },
+    "Docs/GRAFIKPASS_V4_PRUEFBERICHT.md": {
+      "bytes": 25232,
+      "sha256": "903e15762b95babb6ad15fdda4a4dc19744f47796be69b1d46e98991821a5a8a"
     }
   }
 }
