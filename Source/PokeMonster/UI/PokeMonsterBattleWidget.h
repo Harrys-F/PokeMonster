@@ -40,6 +40,7 @@ public:
 	UFUNCTION(BlueprintCallable) void SetBattleMenu(EPokeMonsterBattleMenu Page);
  UFUNCTION(BlueprintPure) EPokeMonsterBattleMenu GetBattleMenu() const {return MenuPage;}
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Input") bool bNintendoButtonLayout=true;
+ UFUNCTION(BlueprintPure) UButton* GetHealingButton(int32 Index)const{return HealingButtons.IsValidIndex(Index)?HealingButtons[Index].Get():nullptr;}
  UFUNCTION(BlueprintPure) UButton* GetCommandButton(int32 Index)const{return CommandButtons.IsValidIndex(Index)?CommandButtons[Index].Get():nullptr;}
  UPROPERTY(BlueprintAssignable) FPokeMonsterWorldPresentationStep OnWorldPresentationStep;
 protected:
@@ -60,6 +61,12 @@ private:
  void UpdateClassicMenu();
  void FocusMenu(int32 Direction);
  TArray<UButton*> ActiveMenuButtons()const;
+ UFUNCTION() void Healing0();UFUNCTION() void Healing1();UFUNCTION() void Healing2();UFUNCTION() void NextBagPage();
+ void SelectHealing(int32 ButtonIndex);
+ UPROPERTY(Transient) TArray<TObjectPtr<UButton>> HealingButtons;
+ UPROPERTY(Transient) TObjectPtr<UButton> BagNextButton;
+ UPROPERTY(Transient) TObjectPtr<UPokeMonsterItemData> HealingTargetItem;
+ int32 BagPage=0;
  UFUNCTION()void CommandFight();UFUNCTION()void CommandTeam();UFUNCTION()void CommandBag();UFUNCTION()void CommandFlee();UFUNCTION()void MenuBack();
  UPROPERTY(Transient)TArray<TObjectPtr<UButton>> CommandButtons;
  UPROPERTY(Transient)TArray<TObjectPtr<UCanvasPanel>> MenuPanels;
@@ -72,6 +79,7 @@ private:
 	UPROPERTY(Transient) TObjectPtr<UTextureRenderTarget2D> ClassicTarget;
 	UPROPERTY(Transient) TObjectPtr<UImage> ClassicImage;
  UPROPERTY(Transient) TObjectPtr<UTexture2D> ContactTexture;
+ UPROPERTY(Transient) TObjectPtr<UTexture2D> FireEffectTexture;
  UPROPERTY(Transient) TArray<TObjectPtr<UImage>> ContactMarks;
  FVector2D PlayerGroundAnchor=FVector2D(350,450),OpponentGroundAnchor=FVector2D(890,330);
 	bool bClassicPresentation=false;

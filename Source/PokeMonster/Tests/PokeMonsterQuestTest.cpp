@@ -58,7 +58,7 @@ bool FPokeMonsterQuestFlowTest::RunTest(const FString& Parameters)
 
 	auto* MidSave = UPokeMonsterSaveSubsystem::CaptureSnapshot(Encounter, Inventory, GI.Get(), nullptr, Quests);
 	if (!TestNotNull(TEXT("Mid-quest snapshot"), MidSave)) return false;
-	TestEqual(TEXT("Save schema version"), MidSave->SaveVersion, 3);
+	TestEqual(TEXT("Save schema version"), MidSave->SaveVersion, UPokeMonsterSaveGame::CurrentVersion);
 	const FString Slot = TEXT("PokeMonster_QuestAutomation_") + FGuid::NewGuid().ToString(EGuidFormats::Digits);
 	TestTrue(TEXT("Quest save written"), UGameplayStatics::SaveGameToSlot(MidSave, Slot, 0));
 	auto* Loaded = Cast<UPokeMonsterSaveGame>(UGameplayStatics::LoadGameFromSlot(Slot, 0));

@@ -35,7 +35,7 @@ public:
 	/** Evaluate an already landed hit. Uses physical/special stats and species types without mutation. */
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Battle")
 	static FPokeMonsterDamageResult CalculateDamage(const FPokeMonsterCreatureInstance& Attacker,
-		const FPokeMonsterCreatureInstance& Defender, const UPokeMonsterMoveData* Move);
+		const FPokeMonsterCreatureInstance& Defender, const UPokeMonsterMoveData* Move, int32 AttackStage = 0);
 
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Battle")
 	static float GetTypeMultiplier(EPokeMonsterCreatureType Attack, EPokeMonsterCreatureType Primary,

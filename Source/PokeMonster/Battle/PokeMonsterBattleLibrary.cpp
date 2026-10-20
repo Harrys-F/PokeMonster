@@ -8,7 +8,7 @@ bool UPokeMonsterBattleLibrary::CheckHit(const UPokeMonsterMoveData* Move, const
 }
 
 FPokeMonsterDamageResult UPokeMonsterBattleLibrary::CalculateDamage(const FPokeMonsterCreatureInstance& Attacker,
-	const FPokeMonsterCreatureInstance& Defender, const UPokeMonsterMoveData* Move)
+	const FPokeMonsterCreatureInstance& Defender, const UPokeMonsterMoveData* Move, int32 AttackStage)
 {
 	FPokeMonsterDamageResult Result;
 	if (!IsValid(Move) || !Move->IsConfigured() || !Attacker.IsValid() || !Defender.IsValid()) return Result;
@@ -21,14 +21,16 @@ FPokeMonsterDamageResult UPokeMonsterBattleLibrary::CalculateDamage(const FPokeM
 		return Result;
 	}
 	const bool bPhysical = Move->Category == EPokeMonsterMoveCategory::Physical;
-	const int32 Offense = bPhysical ? Attacker.CalculatedStats.Attack : Attacker.CalculatedStats.SpecialAttack;
+	int32 Offense = bPhysical ? Attacker.CalculatedStats.Attack : Attacker.CalculatedStats.SpecialAttack;
+ if(Offense<=0)return Result; // Stage clamping must not turn invalid source stats into a legal attack.
+ if(bPhysical){const int S=FMath::Clamp(AttackStage,-6,6);Offense=int32(FMath::Clamp<int64>(int64(Offense)*(S>=0?2+S:2)/(S>=0?2:2-S),1,MAX_int32));if(Attacker.Status==EPokeMonsterCreatureStatus::Burn)Offense=FMath::Max(1,Offense/2);}
 	const int32 Defense = bPhysical ? Defender.CalculatedStats.Defense : Defender.CalculatedStats.SpecialDefense;
 	if (Offense <= 0 || Defense <= 0) return Result;
-	Result.TypeMultiplier = GetTypeMultiplier(Move->Type, DefenderSpecies->GetPrimaryType(), DefenderSpecies->GetSecondaryType());
+	Result.TypeMultiplier = Move->Effect.EffectId==TEXT("Struggle")?1.f:GetTypeMultiplier(Move->Type, DefenderSpecies->GetPrimaryType(), DefenderSpecies->GetSecondaryType());
 	if (Result.TypeMultiplier < 0.0f) return Result;
 	Result.bValid = true;
 	if (Result.TypeMultiplier == 0.0f) return Result;
-	// Working formula only: no STAB, critical hits, random damage, abilities or stat stages.
+	// Working formula only: no STAB, critical hits, random damage, abilities or complete Generation-2 arithmetic.
 	// Double intermediates avoid integer overflow even for malformed/extreme positive designer values.
 	const double Base = FMath::FloorToDouble((2 * Attacker.Level / 5 + 2) * static_cast<double>(Move->BasePower)
 		* Offense / Defense / 50.0) + 2.0;

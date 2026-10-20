@@ -49,7 +49,7 @@ bool FPokeMonsterBattleUIBindingTest::RunTest(const FString& Parameters)
 	const int32 BeforeStatus = Presenter->GetView().Opponent.CurrentHP;
 	Presenter->TrySelectMove(2); Presenter->ResolveSelection(); Presenter->FinishPresentation();
 	TestEqual(TEXT("Status placeholder causes no damage"), Presenter->GetView().Opponent.CurrentHP, BeforeStatus);
-	TestTrue(TEXT("Placeholder explained in log"), Presenter->GetView().Log.ToString().Contains(TEXT("Status-Platzhalter")));
+	TestTrue(TEXT("Placeholder explained in log"), Presenter->GetView().Log.ToString().Contains(TEXT("Für diese Testattacke ist noch keine Wirkung definiert")));
 	for(int32 Round=0;Round<20 && !Presenter->GetView().bFinished;++Round)
 	{
 		if(!Presenter->TrySelectMove(0)) { AddError(TEXT("An unfinished demo lost all usable moves unexpectedly")); break; }
@@ -88,8 +88,8 @@ bool FPokeMonsterBattleUIInvalidTest::RunTest(const FString& Parameters)
 	for(const auto& Event:Presenter->GetLastResult().Events)
 		bChoseSlot2 |= Event.Type==EPokeMonsterBattleEventType::MoveChosen && Event.Source==EPokeMonsterBattleSide::B && Event.SlotIndex==2;
 	TestTrue(TEXT("Opponent chose its valid slot"),bChoseSlot2);
-	TestFalse(TEXT("Exhausted player slot disabled"),Presenter->GetView().Moves[0].bEnabled);
-	TestTrue(TEXT("No-move condition is explained"),Presenter->GetView().Status.ToString().Contains(TEXT("Keine gültige Attacke")));
+	TestTrue(TEXT("Exhaustion offers explicit fallback without refilling PP"),Presenter->GetView().bStruggle&&Presenter->GetView().Moves[0].bEnabled&&Presenter->GetView().Moves[0].CurrentPP==0);
+	TestTrue(TEXT("No-move condition is explained"),Presenter->GetView().Status.ToString().Contains(TEXT("Verzweifler")));
 	A.Species.Reset();
 	TestFalse(TEXT("Missing species fails safely"),Presenter->InitializeBattle(A,B,1));
 	TestFalse(TEXT("Initialization error is visible"),Presenter->GetView().Status.IsEmpty());

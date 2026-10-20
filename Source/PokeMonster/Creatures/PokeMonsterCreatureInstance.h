@@ -30,7 +30,7 @@ public:
 	}
 	/** Restore only mutable data; species stats are recalculated from the asset. */
 	bool RestoreIndividualState(const FGuid& InId, int32 InLevel, int64 InExperience,
-		int32 InCurrentHP, const TArray<FPokeMonsterMoveSlot>& InSlots);
+		int32 InCurrentHP, const TArray<FPokeMonsterMoveSlot>& InSlots, EPokeMonsterCreatureStatus InStatus = EPokeMonsterCreatureStatus::None);
 	/** Fully restores HP and the PP of assigned moves, including a fainted creature. */
 	bool RestoreFully();
 
@@ -44,6 +44,10 @@ public:
 	FPokeMonsterExperienceResult AddExperience(int64 Amount);
 	int64 GetExperienceToNextLevel() const;
 	int32 GetMaxHP() const { return CalculatedStats.MaxHP; }
+	/** Explicit species opt-in; does not alter the generic factory contract. */
+	bool AssignSpeciesMoves();
+	bool UpgradeLegacyGlumandaMoves();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Creature") EPokeMonsterCreatureStatus Status = EPokeMonsterCreatureStatus::None;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Creature")
 	FGuid InstanceId;
@@ -65,7 +69,7 @@ public:
 	FPokeMonsterCreatureStats CalculatedStats;
 
 private:
-	/** Exactly four individually owned slots; no learning or automatic assignment. */
+	/** Exactly four individually owned slots. Explicit species learnsets may fill empty slots. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Creature", meta = (AllowPrivateAccess = "true"))
 	TArray<FPokeMonsterMoveSlot> MoveSlots;
 };

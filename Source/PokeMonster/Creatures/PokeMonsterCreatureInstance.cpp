@@ -34,7 +34,7 @@ bool FPokeMonsterCreatureInstance::IsValid() const
 }
 
 bool FPokeMonsterCreatureInstance::RestoreIndividualState(const FGuid& InId, const int32 InLevel,
-	const int64 InExperience, const int32 InCurrentHP, const TArray<FPokeMonsterMoveSlot>& InSlots)
+	const int64 InExperience, const int32 InCurrentHP, const TArray<FPokeMonsterMoveSlot>& InSlots, EPokeMonsterCreatureStatus InStatus)
 {
 	const UPokeMonsterCreatureSpeciesData* Data = Species.LoadSynchronous();
 	if (!InId.IsValid() || !::IsValid(Data) || InLevel < UPokeMonsterCreatureProgression::MinLevel
@@ -44,7 +44,7 @@ bool FPokeMonsterCreatureInstance::RestoreIndividualState(const FGuid& InId, con
 		? Floor + 1 : UPokeMonsterCreatureProgression::ExperienceForLevel(Data->GetGrowthRate(), InLevel + 1);
 	const FPokeMonsterCreatureStats Stats = UPokeMonsterCreatureProgression::CalculateStats(Data->GetBaseStats(), InLevel);
 	if (Floor < 0 || InExperience < Floor || InExperience >= Ceiling
-		|| InCurrentHP < 0 || InCurrentHP > Stats.MaxHP) return false;
+		|| InCurrentHP < 0 || InCurrentHP > Stats.MaxHP || uint8(InStatus)>uint8(EPokeMonsterCreatureStatus::Burn)) return false;
 	for (const FPokeMonsterMoveSlot& Slot : InSlots)
 	{
 		if (Slot.GetMove().IsNull())
@@ -65,6 +65,7 @@ bool FPokeMonsterCreatureInstance::RestoreIndividualState(const FGuid& InId, con
 	CalculatedStats = Stats;
 	CurrentHP = InCurrentHP;
 	MoveSlots = InSlots;
+ Status=InStatus;
 	return true;
 }
 
@@ -118,5 +119,25 @@ FPokeMonsterExperienceResult FPokeMonsterCreatureInstance::AddExperience(const i
 		CurrentHP = CurrentHP <= 0 ? 0 : static_cast<int32>(FMath::Clamp<int64>(
 			static_cast<int64>(CurrentHP) + GetMaxHP() - OldMaxHP, 0, GetMaxHP()));
 	}
+ if(Result.LevelsGained>0)for(const auto& Entry:Data->LevelUpMoves)if(Entry.Level>OldLevel&&Entry.Level<=Level){auto* M=Entry.Move.LoadSynchronous();if(!M)continue;bool Known=false;for(const auto& Slot:MoveSlots)Known|=Slot.GetMove().Get()==M;if(!Known)for(auto& Slot:MoveSlots)if(Slot.GetMove().IsNull()){Slot.AssignMove(M);break;}}
 	return Result;
+}
+
+bool FPokeMonsterCreatureInstance::AssignSpeciesMoves()
+{
+ const auto* D=Species.LoadSynchronous();if(!D)return false;const auto Moves=D->MovesForLevel(Level);if(Moves.IsEmpty())return false;TArray<FPokeMonsterMoveSlot> Slots;Slots.SetNum(4);for(int I=0;I<Moves.Num();++I)if(!Slots[I].AssignMove(Moves[I]))return false;MoveSlots=MoveTemp(Slots);return true;
+}
+bool FPokeMonsterCreatureInstance::UpgradeLegacyGlumandaMoves()
+{
+ const auto* D=Species.LoadSynchronous();if(!D||D->GetInternalId()!=TEXT("Zunderlauf")||D->LevelUpMoves.IsEmpty())return true;
+ TMap<FName,int32> Spent;for(const auto& Slot:MoveSlots)if(auto* M=Slot.GetMove().LoadSynchronous()){
+  FName Name=M->InternalId;if(Name!=TEXT("TestNormalPhysical")&&Name!=TEXT("TestFireSpecial")&&Name!=TEXT("TestStatus"))return true;
+  Spent.FindOrAdd(Name)+=Slot.GetMaxPP()-Slot.GetCurrentPP();
+ }
+ if(Spent.IsEmpty())return true;auto Copy=*this;if(!Copy.AssignSpeciesMoves())return false;
+ for(auto& Slot:Copy.MoveSlots)if(auto* M=Slot.GetMove().LoadSynchronous()){
+  const FName Legacy=M->InternalId==TEXT("Scratch")?TEXT("TestNormalPhysical"):M->InternalId==TEXT("Growl")?TEXT("TestStatus"):TEXT("TestFireSpecial");
+  Slot.RestoreCurrentPP(FMath::Max(0,Slot.GetMaxPP()-Spent.FindRef(Legacy)));
+ }
+ MoveSlots=Copy.MoveSlots;return true;
 }

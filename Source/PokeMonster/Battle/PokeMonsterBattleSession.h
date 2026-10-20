@@ -6,6 +6,8 @@
 #include "../Capture/PokeMonsterCaptureDeviceData.h"
 #include "PokeMonsterBattleSession.generated.h"
 
+class UPokeMonsterItemData;
+
 UENUM(BlueprintType)
 enum class EPokeMonsterBattleSide : uint8 { None, A, B };
 
@@ -18,21 +20,22 @@ enum class EPokeMonsterBattleError : uint8
 	None, NotInitialized, AlreadyInitialized, BattleFinished, InvalidCreature, DuplicateCreature,
 	MissingSpecies, CreatureFainted, InvalidStats, InvalidSlot, MissingMove, InvalidMove,
 	NoPP, InvalidPP, InvalidDamage, RoundLimitReached, InvalidTeam, InvalidSwitch, SwitchRequired,
-	CaptureNotAllowed, InvalidCaptureDevice
+	CaptureNotAllowed, InvalidCaptureDevice, FleeNotAllowed, InvalidItem, InvalidItemTarget
 };
 
 UENUM(BlueprintType)
 enum class EPokeMonsterBattleEventType : uint8
 {
 	MoveChosen, MoveExecuted, Missed, Damage, SuperEffective, NotVeryEffective, Immune, KnockedOut, BattleEnded,
-	SwitchChosen, SwitchedIn, CaptureChosen, CaptureSucceeded, CaptureFailed
+	SwitchChosen, SwitchedIn, CaptureChosen, CaptureSucceeded, CaptureFailed,
+ Recoil, FleeChosen, FleeSucceeded, FleeFailed, ItemChosen, Healed, AttackLowered, EffectFailed, Burned, BurnDamage, ExperienceGained, LevelUp
 };
 
 UENUM(BlueprintType)
-enum class EPokeMonsterBattleChoiceType : uint8 { Move, Switch, Capture };
+enum class EPokeMonsterBattleChoiceType : uint8 { Move, Switch, Capture, Flee, Item };
 
 UENUM(BlueprintType)
-enum class EPokeMonsterBattleEndReason : uint8 { None, Knockout, Captured };
+enum class EPokeMonsterBattleEndReason : uint8 { None, Knockout, Captured, Escaped };
 
 USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterBattleChoice
@@ -45,6 +48,7 @@ struct POKEMONSTER_API FPokeMonsterBattleChoice
 	int32 Index = INDEX_NONE;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
 	TSoftObjectPtr<UPokeMonsterCaptureDeviceData> CaptureDevice;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite) TSoftObjectPtr<UPokeMonsterItemData> Item;
 };
 
 /** Ordered, self-contained event data for a future presentation layer. No UObject/world dependency. */
@@ -96,6 +100,14 @@ struct POKEMONSTER_API FPokeMonsterBattleEvent
 	float CaptureChance = 0.0f;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
 	int32 CaptureRoll = INDEX_NONE;
+ UPROPERTY(BlueprintReadOnly) FPrimaryAssetId ItemId;
+ UPROPERTY(BlueprintReadOnly) int32 RestoredHP=0;
+ UPROPERTY(BlueprintReadOnly) int32 FleeThreshold=0;
+ UPROPERTY(BlueprintReadOnly) int32 FleeRoll=INDEX_NONE;
+ UPROPERTY(BlueprintReadOnly) int32 StageAfter=0;
+ UPROPERTY(BlueprintReadOnly) int64 ExperienceAdded=0;
+ UPROPERTY(BlueprintReadOnly) int32 LevelsGained=0;
+
 };
 
 USTRUCT(BlueprintType)
@@ -127,6 +139,13 @@ struct POKEMONSTER_API FPokeMonsterBattleState
 	EPokeMonsterBattleEndReason EndReason = EPokeMonsterBattleEndReason::None;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
 	bool bCaptureAllowed = false;
+ UPROPERTY(BlueprintReadOnly) bool bFleeAllowed=false;
+ UPROPERTY(BlueprintReadOnly) bool bTrainerExperience=false;
+ UPROPERTY(BlueprintReadOnly) int32 FleeAttempts=0;
+ UPROPERTY(BlueprintReadOnly) int32 AttackStageA=0;
+ UPROPERTY(BlueprintReadOnly) int32 AttackStageB=0;
+ UPROPERTY() TSet<FGuid> ParticipantsA;
+
 	/** Preserves the exact wild individual at capture time, including HP, PP and level. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
 	FPokeMonsterCreatureInstance CapturedCreature;
@@ -166,7 +185,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "PokeMonster|Battle")
 	FPokeMonsterBattleResult InitializeTeams(const TArray<FPokeMonsterCreatureInstance>& TeamA,
 		const TArray<FPokeMonsterCreatureInstance>& TeamB, int32 RandomSeed = 0,
-		bool bAllowCapture = false);
+		bool bAllowCapture = false, bool bAllowFlee = false, bool bTrainerExperience = false);
 
 	/** Both selections are validated before committing a round. No external delegates run during resolution. */
 	UFUNCTION(BlueprintCallable, Category = "PokeMonster|Battle")
@@ -184,6 +203,10 @@ public:
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Battle")
 	const FPokeMonsterBattleState& GetState() const { return State; }
 
+public:
+ /** Gen-2-style threshold in [0,256], with checked arithmetic. Attempts includes current attempt. */
+ static bool HasUsableMove(const FPokeMonsterCreatureInstance& Creature);
+ static int32 EscapeThreshold(int32 PlayerSpeed,int32 EnemySpeed,int32 Attempts);
 private:
 	FPokeMonsterBattleResult Reject(EPokeMonsterBattleError Error, EPokeMonsterBattleSide Side = EPokeMonsterBattleSide::None) const;
 

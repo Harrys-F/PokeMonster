@@ -7,6 +7,15 @@
 #include "PokeMonsterCreatureTypes.h"
 #include "PokeMonsterCreatureSpeciesData.generated.h"
 
+class UPokeMonsterMoveData;
+USTRUCT(BlueprintType)
+struct POKEMONSTER_API FPokeMonsterLevelMove
+{
+ GENERATED_BODY()
+ UPROPERTY(EditAnywhere,BlueprintReadOnly) int32 Level=1;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly) TSoftObjectPtr<UPokeMonsterMoveData> Move;
+};
+
 /** Shared, immutable design data for one creature species. */
 UCLASS(BlueprintType)
 class POKEMONSTER_API UPokeMonsterCreatureSpeciesData : public UPrimaryDataAsset
@@ -52,7 +61,11 @@ public:
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Creature")
 	const FPokeMonsterCreatureVisuals& GetVisuals() const { return Visuals; }
 
+ UFUNCTION(BlueprintPure) int32 GetBaseExperienceYield()const{return BaseExperienceYield;}
+ TArray<UPokeMonsterMoveData*> MovesForLevel(int32 Level)const;
+ UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Moves") TArray<FPokeMonsterLevelMove> LevelUpMoves;
 private:
+ UPROPERTY(EditDefaultsOnly,Category="Growth",meta=(ClampMin="0")) int32 BaseExperienceYield=0;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Identity", meta = (AllowPrivateAccess = "true"))
 	FName InternalId = NAME_None;
 

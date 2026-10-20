@@ -891,3 +891,30 @@ nur in der SceneCapture; Befehlsauswahl ruhig. Nintendo-Layout A/B ist konfiguri
 Technische Attacken erhalten explizit vorläufige Anzeigenamen statt erfundener
 endgültiger Attackenwerte. Bestehende Flucht-/Heilitem-Lücken werden im Menü offen
 benannt; keine neue Fluchtwahrscheinlichkeit oder Heilzugregel in einem Grafikpass.
+
+
+## 20.10.2026 – Kampfsystem V3
+Auf Nutzerauftrag werden die in Kampfansicht V2 offen benannten Flucht-/Heilitem-
+und Attackenlücken innerhalb der vorhandenen BattleSession geschlossen. Normale
+wilde Begegnungen erlauben geschwindigkeitsabhängige Flucht mit Folgeversuchen;
+Trainer, Test-/Story-Skripte bleiben gesperrt. Heilitems nutzen das vorhandene
+Inventar, ein gültiges lebendes verwundetes Teamziel und verbrauchen einen Zug.
+Kein Gegenstand bei abgewiesener Verwendung, kein zweites Inventar.
+
+Glumanda erhält als opt-in Lerndaten Kratzer/Heuler ab Start, Glut ab Level 7
+(Gen-2-Referenz Serebii Gold/Silver). Heuler senkt temporären Angriff um eine Stufe,
+Glut kann Verbrennung auslösen. Bisherige Testassets/IDs bleiben für alte Saves
+erreichbar; enge versionierte Migration nur bekannter technischer Glumanda-
+Loadouts, keine Änderung individueller Identität/KP/XP. Verbrennung wird gespeichert
+und an Heilpunkten entfernt. Vorhandene Wachstumskurven bleiben maßgeblich;
+Kampf-XP nutzen geprüfte Spezies-Ertragsdaten, unbekannte Erträge bleiben 0.
+Keine Behauptung vollständiger bitgenauer Gen-2-Kampfsimulation.
+
+ClassicBattle und WorldBattle verwenden dieselben Aktionen/Ereignisse. Keine neue
+Map, keine Oberwelt-/Heilhausgestaltung, keine Hardwaretestschleife. Physischer
+Switch-Pro-Test erfolgt durch Harry und ist kein Abschlusskriterium dieses Auftrags.
+
+AP-Erschöpfung wird über einen ausdrücklich gekennzeichneten Verzweifler-Notfallzug
+aufgelöst (Gen-2-Datenreferenz), ohne gelernte Slots zu verändern. Die frühere
+UI-Sackgasse mit gesperrter Bedienung ist damit ersetzt. Save-Schema 4 ergänzt den
+persistenten Verbrennungsstatus und behält lesende Migration für Schema 1–3.

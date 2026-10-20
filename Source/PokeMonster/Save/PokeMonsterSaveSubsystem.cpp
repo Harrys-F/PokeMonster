@@ -35,7 +35,7 @@ namespace
 		return Asset;
 	}
 
-	bool DecodeCreature(const FPokeMonsterSavedCreature& Saved, FPokeMonsterCreatureInstance& Out)
+	bool DecodeCreature(const FPokeMonsterSavedCreature& Saved, FPokeMonsterCreatureInstance& Out, int32 Version)
 	{
 		auto* Species = ResolveAsset<UPokeMonsterCreatureSpeciesData>(Saved.SpeciesId, TEXT("CreatureSpecies"));
 		if (!Species || Saved.Moves.Num() != FPokeMonsterCreatureInstance::MoveSlotCount) return false;
@@ -53,8 +53,8 @@ namespace
 			auto* Data = ResolveAsset<UPokeMonsterMoveData>(Move.MoveId, TEXT("CreatureMove"));
 			if (!Data || !Slots[Index].AssignMove(Data) || !Slots[Index].RestoreCurrentPP(Move.CurrentPP)) return false;
 		}
-		return Out.RestoreIndividualState(Saved.InstanceId, Saved.Level, Saved.Experience,
-			Saved.CurrentHP, Slots);
+		if(!Out.RestoreIndividualState(Saved.InstanceId, Saved.Level, Saved.Experience, Saved.CurrentHP, Slots, Version>=4?Saved.Status:EPokeMonsterCreatureStatus::None))return false;
+  return Version>=4||Out.UpgradeLegacyGlumandaMoves();
 	}
 }
 
@@ -72,13 +72,14 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 		FPokeMonsterCreatureInstance Validated = Creature;
 		if (!Creature.IsValid() || !IsValid(Species)
 			|| !Validated.RestoreIndividualState(Creature.InstanceId, Creature.Level, Creature.Experience,
-				Creature.CurrentHP, Creature.GetMoveSlots())) return nullptr;
+				Creature.CurrentHP, Creature.GetMoveSlots(), Creature.Status)) return nullptr;
 		FPokeMonsterSavedCreature& Entry = Save->PlayerTeam.AddDefaulted_GetRef();
 		Entry.InstanceId = Creature.InstanceId;
 		Entry.SpeciesId = Species->GetPrimaryAssetId();
 		Entry.Level = Creature.Level;
 		Entry.Experience = Creature.Experience;
 		Entry.CurrentHP = Creature.CurrentHP;
+  Entry.Status=Creature.Status;
 		for (const FPokeMonsterMoveSlot& Slot : Creature.GetMoveSlots())
 		{
 			FPokeMonsterSavedMove& SavedMove = Entry.Moves.AddDefaulted_GetRef();
@@ -145,7 +146,7 @@ bool UPokeMonsterSaveSubsystem::RestoreSnapshot(const UPokeMonsterSaveGame* Save
 	for (const FPokeMonsterSavedCreature& Saved : Save->PlayerTeam)
 	{
 		FPokeMonsterCreatureInstance Creature;
-		if (!DecodeCreature(Saved, Creature) || Seen.Contains(Creature.InstanceId))
+		if (!DecodeCreature(Saved, Creature, Save->SaveVersion) || Seen.Contains(Creature.InstanceId))
 		{
 			UE_LOG(LogPokeMonsterSave, Error, TEXT("Invalid creature in save: %s."), *Saved.SpeciesId.ToString());
 			return false;

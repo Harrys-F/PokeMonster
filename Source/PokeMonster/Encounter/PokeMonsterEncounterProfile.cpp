@@ -6,7 +6,7 @@
 bool FPokeMonsterWildEncounterEntry::Matches(const FPokeMonsterEncounterContext& Context) const
 {
 	return Weight > 0 && MinLevel >= 1 && MaxLevel <= 100 && MaxLevel >= MinLevel
-		&& !Species.IsNull() && !Moves.IsEmpty() && Moves.Num() <= FPokeMonsterCreatureInstance::MoveSlotCount
+		&& !Species.IsNull() && (!Moves.IsEmpty() || (Species.LoadSynchronous()&&!Species.LoadSynchronous()->LevelUpMoves.IsEmpty())) && Moves.Num() <= FPokeMonsterCreatureInstance::MoveSlotCount
 		&& (Time == EPokeMonsterEncounterTime::Any || Time == Context.Time)
 		&& (RegionId.IsNone() || RegionId == Context.RegionId)
 		&& (RequiredCondition.IsNone() || Context.ActiveConditions.Contains(RequiredCondition));
@@ -43,6 +43,7 @@ bool UPokeMonsterEncounterProfile::Roll(const FPokeMonsterEncounterContext& Cont
 		FPokeMonsterCreatureInstance Creature = FPokeMonsterCreatureInstance::CreateFromSpecies(
 			Species, Random.RandRange(Entry.MinLevel, Entry.MaxLevel));
 		if (!Creature.IsValid()) return false;
+  if(Entry.Moves.IsEmpty()&&!Creature.AssignSpeciesMoves())return false;
 		for (int32 Slot = 0; Slot < Entry.Moves.Num(); ++Slot)
 		{
 			UPokeMonsterMoveData* Move = Entry.Moves[Slot].LoadSynchronous();

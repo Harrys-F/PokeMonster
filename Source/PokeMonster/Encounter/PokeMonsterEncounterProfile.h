@@ -50,6 +50,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Presentation") EPokeMonsterBattlePresentationMode PresentationMode=EPokeMonsterBattlePresentationMode::ClassicBattle;
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Presentation") EPokeMonsterBattleEnvironment BattleEnvironment=EPokeMonsterBattleEnvironment::Auto;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Encounter") TArray<FPokeMonsterWildEncounterEntry> Entries;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Encounter") bool bAllowFlee=true;
 	/** A seeded stream makes test encounters reproducible. Invalid entries are ignored. */
 	bool Roll(const FPokeMonsterEncounterContext& Context, FRandomStream& Random,
 		FPokeMonsterCreatureInstance& OutCreature, int32* OutEntryIndex = nullptr) const;

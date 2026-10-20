@@ -1,7 +1,8 @@
-#include "Engine/Texture2D.h"
 #include "PokeMonsterBattleWidget.h"
+#include "Engine/Texture2D.h"
 #include "PokeMonsterBattleTestController.h"
 #include "../Moves/PokeMonsterMoveData.h"
+#include "../Items/PokeMonsterItemData.h"
 #include "Engine/AssetManager.h"
 #include "Engine/TextureRenderTarget2D.h"
 #include "InputCoreTypes.h"
@@ -80,7 +81,7 @@ namespace
 TSharedRef<SWidget> UPokeMonsterBattleWidget::RebuildWidget()
 {
 	if (!WidgetTree) Initialize();
-	if (WidgetTree && !WidgetTree->RootWidget){if(bClassicPresentation)BuildClassicTree();else BuildDefaultTree();}
+	if (WidgetTree && !WidgetTree->RootWidget){if(bClassicPresentation||bEncounterOverlay)BuildClassicTree();else BuildDefaultTree();}
 	return Super::RebuildWidget();
 }
 
@@ -194,18 +195,23 @@ void UPokeMonsterBattleWidget::SetBattleGroundAnchors(FVector2D Player,FVector2D
 }
 void UPokeMonsterBattleWidget::BuildClassicTree()
 {
- auto* Back=WidgetTree->ConstructWidget<UBorder>();Back->SetBrushColor(FLinearColor(.025f,.045f,.037f));Back->SetPadding(FMargin(0));WidgetTree->RootWidget=Back;
+ auto* Back=WidgetTree->ConstructWidget<UBorder>();Back->SetBrushColor(bClassicPresentation?FLinearColor(.025f,.045f,.037f):FLinearColor::Transparent);Back->SetPadding(FMargin(0));WidgetTree->RootWidget=Back;
  auto* Scale=WidgetTree->ConstructWidget<UScaleBox>();Scale->SetStretch(EStretch::ScaleToFit);Back->SetContent(Scale);
  auto* Size=WidgetTree->ConstructWidget<USizeBox>();Size->SetWidthOverride(1280);Size->SetHeightOverride(720);Scale->SetContent(Size);
  auto* C=WidgetTree->ConstructWidget<UCanvasPanel>();Size->SetContent(C);
- Artwork(WidgetTree,C,TEXT("BattleGlen"),TEXT("/Game/Battle/Textures/T_BattleGlen.T_BattleGlen"),0,0,1280,540);
+ if(bClassicPresentation)Artwork(WidgetTree,C,TEXT("BattleGlen"),TEXT("/Game/Battle/Textures/T_BattleGlen.T_BattleGlen"),0,0,1280,540);
  if(ClassicTarget){ClassicImage=WidgetTree->ConstructWidget<UImage>();ClassicImage->SetBrushResourceObject(ClassicTarget);ClassicImage->SetVisibility(ESlateVisibility::HitTestInvisible);Place(C,ClassicImage,0,0,1280,540);}
+ // A small procedural flame sprite: no new copyrighted source image or heavyweight particle system.
+ FireEffectTexture=UTexture2D::CreateTransient(64,96,PF_B8G8R8A8);FireEffectTexture->SRGB=true;
+ auto* FlamePixels=static_cast<FColor*>(FireEffectTexture->GetPlatformData()->Mips[0].BulkData.Lock(LOCK_READ_WRITE));
+ for(int Y=0;Y<96;++Y)for(int X=0;X<64;++X){const float V=Y/95.f,U=(X-31.5f)/31.5f;float A=0.f,Core=0.f;for(int L=-1;L<=1;++L){const float H=L==0?1.f:.66f,T=FMath::Clamp((V-(1-H))/H,0.f,1.f);const float Center=L*.36f+.1f*FMath::Sin(T*8+L);const float Width=.04f+.43f*FMath::Sin(T*PI*.93f);const float Edge=FMath::Clamp((Width-FMath::Abs(U-Center))*18,0.f,1.f)*(V>1-H?1.f:0.f);A=FMath::Max(A,Edge);Core=FMath::Max(Core,Edge*FMath::Clamp((V-.2f)*1.5f,0.f,1.f));}FlamePixels[Y*64+X]=FColor(255,uint8(85+165*Core),uint8(15+120*Core),uint8(235*A*FMath::Clamp((1-V)*16,0.f,1.f)));}
+ FireEffectTexture->GetPlatformData()->Mips[0].BulkData.Unlock();FireEffectTexture->UpdateResource();
  // Small, feathered contact marks centered on projected ground positions; no world-light changes.
  ContactTexture=UTexture2D::CreateTransient(64,64,PF_B8G8R8A8);ContactTexture->SRGB=false;
  auto* Pixels=static_cast<FColor*>(ContactTexture->GetPlatformData()->Mips[0].BulkData.Lock(LOCK_READ_WRITE));
  for(int Y=0;Y<64;++Y)for(int X=0;X<64;++X){const float R=FVector2D((X-31.5f)/31.5f,(Y-31.5f)/31.5f).Size();Pixels[Y*64+X]=FColor(4,7,4,uint8(65*FMath::Square(FMath::Max(0.f,1.f-R))));}
  ContactTexture->GetPlatformData()->Mips[0].BulkData.Unlock();ContactTexture->UpdateResource();
- for(int I=0;I<2;++I){auto* Mark=WidgetTree->ConstructWidget<UImage>();Mark->SetBrushFromTexture(ContactTexture);Mark->SetVisibility(ESlateVisibility::HitTestInvisible);const auto P=I?OpponentGroundAnchor:PlayerGroundAnchor;const float W=I?112.f:145.f,H=I?25.f:32.f;Place(C,Mark,P.X-W*.5f,P.Y-H*.5f,W,H);ContactMarks.Add(Mark);}
+ for(int I=0;bClassicPresentation&&I<2;++I){auto* Mark=WidgetTree->ConstructWidget<UImage>();Mark->SetBrushFromTexture(ContactTexture);Mark->SetVisibility(ESlateVisibility::HitTestInvisible);const auto P=I?OpponentGroundAnchor:PlayerGroundAnchor;const float W=I?112.f:145.f,H=I?25.f:32.f;Place(C,Mark,P.X-W*.5f,P.Y-H*.5f,W,H);ContactMarks.Add(Mark);}
 
  Artwork(WidgetTree,C,TEXT("PlayerFigure"),TEXT("/Game/Battle/Textures/T_TestWater.T_TestWater"),130,230,380,250);
  Artwork(WidgetTree,C,TEXT("OpponentFigure"),TEXT("/Game/Battle/Textures/T_TestGrass.T_TestGrass"),805,118,255,225);
@@ -220,7 +226,7 @@ void UPokeMonsterBattleWidget::BuildClassicTree()
  Card(false,35,30,365);Card(true,865,443,380);
  Place(C,Text(WidgetTree,TEXT("PlayerKO"),TEXT("K.O."),26),300,350,100,35);Place(C,Text(WidgetTree,TEXT("OpponentKO"),TEXT("K.O."),26),890,230,100,35);
  Shape(WidgetTree,C,0,540,1280,180,FLinearColor(.035f,.068f,.057f),0);Shape(WidgetTree,C,0,538,1280,2,FLinearColor(.60f,.56f,.36f),0);
- Place(C,Text(WidgetTree,TEXT("StatusLabel"),TEXT("Was möchtest du tun?"),22),28,570,560,96);
+ auto* Status=Text(WidgetTree,TEXT("StatusLabel"),TEXT("Was möchtest du tun?"),22);Status->SetAutoWrapText(true);Place(C,Status,28,570,560,96);
  auto* Scroll=WidgetTree->ConstructWidget<UScrollBox>(UScrollBox::StaticClass(),TEXT("LogScroll"));auto* Log=Text(WidgetTree,TEXT("LogLabel"),TEXT(""),14);Log->SetAutoWrapText(true);Scroll->AddChild(Log);Place(C,Scroll,28,610,550,40);Scroll->SetVisibility(ESlateVisibility::Collapsed);
  MenuHint=Text(WidgetTree,TEXT("MenuHint"),TEXT("A bestätigen · B zurück · Steuerkreuz / Stick"),12,Muted);Place(C,MenuHint,28,690,590,22);
  for(int I=0;I<4;++I){auto* P=WidgetTree->ConstructWidget<UCanvasPanel>();P->SetVisibility(ESlateVisibility::SelfHitTestInvisible);Place(C,P,650,553,605,145);MenuPanels.Add(P);}
@@ -241,26 +247,33 @@ void UPokeMonsterBattleWidget::BuildClassicTree()
  }
  for(int I=0;I<6;++I){auto* B=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),FName(*FString::Printf(TEXT("TeamButton%d"),I)));TintButton(B,Muted);auto* L=Text(WidgetTree,FName(*FString::Printf(TEXT("TeamLabel%d"),I)),TEXT("—"),12);B->AddChild(L);Place(MenuPanels[2],B,(I%3)*198,(I/3)*73,188,63);}
  CaptureButton=Button(MenuPanels[3],TEXT("CaptureButton"),TEXT("Fanggerät verwenden"),0,0,285,63,18);
- Place(MenuPanels[3],Text(WidgetTree,NAME_None,TEXT("Heilitems im Kampf noch nicht eingebunden."),13,Muted),0,84,580,40);
+
+ for(int I=0;I<3;++I)HealingButtons.Add(Button(MenuPanels[3],FName(*FString::Printf(TEXT("Healing%d"),I)),TEXT("—"),((I+1)%2)*300,((I+1)/2)*73,285,63,17));
+ HealingButtons[0]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Healing0);HealingButtons[1]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Healing1);HealingButtons[2]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::Healing2);
+ BagNextButton=Button(C,TEXT("BagNext"),TEXT("Weitere Items"),365,650,145,33,14);BagNextButton->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::NextBagPage);
+
  BackButton=Button(C,TEXT("BattleMenuBack"),TEXT("Zurück"),520,650,105,33,14);BackButton->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::MenuBack);
  RestartButton=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),TEXT("RestartButton"));RestartButton->SetVisibility(ESlateVisibility::Collapsed);Place(C,RestartButton,0,0,1,1);
  auto* E=Shape(WidgetTree,C,0,0,56,56,FLinearColor(.7f,.68f,.46f,.82f),28,TEXT("BattleEffect"));E->SetVisibility(ESlateVisibility::Collapsed);
  auto* F=Text(WidgetTree,TEXT("FeedbackLabel"),TEXT(""),24);F->SetVisibility(ESlateVisibility::Collapsed);Place(C,F,570,250,300,40);
 }
 void UPokeMonsterBattleWidget::CommandFight(){SetBattleMenu(EPokeMonsterBattleMenu::Moves);}
-void UPokeMonsterBattleWidget::CommandTeam(){SetBattleMenu(EPokeMonsterBattleMenu::Team);}
-void UPokeMonsterBattleWidget::CommandBag(){SetBattleMenu(EPokeMonsterBattleMenu::Bag);}
-void UPokeMonsterBattleWidget::CommandFlee(){if(StatusLabel)StatusLabel->SetText(FText::FromString(TEXT("Flucht ist noch nicht implementiert. Kein Zug wurde verbraucht.")));}
-void UPokeMonsterBattleWidget::MenuBack(){if(Presenter&&Presenter->GetView().bMustSwitch)return;SetBattleMenu(EPokeMonsterBattleMenu::Commands);}
+void UPokeMonsterBattleWidget::CommandTeam(){HealingTargetItem=nullptr;SetBattleMenu(EPokeMonsterBattleMenu::Team);}
+void UPokeMonsterBattleWidget::CommandBag(){HealingTargetItem=nullptr;SetBattleMenu(EPokeMonsterBattleMenu::Bag);}
+void UPokeMonsterBattleWidget::CommandFlee(){if(Presenter&&GetWorld()&&Presenter->TrySelectFlee())GetWorld()->GetTimerManager().SetTimer(OverlayRoundTimer,this,&UPokeMonsterBattleWidget::ResolveOverlaySelection,.22f,false);}
+void UPokeMonsterBattleWidget::MenuBack(){if(!Presenter||Presenter->GetView().bBusy||Presenter->GetView().bMustSwitch)return;const bool Target=HealingTargetItem!=nullptr;HealingTargetItem=nullptr;SetBattleMenu(Target?EPokeMonsterBattleMenu::Bag:EPokeMonsterBattleMenu::Commands);}
+void UPokeMonsterBattleWidget::SelectHealing(int32 ButtonIndex){if(!Presenter||Presenter->GetView().bBusy)return;const auto& Items=Presenter->GetView().HealingItems;const int I=BagPage*3+ButtonIndex;if(!Items.IsValidIndex(I)||!Items[I].bEnabled)return;HealingTargetItem=Items[I].Item;SetBattleMenu(EPokeMonsterBattleMenu::Team);Refresh();}
+void UPokeMonsterBattleWidget::Healing0(){SelectHealing(0);}void UPokeMonsterBattleWidget::Healing1(){SelectHealing(1);}void UPokeMonsterBattleWidget::Healing2(){SelectHealing(2);}
+void UPokeMonsterBattleWidget::NextBagPage(){if(Presenter){BagPage=(BagPage+1)%FMath::Max(1,(Presenter->GetView().HealingItems.Num()+2)/3);UpdateClassicMenu();}}
 void UPokeMonsterBattleWidget::SetBattleMenu(EPokeMonsterBattleMenu Page)
 {
- if(!bClassicPresentation||!Presenter||Presenter->GetView().bBusy||Presenter->GetView().bFinished)return;
+ if((!bClassicPresentation&&!bEncounterOverlay)||!Presenter||Presenter->GetView().bBusy||Presenter->GetView().bFinished)return;
  if(Presenter->GetView().bMustSwitch)Page=EPokeMonsterBattleMenu::Team;
  MenuPage=Page;UpdateClassicMenu();auto Active=ActiveMenuButtons();for(auto* B:Active)if(B&&B->GetIsEnabled()){B->SetKeyboardFocus();break;}
 }
 TArray<UButton*> UPokeMonsterBattleWidget::ActiveMenuButtons()const
 {
- TArray<UButton*> R;if(MenuPage==EPokeMonsterBattleMenu::Commands){for(UButton* B:CommandButtons)R.Add(B);}else if(MenuPage==EPokeMonsterBattleMenu::Moves){for(UButton* B:Buttons)R.Add(B);}else if(MenuPage==EPokeMonsterBattleMenu::Team){for(UButton* B:TeamButtons)R.Add(B);}else if(CaptureButton)R.Add(CaptureButton);
+ TArray<UButton*> R;if(MenuPage==EPokeMonsterBattleMenu::Commands){for(UButton* B:CommandButtons)R.Add(B);}else if(MenuPage==EPokeMonsterBattleMenu::Moves){for(UButton* B:Buttons)R.Add(B);}else if(MenuPage==EPokeMonsterBattleMenu::Team){for(UButton* B:TeamButtons)R.Add(B);}else {if(CaptureButton)R.Add(CaptureButton);for(UButton* B:HealingButtons)R.Add(B);if(BagNextButton&&BagNextButton->IsVisible())R.Add(BagNextButton);}
  if(MenuPage!=EPokeMonsterBattleMenu::Commands&&BackButton)R.Add(BackButton);return R;
 }
 void UPokeMonsterBattleWidget::FocusMenu(int32 Direction)
@@ -270,27 +283,33 @@ void UPokeMonsterBattleWidget::FocusMenu(int32 Direction)
 }
 void UPokeMonsterBattleWidget::UpdateClassicMenu()
 {
- if(!bClassicPresentation||!Presenter||MenuPanels.Num()!=4)return;const auto& V=Presenter->GetView();
- if(V.bMustSwitch)MenuPage=EPokeMonsterBattleMenu::Team;else if(bLastMenuBusy&&!V.bBusy)MenuPage=EPokeMonsterBattleMenu::Commands;
+ if((!bClassicPresentation&&!bEncounterOverlay)||!Presenter||MenuPanels.Num()!=4)return;const auto& V=Presenter->GetView();
+ if(V.bMustSwitch)MenuPage=EPokeMonsterBattleMenu::Team;else if(bLastMenuBusy&&!V.bBusy){MenuPage=EPokeMonsterBattleMenu::Commands;HealingTargetItem=nullptr;}
  const bool Refocus=bLastMenuBusy&&!V.bBusy; bLastMenuBusy=V.bBusy;
  for(int I=0;I<4;++I)MenuPanels[I]->SetVisibility(!V.bBusy&&!V.bFinished&&I==int32(MenuPage)?ESlateVisibility::SelfHitTestInvisible:ESlateVisibility::Collapsed);
  if(Refocus)for(auto* B:ActiveMenuButtons())if(B&&B->GetIsEnabled()){B->SetKeyboardFocus();break;}
  if(LogScroll)LogScroll->SetVisibility(ESlateVisibility::Collapsed);
  if(BackButton){BackButton->SetVisibility(MenuPage==EPokeMonsterBattleMenu::Commands||V.bBusy||V.bFinished?ESlateVisibility::Collapsed:ESlateVisibility::Visible);BackButton->SetIsEnabled(!V.bMustSwitch);}
- if(CaptureButton){CaptureButton->SetVisibility(ESlateVisibility::Visible);CaptureButton->SetIsEnabled(V.bCaptureEnabled);if(auto* L=Cast<UTextBlock>(CaptureButton->GetContent()))L->SetText(V.CaptureDeviceName.IsEmpty()?FText::FromString(TEXT("Kein Fanggerät verfügbar")):FText::Format(FText::FromString(TEXT("{0} verwenden")),V.CaptureDeviceName));}
- if(!V.bBusy&&!V.bFinished&&StatusLabel){FString T=MenuPage==EPokeMonsterBattleMenu::Commands?FString::Printf(TEXT("Was soll %s tun?"),*V.Player.Name.ToString()):MenuPage==EPokeMonsterBattleMenu::Moves?TEXT("Wähle eine Attacke.\nVorläufige Testdaten"):MenuPage==EPokeMonsterBattleMenu::Team?TEXT("Wähle dein Pokémon."):V.bCaptureEnabled?TEXT("Wähle ein Fanggerät."):TEXT("Fangen derzeit nicht verfügbar.");if(V.bMustSwitch)T=TEXT("K.O. – wähle einen kampffähigen Ersatz.");StatusLabel->SetText(FText::FromString(T));}
+ if(CaptureButton){CaptureButton->SetVisibility(ESlateVisibility::Visible);CaptureButton->SetIsEnabled(V.bCaptureEnabled);if(auto* L=Cast<UTextBlock>(CaptureButton->GetContent()))L->SetText(V.CaptureDeviceName.IsEmpty()?FText::FromString(TEXT("Kein Fanggerät verfügbar")):FText::Format(FText::FromString(TEXT("{0}")),V.CaptureDeviceName));}
+ if(CommandButtons.Num()==4)CommandButtons[3]->SetIsEnabled(V.bFleeEnabled);
+ BagPage=FMath::Clamp(BagPage,0,FMath::Max(0,(V.HealingItems.Num()-1)/3));
+ for(int I=0;I<HealingButtons.Num();++I){const int ItemIndex=BagPage*3+I;const bool Exists=V.HealingItems.IsValidIndex(ItemIndex);auto* B=HealingButtons[I].Get();B->SetIsEnabled(Exists&&V.HealingItems[ItemIndex].bEnabled);if(auto* L=Cast<UTextBlock>(B->GetContent()))L->SetText(FText::FromString(Exists?FString::Printf(TEXT("%s  ×%d"),*V.HealingItems[ItemIndex].Name.ToString(),V.HealingItems[ItemIndex].Quantity):TEXT("—")));}
+ if(BagNextButton)BagNextButton->SetVisibility(MenuPage==EPokeMonsterBattleMenu::Bag&&!V.bBusy&&!V.bFinished&&V.HealingItems.Num()>3?ESlateVisibility::Visible:ESlateVisibility::Collapsed);
+ if(HealingTargetItem)for(int I=0;I<TeamButtons.Num();++I)if(TeamButtons[I])TeamButtons[I]->SetIsEnabled(V.PlayerTeam.IsValidIndex(I)&&!V.bBusy&&V.PlayerTeam[I].CurrentHP>0&&V.PlayerTeam[I].CurrentHP<V.PlayerTeam[I].MaxHP);
+ if(!V.bBusy&&!V.bFinished&&StatusLabel){FString T=MenuPage==EPokeMonsterBattleMenu::Commands?FString::Printf(TEXT("Was soll %s tun?"),*V.Player.Name.ToString()):MenuPage==EPokeMonsterBattleMenu::Moves?TEXT("Wähle eine Attacke."):MenuPage==EPokeMonsterBattleMenu::Team?(HealingTargetItem?FString::Printf(TEXT("%s: Wähle ein verletztes Pokémon."),*HealingTargetItem->GetDisplayName().ToString()):TEXT("Wähle dein Pokémon.")):TEXT("Wähle ein Item.");if(V.bMustSwitch)T=TEXT("K.O. – wähle einen kampffähigen Ersatz.");StatusLabel->SetText(FText::FromString(T));}
+
 }
 void UPokeMonsterBattleWidget::NativeTick(const FGeometry& G,float D)
 {
- Super::NativeTick(G,D);if(!bClassicPresentation)return;IntroTime+=D;const bool End=Presenter&&Presenter->GetView().bFinished&&!Presenter->GetView().bBusy;ExitTime=End?ExitTime+D:0.f;SetRenderOpacity(FMath::Min(FMath::Clamp(IntroTime/.25f,0.f,1.f),1.f-FMath::Clamp((ExitTime-.7f)/.3f,0.f,1.f)));
+ Super::NativeTick(G,D);if(!bClassicPresentation&&!bEncounterOverlay)return;IntroTime+=D;const bool End=Presenter&&Presenter->GetView().bFinished&&!Presenter->GetView().bBusy;ExitTime=End?ExitTime+D:0.f;SetRenderOpacity(FMath::Min(FMath::Clamp(IntroTime/.25f,0.f,1.f),1.f-FMath::Clamp((ExitTime-.7f)/.3f,0.f,1.f)));
  if(!bInitialMenuFocused&&IntroTime>.2f&&Presenter&&!Presenter->GetView().bBusy){for(auto* B:ActiveMenuButtons())if(B&&B->GetIsEnabled()){B->SetKeyboardFocus();bInitialMenuFocused=true;break;}}
  UButton* Focus=nullptr;for(auto* B:ActiveMenuButtons())if(B&&B->HasKeyboardFocus())Focus=B;
  if(Focus!=LastFocusedButton.Get()){if(auto* Old=LastFocusedButton.Get())Old->SetBackgroundColor(FLinearColor::White);if(Focus)Focus->SetBackgroundColor(FLinearColor(2.f,1.7f,.85f));LastFocusedButton=Focus;}
 }
 FReply UPokeMonsterBattleWidget::NativeOnPreviewKeyDown(const FGeometry& G,const FKeyEvent& E)
 {
- if(!bClassicPresentation)return Super::NativeOnPreviewKeyDown(G,E);const FKey K=E.GetKey();
- const int Columns=MenuPage==EPokeMonsterBattleMenu::Team?3:MenuPage==EPokeMonsterBattleMenu::Bag?1:2;
+ if(!bClassicPresentation&&!bEncounterOverlay)return Super::NativeOnPreviewKeyDown(G,E);const FKey K=E.GetKey();
+ const int Columns=MenuPage==EPokeMonsterBattleMenu::Team?3:2;
  if(K==EKeys::Left||K==EKeys::Gamepad_DPad_Left){FocusMenu(-1);return FReply::Handled();}
  if(K==EKeys::Right||K==EKeys::Gamepad_DPad_Right){FocusMenu(1);return FReply::Handled();}
  if(K==EKeys::Up||K==EKeys::Gamepad_DPad_Up){FocusMenu(-Columns);return FReply::Handled();}
@@ -302,7 +321,7 @@ FReply UPokeMonsterBattleWidget::NativeOnPreviewKeyDown(const FGeometry& G,const
 }
 FNavigationReply UPokeMonsterBattleWidget::NativeOnNavigation(const FGeometry& G,const FNavigationEvent& E)
 {
- if(!bClassicPresentation)return Super::NativeOnNavigation(G,E);const auto N=E.GetNavigationType();const int Columns=MenuPage==EPokeMonsterBattleMenu::Team?3:MenuPage==EPokeMonsterBattleMenu::Bag?1:2;FocusMenu(N==EUINavigation::Up?-Columns:N==EUINavigation::Down?Columns:N==EUINavigation::Left||N==EUINavigation::Previous?-1:1);return FNavigationReply::Stop();
+ if(!bClassicPresentation&&!bEncounterOverlay)return Super::NativeOnNavigation(G,E);const auto N=E.GetNavigationType();const int Columns=MenuPage==EPokeMonsterBattleMenu::Team?3:2;FocusMenu(N==EUINavigation::Up?-Columns:N==EUINavigation::Down?Columns:N==EUINavigation::Left||N==EUINavigation::Previous?-1:1);return FNavigationReply::Stop();
 }
 void UPokeMonsterBattleWidget::BindControls()
 {
@@ -415,7 +434,7 @@ void UPokeMonsterBattleWidget::Refresh()
 	const bool bHoldVisuals = bPresenting || View.bPresentationPending;
 	const auto SetCreature=[](const FPokeMonsterBattleCreatureView& Data,UTextBlock* Name,UTextBlock* HP,UProgressBar* Bar,UTextBlock* KO,UWidget* Figure)
 	{
-		if(Name) Name->SetText(FText::FromString(FString::Printf(TEXT("%s   ·   Lv. %d"),*Data.Name.ToString(),Data.Level)));
+		if(Name) Name->SetText(FText::FromString(FString::Printf(TEXT("%s   ·   Lv. %d%s"),*Data.Name.ToString(),Data.Level,Data.bBurned?TEXT(" · BRN"):TEXT(""))));
 		if(HP) HP->SetText(FText::FromString(FString::Printf(TEXT("KP  %d / %d"),Data.CurrentHP,Data.MaxHP)));
 		if(Bar)
 		{
@@ -495,7 +514,7 @@ void UPokeMonsterBattleWidget::Refresh()
 		if(MoveLabels.IsValidIndex(I) && MoveLabels[I]) MoveLabels[I]->SetText(Move.Name);
 		if(MoveTypeLabels.IsValidIndex(I) && MoveTypeLabels[I]) MoveTypeLabels[I]->SetText(Move.Type);
 		if(MovePPLabels.IsValidIndex(I) && MovePPLabels[I])
-			MovePPLabels[I]->SetText(FText::FromString(FString::Printf(TEXT("AP %d / %d"),Move.CurrentPP,Move.MaxPP)));
+			MovePPLabels[I]->SetText(FText::FromString(View.bStruggle&&I==0?TEXT("AP —"):FString::Printf(TEXT("AP %d / %d"),Move.CurrentPP,Move.MaxPP)));
 		if(MoveTypeAccents.IsValidIndex(I) && MoveTypeAccents[I])
 			MoveTypeAccents[I]->SetBrush(FSlateRoundedBoxBrush(TypeTint(Move.Type.ToString()),12.0f));
 	}
@@ -553,6 +572,8 @@ void UPokeMonsterBattleWidget::Choose(int32 Slot)
 
 void UPokeMonsterBattleWidget::ChooseSwitch(int32 TeamIndex)
 {
+ if(HealingTargetItem){if(Presenter&&GetWorld()&&Presenter->TrySelectHealingItem(HealingTargetItem,TeamIndex)){HealingTargetItem=nullptr;GetWorld()->GetTimerManager().SetTimer(OverlayRoundTimer,this,&UPokeMonsterBattleWidget::ResolveOverlaySelection,.22f,false);}return;}
+
 	if (bEncounterOverlay)
 	{
 		if (Presenter && Presenter->TrySelectSwitch(TeamIndex) && GetWorld())
@@ -603,7 +624,7 @@ FString UPokeMonsterBattleWidget::MoveNameFor(const FPokeMonsterPresentationActi
 		const FSoftObjectPath Path = UAssetManager::Get().GetPrimaryAssetPath(Action.MoveId);
 		if (const auto* Move = Cast<UPokeMonsterMoveData>(Path.TryLoad())) return Move->GetPlayerFacingName().ToString();
 	}
-	return Action.MoveId.PrimaryAssetName.ToString();
+	return Action.MoveId.PrimaryAssetName==TEXT("Struggle")?TEXT("Verzweifler"):Action.MoveId.PrimaryAssetName.ToString();
 }
 
 void UPokeMonsterBattleWidget::AppendPresentationLog(const FString& Line)
@@ -638,6 +659,7 @@ void UPokeMonsterBattleWidget::BeginAction()
 {
 	if (!PresentationActions.IsValidIndex(ActionIndex)) { EndPresentation(); return; }
 	const auto& Action = PresentationActions[ActionIndex];
+ if(Action.bFlee||Action.bItem||Action.bResidual||Action.bInformation){AppendPresentationLog(Action.Information);if(StatusLabel)StatusLabel->SetText(FText::FromString(Action.Information));BeginPhase((Action.bResidual||(Action.bItem&&Action.bAffectsActiveHP))?EPresentationPhase::HP:EPresentationPhase::Message);return;}
 	if (Action.bSwitch)
 	{
 		const FString Line = NameFor(Action.Source) + TEXT(" wird eingewechselt.");
@@ -681,9 +703,10 @@ void UPokeMonsterBattleWidget::BeginPhase(EPresentationPhase NewPhase)
 			: bPhysical ? FLinearColor(0.90f,0.81f,0.58f,0.88f)
 			: bStatus ? FLinearColor(0.50f,0.71f,0.53f,0.52f) : FLinearColor(0.92f,0.51f,0.29f,0.85f);
 		BattleEffect->SetBrush(FSlateRoundedBoxBrush(Color,bPhysical ? 9.0f : 37.0f));
+  if(Action.MoveId.PrimaryAssetName==TEXT("Ember")&&FireEffectTexture){BattleEffect->SetBrushFromTexture(FireEffectTexture);if(auto* Slot=Cast<UCanvasPanelSlot>(BattleEffect->Slot))Slot->SetSize(FVector2D(70,96));}
 		// Position before showing it: avoid a one-frame flash at the canvas origin.
 		const FVector2D Origin=bClassicPresentation?(Action.Source==EPokeMonsterBattleSide::A?PlayerAnchor:OpponentAnchor):(Action.Source==EPokeMonsterBattleSide::A?FVector2D(523,334):FVector2D(851,253));
-		BattleEffect->SetRenderTranslation(Origin-FVector2D(28,28));
+		BattleEffect->SetRenderTranslation(FVector2D::ZeroVector);if(auto* Slot=Cast<UCanvasPanelSlot>(BattleEffect->Slot))Slot->SetPosition(Origin-Slot->GetSize()*.5f);
 		BattleEffect->SetVisibility(ESlateVisibility::HitTestInvisible);
 	}
 	if (NewPhase == EPresentationPhase::Impact)
@@ -735,20 +758,21 @@ void UPokeMonsterBattleWidget::BeginPhase(EPresentationPhase NewPhase)
 		AppendPresentationLog(Line);
 		if (StatusLabel) StatusLabel->SetText(FText::FromString(Line));
 	}
-	else if (NewPhase == EPresentationPhase::Message && !Action.bSwitch)
+	else if (NewPhase == EPresentationPhase::Message && !Action.bSwitch&&!Action.bFlee&&!Action.bItem&&!Action.bResidual&&!Action.bInformation)
 	{
 		if (FeedbackLabel) FeedbackLabel->SetVisibility(ESlateVisibility::Collapsed);
 		if (auto* Target = FigureFor(Action.Target)) Target->SetRenderTranslation(FVector2D::ZeroVector);
 		if (Action.Outcome == EPokeMonsterPresentationOutcome::Miss) AppendPresentationLog(TEXT("Die Attacke verfehlt ihr Ziel."));
 		else if (Action.Outcome == EPokeMonsterPresentationOutcome::Immune) AppendPresentationLog(NameFor(Action.Target) + TEXT(" ist immun."));
-		else if (Action.Outcome == EPokeMonsterPresentationOutcome::Status) AppendPresentationLog(TEXT("Status-Platzhalter: noch ohne Effekt."));
+		else if (Action.Outcome == EPokeMonsterPresentationOutcome::Status) {const FString Line=Action.Information.IsEmpty()?TEXT("Keine Wirkung für diese Testattacke definiert."):Action.Information;AppendPresentationLog(Line);if(StatusLabel)StatusLabel->SetText(FText::FromString(Line));}
 		else if (Action.Damage > 0)
 		{
 			if (Action.TypeMultiplier > 1.0f) AppendPresentationLog(TEXT("Sehr effektiv!"));
 			else if (Action.TypeMultiplier < 1.0f) AppendPresentationLog(TEXT("Nicht sehr effektiv."));
 			const FString Line = FString::Printf(TEXT("%s verliert %d KP."), *NameFor(Action.Target), Action.Damage);
 			AppendPresentationLog(Line);
-			if (StatusLabel) StatusLabel->SetText(FText::FromString(Line));
+			if(!Action.Information.IsEmpty())AppendPresentationLog(Action.Information);
+			if (StatusLabel) StatusLabel->SetText(FText::FromString(Line+(Action.Information.IsEmpty()?TEXT(""):TEXT("\n")+Action.Information)));
 		}
 	}
 	if (NewPhase == EPresentationPhase::Gap)
@@ -787,7 +811,7 @@ void UPokeMonsterBattleWidget::TickPresentation()
 	{
 		const FVector2D Start = bClassicPresentation ? (Action.Source==EPokeMonsterBattleSide::A?PlayerAnchor:OpponentAnchor) : (Action.Source == EPokeMonsterBattleSide::A ? FVector2D(523,334) : FVector2D(851,253));
 		const FVector2D End = bClassicPresentation ? (Action.Target==EPokeMonsterBattleSide::A?PlayerAnchor:OpponentAnchor) : (Action.Target == EPokeMonsterBattleSide::B ? FVector2D(939,278) : FVector2D(472,348));
-		if (auto* Slot = Cast<UCanvasPanelSlot>(BattleEffect->Slot)) Slot->SetPosition(FMath::Lerp(Start,End,Alpha));
+		if (auto* Slot = Cast<UCanvasPanelSlot>(BattleEffect->Slot)) Slot->SetPosition(FMath::Lerp(Start,End,Alpha)-Slot->GetSize()*.5f);
 		BattleEffect->SetRenderOpacity(FMath::Sin(PI * Alpha));
 		if (auto* Source = FigureFor(Action.Source)) Source->SetRenderTranslation(FVector2D::ZeroVector);
 	}
@@ -803,7 +827,7 @@ void UPokeMonsterBattleWidget::TickPresentation()
 			Target->SetRenderOpacity(1.0f-0.38f*FMath::Sin(PI*Alpha));
 		}
 	}
-	else if (PresentationPhase == EPresentationPhase::HP && Action.Damage > 0)
+	else if (PresentationPhase == EPresentationPhase::HP && (Action.Damage > 0||Action.RestoredHP>0))
 	{
 		const float Smooth = FMath::InterpEaseOut(0.0f,1.0f,Alpha,2.0f);
 		SetPresentedHP(Action.Target,FMath::Lerp(float(Action.HPBefore),float(Action.HPAfter),Smooth));
@@ -856,8 +880,8 @@ void UPokeMonsterBattleWidget::EndPresentation()
 	if (!PresentationActions.IsEmpty())
 	{
 		const auto& Last = PresentationActions.Last();
-		if (Last.bBattleEnded) AppendPresentationLog(Last.bCaptureSucceeded ? TEXT("Gefangen! Kampf beendet.")
-			: Last.Source == EPokeMonsterBattleSide::A ? TEXT("Gewonnen! Kampf beendet.") : TEXT("Besiegt. Kampf beendet."));
+		if (Last.bBattleEnded) AppendPresentationLog(Last.bFleeSucceeded ? TEXT("Du bist entkommen! Kampf beendet.") : Last.bCaptureSucceeded ? TEXT("Gefangen! Kampf beendet.")
+			: Presenter&&Presenter->GetBattleState()->Winner==EPokeMonsterBattleSide::A ? TEXT("Gewonnen! Kampf beendet.") : TEXT("Besiegt. Kampf beendet."));
 		OnBattlePresentationStep(Last,TEXT("Complete"));
 		OnWorldPresentationStep.Broadcast(Last,TEXT("Complete"));
 	}

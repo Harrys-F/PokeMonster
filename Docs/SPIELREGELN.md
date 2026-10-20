@@ -53,7 +53,7 @@ Noch nicht entschieden:
 
 Codex darf zunächst nur eine kleine erweiterbare Grundlage erstellen und keine komplexe vollständige Kampfmathematik festlegen.
 
-Technischer Prototypstand: Vier individuelle Moveslots, getrennte Attacken-Data-Assets, PP-Verbrauch sowie Treffer- und Schadensberechnung sind vorhanden. Die zentral gepflegte Typentabelle verwendet vorerst die 17 Typen und Matchups der zweiten Generation; Physical/Special/Status wird unabhängig davon je Attacke festgelegt. Die Battle-Session unterstützt weiterhin 1-gegen-1 und nun Teams mit bis zu sechs Kreaturen je Seite. Pro Seite ist genau eine aktiv. Priorität geht vor Initiative, bei Gleichstand beginnt Seite A. Ein freiwilliger Wechsel verbraucht den Zug; die Gegenseite kann die eingewechselte Kreatur angreifen. Nach K.O. ist ein kampffähiger Ersatz nötig, sofern vorhanden. Erst der Ausfall des ganzen Teams beendet den Kampf. Eine besiegte Kreatur greift nicht mehr an. Fehlerhafte Auswahlen werden ohne Rundenfortschritt abgewiesen. Endgültiges Balancing, Lernregeln, Status-Effekte und weitere Kampfregeln bleiben offen. Technische Details stehen in `Docs/TECHNIK.md`.
+Technischer Prototypstand: Vier individuelle Moveslots, getrennte Attacken-Data-Assets, PP-Verbrauch sowie Treffer- und Schadensberechnung sind vorhanden. Die zentral gepflegte Typentabelle verwendet vorerst die 17 Typen und Matchups der zweiten Generation; Physical/Special/Status wird unabhängig davon je Attacke festgelegt. Die Battle-Session unterstützt weiterhin 1-gegen-1 und nun Teams mit bis zu sechs Kreaturen je Seite. Pro Seite ist genau eine aktiv. Priorität geht vor Initiative, bei Gleichstand beginnt Seite A. Ein freiwilliger Wechsel verbraucht den Zug; die Gegenseite kann die eingewechselte Kreatur angreifen. Nach K.O. ist ein kampffähiger Ersatz nötig, sofern vorhanden. Erst der Ausfall des ganzen Teams beendet den Kampf. Eine besiegte Kreatur greift nicht mehr an. Fehlerhafte Auswahlen werden ohne Rundenfortschritt abgewiesen. Endgültiges Balancing und weitere Kampfregeln bleiben offen; der geprüfte V3-Teilumfang steht unten. Technische Details stehen in `Docs/TECHNIK.md`.
 
 ## Niederlage, Rettung und Speichern
 
@@ -186,3 +186,20 @@ Gegner schräg vorne rechts, Namen/Level/KP und bestehende Kampfbefehle. Nach En
 wird dieselbe Oberweltposition mit bisheriger Kamera wieder freigegeben. Besondere
 Story-/Bossbegegnungen können WorldBattle im Begegnungsprofil wählen. Beide Modi
 verwenden dieselbe BattleSession; Darstellung verändert keine Kampf- oder Save-Regeln.
+
+
+### Kampfsystem V3 – aktueller spielbarer Teilumfang
+
+Normale Wildkämpfe erlauben Flucht abhängig von Geschwindigkeit und wiederholten
+Versuchen. Fehlgeschlagene Flucht verbraucht den Zug; Trainer- und geskriptete
+Storykämpfe erlauben sie nicht. Heilitems im Beutel verbrauchen bei gültiger
+Verwendung einen Zug und genau einen Gegenstand. Auch ein inaktives verletztes
+Teammitglied kann geheilt werden; volle KP, K.O. und ungültige Ziele werden abgewiesen.
+
+Glumanda hat auf Level 10 nach dem Gen-2-Lernstand Kratzer, Heuler und Glut; der
+vierte Slot bleibt leer. Heuler senkt den Angriff des Ziels, Glut kann Verbrennung
+verursachen. Verbrennung bleibt bis zur Heilung bestehen. Bei vollständig fehlenden
+AP steht Verzweifler mit Rückstoß zur Verfügung. Freiwilliger Wechsel kostet den
+Zug, ein notwendiger Ersatz nach K.O. keinen zusätzlichen Zug. Kampf-XP nutzen
+belegte Ertragsdaten und die bestehenden Wachstumskurven. Dieser kleine Teilumfang
+ersetzt die früheren offenen Flucht-/Heilitem-Platzhalter, kein endgültiges Gesamtbalancing.

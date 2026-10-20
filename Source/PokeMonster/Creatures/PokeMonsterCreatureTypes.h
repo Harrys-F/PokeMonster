@@ -6,6 +6,9 @@
 #include "Engine/AssetManagerTypes.h"
 #include "PokeMonsterCreatureTypes.generated.h"
 
+UENUM(BlueprintType)
+enum class EPokeMonsterCreatureStatus : uint8 { None, Burn };
+
 class UPaperFlipbook;
 class UPokeMonsterCreaturePresentationData;
 

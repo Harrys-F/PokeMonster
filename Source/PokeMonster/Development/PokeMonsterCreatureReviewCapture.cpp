@@ -43,7 +43,7 @@ static FAutoConsoleCommand Input(TEXT("pm.BattleView2.Input"),TEXT("Development 
  if(Args.Num()!=1||!FSlateApplication::IsInitialized())return;
  for(const auto& C:GEngine->GetWorldContexts()){auto* W=C.World();if(!W||!W->IsGameWorld()||!W->GetGameInstance())continue;auto* E=W->GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>();auto* Widget=E?E->GetBattleWidget():nullptr;if(!Widget)return;
   if(Args[0]==TEXT("Focus")){if(auto* B=Widget->GetCommandButton(0))B->SetKeyboardFocus();return;}
-  const TMap<FString,FKey> Keys={{TEXT("A"),EKeys::Gamepad_FaceButton_Right},{TEXT("B"),EKeys::Gamepad_FaceButton_Bottom},{TEXT("Left"),EKeys::Gamepad_DPad_Left},{TEXT("Right"),EKeys::Gamepad_DPad_Right},{TEXT("Up"),EKeys::Gamepad_DPad_Up},{TEXT("Down"),EKeys::Gamepad_DPad_Down}};
+  const TMap<FString,FKey> Keys={{TEXT("Enter"),EKeys::Enter},{TEXT("Escape"),EKeys::Escape},{TEXT("KeyDown"),EKeys::Down},{TEXT("KeyUp"),EKeys::Up},{TEXT("KeyRight"),EKeys::Right},{TEXT("KeyLeft"),EKeys::Left},{TEXT("A"),EKeys::Gamepad_FaceButton_Right},{TEXT("B"),EKeys::Gamepad_FaceButton_Bottom},{TEXT("Left"),EKeys::Gamepad_DPad_Left},{TEXT("Right"),EKeys::Gamepad_DPad_Right},{TEXT("Up"),EKeys::Gamepad_DPad_Up},{TEXT("Down"),EKeys::Gamepad_DPad_Down}};
   if(const auto* Key=Keys.Find(Args[0])){FKeyEvent Event(*Key,FModifierKeysState(),0,false,0,0);FSlateApplication::Get().ProcessKeyDownEvent(Event);FSlateApplication::Get().ProcessKeyUpEvent(Event);}return;
  }
 }));
@@ -54,7 +54,7 @@ void SavePixels(const FString& File,const FIntPoint Size,const TArray<FColor>& P
 static FAutoConsoleCommand Capture(TEXT("pm.CreatureReview.CaptureLiveUI"),TEXT("Saved/GlumandaV11/LiveUI/<name>: exact Slate game viewport screenshot; never changes game camera or saves an asset."),FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& Args)
 {
  if(Args.Num()!=1||Args[0].IsEmpty())return;for(TCHAR C:Args[0])if(!FChar::IsAlnum(C)&&C!=TEXT('_'))return;
- const FString Dir=FPaths::ProjectSavedDir()/(Args[0].StartsWith(TEXT("BattleV2_"))?TEXT("BattleViewV2/LiveUI"):TEXT("GlumandaV11/LiveUI"))/Args[0];if(IFileManager::Get().DirectoryExists(*Dir))return;
+ const FString Dir=FPaths::ProjectSavedDir()/(Args[0].StartsWith(TEXT("BattleV3_"))?TEXT("BattleSystemV3/LiveUI"):Args[0].StartsWith(TEXT("BattleV2_"))?TEXT("BattleViewV2/LiveUI"):TEXT("GlumandaV11/LiveUI"))/Args[0];if(IFileManager::Get().DirectoryExists(*Dir))return;
  for(const auto& Context:GEngine->GetWorldContexts()){
   auto* W=Context.World();if(!W||!W->IsGameWorld()||!W->GetGameInstance())continue;
   auto* E=W->GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>();auto* Widget=E?E->GetBattleWidget():nullptr;if(!Widget)continue;

@@ -101,6 +101,7 @@ bool UPokeMonsterEncounterSubsystem::PrepareWildEncounter(const UPokeMonsterEnco
  OutStart.BattleEnvironment=Profile->BattleEnvironment;
 	OutStart.EncounterId = EncounterId;
 	OutStart.Kind = EPokeMonsterEncounterKind::Wild;
+ OutStart.bAllowFlee=Profile->bAllowFlee&&Source!=EPokeMonsterEncounterSource::Scripted;
 	OutStart.Source = Source;
  OutStart.BattleRegion=Context.RegionId;
 	OutStart.OpponentTeam.Add(MoveTemp(WildCreature));
@@ -195,7 +196,7 @@ bool UPokeMonsterEncounterSubsystem::StartEncounter(const FPokeMonsterEncounterS
 	UPokeMonsterBattlePresenter* NewPresenter = NewObject<UPokeMonsterBattlePresenter>(this);
 	UPokeMonsterInventorySubsystem* Inventory = GetGameInstance()->GetSubsystem<UPokeMonsterInventorySubsystem>();
 	if (!NewPresenter->InitializeTeamBattle(Team, Start.OpponentTeam, Start.RandomSeed,
-		Start.Kind == EPokeMonsterEncounterKind::Wild, Inventory)) return false;
+		Start.Kind == EPokeMonsterEncounterKind::Wild, Inventory, Start.bAllowFlee&&Start.Kind==EPokeMonsterEncounterKind::Wild&&Start.Source!=EPokeMonsterEncounterSource::Scripted, Start.Kind==EPokeMonsterEncounterKind::Trainer)) return false;
 	UPokeMonsterBattleWidget* NewWidget = CreateWidget<UPokeMonsterBattleWidget>(Controller, UPokeMonsterBattleWidget::StaticClass());
 	if (!NewWidget) return false;
 
@@ -265,7 +266,7 @@ void UPokeMonsterEncounterSubsystem::CompleteEncounter()
 	}
 	UE_LOG(LogPokeMonsterEncounter, Display, TEXT("Encounter '%s' ended: %s, rounds: %d, party: %d."),
 		*LastResult.EncounterId.ToString(),
-		LastResult.Outcome == EPokeMonsterEncounterOutcome::Captured ? TEXT("Captured")
+		LastResult.Outcome==EPokeMonsterEncounterOutcome::Fled?TEXT("Fled"):LastResult.Outcome == EPokeMonsterEncounterOutcome::Captured ? TEXT("Captured")
 			: LastResult.Outcome == EPokeMonsterEncounterOutcome::Victory ? TEXT("Victory") : TEXT("Defeat"),
 		LastResult.Rounds, PlayerParty.Num());
 	OnEncounterEnded.Broadcast(LastResult);
@@ -279,7 +280,7 @@ FPokeMonsterEncounterEndData UPokeMonsterEncounterSubsystem::BuildEndData(
 	End.TrainerId = Start.TrainerId;
 	End.Kind = Start.Kind;
 	End.Source = Start.Source;
-	End.Outcome = State.EndReason == EPokeMonsterBattleEndReason::Captured
+	End.Outcome = State.EndReason==EPokeMonsterBattleEndReason::Escaped?EPokeMonsterEncounterOutcome::Fled:State.EndReason == EPokeMonsterBattleEndReason::Captured
 		&& Start.Kind == EPokeMonsterEncounterKind::Wild
 		? EPokeMonsterEncounterOutcome::Captured
 		: State.Winner == EPokeMonsterBattleSide::A
@@ -391,13 +392,13 @@ void UPokeMonsterEncounterSubsystem::UpdateWorldSpecies()
 }
 void UPokeMonsterEncounterSubsystem::HandleWorldPresentationStep(const FPokeMonsterPresentationAction& A,FName Step)
 {
- if(ClassicScene)ClassicScene->React(A.Source==EPokeMonsterBattleSide::A,Step,A.Damage);
+ if(ClassicScene&&!A.bFlee&&!A.bItem&&!A.bInformation&&!A.bResidual)ClassicScene->React(A.Source==EPokeMonsterBattleSide::A,Step,A.Damage);
  auto* Source=A.Source==EPokeMonsterBattleSide::A?PlayerVisual.Get():OpponentVisual.Get();
  auto* Target=A.Target==EPokeMonsterBattleSide::A?PlayerVisual.Get():OpponentVisual.Get();
  if(A.bSwitch&&Step==TEXT("Impact")){UpdateWorldSpecies();return;}
- if(Step==TEXT("Windup")&&!A.bSwitch&&!A.bCapture&&Source)Source->PlayReaction(EPokeMonsterCreatureClip::Attack);
+ if(Step==TEXT("Windup")&&!A.bSwitch&&!A.bCapture&&!A.bFlee&&!A.bItem&&!A.bInformation&&!A.bResidual&&Source)Source->PlayReaction(EPokeMonsterCreatureClip::Attack);
  if(Step==TEXT("Impact")&&A.Outcome==EPokeMonsterPresentationOutcome::Hit&&A.Damage>0&&Target)Target->PlayReaction(EPokeMonsterCreatureClip::Hit);
  if(Step==TEXT("KO")&&A.bKnockedOut&&Target)Target->PlayReaction(EPokeMonsterCreatureClip::Faint);
  if(Step==TEXT("KO")&&A.bCaptureSucceeded&&OpponentVisual)OpponentVisual->SetActorHiddenInGame(true);
- if(Step==TEXT("Complete")&&A.bBattleEnded&&Source&&!A.bCapture)Source->PlayReaction(EPokeMonsterCreatureClip::Happy);
+ if(Step==TEXT("Complete")&&A.bBattleEnded&&Source&&!A.bCapture&&!A.bFlee)Source->PlayReaction(EPokeMonsterCreatureClip::Happy);
 }

@@ -352,7 +352,7 @@ Für einen Testlauf: In `Dev_TestMap` am Schrein starten, den Wegweiser-NPC ansp
 
 Die erste Definition `/Game/Data/Quests/DA_SliceArchiveQuest` beschreibt Wanderer → `Slice_Liora` → `Slice_ArchiveSeal`. Die zweite Seite des bestehenden Wanderer-Dialogs startet sie über `StartQuest`; nach Gesprächsende zählt das Dialog-Asset als erstes Ziel. Bestehende Sieg- und Archivsteinlogik bleiben für die beiden weiteren Ziele maßgeblich. Die Wild-Abzweigung ist kein Ziel. Dialogbedingungen `QuestActive` und `QuestCompleted` erlauben statusabhängige Seiten, während die vorhandenen WorldFlag-Bedingungen der Slice-NPCs weiter funktionieren. `Dev_TestMap` wird hierfür nicht verändert.
 
-Das SaveGame-Schema ist Version 3: Es speichert Quest-ID, Status und Schritt sowie gemeldete Fangarten-IDs, aber keine Questdefinition. Beim Laden werden Quest-IDs gegen registrierte Quest-Assets validiert, bevor der Runtime-Zustand ersetzt wird. Versionen 1 und 2 bleiben lesbar: Aus `Slice_Liora` und `Slice_ArchiveSeal` wird bereits belegbarer Mini-Slice-Fortschritt rekonstruiert; ein bloßes früheres Wanderer-Gespräch ist in alten Saves nicht nachweisbar und wird nicht erfunden. Version 0 und künftige unbekannte Versionen werden abgewiesen.
+Das damalige SaveGame-Schema 3 (seit Kampfsystem V3 auf Version 4 erweitert) speichert Quest-ID, Status und Schritt sowie gemeldete Fangarten-IDs, aber keine Questdefinition. Beim Laden werden Quest-IDs gegen registrierte Quest-Assets validiert, bevor der Runtime-Zustand ersetzt wird. Versionen 1 und 2 bleiben lesbar: Aus `Slice_Liora` und `Slice_ArchiveSeal` wird bereits belegbarer Mini-Slice-Fortschritt rekonstruiert; ein bloßes früheres Wanderer-Gespräch ist in alten Saves nicht nachweisbar und wird nicht erfunden. Version 0 und künftige unbekannte Versionen werden abgewiesen.
 
 ## Heilhaus-Function-Gate
 
@@ -911,8 +911,60 @@ Tastatur und Maus bleiben nutzbar. Nach dem Zug wird der Befehlsfokus wiederherg
 Die Oberfläche skaliert im 16:9-Referenzlayout, andere Seitenverhältnisse werden
 proportional eingerahmt. Ein-/Ausblendung betrifft nur die Kampfoberfläche.
 
-Fluchtregeln und Heilitems innerhalb eines Kampfzugs fehlen im bestehenden System.
-Flucht zeigt dies ohne Zugverbrauch an; der Beutel nutzt ausschließlich das vorhandene
-Fangkommando und benennt die Heilitem-Lücke. Keine erfundenen finalen Werte oder
+Historischer Stand Kampfansicht V2, ersetzt durch Kampfsystem V3: Fluchtregeln und Heilitems innerhalb eines Kampfzugs fehlten.
+V2 zeigte dies ohne Zugverbrauch an; seit V3 bietet der Beutel Fanggerät und Heilitems. Keine erfundenen finalen Werte oder
 parallele Kampfaktionen. Anleitung: `Tools/BattleViewV2/README.md`;
 Ergebnisse und Einschränkungen: `KAMPFANSICHT_V2_PRUEFBERICHT.md`.
+
+
+### Kampfsystem V3 – Spielaktionen und Gen-2-Starterdaten (20.10.2026)
+
+Die vorhandene BattleSession verarbeitet zusätzlich Flucht und Heilitem-Züge.
+Flucht ist nur bei ausdrücklich erlaubten nicht geskripteten Wildbegegnungen aktiv;
+Trainer, Test- und Storybegegnungen bleiben gesperrt. Die geprüfte Gen-1/2-
+Geschwindigkeitsformel verwendet einen Zufallswert 0–255 und Folgeversuche.
+Andere Aktionen setzen den Versuchszähler zurück (bewusst dokumentierte Projektregel).
+Erfolg beendet ohne Gegnerzug und ohne Sieg-/Fangflag; Fehlschlag erlaubt den Gegnerzug.
+
+Der Beutel listet tatsächlich vorhandene Heilitems, bei mehr als drei Typen seitenweise.
+Zielwahl aus dem eigenen Team, auch inaktive Mitglieder. Nur lebende verletzte Ziele;
+kein Verbrauch vor gültiger Auswahl. Das bestehende Inventar entfernt genau ein Item,
+stellt bei abgewiesener Auflösung die ursprünglichen Stapel wieder her und der Gegner
+handelt danach. `DA_TestHealingItem` heißt spielerseitig Trank und behält 20 KP Heilung,
+seine stabile ID und seine Überweltverwendung. Kein automatisch gewährter Itemvorrat.
+
+`DA_Zunderlauf` behält Identität und Darstellung. Opt-in Lernliste: Kratzer/Heuler
+Level 1, Glut Level 7; Level 10 hat drei belegte Slots. Vierfachbelegung wird nicht
+künstlich aufgefüllt. Neue Wildexemplare erhalten die zum ausgewürfelten Level
+passende Liste. Dies ist der belegte Starter-Teilumfang, kein vollständiger Pokédex.
+Heuler senkt Angriff bis −6; Wechsel setzt die Stufe zurück. Glut hat 10 % Verbrennung,
+Feuertypen sind dagegen immun. Verbrennung halbiert physischen Angriff und verursacht
+max(1,MaxKP/8) Restschaden. Heilpunkte heilen auch Verbrennung, der Trank allein nicht.
+
+Ist keine Attacke mit AP verfügbar, kann Verzweifler typneutral mit Stärke 50 und
+Rückstoß max(1,verursachter Schaden/4) verwendet werden. Kein neuer Lernslot und
+keine aufgefüllten AP. Beide Seiten bleiben dadurch handlungsfähig.
+
+Kampf-XP: belegter Glumanda-Ertrag 65, vorhandene Wachstumskurven, lebende am jeweiligen
+Gegner beteiligte Mitglieder; Trainerbonus 1,5. Unbekannte Spezies-Erträge bleiben 0,
+bis sie verifiziert sind. Keine Fang-/Flucht-XP. Levelaufstieg füllt bekannte neu
+verfügbare Lernattacken nur in freie Slots, ersetzt keine Spielerwahl automatisch.
+Die vorhandene vereinfachte Schadensformel und Gleichstandregel bleiben erhalten;
+keine Behauptung vollständiger Generation-2-Simulation (unter anderem kein STAB,
+Volltreffer, zufällige Schadensstreuung oder komplette Status-/Attackenbibliothek).
+
+Save-Schema 4 ergänzt `Status`. Versionen 1–3 bleiben lesbar; bekannte technische
+Glumanda-Testloadouts werden eng begrenzt in die neue Liste übertragen. Identität,
+Level, XP und KP bleiben erhalten; bereits verbrauchte AP werden den entsprechenden
+neuen Attacken zugeordnet. Alte Assets/IDs bleiben erreichbar; gemischte eigene
+Attackenlisten werden nicht umgeschrieben. Kampfzustände sind weiterhin nicht
+speicherbar, nur der konsistente Oberweltstand. Niederlagen nutzen unverändert den
+bestehenden Checkpoint-/Heilablauf; ein automatischer Save unmittelbar nach dieser
+Rückkehr ist weiterhin nicht implementiert. Heilen/Speichern am Heilhaus und manuelles
+Speichern bleiben verfügbar.
+
+ClassicBattle und WorldBattle verwenden dieselben Befehls-/Beutel-/Teamseiten und
+Ereignisse. Ausführung sperrt Mehrfachklicks; HP-Veränderungen werden interpoliert,
+Statusattacken zeigen keinen Schadenswert. Glut erhält einen kleinen zeitlich
+gebundenen Flame-Sprite ohne neue Weltbeleuchtung; Schwanzflammen bleiben unverändert.
+Prüfablauf: `Tools/BattleSystemV3/README.md`. Physischer Switch-Pro-Test ausdrücklich offen.

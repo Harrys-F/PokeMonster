@@ -20,6 +20,14 @@ struct POKEMONSTER_API FPokeMonsterPresentationAction
 	UPROPERTY(BlueprintReadOnly, Category="Battle Presentation") EPokeMonsterBattleSide Source = EPokeMonsterBattleSide::None;
 	UPROPERTY(BlueprintReadOnly, Category="Battle Presentation") EPokeMonsterBattleSide Target = EPokeMonsterBattleSide::None;
 	UPROPERTY(BlueprintReadOnly, Category="Battle Presentation") bool bSwitch = false;
+ UPROPERTY(BlueprintReadOnly) bool bFlee=false;
+ UPROPERTY(BlueprintReadOnly) bool bFleeSucceeded=false;
+ UPROPERTY(BlueprintReadOnly) bool bItem=false;
+ UPROPERTY(BlueprintReadOnly) bool bResidual=false;
+ UPROPERTY(BlueprintReadOnly) bool bInformation=false;
+ UPROPERTY(BlueprintReadOnly) bool bAffectsActiveHP=true;
+ UPROPERTY(BlueprintReadOnly) int32 RestoredHP=0;
+ UPROPERTY(BlueprintReadOnly) FString Information;
 	UPROPERTY(BlueprintReadOnly, Category="Battle Presentation") bool bCapture = false;
 	UPROPERTY(BlueprintReadOnly, Category="Battle Presentation") bool bCaptureSucceeded = false;
 	UPROPERTY(BlueprintReadOnly, Category="Battle Presentation") FPrimaryAssetId CaptureDeviceId;

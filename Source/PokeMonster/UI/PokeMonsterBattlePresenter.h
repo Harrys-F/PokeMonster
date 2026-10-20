@@ -27,6 +27,7 @@ struct POKEMONSTER_API FPokeMonsterBattleCreatureView
 	UPROPERTY(BlueprintReadOnly, Category="Battle") int32 CurrentHP = 0;
 	UPROPERTY(BlueprintReadOnly, Category="Battle") int32 MaxHP = 0;
 	UPROPERTY(BlueprintReadOnly, Category="Battle") bool bKO = false;
+ UPROPERTY(BlueprintReadOnly) bool bBurned=false;
 };
 
 USTRUCT(BlueprintType)
@@ -40,6 +41,16 @@ struct POKEMONSTER_API FPokeMonsterBattleTeamMemberView
 	UPROPERTY(BlueprintReadOnly, Category="Battle") bool bActive = false;
 	UPROPERTY(BlueprintReadOnly, Category="Battle") bool bKO = false;
 	UPROPERTY(BlueprintReadOnly, Category="Battle") bool bCanSwitch = false;
+};
+
+USTRUCT(BlueprintType)
+struct POKEMONSTER_API FPokeMonsterBattleItemView
+{
+ GENERATED_BODY()
+ UPROPERTY(BlueprintReadOnly) TObjectPtr<UPokeMonsterItemData> Item;
+ UPROPERTY(BlueprintReadOnly) FText Name;
+ UPROPERTY(BlueprintReadOnly) int32 Quantity=0;
+ UPROPERTY(BlueprintReadOnly) bool bEnabled=false;
 };
 
 USTRUCT(BlueprintType)
@@ -61,6 +72,9 @@ struct POKEMONSTER_API FPokeMonsterBattleView
 	UPROPERTY(BlueprintReadOnly, Category="Battle") bool bPresentationPending = false;
 	UPROPERTY(BlueprintReadOnly, Category="Battle") bool bCaptureEnabled = false;
 	UPROPERTY(BlueprintReadOnly, Category="Battle") FText CaptureDeviceName;
+ UPROPERTY(BlueprintReadOnly) bool bFleeEnabled=false;
+ UPROPERTY(BlueprintReadOnly) bool bStruggle=false;
+ UPROPERTY(BlueprintReadOnly) TArray<FPokeMonsterBattleItemView> HealingItems;
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPokeMonsterBattleViewChanged);
@@ -77,9 +91,11 @@ public:
 	bool InitializeBattle(const FPokeMonsterCreatureInstance& Player, const FPokeMonsterCreatureInstance& Opponent, int32 Seed);
 	bool InitializeTeamBattle(const TArray<FPokeMonsterCreatureInstance>& Player,
 		const TArray<FPokeMonsterCreatureInstance>& Opponent, int32 Seed, bool bAllowCapture = false,
-		UPokeMonsterInventorySubsystem* InInventory = nullptr);
+		UPokeMonsterInventorySubsystem* InInventory = nullptr, bool bAllowFlee = false, bool bTrainerExperience = false);
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectMove(int32 Slot);
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectCapture();
+ UFUNCTION(BlueprintCallable) bool TrySelectFlee();
+ UFUNCTION(BlueprintCallable) bool TrySelectHealingItem(UPokeMonsterItemData* Item,int32 TeamIndex);
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectSwitch(int32 TeamIndex);
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool ResolveSelection();
 	UFUNCTION(BlueprintCallable, Category="Battle UI") void FinishPresentation();
@@ -106,6 +122,8 @@ private:
 	int32 PendingSlot = INDEX_NONE;
 	bool bPendingSwitch = false;
 	bool bPendingCapture = false;
+ bool bPendingFlee=false;
+ UPROPERTY(Transient) TObjectPtr<UPokeMonsterItemData> PendingItem;
 	bool bBusy = false;
 	bool bResolved = false;
 };

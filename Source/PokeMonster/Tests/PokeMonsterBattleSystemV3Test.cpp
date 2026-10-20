@@ -1,0 +1,74 @@
+#if WITH_DEV_AUTOMATION_TESTS
+#include "Misc/AutomationTest.h"
+#include "../Battle/PokeMonsterBattleSession.h"
+#include "../Creatures/PokeMonsterCreatureSpeciesData.h"
+#include "../Creatures/PokeMonsterCreatureProgression.h"
+#include "../UI/PokeMonsterBattlePresenter.h"
+#include "../UI/PokeMonsterBattlePresentationPlan.h"
+#include "../Items/PokeMonsterInventorySubsystem.h"
+#include "../Save/PokeMonsterSaveSubsystem.h"
+#include "../Encounter/PokeMonsterEncounterSubsystem.h"
+#include "Engine/GameInstance.h"
+#include "UObject/StrongObjectPtr.h"
+namespace BattleV3Tests
+{
+struct Fixture
+{
+ TStrongObjectPtr<UPokeMonsterCreatureSpeciesData> Species{NewObject<UPokeMonsterCreatureSpeciesData>()};
+ TStrongObjectPtr<UPokeMonsterMoveData> Move{NewObject<UPokeMonsterMoveData>()};
+ FPokeMonsterCreatureInstance Player,Enemy;
+ Fixture(){Move->InternalId=TEXT("BattleV3Fixture");Move->DisplayName=FText::FromString(TEXT("Fixture"));Move->BasePower=20;Move->MaxPP=100;Player=FPokeMonsterCreatureInstance::CreateFromSpecies(Species.Get(),10);Enemy=FPokeMonsterCreatureInstance::CreateFromSpecies(Species.Get(),10);for(auto* C:{&Player,&Enemy}){C->CurrentHP=C->CalculatedStats.MaxHP=500;C->CalculatedStats.Attack=C->CalculatedStats.Defense=C->CalculatedStats.SpecialAttack=C->CalculatedStats.SpecialDefense=100;C->CalculatedStats.Speed=50;C->AssignMove(0,Move.Get());}}
+ UPokeMonsterBattleSession* Session(bool Flee=false){auto* B=NewObject<UPokeMonsterBattleSession>();B->InitializeTeams({Player},{Enemy},17,false,Flee);return B;}
+};
+const FPokeMonsterBattleEvent* Event(const FPokeMonsterBattleResult& R,EPokeMonsterBattleEventType Type,EPokeMonsterBattleSide Side=EPokeMonsterBattleSide::None){return R.Events.FindByPredicate([&](const auto& E){return E.Type==Type&&(Side==EPokeMonsterBattleSide::None||E.Source==Side);});}
+UPokeMonsterMoveData* Move(const TCHAR* N){return LoadObject<UPokeMonsterMoveData>(nullptr,*FString::Printf(TEXT("/Game/Data/Moves/DA_%s.DA_%s"),N,N));}
+UPokeMonsterCreatureSpeciesData* Glumanda(){return LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,TEXT("/Game/Data/Creatures/DA_Zunderlauf.DA_Zunderlauf"));}
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPMBattleV3Flee,"PokeMonster.Battle.V3.Flee",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FPMBattleV3Flee::RunTest(const FString& Parameters){
+ using namespace BattleV3Tests;Fixture F;FPokeMonsterBattleChoice A,B;A.Type=EPokeMonsterBattleChoiceType::Flee;B.Index=0;
+ auto* Locked=F.Session();TestEqual(TEXT("Trainer/scripted/test policy rejects flee"),Locked->ResolveTurn(A,B).Error,EPokeMonsterBattleError::FleeNotAllowed);TestEqual(TEXT("Rejected flee consumes no turn"),Locked->GetState().RoundNumber,0);
+ auto* Fast=F.Session(true);auto R=Fast->ResolveTurn(A,B);TestTrue(TEXT("Equal speed succeeds"),R.bSucceeded&&Event(R,EPokeMonsterBattleEventType::FleeSucceeded));TestEqual(TEXT("Escape has no winner"),Fast->GetState().Winner,EPokeMonsterBattleSide::None);TestFalse(TEXT("Enemy cannot attack after escape"),Event(R,EPokeMonsterBattleEventType::MoveExecuted)!=nullptr);
+ TestEqual(TEXT("Formula slow threshold"),UPokeMonsterBattleSession::EscapeThreshold(1,200,1),30);TestEqual(TEXT("Consecutive attempt bonus"),UPokeMonsterBattleSession::EscapeThreshold(1,200,2),60);TestEqual(TEXT("Division-zero guard"),UPokeMonsterBattleSession::EscapeThreshold(1,3,1),256);
+ bool Failed=false,Escaped=false;F.Player.CalculatedStats.Speed=1;F.Enemy.CalculatedStats.Speed=200;
+ for(int Seed=0;Seed<64&&(!Failed||!Escaped);++Seed){auto* S=NewObject<UPokeMonsterBattleSession>();S->InitializeTeams({F.Player},{F.Enemy},Seed,false,true);R=S->ResolveTurn(A,B);if(Event(R,EPokeMonsterBattleEventType::FleeFailed)){Failed=true;TestNotNull(TEXT("Failed flee gives enemy its attack"),Event(R,EPokeMonsterBattleEventType::MoveExecuted,EPokeMonsterBattleSide::B));TestEqual(TEXT("Failed flee spends one turn"),S->GetState().RoundNumber,1);}else Escaped=true;}
+ TestTrue(TEXT("Seeded success and failure both exercised"),Failed&&Escaped);return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPMBattleV3Healing,"PokeMonster.Battle.V3.HealingTransaction",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FPMBattleV3Healing::RunTest(const FString& Parameters){
+ using namespace BattleV3Tests;Fixture F;auto* Item=LoadObject<UPokeMonsterItemData>(nullptr,TEXT("/Game/Data/Items/DA_TestHealingItem.DA_TestHealingItem"));if(!TestNotNull(TEXT("Existing healing item"),Item))return false;TestTrue(TEXT("Battle use explicitly enabled"),Item->CanUseInBattle());
+ auto* GI=NewObject<UGameInstance>();auto* I=NewObject<UPokeMonsterInventorySubsystem>(GI);I->AddItem(Item,3);auto* P=NewObject<UPokeMonsterBattlePresenter>();auto Bench=F.Player;Bench.InstanceId=FGuid::NewGuid();Bench.CurrentHP-=45;auto Dead=Bench;Dead.InstanceId=FGuid::NewGuid();Dead.CurrentHP=0;
+ TestTrue(TEXT("Session initialized"),P->InitializeTeamBattle({F.Player,Bench,Dead},{F.Enemy},3,false,I));TestFalse(TEXT("Full HP rejected"),P->TrySelectHealingItem(Item,0));TestFalse(TEXT("KO rejected"),P->TrySelectHealingItem(Item,2));TestFalse(TEXT("Invalid target rejected"),P->TrySelectHealingItem(Item,8));TestEqual(TEXT("No consumption on rejection"),I->GetQuantity(Item),3);
+ TestTrue(TEXT("Bench target selected"),P->TrySelectHealingItem(Item,1));TestTrue(TEXT("Item resolves"),P->ResolveSelection());TestEqual(TEXT("Exactly one consumed"),I->GetQuantity(Item),2);TestEqual(TEXT("Bench healed by defined amount"),P->GetBattleState()->TeamA[1].CurrentHP,Bench.CurrentHP+Item->GetHealAmount());TestTrue(TEXT("Enemy reacted against active"),P->GetBattleState()->SideA.CurrentHP<F.Player.CurrentHP);TestEqual(TEXT("One turn"),P->GetBattleState()->RoundNumber,1);
+ const auto Actions=UPokeMonsterBattlePresentationPlan::BuildActions(P->GetLastResult());TestTrue(TEXT("Bench heal does not animate active HP"),Actions.Num()>=2&&Actions[0].bItem&&!Actions[0].bAffectsActiveHP);P->FinishPresentation();
+ TestTrue(TEXT("Select active heal"),P->TrySelectHealingItem(Item,0));I->RemoveItem(Item,2);TestFalse(TEXT("Concurrent inventory change fails safely"),P->ResolveSelection());TestEqual(TEXT("No turn on missing item"),P->GetBattleState()->RoundNumber,1);TestEqual(TEXT("No stock invented"),I->GetQuantity(Item),0);return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPMBattleV3Effects,"PokeMonster.Battle.V3.GrowlBurnAndPP",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FPMBattleV3Effects::RunTest(const FString& Parameters){
+ using namespace BattleV3Tests;Fixture F;auto Invalid=F.Player;Invalid.CalculatedStats.Attack=0;TestFalse(TEXT("Stage math never legitimizes invalid source stats"),UPokeMonsterBattleLibrary::CalculateDamage(Invalid,F.Enemy,F.Move.Get()).bValid);auto* Growl=Move(TEXT("Growl"));if(!TestNotNull(TEXT("Growl"),Growl))return false;F.Player.AssignMove(1,Growl);F.Player.CalculatedStats.Speed=100;auto* S=F.Session();const int Before=UPokeMonsterBattleLibrary::CalculateDamage(F.Enemy,F.Player,F.Move.Get()).Damage;auto R=S->ResolveRound(1,0);
+ TestEqual(TEXT("Attack stage lowered"),S->GetState().AttackStageB,-1);const auto* Hit=Event(R,EPokeMonsterBattleEventType::Damage,EPokeMonsterBattleSide::B);TestTrue(TEXT("Growl changes same-turn physical damage"),Hit&&Hit->Damage<Before);TestFalse(TEXT("Status move causes no damage"),Event(R,EPokeMonsterBattleEventType::Damage,EPokeMonsterBattleSide::A)!=nullptr);TestEqual(TEXT("Growl spends one AP"),S->GetState().SideA.GetMoveSlots()[1].GetCurrentPP(),39);
+ for(int N=0;N<6;++N)R=S->ResolveRound(1,0);TestEqual(TEXT("Stage clamped at minus six"),S->GetState().AttackStageB,-6);TestNotNull(TEXT("Cap reports failure"),Event(R,EPokeMonsterBattleEventType::EffectFailed));
+ auto* Fire=NewObject<UPokeMonsterMoveData>();Fire->InternalId=TEXT("GuaranteedBurnFixture");Fire->DisplayName=FText::FromString(TEXT("Burn fixture"));Fire->Category=EPokeMonsterMoveCategory::Special;Fire->Type=EPokeMonsterCreatureType::Fire;Fire->Effect.EffectId=TEXT("Burn");Fire->Effect.ChancePercent=100;F.Player.AssignMove(2,Fire);S=F.Session();R=S->ResolveRound(2,0);TestEqual(TEXT("Burn applied"),S->GetState().SideB.Status,EPokeMonsterCreatureStatus::Burn);const auto* Burn=Event(R,EPokeMonsterBattleEventType::BurnDamage);TestTrue(TEXT("Burn is max HP eighth"),Burn&&Burn->Damage==F.Enemy.GetMaxHP()/8);TestTrue(TEXT("Burn halves physical offense"),UPokeMonsterBattleLibrary::CalculateDamage(S->GetState().SideB,F.Player,F.Move.Get()).Damage<Before);
+ auto Actions=UPokeMonsterBattlePresentationPlan::BuildActions(R);TestTrue(TEXT("Residual gets a separate visual action"),Actions.ContainsByPredicate([](const auto& A){return A.bResidual&&A.Target==EPokeMonsterBattleSide::B;}));
+ auto Cured=S->GetState().SideB;TestTrue(TEXT("Rest point cures burn"),Cured.RestoreFully());TestEqual(TEXT("Burn cleared"),Cured.Status,EPokeMonsterCreatureStatus::None);return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPMBattleV3MoveData,"PokeMonster.Battle.V3.Gen2GlumandaData",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FPMBattleV3MoveData::RunTest(const FString& Parameters){
+ using namespace BattleV3Tests;auto* Species=Glumanda();if(!TestNotNull(TEXT("Glumanda"),Species))return false;TestEqual(TEXT("Gen I-IV base XP yield"),Species->GetBaseExperienceYield(),65);
+ auto C=FPokeMonsterCreatureInstance::CreateFromSpecies(Species,10);TestTrue(TEXT("Level 10 assigned"),C.AssignSpeciesMoves());const TCHAR* Names[]={TEXT("Scratch"),TEXT("Growl"),TEXT("Ember")};const int PP[]={35,40,25};for(int N=0;N<3;++N){const auto* M=C.GetMoveSlots()[N].GetMove().LoadSynchronous();if(!TestNotNull(TEXT("Learned move"),M))return false;TestEqual(TEXT("Move identity"),M->InternalId,FName(Names[N]));TestEqual(TEXT("Verified PP"),M->MaxPP,PP[N]);TestEqual(TEXT("Accuracy"),M->Accuracy,100);}TestTrue(TEXT("Fourth slot remains empty"),C.GetMoveSlots()[3].GetMove().IsNull());TestEqual(TEXT("Level six has two moves"),Species->MovesForLevel(6).Num(),2);TestEqual(TEXT("Level seven learns Ember"),Species->MovesForLevel(7).Num(),3);TestEqual(TEXT("Ember chance"),Move(TEXT("Ember"))->Effect.ChancePercent,10);return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPMBattleV3Experience,"PokeMonster.Battle.V3.ExperienceAndSwitch",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FPMBattleV3Experience::RunTest(const FString& Parameters){
+ using namespace BattleV3Tests;auto* Species=Glumanda();if(!TestNotNull(TEXT("Species"),Species))return false;auto A=FPokeMonsterCreatureInstance::CreateFromSpecies(Species,6),B=FPokeMonsterCreatureInstance::CreateFromSpecies(Species,10);A.AssignSpeciesMoves();B.AssignSpeciesMoves();const int64 Near=UPokeMonsterCreatureProgression::ExperienceForLevel(Species->GetGrowthRate(),7)-1;TestTrue(TEXT("Near level-up fixture"),A.RestoreIndividualState(A.InstanceId,6,Near,A.CurrentHP,A.GetMoveSlots()));A.CalculatedStats.Speed=1000;B.CurrentHP=1;auto* S=NewObject<UPokeMonsterBattleSession>();S->InitializeTeams({A},{B},1);auto R=S->ResolveRound(0,0);TestEqual(TEXT("Win"),S->GetState().Winner,EPokeMonsterBattleSide::A);TestEqual(TEXT("Gen2 XP yield floor"),S->GetState().SideA.Experience-Near,int64(65*10/7));TestTrue(TEXT("Level-up"),S->GetState().SideA.Level>=7);TestTrue(TEXT("Ember learned on level-up"),S->GetState().SideA.GetMoveSlots()[2].GetMove().Get()==Move(TEXT("Ember")));TestNotNull(TEXT("XP visual event"),Event(R,EPokeMonsterBattleEventType::ExperienceGained));
+ Fixture F;auto Reserve=F.Player;Reserve.InstanceId=FGuid::NewGuid();auto* SS=NewObject<UPokeMonsterBattleSession>();SS->InitializeTeams({F.Player,Reserve},{F.Enemy},0);FPokeMonsterBattleChoice Switch,Enemy;Switch.Type=EPokeMonsterBattleChoiceType::Switch;Switch.Index=1;Enemy.Index=0;R=SS->ResolveTurn(Switch,Enemy);TestTrue(TEXT("Voluntary switch resolved"),R.bSucceeded);TestEqual(TEXT("Reserve active"),SS->GetState().ActiveIndexA,1);TestTrue(TEXT("Incoming creature receives enemy attack"),SS->GetState().SideA.CurrentHP<Reserve.CurrentHP);TestEqual(TEXT("Outgoing AP unchanged"),SS->GetState().TeamA[0].GetMoveSlots()[0].GetCurrentPP(),100);return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPMBattleV3Save,"PokeMonster.Battle.V3.SaveMigrationAndStatus",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FPMBattleV3Save::RunTest(const FString& Parameters){
+ using namespace BattleV3Tests;auto* Species=Glumanda();if(!TestNotNull(TEXT("Species"),Species))return false;auto* GI=NewObject<UGameInstance>();auto* E=NewObject<UPokeMonsterEncounterSubsystem>(GI);auto* I=NewObject<UPokeMonsterInventorySubsystem>(GI);auto C=FPokeMonsterCreatureInstance::CreateFromSpecies(Species,10);C.AssignMove(0,Move(TEXT("TestNormalPhysical")));C.AssignMove(1,Move(TEXT("TestFireSpecial")));C.AssignMove(2,Move(TEXT("TestStatus")));C.AssignMove(3,Move(TEXT("TestNormalPhysical")));C.ConsumeMovePP(0,2);C.CurrentHP-=3;E->RestorePersistentState({C},{},{});auto* Save=UPokeMonsterSaveSubsystem::CaptureSnapshot(E,I,GI);if(!TestNotNull(TEXT("Snapshot"),Save))return false;Save->SaveVersion=3;TestTrue(TEXT("Version three migrates"),UPokeMonsterSaveSubsystem::RestoreSnapshot(Save,E,I));const auto D=E->GetPlayerParty()[0];TestEqual(TEXT("Individual ID preserved"),D.InstanceId,C.InstanceId);TestEqual(TEXT("HP preserved"),D.CurrentHP,C.CurrentHP);TestEqual(TEXT("Spent physical AP preserved"),D.GetMoveSlots()[0].GetCurrentPP(),33);TestTrue(TEXT("Fourth slot emptied"),D.GetMoveSlots()[3].GetMove().IsNull());
+ auto Burned=D;Burned.Status=EPokeMonsterCreatureStatus::Burn;E->RestorePersistentState({Burned},{},{});Save=UPokeMonsterSaveSubsystem::CaptureSnapshot(E,I,GI);TestTrue(TEXT("Version four roundtrip"),UPokeMonsterSaveSubsystem::RestoreSnapshot(Save,E,I));TestEqual(TEXT("Burn persisted"),E->GetPlayerParty()[0].Status,EPokeMonsterCreatureStatus::Burn);return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPMBattleV3Struggle,"PokeMonster.Battle.V3.ExhaustedPP",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FPMBattleV3Struggle::RunTest(const FString& Parameters){
+ using namespace BattleV3Tests;Fixture F;F.Player.ConsumeMovePP(0,100);F.Enemy.ConsumeMovePP(0,100);auto* P=NewObject<UPokeMonsterBattlePresenter>();TestTrue(TEXT("Empty AP session"),P->InitializeTeamBattle({F.Player},{F.Enemy},2));TestTrue(TEXT("Fallback shown"),P->GetView().bStruggle&&P->GetView().Moves[0].bEnabled);TestTrue(TEXT("Fallback selected"),P->TrySelectMove(0));TestTrue(TEXT("Fallback resolves without PP slot indexing"),P->ResolveSelection());TestEqual(TEXT("One turn after exhaustion"),P->GetBattleState()->RoundNumber,1);TestNotNull(TEXT("Recoil event"),Event(P->GetLastResult(),EPokeMonsterBattleEventType::Recoil));TestEqual(TEXT("Learned PP remains zero"),P->GetBattleState()->SideA.GetMoveSlots()[0].GetCurrentPP(),0);return true;
+}
+#endif

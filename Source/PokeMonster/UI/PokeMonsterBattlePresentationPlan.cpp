@@ -6,6 +6,16 @@ TArray<FPokeMonsterPresentationAction> UPokeMonsterBattlePresentationPlan::Build
 	if (!Result.bSucceeded) return Actions;
 	for (const FPokeMonsterBattleEvent& Event : Result.Events)
 	{
+
+  if(Event.Type==EPokeMonsterBattleEventType::FleeSucceeded||Event.Type==EPokeMonsterBattleEventType::FleeFailed||Event.Type==EPokeMonsterBattleEventType::Healed||Event.Type==EPokeMonsterBattleEventType::BurnDamage||Event.Type==EPokeMonsterBattleEventType::Recoil||Event.Type==EPokeMonsterBattleEventType::ExperienceGained||Event.Type==EPokeMonsterBattleEventType::LevelUp){
+   auto& A=Actions.AddDefaulted_GetRef();A.Source=Event.Source;A.Target=Event.Target;A.TeamIndex=Event.TeamIndex;
+   A.bFlee=Event.Type==EPokeMonsterBattleEventType::FleeSucceeded||Event.Type==EPokeMonsterBattleEventType::FleeFailed;A.bFleeSucceeded=Event.Type==EPokeMonsterBattleEventType::FleeSucceeded;
+   A.bItem=Event.Type==EPokeMonsterBattleEventType::Healed;A.RestoredHP=Event.RestoredHP;A.HPBefore=Event.HPBefore;A.HPAfter=Event.HPAfter;A.bAffectsActiveHP=!A.bItem||Event.SourceInstanceId==Event.TargetInstanceId;
+   A.bResidual=Event.Type==EPokeMonsterBattleEventType::BurnDamage||Event.Type==EPokeMonsterBattleEventType::Recoil;A.Damage=Event.Damage;
+   A.bInformation=Event.Type==EPokeMonsterBattleEventType::ExperienceGained||Event.Type==EPokeMonsterBattleEventType::LevelUp;
+   A.Information=A.bFlee?(A.bFleeSucceeded?TEXT("Du bist entkommen!"):TEXT("Flucht fehlgeschlagen!")):A.bItem?FString::Printf(TEXT("%d KP wiederhergestellt."),Event.RestoredHP):A.bResidual?(Event.Type==EPokeMonsterBattleEventType::Recoil?TEXT("Rückstoß verursacht Schaden."):TEXT("Die Verbrennung verursacht Schaden.")):Event.Type==EPokeMonsterBattleEventType::ExperienceGained?FString::Printf(TEXT("%lld Erfahrungspunkte erhalten."),Event.ExperienceAdded):TEXT("Levelaufstieg!");continue;
+  }
+  if(Event.Type==EPokeMonsterBattleEventType::AttackLowered||Event.Type==EPokeMonsterBattleEventType::EffectFailed||Event.Type==EPokeMonsterBattleEventType::Burned){if(!Actions.IsEmpty())Actions.Last().Information=Event.Type==EPokeMonsterBattleEventType::AttackLowered?TEXT("Der Angriff des Ziels sinkt!"):Event.Type==EPokeMonsterBattleEventType::EffectFailed?TEXT("Der Angriff kann nicht weiter sinken."):TEXT("Das Ziel erleidet eine Verbrennung!");continue;}
 		if (Event.Type == EPokeMonsterBattleEventType::CaptureSucceeded
 			|| Event.Type == EPokeMonsterBattleEventType::CaptureFailed)
 		{
@@ -64,7 +74,7 @@ TArray<FPokeMonsterPresentationAction> UPokeMonsterBattlePresentationPlan::Build
 			Action.TypeMultiplier = Event.TypeMultiplier;
 			break;
 		case EPokeMonsterBattleEventType::KnockedOut:
-			Action.bKnockedOut = true;
+			for(int I=Actions.Num()-1;I>=0;--I)if(Actions[I].Target==Event.Target&&Actions[I].HPAfter==0){Actions[I].bKnockedOut=true;break;}
 			break;
 		case EPokeMonsterBattleEventType::BattleEnded:
 			Action.bBattleEnded = true;
