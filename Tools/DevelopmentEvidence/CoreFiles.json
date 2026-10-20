@@ -15512,6 +15512,10 @@
     "Tools/BattleSystemV3/ValidateData.py": {
       "bytes": 1883,
       "sha256": "668358f3b9bb65ce63d9523533d97057b3f1ca439fd74577737aa3f158fa7f11"
+    },
+    "Docs/KAMPFSYSTEM_V3_PRUEFBERICHT.md": {
+      "bytes": 16125,
+      "sha256": "0344bde48c43e12431c256018f51cb7f1106a1240ffd6cb40e065b9b69c827ef"
     }
   }
 }
