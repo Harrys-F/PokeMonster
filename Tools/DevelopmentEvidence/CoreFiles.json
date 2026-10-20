@@ -14780,6 +14780,10 @@
     "Tools/ProjectMaintenance/VerifySilverLadyV5.py": {
       "bytes": 2065,
       "sha256": "c44a21824039f178b59916e8838e4e76d14b825ba6616580bf38c4d37b48af56"
+    },
+    "Docs/GRAFIKPASS_V5_PRUEFBERICHT.md": {
+      "bytes": 25550,
+      "sha256": "27b7388e17da924db40afc2893ae3672256bd7ff063843f01d6c95db4ea272e7"
     }
   }
 }
