@@ -2,7 +2,7 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "7d7b5bc199dc153b83bd614bd8233855e28dbf58",
-  "snapshot_kind": "checked_grafikpass_v4_primary_project",
+  "snapshot_kind": "checked_grafikpass_v5_primary_project",
   "generated_at": "2026-10-20",
   "files": {
     ".codex/config.toml": {
@@ -8538,8 +8538,8 @@
       "sha256": "d9855c7a10dee76c73ab260871e220abc2371ef61e91d269b145a498bd26176f"
     },
     "Content/Maps/Dev_TestMap_VisualV2.umap": {
-      "bytes": 4131654,
-      "sha256": "6aebb42a7883e8a983dc3b5c3b29e711c6762ed03a79b7ccd762ba1ee55f722a"
+      "bytes": 4148261,
+      "sha256": "9692ffa959eebe84764cd501871f40c1f5403ee46e440b011b2c3ce625727d77"
     },
     "Content/Maps/Dev_TestMap_VisualV2GPUBottleneckV1.umap": {
       "bytes": 3300685,
@@ -8586,8 +8586,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 116359,
-      "sha256": "437737bc43f535b60e1060fdb21e26676344070b055ee49b51268a5c478a2481"
+      "bytes": 117611,
+      "sha256": "2a5e6761c4588b66bffcf3b3a2f626e4755d16e14a1277bf96a26d7536dad8f9"
     },
     "Docs/GRAFIKSTIL.md": {
       "bytes": 13867,
@@ -8674,8 +8674,8 @@
       "sha256": "cb4d28f53a50b73e952a013afd156e8afe62c2845ccacdc8fd91c4b7cd9f8350"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 137115,
-      "sha256": "e00ae31d057485e2fd54ebf16bb0689a2c7ac57136b325195838ecd4629f3b9d"
+      "bytes": 138852,
+      "sha256": "823230f3c4a727814b78c0a3032692f731ff6c712d3eb6c6da9d05a4f9cdad68"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -11010,8 +11010,8 @@
       "sha256": "c3c80079489ddd7035692ed14c9c6149a0f0fcb7170d5bb8a49de5123642daf8"
     },
     "Tools/ProjectMaintenance/README.md": {
-      "bytes": 7074,
-      "sha256": "7098f4e54ebfd68f893d38c31a78d7c7a27e2e8d4ed6918579312554578ff858"
+      "bytes": 8962,
+      "sha256": "b0657375343dc15f7f61a33dd5b63d08668b475eafb7a399a3d55bdd74064867"
     },
     "Tools/ProjectMaintenance/RunGameplay.py": {
       "bytes": 2560,
@@ -14218,8 +14218,8 @@
       "sha256": "3059b9e548db4c8889bf8ae4d43d351d1a1a3e29158bf1ccfba47270ece41b8b"
     },
     "Tools/ProjectMaintenance/ValidateRefinedArt.py": {
-      "bytes": 5274,
-      "sha256": "97b50e8c4247fd453944d80a84c3df2b0c42bfda47698358ebca808c6061628b"
+      "bytes": 5415,
+      "sha256": "5c002b1e03b5d4ba6bc32bb5cd1c7ed9fba359ad1377c62d4b66251328472d63"
     },
     "Tools/ProjectMaintenance/VerifyRemoteLFS.py": {
       "bytes": 2453,
@@ -14624,6 +14624,162 @@
     "Docs/GRAFIKPASS_V4_PRUEFBERICHT.md": {
       "bytes": 25232,
       "sha256": "903e15762b95babb6ad15fdda4a4dc19744f47796be69b1d46e98991821a5a8a"
+    },
+    "Art/Characters/NPCs/SilverLady/ArtV5_OriginalAppearance.json": {
+      "bytes": 1132,
+      "sha256": "3cbd724ebe95af6c7ccb4a030d4ccc7ee85c8eb564deca50f1dc73dca9685cbf"
+    },
+    "Art/HealingHouse/ArtV5_Contacts.json": {
+      "bytes": 7431,
+      "sha256": "9f38babb35955fbde794c0e88f97d4b965142deebafea07baa0b826937e650cb"
+    },
+    "Art/HealingHouse/ArtV5_Interior.json": {
+      "bytes": 22994,
+      "sha256": "8438d6d699335ac0b7bb01f29fe694896a50a016ecd973935218cc73585cca89"
+    },
+    "Art/HealingHouse/ArtV5_Props.json": {
+      "bytes": 622,
+      "sha256": "14f97f71eb04ef08a52221395a4140232f0a0ef44dc760a8ddf3a7b718eeddcc"
+    },
+    "Art/HealingHouse/ArtV5_ReviewFinish.json": {
+      "bytes": 78163,
+      "sha256": "25bd3ca4b4aafa8a265d11ff551103231402941feba4f722797ddd8bc34f684e"
+    },
+    "Art/HealingHouse/Exports/SM_HH5_HerbalBooks.fbx": {
+      "bytes": 43388,
+      "sha256": "159885e6bd36c953d46bafc3d7350950244b5e168388bfb56da359946a635dd5"
+    },
+    "Art/HealingHouse/Exports/SM_HH5_LinenCushion.fbx": {
+      "bytes": 51340,
+      "sha256": "0892579641bd0becd94164fbcc9f056628f352b8c8ad070300360eba2ae30bfd"
+    },
+    "Art/HealingHouse/Exports/SM_HH5_ReadingChair.fbx": {
+      "bytes": 123532,
+      "sha256": "be000e3a12d319b5a66be769192a5d9dd563b2966d5306373eae15f458ca60d0"
+    },
+    "Art/HealingHouse/Source/HealingHouse_ArtV5.blend": {
+      "bytes": 223150,
+      "sha256": "4b295762f4e82f1bdf027c97f4dfe8b783e65035f0f05b5157a6a4f47633550f"
+    },
+    "Art/World/VisualV2WorldArtV7/ArtV5_Landscape.json": {
+      "bytes": 110067,
+      "sha256": "dfe32811c15b01def8840ccdf53afb869c9ba9b987b182a940b51a9fe0f9a0ec"
+    },
+    "Art/World/VisualV2WorldArtV7/ArtV5_PathGraphs.json": {
+      "bytes": 134024,
+      "sha256": "fdb051ce1380673139580afdf13dde09c943852b4fcd547a1180b762b0f5f698"
+    },
+    "Art/World/VisualV2WorldArtV7/ArtV5_ReviewedPathGraphs.json": {
+      "bytes": 138797,
+      "sha256": "055b67beba68423929ebf3eab0793590303217df4aefe517f39aa1851d899e8e"
+    },
+    "Content/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.uasset": {
+      "bytes": 15845,
+      "sha256": "161c76e3653e9542bf7dcb8c3efae62cf44eb043cce2af3389c7cfc71c22a9da"
+    },
+    "Content/Environment/HealingHouse/ArtV5/Materials/M_HH5_Deadwood.uasset": {
+      "bytes": 10899,
+      "sha256": "88a8e8702ff4554a2cb9fb29527d3b3df90d3834475582b903877d26960b2dfd"
+    },
+    "Content/Environment/HealingHouse/ArtV5/Materials/M_HH5_HearthLimestone.uasset": {
+      "bytes": 13217,
+      "sha256": "b93e71c72e88de1f72185cd86a75cf9e8f707db5ac50395b255cd17cdd590e08"
+    },
+    "Content/Environment/HealingHouse/ArtV5/Materials/M_HH5_LandscapeGround.uasset": {
+      "bytes": 45314,
+      "sha256": "903f580ff6638a428b1c2a18a806fd5828da387003501f254199aa4022454c9f"
+    },
+    "Content/Environment/HealingHouse/ArtV5/Materials/M_HH5_LandscapeMainPath.uasset": {
+      "bytes": 63068,
+      "sha256": "366730e2733166e96a1cf9cd2fa02c9698821d0f3f11da4a68bddc3cd579efcb"
+    },
+    "Content/Environment/HealingHouse/ArtV5/Materials/M_HH5_LandscapeNorthPath.uasset": {
+      "bytes": 65445,
+      "sha256": "0a38593c2086990dfaf7648d0f422b84025f7ab0509b597920fcf334cf2064cc"
+    },
+    "Content/Environment/HealingHouse/ArtV5/Materials/M_HH5_LinenJoinery.uasset": {
+      "bytes": 11419,
+      "sha256": "d264eaf16e03d7282f27a1db1d0d6b7c7298640238a9e6d513e141675aac3c8b"
+    },
+    "Content/Environment/HealingHouse/ArtV5/Meshes/SM_HH5_HerbalBooks.uasset": {
+      "bytes": 109318,
+      "sha256": "d913a1008f50aadcf700bfdc9cefbb5417b8362f594896a081af6266b7960dd6"
+    },
+    "Content/Environment/HealingHouse/ArtV5/Meshes/SM_HH5_LinenCushion.uasset": {
+      "bytes": 120569,
+      "sha256": "9908997e041813d81d71fc9fc8e7b087d10ab811e7345cbd75e27d8b04621bae"
+    },
+    "Content/Environment/HealingHouse/ArtV5/Meshes/SM_HH5_ReadingChair.uasset": {
+      "bytes": 216131,
+      "sha256": "a17de2fb019dd79f1b5a52409676a760e06a6b9333985c4aaa7d1b74d1cace4a"
+    },
+    "Tools/ProjectMaintenance/ArtV5Acceptance.json": {
+      "bytes": 13550,
+      "sha256": "c5dca16d6610485f6677a2a5882c8da8b799fd5eeebede75b4bf6eaea2308efc"
+    },
+    "Tools/ProjectMaintenance/ArtV5ContactFinish.py": {
+      "bytes": 4295,
+      "sha256": "705fce2f70e87f8bd3519e38ed158f7dd53826f239de99f45f9378d7fb082546"
+    },
+    "Tools/ProjectMaintenance/ArtV5FurnitureCollision.py": {
+      "bytes": 2438,
+      "sha256": "121d2677d1781b9cbcbd77516693d9feb0a0cf2638f578dec8d3b8bfc5ec5df5"
+    },
+    "Tools/ProjectMaintenance/ArtV5IdleReview.py": {
+      "bytes": 1929,
+      "sha256": "e684e26a57b47758cc0921312f7d45a3fdc47784eb8a0d17e75fb4bfd889fe63"
+    },
+    "Tools/ProjectMaintenance/ArtV5Interior.py": {
+      "bytes": 10622,
+      "sha256": "f474d7f1e939de0017eadfe87d2f5b16b75d32729dea7140d5c0cb500a719755"
+    },
+    "Tools/ProjectMaintenance/ArtV5Landscape.py": {
+      "bytes": 6577,
+      "sha256": "e85240353b5e6685f4fcfd381840ef1ee4c515843c1d88c2f89ce211347f09e5"
+    },
+    "Tools/ProjectMaintenance/ArtV5MapChecks.py": {
+      "bytes": 1472,
+      "sha256": "1891b919d009a9e9bd8bae1d54a8f7b0e03135093d5ad66d7dfc7ab33396ec79"
+    },
+    "Tools/ProjectMaintenance/ArtV5Photos.py": {
+      "bytes": 2436,
+      "sha256": "262b8704fd6541ed2d9a3d5651ecaa770371b707938787c6843c9602b57d0e1b"
+    },
+    "Tools/ProjectMaintenance/ArtV5ReviewFinish.py": {
+      "bytes": 4647,
+      "sha256": "749c4e0269f2811767d042400fb3fbe70f4e0b0b5e31067268e5a3ac7adb6537"
+    },
+    "Tools/ProjectMaintenance/ArtV5RuntimeAudit.py": {
+      "bytes": 3084,
+      "sha256": "c7e2a2fe15d7e0fca97cedbc5d7d20be8d99d4d7851987e0709f7a69497c78bd"
+    },
+    "Tools/ProjectMaintenance/ArtV5Signatures.json": {
+      "bytes": 136725,
+      "sha256": "e96b3b69fafd7f0c7740db3f417e2e74966a96ca45f431821b4debcece51cfdb"
+    },
+    "Tools/ProjectMaintenance/ArtV5WindowMotion.py": {
+      "bytes": 2638,
+      "sha256": "0a47e0fac257c650de99751677b88401fff88be1b4762771f8f8d091dcadd582"
+    },
+    "Tools/ProjectMaintenance/BuildHealingArtV5.py": {
+      "bytes": 3800,
+      "sha256": "2165184586ce15aade62e670353a925448b0003e9fa09b5eaa32bec3b9b6ba3a"
+    },
+    "Tools/ProjectMaintenance/RunArtV5Gameplay.py": {
+      "bytes": 4364,
+      "sha256": "5bde6e6bdf20409255ed7d66de042cfa7cfe2c371a2e6e827ea5737866ef4104"
+    },
+    "Tools/ProjectMaintenance/ValidateArtPassV5.py": {
+      "bytes": 6098,
+      "sha256": "36179338ce2a35fcc0bf175cb6b76d70965743823eabe03041301dab177392d0"
+    },
+    "Tools/ProjectMaintenance/VerifyHealingV5.py": {
+      "bytes": 1353,
+      "sha256": "cea8be56cb15255c0084b19443fc58eba75f9291c2c57b54a5d2be3293072a9e"
+    },
+    "Tools/ProjectMaintenance/VerifySilverLadyV5.py": {
+      "bytes": 2065,
+      "sha256": "c44a21824039f178b59916e8838e4e76d14b825ba6616580bf38c4d37b48af56"
     }
   }
 }

@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "original_pose": "Art/Characters/NPCs/SilverLady/Source/SilverLady_HealerPose.blend",
+  "current_rigged_mesh_source": "Art/Characters/NPCs/SilverLady/Source/Westland_Healer_ArtV4.blend",
+  "original_pose_geometry_uv_and_transform_identical": true,
+  "fingerprints": {
+    "vertices": 177228,
+    "triangles": 149999,
+    "geometry_sha256": "ceab26358a50a567fc3c03680f7496994cca80d36c880cc4f794b97edb8890ef",
+    "polygons_sha256": "1cc3defdf12b0fbafca3b8dfe52e025244e05acf2c3052a07946dd046a9388cf",
+    "uv_sha256": "12e1990c1c58e848ec8dd9a4d56c8e67b2cfa09cdacf1a2179a9534e2c60ff45"
+  },
+  "source_hashes": {
+    "/Users/harry/Developer/PokeMonster/Art/Characters/NPCs/SilverLady/Source/SilverLady_HealerPose.blend": "98d0e88facd2b49915eb88fcb8004f11459a3312e9b10b38a7d52b4d151efed8",
+    "/Users/harry/Developer/PokeMonster/Art/Characters/NPCs/SilverLady/Source/Westland_Healer_ArtV4.blend": "6fed7a4f4add55299f1e71bb10a4c09e393c7066a912642955f929a089cc8b38"
+  },
+  "no_source_saved": true,
+  "material_requirement": "Unreal component must bind exact MI_SilverLady_V1; V4 recoloring must not remain active."
+}

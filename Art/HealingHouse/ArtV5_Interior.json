@@ -1,0 +1,705 @@
+{
+  "removed_stone_actors": [
+    {
+      "actor": "StaticMeshActor_987",
+      "label": "ArtV4_FlagstoneApron_0",
+      "mesh": "/Game/Environment/HealingHouse/ArtV4/Meshes/SM_HH4_FlagstoneApron.SM_HH4_FlagstoneApron"
+    }
+  ],
+  "floor_changes": [
+    {
+      "actor": "StaticMeshActor_642",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_643",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_644",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_645",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_646",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_647",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_648",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_649",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_650",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_651",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_652",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_653",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_654",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_655",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_656",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_657",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_658",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_659",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_660",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_661",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_662",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_663",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_664",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_665",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_666",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_667",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_668",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_669",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_670",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    },
+    {
+      "actor": "StaticMeshActor_671",
+      "old_mesh": "/Game/Environment/HealingHouse/QualityV2/Meshes/SM_HH_Q2_FloorTile2m.SM_HH_Q2_FloorTile2m",
+      "new_mesh": "/Engine/BasicShapes/Plane.Plane",
+      "scale": [
+        2,
+        2,
+        1
+      ],
+      "height_cm": 1.0
+    }
+  ],
+  "material_bindings": [
+    {
+      "actor": "StaticMeshActor_642",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_643",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_644",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_645",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_646",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_647",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_648",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_649",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_650",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_651",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_652",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_653",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_654",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_655",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_656",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_657",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_658",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_659",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_660",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_661",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_662",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_663",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_664",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_665",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_666",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_667",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_668",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_669",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_670",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_671",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.M_HH4_OakFloor",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak"
+    },
+    {
+      "actor": "StaticMeshActor_988",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/ArtV4/Materials/M_HH4_Flagstone.M_HH4_Flagstone",
+      "after": "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_HearthLimestone.M_HH5_HearthLimestone"
+    },
+    {
+      "actor": "PokeMonsterNPCVisualActor_1",
+      "component": "NPCVisual",
+      "slot": 0,
+      "before": "/Game/Characters/NPCs/SilverLady/HealerArtV4/Materials/M_WestlandHealer_HerbalLinen.M_WestlandHealer_HerbalLinen",
+      "after": "/Game/Characters/NPCs/SilverLady/Materials/MI_SilverLady_V1.MI_SilverLady_V1"
+    },
+    {
+      "actor": "StaticMeshActor_1004",
+      "component": "StaticMeshComponent0",
+      "slot": 0,
+      "before": "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Wood.M_HH_Q2_Wood",
+      "after": "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_InteriorWood.M_HH_InteriorWood"
+    },
+    {
+      "actor": "StaticMeshActor_1004",
+      "component": "StaticMeshComponent0",
+      "slot": 1,
+      "before": "/Game/Environment/HealingHouse/QualityV2/Materials/M_HH_Q2_Timber.M_HH_Q2_Timber",
+      "after": "/Game/Environment/VisualV2HealingArtV4/Materials/M_HH_InteriorWood.M_HH_InteriorWood"
+    }
+  ],
+  "new_actors": [
+    {
+      "actor": "StaticMeshActor_999",
+      "label": "ArtV5_ReadingChair",
+      "mesh": "/Game/Environment/HealingHouse/ArtV5/Meshes/SM_HH5_ReadingChair.SM_HH5_ReadingChair",
+      "position": [
+        16805,
+        145,
+        0
+      ],
+      "collision": true
+    },
+    {
+      "actor": "StaticMeshActor_1000",
+      "label": "ArtV5_BenchCushion_0",
+      "mesh": "/Game/Environment/HealingHouse/ArtV5/Meshes/SM_HH5_LinenCushion.SM_HH5_LinenCushion",
+      "position": [
+        16635,
+        125,
+        49
+      ],
+      "collision": false
+    },
+    {
+      "actor": "StaticMeshActor_1001",
+      "label": "ArtV5_BenchCushion_1",
+      "mesh": "/Game/Environment/HealingHouse/ArtV5/Meshes/SM_HH5_LinenCushion.SM_HH5_LinenCushion",
+      "position": [
+        16695,
+        125,
+        49
+      ],
+      "collision": false
+    },
+    {
+      "actor": "StaticMeshActor_1002",
+      "label": "ArtV5_BenchCushion_2",
+      "mesh": "/Game/Environment/HealingHouse/ArtV5/Meshes/SM_HH5_LinenCushion.SM_HH5_LinenCushion",
+      "position": [
+        16520,
+        155,
+        49
+      ],
+      "collision": false
+    },
+    {
+      "actor": "StaticMeshActor_1003",
+      "label": "ArtV5_BenchCushion_3",
+      "mesh": "/Game/Environment/HealingHouse/ArtV5/Meshes/SM_HH5_LinenCushion.SM_HH5_LinenCushion",
+      "position": [
+        16520,
+        215,
+        49
+      ],
+      "collision": false
+    },
+    {
+      "actor": "StaticMeshActor_1004",
+      "label": "ArtV5_TeaSideTable",
+      "mesh": "/Game/Environment/HealingHouse/QualityV3/Meshes/SM_HH_Q3_Table.SM_HH_Q3_Table",
+      "position": [
+        16805,
+        265,
+        0
+      ],
+      "collision": false
+    },
+    {
+      "actor": "StaticMeshActor_1005",
+      "label": "ArtV5_ReadingBooks",
+      "mesh": "/Game/Environment/HealingHouse/ArtV5/Meshes/SM_HH5_HerbalBooks.SM_HH5_HerbalBooks",
+      "position": [
+        16805.0,
+        268.0,
+        46.06
+      ],
+      "collision": false
+    },
+    {
+      "actor": "StaticMeshActor_1006",
+      "label": "ArtV5_HerbWorkBooks",
+      "mesh": "/Game/Environment/HealingHouse/ArtV5/Meshes/SM_HH5_HerbalBooks.SM_HH5_HerbalBooks",
+      "position": [
+        16535.0,
+        883.0,
+        82.32
+      ],
+      "collision": false
+    },
+    {
+      "actor": "StaticMeshActor_1007",
+      "label": "ArtV5_BedsideRemedies",
+      "mesh": "/Game/Environment/VisualV2HealingArtV4/Meshes/SM_HH_HerbalRemedyTray.SM_HH_HerbalRemedyTray",
+      "position": [
+        16590.0,
+        905.0,
+        84.0
+      ],
+      "collision": false
+    }
+  ],
+  "assets": [
+    "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_AgedOak.M_HH5_AgedOak",
+    "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_LinenJoinery.M_HH5_LinenJoinery",
+    "/Game/Environment/HealingHouse/ArtV5/Materials/M_HH5_HearthLimestone.M_HH5_HearthLimestone",
+    "/Game/Environment/HealingHouse/ArtV5/Meshes/SM_HH5_LinenCushion.SM_HH5_LinenCushion",
+    "/Game/Environment/HealingHouse/ArtV5/Meshes/SM_HH5_ReadingChair.SM_HH5_ReadingChair",
+    "/Game/Environment/HealingHouse/ArtV5/Meshes/SM_HH5_HerbalBooks.SM_HH5_HerbalBooks"
+  ],
+  "original_silverlady_material": "/Game/Characters/NPCs/SilverLady/Materials/MI_SilverLady_V1.MI_SilverLady_V1",
+  "silverlady_mesh_and_animation_retained": true,
+  "light_before": {
+    "intensity": 800.0,
+    "width": 900.0,
+    "height": 800.0,
+    "temperature": 5000.0
+  },
+  "light_after": {
+    "intensity": 1000,
+    "width": 1200,
+    "height": 1000,
+    "temperature": 5000.0
+  },
+  "collision_floor_untouched": true
+}

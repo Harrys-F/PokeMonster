@@ -1,0 +1,32 @@
+{
+  "source": "Art/HealingHouse/Source/HealingHouse_ArtV5.blend",
+  "units": "m",
+  "assets": [
+    {
+      "name": "LinenCushion",
+      "vertices": 768,
+      "triangles": 1528,
+      "zero_area_faces": 0,
+      "uv": true,
+      "materials": 1
+    },
+    {
+      "name": "ReadingChair",
+      "vertices": 2298,
+      "triangles": 4492,
+      "zero_area_faces": 0,
+      "uv": true,
+      "materials": 1
+    },
+    {
+      "name": "HerbalBooks",
+      "vertices": 636,
+      "triangles": 1224,
+      "zero_area_faces": 0,
+      "uv": true,
+      "materials": 1
+    }
+  ],
+  "reopened": true,
+  "only_new_sources": true
+}
