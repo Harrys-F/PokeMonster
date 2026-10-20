@@ -15418,8 +15418,8 @@
       "sha256": "7b45cbfb8883d136176af335f7400d6d5ab8398c8e4cbe80c9ec9d3592b792f9"
     },
     "Docs/KAMPFANSICHT_V2_PRUEFBERICHT.md": {
-      "bytes": 14821,
-      "sha256": "0b449a66b0e8121a616d45435a81c597c44f81db61f53d65b9e4f0d1062a315e"
+      "bytes": 16372,
+      "sha256": "a0206ef7f74663323d0ef12de65751914dab97d5f8d84486f753360fa5ef38aa"
     },
     "Source/PokeMonster/Encounter/PokeMonsterBattleEnvironment.h": {
       "bytes": 275,

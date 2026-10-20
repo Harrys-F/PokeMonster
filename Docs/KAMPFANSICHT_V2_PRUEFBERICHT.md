@@ -207,9 +207,31 @@ als optional umgestuft. Alle Original-Art-/Content-Dateien, Karten, Playerquelle
 Blenderquellen, unversionierten Nutzerdateien und beide lokalen Backup-Refs bleiben
 erhalten. Keine zusätzlichen Worktrees, Projektkopien, vollständigen Projektbackups oder Maps angelegt.
 
-Sicherungsstatus vor Ausführung: Build/Tests bestanden, gezielter Index-/Diff-/LFS-
-Abgleich wird unmittelbar vor Commit durchgeführt. Keine Medien/Caches/Builds
-werden aufgenommen. Commit-/Remote-Ergebnis wird nach regulärem Push ergänzt.
+Implementierung einschließlich Tests, Werkzeugen und Bericht:
+[`d2f243f95534ee8e3c1f2776dd69d1cb0051f138`](https://github.com/Harrys-F/PokeMonster/commit/d2f243f95534ee8e3c1f2776dd69d1cb0051f138),
+`feat: refine classic battle view and encounter environments`.
+
+Regulärer Push auf origin/main erfolgreich; Remote-Hash und Tracking-Ref anschließend
+identisch bestätigt. Genau 28 geprüfte Pfade, nur reguläre Git-Dateien. Vollständige
+Blobgrößen dieser Dateiliste zusammen 1.160.470 Bytes, deutlich unter 1 GiB; das ist
+eine konservative Inhaltsgröße, keine Behauptung einer gemessenen Transportgröße.
+Index exakt mit Einzeldateiplan verglichen, `git diff --cached --check` bestanden.
+Keine Kontrollmedien, Caches, Builds, Modelle oder Maps aufgenommen.
+
+Git-LFS-Objektmenge unverändert: 1.397 Objekte, 6.644.577.468 Bytes vorhandene
+Nutzdaten. Lokales fsck bestanden, serverseitige Verfügbarkeit nach Push für alle
+Objekte per Download-Batch-Metadaten bestätigt; keine Nutzdaten erneut heruntergeladen.
+**Neue LFS-Uploads: 0 Objekte / 0 Bytes.** Keine Käufe oder Budgetänderungen.
+Lokale Nachweise: Saved/BattleViewV2/IndexVerified.json, Push01.json,
+RemoteLFSAvailability.json. Core-Snapshot: 3.865 erforderliche Dateien, alle gehasht
+vorhanden und unverändert außerhalb der expliziten neuen Prüfliste.
+
+Nach Implementierungspush keine Änderungen versionierter Projektdateien offen;
+58 ursprüngliche Unversionierte unverändert erhalten. Beide Backup-Refs weiterhin
+03492bd, nicht Vorfahr des schlanken main. Der verifizierte Sicherungsstatus wird
+als kleiner nachfolgender Dokumentationscommit dieses Berichts samt dessen
+Core-Snapshot-Hash gesichert; die abschließende Commit-ID steht in der Codex-Ausgabe
+und in `git log -2`, ohne rekursive Selbstreferenz im Bericht.
 
 ## Empfehlung
 
