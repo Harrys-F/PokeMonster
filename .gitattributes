@@ -54,3 +54,7 @@ Art/World/VisualV2HealingArtV4/References/*.jpg filter=lfs diff=lfs merge=lfs -t
 
 # World Art V5: authored floor textures, no review media
 Art/World/VisualV2WorldArtV5/Textures/*.png filter=lfs diff=lfs merge=lfs -text
+
+# Zunderlauf V1: authored texture inputs and approved design sources only.
+Art/Characters/Creatures/Zunderlauf/Textures/*.png filter=lfs diff=lfs merge=lfs -text
+Art/Characters/Creatures/Zunderlauf/References/*.jpg filter=lfs diff=lfs merge=lfs -text

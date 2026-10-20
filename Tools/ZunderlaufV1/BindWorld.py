@@ -1,0 +1,8 @@
+"""Assign this species to the existing optional wild actor, not a second encounter system."""
+import unreal,json
+from pathlib import Path
+R=Path(unreal.Paths.project_dir()).resolve();E=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);w=E.get_editor_world();assert w.get_name()=='Dev_TestMap_VisualV2' and not E.get_game_world();assert not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages() and not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()
+actors=unreal.GameplayStatics.get_all_actors_of_class(w,unreal.PokeMonsterVisibleWildCreatureActor);assert len(actors)==1;a=actors[0];assert a.get_actor_label()=='Slice_Wildkreatur_Optional';assert a.get_actor_location().to_tuple()==(-1040.,-1450.,60.)
+before={'profile':a.get_editor_property('profile').get_path_name(),'visual_species':str(a.get_editor_property('visual_species')),'ambient_motion':a.get_editor_property('ambient_motion'),'encounter_id':str(a.encounter_id),'seed':a.seed,'location':a.get_actor_location().to_tuple()};assert before['profile']=='/Game/Data/Encounters/DA_DevWild.DA_DevWild'
+a.modify();a.set_editor_property('visual_species',unreal.load_asset('/Game/Data/Creatures/DA_Zunderlauf'));a.set_editor_property('profile',unreal.load_asset('/Game/Data/Encounters/DA_Zunderlauf_Wild'));a.set_editor_property('ambient_motion',True)
+assert unreal.EditorLoadingAndSavingUtils.save_map(w,'/Game/Maps/Dev_TestMap_VisualV2');(R/'Saved/ZunderlaufV1/WorldBinding.json').write_text(json.dumps({'actor':a.get_name(),'before':before,'after':{'profile':a.profile.get_path_name(),'visual_species':a.get_editor_property('visual_species').get_path_name(),'ambient_motion':True},'no_new_map_actors':True,'no_changed_collision':True},indent=2));unreal.log('ZUNDERLAUF_WORLD_BIND_PASS')

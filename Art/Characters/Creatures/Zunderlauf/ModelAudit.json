@@ -1,0 +1,42 @@
+{
+  "vertices": 25044,
+  "triangles": 49904,
+  "polygons": 24872,
+  "loose_vertices": 0,
+  "nonmanifold_edges": 96,
+  "zero_area_faces": 0,
+  "materials": 5,
+  "bones": [
+    "root",
+    "pelvis",
+    "spine",
+    "chest",
+    "head",
+    "upperarm_L",
+    "forearm_L",
+    "hand_L",
+    "thigh_L",
+    "shin_L",
+    "foot_L",
+    "upperarm_R",
+    "forearm_R",
+    "hand_R",
+    "thigh_R",
+    "shin_R",
+    "foot_R",
+    "tail_01",
+    "tail_02",
+    "tail_03",
+    "tail_04",
+    "tail_tip",
+    "tail_socket"
+  ],
+  "height_m": 0.6524496860802174,
+  "tail_tip_m": [
+    0.064,
+    0.438,
+    0.444
+  ],
+  "provisional_body_height_target_m": 0.66,
+  "bone_list_verified_against_saved_source": true
+}

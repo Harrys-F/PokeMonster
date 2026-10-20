@@ -14,6 +14,8 @@ class UScrollBox;
 class UCanvasPanel;
 class UImage;
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FPokeMonsterWorldPresentationStep, const FPokeMonsterPresentationAction&, Action, FName, Step);
+
 /** Native UMG fallback view. A Blueprint subclass can supply matching named widgets and visual hooks. */
 UCLASS(Blueprintable)
 class POKEMONSTER_API UPokeMonsterBattleWidget : public UUserWidget
@@ -26,6 +28,8 @@ public:
 	UFUNCTION(BlueprintPure, Category="Battle UI") UButton* GetCaptureButton() const { return CaptureButton; }
 	/** Reuses this presentation in the loaded overworld, without the test-map restart control. */
 	void SetEncounterOverlay(bool bEnabled);
+	void SetWorldPresentation(bool Player3D, bool Opponent3D);
+	UPROPERTY(BlueprintAssignable) FPokeMonsterWorldPresentationStep OnWorldPresentationStep;
 protected:
 	virtual TSharedRef<SWidget> RebuildWidget() override;
 	virtual void NativeConstruct() override;
@@ -99,6 +103,7 @@ private:
 	FTimerHandle PresentationTimer;
 	FTimerHandle OverlayRoundTimer;
 	bool bEncounterOverlay = false;
+	bool bWorldPresentation=false,bWorldPlayer=false,bWorldOpponent=false;
 	EPresentationPhase PresentationPhase = EPresentationPhase::Windup;
 	float PhaseElapsed = 0.0f;
 	int32 ActionIndex = INDEX_NONE;

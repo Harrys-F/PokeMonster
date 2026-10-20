@@ -1,0 +1,42 @@
+{
+  "reopened": true,
+  "vertices": 25044,
+  "triangles": 49904,
+  "loose": 0,
+  "zero_area_faces": 0,
+  "boundary_edges": 96,
+  "nonmanifold_nonboundary_edges": 0,
+  "bones": 23,
+  "clips": [
+    "Zunderlauf_Attack",
+    "Zunderlauf_Faint",
+    "Zunderlauf_Happy",
+    "Zunderlauf_Hit",
+    "Zunderlauf_Idle",
+    "Zunderlauf_Run",
+    "Zunderlauf_Walk"
+  ],
+  "packed_textures": [
+    "Zunderlauf_DIFFUSE",
+    "Zunderlauf_NORMAL",
+    "Zunderlauf_ROUGHNESS"
+  ],
+  "weights_nonunit": 0,
+  "unweighted": 0,
+  "flame_objects": [
+    "TailFlame_Only"
+  ],
+  "flame_triangles": 288,
+  "flame_height_m": 0.10499999672174454,
+  "fbx_roundtrip": {
+    "vertices": 25044,
+    "triangles": 49904,
+    "bones": 23,
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "walk_seconds": 0.6
+  }
+}

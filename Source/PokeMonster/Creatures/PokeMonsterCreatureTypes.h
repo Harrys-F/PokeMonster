@@ -7,6 +7,7 @@
 #include "PokeMonsterCreatureTypes.generated.h"
 
 class UPaperFlipbook;
+class UPokeMonsterCreaturePresentationData;
 
 /** All elemental types used by generation 1 and 2 species. None is reserved for an absent secondary type. */
 UENUM(BlueprintType)
@@ -194,6 +195,10 @@ USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterCreatureVisuals
 {
 	GENERATED_BODY()
+
+	/** Optional 3D presentation; legacy flipbooks remain the fallback. */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Visuals")
+	TSoftObjectPtr<UPokeMonsterCreaturePresentationData> Presentation;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Visuals")
 	TSoftObjectPtr<UPaperFlipbook> FrontFlipbook;

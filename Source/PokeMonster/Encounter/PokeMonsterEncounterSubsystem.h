@@ -15,6 +15,8 @@ class UPokeMonsterTrainerProfile;
 class UPokeMonsterItemData;
 struct FPokeMonsterEncounterContext;
 struct FPokeMonsterBattleState;
+struct FPokeMonsterPresentationAction;
+class APokeMonsterCreatureVisualActor;
 
 UENUM(BlueprintType)
 enum class EPokeMonsterEncounterKind : uint8 { Test, Wild, Trainer };
@@ -137,6 +139,11 @@ private:
 		const FPokeMonsterBattleState& State);
 	void RecordTrainerOutcome(const FPokeMonsterEncounterEndData& Result);
 	UFUNCTION() void HandlePresenterChanged();
+	UFUNCTION() void HandleWorldPresentationStep(const FPokeMonsterPresentationAction& Action,FName Step);
+	void CreateWorldPresentation();
+	void UpdateWorldSpecies();
+	UPROPERTY(Transient) TObjectPtr<APokeMonsterCreatureVisualActor> PlayerVisual;
+	UPROPERTY(Transient) TObjectPtr<APokeMonsterCreatureVisualActor> OpponentVisual;
 	void CompleteEncounter();
 	void ReleaseOverworld(bool bKeepInputLocked = false);
 

@@ -84,13 +84,16 @@ TSharedRef<SWidget> UPokeMonsterBattleWidget::RebuildWidget()
 void UPokeMonsterBattleWidget::BuildDefaultTree()
 {
 	auto* Back = WidgetTree->ConstructWidget<UBorder>();
-	Back->SetBrushColor(FLinearColor(0.06f,0.10f,0.08f)); Back->SetPadding(FMargin(0));
+	Back->SetBrushColor(FLinearColor(0.06f,0.10f,0.08f,bWorldPresentation?0.f:1.f)); Back->SetPadding(FMargin(0));
 	WidgetTree->RootWidget = Back;
 	auto* Scale = WidgetTree->ConstructWidget<UScaleBox>(); Scale->SetStretch(EStretch::ScaleToFit); Back->SetContent(Scale);
 	auto* Size = WidgetTree->ConstructWidget<USizeBox>(); Size->SetWidthOverride(1280); Size->SetHeightOverride(800); Scale->SetContent(Size);
 	auto* Canvas = WidgetTree->ConstructWidget<UCanvasPanel>(); Size->SetContent(Canvas);
-	Shape(WidgetTree,Canvas,0,0,1280,800,FLinearColor(0.07f,0.12f,0.09f),0);
-	Artwork(WidgetTree,Canvas,TEXT("BattleGlen"),TEXT("/Game/Battle/Textures/T_BattleGlen.T_BattleGlen"),0,0,1280,720);
+	if(!bWorldPresentation)
+	{
+		Shape(WidgetTree,Canvas,0,0,1280,800,FLinearColor(0.07f,0.12f,0.09f),0);
+		Artwork(WidgetTree,Canvas,TEXT("BattleGlen"),TEXT("/Game/Battle/Textures/T_BattleGlen.T_BattleGlen"),0,0,1280,720);
+	}
 	// Soft overlays preserve text contrast while the painted clearing remains visible.
 	Shape(WidgetTree,Canvas,0,0,1280,111,FLinearColor(0.025f,0.055f,0.045f,0.70f),0);
 	Shape(WidgetTree,Canvas,0,515,1280,285,FLinearColor(0.045f,0.073f,0.063f,0.98f),0);
@@ -110,8 +113,8 @@ void UPokeMonsterBattleWidget::BuildDefaultTree()
 	Place(Canvas,CaptureButton,1087,27,165,43);
 	CaptureButton->SetVisibility(ESlateVisibility::Collapsed);
 
-	Shape(WidgetTree,Canvas,185,448,387,44,FLinearColor(0.02f,0.04f,0.03f,0.27f),22);
-	Shape(WidgetTree,Canvas,865,368,224,27,FLinearColor(0.02f,0.04f,0.03f,0.25f),14);
+	if(!bWorldPresentation)Shape(WidgetTree,Canvas,185,448,387,44,FLinearColor(0.02f,0.04f,0.03f,0.27f),22);
+	if(!bWorldPresentation)Shape(WidgetTree,Canvas,865,368,224,27,FLinearColor(0.02f,0.04f,0.03f,0.25f),14);
 	Artwork(WidgetTree,Canvas,TEXT("OpponentFigure"),TEXT("/Game/Battle/Textures/T_TestGrass.T_TestGrass"),830,133,274,253);
 	Artwork(WidgetTree,Canvas,TEXT("PlayerFigure"),TEXT("/Game/Battle/Textures/T_TestWater.T_TestWater"),137,148,450,350);
 	auto* Effect=Shape(WidgetTree,Canvas,0,0,56,56,FLinearColor(0.70f,0.68f,0.46f,0.82f),28,TEXT("BattleEffect"));
@@ -246,6 +249,13 @@ void UPokeMonsterBattleWidget::NativeDestruct()
 	Super::NativeDestruct();
 }
 
+void UPokeMonsterBattleWidget::SetWorldPresentation(bool Player3D,bool Opponent3D)
+{
+ bWorldPresentation=bEncounterOverlay||Player3D||Opponent3D;bWorldPlayer=Player3D;bWorldOpponent=Opponent3D;
+ if(PlayerFigure)PlayerFigure->SetVisibility(bWorldPlayer?ESlateVisibility::Collapsed:ESlateVisibility::HitTestInvisible);
+ if(OpponentFigure)OpponentFigure->SetVisibility(bWorldOpponent?ESlateVisibility::Collapsed:ESlateVisibility::HitTestInvisible);
+}
+
 void UPokeMonsterBattleWidget::SetEncounterOverlay(const bool bEnabled)
 {
 	bEncounterOverlay = bEnabled;
@@ -272,6 +282,8 @@ void UPokeMonsterBattleWidget::SetPresenter(UPokeMonsterBattlePresenter* InPrese
 void UPokeMonsterBattleWidget::Refresh()
 {
 	if(!Presenter || !PlayerName) return;
+	if(PlayerFigure)PlayerFigure->SetVisibility(bWorldPlayer?ESlateVisibility::Collapsed:ESlateVisibility::HitTestInvisible);
+	if(OpponentFigure)OpponentFigure->SetVisibility(bWorldOpponent?ESlateVisibility::Collapsed:ESlateVisibility::HitTestInvisible);
 	const auto& View=Presenter->GetView();
 	if (!View.bBusy && View.Round == 0 && DisplayedRound != 0) ResetVisuals();
 	const bool bHoldVisuals = bPresenting || View.bPresentationPending;
@@ -527,6 +539,7 @@ void UPokeMonsterBattleWidget::BeginPhase(EPresentationPhase NewPhase)
 	static const FName Names[] = {TEXT("Windup"), TEXT("Travel"), TEXT("Impact"), TEXT("HP"),
 		TEXT("Message"), TEXT("KO"), TEXT("Gap")};
 	OnBattlePresentationStep(Action, Names[static_cast<uint8>(NewPhase)]);
+	OnWorldPresentationStep.Broadcast(Action,Names[static_cast<uint8>(NewPhase)]);
 	if (NewPhase == EPresentationPhase::Travel && Action.bSwitch)
 	{
 		if (BattleEffect) BattleEffect->SetVisibility(ESlateVisibility::Collapsed);
@@ -716,6 +729,7 @@ void UPokeMonsterBattleWidget::EndPresentation()
 		if (Last.bBattleEnded) AppendPresentationLog(Last.bCaptureSucceeded ? TEXT("Gefangen! Kampf beendet.")
 			: Last.Source == EPokeMonsterBattleSide::A ? TEXT("Gewonnen! Kampf beendet.") : TEXT("Besiegt. Kampf beendet."));
 		OnBattlePresentationStep(Last,TEXT("Complete"));
+		OnWorldPresentationStep.Broadcast(Last,TEXT("Complete"));
 	}
 	bPresenting = false;
 	if (BattleEffect) BattleEffect->SetVisibility(ESlateVisibility::Collapsed);

@@ -1,4 +1,7 @@
 #include "PokeMonsterVisibleWildCreatureActor.h"
+#include "../Creatures/PokeMonsterCreaturePresentation.h"
+#include "../Creatures/PokeMonsterCreatureSpeciesData.h"
+#include "Kismet/GameplayStatics.h"
 
 #include "../Characters/PokeMonsterPlayerCharacter.h"
 #include "Components/CapsuleComponent.h"
@@ -11,7 +14,8 @@
 
 APokeMonsterVisibleWildCreatureActor::APokeMonsterVisibleWildCreatureActor()
 {
-	PrimaryActorTick.bCanEverTick = false;
+	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bStartWithTickEnabled = false;
 	Body = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Body"));
 	SetRootComponent(Body);
 	Body->InitCapsuleSize(38.f, 60.f);
@@ -48,6 +52,18 @@ APokeMonsterVisibleWildCreatureActor::APokeMonsterVisibleWildCreatureActor()
 void APokeMonsterVisibleWildCreatureActor::BeginPlay()
 {
 	Super::BeginPlay();
+ Home=GetActorLocation();
+ if(auto* Species=VisualSpecies.LoadSynchronous())
+ {
+  Visual=GetWorld()->SpawnActor<APokeMonsterCreatureVisualActor>();
+  if(Visual&&Visual->SetSpecies(Species))
+  {
+   Visual->AttachToActor(this,FAttachmentTransformRules::KeepRelativeTransform);Visual->AddTickPrerequisiteActor(this);
+   Visual->SetActorRelativeLocation(FVector(0,0,-Body->GetScaledCapsuleHalfHeight()));
+   UpdateVisualGround();Sprite->SetVisibility(false);Label->SetVisibility(false);SetActorTickEnabled(bAmbientMotion);
+  }
+  else if(Visual){Visual->Destroy();Visual=nullptr;}
+ }
 	ContactRange->OnComponentBeginOverlap.AddDynamic(this, &APokeMonsterVisibleWildCreatureActor::OnContact);
 	if (UGameInstance* Instance = GetGameInstance())
 		if (UPokeMonsterEncounterSubsystem* Encounters = Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>())
@@ -64,6 +80,7 @@ void APokeMonsterVisibleWildCreatureActor::RefreshPersistentState()
 	const auto* Encounters = Instance ? Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
 	bDeactivated = bDeactivateAfterVictory && Encounters && Encounters->IsEncounterCompleted(EncounterId);
 	SetActorHiddenInGame(bDeactivated);
+	if(Visual)Visual->SetActorHiddenInGame(bDeactivated);
 	SetActorEnableCollision(!bDeactivated);
 }
 
@@ -104,5 +121,55 @@ void APokeMonsterVisibleWildCreatureActor::OnEncounterFinished(const FPokeMonste
 			&& Result.Outcome != EPokeMonsterEncounterOutcome::Captured)) return;
 	bDeactivated = true;
 	SetActorHiddenInGame(true);
+	if(Visual)Visual->SetActorHiddenInGame(true);
 	SetActorEnableCollision(false);
+}
+
+void APokeMonsterVisibleWildCreatureActor::EndPlay(const EEndPlayReason::Type Reason)
+{
+ if(Visual)Visual->Destroy();Super::EndPlay(Reason);
+}
+void APokeMonsterVisibleWildCreatureActor::Tick(float Delta)
+{
+ Super::Tick(Delta);if(bDeactivated||!Visual||!Visual->Presentation)return;
+ UpdateVisualGround();
+ const auto* E=GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>();
+ if(E&&E->IsEncounterActive())return;
+ AmbientTime+=Delta;const float T=FMath::Fmod(AmbientTime,9.f);
+ APawn* Player=UGameplayStatics::GetPlayerPawn(this,0);
+ if(Player&&FVector::Dist2D(Player->GetActorLocation(),GetActorLocation())<210.f)
+ {
+  const FRotator To=(Player->GetActorLocation()-GetActorLocation()).Rotation();
+  SetActorRotation(FMath::RInterpConstantTo(GetActorRotation(),FRotator(0,To.Yaw,0),Delta,65.f));return;
+ }
+ if(T<4.f)
+ {
+  const float Angle=AmbientTime*Visual->Presentation->WalkSpeed/45.f;
+  FVector Target=Home+FVector(FMath::Cos(Angle)*45.f,FMath::Sin(Angle)*45.f,0);
+  const FVector Direction=(Target-GetActorLocation()).GetSafeNormal2D();
+  const FVector Next=GetActorLocation()+Direction*FMath::Min(Visual->Presentation->WalkSpeed*Delta,FVector::Dist2D(Target,GetActorLocation()));
+  FCollisionQueryParams Query(SCENE_QUERY_STAT(WildAmbientSpace),true);Query.AddIgnoredActor(this);Query.AddIgnoredActor(Visual);FHitResult Ground;
+  const bool bGround=GetWorld()->LineTraceSingleByChannel(Ground,Next+FVector(0,0,100),Next-FVector(0,0,220),ECC_Visibility,Query);
+  const float CurrentGround=Visual->GetActorLocation().Z+Visual->Presentation->GroundOffsetCm;
+  const bool bFree=bGround&&Ground.ImpactNormal.Z>.7f&&FMath::Abs(Ground.ImpactPoint.Z-CurrentGround)<15.f
+   &&!GetWorld()->OverlapBlockingTestByChannel(Ground.ImpactPoint+FVector(0,0,32),FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(22.f),Query);
+  if(bFree){FHitResult Hit;SetActorLocation(Next,true,&Hit);}
+  if(bFree&&!Direction.IsNearlyZero())SetActorRotation(FMath::RInterpConstantTo(GetActorRotation(),Direction.Rotation(),Delta,110.f));
+ }
+}
+
+void APokeMonsterVisibleWildCreatureActor::SuppressPresentation(bool Suppressed)
+{
+ if(Visual)Visual->SetActorHiddenInGame(Suppressed||bDeactivated);
+ else Sprite->SetVisibility(!Suppressed&&!bDeactivated);
+}
+
+void APokeMonsterVisibleWildCreatureActor::UpdateVisualGround()
+{
+ if(!Visual||!Visual->Presentation)return;FHitResult Hit;
+ FCollisionQueryParams Params(SCENE_QUERY_STAT(WildCreatureVisualGround),true);Params.AddIgnoredActor(this);Params.AddIgnoredActor(Visual);
+ if(auto* P=UGameplayStatics::GetPlayerPawn(this,0))Params.AddIgnoredActor(P);
+ const FVector P=GetActorLocation();
+ if(GetWorld()->LineTraceSingleByChannel(Hit,P+FVector(0,0,100),P-FVector(0,0,220),ECC_Visibility,Params))
+  Visual->SetActorRelativeLocation(FVector(0,0,Hit.ImpactPoint.Z-P.Z-Visual->Presentation->GroundOffsetCm));
 }

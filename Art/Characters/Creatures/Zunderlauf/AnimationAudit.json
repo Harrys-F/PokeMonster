@@ -1,0 +1,58 @@
+{
+  "Idle": {
+    "frames": 61,
+    "seconds": 2.0,
+    "authored_speed_cm_s": 0,
+    "stance_increment_error_max_m": 0,
+    "mesh_min_z_m": 0.007143321912735701,
+    "bones": 23
+  },
+  "Walk": {
+    "frames": 19,
+    "seconds": 0.6,
+    "authored_speed_cm_s": 35.0,
+    "stance_increment_error_max_m": 5.637605986208438e-09,
+    "mesh_min_z_m": 0.007143293973058462,
+    "bones": 23
+  },
+  "Run": {
+    "frames": 13,
+    "seconds": 0.4,
+    "authored_speed_cm_s": 60.0,
+    "stance_increment_error_max_m": 1.0728836059153979e-08,
+    "mesh_min_z_m": 0.007143301423639059,
+    "bones": 23
+  },
+  "Attack": {
+    "frames": 25,
+    "seconds": 0.8,
+    "authored_speed_cm_s": 0,
+    "stance_increment_error_max_m": 0,
+    "mesh_min_z_m": 0.0071433125995099545,
+    "bones": 23
+  },
+  "Hit": {
+    "frames": 15,
+    "seconds": 0.4666666666666667,
+    "authored_speed_cm_s": 0,
+    "stance_increment_error_max_m": 0,
+    "mesh_min_z_m": 0.007143321912735701,
+    "bones": 23
+  },
+  "Faint": {
+    "frames": 34,
+    "seconds": 1.1,
+    "authored_speed_cm_s": 0,
+    "stance_increment_error_max_m": 0,
+    "mesh_min_z_m": 0.007,
+    "bones": 23
+  },
+  "Happy": {
+    "frames": 31,
+    "seconds": 1.0,
+    "authored_speed_cm_s": 0,
+    "stance_increment_error_max_m": 0,
+    "mesh_min_z_m": 0.007143321912735701,
+    "bones": 23
+  }
+}

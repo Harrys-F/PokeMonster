@@ -1,0 +1,16 @@
+{
+  "resolution": [
+    2048,
+    2048
+  ],
+  "passes": [
+    "DIFFUSE",
+    "NORMAL",
+    "ROUGHNESS"
+  ],
+  "direct_light": false,
+  "indirect_light": false,
+  "normal_convention": "OpenGL tangent; Unreal flip green",
+  "margin_px": 16,
+  "packed": true
+}

@@ -1,0 +1,13 @@
+{
+  "primary": "Primary_Design.jpg",
+  "supplemental": "Supplemental_Views.jpg",
+  "user_confirmation": "Foto 1 ma\u00dfgeblich, Foto 2 erg\u00e4nzend",
+  "existing_zunderlauf_model_found": false,
+  "tail_only_fire": true,
+  "height_m_provisional_from_player_scale_reference": 0.66,
+  "no_canonical_height_claim": true,
+  "reference_sha256": {
+    "Primary_Design.jpg": "1ee17479e0dd2130621cf24a10da3a6e128bcfe9289858557275ea07f1c40412",
+    "Supplemental_Views.jpg": "42759223ee9bfe5d5f2a075ff35a1fb958ea8c0e3d6059def5d1829f2b2775c5"
+  }
+}

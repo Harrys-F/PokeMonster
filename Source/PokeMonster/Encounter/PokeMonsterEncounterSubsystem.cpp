@@ -1,5 +1,7 @@
 #include "PokeMonsterEncounterSubsystem.h"
 #include "PokeMonsterEncounterProfile.h"
+#include "PokeMonsterVisibleWildCreatureActor.h"
+#include "../Creatures/PokeMonsterCreaturePresentation.h"
 #include "PokeMonsterTrainerProfile.h"
 
 #include "../Characters/PokeMonsterPlayerCharacter.h"
@@ -12,6 +14,8 @@
 #include "Blueprint/UserWidget.h"
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
+#include "Camera/PlayerCameraManager.h"
+#include "Components/CapsuleComponent.h"
 #include "GameFramework/PlayerController.h"
 #include "TimerManager.h"
 
@@ -197,6 +201,9 @@ bool UPokeMonsterEncounterSubsystem::StartEncounter(const FPokeMonsterEncounterS
 	PlayerParty = Team;
 	Player->SetOverworldInputLocked(true);
 	NewWidget->SetEncounterOverlay(true);
+	CreateWorldPresentation();
+	NewWidget->SetWorldPresentation(IsValid(PlayerVisual),IsValid(OpponentVisual));
+	NewWidget->OnWorldPresentationStep.AddUniqueDynamic(this,&UPokeMonsterEncounterSubsystem::HandleWorldPresentationStep);
 	NewWidget->SetPresenter(NewPresenter);
 	NewWidget->SetIsFocusable(true);
 	NewWidget->AddToViewport(100);
@@ -217,7 +224,7 @@ void UPokeMonsterEncounterSubsystem::HandlePresenterChanged()
 	if (UWorld* World = GetGameInstance() ? GetGameInstance()->GetWorld() : nullptr)
 		if (!World->GetTimerManager().IsTimerActive(CompletionTimer))
 			World->GetTimerManager().SetTimer(CompletionTimer, this,
-				&UPokeMonsterEncounterSubsystem::CompleteEncounter, 0.75f, false);
+				&UPokeMonsterEncounterSubsystem::CompleteEncounter, (PlayerVisual||OpponentVisual)?1.15f:.75f, false);
 }
 
 void UPokeMonsterEncounterSubsystem::CompleteEncounter()
@@ -292,7 +299,10 @@ void UPokeMonsterEncounterSubsystem::ReleaseOverworld(const bool bKeepInputLocke
 	if (UWorld* World = GetGameInstance() ? GetGameInstance()->GetWorld() : nullptr)
 		World->GetTimerManager().ClearTimer(CompletionTimer);
 	if (Presenter) Presenter->OnChanged.RemoveDynamic(this, &UPokeMonsterEncounterSubsystem::HandlePresenterChanged);
-	if (BattleWidget) BattleWidget->RemoveFromParent();
+	if (BattleWidget){BattleWidget->OnWorldPresentationStep.RemoveDynamic(this,&UPokeMonsterEncounterSubsystem::HandleWorldPresentationStep);BattleWidget->RemoveFromParent();}
+ if(PlayerVisual){PlayerVisual->Destroy();PlayerVisual=nullptr;}
+ if(OpponentVisual){OpponentVisual->Destroy();OpponentVisual=nullptr;}
+ if(auto* Wild=Cast<APokeMonsterVisibleWildCreatureActor>(ActiveStart.SourceActor))Wild->SuppressPresentation(false);
 	if (!bKeepInputLocked)
 		if (APokeMonsterPlayerCharacter* Player = ActivePlayer.Get()) Player->SetOverworldInputLocked(false);
 	if (APlayerController* Controller = ActiveController.Get())
@@ -315,4 +325,57 @@ void UPokeMonsterEncounterSubsystem::Deinitialize()
 {
 	if (bActive) ReleaseOverworld();
 	Super::Deinitialize();
+}
+
+void UPokeMonsterEncounterSubsystem::CreateWorldPresentation()
+{
+ const auto* State=Presenter?Presenter->GetBattleState():nullptr;auto* Player=ActivePlayer.Get();if(!State||!Player)return;
+ const float PlayerGround=Player->GetActorLocation().Z-Player->GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+ auto Spawn=[&](const TArray<FPokeMonsterCreatureInstance>& Team,int32 Index,const FVector& Centre,const FVector& Forward,const FVector& Right,float Side)->APokeMonsterCreatureVisualActor*
+ {
+  if(!Team.IsValidIndex(Index))return nullptr;auto* Species=Team[Index].Species.LoadSynchronous();
+  auto* Data=Species?Species->GetVisuals().Presentation.LoadSynchronous():nullptr;if(!Data||!Data->Mesh)return nullptr;
+  for(float Across:{50.f,65.f,80.f})for(float Ahead:{45.f,70.f,20.f,90.f})
+  {
+   FVector Location=Centre+Forward*Ahead+Right*(Side*Across);FHitResult Hit;
+   FCollisionQueryParams Ground(SCENE_QUERY_STAT(CreaturePresentationGround),true);Ground.AddIgnoredActor(Player);if(ActiveStart.SourceActor)Ground.AddIgnoredActor(ActiveStart.SourceActor);
+   if(!Player->GetWorld()->LineTraceSingleByChannel(Hit,Location+FVector(0,0,150),Location-FVector(0,0,250),ECC_Visibility,Ground))continue;
+   if(Hit.ImpactNormal.Z<.7f||FMath::Abs(Hit.ImpactPoint.Z-PlayerGround)>15.f)continue;
+   FCollisionQueryParams Space(SCENE_QUERY_STAT(CreaturePresentationSpace),false);Space.AddIgnoredActor(Player);
+   if(Player->GetWorld()->OverlapBlockingTestByChannel(Hit.ImpactPoint+FVector(0,0,32),FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(22.f),Space))continue;
+   Location.Z=Hit.ImpactPoint.Z-Data->GroundOffsetCm;
+   auto* V=Player->GetWorld()->SpawnActor<APokeMonsterCreatureVisualActor>(Location,FRotator::ZeroRotator);
+   if(V&&!V->SetSpecies(Species)){V->Destroy();return nullptr;}return V;
+  }
+  return nullptr; // Keep the existing UI fallback when no safe ground location is available.
+ };
+ // Keep short creatures within the existing player sight-cone. No camera or tree material changes.
+ const auto* Controller=ActiveController.Get();
+ const float Yaw=Controller&&Controller->PlayerCameraManager?Controller->PlayerCameraManager->GetCameraRotation().Yaw:Player->GetActorRotation().Yaw;
+ const FRotationMatrix View(FRotator(0,Yaw,0));const FVector Forward=View.GetUnitAxis(EAxis::X),Right=View.GetUnitAxis(EAxis::Y);
+ const FVector Centre=Player->GetActorLocation();
+ const FVector Direction=Right;
+ PlayerVisual=Spawn(State->TeamA,State->ActiveIndexA,Centre,Forward,Right,-1.f);
+ OpponentVisual=Spawn(State->TeamB,State->ActiveIndexB,Centre,Forward,Right,1.f);
+ if(PlayerVisual)PlayerVisual->SetActorRotation(Direction.Rotation());
+ if(OpponentVisual){OpponentVisual->SetActorRotation((-Direction).Rotation());if(auto* Wild=Cast<APokeMonsterVisibleWildCreatureActor>(ActiveStart.SourceActor))Wild->SuppressPresentation(true);}
+}
+void UPokeMonsterEncounterSubsystem::UpdateWorldSpecies()
+{
+ if(PlayerVisual){PlayerVisual->Destroy();PlayerVisual=nullptr;}
+ if(OpponentVisual){OpponentVisual->Destroy();OpponentVisual=nullptr;}
+ if(auto* Wild=Cast<APokeMonsterVisibleWildCreatureActor>(ActiveStart.SourceActor))Wild->SuppressPresentation(false);
+ CreateWorldPresentation();
+ if(BattleWidget)BattleWidget->SetWorldPresentation(IsValid(PlayerVisual),IsValid(OpponentVisual));
+}
+void UPokeMonsterEncounterSubsystem::HandleWorldPresentationStep(const FPokeMonsterPresentationAction& A,FName Step)
+{
+ auto* Source=A.Source==EPokeMonsterBattleSide::A?PlayerVisual.Get():OpponentVisual.Get();
+ auto* Target=A.Target==EPokeMonsterBattleSide::A?PlayerVisual.Get():OpponentVisual.Get();
+ if(A.bSwitch&&Step==TEXT("Impact")){UpdateWorldSpecies();return;}
+ if(Step==TEXT("Windup")&&!A.bSwitch&&!A.bCapture&&Source)Source->PlayReaction(EPokeMonsterCreatureClip::Attack);
+ if(Step==TEXT("Impact")&&A.Outcome==EPokeMonsterPresentationOutcome::Hit&&A.Damage>0&&Target)Target->PlayReaction(EPokeMonsterCreatureClip::Hit);
+ if(Step==TEXT("KO")&&A.bKnockedOut&&Target)Target->PlayReaction(EPokeMonsterCreatureClip::Faint);
+ if(Step==TEXT("KO")&&A.bCaptureSucceeded&&OpponentVisual)OpponentVisual->SetActorHiddenInGame(true);
+ if(Step==TEXT("Complete")&&A.bBattleEnded&&Source&&!A.bCapture)Source->PlayReaction(EPokeMonsterCreatureClip::Happy);
 }
