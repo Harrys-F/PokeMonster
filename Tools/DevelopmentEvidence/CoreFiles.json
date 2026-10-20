@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
-  "base": "cf51c55995797ce9df66bea3e20d07d813f61875",
-  "snapshot_kind": "checked_zunderlauf_v1_primary_project",
+  "base": "0a09c6883f3eff7e31a89226116d51e030fcce5a",
+  "snapshot_kind": "checked_creature_pipeline_v2_primary_project",
   "generated_at": "2026-10-20",
   "files": {
     ".codex/config.toml": {
@@ -9170,8 +9170,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 118823,
-      "sha256": "1de25e5cd6ae281ba1e62c4a36c01fd81c722e2b24b534b91a4b4be44f5bf39d"
+      "bytes": 120232,
+      "sha256": "2ecd1921f658f386b2fb57be91ede1073838e7f8714f8d087f5fc775e75fe127"
     },
     "Docs/GRAFIKPASS_V4_PRUEFBERICHT.md": {
       "bytes": 25232,
@@ -9225,6 +9225,10 @@
       "bytes": 11955,
       "sha256": "4712350bf9f54907f5eaf8047529816f2d564b952f703bc4633ca57274bf00f6"
     },
+    "Docs/KREATUREN_PIPELINE_V2.md": {
+      "bytes": 17203,
+      "sha256": "2659658c4a52b67eadba33709b19d68775d5240c8c49be6a61cf4708c454747e"
+    },
     "Docs/MESHY_NPC_INTEGRATION_V1_PRUEFBERICHT.md": {
       "bytes": 29194,
       "sha256": "8f173476f15ffdd4265e88b5ff322dbecf476cc69b8621c2f44470a3161c355e"
@@ -9270,8 +9274,8 @@
       "sha256": "cb4d28f53a50b73e952a013afd156e8afe62c2845ccacdc8fd91c4b7cd9f8350"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 141010,
-      "sha256": "d9ecd197de748136ba42ea4593e0f270e077b143a2763adbe62919e408769546"
+      "bytes": 142889,
+      "sha256": "2c8946055089b8b43f0b519d3e2aa24e39c9003a9f236301ea2d147c233ca288"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -9502,12 +9506,12 @@
       "sha256": "642cf7e0cb25c64a77bbb42c071ba6ebf2b18dcab82165648c6e7b87186cdc50"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreaturePresentation.cpp": {
-      "bytes": 5860,
-      "sha256": "3fb9b4fcce04857ebf4e96ae5d7d397d6fb35920c596bfa25dc67f6931351083"
+      "bytes": 9101,
+      "sha256": "20f5aff8e31f12358e5dfa45c737d23f919826e514adadea77914b8ae61d2dab"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreaturePresentation.h": {
-      "bytes": 2913,
-      "sha256": "9e737dee600cbcf6346e9c69a630164280347ec42fd38893ecc3a855dbafd0d8"
+      "bytes": 4569,
+      "sha256": "62fc04c97e17a905ef53b1e1eef04085e324a81cb7acfc6d871eddc0f011b58e"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureProgression.cpp": {
       "bytes": 4705,
@@ -9840,6 +9844,10 @@
     "Source/PokeMonster/Tests/PokeMonsterCreatureDataTest.cpp": {
       "bytes": 3906,
       "sha256": "1c590a423c17c778bd2cf005ea675096a5de9453fe2e522beb1dc577a55f36eb"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterCreaturePipelineTest.cpp": {
+      "bytes": 9906,
+      "sha256": "de93327ec5c89f1c1ccbcefc1039a43d6b8ca2896d738005b0b5cb2086f72624"
     },
     "Source/PokeMonster/Tests/PokeMonsterCreatureProgressionTest.cpp": {
       "bytes": 12547,
@@ -10268,6 +10276,42 @@
     "Tools/ConformWestlandRegionPathsV1.py": {
       "bytes": 2116,
       "sha256": "e2e16a8373752db3456257ae356f153aa86be26769f25faadb10a502b30013d6"
+    },
+    "Tools/CreaturePipelineV2/AuditUnreal.py": {
+      "bytes": 2164,
+      "sha256": "aa32086ca87c93220857dec9f6d758ed58a9240b3a102925062ac5ebd5466d95"
+    },
+    "Tools/CreaturePipelineV2/CheckCandidate.py": {
+      "bytes": 1791,
+      "sha256": "d62bd50b8c187860d1aaae8caa50e2c0db4a4bda6ef6a6bb69d79629fe469a14"
+    },
+    "Tools/CreaturePipelineV2/CheckMaps.py": {
+      "bytes": 1056,
+      "sha256": "9ab3bc3f9affd79e71c86497c4b26a0ba41fa3497656f0dd94fdb22f1ad58540"
+    },
+    "Tools/CreaturePipelineV2/Glumanda_Pending.json": {
+      "bytes": 1063,
+      "sha256": "2ecb91f39cb21e5391d542c2e81de608272ddebd390443ae5b047bd13a0f1433"
+    },
+    "Tools/CreaturePipelineV2/InspectBlender.py": {
+      "bytes": 2610,
+      "sha256": "2c11de74d98934147375cae82a636fb6e7884e6df7d4ea3a69a4e9dea0938864"
+    },
+    "Tools/CreaturePipelineV2/README.md": {
+      "bytes": 1749,
+      "sha256": "6484337b08e36a5f01f1e3948ccad458952663f85d1b38c7da736030c0f86628"
+    },
+    "Tools/CreaturePipelineV2/SmokePIE.py": {
+      "bytes": 1572,
+      "sha256": "b28e390839792e145ee60fe618bb3e4b31ad93782cfd6f67804a04d81be76a2a"
+    },
+    "Tools/CreaturePipelineV2/preflight.py": {
+      "bytes": 5928,
+      "sha256": "953b06d463809ded9df502ac686fab6736cf15a5513fab2d3c6fc2d8ee542789"
+    },
+    "Tools/CreaturePipelineV2/test_preflight.py": {
+      "bytes": 4314,
+      "sha256": "49247fe856d5cc2668723602c3399a1fe973e1d911359d37f2a5bc3bfcf688f8"
     },
     "Tools/DevelopmentEvidence/EvidenceManifest.json": {
       "bytes": 3101190,

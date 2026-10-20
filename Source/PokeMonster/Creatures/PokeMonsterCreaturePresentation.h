@@ -16,12 +16,35 @@ class UPokeMonsterCreatureSpeciesData;
 UENUM(BlueprintType)
 enum class EPokeMonsterCreatureClip : uint8 { Idle, Walk, Run, Attack, Hit, Faint, Happy };
 
+/** Classification only: never selects a humanoid rig or retarget automatically. */
+UENUM(BlueprintType)
+enum class EPokeMonsterCreatureRigFamily : uint8 { Custom, Biped, Quadruped, Serpentine, Winged, Aquatic, Floating };
+
+/** Optional low-cost mesh effect; sockets belong to each model's own skeleton. */
+USTRUCT(BlueprintType)
+struct POKEMONSTER_API FPokeMonsterCreatureEffectAnchor
+{
+ GENERATED_BODY()
+ UPROPERTY(EditAnywhere, BlueprintReadOnly) FName Id;
+ UPROPERTY(EditAnywhere, BlueprintReadOnly) FName Socket;
+ UPROPERTY(EditAnywhere, BlueprintReadOnly) TObjectPtr<UStaticMesh> Mesh;
+ UPROPERTY(EditAnywhere, BlueprintReadOnly) TObjectPtr<UMaterialInterface> Material;
+ UPROPERTY(EditAnywhere, BlueprintReadOnly) FTransform Offset=FTransform::Identity;
+ UPROPERTY(EditAnywhere, BlueprintReadOnly) bool bWorldUpright=false;
+};
+
 /** Optional visuals; contains no battle stats, party state or save data. Units are centimetres. */
 UCLASS(BlueprintType)
 class POKEMONSTER_API UPokeMonsterCreaturePresentationData : public UDataAsset
 {
  GENERATED_BODY()
 public:
+ UFUNCTION(BlueprintPure, Category="Creature|Import") TArray<FString> GetValidationErrors() const;
+ /** Import metadata only. Zero means not yet measured; never rescales existing assets. */
+ UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Import") EPokeMonsterCreatureRigFamily RigFamily=EPokeMonsterCreatureRigFamily::Custom;
+ UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Import", meta=(ClampMin="0")) float ReferenceSizeCm=0.f;
+ UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Import") FString SizeSource;
+ UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Effects") TArray<FPokeMonsterCreatureEffectAnchor> EffectAnchors;
  UPROPERTY(EditAnywhere, BlueprintReadOnly) TObjectPtr<USkeletalMesh> Mesh;
  UPROPERTY(EditAnywhere, BlueprintReadOnly) TMap<EPokeMonsterCreatureClip,TObjectPtr<UAnimSequence>> Clips;
  UPROPERTY(EditAnywhere, BlueprintReadOnly, meta=(ClampMin="1")) float WalkSpeed=35.f;
@@ -41,11 +64,13 @@ public:
  APokeMonsterCreatureVisualActor();
  virtual void Tick(float DeltaSeconds) override;
  static float SampleSpeed(const FVector& Delta,float Seconds,bool HasPrevious);
+ /** Rejects invalid replacement data before altering a working visual. */
  bool SetSpecies(const UPokeMonsterCreatureSpeciesData* Species);
  UFUNCTION(BlueprintCallable) bool PlayReaction(EPokeMonsterCreatureClip Clip);
  UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<USkeletalMeshComponent> Mesh;
  UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<UStaticMeshComponent> Flame;
  UPROPERTY(Transient) TObjectPtr<UPokeMonsterCreaturePresentationData> Presentation;
+ UPROPERTY(Transient, BlueprintReadOnly) TArray<TObjectPtr<UStaticMeshComponent>> EffectComponents;
  UPROPERTY(Transient, BlueprintReadOnly) float MotionSpeed=0.f;
  UPROPERTY(Transient, BlueprintReadOnly) EPokeMonsterCreatureClip Reaction=EPokeMonsterCreatureClip::Idle;
  uint32 ReactionSerial=0;

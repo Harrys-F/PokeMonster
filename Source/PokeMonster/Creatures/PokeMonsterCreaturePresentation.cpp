@@ -6,6 +6,39 @@
 #include "Animation/AnimSequence.h"
 #include "AnimationRuntime.h"
 #include "Engine/SkeletalMesh.h"
+TArray<FString> UPokeMonsterCreaturePresentationData::GetValidationErrors() const
+{
+ TArray<FString> Errors;
+ if(!Mesh || !Mesh->GetSkeleton()){Errors.Add(TEXT("Mesh and skeleton are required"));return Errors;}
+ for(const auto& Slot:Mesh->GetMaterials())if(!Slot.MaterialInterface)Errors.Add(TEXT("Mesh material slot is unassigned"));
+ if(!Clips.FindRef(EPokeMonsterCreatureClip::Idle))Errors.Add(TEXT("Idle clip is required"));
+ for(const auto& Pair:Clips)
+ {
+  const UAnimSequence* Clip=Pair.Value;
+  if(static_cast<uint8>(Pair.Key)>static_cast<uint8>(EPokeMonsterCreatureClip::Happy))Errors.Add(TEXT("Unknown clip role"));
+  if(!Clip){Errors.Add(TEXT("Null animation entry"));continue;}
+  if(Clip->GetSkeleton()!=Mesh->GetSkeleton())Errors.Add(TEXT("Animation must use this mesh's exact skeleton; retarget first"));
+  if(!FMath::IsFinite(Clip->GetPlayLength())||Clip->GetPlayLength()<=0.f)Errors.Add(TEXT("Animation must have positive duration"));
+  if(Clip->bEnableRootMotion)Errors.Add(TEXT("Presentation requires in-place animation, not root-motion extraction"));
+ }
+ if(!FMath::IsFinite(WalkSpeed)||WalkSpeed<=0.f||!FMath::IsFinite(RunSpeed)||RunSpeed<WalkSpeed)Errors.Add(TEXT("Speeds must be finite, positive and Run >= Walk"));
+ if(!FMath::IsFinite(GroundOffsetCm))Errors.Add(TEXT("Ground offset must be finite"));
+ if(!FMath::IsFinite(ReferenceSizeCm)||ReferenceSizeCm<0.f)Errors.Add(TEXT("Reference size must be zero (unknown) or positive centimetres"));
+ if(ReferenceSizeCm>0.f&&SizeSource.IsEmpty())Errors.Add(TEXT("Reference size requires its source"));
+ auto HasAnchor=[this](FName Name){return !Name.IsNone()&&(Mesh->FindSocket(Name)||Mesh->GetRefSkeleton().FindBoneIndex(Name)!=INDEX_NONE);};
+ if(TailFlame&&!HasAnchor(FlameBone))Errors.Add(TEXT("Legacy tail flame anchor is missing"));
+ TSet<FName> Ids;
+ for(const auto& A:EffectAnchors)
+ {
+  if(A.Id.IsNone()||Ids.Contains(A.Id))Errors.Add(TEXT("Effect anchor IDs must be present and unique"));
+  Ids.Add(A.Id);
+  if(!A.Mesh||!HasAnchor(A.Socket))Errors.Add(TEXT("Effect requires a mesh and an existing bone or socket"));
+  const FVector Scale=A.Offset.GetScale3D();
+  if(A.Offset.ContainsNaN()||Scale.GetMin()<=0.f||!A.Offset.GetRotation().IsNormalized())Errors.Add(TEXT("Effect offset must be finite with positive scale and normalized rotation"));
+  if(TailFlame&&A.Mesh==TailFlame&&A.Socket==FlameBone)Errors.Add(TEXT("Duplicate legacy tail flame; use one effect binding"));
+ }
+ return Errors;
+}
 APokeMonsterCreatureVisualActor::APokeMonsterCreatureVisualActor()
 {
  PrimaryActorTick.bCanEverTick=true;
@@ -18,16 +51,30 @@ APokeMonsterCreatureVisualActor::APokeMonsterCreatureVisualActor()
 }
 bool APokeMonsterCreatureVisualActor::SetSpecies(const UPokeMonsterCreatureSpeciesData* Species)
 {
- Presentation=Species?Species->GetVisuals().Presentation.LoadSynchronous():nullptr;
- if(!Presentation||!Presentation->Mesh){Mesh->SetSkeletalMesh(nullptr);Flame->SetVisibility(false);return false;}
+ auto* Candidate=Species?Species->GetVisuals().Presentation.LoadSynchronous():nullptr;
+ if(!Candidate||!Candidate->GetValidationErrors().IsEmpty())return false;
+ for(const auto& Component:EffectComponents)if(Component)Component->DestroyComponent();
+ EffectComponents.Reset();Presentation=Candidate;MotionSpeed=0.f;
  Mesh->SetSkeletalMesh(Presentation->Mesh);Mesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
  Mesh->SetAnimInstanceClass(UPokeMonsterCreatureAnimInstance::StaticClass());
  const bool bTail=Presentation->TailFlame&&Mesh->DoesSocketExist(Presentation->FlameBone);
  Flame->SetStaticMesh(bTail?Presentation->TailFlame.Get():nullptr);
- Flame->AttachToComponent(Mesh,FAttachmentTransformRules::SnapToTargetNotIncludingScale,Presentation->FlameBone);
+ Flame->AttachToComponent(Mesh,FAttachmentTransformRules::SnapToTargetNotIncludingScale,bTail?Presentation->FlameBone:NAME_None);
  Flame->SetWorldRotation(FRotator::ZeroRotator);
- if(Presentation->FlameMaterial)Flame->SetMaterial(0,Presentation->FlameMaterial);
- Flame->SetVisibility(bTail);bHavePrevious=false;Reaction=EPokeMonsterCreatureClip::Idle;++ReactionSerial;
+ Flame->SetMaterial(0,Presentation->FlameMaterial);
+ Flame->SetVisibility(bTail);
+ for(const auto& A:Presentation->EffectAnchors)
+ {
+  auto* Component=NewObject<UStaticMeshComponent>(this);
+  AddInstanceComponent(Component);Component->SetStaticMesh(A.Mesh);
+  Component->SetCollisionEnabled(ECollisionEnabled::NoCollision);Component->SetCastShadow(false);
+  Component->AttachToComponent(Mesh,FAttachmentTransformRules::SnapToTargetNotIncludingScale,A.Socket);
+  Component->SetRelativeTransform(A.Offset);Component->SetAbsolute(false,A.bWorldUpright,false);
+  if(A.bWorldUpright)Component->SetWorldRotation(A.Offset.Rotator());
+  if(A.Material)Component->SetMaterial(0,A.Material);
+  Component->RegisterComponent();EffectComponents.Add(Component);
+ }
+ bHavePrevious=false;Reaction=EPokeMonsterCreatureClip::Idle;++ReactionSerial;
  return true;
 }
 float APokeMonsterCreatureVisualActor::SampleSpeed(const FVector& Delta,float Seconds,bool HasPrevious)
