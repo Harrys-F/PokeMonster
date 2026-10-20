@@ -1,4 +1,5 @@
 #include "PokeMonsterEncounterSubsystem.h"
+#include "PokeMonsterClassicBattleScene.h"
 #include "PokeMonsterEncounterProfile.h"
 #include "PokeMonsterVisibleWildCreatureActor.h"
 #include "../Creatures/PokeMonsterCreaturePresentation.h"
@@ -96,6 +97,7 @@ bool UPokeMonsterEncounterSubsystem::PrepareWildEncounter(const UPokeMonsterEnco
 	FRandomStream Random(Seed);
 	FPokeMonsterCreatureInstance WildCreature;
 	if (!Profile->Roll(Context, Random, WildCreature)) return false;
+	OutStart.PresentationMode=Profile->PresentationMode;
 	OutStart.EncounterId = EncounterId;
 	OutStart.Kind = EPokeMonsterEncounterKind::Wild;
 	OutStart.Source = Source;
@@ -123,6 +125,7 @@ bool UPokeMonsterEncounterSubsystem::PrepareTrainerEncounter(const UPokeMonsterT
 {
 	OutStart = FPokeMonsterEncounterStartData();
 	if (!IsValid(Profile) || !Profile->BuildTeam(OutStart.OpponentTeam)) return false;
+	OutStart.PresentationMode=Profile->PresentationMode;
 	OutStart.EncounterId = Profile->InternalId;
 	OutStart.TrainerId = Profile->InternalId;
 	OutStart.Kind = EPokeMonsterEncounterKind::Trainer;
@@ -177,6 +180,7 @@ bool UPokeMonsterEncounterSubsystem::StartEncounter(const FPokeMonsterEncounterS
 	APokeMonsterPlayerCharacter* Player)
 {
 	if (bActive || !IsValid(Player) || Player->IsOverworldInputLocked()) return false;
+	if(Start.PresentationMode!=EPokeMonsterBattlePresentationMode::ClassicBattle && Start.PresentationMode!=EPokeMonsterBattlePresentationMode::WorldBattle)return false;
 	if (Start.Kind == EPokeMonsterEncounterKind::Trainer
 		&& (Start.TrainerId.IsNone() || IsTrainerDefeated(Start.TrainerId))) return false;
 	APlayerController* Controller = Cast<APlayerController>(Player->GetController());
@@ -201,8 +205,7 @@ bool UPokeMonsterEncounterSubsystem::StartEncounter(const FPokeMonsterEncounterS
 	PlayerParty = Team;
 	Player->SetOverworldInputLocked(true);
 	NewWidget->SetEncounterOverlay(true);
-	CreateWorldPresentation();
-	NewWidget->SetWorldPresentation(IsValid(PlayerVisual),IsValid(OpponentVisual));
+	CreatePresentation();
 	NewWidget->OnWorldPresentationStep.AddUniqueDynamic(this,&UPokeMonsterEncounterSubsystem::HandleWorldPresentationStep);
 	NewWidget->SetPresenter(NewPresenter);
 	NewWidget->SetIsFocusable(true);
@@ -300,8 +303,9 @@ void UPokeMonsterEncounterSubsystem::ReleaseOverworld(const bool bKeepInputLocke
 		World->GetTimerManager().ClearTimer(CompletionTimer);
 	if (Presenter) Presenter->OnChanged.RemoveDynamic(this, &UPokeMonsterEncounterSubsystem::HandlePresenterChanged);
 	if (BattleWidget){BattleWidget->OnWorldPresentationStep.RemoveDynamic(this,&UPokeMonsterEncounterSubsystem::HandleWorldPresentationStep);BattleWidget->RemoveFromParent();}
- if(PlayerVisual){PlayerVisual->Destroy();PlayerVisual=nullptr;}
- if(OpponentVisual){OpponentVisual->Destroy();OpponentVisual=nullptr;}
+ if(ClassicScene){ClassicScene->Destroy();ClassicScene=nullptr;}
+ if(IsValid(PlayerVisual))PlayerVisual->Destroy();PlayerVisual=nullptr;
+ if(IsValid(OpponentVisual))OpponentVisual->Destroy();OpponentVisual=nullptr;
  if(auto* Wild=Cast<APokeMonsterVisibleWildCreatureActor>(ActiveStart.SourceActor))Wild->SuppressPresentation(false);
 	if (!bKeepInputLocked)
 		if (APokeMonsterPlayerCharacter* Player = ActivePlayer.Get()) Player->SetOverworldInputLocked(false);
@@ -327,6 +331,19 @@ void UPokeMonsterEncounterSubsystem::Deinitialize()
 	Super::Deinitialize();
 }
 
+void UPokeMonsterEncounterSubsystem::CreatePresentation()
+{
+ if(ActiveStart.PresentationMode==EPokeMonsterBattlePresentationMode::WorldBattle){CreateWorldPresentation();if(BattleWidget)BattleWidget->SetWorldPresentation(IsValid(PlayerVisual),IsValid(OpponentVisual));return;}
+ const auto* State=Presenter?Presenter->GetBattleState():nullptr;auto* Player=ActivePlayer.Get();if(!State||!Player)return;
+ if(!ClassicScene)ClassicScene=Player->GetWorld()->SpawnActor<APokeMonsterClassicBattleScene>(FVector(0,0,10000),FRotator::ZeroRotator);
+ if(ClassicScene){
+  const auto* A=State->TeamA.IsValidIndex(State->ActiveIndexA)?State->TeamA[State->ActiveIndexA].Species.LoadSynchronous():nullptr;
+  const auto* B=State->TeamB.IsValidIndex(State->ActiveIndexB)?State->TeamB[State->ActiveIndexB].Species.LoadSynchronous():nullptr;
+  ClassicScene->Configure(A,B,Player);PlayerVisual=ClassicScene->PlayerVisual;OpponentVisual=ClassicScene->OpponentVisual;
+ }
+ if(BattleWidget){BattleWidget->SetClassicPresentation(ClassicScene?ClassicScene->Target.Get():nullptr,IsValid(PlayerVisual),IsValid(OpponentVisual));if(ClassicScene)BattleWidget->SetBattleAnchors(ClassicScene->ScreenAnchor(true),ClassicScene->ScreenAnchor(false));}
+ if(auto* Wild=Cast<APokeMonsterVisibleWildCreatureActor>(ActiveStart.SourceActor))Wild->SuppressPresentation(true);
+}
 void UPokeMonsterEncounterSubsystem::CreateWorldPresentation()
 {
  const auto* State=Presenter?Presenter->GetBattleState():nullptr;auto* Player=ActivePlayer.Get();if(!State||!Player)return;
@@ -362,11 +379,11 @@ void UPokeMonsterEncounterSubsystem::CreateWorldPresentation()
 }
 void UPokeMonsterEncounterSubsystem::UpdateWorldSpecies()
 {
- if(PlayerVisual){PlayerVisual->Destroy();PlayerVisual=nullptr;}
- if(OpponentVisual){OpponentVisual->Destroy();OpponentVisual=nullptr;}
+ if(ClassicScene){ClassicScene->Destroy();ClassicScene=nullptr;}
+ if(IsValid(PlayerVisual))PlayerVisual->Destroy();PlayerVisual=nullptr;
+ if(IsValid(OpponentVisual))OpponentVisual->Destroy();OpponentVisual=nullptr;
  if(auto* Wild=Cast<APokeMonsterVisibleWildCreatureActor>(ActiveStart.SourceActor))Wild->SuppressPresentation(false);
- CreateWorldPresentation();
- if(BattleWidget)BattleWidget->SetWorldPresentation(IsValid(PlayerVisual),IsValid(OpponentVisual));
+ CreatePresentation();
 }
 void UPokeMonsterEncounterSubsystem::HandleWorldPresentationStep(const FPokeMonsterPresentationAction& A,FName Step)
 {

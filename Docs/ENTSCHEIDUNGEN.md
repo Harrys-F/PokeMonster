@@ -816,7 +816,7 @@ Die Gestaltung bleibt auf die bestehende VisualV2 beschränkt. Kein neuer Map-/P
 
 Der Nutzer legt ausdrücklich fest: **Foto 1 maßgeblich, Foto 2 ergänzend**. Es existierte kein älteres Zunderlauf-Modell im Projekt. Die Blender-Neuquelle folgt dem runden orangefarbenen Zweibeiner mit großen dunklen türkisfarbenen Augen, heller gegliederter Bauchzeichnung und kurzen Gliedmaßen; Foto 2 ergänzt Seiten-/Rückenform und Schwanz. Ausschließlich die Schwanzspitze brennt. Die ca. 65,2-cm-Modellhöhe ist ein vorläufiger Darstellungsmaßstab neben dem unveränderten 140-cm-Spieler, keine abschließend festgelegte Artgröße.
 
-Die vorhandenen Kreaturen-, Encounter-, Kampf-, Fang-, Team-, Heil- und Speichersysteme werden um optionale Skeletal-Darstellung erweitert, nicht ersetzt. Vorläufige Kampfwerte und Startattacken stammen unverändert aus den vorhandenen Feuer-Testdaten; es wird kein endgültiges Starter-Balancing erfunden. Weltkämpfe bleiben in VisualV2 mit bestehender Kamera. Nur der vorhandene optionale Wild-Actor wird für Zunderlauf konfiguriert. Keine neue Map, keine Folge-Kreatur und kein weiterer Landschafts-Artpass. Technische Sicherung und visuelle Endfreigabe bleiben getrennt.
+Die vorhandenen Kreaturen-, Encounter-, Kampf-, Fang-, Team-, Heil- und Speichersysteme werden um optionale Skeletal-Darstellung erweitert, nicht ersetzt. Vorläufige Kampfwerte und Startattacken stammen unverändert aus den vorhandenen Feuer-Testdaten; es wird kein endgültiges Starter-Balancing erfunden. Historischer V1-Stand: Weltkämpfe in VisualV2 mit bestehender Kamera; für normale Begegnungen inzwischen durch die unten dokumentierte ClassicBattle-Regel ersetzt. Nur der vorhandene optionale Wild-Actor wird für Zunderlauf konfiguriert. Keine neue Map, keine Folge-Kreatur und kein weiterer Landschafts-Artpass. Technische Sicherung und visuelle Endfreigabe bleiben getrennt.
 
 ### 20.10.2026 – Kreaturen-Pipeline V2: Austausch der Darstellung ohne neue Spielidentität
 
@@ -851,3 +851,33 @@ Originale Vertexpositionen/UVs, sieben Actions, Skeleton, Materialien und Schwan
 bleiben erhalten beziehungsweise werden direkt wiederverwendet. Die beabsichtigte
 Körper-/Flammennaht wird nicht als Defekt geschlossen. Prüfungen und Grenzen:
 `GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md`.
+
+## 20.10.2026 – größerer Sichtkreis und gezielte Figurenschatten
+
+Auf Nutzerauftrag wird der Durchmesser der vorhandenen weichen Sichtfreistellung
+verdoppelt: innere/äußere Radien 55/110 → 110/220 cm, gleiche 0,25-s-Fadezeit,
+gleicher endlicher Kamera-Player-Kegel und dieselbe explizite Baumfamilienauswahl.
+Die Shader-/MPC-Originalassets bleiben erhalten; die Radiuswerte werden pro Spielwelt
+zur Laufzeit gesetzt. Keine Änderung von Kameraabstand oder globalen Sichtweiten.
+Die getesteten Kontaktflächen und Eigenverschattungsflags liefern im vorhandenen
+Renderer keinen überzeugend nachgewiesenen Ersatz. Diese Schattenversuche werden
+nicht übernommen; Figuren-, Gebäude- und Baumschatten sowie Innenraum bleiben
+auf dem geprüften Originalstand. Ein Materialeditor-Absturz beim Löschen eigener
+Versuchsknoten wird offen dokumentiert. Keine globale Renderänderung.
+
+## 20.10.2026 – normale Kämpfe: ClassicBattle ersetzt bisherige Weltpräsentation
+
+Auf ausdrückliche Nutzerfreigabe werden normale Begegnungen standardmäßig in einer
+klassischen separaten Kampfkomposition dargestellt. Die frühere Regel sichtbarer
+Weltkämpfe ist für normale Begegnungen ersetzt. WorldBattle bleibt pro Wild-/Trainer-
+Profil oder StartData für besondere Begegnungen konfigurierbar. BattleSession,
+Presenter, Fang-/Team-/Heil-/Speicherregeln bleiben gemeinsam und unverändert.
+Eine kurzlebige, nur von einer SceneCapture sichtbare Bühne in derselben geladenen
+Welt vermeidet eine neue Map und verändert weder Playerposition noch Oberweltkamera.
+Fehlende 3D-Modelle behalten den vorhandenen grafischen Fallback; es werden keine
+anderen Kreaturenmodelle als Ersatz erfunden. Referenzscreenshots bestimmen nur
+die Komposition; keine Bilddateien aus Pokémon-ROMs werden übernommen.
+
+Die kurzlebige ClassicBattle-Bühne darf eine eigene schattenlose Lesbarkeitsfüllung
+auf Lichtkanal 2 verwenden. Nur ihre kurzlebigen Kreaturen empfangen diesen Kanal;
+Bestandslichter, Oberwelt, Innenraum und globale Renderwerte bleiben unverändert.

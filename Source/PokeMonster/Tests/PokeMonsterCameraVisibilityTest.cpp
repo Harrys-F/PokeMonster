@@ -11,11 +11,15 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPokeMonsterCameraVisibilityTest,
 bool FPokeMonsterCameraVisibilityTest::RunTest(const FString& Parameters)
 {
     using V = UPokeMonsterCameraVisibilityComponent;
+    const auto* Default=GetDefault<V>();
+    TestEqual(TEXT("Inner radius doubled, not area"),Default->GetTargetRadii().X,110.0);
+    TestEqual(TEXT("Outer radius doubled, not area"),Default->GetTargetRadii().Y,220.0);
     const FVector Camera(0,0,1000), Target(1000,0,100);
     TestTrue(TEXT("An obstructing crown is between camera and character"), V::IsBetweenCameraAndTarget(FBox(FVector(450,-50,500),FVector(550,50,600)),Camera,Target));
     TestFalse(TEXT("Vegetation fully behind the player is not registered"), V::IsBetweenCameraAndTarget(FBox(FVector(1100,-50,-90),FVector(1250,50,50)),Camera,Target));
     TestFalse(TEXT("An off-ray crown stays unchanged"), V::IsBetweenCameraAndTarget(FBox(FVector(450,400,500),FVector(550,500,600)),Camera,Target));
     TestFalse(TEXT("No degenerate camera/player ray"), V::IsBetweenCameraAndTarget(FBox(FVector(-1),FVector(1)),Camera,Camera));
+    TestTrue(TEXT("Broad phase includes the enlarged cone"),V::IsBetweenCameraAndTarget(FBox(FVector(490,165,540),FVector(510,185,560)),Camera,Target));
     const float First = V::AdvanceFade(0,true,.05f,.25f);
     TestEqual(TEXT("Fade begins gradually, rather than disappearing"),First,.2f);
     TestTrue(TEXT("Fade can smoothly reverse before completion"),V::AdvanceFade(First,false,.025f,.25f)>0.f && V::AdvanceFade(First,false,.025f,.25f)<First);

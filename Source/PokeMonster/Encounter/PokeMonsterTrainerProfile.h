@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PokeMonsterBattlePresentationMode.h"
 #include "Engine/DataAsset.h"
 #include "../Creatures/PokeMonsterCreatureInstance.h"
 #include "PokeMonsterTrainerProfile.generated.h"
@@ -25,6 +26,7 @@ class POKEMONSTER_API UPokeMonsterTrainerProfile : public UPrimaryDataAsset
 	GENERATED_BODY()
 public:
 	virtual FPrimaryAssetId GetPrimaryAssetId() const override;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Presentation") EPokeMonsterBattlePresentationMode PresentationMode=EPokeMonsterBattlePresentationMode::ClassicBattle;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Identity") FName InternalId;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Identity") FText DisplayName;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Identity") FText TrainerClass;

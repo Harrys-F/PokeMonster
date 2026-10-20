@@ -25,8 +25,12 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Camera Visibility", meta=(ClampMin="0.01"))
     float FadeDuration = .25f;
 
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Camera Visibility", meta=(ClampMin="0.1",ClampMax="4"))
+    float RevealRadiusScale = 2.f;
+    FVector2D GetTargetRadii()const{return FVector2D(55.f,110.f)*RevealRadiusScale;}
+
     /** Broad phase only; the shader clips the exact finite perspective cone per fragment. */
-    static bool IsBetweenCameraAndTarget(const FBox& Bounds, const FVector& Camera, const FVector& Target);
+    static bool IsBetweenCameraAndTarget(const FBox& Bounds, const FVector& Camera, const FVector& Target, float BroadPhaseRadius = 220.f);
     static float AdvanceFade(float Current, bool bOccluding, float DeltaTime, float Duration);
 
     /** Explicit tree mesh/material opt-in. Shared building materials never opt in. */

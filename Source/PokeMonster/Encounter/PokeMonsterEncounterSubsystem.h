@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PokeMonsterBattlePresentationMode.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "../Creatures/PokeMonsterCreatureInstance.h"
 #include "PokeMonsterEncounterSubsystem.generated.h"
@@ -17,6 +18,7 @@ struct FPokeMonsterEncounterContext;
 struct FPokeMonsterBattleState;
 struct FPokeMonsterPresentationAction;
 class APokeMonsterCreatureVisualActor;
+class APokeMonsterClassicBattleScene;
 
 UENUM(BlueprintType)
 enum class EPokeMonsterEncounterKind : uint8 { Test, Wild, Trainer };
@@ -35,6 +37,7 @@ USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterEncounterStartData
 {
 	GENERATED_BODY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") EPokeMonsterBattlePresentationMode PresentationMode=EPokeMonsterBattlePresentationMode::ClassicBattle;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") FName EncounterId;
 	/** Stable trainer identity for per-session defeat state; empty for other encounters. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") FName TrainerId;
@@ -141,6 +144,8 @@ private:
 	UFUNCTION() void HandlePresenterChanged();
 	UFUNCTION() void HandleWorldPresentationStep(const FPokeMonsterPresentationAction& Action,FName Step);
 	void CreateWorldPresentation();
+	void CreatePresentation();
+	UPROPERTY(Transient) TObjectPtr<APokeMonsterClassicBattleScene> ClassicScene;
 	void UpdateWorldSpecies();
 	UPROPERTY(Transient) TObjectPtr<APokeMonsterCreatureVisualActor> PlayerVisual;
 	UPROPERTY(Transient) TObjectPtr<APokeMonsterCreatureVisualActor> OpponentVisual;

@@ -2,6 +2,7 @@
 #include "PokeMonsterBattleTestController.h"
 #include "../Moves/PokeMonsterMoveData.h"
 #include "Engine/AssetManager.h"
+#include "Engine/TextureRenderTarget2D.h"
 #include "Blueprint/WidgetTree.h"
 #include "Components/Border.h"
 #include "Components/Button.h"
@@ -77,7 +78,7 @@ namespace
 TSharedRef<SWidget> UPokeMonsterBattleWidget::RebuildWidget()
 {
 	if (!WidgetTree) Initialize();
-	if (WidgetTree && !WidgetTree->RootWidget) BuildDefaultTree();
+	if (WidgetTree && !WidgetTree->RootWidget){if(bClassicPresentation)BuildClassicTree();else BuildDefaultTree();}
 	return Super::RebuildWidget();
 }
 
@@ -179,6 +180,56 @@ void UPokeMonsterBattleWidget::BuildDefaultTree()
 	Place(Canvas,Text(WidgetTree,NAME_None,TEXT("1 GEGEN 1   ·   TESTDATEN   ·   STATUSATTACKEN NOCH OHNE EFFEKT"),12,Muted),38,764,1080,24);
 }
 
+void UPokeMonsterBattleWidget::SetClassicPresentation(UTextureRenderTarget2D* Target,bool Player3D,bool Opponent3D)
+{
+ bClassicPresentation=true;ClassicTarget=Target;SetWorldPresentation(Player3D,Opponent3D);
+ if(ClassicImage&&Target)ClassicImage->SetBrushResourceObject(Target);
+}
+void UPokeMonsterBattleWidget::BuildClassicTree()
+{
+ auto* Back=WidgetTree->ConstructWidget<UBorder>();Back->SetBrushColor(FLinearColor(.04f,.07f,.05f));Back->SetPadding(FMargin(0));WidgetTree->RootWidget=Back;
+ auto* Scale=WidgetTree->ConstructWidget<UScaleBox>();Scale->SetStretch(EStretch::ScaleToFit);Back->SetContent(Scale);
+ auto* Size=WidgetTree->ConstructWidget<USizeBox>();Size->SetWidthOverride(1280);Size->SetHeightOverride(720);Scale->SetContent(Size);
+ auto* C=WidgetTree->ConstructWidget<UCanvasPanel>();Size->SetContent(C);
+ Artwork(WidgetTree,C,TEXT("BattleGlen"),TEXT("/Game/Battle/Textures/T_BattleGlen.T_BattleGlen"),0,0,1280,520);
+ if(ClassicTarget){ClassicImage=WidgetTree->ConstructWidget<UImage>();ClassicImage->SetBrushResourceObject(ClassicTarget);ClassicImage->SetVisibility(ESlateVisibility::HitTestInvisible);Place(C,ClassicImage,0,0,1280,520);}
+ Shape(WidgetTree,C,180,420,310,26,FLinearColor(.035f,.05f,.025f,.18f),13);
+ Shape(WidgetTree,C,815,299,195,17,FLinearColor(.035f,.05f,.025f,.16f),9);
+ Artwork(WidgetTree,C,TEXT("PlayerFigure"),TEXT("/Game/Battle/Textures/T_TestWater.T_TestWater"),145,205,365,245);
+ Artwork(WidgetTree,C,TEXT("OpponentFigure"),TEXT("/Game/Battle/Textures/T_TestGrass.T_TestGrass"),815,100,240,210);
+ auto Card=[&](bool P,float X,float Y){
+  Shape(WidgetTree,C,X+3,Y+5,400,94,FLinearColor(.02f,.035f,.02f,.35f),18);
+  Shape(WidgetTree,C,X,Y,400,94,FLinearColor(.85f,.82f,.69f,.97f),18);
+  Place(C,Text(WidgetTree,P?TEXT("PlayerName"):TEXT("OpponentName"),TEXT("—"),22,DarkInk),X+20,Y+10,365,30);
+  Place(C,Text(WidgetTree,P?TEXT("PlayerHP"):TEXT("OpponentHP"),TEXT("KP —"),17,DarkInk),X+20,Y+43,365,24);
+  auto* Bar=WidgetTree->ConstructWidget<UProgressBar>(UProgressBar::StaticClass(),P?TEXT("PlayerBar"):TEXT("OpponentBar"));Place(C,Bar,X+20,Y+74,360,10);
+ };
+ Card(false,40,35);Card(true,825,405);
+ Place(C,Text(WidgetTree,TEXT("PlayerKO"),TEXT("K.O."),26),300,330,130,40);Place(C,Text(WidgetTree,TEXT("OpponentKO"),TEXT("K.O."),26),895,218,130,40);
+ Shape(WidgetTree,C,0,520,1280,200,FLinearColor(.045f,.078f,.06f),0);Shape(WidgetTree,C,0,517,1280,3,FLinearColor(.50f,.49f,.31f),0);
+ Place(C,Text(WidgetTree,TEXT("StatusLabel"),TEXT("Was möchtest du tun?"),22),28,535,595,36);
+ auto* Scroll=WidgetTree->ConstructWidget<UScrollBox>(UScrollBox::StaticClass(),TEXT("LogScroll"));auto* Log=Text(WidgetTree,TEXT("LogLabel"),TEXT(""),15);Log->SetAutoWrapText(true);Scroll->AddChild(Log);Place(C,Scroll,28,579,585,70);
+ for(int I=0;I<6;++I){
+  auto* B=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),FName(*FString::Printf(TEXT("TeamButton%d"),I)));TintButton(B,Muted);
+  auto* L=Text(WidgetTree,FName(*FString::Printf(TEXT("TeamLabel%d"),I)),TEXT("—"),11);L->SetJustification(ETextJustify::Center);B->AddChild(L);Place(C,B,25+I*100,663,94,38);
+  // Enemy team indicators remain in the existing binding contract, kept compact.
+  Shape(WidgetTree,C,470+I*28,45,23,13,FLinearColor(.26f,.38f,.23f,.8f),6,FName(*FString::Printf(TEXT("OpponentTeamPlate%d"),I)));
+  auto* E=Text(WidgetTree,FName(*FString::Printf(TEXT("OpponentTeamLabel%d"),I)),TEXT(""),1);Place(C,E,470+I*28,45,1,1);
+ }
+ for(int I=0;I<4;++I){
+  auto* B=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),FName(*FString::Printf(TEXT("MoveButton%d"),I)));TintButton(B,Muted);
+  auto* Inner=WidgetTree->ConstructWidget<UCanvasPanel>();Inner->SetVisibility(ESlateVisibility::SelfHitTestInvisible);if(auto* BS=Cast<UButtonSlot>(B->AddChild(Inner))){BS->SetHorizontalAlignment(HAlign_Fill);BS->SetVerticalAlignment(VAlign_Fill);}
+  Place(Inner,Text(WidgetTree,FName(*FString::Printf(TEXT("MoveLabel%d"),I)),TEXT("—"),18),17,5,250,28);
+  Shape(WidgetTree,Inner,13,37,90,22,Muted,9,FName(*FString::Printf(TEXT("MoveTypeAccent%d"),I)));
+  Place(Inner,Text(WidgetTree,FName(*FString::Printf(TEXT("MoveType%d"),I)),TEXT("—"),12),22,39,90,20);
+  Place(Inner,Text(WidgetTree,FName(*FString::Printf(TEXT("MovePP%d"),I)),TEXT("PP —"),13),175,39,95,20);
+  Place(C,B,655+(I%2)*300,538+(I/2)*83,285,72);
+ }
+ CaptureButton=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),TEXT("CaptureButton"));TintButton(CaptureButton,Muted);CaptureButton->AddChild(Text(WidgetTree,NAME_None,TEXT("Fangen"),18));Place(C,CaptureButton,1095,28,150,44);
+ RestartButton=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),TEXT("RestartButton"));RestartButton->SetVisibility(ESlateVisibility::Collapsed);Place(C,RestartButton,0,0,1,1);
+ auto* E=Shape(WidgetTree,C,0,0,56,56,FLinearColor(.7f,.68f,.46f,.82f),28,TEXT("BattleEffect"));E->SetVisibility(ESlateVisibility::Collapsed);
+ auto* F=Text(WidgetTree,TEXT("FeedbackLabel"),TEXT(""),24);F->SetVisibility(ESlateVisibility::Collapsed);Place(C,F,570,250,300,40);
+}
 void UPokeMonsterBattleWidget::BindControls()
 {
 	PlayerName=Cast<UTextBlock>(GetWidgetFromName(TEXT("PlayerName"))); OpponentName=Cast<UTextBlock>(GetWidgetFromName(TEXT("OpponentName")));
@@ -290,7 +341,7 @@ void UPokeMonsterBattleWidget::Refresh()
 	const auto SetCreature=[](const FPokeMonsterBattleCreatureView& Data,UTextBlock* Name,UTextBlock* HP,UProgressBar* Bar,UTextBlock* KO,UWidget* Figure)
 	{
 		if(Name) Name->SetText(FText::FromString(FString::Printf(TEXT("%s   ·   Lv. %d"),*Data.Name.ToString(),Data.Level)));
-		if(HP) HP->SetText(FText::FromString(FString::Printf(TEXT("HP  %d / %d"),Data.CurrentHP,Data.MaxHP)));
+		if(HP) HP->SetText(FText::FromString(FString::Printf(TEXT("KP  %d / %d"),Data.CurrentHP,Data.MaxHP)));
 		if(Bar)
 		{
 			const float Ratio=Data.MaxHP>0 ? FMath::Clamp(float(Data.CurrentHP)/Data.MaxHP,0.0f,1.0f):0;
@@ -497,7 +548,7 @@ void UPokeMonsterBattleWidget::SetPresentedHP(EPokeMonsterBattleSide Side, float
 	else DisplayedOpponentHP = Rounded;
 	auto* Label = Side == EPokeMonsterBattleSide::A ? PlayerHP.Get() : OpponentHP.Get();
 	auto* Bar = Side == EPokeMonsterBattleSide::A ? PlayerBar.Get() : OpponentBar.Get();
-	if (Label) Label->SetText(FText::FromString(FString::Printf(TEXT("HP  %d / %d"), Rounded, Creature.MaxHP)));
+	if (Label) Label->SetText(FText::FromString(FString::Printf(TEXT("KP  %d / %d"), Rounded, Creature.MaxHP)));
 	if (Bar)
 	{
 		const float Ratio = Creature.MaxHP > 0 ? FMath::Clamp(HP / Creature.MaxHP, 0.0f, 1.0f) : 0.0f;
@@ -554,6 +605,9 @@ void UPokeMonsterBattleWidget::BeginPhase(EPresentationPhase NewPhase)
 			: bPhysical ? FLinearColor(0.90f,0.81f,0.58f,0.88f)
 			: bStatus ? FLinearColor(0.50f,0.71f,0.53f,0.52f) : FLinearColor(0.92f,0.51f,0.29f,0.85f);
 		BattleEffect->SetBrush(FSlateRoundedBoxBrush(Color,bPhysical ? 9.0f : 37.0f));
+		// Position before showing it: avoid a one-frame flash at the canvas origin.
+		const FVector2D Origin=bClassicPresentation?(Action.Source==EPokeMonsterBattleSide::A?PlayerAnchor:OpponentAnchor):(Action.Source==EPokeMonsterBattleSide::A?FVector2D(523,334):FVector2D(851,253));
+		BattleEffect->SetRenderTranslation(Origin-FVector2D(28,28));
 		BattleEffect->SetVisibility(ESlateVisibility::HitTestInvisible);
 	}
 	if (NewPhase == EPresentationPhase::Impact)
@@ -616,7 +670,7 @@ void UPokeMonsterBattleWidget::BeginPhase(EPresentationPhase NewPhase)
 		{
 			if (Action.TypeMultiplier > 1.0f) AppendPresentationLog(TEXT("Sehr effektiv!"));
 			else if (Action.TypeMultiplier < 1.0f) AppendPresentationLog(TEXT("Nicht sehr effektiv."));
-			const FString Line = FString::Printf(TEXT("%s verliert %d HP."), *NameFor(Action.Target), Action.Damage);
+			const FString Line = FString::Printf(TEXT("%s verliert %d KP."), *NameFor(Action.Target), Action.Damage);
 			AppendPresentationLog(Line);
 			if (StatusLabel) StatusLabel->SetText(FText::FromString(Line));
 		}
@@ -655,8 +709,8 @@ void UPokeMonsterBattleWidget::TickPresentation()
 	}
 	else if (PresentationPhase == EPresentationPhase::Travel && BattleEffect)
 	{
-		const FVector2D Start = Action.Source == EPokeMonsterBattleSide::A ? FVector2D(523,334) : FVector2D(851,253);
-		const FVector2D End = Action.Target == EPokeMonsterBattleSide::B ? FVector2D(939,278) : FVector2D(472,348);
+		const FVector2D Start = bClassicPresentation ? (Action.Source==EPokeMonsterBattleSide::A?PlayerAnchor:OpponentAnchor) : (Action.Source == EPokeMonsterBattleSide::A ? FVector2D(523,334) : FVector2D(851,253));
+		const FVector2D End = bClassicPresentation ? (Action.Target==EPokeMonsterBattleSide::A?PlayerAnchor:OpponentAnchor) : (Action.Target == EPokeMonsterBattleSide::B ? FVector2D(939,278) : FVector2D(472,348));
 		if (auto* Slot = Cast<UCanvasPanelSlot>(BattleEffect->Slot)) Slot->SetPosition(FMath::Lerp(Start,End,Alpha));
 		BattleEffect->SetRenderOpacity(FMath::Sin(PI * Alpha));
 		if (auto* Source = FigureFor(Action.Source)) Source->SetRenderTranslation(FVector2D::ZeroVector);

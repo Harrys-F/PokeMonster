@@ -7,6 +7,8 @@
 #include "../UI/PokeMonsterBattlePresenter.h"
 #include "../UI/PokeMonsterBattleWidget.h"
 #include "Engine/Engine.h"
+#include "../Encounter/PokeMonsterClassicBattleScene.h"
+#include "Camera/PlayerCameraManager.h"
 #include "Engine/GameInstance.h"
 #include "GameFramework/PlayerController.h"
 #include "InputActionValue.h"
@@ -84,7 +86,11 @@ bool FPokeMonsterEncounterIntegrationTest::RunTest(const FString& Parameters)
 	if (!TestNotNull(TEXT("Encounter coordination exists in game instance"), Encounters)) return false;
 	if (!TestFalse(TEXT("No encounter is initially active"), Encounters->IsEncounterActive())) return false;
 	const FVector WorldPosition = Player->GetActorLocation();
+	AActor* OriginalViewTarget=Controller->GetViewTarget();
 
+	FPokeMonsterEncounterStartData InvalidMode;InvalidMode.PresentationMode=static_cast<EPokeMonsterBattlePresentationMode>(255);
+	TestFalse(TEXT("Unknown presentation mode is rejected without locking player"),Encounters->StartEncounter(InvalidMode,Player));
+	TestFalse(TEXT("Invalid mode leaves input free"),Player->IsOverworldInputLocked());
 	FPokeMonsterEncounterStartData Start;
 	Start.EncounterId = TEXT("AutomationVictory");
 	Start.Kind = EPokeMonsterEncounterKind::Test;
@@ -93,6 +99,9 @@ bool FPokeMonsterEncounterIntegrationTest::RunTest(const FString& Parameters)
 	Start.OpponentTeam.Add(OpponentTeam[0]);
 	if (!TestTrue(TEXT("Battle starts from loaded overworld"), Encounters->StartEncounter(Start, Player))) return false;
 	TestTrue(TEXT("Movement and interaction lock during battle"), Player->IsOverworldInputLocked());
+	TestTrue(TEXT("Normal battle is classic"),Encounters->GetBattleWidget()->IsClassicPresentation());
+	TestNotNull(TEXT("Same-world presentation scene exists"),Encounters->ClassicScene.Get());
+	TestEqual(TEXT("Overworld view target is untouched during battle"),Controller->GetViewTarget(),OriginalViewTarget);
 	TestFalse(TEXT("Second encounter cannot start"), Encounters->StartEncounter(Start, Player));
 	TestFalse(TEXT("World interaction blocked while battle is open"), Player->TryInteract());
 	Player->Move(FInputActionValue(FVector2D(1.0f, 0.0f)));
@@ -112,6 +121,8 @@ bool FPokeMonsterEncounterIntegrationTest::RunTest(const FString& Parameters)
 	Encounters->CompleteEncounter();
 	TestFalse(TEXT("Encounter ends and overworld resumes"), Encounters->IsEncounterActive());
 	TestFalse(TEXT("Exploration input unlocked"), Player->IsOverworldInputLocked());
+	TestNull(TEXT("Transient stage released"),Encounters->ClassicScene.Get());
+	TestEqual(TEXT("Same view target after return"),Controller->GetViewTarget(),OriginalViewTarget);
 	TestEqual(TEXT("Victory returned to world"), Encounters->GetLastResult().Outcome, EPokeMonsterEncounterOutcome::Victory);
 	TestEqual(TEXT("World position remains unchanged"), Player->GetActorLocation(), WorldPosition);
 	TestEqual(TEXT("Player's consumed PP is retained"), Encounters->GetPlayerParty()[0].GetMoveSlots()[0].GetCurrentPP(),
@@ -123,12 +134,15 @@ bool FPokeMonsterEncounterIntegrationTest::RunTest(const FString& Parameters)
 	// A separate controlled one-member encounter exercises defeat and HP transfer.
 	FPokeMonsterEncounterStartData Defeat;
 	Defeat.EncounterId = TEXT("AutomationDefeat");
+	Defeat.PresentationMode=EPokeMonsterBattlePresentationMode::WorldBattle;
 	Defeat.PlayerTeam.Add(PlayerTeam[1]);
 	Defeat.PlayerTeam[0].CurrentHP = 1;
 	Defeat.PlayerTeam[0].CalculatedStats.Speed = 1;
 	Defeat.OpponentTeam.Add(OpponentTeam[1]);
 	Defeat.OpponentTeam[0].CalculatedStats.Speed = 1000;
 	if (!TestTrue(TEXT("Second encounter starts after return"), Encounters->StartEncounter(Defeat, Player))) return false;
+	TestFalse(TEXT("Special encounter retains WorldBattle"),Encounters->GetBattleWidget()->IsClassicPresentation());
+	TestNull(TEXT("World mode has no stage"),Encounters->ClassicScene.Get());
 	Presenter = Encounters->GetPresenter();
 	if (!TestTrue(TEXT("Defeat round selected"), Presenter->TrySelectMove(0))) return false;
 	if (!TestTrue(TEXT("Defeat round resolves"), Presenter->ResolveSelection())) return false;

@@ -29,3 +29,32 @@ keine Echtzeitvideos. `PrepareEvidence.py` schneidet nur echte QHD-Aufnahmen zu.
 
 Geprüfte Grenzen und Gesamtfortschritt:
 `Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md`.
+
+
+## Sichtkreis und ClassicBattle
+
+`ReviewSight.py`: rücksetzender Screenshot-Diagnosetest in bestehender PIE-VisualV2,
+identische echte QHD-Kamera, 55/110 gegen 110/220 cm. Die dafür verwendete temporäre
+Positionierung ist kein Gameplay-Fußlauf. `PrepareFinalEvidence.py` baut nur aus
+realen Bildern beschriftete Kontakte; Pillow-Runtime erforderlich.
+
+`ReviewClassic.py`, `ReviewWorld.py` prüfen echte Laufzeitdarstellung, Reaktionen,
+Freigabe, Position und Kamera. Ausgabeverzeichnisse sind absichtlich fest und müssen
+für einen neuen Durchlauf ausdrücklich neu benannt werden; vorhandene Ergebnisse
+nicht überschreiben. `ReviewButtonInput.py` wartet auf echte Space-Eingabe im
+fokussierten Unreal-Fenster und beobachtet die ausgelöste Runde. Keine Auto-Behauptung
+bestandener UI-Eingabe. Alle drei nutzen den ausdrücklich aufzurufenden Development-
+Aufruf `pm.CreatureReview.Start`; er mutiert keine Speziesassets oder Save-Dateien.
+
+`RunGameplay.py <eindeutigesLabel>` nutzt den vorhandenen vollständigen Enhanced-
+Input-Fußlauf: keine Testteleports, echte Fang-/Team-/Heil-/Save-Funktionen.
+Hält nur den einzelnen Dev-Slot als Testfixture unter Saved und restauriert ihn
+nach Prüfung gegen konkurrierende Schreibzugriffe SHA-genau. Bei Abbruch Zustand
+zuerst prüfen; nicht blind erneut starten. `StartGameplay.py` wiederverwendet die
+bestehende Route, `ObserveGameplay.py` prüft ClassicBattle/Szenen-Lebenszyklus und
+sichtbaren Namen nach Save/Load zusätzlich. Originalslot bleibt unverändert.
+`CheckMaps.py` lädt die vorhandenen Maps nur lesend; `CheckProtection.py` vergleicht
+mit dem lokalen anfänglichen SHA-Inventar, verändert/rekonstruiert keine Quellen.
+
+Weiche Figurenschatten sind NICHT übernommen. Verworfene Versuche bleiben nur als
+lokale Diagnosen unter Saved. Keine dieser Probequellen gehört zum Produktionscode.

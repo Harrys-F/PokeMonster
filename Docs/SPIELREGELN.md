@@ -179,3 +179,10 @@ Für die Demo gilt:
 - Mittelerde dient nur als atmosphärische Inspiration.
 - Für eigene Orte werden eigene Namen, Karten und Gestaltungen entwickelt.
 - Eine öffentliche Veröffentlichung mit originalen Pokémon wäre ohne entsprechende Rechte nicht vorgesehen.
+
+### Kampfpräsentation (20.10.2026, Nutzerfreigabe)
+Normale Begegnungen verwenden ClassicBattle: eigene Kreatur schräg hinten links,
+Gegner schräg vorne rechts, Namen/Level/KP und bestehende Kampfbefehle. Nach Ende
+wird dieselbe Oberweltposition mit bisheriger Kamera wieder freigegeben. Besondere
+Story-/Bossbegegnungen können WorldBattle im Begegnungsprofil wählen. Beide Modi
+verwenden dieselbe BattleSession; Darstellung verändert keine Kampf- oder Save-Regeln.

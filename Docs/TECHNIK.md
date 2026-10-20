@@ -803,7 +803,7 @@ Nur das vorhandene schattenlose Kanal-1-Raumlicht wird flächiger eingestellt (1
 
 VisualV2 verwendet am bestehenden optionalen Wild-Actor `/Game/Data/Creatures/DA_Zunderlauf` und `/Game/Data/Encounters/DA_Zunderlauf_Wild`. Ausgangsposition, Encounter-ID und bisheriger Kollider bleiben erhalten. Kleine Umgebungsbewegung ist nur für diese Instanz eingeschaltet; andere Encounter-Actors behalten standardmäßig ihre bisherige statische Darstellung. Bodenanpassung betrifft ausschließlich die sichtbare Kreatur.
 
-Weltkämpfe behalten die geladene Map und bestehende Kamera. Temporäre kollisionsfreie Kreaturenansichten folgen den vorhandenen Widget-Präsentationsphasen. Die flächige Testkampf-Hintergrundillustration wird bei Weltbegegnungen nicht mehr über die tatsächliche Welt gelegt. Arten ohne eigenes 3D-Modell behalten ihre vorhandenen UI-Figuren; der separate Battle-Testmodus bleibt erhalten.
+Historischer V1-Stand (für normale Begegnungen durch ClassicBattle ersetzt, siehe unten): Weltkämpfe behalten die geladene Map und bestehende Kamera. Temporäre kollisionsfreie Kreaturenansichten folgen den vorhandenen Widget-Präsentationsphasen. Die flächige Testkampf-Hintergrundillustration wird bei Weltbegegnungen nicht mehr über die tatsächliche Welt gelegt. Arten ohne eigenes 3D-Modell behalten ihre vorhandenen UI-Figuren; der separate Battle-Testmodus bleibt erhalten.
 
 Quelle: `Art/Characters/Creatures/Zunderlauf/Source/Zunderlauf_V1.blend`, 49.904 Körperdreiecke, 23 Blender-Bones plus FBX-Wurzel in Unreal, drei gepackte 2048²-Texturen. Das eigene Rig verwendet keine Spieler- oder Ranger-Retargets. Vorläufig ca. 65,2 cm Körperhöhe; 140-cm-Spieler unverändert. Walk 35 cm/s, Run 60 cm/s. Feuer ausschließlich als kleine opaque, emissive und vertexbewegte Geometrie am `tail_socket`; keine Flammen am Körper und keine globale Lichtänderung. Der Stand benötigt gesonderte visuelle Abnahme; keine automatische Übertragung auf weitere Kreaturen. Ablauf und Grenzen: `Tools/ZunderlaufV1/README.md` und Kreaturen-Prüfbericht.
 
@@ -840,3 +840,38 @@ Alle sieben Originalclips, Materialien, Texturen und Schwanzflamme bleiben Refer
 auf V1. Quelle/UV-/Restpose-/Actionvergleich und FBX-Roundtrip sind eigenständig geprüft;
 zehn echte kleine Randloops geschlossen, nur die Flammennaht bleibt absichtlich offen.
 Kein neues Saveformat. `Tools/GlumandaV11/README.md` beschreibt den bewachten Ablauf.
+
+
+### Glumanda V1.1 – Sichtfreistellung und getrennte Kampfpräsentation
+
+Die vorhandene Sichtfreistellung setzt zur Laufzeit `PlayerSightShape` auf
+110/220 cm statt 55/110 cm. `RevealRadiusScale=2` verdoppelt Radius und Durchmesser,
+nicht nur die Fläche; Broadphase folgt dem äußeren Radius. Fadezeit .25 s,
+endlicher Kamerakegel, Baum-/Material-Opt-in und Original-MPC bleiben erhalten.
+Die Figurenschatten-Versuche wurden wegen unzureichender Sichtqualität verworfen;
+kein aktiver Kontaktflächenbaustein und keine globale Schatten-/Lichtänderung.
+
+`EPokeMonsterBattlePresentationMode` wählt ClassicBattle (Default) oder WorldBattle.
+Wild- und Trainerprofile reichen ihre Einstellung an `EncounterStartData` weiter;
+ungültige Werte werden vor Eingabesperre und Sessionstart abgewiesen. Bestehende
+BattleSession, Presenter, Fang, Team, Trainerzustand, Heilung und Saves bleiben gemeinsam.
+
+ClassicBattle erzeugt nur zur Laufzeit eine `APokeMonsterClassicBattleScene` in
+derselben geladenen Welt, mit ShowOnly-SceneCapture, kollisionsfreien Kreaturen und
+RenderTarget 2560x1040 im 1280x720-UMG-Layout. Eigene Figur hinten links, Gegner vorne
+rechts. Meshgröße unverändert; Kameraabstand/Bühnenabstand richten sich nach Bounds.
+Namen/Level/KP, Attacken, Fang und Wechsel verwenden die bestehenden Widgetbindungen.
+Die normale Spielkamera und der Pawn werden nicht umgeschaltet oder teleportiert.
+Nur die Bühne nutzt eine schattenlose Füllleuchte auf Kanal 2; nur ihre kurzlebigen
+Meshes empfangen Kanal 2. Keine Änderung bestehender Lichtquellen. Keine Kollision,
+Navigation, indirekte Licht-/Distanzfeldwirkung der Bühne. Ende/Wechsel räumt die
+kurzlebigen Actors auf. Spezialbegegnungen können den bestehenden WorldBattle-Pfad
+mit Originalkamera wählen. Fehlende 3D-Arten behalten vorhandene Prototyp-UI-Figuren;
+keine erfundenen Ersatzmodelle. Noch keine Freigabe beliebiger Groß-/Flugmodelle.
+
+`pm.CreatureReview.Start classic|world` ist ein expliziter Development-Prüfaufruf,
+kein Gameplaystart und kein Save-Schreiber. `pm.CreatureReview.CaptureLiveUI Name`
+schreibt ausschließlich unter `Saved/GlumandaV11/LiveUI/`, verweigert vorhandene
+Ausgaben und erfasst den tatsächlichen Slate-Spielviewport in seiner echten Größe.
+Kein Offscreen-Widgetrender wird als Viewportfoto bezeichnet. Werkzeuge und Grenzen:
+`Tools/GlumandaV11/README.md`, Gesamtprüfung im Glumanda-V1.1-Bericht.

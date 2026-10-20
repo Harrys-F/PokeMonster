@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PokeMonsterBattlePresentationMode.h"
 #include "Engine/DataAsset.h"
 #include "../Creatures/PokeMonsterCreatureInstance.h"
 #include "PokeMonsterEncounterProfile.generated.h"
@@ -45,6 +46,7 @@ class POKEMONSTER_API UPokeMonsterEncounterProfile : public UPrimaryDataAsset
 	GENERATED_BODY()
 public:
 	virtual FPrimaryAssetId GetPrimaryAssetId() const override;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Presentation") EPokeMonsterBattlePresentationMode PresentationMode=EPokeMonsterBattlePresentationMode::ClassicBattle;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Encounter") TArray<FPokeMonsterWildEncounterEntry> Entries;
 	/** A seeded stream makes test encounters reproducible. Invalid entries are ignored. */
 	bool Roll(const FPokeMonsterEncounterContext& Context, FRandomStream& Random,

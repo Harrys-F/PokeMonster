@@ -85,7 +85,7 @@ void UPokeMonsterCameraVisibilityComponent::BeginPlay()
     if (Trees.IsEmpty()) SetComponentTickEnabled(false);
 }
 
-bool UPokeMonsterCameraVisibilityComponent::IsBetweenCameraAndTarget(const FBox& Bounds, const FVector& Camera, const FVector& Target)
+bool UPokeMonsterCameraVisibilityComponent::IsBetweenCameraAndTarget(const FBox& Bounds, const FVector& Camera, const FVector& Target,float BroadPhaseRadius)
 {
     const FVector Direction = Target - Camera;
     if (!Bounds.IsValid || Direction.SizeSquared() < 1.f) return false;
@@ -96,7 +96,7 @@ bool UPokeMonsterCameraVisibilityComponent::IsBetweenCameraAndTarget(const FBox&
     const double CentreT = FVector::DotProduct(Bounds.GetCenter() - Camera, Direction) / Direction.SizeSquared();
     const double DepthRadius = FVector::DotProduct(Bounds.GetExtent(), Direction.GetAbs()) / Direction.SizeSquared();
     if (CentreT - DepthRadius >= .995 || CentreT + DepthRadius <= .06) return false;
-    return FMath::LineBoxIntersection(Bounds.ExpandBy(110.f), Start, End, End - Start);
+    return FMath::LineBoxIntersection(Bounds.ExpandBy(FMath::Max(0.f,BroadPhaseRadius)), Start, End, End - Start);
 }
 
 float UPokeMonsterCameraVisibilityComponent::AdvanceFade(float Current, bool bOccluding, float DeltaTime, float Duration)
@@ -114,6 +114,8 @@ void UPokeMonsterCameraVisibilityComponent::TickComponent(float DeltaTime, ELeve
     const FVector Target = GetOwner()->GetActorLocation() + FVector(0, 0, 35);
     if (bValidView)
     {
+        const FVector2D Radii=GetTargetRadii();
+        UKismetMaterialLibrary::SetVectorParameterValue(this,SightCollection,TEXT("PlayerSightShape"),FLinearColor(Radii.X,Radii.Y,0,0));
         UKismetMaterialLibrary::SetVectorParameterValue(this, SightCollection, TEXT("PlayerSightTarget"), FLinearColor(Target.X, Target.Y, Target.Z, 1.f));
         const FVector Eye = PC->PlayerCameraManager->GetCameraLocation();
         UKismetMaterialLibrary::SetVectorParameterValue(this, SightCollection, TEXT("PlayerSightCamera"), FLinearColor(Eye.X, Eye.Y, Eye.Z, 1.f));
@@ -122,7 +124,7 @@ void UPokeMonsterCameraVisibilityComponent::TickComponent(float DeltaTime, ELeve
     {
         UMeshComponent* Mesh = Tree.Mesh.Get();
         if (!Mesh) continue;
-        const bool bOccluding = bValidView && IsBetweenCameraAndTarget(Mesh->Bounds.GetBox(), PC->PlayerCameraManager->GetCameraLocation(), Target);
+        const bool bOccluding = bValidView && IsBetweenCameraAndTarget(Mesh->Bounds.GetBox(), PC->PlayerCameraManager->GetCameraLocation(), Target,GetTargetRadii().Y);
         const float Next = AdvanceFade(Tree.Strength, bOccluding, DeltaTime, FadeDuration);
         if (Next == Tree.Strength) continue;
         Tree.Strength = Next;

@@ -13,6 +13,7 @@ class UProgressBar;
 class UScrollBox;
 class UCanvasPanel;
 class UImage;
+class UTextureRenderTarget2D;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FPokeMonsterWorldPresentationStep, const FPokeMonsterPresentationAction&, Action, FName, Step);
 
@@ -29,6 +30,9 @@ public:
 	/** Reuses this presentation in the loaded overworld, without the test-map restart control. */
 	void SetEncounterOverlay(bool bEnabled);
 	void SetWorldPresentation(bool Player3D, bool Opponent3D);
+	void SetClassicPresentation(UTextureRenderTarget2D* Target,bool Player3D,bool Opponent3D);
+	void SetBattleAnchors(FVector2D Player,FVector2D Opponent){PlayerAnchor=Player;OpponentAnchor=Opponent;}
+	UFUNCTION(BlueprintPure) bool IsClassicPresentation() const {return bClassicPresentation;}
 	UPROPERTY(BlueprintAssignable) FPokeMonsterWorldPresentationStep OnWorldPresentationStep;
 protected:
 	virtual TSharedRef<SWidget> RebuildWidget() override;
@@ -41,6 +45,11 @@ protected:
 private:
 	enum class EPresentationPhase : uint8 { Windup, Travel, Impact, HP, Message, KO, Gap };
 	void BuildDefaultTree();
+	void BuildClassicTree();
+	UPROPERTY(Transient) TObjectPtr<UTextureRenderTarget2D> ClassicTarget;
+	UPROPERTY(Transient) TObjectPtr<UImage> ClassicImage;
+	bool bClassicPresentation=false;
+	FVector2D PlayerAnchor=FVector2D(350,350),OpponentAnchor=FVector2D(890,235);
 	void BindControls();
 	void Choose(int32 Slot);
 	void ChooseSwitch(int32 TeamIndex);
