@@ -18,7 +18,7 @@
 namespace
 {
 UPokeMonsterCreatureSpeciesData* Species(){return LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,TEXT("/Game/Data/Creatures/DA_Zunderlauf.DA_Zunderlauf"));}
-UPokeMonsterCreaturePresentationData* Profile(){auto* S=Species();return S?S->GetVisuals().Presentation.LoadSynchronous():nullptr;}
+UPokeMonsterCreaturePresentationData* Profile(){return LoadObject<UPokeMonsterCreaturePresentationData>(nullptr,TEXT("/Game/Characters/Creatures/Zunderlauf/DA_Zunderlauf_Presentation.DA_Zunderlauf_Presentation"));}
 }
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCreatureImportContract,"PokeMonster.Creatures.Pipeline.ImportContract",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
 bool FCreatureImportContract::RunTest(const FString&)
@@ -47,7 +47,7 @@ bool FCreatureImportContract::RunTest(const FString&)
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCreatureVisualSwap,"PokeMonster.Creatures.Pipeline.AtomicVisualSwap",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
 bool FCreatureVisualSwap::RunTest(const FString&)
 {
- auto* S=Species();auto* D=Profile();if(!S||!D){AddError(TEXT("Missing Zunderlauf fixtures"));return false;}
+ auto* Original=Species();auto* D=Profile();if(!Original||!D){AddError(TEXT("Missing Zunderlauf fixtures"));return false;}auto* S=DuplicateObject<UPokeMonsterCreatureSpeciesData>(Original,GetTransientPackage());const_cast<FPokeMonsterCreatureVisuals&>(S->GetVisuals()).Presentation=D;
  UWorld* W=UWorld::CreateWorld(EWorldType::Game,false);GEngine->CreateNewWorldContext(EWorldType::Game).SetCurrentWorld(W);
  ON_SCOPE_EXIT{GEngine->DestroyWorldContext(W);W->DestroyWorld(false);};
  auto* V=W->SpawnActor<APokeMonsterCreatureVisualActor>();TestTrue(TEXT("V1 visual binds"),V->SetSpecies(S));auto* Before=V->Mesh->GetSkeletalMeshAsset();

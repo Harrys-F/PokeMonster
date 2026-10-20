@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "national_number": 4,
+  "species_asset": "/Game/Data/Creatures/DA_Zunderlauf",
+  "expected_primary_asset_id": "CreatureSpecies:Zunderlauf",
+  "rig_family": "biped",
+  "source_model": "Art/Characters/Creatures/Zunderlauf/Source/Glumanda_Meshy_V1.blend",
+  "source_sha256": "db4055450f91bfc1d650c92a13171e6d66e15e04b60c4ca78e8e64c3100a348b",
+  "blender_audit": "Art/Characters/Creatures/Zunderlauf/MeshyV1_IntakeAudit.json",
+  "destination_namespace": "/Game/Characters/Creatures/Zunderlauf/MeshyV1",
+  "mesh_asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Meshes/SK_Glumanda_Meshy",
+  "presentation_asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/DA_Glumanda_Presentation",
+  "blender_forward": "-Y",
+  "blender_up": "Z",
+  "size": {
+    "basis": "standing_height",
+    "reference_cm": 60,
+    "source_url": "https://ph.portal-pokemon.com/pokedex/0004/",
+    "verified_on": "2026-10-20"
+  },
+  "clip_exports": {
+    "Idle": {
+      "path": "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_Idle.fbx",
+      "sha256": "99d2797f44678e9674c6b7e3e4a18042508b7c7a7effb087ec5153dec011d12e"
+    },
+    "Walk": {
+      "path": "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_Walk.fbx",
+      "sha256": "53e3b01c176bba903dcf38ff505ba2c9c2122ca239d9a8dc56efaaea86a8d361"
+    },
+    "Run": {
+      "path": "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_Run.fbx",
+      "sha256": "0fdaa66d5a4a60922f9b48e18b51fbc7025644d4aa84004baf2e2addf55b6d42"
+    },
+    "Attack": {
+      "path": "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_Attack.fbx",
+      "sha256": "9475ed9a57a1bb2b95d227264475d9ca0d632e2906057c960d0e1d3a0128e1ec"
+    },
+    "Hit": {
+      "path": "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_Hit.fbx",
+      "sha256": "a81c7aab710bac20e396e6aa89ef1093acbb58e7db1bbe2444e29d97df2ac9ea"
+    },
+    "Faint": {
+      "path": "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_Faint.fbx",
+      "sha256": "af1ab3d55331e12911a2a5f188fe3a31150839a434c9028f6574fa0c7e800e58"
+    },
+    "Happy": {
+      "path": "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_Happy.fbx",
+      "sha256": "4ab6985d4b57df466282f13b7ff8e0c4843c76bcca3be89b2887cf04f8cdea8f"
+    }
+  },
+  "in_place_confirmed": true,
+  "status": "candidate_imported_only_after_real_source_pose_and_compatibility_inspection",
+  "original_glb": "Art/Characters/Creatures/Incoming/Glumanda.glb",
+  "original_glb_sha256": "44a82157d256a1ae4526f13c37aa3fc85d1022f2615f2812a2a8bba04ba4285c"
+}

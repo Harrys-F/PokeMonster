@@ -1,6 +1,6 @@
 # Kreaturen-Pipeline V2 – Meshy → Blender → Unreal
 
-Aktives Projekt ausschließlich `/Users/harry/Developer/PokeMonster`. Dieser Vertrag bereitet den schrittweisen Import von bis zu 251 Arten vor. Er erzeugt keine Modelle, keinen Pokédex-Katalog und keinen automatischen Massenimport. Das endgültige Meshy-Glumanda fehlt weiterhin. Zunderlauf V1 bleibt unverändert die laufende Referenz.
+Aktives Projekt ausschließlich `/Users/harry/Developer/PokeMonster`. Dieser Vertrag bereitet den schrittweisen Import von bis zu 251 Arten vor. Er erzeugt keine Modelle, keinen Pokédex-Katalog und keinen automatischen Massenimport. Aktueller Stand nach Meshy-Glumanda Integration V1: Die Nutzerdatei liegt jetzt vor und ersetzt über ein eigenes Profil die aktive Darstellung; Zunderlauf V1 bleibt unverändert als Rückfallquelle erhalten. Details und tatsächliche Prüfungen: `Docs/MESHY_GLUMANDA_INTEGRATION_V1_PRUEFBERICHT.md`. Der unten beschriebene V2-Pending-Plan bleibt eine historische Vorlage, nicht der aktuelle Importstatus.
 
 ## Bestehende Architektur und stabile Identität
 
@@ -112,3 +112,7 @@ Dieses Werkzeug validiert nur; es bindet keine Spezies um und speichert keine As
 Das bestehende Weltkampf-Placement prüft kleine freie Bodenpositionen und das vorhandene Wild-Encounter hat einen prototypischen Kollider. Es ist **keine** Freigabe für 251 beliebig große Körper, lange Schlangen oder fliegende Gruppen. Für jede spätere Art Größe, Platzbedarf, Terrainkontakt, Sichtbarkeit und Gameplay-Kollision explizit abnehmen. Nicht heimlich Modelle kleiner skalieren, um eine feste Aufstellprobe zu bestehen. Bei unpassendem Platz den vorhandenen Fallback verwenden und die konkrete Erweiterung planen.
 
 Die neuen Rig-Typen sind Metadaten; sie ersetzen keine artspezifische Animation, Navigation, Flug-/Schwimmbewegung oder Performanceprüfung. Skinning, Silhouette, Materialqualität, Transparenz, vollständige Selbstüberschneidung, Root-Trajektorie und feine Fußkontakte benötigen reale Kandidaten und Bild-/Bewegungsabnahme. Ein erfolgreicher Dateivalidator kann diese nicht ersetzen.
+
+## Ergänzung aus dem realen Meshy-Import
+
+Eine FBX-Armature kann trotz korrekter 60-cm-Meshbounds eine Socket-Skalierung von 100 enthalten. Für separat exportierte Effektmeshes die tatsächliche Socket-Referenztransformation auslesen und deren Skalierung im relativen Effekt-Offset kompensieren; keine feste 0,01 ohne Messung anwenden. Die reine Darstellungs-API `SetPresentation` erlaubt eine validierte Vorschau in PIE ohne Änderungen an Speziesdaten. Quellenorientierung darf durch dokumentierte Front-/Profil-Renderprüfung bestätigt werden; das Werkzeug behauptet dabei keine menschliche Freigabe.

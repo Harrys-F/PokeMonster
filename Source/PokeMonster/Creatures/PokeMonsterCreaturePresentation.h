@@ -65,7 +65,9 @@ public:
  virtual void Tick(float DeltaSeconds) override;
  static float SampleSpeed(const FVector& Delta,float Seconds,bool HasPrevious);
  /** Rejects invalid replacement data before altering a working visual. */
- bool SetSpecies(const UPokeMonsterCreatureSpeciesData* Species);
+ UFUNCTION(BlueprintCallable, Category="Creature|Presentation") bool SetSpecies(const UPokeMonsterCreatureSpeciesData* Species);
+ /** Visual-only candidate preview; does not mutate a species asset or instance state. */
+ UFUNCTION(BlueprintCallable, Category="Creature|Presentation") bool SetPresentation(UPokeMonsterCreaturePresentationData* Candidate);
  UFUNCTION(BlueprintCallable) bool PlayReaction(EPokeMonsterCreatureClip Clip);
  UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<USkeletalMeshComponent> Mesh;
  UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<UStaticMeshComponent> Flame;

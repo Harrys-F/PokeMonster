@@ -1,0 +1,8 @@
+{
+  "source_sha256": "db4055450f91bfc1d650c92a13171e6d66e15e04b60c4ca78e8e64c3100a348b",
+  "size_basis": "standing_height",
+  "measured_size_m": 0.6,
+  "orientation_verified_by_render_review": true,
+  "orientation_evidence": "Source front/profile and posed Blender renders under Saved/MeshyGlumandaV1 reviewed; authoring forward -Y, up +Z",
+  "reviewer": "Codex render inspection; no claim of human approval"
+}

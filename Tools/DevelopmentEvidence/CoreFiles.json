@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
-  "base": "0a09c6883f3eff7e31a89226116d51e030fcce5a",
-  "snapshot_kind": "checked_creature_pipeline_v2_primary_project",
+  "base": "1577134aecb21e2e6f4f5b0e4bbd530b5bd40d2f",
+  "snapshot_kind": "checked_meshy_glumanda_v1_primary_project",
   "generated_at": "2026-10-20",
   "files": {
     ".codex/config.toml": {
@@ -10,8 +10,8 @@
       "sha256": "57333356855370cd842784b90fe5936a4cc9971028e43b8e1fc7889c2e2c47b5"
     },
     ".gitattributes": {
-      "bytes": 4443,
-      "sha256": "c3d1fcf43e4af639697267d29dec6495ead363c5c789db4f5880bc87f56ee85a"
+      "bytes": 4598,
+      "sha256": "fcb3851188fa9a1a04c78c39e269fef437e8e3baaaecd1d1b97eebf15f94446f"
     },
     ".gitignore": {
       "bytes": 727124,
@@ -177,6 +177,10 @@
       "bytes": 14925,
       "sha256": "4d5066c8f9f05695e4308ad95f3b0eec0711d2d854caee1afdd0d78630f6a4c5"
     },
+    "Art/Characters/Creatures/Incoming/Glumanda.glb": {
+      "bytes": 6123824,
+      "sha256": "44a82157d256a1ae4526f13c37aa3fc85d1022f2615f2812a2a8bba04ba4285c"
+    },
     "Art/Characters/Creatures/Zunderlauf/AnimationAudit.json": {
       "bytes": 1326,
       "sha256": "185b8cdbe27b81cbbc6b9335aa2968dff3ee11a7f9874c878cd8a77c0bbc7a93"
@@ -184,6 +188,38 @@
     "Art/Characters/Creatures/Zunderlauf/BakeAudit.json": {
       "bytes": 257,
       "sha256": "710bc3e6bec3b09cfba6ceee8536119010299f01b31baa3511f2a6468bab0170"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_Attack.fbx": {
+      "bytes": 1137548,
+      "sha256": "9475ed9a57a1bb2b95d227264475d9ca0d632e2906057c960d0e1d3a0128e1ec"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_Faint.fbx": {
+      "bytes": 1144300,
+      "sha256": "af1ab3d55331e12911a2a5f188fe3a31150839a434c9028f6574fa0c7e800e58"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_Happy.fbx": {
+      "bytes": 1150940,
+      "sha256": "4ab6985d4b57df466282f13b7ff8e0c4843c76bcca3be89b2887cf04f8cdea8f"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_Hit.fbx": {
+      "bytes": 1119628,
+      "sha256": "a81c7aab710bac20e396e6aa89ef1093acbb58e7db1bbe2444e29d97df2ac9ea"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_Idle.fbx": {
+      "bytes": 1177964,
+      "sha256": "99d2797f44678e9674c6b7e3e4a18042508b7c7a7effb087ec5153dec011d12e"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_Run.fbx": {
+      "bytes": 1114444,
+      "sha256": "0fdaa66d5a4a60922f9b48e18b51fbc7025644d4aa84004baf2e2addf55b6d42"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_TailFlame.fbx": {
+      "bytes": 161260,
+      "sha256": "7fe15e3b137fac658717aaee6a2e4580a7e770050b0d728ac2bfaecec2c083a2"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV1/Glumanda_Walk.fbx": {
+      "bytes": 1124380,
+      "sha256": "53e3b01c176bba903dcf38ff505ba2c9c2122ca239d9a8dc56efaaea86a8d361"
     },
     "Art/Characters/Creatures/Zunderlauf/Exports/Zunderlauf_Attack.fbx": {
       "bytes": 1521388,
@@ -217,6 +253,22 @@
       "bytes": 1508220,
       "sha256": "0874e29ceafe2eb29c05ef03295fecbba57d3b6587c2003ba88e67ca8c31122a"
     },
+    "Art/Characters/Creatures/Zunderlauf/MeshyV1_AnimationAudit.json": {
+      "bytes": 1336,
+      "sha256": "0b5a35e9af43ad70f11a8795bf0e1541001a494193ccbe658d0d43652a090ad4"
+    },
+    "Art/Characters/Creatures/Zunderlauf/MeshyV1_IntakeAudit.json": {
+      "bytes": 410,
+      "sha256": "da9d69fb4f651e485a528a744387b2921c44a8540a9fdd6c3a2b155f4bc90b41"
+    },
+    "Art/Characters/Creatures/Zunderlauf/MeshyV1_ModelAudit.json": {
+      "bytes": 1170,
+      "sha256": "2f7588099d9613da1bc163bcc6ae8df6525a4fbc80c902539678bba2ea7cbb14"
+    },
+    "Art/Characters/Creatures/Zunderlauf/MeshyV1_SourceAudit.json": {
+      "bytes": 756,
+      "sha256": "48a132b0ab9bb6520dc8e40cd3bf6a77e8f642bb7f8448a92353cb154d35e04d"
+    },
     "Art/Characters/Creatures/Zunderlauf/ModelAudit.json": {
       "bytes": 702,
       "sha256": "aa467c02c10a030238ee137965c256702455b60dbd7df78ef59488b8b7245617"
@@ -233,6 +285,10 @@
       "bytes": 280967,
       "sha256": "42759223ee9bfe5d5f2a075ff35a1fb958ea8c0e3d6059def5d1829f2b2775c5"
     },
+    "Art/Characters/Creatures/Zunderlauf/Source/Glumanda_Meshy_V1.blend": {
+      "bytes": 7883168,
+      "sha256": "db4055450f91bfc1d650c92a13171e6d66e15e04b60c4ca78e8e64c3100a348b"
+    },
     "Art/Characters/Creatures/Zunderlauf/Source/Zunderlauf_V1.blend": {
       "bytes": 3687736,
       "sha256": "b62fdfb75d99fc91fd9f92b797495824d3639a86995ed0f6cfab5cef759d15e2"
@@ -240,6 +296,18 @@
     "Art/Characters/Creatures/Zunderlauf/SourceAudit.json": {
       "bytes": 791,
       "sha256": "aecdd609672b187eb08e4d5d6ad37f9aef37831f9368d7f2063f08de7fef2285"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Textures/MeshyV1/Glumanda_BaseColor.jpg": {
+      "bytes": 2483478,
+      "sha256": "b4df1dcff32e24e88e2e10b33de83c17f9b3e22e4a01dd890fa40f2a1eb1b977"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Textures/MeshyV1/Glumanda_MetallicRoughness.jpg": {
+      "bytes": 1307531,
+      "sha256": "1658972cd1487889a9f8d86dd6aa52841a82811e12ceaa39a25360beb298f005"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Textures/MeshyV1/Glumanda_Normal.jpg": {
+      "bytes": 1602209,
+      "sha256": "c67b7b8ce759ab0dd5e4ed49853715499613eb8d962b5bc64dd37724d281d479"
     },
     "Art/Characters/Creatures/Zunderlauf/Textures/Zunderlauf_DIFFUSE.png": {
       "bytes": 1012930,
@@ -5465,6 +5533,70 @@
       "bytes": 21944,
       "sha256": "668ac60da69c2fae373eab6ef061bbd02a3de14a0f02e83c4ff15be31b413797"
     },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Attack.uasset": {
+      "bytes": 62232,
+      "sha256": "aba5a0079b635766ceb0f2af54097443fe3fa367d9c4952dc5f775aaf93cc571"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Faint.uasset": {
+      "bytes": 75794,
+      "sha256": "9de38a59b9b4db4f47d790491567781c3674d39778db59b7644b2bf67f27d9b7"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Happy.uasset": {
+      "bytes": 69526,
+      "sha256": "d67a807443a47fe4d6743aed9b318986b8857697e2431713d81476f29cc2a139"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Hit.uasset": {
+      "bytes": 51189,
+      "sha256": "14b72e999fce0c5f16a5d1dcfe7a4a855e84b464583068985e0295b3d759c1ca"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Idle.uasset": {
+      "bytes": 117769,
+      "sha256": "f690844cd07c599bd4942f1f35165899a0b5d874f1cfeb24d7bb163323cec2ef"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Run.uasset": {
+      "bytes": 53619,
+      "sha256": "5d6479afb02e6c71b21c88bb8722dead4df90ab7e29169605f5ad5e296ccbdd6"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Walk.uasset": {
+      "bytes": 61854,
+      "sha256": "5a29abc3794d1bdb4f3478c6d8539e2a0d94bba7ce18b086bb04bd7cb6aba47c"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/DA_Glumanda_Presentation.uasset": {
+      "bytes": 5306,
+      "sha256": "c00a9b8d6f49e550682b316a7194cfdff0dd7617cc221e60f760d758a2c80bd9"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Materials/M_Glumanda.uasset": {
+      "bytes": 13465,
+      "sha256": "412961919698505a18a80c7a39a4f17647a1f57b15dcf714cbf1361346a49abe"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Materials/M_GlumandaTailFlame.uasset": {
+      "bytes": 19113,
+      "sha256": "daeed769838eee1209bb2b9bf4053ae8961db4338e075e2a306da1c59e33ad3b"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Meshes/SK_Glumanda_Meshy.uasset": {
+      "bytes": 3227129,
+      "sha256": "b5e82629927484a53607501fe70e4cedb095d07ec1c23df148d056b57901fb33"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Meshes/SK_Glumanda_Meshy_Skeleton.uasset": {
+      "bytes": 12974,
+      "sha256": "39b7a741599607ae7ca65307d8519f18b97b9d2198ae89375d0772e9810e9d04"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Meshes/SM_GlumandaTailFlame.uasset": {
+      "bytes": 187842,
+      "sha256": "33d8c95e1a27566996b2f738c2dd57554b12b57801f943b96dd56da9fc24ee9d"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Textures/T_Glumanda_BaseColor.uasset": {
+      "bytes": 2502437,
+      "sha256": "24096e7d0720995ba8625470b54f1a311f9f3eb89aa716534c6fced497d062f2"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Textures/T_Glumanda_MetallicRoughness.uasset": {
+      "bytes": 1322592,
+      "sha256": "3e0d6b24ea1f8c7da7a618d92efa631cd1949fa06b3dc734d85223371956f715"
+    },
+    "Content/Characters/Creatures/Zunderlauf/MeshyV1/Textures/T_Glumanda_Normal.uasset": {
+      "bytes": 1615184,
+      "sha256": "ac88738dd3420522dba062e7e8526131cf9fec675ad28132a5deab9b3feb14b2"
+    },
     "Content/Characters/Creatures/Zunderlauf/Textures/T_Zunderlauf_DIFFUSE.uasset": {
       "bytes": 828579,
       "sha256": "78504c624dcb66a7fc57c3c6a0cf378cf77a5f4f14694e42221eefcd3b30d39d"
@@ -6274,8 +6406,8 @@
       "sha256": "89bcb68d3b1be93bc3372f30ab395eb22837b31e7adc52ba9eab7a798c9b06ee"
     },
     "Content/Data/Creatures/DA_Zunderlauf.uasset": {
-      "bytes": 2593,
-      "sha256": "9f1a5848d1e53dd8f022ba96bfe4e0f1220b380b2607e79ad4f198877ccec0d5"
+      "bytes": 2597,
+      "sha256": "58431b5ddb4676ec3a7ef42b9d3ab6607fbf1c63e3fc3ad76489ac266252d595"
     },
     "Content/Data/Dialogues/DA_DevArchivistDialogue.uasset": {
       "bytes": 3704,
@@ -9170,8 +9302,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 120232,
-      "sha256": "2ecd1921f658f386b2fb57be91ede1073838e7f8714f8d087f5fc775e75fe127"
+      "bytes": 121353,
+      "sha256": "779dcc83040b0373cf2273bb506145d10b99f9bb818069c0282968b4c5e30855"
     },
     "Docs/GRAFIKPASS_V4_PRUEFBERICHT.md": {
       "bytes": 25232,
@@ -9226,12 +9358,16 @@
       "sha256": "4712350bf9f54907f5eaf8047529816f2d564b952f703bc4633ca57274bf00f6"
     },
     "Docs/KREATUREN_PIPELINE_V2.md": {
-      "bytes": 17203,
-      "sha256": "2659658c4a52b67eadba33709b19d68775d5240c8c49be6a61cf4708c454747e"
+      "bytes": 18112,
+      "sha256": "fd1adb7e7efa99e53a269924357e682f7c833c2e7d7dc653333ca1097d1d9a43"
     },
     "Docs/KREATUREN_PIPELINE_V2_PRUEFBERICHT.md": {
       "bytes": 14577,
       "sha256": "7d2db59c6732e4a14d07cb2c3714455db573ec120dfb9a09f46cd6e55a7b3d5d"
+    },
+    "Docs/MESHY_GLUMANDA_INTEGRATION_V1_PRUEFBERICHT.md": {
+      "bytes": 13851,
+      "sha256": "68f4c32227e9f022bb643957b438ff86343e10ab12d806bc8ff188e0560a69d7"
     },
     "Docs/MESHY_NPC_INTEGRATION_V1_PRUEFBERICHT.md": {
       "bytes": 29194,
@@ -9278,8 +9414,8 @@
       "sha256": "cb4d28f53a50b73e952a013afd156e8afe62c2845ccacdc8fd91c4b7cd9f8350"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 142889,
-      "sha256": "2c8946055089b8b43f0b519d3e2aa24e39c9003a9f236301ea2d147c233ca288"
+      "bytes": 143978,
+      "sha256": "eb21de263c3eda60b1ba49d55df7538904a0d2380868b92682f105f5f99bf553"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -9510,12 +9646,12 @@
       "sha256": "642cf7e0cb25c64a77bbb42c071ba6ebf2b18dcab82165648c6e7b87186cdc50"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreaturePresentation.cpp": {
-      "bytes": 9101,
-      "sha256": "20f5aff8e31f12358e5dfa45c737d23f919826e514adadea77914b8ae61d2dab"
+      "bytes": 9216,
+      "sha256": "bd94bf98d1dbefcc73eaad8988a254a7fd93c48ffa4da2911635007113767bf0"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreaturePresentation.h": {
-      "bytes": 4569,
-      "sha256": "62fc04c97e17a905ef53b1e1eef04085e324a81cb7acfc6d871eddc0f011b58e"
+      "bytes": 4857,
+      "sha256": "7bb0957f406d0bb22567163ccbe66699266e41fa7d6b9d39091d2487a3a5e2e5"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureProgression.cpp": {
       "bytes": 4705,
@@ -9850,8 +9986,8 @@
       "sha256": "1c590a423c17c778bd2cf005ea675096a5de9453fe2e522beb1dc577a55f36eb"
     },
     "Source/PokeMonster/Tests/PokeMonsterCreaturePipelineTest.cpp": {
-      "bytes": 9906,
-      "sha256": "de93327ec5c89f1c1ccbcefc1039a43d6b8ca2896d738005b0b5cb2086f72624"
+      "bytes": 10165,
+      "sha256": "ce0f7bcc28d3d6647bdfe8df3a5677856564ff47bf4e19278065b78d4ce3f1cd"
     },
     "Source/PokeMonster/Tests/PokeMonsterCreatureProgressionTest.cpp": {
       "bytes": 12547,
@@ -9892,6 +10028,10 @@
     "Source/PokeMonster/Tests/PokeMonsterInventoryTest.cpp": {
       "bytes": 6708,
       "sha256": "8def7063868e43591bd05fcd2998a8d0b7fc2d78de47ea513b9bc967969fb5d3"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterMeshyGlumandaTest.cpp": {
+      "bytes": 3917,
+      "sha256": "e16f04b3d6c9d630491b064ab22fc901bd098a3c5fcb0e78e31015d40b3f098d"
     },
     "Source/PokeMonster/Tests/PokeMonsterMeshyPlayerTest.cpp": {
       "bytes": 7127,
@@ -9962,8 +10102,8 @@
       "sha256": "2fe5bb9af4bcfce71f60237b5cb00cf972943d6f63cc2d7e6a15ec71e4b2d6c9"
     },
     "Source/PokeMonster/Tests/PokeMonsterZunderlaufTest.cpp": {
-      "bytes": 8091,
-      "sha256": "4ea2f020036627b11a4d055cca5d7e158e3c5824ccf9e3044174da3a7f2be226"
+      "bytes": 8202,
+      "sha256": "065154cb621065ff391532e9b91a4e1ef47f38adda6f16d6a28fba5c2ad20328"
     },
     "Source/PokeMonster/UI/PokeMonsterBattlePresentationPlan.cpp": {
       "bytes": 2719,
@@ -10310,12 +10450,12 @@
       "sha256": "b28e390839792e145ee60fe618bb3e4b31ad93782cfd6f67804a04d81be76a2a"
     },
     "Tools/CreaturePipelineV2/preflight.py": {
-      "bytes": 5928,
-      "sha256": "953b06d463809ded9df502ac686fab6736cf15a5513fab2d3c6fc2d8ee542789"
+      "bytes": 6047,
+      "sha256": "06af0c0f2035a31ac6ba8b493592fb20990c73f7961a8c4853627ae7cf923c30"
     },
     "Tools/CreaturePipelineV2/test_preflight.py": {
-      "bytes": 4314,
-      "sha256": "49247fe856d5cc2668723602c3399a1fe973e1d911359d37f2a5bc3bfcf688f8"
+      "bytes": 4796,
+      "sha256": "5d087a7224cb1402d90df031f453e3b06fdc0d845586b8a89300e8faeec42dc2"
     },
     "Tools/DevelopmentEvidence/EvidenceManifest.json": {
       "bytes": 3101190,
@@ -11188,6 +11328,74 @@
     "Tools/MeasureWestlandRegionV1PIE.py": {
       "bytes": 1271,
       "sha256": "b7292ebfcea2ab811c5050a6d6dc269f641b08d2ed2b9d7e0915805f5a721366"
+    },
+    "Tools/MeshyGlumandaV1/AnimateExport.py": {
+      "bytes": 8924,
+      "sha256": "ee113e4af84c21820345cb976bca14f721735ec2d24891cc567cd7fa6ca88a90"
+    },
+    "Tools/MeshyGlumandaV1/ApplyCandidate.py": {
+      "bytes": 1862,
+      "sha256": "78760387afde65ede4c6d0cd2141d3f4b7800a7e545e1175fa1400759db5c36d"
+    },
+    "Tools/MeshyGlumandaV1/CheckMaps.py": {
+      "bytes": 1044,
+      "sha256": "ea652b0379cc3a39a3eaba2caff2dcf46cd985b82263c67dcb55874809d2dc6f"
+    },
+    "Tools/MeshyGlumandaV1/ImportAssets.py": {
+      "bytes": 9091,
+      "sha256": "2433ed6e46780bc6d76017c713ea15e839fb7160e6e3371de2edd2b4ea8f59c3"
+    },
+    "Tools/MeshyGlumandaV1/InspectSource.py": {
+      "bytes": 2687,
+      "sha256": "ce40540a02de7c38d0341b422e8319dc7a1e7f041c29fdd15777ea8a6fb4c4d4"
+    },
+    "Tools/MeshyGlumandaV1/Intake.json": {
+      "bytes": 2571,
+      "sha256": "4a49e3821cc42884548d79bac28ef5c26671df76a984ba77e01da0286eeda49d"
+    },
+    "Tools/MeshyGlumandaV1/ObserveGameplay.py": {
+      "bytes": 2859,
+      "sha256": "3b432db41211d95abaefb7b2c182b0a4b2b8204511ae6b8f2079182a5f55010a"
+    },
+    "Tools/MeshyGlumandaV1/PrepareEvidence.py": {
+      "bytes": 2833,
+      "sha256": "bcffddd7816f1470f75ab7e555f0e3dbc8f068930f1e353d459efb47944700f9"
+    },
+    "Tools/MeshyGlumandaV1/PrepareModel.py": {
+      "bytes": 7756,
+      "sha256": "3242d99135d878fb720b53660b94cf294273f40f2b8c3b81c6581cb4aa878091"
+    },
+    "Tools/MeshyGlumandaV1/README.md": {
+      "bytes": 4396,
+      "sha256": "c30e5ae670cce1be70789689caa1e88993bc5364a1276ff01f46410c5b583306"
+    },
+    "Tools/MeshyGlumandaV1/RefineWeights.py": {
+      "bytes": 2456,
+      "sha256": "a01437e24a7b91d3cc8b2e79b6dd1bd20e042b39bb314072f3faf0aec8648156"
+    },
+    "Tools/MeshyGlumandaV1/ReviewBlender.py": {
+      "bytes": 1211,
+      "sha256": "1de99d8ce888ddadc4dc46f4c5c3ff16302223f8b9a550512b220107a32ee6bd"
+    },
+    "Tools/MeshyGlumandaV1/ReviewUnrealCandidate.py": {
+      "bytes": 5887,
+      "sha256": "bf9dd4a72b5c3c749e5aa8acfce24bfb1bfaf7c34f3d409da2a48361074a3d09"
+    },
+    "Tools/MeshyGlumandaV1/RunGameplay.py": {
+      "bytes": 1975,
+      "sha256": "0d356a60efa1141eafedbd8655f9341ea094acc958474d2c4a5ef39c5eda3cff"
+    },
+    "Tools/MeshyGlumandaV1/StartGameplay.py": {
+      "bytes": 3065,
+      "sha256": "82b75f72b8e0cfa8860ed03cfd2dc8eeebe2bdbe58a6228717e8e6034fa85632"
+    },
+    "Tools/MeshyGlumandaV1/ValidateScope.py": {
+      "bytes": 1280,
+      "sha256": "0bd3f6c88d8f180922b9c443a979b708e551a64f52152f68e646671dde65abf6"
+    },
+    "Tools/MeshyGlumandaV1/ValidateSource.py": {
+      "bytes": 2460,
+      "sha256": "e51deae4142a8a7d3d057de90b81d1185bcdf19a25fe1169da2cbf58d57c13b0"
     },
     "Tools/MeshyNPCIntegrationV1/BindRangerVisual.py": {
       "bytes": 2731,

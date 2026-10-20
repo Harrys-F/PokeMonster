@@ -15,6 +15,9 @@ class PreflightTests(unittest.TestCase):
  def tearDown(self):self.temp.cleanup()
  def test_valid_plan_scale_and_no_mutation(self):
   before={str(p):p.read_bytes() for p in self.r.rglob('*') if p.is_file()};result=validate(self.plan,self.r);self.assertTrue(result['ready_for_manual_import'],result);self.assertEqual(result['proposed_uniform_authoring_scale'],.5);self.assertEqual(before,{str(p):p.read_bytes() for p in self.r.rglob('*') if p.is_file()})
+ def test_documented_render_review(self):
+  a=json.loads(self.audit.read_text());a['forward_confirmed_by_human']=False;a['orientation_verified_by_render_review']=True;a['orientation_evidence']='Actual front and profile render review';self.audit.write_text(json.dumps(a));self.assertTrue(validate(self.plan,self.r)['ready_for_manual_import'])
+  a['orientation_evidence']='';self.audit.write_text(json.dumps(a));self.assertFalse(validate(self.plan,self.r)['ready_for_manual_import'])
  def test_pending_model_rejected(self):
   plan=json.loads((ROOT/'Tools/CreaturePipelineV2/Glumanda_Pending.json').read_text());self.assertFalse(validate(plan,ROOT)['ready_for_manual_import'])
  def test_changed_sources_or_exports_rejected(self):

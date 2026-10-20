@@ -51,7 +51,10 @@ APokeMonsterCreatureVisualActor::APokeMonsterCreatureVisualActor()
 }
 bool APokeMonsterCreatureVisualActor::SetSpecies(const UPokeMonsterCreatureSpeciesData* Species)
 {
- auto* Candidate=Species?Species->GetVisuals().Presentation.LoadSynchronous():nullptr;
+ return SetPresentation(Species?Species->GetVisuals().Presentation.LoadSynchronous():nullptr);
+}
+bool APokeMonsterCreatureVisualActor::SetPresentation(UPokeMonsterCreaturePresentationData* Candidate)
+{
  if(!Candidate||!Candidate->GetValidationErrors().IsEmpty())return false;
  for(const auto& Component:EffectComponents)if(Component)Component->DestroyComponent();
  EffectComponents.Reset();Presentation=Candidate;MotionSpeed=0.f;

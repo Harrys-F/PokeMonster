@@ -28,7 +28,7 @@ bool FPokeMonsterZunderlaufAssets::RunTest(const FString&)
  TestEqual(TEXT("Stable species identity"),S->GetInternalId(),FName(TEXT("Zunderlauf")));
  TestEqual(TEXT("Fire typing"),S->GetPrimaryType(),EPokeMonsterCreatureType::Fire);
  TestEqual(TEXT("Species discovered for cooking/save restoration"),UAssetManager::Get().GetPrimaryAssetPath(S->GetPrimaryAssetId()),FSoftObjectPath(S));
- auto* D=S->GetVisuals().Presentation.LoadSynchronous();if(!TestNotNull(TEXT("Presentation loads"),D)||!TestNotNull(TEXT("Mesh loads"),D->Mesh.Get()))return false;
+ auto* D=LoadObject<UPokeMonsterCreaturePresentationData>(nullptr,TEXT("/Game/Characters/Creatures/Zunderlauf/DA_Zunderlauf_Presentation.DA_Zunderlauf_Presentation"));if(!TestNotNull(TEXT("Presentation loads"),D)||!TestNotNull(TEXT("Mesh loads"),D->Mesh.Get()))return false;
  TestEqual(TEXT("Seven explicit actions"),D->Clips.Num(),7);
  for(int32 I=0;I<7;++I){auto* P=D->Clips.Find(static_cast<EPokeMonsterCreatureClip>(I));UAnimSequence* A=P?P->Get():nullptr;if(TestNotNull(TEXT("Clip exists"),A)){TestEqual(TEXT("Clip uses creature skeleton"),A->GetSkeleton(),D->Mesh->GetSkeleton());TestTrue(TEXT("Clip has duration"),A->GetPlayLength()>.3f);TestFalse(TEXT("In-place clips don't extract root motion"),A->bEnableRootMotion);}}
  TestNotNull(TEXT("One flame mesh"),D->TailFlame.Get());TestNotNull(TEXT("One flame material"),D->FlameMaterial.Get());

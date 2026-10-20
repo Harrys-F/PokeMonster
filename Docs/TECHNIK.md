@@ -814,3 +814,19 @@ Die bestehende Trennung aus Spezies, Instanzzustand und optionaler Präsentation
 Zusätzliche `EffectAnchors` erlauben einfache kollisionsfreie Mesh-Effekte an pro Modell definierten Bones/Sockets, mit lokalem Offset und optional weltaufrechter Rotation. Der vorhandene `TailFlame`-Pfad bleibt unverändert gültig. Keine Migration bestehender Assets und keine neue Save-Version. Das Saveformat speichert weiter stabile Spezies-IDs und individuelle HP/PP/Level/XP, keine visuellen Assetpfade.
 
 `Tools/CreaturePipelineV2` enthält lesende Blender-/Unreal-Inspektion, SHA-/Pfad-/Skalierungs-Vorprüfung, einen bewusst unvollständigen Glumanda-Plan sowie Kandidaten- und Map-Prüfer. Keine automatische 251er-Erzeugung oder Batchintegration. Aktuell existieren vier technische Spezies mit Prototypnummern; kein vollständiger Größenkatalog. Glumandas belegtes späteres Ziel ist 60 cm Stehhöhe; die bestehende Zunderlauf-V1-Größe bleibt unverändert. Die nationale Nummer im Intake ist getrennt von bestehenden Spielidentitäten. Vollständiger Ablauf einschließlich Längenmessung bei anderen Körperformen und konkretem identitätserhaltendem Austausch: `Docs/KREATUREN_PIPELINE_V2.md`. Große Körper, Flug-/Schwimm-KI und universelle Gelände-IK sind damit nicht automatisch abgenommen.
+
+## Meshy-Glumanda Integration V1 (20.10.2026)
+
+`CreatureSpecies:Zunderlauf` verwendet jetzt das separat importierte Meshy-Profil
+`/Game/Characters/Creatures/Zunderlauf/MeshyV1/DA_Glumanda_Presentation`.
+Die unveränderte Nutzer-GLB, gepackte Blenderquelle, drei originale 2K-JPEGs und
+sieben FBX-Clips liegen unter den bestehenden Kreaturenverzeichnissen.
+60 cm Höhe, 21.761 Dreiecke einschließlich originaler Schwanzflamme, eigenes
+23-Bone-Blender-Rig (24 UE-Bones einschließlich FBX-Wrapper), Walk 22 cm/s,
+Run 36 cm/s. Die einzige persistente Gameplay-Datenänderung ist die optionale
+Darstellungsreferenz; stabile Art-ID, Saves, Karten und Zunderlauf-V1-Assets bleiben.
+Die Flamme ist die originale Geometrie und folgt `tail_socket`; tatsächliche
+Socket-Skalierung wird im Effekt-Offset kompensiert. Kein zweiter Flammeneffekt.
+Vollständige Prüfungen und Grenzen: `MESHY_GLUMANDA_INTEGRATION_V1_PRUEFBERICHT.md`;
+Reproduktion: `Tools/MeshyGlumandaV1/README.md`. Keine abschließende künstlerische
+Freigabe oder universelle Rig-/LOD-Freigabe für weitere Arten daraus ableiten.

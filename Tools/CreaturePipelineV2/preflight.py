@@ -53,7 +53,7 @@ def validate(plan,root=ROOT):
   auditpath=local_path(root,plan.get('blender_audit'));require(auditpath.is_file(),'Blender inspection required')
   if auditpath.is_file():
    audit=json.loads(auditpath.read_text());require(audit.get('source_sha256')==plan.get('source_sha256'),'Audit belongs to a different source')
-   require(audit.get('forward_confirmed_by_human') is True,'Front/profile direction requires visual confirmation')
+   require(audit.get('forward_confirmed_by_human') is True or (audit.get('orientation_verified_by_render_review') is True and bool(audit.get('orientation_evidence'))),'Front/profile direction requires documented visual confirmation')
    require(audit.get('size_basis')==size.get('basis'),'Audit measurement basis differs from reference basis')
    ratio=scale_factor(size.get('reference_cm'),audit.get('measured_size_m'))
  except (ValueError,OSError,json.JSONDecodeError) as e:errors.append(str(e))

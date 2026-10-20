@@ -1,0 +1,42 @@
+{
+  "reopened": true,
+  "vertices": 12227,
+  "triangles": 18198,
+  "loose": 0,
+  "zero_area_faces": 0,
+  "boundary_edges": 5854,
+  "nonmanifold_nonboundary_edges": 0,
+  "bones": 23,
+  "clips": [
+    "Glumanda_Attack",
+    "Glumanda_Faint",
+    "Glumanda_Happy",
+    "Glumanda_Hit",
+    "Glumanda_Idle",
+    "Glumanda_Run",
+    "Glumanda_Walk"
+  ],
+  "packed_textures": [
+    "Image_0",
+    "Image_1",
+    "Image_2"
+  ],
+  "weights_nonunit": 0,
+  "unweighted": 0,
+  "flame_objects": [
+    "Meshy_TailFlame_Original"
+  ],
+  "flame_triangles": 3563,
+  "flame_height_m": 0.27227944135665894,
+  "fbx_roundtrip": {
+    "vertices": 12227,
+    "triangles": 18198,
+    "bones": 23,
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "walk_seconds": 0.6
+  }
+}

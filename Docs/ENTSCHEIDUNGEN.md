@@ -823,3 +823,19 @@ Die vorhandenen Kreaturen-, Encounter-, Kampf-, Fang-, Team-, Heil- und Speicher
 **Beschlossen:** Das endgültige Meshy-Glumanda wird erst nach Bereitstellung und Prüfung als eigenständiger Präsentationskandidat vorbereitet. Bestehende Zunderlauf-V1-Quellen, Meshes, Materialien, Animationen und Mapbindung bleiben bis dahin unverändert. Beim späteren reinen Modellaustausch bleiben `CreatureSpecies:Zunderlauf`, sein Art-Assetpfad, Encounter-ID und individuelle Speicherzustände erhalten; keine Save-Migration nur wegen der Grafik. Die vorläufige Zunderlauf-Größe von ca. 65,2 cm wird nicht jetzt geändert; der spätere Glumanda-Import orientiert sich an der belegten Original-Stehhöhe 60 cm. Andere Arten benötigen jeweils belegte Originalmaße und eine ausdrücklich gewählte Höhen-/Längenmessung.
 
 Eigene anatomisch geeignete Skeletons statt universeller humanoider Bone-Hierarchie. Der gemeinsame native Präsentationsvertrag verwendet Rollen und exakt zum jeweiligen Mesh passende Sequenzen. Allgemeine Effekt-Anker ergänzen den bestehenden Schwanzflammenpfad; keine automatische Umstellung alter Assets. Ungültige Profile werden vor einem Darstellungswechsel zurückgewiesen. Lesende Intake-Werkzeuge ersetzen keine visuelle Modell-/Animationsabnahme und keinen zukünftigen realen Importtest. Keine neuen Modelle, Maps, Worktrees oder Gameplay-Systeme in diesem Paket.
+
+## 20.10.2026 – Meshy-Glumanda ersetzt nur Zunderlaufs Darstellung
+
+Der Pending-Modellaustausch aus Kreaturen-Pipeline V2 ist für die vom Nutzer
+bereitgestellte `Incoming/Glumanda.glb` umgesetzt. Die bisherige Zunderlauf-V1-
+Darstellung wird als aktive Vorgabe ersetzt, bleibt als unveränderter Fallback
+und technische Referenz erhalten. Spezies-ID, Asset-ID, Anzeigename, Prototyp-
+Pokédexnummer, Kampfwerte und Save-Version werden nicht umbenannt oder geändert.
+Das anders proportionierte Mesh erhält ein eigenes angepasstes Rig und eigene
+Clips; keine ungeprüfte Übernahme der V1-Gewichte oder 35/60-cm/s-Schrittparameter.
+Das Original bleibt geometrisch/materialseitig erhalten; nur Uniformskalierung,
+Skinning und Animation sind neu. Originale Schwanzflamme statt zweitem Effekt.
+`SetPresentation` ermöglicht die atomar validierte visuelle Kandidatenprüfung ohne
+Speziesmutation. Meshy-Quelllöcher werden dokumentiert und nicht automatisch
+wegremesht. Weitere Kreaturen und eine finale visuelle Masterfreigabe folgen nicht
+automatisch aus diesem technischen Import. Einzelheiten im Integrationsbericht.

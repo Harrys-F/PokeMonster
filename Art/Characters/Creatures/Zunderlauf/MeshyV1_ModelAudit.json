@@ -1,0 +1,26 @@
+{
+  "original_glb": "Art/Characters/Creatures/Incoming/Glumanda.glb",
+  "source_sha256": "44a82157d256a1ae4526f13c37aa3fc85d1022f2615f2812a2a8bba04ba4285c",
+  "scale": 0.6308007422976963,
+  "original_height_m": 0.9511719942092896,
+  "height_m": 0.6,
+  "body_vertices": 12227,
+  "body_triangles": 18198,
+  "flame_vertices": 2409,
+  "flame_triangles": 3563,
+  "total_triangles": 21761,
+  "faces_removed": 0,
+  "new_faces": 0,
+  "uv_and_custom_normals_copied": true,
+  "rest_vertex_position_error_m": 0.0,
+  "bones": 23,
+  "tail_socket_m": [
+    0.21799999475479126,
+    0.1899999976158142,
+    0.2750000059604645
+  ],
+  "tail_isolation": "Original triangles only; spatial boundary above tail neck; no second flame mesh added",
+  "weights": "Blender bone heat on exact-position welded proxy only; transfer to original UV-seamed mesh; rigid head; soft forefoot/sole correction; matched tail split boundary weights",
+  "normalization": "One uniform scale and origin translation; reference mesh untouched",
+  "rest_vertex_position_error_m_scope": "Construction measurement after uniform normalization and face partition; not an independent deformation/scan-error guarantee"
+}
