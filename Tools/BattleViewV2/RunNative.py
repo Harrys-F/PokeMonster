@@ -1,0 +1,7 @@
+"""Real four-theme standalone review, separately measured native Slate capture dimensions."""
+from pathlib import Path
+import subprocess,json,sys
+R=Path(__file__).resolve().parents[2];label,width,height=sys.argv[1:];assert label.isalnum();width,height=int(width),int(height);assert(width,height)in[(1280,720),(2560,1440)];O=R/'Saved/BattleViewV2';assert not(O/label).exists();assert not any(x.strip().split(None,1)[-1].endswith('/Contents/MacOS/UnrealEditor')for x in subprocess.check_output(['ps','-axo','pid=,comm='],text=True).splitlines()),'Close the editor cleanly first'
+(O/'ReviewRequest.json').write_text(json.dumps({'label':label,'mode':'Standalone Development -game','width':width,'height':height}));exe='/Users/Shared/Epic Games/UE_5.8/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor';args=[exe,str(R/'PokeMonster.uproject'),'/Game/Maps/Dev_TestMap_VisualV2','-game','-windowed',f'-ResX={width}',f'-ResY={height}','-ForceRes','-NoSplash','-NoLiveCoding','-ModelContextProtocolPort=8016','-ABSLOG='+str(O/(label+'Engine.log')),'-ExecCmds=py '+str(R/'Tools/BattleViewV2/Native.py')]
+with (O/(label+'Console.log')).open('x')as f:code=subprocess.run(args,cwd=R,stdout=f,stderr=subprocess.STDOUT,timeout=600).returncode
+assert code==0,code;result=json.loads((O/label/'Result.json').read_text());assert result['passed'],result['error'];print('STANDALONE_REVIEW_PASS',label,flush=True)

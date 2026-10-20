@@ -14,3 +14,9 @@ bool UPokeMonsterMoveData::IsConfigured() const
 		&& Accuracy >= 0 && Accuracy <= 100 && MaxPP > 0
 		&& Effect.ChancePercent >= 0 && Effect.ChancePercent <= 100;
 }
+
+FText UPokeMonsterMoveData::GetPlayerFacingName()const
+{
+ if(InternalId.ToString().StartsWith(TEXT("Test"))||DisplayName.ToString().StartsWith(TEXT("Test")))return FText::FromString(Category==EPokeMonsterMoveCategory::Status?TEXT("Statusversuch · Test"):Category==EPokeMonsterMoveCategory::Physical?TEXT("Körperangriff · Test"):TEXT("Elementangriff · Test"));
+ return DisplayName;
+}

@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
-  "base": "1ae2a51e29e0a1ebfaedc4d9f74f10e28702cffc",
-  "snapshot_kind": "checked_glumanda_v11_classic_and_sight",
+  "base": "e51ad523af880e5d211eb0ed3ed55d313b20030a",
+  "snapshot_kind": "checked_battle_view_v2",
   "generated_at": "2026-10-20",
   "files": {
     ".codex/config.toml": {
@@ -9326,8 +9326,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 124316,
-      "sha256": "1fe3bac14859b42048c91b84fd3013468648b3c858c057fe98ed9f613baf732a"
+      "bytes": 125015,
+      "sha256": "d9747ef262520351be874d2fef490a8471c762b104af910c63c13c84b834f70c"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
@@ -9442,8 +9442,8 @@
       "sha256": "e8209aadd42b9bacdf84c7842708ac8ae41e45b15464bf72cbfd5006acfdfc1e"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 147124,
-      "sha256": "c5314623447c0cff1a715358def4f09d20f776c802c4cb186aba690d6c37194f"
+      "bytes": 149910,
+      "sha256": "d0d5401f268c91d54d7d5d384b0e8dd39af81c3cfa1cfab9e8f9b7014ae249eb"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -9818,16 +9818,16 @@
       "sha256": "6b5ff59b74cde1156265ae7478d89b17ece8660b33e8a652a4830656b2be849f"
     },
     "Source/PokeMonster/Encounter/PokeMonsterEncounterProfile.h": {
-      "bytes": 2866,
-      "sha256": "42f3eb370c6570add5c4c6f20ebede1a5281353eba065e8607ab8dda42e310a9"
+      "bytes": 3061,
+      "sha256": "444a15134fc018b8a631bc6aecdde746842a8561a39850ef3a6b74627d4a2585"
     },
     "Source/PokeMonster/Encounter/PokeMonsterEncounterSubsystem.cpp": {
-      "bytes": 20490,
-      "sha256": "aeabf1226ba91bf6769e4bf63ed62d9315c5a5de0636743918e8485d31aa9996"
+      "bytes": 21021,
+      "sha256": "6c2030e4ec75b98f8635d4308e669a086ac597c2f09966708a90ed0593232870"
     },
     "Source/PokeMonster/Encounter/PokeMonsterEncounterSubsystem.h": {
-      "bytes": 9953,
-      "sha256": "76eae87d174aacfaa301dfb0a22a2c63900feb39d65d4a6b10e5d8b777dc61de"
+      "bytes": 10236,
+      "sha256": "dee6c1dd58119f63d8b89d99bb08b44205e099f943f8672aadca96bd64970675"
     },
     "Source/PokeMonster/Encounter/PokeMonsterTrainerNPC.cpp": {
       "bytes": 6771,
@@ -9842,8 +9842,8 @@
       "sha256": "f611f648fc118cbeeaf6c55744c3b65d511112210a732be0aeecd3374c4fe201"
     },
     "Source/PokeMonster/Encounter/PokeMonsterTrainerProfile.h": {
-      "bytes": 1978,
-      "sha256": "19daa7f8c308729c796e4eb13fc59871e290c2e71e89058dc5e3717fa80b9b6c"
+      "bytes": 2173,
+      "sha256": "2f68c6e471eb29d7e2f08b2c2530c36995f29e35c75ccfd71782ff05f0e4eebb"
     },
     "Source/PokeMonster/Encounter/PokeMonsterVisibleWildCreatureActor.cpp": {
       "bytes": 8865,
@@ -9906,12 +9906,12 @@
       "sha256": "0e2feadae44e4ba1341f4224df10c1b8ea3c73daf699e6816968ffa724f94761"
     },
     "Source/PokeMonster/Moves/PokeMonsterMoveData.cpp": {
-      "bytes": 765,
-      "sha256": "bdb6701c44137ee9d317b1d60f3e52b111602209dcb8310fbda124eb2eb6bc04"
+      "bytes": 1153,
+      "sha256": "7d3dae10fe913ce99994d3cdb0165f2ba13af08f686e8ddedaae00aac721e396"
     },
     "Source/PokeMonster/Moves/PokeMonsterMoveData.h": {
-      "bytes": 2154,
-      "sha256": "54350080a16871f372febf58ce992dde4f1a70b83406404fafc2f3f96aed43d9"
+      "bytes": 2189,
+      "sha256": "df11ec63e06db9eeb3ca235486e28ff7f911e6771c64543f38a3a0687e4c7d05"
     },
     "Source/PokeMonster/Moves/PokeMonsterMoveSlot.cpp": {
       "bytes": 896,
@@ -10146,8 +10146,8 @@
       "sha256": "250e04efe0593493401b388e7a4e21563a666fa6df6ab8ec9a729127086a602e"
     },
     "Source/PokeMonster/UI/PokeMonsterBattlePresenter.cpp": {
-      "bytes": 17411,
-      "sha256": "849d0d9303f2c3fcbb84c8ac4f64bb444ac0a2a93274d7df89eb73a0bc80704d"
+      "bytes": 17431,
+      "sha256": "05c7284c4be78b073123cc91151d6a46ed0c36c6b31121d27f4fc799662c6756"
     },
     "Source/PokeMonster/UI/PokeMonsterBattlePresenter.h": {
       "bytes": 5707,
@@ -10162,12 +10162,12 @@
       "sha256": "398838de215b76232057fb187829317ff282032d0a4ff30fe798c82744c072d6"
     },
     "Source/PokeMonster/UI/PokeMonsterBattleWidget.cpp": {
-      "bytes": 43866,
-      "sha256": "2e1149af13fe03eb521ae366021cd767e5b59ef63c1a15b64c1c3d1c8f8b57bc"
+      "bytes": 52373,
+      "sha256": "044a49fe53e593814aad73a1b44d32049431a8dba0addc8926af9cf1c31a551a"
     },
     "Source/PokeMonster/UI/PokeMonsterBattleWidget.h": {
-      "bytes": 5933,
-      "sha256": "78f4b2193777cf1ef1fda53167e5787201939309706c1fc6a430a2b8c9a4d2be"
+      "bytes": 7681,
+      "sha256": "17e3dba1d5c5990c7bda9086f7713831d5b851435c9b443d2be982c9957ed3a1"
     },
     "Source/PokeMonster/UI/PokeMonsterDefeatWidget.cpp": {
       "bytes": 1812,
@@ -15354,24 +15354,24 @@
       "sha256": "f11ca90fee28b17b3fc13e83519f74c2db634c72a8e296a58fed0074f4a28600"
     },
     "Source/PokeMonster/Tests/PokeMonsterClassicBattleTest.cpp": {
-      "bytes": 3814,
-      "sha256": "9242cddc02153625f6f590eba47d848d62a7849d2b1406970603ae6318b560bd"
+      "bytes": 4151,
+      "sha256": "7af8b4b786522906064a5d35e7534916550ac89af8039df6f2bb8b5064429e3b"
     },
     "Source/PokeMonster/Development/PokeMonsterCreatureReviewCapture.cpp": {
-      "bytes": 4011,
-      "sha256": "f43812a65f6b72b53f4f49d2a0abb935d1812170bcb327d654821d218b8b2ec5"
+      "bytes": 6017,
+      "sha256": "268e334edc3bfc479666dc4213688f721b91416a56c9d27c9954962b600f8eac"
     },
     "Source/PokeMonster/Encounter/PokeMonsterBattlePresentationMode.h": {
       "bytes": 283,
       "sha256": "33c7520bbd768ff37f44aa700ef083c0c08c57d6f45a48420e17715ce4a46bd0"
     },
     "Source/PokeMonster/Encounter/PokeMonsterClassicBattleScene.cpp": {
-      "bytes": 5819,
-      "sha256": "f8d2542aaecf2c884b2efdb96ea9da06cb63a62cf4b978a63f9058ed14fef5f5"
+      "bytes": 14203,
+      "sha256": "a86a8c30687b7b31126f90b36da372eb4b911924517dd0558444190f542112b2"
     },
     "Source/PokeMonster/Encounter/PokeMonsterClassicBattleScene.h": {
-      "bytes": 1358,
-      "sha256": "4e2390fda22c66d564ec7db195fc8481ce23e4f0745299f616a42de6c035794b"
+      "bytes": 2457,
+      "sha256": "fbeae16ae8d1ead60de57ec5c13b7ecf0d023c599b8864701d77b4fbf499c6e3"
     },
     "Tools/GlumandaV11/CheckMaps.py": {
       "bytes": 1043,
@@ -15416,6 +15416,54 @@
     "Tools/GlumandaV11/StartGameplay.py": {
       "bytes": 843,
       "sha256": "7b45cbfb8883d136176af335f7400d6d5ab8398c8e4cbe80c9ec9d3592b792f9"
+    },
+    "Docs/KAMPFANSICHT_V2_PRUEFBERICHT.md": {
+      "bytes": 14821,
+      "sha256": "0b449a66b0e8121a616d45435a81c597c44f81db61f53d65b9e4f0d1062a315e"
+    },
+    "Source/PokeMonster/Encounter/PokeMonsterBattleEnvironment.h": {
+      "bytes": 275,
+      "sha256": "590f3c1da220e8bcf30e83176c231423aab57fb905782c3806ae6f96875626a8"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterBattleViewV2Test.cpp": {
+      "bytes": 4600,
+      "sha256": "5beaa3cbc727295550b9e3e72493a3f5afc560533c232c01981124dca5068e7a"
+    },
+    "Tools/BattleViewV2/CheckMaps.py": {
+      "bytes": 1035,
+      "sha256": "4296b1e40dadd0011f6c9f097157e58f4897587a7d34c77120856637c50265c1"
+    },
+    "Tools/BattleViewV2/Native.py": {
+      "bytes": 1014,
+      "sha256": "d3be725dd56975ca9dd5a48241a7792807739fd9ab12832d0f3dc3b7db907ac1"
+    },
+    "Tools/BattleViewV2/Protection.py": {
+      "bytes": 1146,
+      "sha256": "7c3840c82aa94feb8303fce269fcd19d5a7f0b5415e924291138d938fb9b3a53"
+    },
+    "Tools/BattleViewV2/README.md": {
+      "bytes": 2914,
+      "sha256": "05ccbe7296c92fb0bd43378e49e621f4bb37109691d579e1112786b69e56abca"
+    },
+    "Tools/BattleViewV2/Review.py": {
+      "bytes": 5099,
+      "sha256": "95e6b4174ccc9fdc0d448066c429c2c728ad4a1dfda5a7b9867627566a0b980e"
+    },
+    "Tools/BattleViewV2/ReviewInput.py": {
+      "bytes": 3062,
+      "sha256": "783b6a87f43cdcc79ed1f312ebd73f751ee5ee5a0f1c19bf94e102ed7a817636"
+    },
+    "Tools/BattleViewV2/ReviewWorld.py": {
+      "bytes": 3401,
+      "sha256": "bd54cad158d7092c515f39e35ea8bf8c5c25c9ceefd0ebbc76139a9d1f4e687f"
+    },
+    "Tools/BattleViewV2/RunNative.py": {
+      "bytes": 1407,
+      "sha256": "6ed3baea9302d59216bdcfbd7b17604286c27cea572e82aa9ae320dd34dc2e9e"
+    },
+    "Tools/BattleViewV2/RunPIE.py": {
+      "bytes": 991,
+      "sha256": "74a234278e12507a16792e5c2c99ae148fa95e991a48c137ec84ac9b0f69c7e6"
     }
   }
 }

@@ -31,9 +31,10 @@ bool FPokeMonsterClassicBattleContractTest::RunTest(const FString& Parameters)
  FPokeMonsterWildEncounterEntry E;E.Species=Species;E.MinLevel=5;E.MaxLevel=5;E.Moves.Add(Move);Wild->Entries.Add(E);
  Trainer->InternalId=TEXT("ModeContract");Trainer->DisplayName=FText::FromString(TEXT("Mode contract"));Trainer->TrainerClass=FText::FromString(TEXT("Technical fixture"));FPokeMonsterTrainerTeamEntry T;T.Species=Species;T.Level=5;T.StartingMoves.Add(Move);Trainer->Team.Add(T);
  for(Mode M:{Mode::ClassicBattle,Mode::WorldBattle}){
-  Wild->PresentationMode=M;Trainer->PresentationMode=M;FPokeMonsterEncounterStartData W,B;
+  Wild->BattleEnvironment=EPokeMonsterBattleEnvironment::Forest;Trainer->BattleEnvironment=EPokeMonsterBattleEnvironment::Ruins;Wild->PresentationMode=M;Trainer->PresentationMode=M;FPokeMonsterEncounterStartData W,B;
   if(!TestTrue(TEXT("Wild preparation succeeds"),UPokeMonsterEncounterSubsystem::PrepareWildEncounter(Wild.Get(),FPokeMonsterEncounterContext(),EPokeMonsterEncounterSource::Zone,nullptr,5,TEXT("ModeContract"),W)))return false;
   if(!TestTrue(TEXT("Trainer preparation succeeds"),UPokeMonsterEncounterSubsystem::PrepareTrainerEncounter(Trainer.Get(),nullptr,5,B)))return false;
+  TestEqual(TEXT("Wild forwards environment"),W.BattleEnvironment,EPokeMonsterBattleEnvironment::Forest);TestEqual(TEXT("Trainer forwards environment"),B.BattleEnvironment,EPokeMonsterBattleEnvironment::Ruins);
   TestEqual(TEXT("Wild forwards chosen mode"),W.PresentationMode,M);TestEqual(TEXT("Trainer forwards chosen mode"),B.PresentationMode,M);
   TestEqual(TEXT("Mode never changes species identity"),W.OpponentTeam[0].Species,B.OpponentTeam[0].Species);
   TestEqual(TEXT("Mode never changes creature size"),Species->GetVisuals().Presentation.LoadSynchronous()->ReferenceSizeCm,60.f);

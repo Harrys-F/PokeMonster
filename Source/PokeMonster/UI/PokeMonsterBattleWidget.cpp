@@ -1,8 +1,10 @@
+#include "Engine/Texture2D.h"
 #include "PokeMonsterBattleWidget.h"
 #include "PokeMonsterBattleTestController.h"
 #include "../Moves/PokeMonsterMoveData.h"
 #include "Engine/AssetManager.h"
 #include "Engine/TextureRenderTarget2D.h"
+#include "InputCoreTypes.h"
 #include "Blueprint/WidgetTree.h"
 #include "Components/Border.h"
 #include "Components/Button.h"
@@ -185,50 +187,122 @@ void UPokeMonsterBattleWidget::SetClassicPresentation(UTextureRenderTarget2D* Ta
  bClassicPresentation=true;ClassicTarget=Target;SetWorldPresentation(Player3D,Opponent3D);
  if(ClassicImage&&Target)ClassicImage->SetBrushResourceObject(Target);
 }
+void UPokeMonsterBattleWidget::SetBattleGroundAnchors(FVector2D Player,FVector2D Opponent)
+{
+ PlayerGroundAnchor=Player;OpponentGroundAnchor=Opponent;
+ for(int I=0;I<ContactMarks.Num();++I)if(auto* Slot=Cast<UCanvasPanelSlot>(ContactMarks[I]->Slot)){const FVector2D P=I?Opponent:Player;Slot->SetPosition(P-Slot->GetSize()*.5f);}
+}
 void UPokeMonsterBattleWidget::BuildClassicTree()
 {
- auto* Back=WidgetTree->ConstructWidget<UBorder>();Back->SetBrushColor(FLinearColor(.04f,.07f,.05f));Back->SetPadding(FMargin(0));WidgetTree->RootWidget=Back;
+ auto* Back=WidgetTree->ConstructWidget<UBorder>();Back->SetBrushColor(FLinearColor(.025f,.045f,.037f));Back->SetPadding(FMargin(0));WidgetTree->RootWidget=Back;
  auto* Scale=WidgetTree->ConstructWidget<UScaleBox>();Scale->SetStretch(EStretch::ScaleToFit);Back->SetContent(Scale);
  auto* Size=WidgetTree->ConstructWidget<USizeBox>();Size->SetWidthOverride(1280);Size->SetHeightOverride(720);Scale->SetContent(Size);
  auto* C=WidgetTree->ConstructWidget<UCanvasPanel>();Size->SetContent(C);
- Artwork(WidgetTree,C,TEXT("BattleGlen"),TEXT("/Game/Battle/Textures/T_BattleGlen.T_BattleGlen"),0,0,1280,520);
- if(ClassicTarget){ClassicImage=WidgetTree->ConstructWidget<UImage>();ClassicImage->SetBrushResourceObject(ClassicTarget);ClassicImage->SetVisibility(ESlateVisibility::HitTestInvisible);Place(C,ClassicImage,0,0,1280,520);}
- Shape(WidgetTree,C,180,420,310,26,FLinearColor(.035f,.05f,.025f,.18f),13);
- Shape(WidgetTree,C,815,299,195,17,FLinearColor(.035f,.05f,.025f,.16f),9);
- Artwork(WidgetTree,C,TEXT("PlayerFigure"),TEXT("/Game/Battle/Textures/T_TestWater.T_TestWater"),145,205,365,245);
- Artwork(WidgetTree,C,TEXT("OpponentFigure"),TEXT("/Game/Battle/Textures/T_TestGrass.T_TestGrass"),815,100,240,210);
- auto Card=[&](bool P,float X,float Y){
-  Shape(WidgetTree,C,X+3,Y+5,400,94,FLinearColor(.02f,.035f,.02f,.35f),18);
-  Shape(WidgetTree,C,X,Y,400,94,FLinearColor(.85f,.82f,.69f,.97f),18);
-  Place(C,Text(WidgetTree,P?TEXT("PlayerName"):TEXT("OpponentName"),TEXT("—"),22,DarkInk),X+20,Y+10,365,30);
-  Place(C,Text(WidgetTree,P?TEXT("PlayerHP"):TEXT("OpponentHP"),TEXT("KP —"),17,DarkInk),X+20,Y+43,365,24);
-  auto* Bar=WidgetTree->ConstructWidget<UProgressBar>(UProgressBar::StaticClass(),P?TEXT("PlayerBar"):TEXT("OpponentBar"));Place(C,Bar,X+20,Y+74,360,10);
+ Artwork(WidgetTree,C,TEXT("BattleGlen"),TEXT("/Game/Battle/Textures/T_BattleGlen.T_BattleGlen"),0,0,1280,540);
+ if(ClassicTarget){ClassicImage=WidgetTree->ConstructWidget<UImage>();ClassicImage->SetBrushResourceObject(ClassicTarget);ClassicImage->SetVisibility(ESlateVisibility::HitTestInvisible);Place(C,ClassicImage,0,0,1280,540);}
+ // Small, feathered contact marks centered on projected ground positions; no world-light changes.
+ ContactTexture=UTexture2D::CreateTransient(64,64,PF_B8G8R8A8);ContactTexture->SRGB=false;
+ auto* Pixels=static_cast<FColor*>(ContactTexture->GetPlatformData()->Mips[0].BulkData.Lock(LOCK_READ_WRITE));
+ for(int Y=0;Y<64;++Y)for(int X=0;X<64;++X){const float R=FVector2D((X-31.5f)/31.5f,(Y-31.5f)/31.5f).Size();Pixels[Y*64+X]=FColor(4,7,4,uint8(65*FMath::Square(FMath::Max(0.f,1.f-R))));}
+ ContactTexture->GetPlatformData()->Mips[0].BulkData.Unlock();ContactTexture->UpdateResource();
+ for(int I=0;I<2;++I){auto* Mark=WidgetTree->ConstructWidget<UImage>();Mark->SetBrushFromTexture(ContactTexture);Mark->SetVisibility(ESlateVisibility::HitTestInvisible);const auto P=I?OpponentGroundAnchor:PlayerGroundAnchor;const float W=I?112.f:145.f,H=I?25.f:32.f;Place(C,Mark,P.X-W*.5f,P.Y-H*.5f,W,H);ContactMarks.Add(Mark);}
+
+ Artwork(WidgetTree,C,TEXT("PlayerFigure"),TEXT("/Game/Battle/Textures/T_TestWater.T_TestWater"),130,230,380,250);
+ Artwork(WidgetTree,C,TEXT("OpponentFigure"),TEXT("/Game/Battle/Textures/T_TestGrass.T_TestGrass"),805,118,255,225);
+ auto Card=[&](bool P,float X,float Y,float W){
+  Shape(WidgetTree,C,X+3,Y+5,W,84,FLinearColor(.01f,.025f,.018f,.35f),15);
+  Shape(WidgetTree,C,X,Y,W,84,FLinearColor(.89f,.87f,.76f,.97f),15);
+  Shape(WidgetTree,C,X+12,Y+12,3,58,FLinearColor(.36f,.49f,.31f),2);
+  Place(C,Text(WidgetTree,P?TEXT("PlayerName"):TEXT("OpponentName"),TEXT("—"),21,DarkInk),X+25,Y+8,W-42,30);
+  Place(C,Text(WidgetTree,P?TEXT("PlayerHP"):TEXT("OpponentHP"),TEXT("KP —"),15,DarkInk),X+25,Y+38,W-42,23);
+  auto* Bar=WidgetTree->ConstructWidget<UProgressBar>(UProgressBar::StaticClass(),P?TEXT("PlayerBar"):TEXT("OpponentBar"));Place(C,Bar,X+25,Y+66,W-48,9);
  };
- Card(false,40,35);Card(true,825,405);
- Place(C,Text(WidgetTree,TEXT("PlayerKO"),TEXT("K.O."),26),300,330,130,40);Place(C,Text(WidgetTree,TEXT("OpponentKO"),TEXT("K.O."),26),895,218,130,40);
- Shape(WidgetTree,C,0,520,1280,200,FLinearColor(.045f,.078f,.06f),0);Shape(WidgetTree,C,0,517,1280,3,FLinearColor(.50f,.49f,.31f),0);
- Place(C,Text(WidgetTree,TEXT("StatusLabel"),TEXT("Was möchtest du tun?"),22),28,535,595,36);
- auto* Scroll=WidgetTree->ConstructWidget<UScrollBox>(UScrollBox::StaticClass(),TEXT("LogScroll"));auto* Log=Text(WidgetTree,TEXT("LogLabel"),TEXT(""),15);Log->SetAutoWrapText(true);Scroll->AddChild(Log);Place(C,Scroll,28,579,585,70);
- for(int I=0;I<6;++I){
-  auto* B=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),FName(*FString::Printf(TEXT("TeamButton%d"),I)));TintButton(B,Muted);
-  auto* L=Text(WidgetTree,FName(*FString::Printf(TEXT("TeamLabel%d"),I)),TEXT("—"),11);L->SetJustification(ETextJustify::Center);B->AddChild(L);Place(C,B,25+I*100,663,94,38);
-  // Enemy team indicators remain in the existing binding contract, kept compact.
-  Shape(WidgetTree,C,470+I*28,45,23,13,FLinearColor(.26f,.38f,.23f,.8f),6,FName(*FString::Printf(TEXT("OpponentTeamPlate%d"),I)));
-  auto* E=Text(WidgetTree,FName(*FString::Printf(TEXT("OpponentTeamLabel%d"),I)),TEXT(""),1);Place(C,E,470+I*28,45,1,1);
- }
+ Card(false,35,30,365);Card(true,865,443,380);
+ Place(C,Text(WidgetTree,TEXT("PlayerKO"),TEXT("K.O."),26),300,350,100,35);Place(C,Text(WidgetTree,TEXT("OpponentKO"),TEXT("K.O."),26),890,230,100,35);
+ Shape(WidgetTree,C,0,540,1280,180,FLinearColor(.035f,.068f,.057f),0);Shape(WidgetTree,C,0,538,1280,2,FLinearColor(.60f,.56f,.36f),0);
+ Place(C,Text(WidgetTree,TEXT("StatusLabel"),TEXT("Was möchtest du tun?"),22),28,570,560,96);
+ auto* Scroll=WidgetTree->ConstructWidget<UScrollBox>(UScrollBox::StaticClass(),TEXT("LogScroll"));auto* Log=Text(WidgetTree,TEXT("LogLabel"),TEXT(""),14);Log->SetAutoWrapText(true);Scroll->AddChild(Log);Place(C,Scroll,28,610,550,40);Scroll->SetVisibility(ESlateVisibility::Collapsed);
+ MenuHint=Text(WidgetTree,TEXT("MenuHint"),TEXT("A bestätigen · B zurück · Steuerkreuz / Stick"),12,Muted);Place(C,MenuHint,28,690,590,22);
+ for(int I=0;I<4;++I){auto* P=WidgetTree->ConstructWidget<UCanvasPanel>();P->SetVisibility(ESlateVisibility::SelfHitTestInvisible);Place(C,P,650,553,605,145);MenuPanels.Add(P);}
+ auto Button=[&](UCanvasPanel* Panel,FName Name,const FString& Label,float X,float Y,float W,float H,int Font){
+  auto* B=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),Name);TintButton(B,Muted);B->AddChild(Text(WidgetTree,NAME_None,Label,Font));Place(Panel,B,X,Y,W,H);return B;
+ };
+ const TCHAR* Names[]={TEXT("Kampf"),TEXT("Pokémon"),TEXT("Beutel"),TEXT("Flucht")};
+ for(int I=0;I<4;++I)CommandButtons.Add(Button(MenuPanels[0],FName(*FString::Printf(TEXT("Command%d"),I)),Names[I],(I%2)*300,(I/2)*73,285,63,23));
+ CommandButtons[0]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::CommandFight);CommandButtons[1]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::CommandTeam);CommandButtons[2]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::CommandBag);CommandButtons[3]->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::CommandFlee);
  for(int I=0;I<4;++I){
   auto* B=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),FName(*FString::Printf(TEXT("MoveButton%d"),I)));TintButton(B,Muted);
   auto* Inner=WidgetTree->ConstructWidget<UCanvasPanel>();Inner->SetVisibility(ESlateVisibility::SelfHitTestInvisible);if(auto* BS=Cast<UButtonSlot>(B->AddChild(Inner))){BS->SetHorizontalAlignment(HAlign_Fill);BS->SetVerticalAlignment(VAlign_Fill);}
-  Place(Inner,Text(WidgetTree,FName(*FString::Printf(TEXT("MoveLabel%d"),I)),TEXT("—"),18),17,5,250,28);
-  Shape(WidgetTree,Inner,13,37,90,22,Muted,9,FName(*FString::Printf(TEXT("MoveTypeAccent%d"),I)));
-  Place(Inner,Text(WidgetTree,FName(*FString::Printf(TEXT("MoveType%d"),I)),TEXT("—"),12),22,39,90,20);
-  Place(Inner,Text(WidgetTree,FName(*FString::Printf(TEXT("MovePP%d"),I)),TEXT("PP —"),13),175,39,95,20);
-  Place(C,B,655+(I%2)*300,538+(I/2)*83,285,72);
+  Place(Inner,Text(WidgetTree,FName(*FString::Printf(TEXT("MoveLabel%d"),I)),TEXT("—"),17),14,3,258,27);
+  Shape(WidgetTree,Inner,10,33,88,21,Muted,9,FName(*FString::Printf(TEXT("MoveTypeAccent%d"),I)));
+  Place(Inner,Text(WidgetTree,FName(*FString::Printf(TEXT("MoveType%d"),I)),TEXT("—"),12),18,35,86,20);
+  Place(Inner,Text(WidgetTree,FName(*FString::Printf(TEXT("MovePP%d"),I)),TEXT("AP —"),13),171,35,95,20);
+  Place(MenuPanels[1],B,(I%2)*300,(I/2)*73,285,63);
  }
- CaptureButton=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),TEXT("CaptureButton"));TintButton(CaptureButton,Muted);CaptureButton->AddChild(Text(WidgetTree,NAME_None,TEXT("Fangen"),18));Place(C,CaptureButton,1095,28,150,44);
+ for(int I=0;I<6;++I){auto* B=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),FName(*FString::Printf(TEXT("TeamButton%d"),I)));TintButton(B,Muted);auto* L=Text(WidgetTree,FName(*FString::Printf(TEXT("TeamLabel%d"),I)),TEXT("—"),12);B->AddChild(L);Place(MenuPanels[2],B,(I%3)*198,(I/3)*73,188,63);}
+ CaptureButton=Button(MenuPanels[3],TEXT("CaptureButton"),TEXT("Fanggerät verwenden"),0,0,285,63,18);
+ Place(MenuPanels[3],Text(WidgetTree,NAME_None,TEXT("Heilitems im Kampf noch nicht eingebunden."),13,Muted),0,84,580,40);
+ BackButton=Button(C,TEXT("BattleMenuBack"),TEXT("Zurück"),520,650,105,33,14);BackButton->OnClicked.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::MenuBack);
  RestartButton=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),TEXT("RestartButton"));RestartButton->SetVisibility(ESlateVisibility::Collapsed);Place(C,RestartButton,0,0,1,1);
  auto* E=Shape(WidgetTree,C,0,0,56,56,FLinearColor(.7f,.68f,.46f,.82f),28,TEXT("BattleEffect"));E->SetVisibility(ESlateVisibility::Collapsed);
  auto* F=Text(WidgetTree,TEXT("FeedbackLabel"),TEXT(""),24);F->SetVisibility(ESlateVisibility::Collapsed);Place(C,F,570,250,300,40);
+}
+void UPokeMonsterBattleWidget::CommandFight(){SetBattleMenu(EPokeMonsterBattleMenu::Moves);}
+void UPokeMonsterBattleWidget::CommandTeam(){SetBattleMenu(EPokeMonsterBattleMenu::Team);}
+void UPokeMonsterBattleWidget::CommandBag(){SetBattleMenu(EPokeMonsterBattleMenu::Bag);}
+void UPokeMonsterBattleWidget::CommandFlee(){if(StatusLabel)StatusLabel->SetText(FText::FromString(TEXT("Flucht ist noch nicht implementiert. Kein Zug wurde verbraucht.")));}
+void UPokeMonsterBattleWidget::MenuBack(){if(Presenter&&Presenter->GetView().bMustSwitch)return;SetBattleMenu(EPokeMonsterBattleMenu::Commands);}
+void UPokeMonsterBattleWidget::SetBattleMenu(EPokeMonsterBattleMenu Page)
+{
+ if(!bClassicPresentation||!Presenter||Presenter->GetView().bBusy||Presenter->GetView().bFinished)return;
+ if(Presenter->GetView().bMustSwitch)Page=EPokeMonsterBattleMenu::Team;
+ MenuPage=Page;UpdateClassicMenu();auto Active=ActiveMenuButtons();for(auto* B:Active)if(B&&B->GetIsEnabled()){B->SetKeyboardFocus();break;}
+}
+TArray<UButton*> UPokeMonsterBattleWidget::ActiveMenuButtons()const
+{
+ TArray<UButton*> R;if(MenuPage==EPokeMonsterBattleMenu::Commands){for(UButton* B:CommandButtons)R.Add(B);}else if(MenuPage==EPokeMonsterBattleMenu::Moves){for(UButton* B:Buttons)R.Add(B);}else if(MenuPage==EPokeMonsterBattleMenu::Team){for(UButton* B:TeamButtons)R.Add(B);}else if(CaptureButton)R.Add(CaptureButton);
+ if(MenuPage!=EPokeMonsterBattleMenu::Commands&&BackButton)R.Add(BackButton);return R;
+}
+void UPokeMonsterBattleWidget::FocusMenu(int32 Direction)
+{
+ auto A=ActiveMenuButtons();if(A.IsEmpty())return;int32 I=A.IndexOfByPredicate([](const UButton* B){return B&&B->HasKeyboardFocus();});
+ for(int N=0;N<A.Num();++N){I=(I+Direction+A.Num())%A.Num();if(A[I]&&A[I]->GetIsEnabled()&&A[I]->IsVisible()){A[I]->SetKeyboardFocus();return;}}
+}
+void UPokeMonsterBattleWidget::UpdateClassicMenu()
+{
+ if(!bClassicPresentation||!Presenter||MenuPanels.Num()!=4)return;const auto& V=Presenter->GetView();
+ if(V.bMustSwitch)MenuPage=EPokeMonsterBattleMenu::Team;else if(bLastMenuBusy&&!V.bBusy)MenuPage=EPokeMonsterBattleMenu::Commands;
+ const bool Refocus=bLastMenuBusy&&!V.bBusy; bLastMenuBusy=V.bBusy;
+ for(int I=0;I<4;++I)MenuPanels[I]->SetVisibility(!V.bBusy&&!V.bFinished&&I==int32(MenuPage)?ESlateVisibility::SelfHitTestInvisible:ESlateVisibility::Collapsed);
+ if(Refocus)for(auto* B:ActiveMenuButtons())if(B&&B->GetIsEnabled()){B->SetKeyboardFocus();break;}
+ if(LogScroll)LogScroll->SetVisibility(ESlateVisibility::Collapsed);
+ if(BackButton){BackButton->SetVisibility(MenuPage==EPokeMonsterBattleMenu::Commands||V.bBusy||V.bFinished?ESlateVisibility::Collapsed:ESlateVisibility::Visible);BackButton->SetIsEnabled(!V.bMustSwitch);}
+ if(CaptureButton){CaptureButton->SetVisibility(ESlateVisibility::Visible);CaptureButton->SetIsEnabled(V.bCaptureEnabled);if(auto* L=Cast<UTextBlock>(CaptureButton->GetContent()))L->SetText(V.CaptureDeviceName.IsEmpty()?FText::FromString(TEXT("Kein Fanggerät verfügbar")):FText::Format(FText::FromString(TEXT("{0} verwenden")),V.CaptureDeviceName));}
+ if(!V.bBusy&&!V.bFinished&&StatusLabel){FString T=MenuPage==EPokeMonsterBattleMenu::Commands?FString::Printf(TEXT("Was soll %s tun?"),*V.Player.Name.ToString()):MenuPage==EPokeMonsterBattleMenu::Moves?TEXT("Wähle eine Attacke.\nVorläufige Testdaten"):MenuPage==EPokeMonsterBattleMenu::Team?TEXT("Wähle dein Pokémon."):V.bCaptureEnabled?TEXT("Wähle ein Fanggerät."):TEXT("Fangen derzeit nicht verfügbar.");if(V.bMustSwitch)T=TEXT("K.O. – wähle einen kampffähigen Ersatz.");StatusLabel->SetText(FText::FromString(T));}
+}
+void UPokeMonsterBattleWidget::NativeTick(const FGeometry& G,float D)
+{
+ Super::NativeTick(G,D);if(!bClassicPresentation)return;IntroTime+=D;const bool End=Presenter&&Presenter->GetView().bFinished&&!Presenter->GetView().bBusy;ExitTime=End?ExitTime+D:0.f;SetRenderOpacity(FMath::Min(FMath::Clamp(IntroTime/.25f,0.f,1.f),1.f-FMath::Clamp((ExitTime-.7f)/.3f,0.f,1.f)));
+ if(!bInitialMenuFocused&&IntroTime>.2f&&Presenter&&!Presenter->GetView().bBusy){for(auto* B:ActiveMenuButtons())if(B&&B->GetIsEnabled()){B->SetKeyboardFocus();bInitialMenuFocused=true;break;}}
+ UButton* Focus=nullptr;for(auto* B:ActiveMenuButtons())if(B&&B->HasKeyboardFocus())Focus=B;
+ if(Focus!=LastFocusedButton.Get()){if(auto* Old=LastFocusedButton.Get())Old->SetBackgroundColor(FLinearColor::White);if(Focus)Focus->SetBackgroundColor(FLinearColor(2.f,1.7f,.85f));LastFocusedButton=Focus;}
+}
+FReply UPokeMonsterBattleWidget::NativeOnPreviewKeyDown(const FGeometry& G,const FKeyEvent& E)
+{
+ if(!bClassicPresentation)return Super::NativeOnPreviewKeyDown(G,E);const FKey K=E.GetKey();
+ const int Columns=MenuPage==EPokeMonsterBattleMenu::Team?3:MenuPage==EPokeMonsterBattleMenu::Bag?1:2;
+ if(K==EKeys::Left||K==EKeys::Gamepad_DPad_Left){FocusMenu(-1);return FReply::Handled();}
+ if(K==EKeys::Right||K==EKeys::Gamepad_DPad_Right){FocusMenu(1);return FReply::Handled();}
+ if(K==EKeys::Up||K==EKeys::Gamepad_DPad_Up){FocusMenu(-Columns);return FReply::Handled();}
+ if(K==EKeys::Down||K==EKeys::Gamepad_DPad_Down){FocusMenu(Columns);return FReply::Handled();}
+ const FKey Accept=bNintendoButtonLayout?EKeys::Gamepad_FaceButton_Right:EKeys::Gamepad_FaceButton_Bottom,Cancel=bNintendoButtonLayout?EKeys::Gamepad_FaceButton_Bottom:EKeys::Gamepad_FaceButton_Right;
+ if(K==EKeys::Escape||K==Cancel){MenuBack();return FReply::Handled();}
+ if(K==EKeys::Enter||K==EKeys::SpaceBar||K==Accept){if(!E.IsRepeat())for(auto* B:ActiveMenuButtons())if(B&&B->HasKeyboardFocus()&&B->GetIsEnabled()){B->OnClicked.Broadcast();break;}return FReply::Handled();}
+ return Super::NativeOnPreviewKeyDown(G,E);
+}
+FNavigationReply UPokeMonsterBattleWidget::NativeOnNavigation(const FGeometry& G,const FNavigationEvent& E)
+{
+ if(!bClassicPresentation)return Super::NativeOnNavigation(G,E);const auto N=E.GetNavigationType();const int Columns=MenuPage==EPokeMonsterBattleMenu::Team?3:MenuPage==EPokeMonsterBattleMenu::Bag?1:2;FocusMenu(N==EUINavigation::Up?-Columns:N==EUINavigation::Down?Columns:N==EUINavigation::Left||N==EUINavigation::Previous?-1:1);return FNavigationReply::Stop();
 }
 void UPokeMonsterBattleWidget::BindControls()
 {
@@ -283,6 +357,7 @@ void UPokeMonsterBattleWidget::NativeConstruct()
 		Presenter->OnRoundResolved.AddUniqueDynamic(this,&UPokeMonsterBattleWidget::RoundResolved);
 	}
 	Refresh();
+ if(bClassicPresentation)SetBattleMenu(EPokeMonsterBattleMenu::Commands);
 }
 
 void UPokeMonsterBattleWidget::NativeDestruct()
@@ -420,10 +495,11 @@ void UPokeMonsterBattleWidget::Refresh()
 		if(MoveLabels.IsValidIndex(I) && MoveLabels[I]) MoveLabels[I]->SetText(Move.Name);
 		if(MoveTypeLabels.IsValidIndex(I) && MoveTypeLabels[I]) MoveTypeLabels[I]->SetText(Move.Type);
 		if(MovePPLabels.IsValidIndex(I) && MovePPLabels[I])
-			MovePPLabels[I]->SetText(FText::FromString(FString::Printf(TEXT("PP %d / %d"),Move.CurrentPP,Move.MaxPP)));
+			MovePPLabels[I]->SetText(FText::FromString(FString::Printf(TEXT("AP %d / %d"),Move.CurrentPP,Move.MaxPP)));
 		if(MoveTypeAccents.IsValidIndex(I) && MoveTypeAccents[I])
 			MoveTypeAccents[I]->SetBrush(FSlateRoundedBoxBrush(TypeTint(Move.Type.ToString()),12.0f));
 	}
+	UpdateClassicMenu();
 	if (!bHoldVisuals) OnBattleViewUpdated(View);
 }
 
@@ -525,7 +601,7 @@ FString UPokeMonsterBattleWidget::MoveNameFor(const FPokeMonsterPresentationActi
 	if (Action.MoveId.IsValid())
 	{
 		const FSoftObjectPath Path = UAssetManager::Get().GetPrimaryAssetPath(Action.MoveId);
-		if (const auto* Move = Cast<UPokeMonsterMoveData>(Path.TryLoad())) return Move->DisplayName.ToString();
+		if (const auto* Move = Cast<UPokeMonsterMoveData>(Path.TryLoad())) return Move->GetPlayerFacingName().ToString();
 	}
 	return Action.MoveId.PrimaryAssetName.ToString();
 }

@@ -38,6 +38,7 @@ class POKEMONSTER_API UPokeMonsterMoveData : public UPrimaryDataAsset
 public:
 	virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 	bool IsConfigured() const;
+ FText GetPlayerFacingName()const;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Identity")
 	FName InternalId = NAME_None;

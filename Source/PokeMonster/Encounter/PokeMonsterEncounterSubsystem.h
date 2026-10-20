@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "PokeMonsterBattlePresentationMode.h"
+#include "PokeMonsterBattleEnvironment.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "../Creatures/PokeMonsterCreatureInstance.h"
 #include "PokeMonsterEncounterSubsystem.generated.h"
@@ -38,6 +39,7 @@ struct POKEMONSTER_API FPokeMonsterEncounterStartData
 {
 	GENERATED_BODY()
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") EPokeMonsterBattlePresentationMode PresentationMode=EPokeMonsterBattlePresentationMode::ClassicBattle;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Presentation") EPokeMonsterBattleEnvironment BattleEnvironment=EPokeMonsterBattleEnvironment::Auto;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") FName EncounterId;
 	/** Stable trainer identity for per-session defeat state; empty for other encounters. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") FName TrainerId;
@@ -47,6 +49,7 @@ struct POKEMONSTER_API FPokeMonsterEncounterStartData
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") TArray<FPokeMonsterCreatureInstance> PlayerTeam;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") TArray<FPokeMonsterCreatureInstance> OpponentTeam;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") int32 RandomSeed = 2026;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Presentation") FName BattleRegion;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") TObjectPtr<AActor> SourceActor = nullptr;
 };
 

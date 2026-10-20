@@ -14,6 +14,9 @@ class UScrollBox;
 class UCanvasPanel;
 class UImage;
 class UTextureRenderTarget2D;
+class UTexture2D;
+UENUM(BlueprintType)
+enum class EPokeMonsterBattleMenu : uint8 { Commands, Moves, Team, Bag };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FPokeMonsterWorldPresentationStep, const FPokeMonsterPresentationAction&, Action, FName, Step);
 
@@ -32,12 +35,20 @@ public:
 	void SetWorldPresentation(bool Player3D, bool Opponent3D);
 	void SetClassicPresentation(UTextureRenderTarget2D* Target,bool Player3D,bool Opponent3D);
 	void SetBattleAnchors(FVector2D Player,FVector2D Opponent){PlayerAnchor=Player;OpponentAnchor=Opponent;}
+ void SetBattleGroundAnchors(FVector2D Player,FVector2D Opponent);
 	UFUNCTION(BlueprintPure) bool IsClassicPresentation() const {return bClassicPresentation;}
-	UPROPERTY(BlueprintAssignable) FPokeMonsterWorldPresentationStep OnWorldPresentationStep;
+	UFUNCTION(BlueprintCallable) void SetBattleMenu(EPokeMonsterBattleMenu Page);
+ UFUNCTION(BlueprintPure) EPokeMonsterBattleMenu GetBattleMenu() const {return MenuPage;}
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Input") bool bNintendoButtonLayout=true;
+ UFUNCTION(BlueprintPure) UButton* GetCommandButton(int32 Index)const{return CommandButtons.IsValidIndex(Index)?CommandButtons[Index].Get():nullptr;}
+ UPROPERTY(BlueprintAssignable) FPokeMonsterWorldPresentationStep OnWorldPresentationStep;
 protected:
 	virtual TSharedRef<SWidget> RebuildWidget() override;
 	virtual void NativeConstruct() override;
 	virtual void NativeDestruct() override;
+ virtual void NativeTick(const FGeometry&,float DeltaSeconds)override;
+ virtual FReply NativeOnPreviewKeyDown(const FGeometry&,const FKeyEvent&)override;
+ virtual FNavigationReply NativeOnNavigation(const FGeometry&,const FNavigationEvent&)override;
 	UFUNCTION(BlueprintImplementableEvent, Category="Battle UI") void OnBattleViewUpdated(const FPokeMonsterBattleView& View);
 	UFUNCTION(BlueprintImplementableEvent, Category="Battle UI") void OnBattleRoundResolved(const FPokeMonsterBattleResult& Result);
 	/** Replace placeholder motion/VFX/sound per step without changing the BattleSession. */
@@ -46,8 +57,23 @@ private:
 	enum class EPresentationPhase : uint8 { Windup, Travel, Impact, HP, Message, KO, Gap };
 	void BuildDefaultTree();
 	void BuildClassicTree();
+ void UpdateClassicMenu();
+ void FocusMenu(int32 Direction);
+ TArray<UButton*> ActiveMenuButtons()const;
+ UFUNCTION()void CommandFight();UFUNCTION()void CommandTeam();UFUNCTION()void CommandBag();UFUNCTION()void CommandFlee();UFUNCTION()void MenuBack();
+ UPROPERTY(Transient)TArray<TObjectPtr<UButton>> CommandButtons;
+ UPROPERTY(Transient)TArray<TObjectPtr<UCanvasPanel>> MenuPanels;
+ UPROPERTY(Transient)TObjectPtr<UButton> BackButton;
+ UPROPERTY(Transient)TObjectPtr<UTextBlock> MenuHint;
+ EPokeMonsterBattleMenu MenuPage=EPokeMonsterBattleMenu::Commands;
+ TWeakObjectPtr<UButton> LastFocusedButton;
+ bool bLastMenuBusy=false,bInitialMenuFocused=false;
+ float IntroTime=0.f,ExitTime=0.f;
 	UPROPERTY(Transient) TObjectPtr<UTextureRenderTarget2D> ClassicTarget;
 	UPROPERTY(Transient) TObjectPtr<UImage> ClassicImage;
+ UPROPERTY(Transient) TObjectPtr<UTexture2D> ContactTexture;
+ UPROPERTY(Transient) TArray<TObjectPtr<UImage>> ContactMarks;
+ FVector2D PlayerGroundAnchor=FVector2D(350,450),OpponentGroundAnchor=FVector2D(890,330);
 	bool bClassicPresentation=false;
 	FVector2D PlayerAnchor=FVector2D(350,350),OpponentAnchor=FVector2D(890,235);
 	void BindControls();

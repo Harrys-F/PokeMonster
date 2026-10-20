@@ -881,3 +881,13 @@ die Komposition; keine Bilddateien aus Pokémon-ROMs werden übernommen.
 Die kurzlebige ClassicBattle-Bühne darf eine eigene schattenlose Lesbarkeitsfüllung
 auf Lichtkanal 2 verwenden. Nur ihre kurzlebigen Kreaturen empfangen diesen Kanal;
 Bestandslichter, Oberwelt, Innenraum und globale Renderwerte bleiben unverändert.
+
+## 20.10.2026 – Kampfansicht V2
+Die technische V1-Komposition wird auf ausdrücklichen Auftrag durch größere,
+sicher eingerahmte 3D-Kreaturen, kompakte klassische Menüseiten und vier kleine
+ortsbezogene Bühnen ersetzt. Keine zweite BattleSession, keine neue Map und keine
+Änderung von Oberweltkamera, Sichtkreis, Heilhaus oder Bestandslicht. Kamerapulse
+nur in der SceneCapture; Befehlsauswahl ruhig. Nintendo-Layout A/B ist konfigurierbar.
+Technische Attacken erhalten explizit vorläufige Anzeigenamen statt erfundener
+endgültiger Attackenwerte. Bestehende Flucht-/Heilitem-Lücken werden im Menü offen
+benannt; keine neue Fluchtwahrscheinlichkeit oder Heilzugregel in einem Grafikpass.

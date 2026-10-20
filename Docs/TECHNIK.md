@@ -858,7 +858,7 @@ BattleSession, Presenter, Fang, Team, Trainerzustand, Heilung und Saves bleiben 
 
 ClassicBattle erzeugt nur zur Laufzeit eine `APokeMonsterClassicBattleScene` in
 derselben geladenen Welt, mit ShowOnly-SceneCapture, kollisionsfreien Kreaturen und
-RenderTarget 2560x1040 im 1280x720-UMG-Layout. Eigene Figur hinten links, Gegner vorne
+RenderTarget 2560x1080 im 1280x720-UMG-Layout (Kampfansicht V2). Eigene Figur hinten links, Gegner vorne
 rechts. Meshgröße unverändert; Kameraabstand/Bühnenabstand richten sich nach Bounds.
 Namen/Level/KP, Attacken, Fang und Wechsel verwenden die bestehenden Widgetbindungen.
 Die normale Spielkamera und der Pawn werden nicht umgeschaltet oder teleportiert.
@@ -869,9 +869,50 @@ kurzlebigen Actors auf. Spezialbegegnungen können den bestehenden WorldBattle-P
 mit Originalkamera wählen. Fehlende 3D-Arten behalten vorhandene Prototyp-UI-Figuren;
 keine erfundenen Ersatzmodelle. Noch keine Freigabe beliebiger Groß-/Flugmodelle.
 
-`pm.CreatureReview.Start classic|world` ist ein expliziter Development-Prüfaufruf,
+`pm.CreatureReview.Start classic|world [meadow|forest|cave|ruins]` ist ein expliziter Development-Prüfaufruf,
 kein Gameplaystart und kein Save-Schreiber. `pm.CreatureReview.CaptureLiveUI Name`
-schreibt ausschließlich unter `Saved/GlumandaV11/LiveUI/`, verweigert vorhandene
+schreibt bei `BattleV2_`-Präfix unter `Saved/BattleViewV2/LiveUI/`, sonst unter
+`Saved/GlumandaV11/LiveUI/`, verweigert vorhandene
 Ausgaben und erfasst den tatsächlichen Slate-Spielviewport in seiner echten Größe.
 Kein Offscreen-Widgetrender wird als Viewportfoto bezeichnet. Werkzeuge und Grenzen:
 `Tools/GlumandaV11/README.md`, Gesamtprüfung im Glumanda-V1.1-Bericht.
+
+
+### Kampfansicht V2 – Menüseiten und Umgebungen
+
+Die klassische Ansicht hat eine ruhige 3D-Standardkamera, Gegnerkarte oben links,
+eigene Karte unten rechts und die Seiten Befehle, vier Attackenslots, Team und
+Beutel. AP/KP kommen weiterhin aus der bestehenden BattleSession/Presenter-Ansicht.
+Doppelte sichtbare Logs und winzige Teamstatusanzeigen sind entfernt; Zuginformationen
+erscheinen im gemeinsamen Meldungsfeld. Technische Testattacken erhalten ausdrücklich
+vorläufige, lesbare Namen; IDs, Schaden, Typen und Saveformat ändern sich nicht.
+
+`BattleEnvironment` in Wild-/Trainerprofil und EncounterStartData wählt Auto,
+Meadow, Forest, Cave oder Ruins. Explizite Profile haben Vorrang vor Region/Actor-Tags,
+danach folgen vorhandene Ruinen bzw. mindestens drei nahe Bauminstanzen innerhalb
+650 cm. Bei ISM/HISM werden Weltpositionen der einzelnen Instanzen geprüft, nicht
+nur der Gruppenursprung. Nicht zugeordnete Orte verwenden Wiese. Höhlen werden
+nicht aus unbekannten Ortsnamen erfunden; entsprechende Metadaten müssen gesetzt
+werden. Dies ist Präsentationsmetadatum, keine neue Biome-/Begegnungslogik.
+
+Zehn vorhandene Meshes und drei Bodenmaterialien erzeugen kleine, kollisionsfreie,
+nur im Capture sichtbare Bühnen. Keine neuen Maps oder Änderungen bestehender
+Umgebungsassets. Höhle empfängt nur die isolierte Füllung, Außenvarianten weiterhin
+das vorhandene Licht. Bühne, Kreaturen und Füllung wirken nicht auf Welt-GI oder
+Distanzfelder; ihre dynamischen Schatten sind deaktiviert. Federnde Kontaktmarken
+im Widget folgen projizierten Bodenankern, einschließlich Teamwechsel. Sie sind
+keine physikalischen Schlagschatten. Kamerabewegung endet nach 0,35 Sekunden bei
+exakt derselben Ruhestellung. Glumandas Meshmaß bleibt 60 cm. Bounds-Framing passt
+Abstand und Bühne an; große/flugfähige künftige Modelle brauchen eigene Sichttests.
+
+Steuerkreuz/Stick navigieren das Raster, Nintendo A bestätigt rechts/B unten geht
+zurück; `bNintendoButtonLayout=false` tauscht die logischen Bestätigen/Zurück-Tasten.
+Tastatur und Maus bleiben nutzbar. Nach dem Zug wird der Befehlsfokus wiederhergestellt.
+Die Oberfläche skaliert im 16:9-Referenzlayout, andere Seitenverhältnisse werden
+proportional eingerahmt. Ein-/Ausblendung betrifft nur die Kampfoberfläche.
+
+Fluchtregeln und Heilitems innerhalb eines Kampfzugs fehlen im bestehenden System.
+Flucht zeigt dies ohne Zugverbrauch an; der Beutel nutzt ausschließlich das vorhandene
+Fangkommando und benennt die Heilitem-Lücke. Keine erfundenen finalen Werte oder
+parallele Kampfaktionen. Anleitung: `Tools/BattleViewV2/README.md`;
+Ergebnisse und Einschränkungen: `KAMPFANSICHT_V2_PRUEFBERICHT.md`.

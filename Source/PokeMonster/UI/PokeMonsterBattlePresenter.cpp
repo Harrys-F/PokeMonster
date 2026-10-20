@@ -314,7 +314,7 @@ void UPokeMonsterBattlePresenter::Refresh()
 			const auto& Data = State.SideA.GetMoveSlots()[Slot];
 			auto& MoveView = View.Moves[Slot];
 			const auto* Move = Data.GetMove().LoadSynchronous();
-			MoveView.Name = Move ? Move->DisplayName : FText::FromString(TEXT("Leerer Slot"));
+			MoveView.Name = Move ? Move->GetPlayerFacingName() : FText::FromString(TEXT("Leerer Slot"));
 			MoveView.Type = Move ? TypeName(Move->Type) : FText::GetEmpty();
 			MoveView.CurrentPP = Data.GetCurrentPP(); MoveView.MaxPP = Data.GetMaxPP();
 			const bool bUsable = CanUse(State.SideA, Slot);
@@ -353,7 +353,7 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
 		const FString Other = CreatureView(Target).Name.ToString();
 		FString MoveName = Event.MoveId.PrimaryAssetName.ToString();
 		if (Source.GetMoveSlots().IsValidIndex(Event.SlotIndex))
-			if (const auto* Move = Source.GetMoveSlots()[Event.SlotIndex].GetMove().Get()) MoveName = Move->DisplayName.ToString();
+			if (const auto* Move = Source.GetMoveSlots()[Event.SlotIndex].GetMove().Get()) MoveName = Move->GetPlayerFacingName().ToString();
 		switch (Event.Type)
 		{
 		case EPokeMonsterBattleEventType::MoveChosen: break; // Execution describes the choice in the compact log.
