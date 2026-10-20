@@ -1,0 +1,194 @@
+{
+  "schema": 1,
+  "date": "2026-10-20",
+  "foundation_commit": "f785fd1ff5d8485a17c1f967e735d8b5a28769da",
+  "art_commit": "0bf877efa22869d703d12c0ad9f22d9d004aebf2",
+  "map": "/Game/Maps/Dev_TestMap_VisualV2",
+  "build": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 28.755805730819702
+  },
+  "automation": {
+    "mode": "Automation",
+    "exit": 0,
+    "seconds": 31.75585389137268,
+    "summary": {
+      "succeeded": 50,
+      "succeededWithWarnings": 0,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0
+    }
+  },
+  "map_checks": [
+    {
+      "map": "/Game/Maps/Dev_BattleTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BuildingKitTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_HealingHouseTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_NPCMotionV3",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2EnvironmentQualityV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandAssetLibrary",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandRegion",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandVillage",
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "footrun": {
+    "npc_sprite_fallback_checked": true,
+    "ranger_mesh": "SK_Ranger_NPC_V1",
+    "no_test_teleports": true,
+    "max_speed_cm_s": 315.0000000000118,
+    "original_maps_unchanged": "verified separately by SHA-256, not asserted by this script",
+    "passed": true,
+    "error": null,
+    "distance_m": 286.3251348640847,
+    "game_seconds": 179.37245355546474,
+    "wall_seconds": 212.49249420908745,
+    "save_after_sha256": "643ed794e14f14339d6af27410bee985ba655fee42b9ee4588548d426c2b0b7e"
+  },
+  "foot_steps": 102,
+  "room_boundary_repeat": {
+    "npc_sprite_fallback_checked": true,
+    "ranger_mesh": "SK_Ranger_NPC_V1",
+    "no_test_teleports": true,
+    "max_speed_cm_s": 210.00000000006517,
+    "original_maps_unchanged": "verified separately by SHA-256, not asserted by this script",
+    "passed": true,
+    "error": null,
+    "distance_m": 84.20034544633245,
+    "game_seconds": 51.685505881905556,
+    "wall_seconds": 55.76665466604754,
+    "save_after_sha256": "8cae619609fb3282f5b000102b52f53bcde55121b8e5757d5faa7e1a56c39e74"
+  },
+  "runtime_lighting_and_healer_facing": {
+    "time": 51.542308926582336,
+    "interior_frames": 298,
+    "exterior_frames": 385,
+    "healer_talk_frames": 37,
+    "shots": 4,
+    "phase": false,
+    "settle": 1.3661616705358028,
+    "talk_time": 2.0354956202208996,
+    "errors": [],
+    "last_position": [
+      -3613.2343977595174,
+      423.5802270125951,
+      50.150002702487186
+    ],
+    "passed": true
+  },
+  "user_save_restored": true,
+  "untracked_files_preserved": 53,
+  "other_maps_unchanged": 10,
+  "scope": {
+    "passed": true,
+    "detailed_pre_post": true,
+    "actor_count": 1421,
+    "new_actors": 2,
+    "fern_instances": 224,
+    "outside_actors_lights_shadows_and_pp_unchanged": true,
+    "room_collision_profiles_and_gameplay_properties_preserved": true,
+    "furniture_moved_with_matching_blockers": true
+  },
+  "blender_reopened": [
+    {
+      "file": "Art/Characters/NPCs/SilverLady/Source/SilverLady_HealerPose.blend",
+      "reopened": true,
+      "unchanged_by_check": true,
+      "packed_images": 5,
+      "mesh_objects": 2,
+      "armatures": 1,
+      "actions": 0,
+      "missing_images": []
+    },
+    {
+      "file": "Art/World/VisualV2WorldArtV7/Source/Westland_Ferns.blend",
+      "reopened": true,
+      "unchanged_by_check": true,
+      "packed_images": 0,
+      "mesh_objects": 2,
+      "armatures": 0,
+      "actions": 0,
+      "missing_images": []
+    }
+  ],
+  "qhd_photos": {
+    "pairs": 9,
+    "resolution": [
+      2560,
+      1440
+    ],
+    "screen_percentage": 100,
+    "quality": "High",
+    "mode": "embedded PIE",
+    "same_camera": true,
+    "optional_local_evidence_only": true
+  },
+  "window_flicker": {
+    "status": "Not reliably reproduced; no speculative material/AA/GI fix",
+    "frames_before": 80,
+    "frames_after": 80,
+    "resolution": [
+      1280,
+      720
+    ],
+    "sequences": [
+      "InteriorStill",
+      "InteriorWalk",
+      "ExteriorApproach",
+      "ExteriorReverse"
+    ]
+  },
+  "silver_lady_status": "Static healer pose only; no validated animation rig or clips",
+  "remote_lfs": {
+    "count": 12,
+    "bytes": 61042873,
+    "download_sha256_verified": true
+  },
+  "performance_benchmarks_run": false
+}

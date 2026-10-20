@@ -36,3 +36,13 @@ Vorhandene unbenutzte Mesh-/Materialdaten werden nötigenfalls mit Fake User
 vor unbeabsichtigtem Wegfallen beim Speichern geschützt. Kein Remesh, Export,
 Rigging, Materialumbau oder zusätzliche `.blend1`-Sicherung. Alte Quellen bleiben
 in Git/LFS erreichbar. Nicht pauschal auf andere Quelldateien anwenden.
+
+## Art-Pass V3
+
+`ValidateArtPassV3.py` prüft die aktuelle VisualV2 streng gegen erforderliche Actor-Signaturen und die gezielten Innenraum-/Farn-/Wegmanifeste. Falls die lokale ursprüngliche Szene noch vorhanden ist, prüft es zusätzlich den genauen Vorher-/Nachher-Umfang. `ValidateRefinedArt.py` delegiert bei vorhandenem V3-Signaturvertrag hierher; der ältere Audit bleibt für seinen alten Stand erhalten. Fehlende optionale Kontrollbilder ersetzen keine Geometrie- oder Gameplayprüfung.
+
+`ArtV3Interior.py`, `ArtV3RoomFill.py` und `ArtV3Landscape.py` sind einmalige, gegen erneutes Überschreiben gesicherte Umsetzungsskripte. Nicht blind auf einen schon umgesetzten Stand anwenden. `PoseSilverLady.py` und `BuildWestlandFerns.py` erzeugen nur eigene neue Quellen und Exporte; vorhandene Originale werden nicht überschrieben. Die SilverLady-Armature ist ausschließlich eine statische Pose-Studie.
+
+`RunArtV3Gameplay.py` führt den vorhandenen echten Enhanced-Input-Rundweg aus; `RoomBoundary` ist eine begrenzte Wiederholung für Ein-/Ausgang, Heilen und die exakten Raumgrenzen. Der echte Dev-Spielstand wird für diesen Test unter ignoriertem Saved gehalten und danach bytegleich restauriert. Nicht parallel manuell speichern. `ArtV3RuntimeAudit.py` verwendet dieselbe tatsächliche Raumgrenze wie BuildingCutaway. `ArtV3Photos.py` und `ArtV3WindowMotion.py` erzeugen optionale echte Spielkameraaufnahmen unter `Saved/ArtPassV3`. Foto-Positionierungen sind Diagnose-Teleports und kein Ersatz für den separat durchgeführten Fußlauf. Keine Medien in Git aufnehmen.
+
+`ArtV3MapChecks.py` lädt ausschließlich vorhandene Karten, führt Map Check und die unveränderte Ranger-V3-Regression aus. Ergebnisse und verbleibende Grenzen: `ArtV3Acceptance.json` und `Docs/ART_PASS_V3_HEILHAUS_LANDSCHAFT_PRUEFBERICHT.md`.

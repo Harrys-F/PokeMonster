@@ -791,3 +791,9 @@ Das bestehende Heilhaus V4 und die vorhandenen Landschafts-/Innenraumsysteme ble
 ### 20.10.2026 – Schattenfreier Heilraum über getrennte direkte Beleuchtung
 
 Der neue ausdrückliche Art-Pass-V3-Auftrag ersetzt für das Heilhaus die bisher beibehaltenen sichtbaren Innenraumschlagschatten. Die technische Lösung ist ein opt-in Raumlichtkanal mit unveränderten Außenlichtern; keine globale Lumen-/Skylight-/Shadow-Quality-Abschaltung. Lichtkanäle trennen direkte Beleuchtung, nicht Lumen-GI. Räumliche Materialwirkung und indirekte Umgebungslichtwirkung werden visuell gesondert geprüft. Ein vorhandenes ungeriggtes SilverLady-Modell darf über den vorhandenen NPC-Präsentationspfad angebunden werden, ohne es als bereits animationsfertig auszugeben oder den Heilpunkt zu ersetzen.
+
+### 20.10.2026 – Art-Pass V3: begrenzte Innenraumaktivierung, Fensterbefund bleibt offen
+
+Die geprüfte opt-in Innenraumbeleuchtung wird nur am bestehenden VisualV2-Heilhaus aktiviert. Eine zusätzliche schattenlose, direkte Raumleuchte verwendet ausschließlich Kanal 1 und keinen indirekten Beitrag. Außenbeleuchtung und Außenschatten bleiben auf dem bisherigen Stand. Die bestehende Heilpunkt-Logik erhält eine optionale statische SilverLady-Präsentation mit korrektem Vorwärts-Offset auch bei Gesprächsdrehungen. Dies ist keine Freigabe eines Animationsrigs. Die Raummitte wird durch gemeinsam verschobene Möbelansichten und Kollisionsblocker frei; es entstehen keine neuen Gameplay-Systeme.
+
+Fensterflackern wird mangels sicherer Reproduktion nicht durch Änderungen an TAA, Lumen, Belichtung oder Fenstermaterialien kaschiert. Der offene Befund bleibt im V3-Prüfbericht erhalten. Neue Farnvarianten und moderate Weg-/Albedovariation behalten V7, Instanzen, Kollision und Außenlicht. Technische Sicherung und visuelle Freigabe sind getrennt; die QHD-Bildpaare dienen Harrys Abnahme.

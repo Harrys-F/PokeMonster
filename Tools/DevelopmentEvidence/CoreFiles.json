@@ -8586,8 +8586,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 113788,
-      "sha256": "3234b0bd05de49834563f6b1225b6785dae6decc7b283d930fbde60dda357515"
+      "bytes": 114888,
+      "sha256": "1f61a7e174e017429ed9a62f40e159b0108486816181b0727e8f200b44305985"
     },
     "Docs/GRAFIKSTIL.md": {
       "bytes": 13867,
@@ -8674,8 +8674,8 @@
       "sha256": "cb4d28f53a50b73e952a013afd156e8afe62c2845ccacdc8fd91c4b7cd9f8350"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 133955,
-      "sha256": "47c2444b0e2161224477fd73466c864c8a01e3e6338556d6ee57d72e5cceecb4"
+      "bytes": 135404,
+      "sha256": "875e25cbebb653c3002174269b8c9a398b88236462296cd30567264a449e3f61"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -11010,8 +11010,8 @@
       "sha256": "c3c80079489ddd7035692ed14c9c6149a0f0fcb7170d5bb8a49de5123642daf8"
     },
     "Tools/ProjectMaintenance/README.md": {
-      "bytes": 2526,
-      "sha256": "712efe585de624a6e207472f61b7d526c892dc1227f2c78354c27993494704bd"
+      "bytes": 4354,
+      "sha256": "9875e20ec5339d8d9793b25789165543c09cc8bea071dd9c2233c5283165d325"
     },
     "Tools/ProjectMaintenance/RunGameplay.py": {
       "bytes": 2560,
@@ -14332,6 +14332,14 @@
     "Tools/ProjectMaintenance/ValidateArtPassV3.py": {
       "bytes": 5714,
       "sha256": "021dd86dfabcd66dbb2d9c85cf0a43c129ae08bc88707b52125acb3ab4da7f89"
+    },
+    "Docs/ART_PASS_V3_HEILHAUS_LANDSCHAFT_PRUEFBERICHT.md": {
+      "bytes": 17820,
+      "sha256": "b5ab9c3260395542d8c53cedb7ae6c64d1f70ee642c9200b30521622fbf3b70b"
+    },
+    "Tools/ProjectMaintenance/ArtV3Acceptance.json": {
+      "bytes": 4940,
+      "sha256": "378ffbfd0442de342944f002204a6841dc6954108a4a3889505e84f6cc6ecb5c"
     }
   }
 }
