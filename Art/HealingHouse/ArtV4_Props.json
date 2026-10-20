@@ -1,0 +1,81 @@
+{
+  "source": "Art/HealingHouse/Source/HealingHouse_ArtV4.blend",
+  "units": "m",
+  "assets": [
+    {
+      "name": "FlagstoneApron",
+      "vertices": 7000,
+      "triangles": 13500,
+      "zero_area_faces": 0,
+      "uv": true,
+      "materials": 1
+    },
+    {
+      "name": "Hearth",
+      "vertices": 968,
+      "triangles": 1820,
+      "zero_area_faces": 0,
+      "uv": true,
+      "materials": 1
+    },
+    {
+      "name": "HearthFlames",
+      "vertices": 35,
+      "triangles": 21,
+      "zero_area_faces": 0,
+      "uv": true,
+      "materials": 1
+    },
+    {
+      "name": "RemedyCabinet",
+      "vertices": 4708,
+      "triangles": 7824,
+      "zero_area_faces": 0,
+      "uv": true,
+      "materials": 1
+    },
+    {
+      "name": "BedCanopy",
+      "vertices": 771,
+      "triangles": 1328,
+      "zero_area_faces": 0,
+      "uv": true,
+      "materials": 1
+    },
+    {
+      "name": "HerbalBanner",
+      "vertices": 349,
+      "triangles": 592,
+      "zero_area_faces": 0,
+      "uv": true,
+      "materials": 1
+    },
+    {
+      "name": "HerbalWindowShelf",
+      "vertices": 859,
+      "triangles": 1184,
+      "zero_area_faces": 0,
+      "uv": true,
+      "materials": 1
+    },
+    {
+      "name": "FallenBranch",
+      "vertices": 120,
+      "triangles": 228,
+      "zero_area_faces": 0,
+      "uv": true,
+      "materials": 1
+    },
+    {
+      "name": "WovenRug",
+      "vertices": 1650,
+      "triangles": 3296,
+      "zero_area_faces": 0,
+      "uv": true,
+      "materials": 1
+    }
+  ],
+  "reopened": true,
+  "new_maps": false,
+  "purpose": "Existing room dressing; shell/openings/colliders are retained; no paid assets"
+}

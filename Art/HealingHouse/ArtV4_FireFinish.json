@@ -1,0 +1,10 @@
+{
+  "emissive_linear_RGB": [
+    0.6,
+    0.105,
+    0.012
+  ],
+  "extra_lights": 0,
+  "cast_shadows": false,
+  "reason": "Initial vertex-color emission clipped to pale shapes; restrained fixed warm emission"
+}

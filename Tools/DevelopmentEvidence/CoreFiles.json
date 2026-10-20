@@ -2,8 +2,8 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "7d7b5bc199dc153b83bd614bd8233855e28dbf58",
-  "snapshot_kind": "checked_primary_project_after_relocation",
-  "generated_at": "2026-10-19T22:51:02.529232+02:00",
+  "snapshot_kind": "checked_grafikpass_v4_primary_project",
+  "generated_at": "2026-10-20",
   "files": {
     ".codex/config.toml": {
       "bytes": 59,
@@ -7714,8 +7714,8 @@
       "sha256": "0713ab60af941e18a7451589239b2ae642c32f48e422f311c01eb012ec54ba95"
     },
     "Content/Environment/WestlandAssetLibrary/Materials/MI_WLA_MossStone.uasset": {
-      "bytes": 11509,
-      "sha256": "69c4d2d819be3052fdbabe71d71bec4a715661a47790078bdf188192b11d23c8"
+      "bytes": 11633,
+      "sha256": "e9bc2b3b51b04ffaa2eb34124437f0efcbd95d28f12642cd8769c6d9c69fd9d6"
     },
     "Content/Environment/WestlandAssetLibrary/Materials/MI_WLA_Rune.uasset": {
       "bytes": 9301,
@@ -8538,8 +8538,8 @@
       "sha256": "d9855c7a10dee76c73ab260871e220abc2371ef61e91d269b145a498bd26176f"
     },
     "Content/Maps/Dev_TestMap_VisualV2.umap": {
-      "bytes": 3938667,
-      "sha256": "769c9723f7c81921a0ff2e22eaa7259eaa3179fde02df2234c73faf7c00bd211"
+      "bytes": 4131654,
+      "sha256": "6aebb42a7883e8a983dc3b5c3b29e711c6762ed03a79b7ccd762ba1ee55f722a"
     },
     "Content/Maps/Dev_TestMap_VisualV2GPUBottleneckV1.umap": {
       "bytes": 3300685,
@@ -11010,8 +11010,8 @@
       "sha256": "c3c80079489ddd7035692ed14c9c6149a0f0fcb7170d5bb8a49de5123642daf8"
     },
     "Tools/ProjectMaintenance/README.md": {
-      "bytes": 4354,
-      "sha256": "9875e20ec5339d8d9793b25789165543c09cc8bea071dd9c2233c5283165d325"
+      "bytes": 7074,
+      "sha256": "7098f4e54ebfd68f893d38c31a78d7c7a27e2e8d4ed6918579312554578ff858"
     },
     "Tools/ProjectMaintenance/RunGameplay.py": {
       "bytes": 2560,
@@ -14126,16 +14126,16 @@
       "sha256": "bc609b4b1ac0f54ce30a82a282d322f6ff198984d63db4f8752df867dfa7a206"
     },
     "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_LandscapeGround.uasset": {
-      "bytes": 44886,
-      "sha256": "1bb59f64c2090fdd488a12f7006eea2c1c8aee6f972051c53f7279016e878ff2"
+      "bytes": 45779,
+      "sha256": "a68aecaccf64846750cc3b6b6982965a7461743bdf52e954d8a900ffc82485f7"
     },
     "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_LandscapeMainPath.uasset": {
-      "bytes": 61935,
-      "sha256": "3224396ec240bafea0183504e1179ee23bc52ab0cb27db3cf187a63e1f146fc1"
+      "bytes": 63259,
+      "sha256": "d6fa5b863c859913e3b188bfe352f2e6326bf65b0be1ef2f300261025ace0590"
     },
     "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_LandscapeNorthPath.uasset": {
-      "bytes": 64300,
-      "sha256": "42532dbeddf694a63a1471acc6d5a7eb01078c6799b58c4a3ba5923783969758"
+      "bytes": 65630,
+      "sha256": "fec235fe8efb2b5f80c5248f6aa36d2e5461169aaf4cf9249a427ef7bd454b6f"
     },
     "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_RefinedPlaster.uasset": {
       "bytes": 19115,
@@ -14218,8 +14218,8 @@
       "sha256": "3059b9e548db4c8889bf8ae4d43d351d1a1a3e29158bf1ccfba47270ece41b8b"
     },
     "Tools/ProjectMaintenance/ValidateRefinedArt.py": {
-      "bytes": 5133,
-      "sha256": "d87617785406407285681ef073de54b21ba419295fa7dec763c1532c66705ecb"
+      "bytes": 5274,
+      "sha256": "97b50e8c4247fd453944d80a84c3df2b0c42bfda47698358ebca808c6061628b"
     },
     "Tools/ProjectMaintenance/VerifyRemoteLFS.py": {
       "bytes": 2453,
@@ -14340,6 +14340,286 @@
     "Tools/ProjectMaintenance/ArtV3Acceptance.json": {
       "bytes": 4940,
       "sha256": "378ffbfd0442de342944f002204a6841dc6954108a4a3889505e84f6cc6ecb5c"
+    },
+    "Art/Characters/NPCs/SilverLady/ArtV4_Healer.json": {
+      "bytes": 3945,
+      "sha256": "a9700a382c95d66d730c220b5f37b6c21d2893ef5285fe8217ff5167948006a1"
+    },
+    "Art/Characters/NPCs/SilverLady/ArtV4_Unreal.json": {
+      "bytes": 1023,
+      "sha256": "a8f2a7fa901e16c92f0ca7c232da1d6e428a2efcba158c8330bcdd8a34fbc56c"
+    },
+    "Art/Characters/NPCs/SilverLady/Exports/A_WestlandHealer_Idle.fbx": {
+      "bytes": 10890860,
+      "sha256": "6e7b1762b3e6480dded04d1ba287df45c3490dd2eb419701b4973bc770d65e60"
+    },
+    "Art/Characters/NPCs/SilverLady/Exports/SK_WestlandHealer_ArtV4.fbx": {
+      "bytes": 10839820,
+      "sha256": "644420e82b04bfd8895d68952ef2e915800058e1d1857181b73879cfd6fa10ad"
+    },
+    "Art/Characters/NPCs/SilverLady/Source/Westland_Healer_ArtV4.blend": {
+      "bytes": 47695559,
+      "sha256": "6fed7a4f4add55299f1e71bb10a4c09e393c7066a912642955f929a089cc8b38"
+    },
+    "Art/HealingHouse/ArtV4_FinalLayout.json": {
+      "bytes": 1037,
+      "sha256": "b463830fb8e8ff43d8173d5f28223cc844bcc17d12aed978fda8d593eb9af536"
+    },
+    "Art/HealingHouse/ArtV4_FireFinish.json": {
+      "bytes": 210,
+      "sha256": "04facf1eb5ed38b7e279f11db79a976144776c214c2f76f3df24e894cdbbc442"
+    },
+    "Art/HealingHouse/ArtV4_FurnitureMoves.json": {
+      "bytes": 7864,
+      "sha256": "f366c562f8ae3952928d72893b3b1eff0a64be055c70656923ae7ff64248ea18"
+    },
+    "Art/HealingHouse/ArtV4_HearthPlacement.json": {
+      "bytes": 214,
+      "sha256": "32a797230b4aff50d3c1f15e4236a6ec3a0ca62f47b1c3f24171e7f1ff37a441"
+    },
+    "Art/HealingHouse/ArtV4_Interior.json": {
+      "bytes": 13725,
+      "sha256": "31010e8bb5b7d03516504dab18626746e4173f60b2132180c2acb78b9abf9076"
+    },
+    "Art/HealingHouse/ArtV4_Props.json": {
+      "bytes": 1651,
+      "sha256": "b97266f2b7bbcbbc993f456ae8a90dd2a2801f3c4575211bd29d92b1ce87d432"
+    },
+    "Art/HealingHouse/ArtV4_Reference.json": {
+      "bytes": 486,
+      "sha256": "dd5d5657c1116a9e294b8994085de7a8f776d58b8395b46ca4ef12588b1e1194"
+    },
+    "Art/HealingHouse/ArtV4_RugUV.json": {
+      "bytes": 302,
+      "sha256": "6f9b2ce1a8b310fb65efa5f5d7dbad154d74b1f2cbb8f1091189d43f5e6aa858"
+    },
+    "Art/HealingHouse/ArtV4_StoneUsageProof.json": {
+      "bytes": 444,
+      "sha256": "89f06b20daf0bf196b66184123e61601b2a735dcc64ee3b304c6a8631444153c"
+    },
+    "Art/HealingHouse/Exports/SM_HH4_BedCanopy.fbx": {
+      "bytes": 39756,
+      "sha256": "605adc645a2fd33ea9f1c0b01d1b02690a22f2edb0361636b3af8d83971a071f"
+    },
+    "Art/HealingHouse/Exports/SM_HH4_FallenBranch.fbx": {
+      "bytes": 21996,
+      "sha256": "cabb67108a91557fab4ebfb89b0b1e0d60131c81cefb36e6fb85c924af9c25ba"
+    },
+    "Art/HealingHouse/Exports/SM_HH4_FlagstoneApron.fbx": {
+      "bytes": 289596,
+      "sha256": "61b38c31b32b9fab724ed61250e9573f9769149e14d6e634e9b9521baeca7beb"
+    },
+    "Art/HealingHouse/Exports/SM_HH4_Hearth.fbx": {
+      "bytes": 56076,
+      "sha256": "06f72c8c6785ae217f8b72540fa66aed02ad10acfe98c882703a6631a6a33997"
+    },
+    "Art/HealingHouse/Exports/SM_HH4_HearthFlames.fbx": {
+      "bytes": 16620,
+      "sha256": "72d1036b94656152dc523e66750cdd53b733bce683f92343f48f00727528a022"
+    },
+    "Art/HealingHouse/Exports/SM_HH4_HerbalBanner.fbx": {
+      "bytes": 30700,
+      "sha256": "2ca170f75198b886945c9baf6bae0aaaf2edc5460160f3a7fee282c54f599401"
+    },
+    "Art/HealingHouse/Exports/SM_HH4_HerbalWindowShelf.fbx": {
+      "bytes": 52492,
+      "sha256": "41abb6127e7558af0e4d1cda429c81599a062da06481afb17100f7941695c174"
+    },
+    "Art/HealingHouse/Exports/SM_HH4_RemedyCabinet.fbx": {
+      "bytes": 188044,
+      "sha256": "6b4e88478303be818c529493bff40c6d976b2603df9d149de9208a8647a9e145"
+    },
+    "Art/HealingHouse/Exports/SM_HH4_WovenRug.fbx": {
+      "bytes": 79628,
+      "sha256": "52441c314fb0676cc1d6f5456256bcd46701b0bfcd8e6477bc6dbd7ac95e6023"
+    },
+    "Art/HealingHouse/References/ArtV4_UserConcept.jpg": {
+      "bytes": 259452,
+      "sha256": "76c628e1cfeae356a3cbd0a9cd3bb1542373f8fdfb6e6dccb5c4a8dd647e18eb"
+    },
+    "Art/HealingHouse/Source/HealingHouse_ArtV4.blend": {
+      "bytes": 666700,
+      "sha256": "2c92a86a0287d9c2ac02dc60fc56aa7d7a9b25900fdff930c0f891c64e04d73f"
+    },
+    "Art/World/VisualV2WorldArtV7/ArtV4_Landscape.json": {
+      "bytes": 302462,
+      "sha256": "e3d0f3747fe040d0805012ad50869af2a3bd325352bdbd673c78ba752aadb521"
+    },
+    "Art/World/VisualV2WorldArtV7/ArtV4_PathGraphs.json": {
+      "bytes": 186717,
+      "sha256": "7b8840cf5a3be3a3ff6949c9399b886144f8aa808774233abb5a4ecb1032bbd4"
+    },
+    "Content/Characters/NPCs/SilverLady/HealerArtV4/Animations/A_WestlandHealer_Idle.uasset": {
+      "bytes": 49701,
+      "sha256": "a260cd49c0b826f9da96a1458d5e536cd3ae5092d493c930b442ee4427140f67"
+    },
+    "Content/Characters/NPCs/SilverLady/HealerArtV4/Materials/M_WestlandHealer_HerbalLinen.uasset": {
+      "bytes": 16885,
+      "sha256": "0017fef9d325166587e23aee8ac9ffe3f401f819432bcb243d5f475427fb2000"
+    },
+    "Content/Characters/NPCs/SilverLady/HealerArtV4/Meshes/SK_WestlandHealer_ArtV4.uasset": {
+      "bytes": 38621365,
+      "sha256": "e5438fb00098d0ca1c620d8f41678e6c5563edd32793440a57cd0364a1c2a4db"
+    },
+    "Content/Characters/NPCs/SilverLady/HealerArtV4/Meshes/SK_WestlandHealer_ArtV4_Skeleton.uasset": {
+      "bytes": 8368,
+      "sha256": "b3a00f4136bc3cbcbc4d6a53298ed99026635e2ba840ea90f51adc82718389d4"
+    },
+    "Content/Environment/HealingHouse/ArtV4/Materials/M_HH4_BedLinen.uasset": {
+      "bytes": 16257,
+      "sha256": "0e2e17a4a7d9503ebb47991643c0c038b83f38523a4e29f341a2b090c7806a83"
+    },
+    "Content/Environment/HealingHouse/ArtV4/Materials/M_HH4_Flagstone.uasset": {
+      "bytes": 14864,
+      "sha256": "1df6d1ecb6ee07e445bdd05308c35aa589b9741fe0ad87811f7c208d120ff99f"
+    },
+    "Content/Environment/HealingHouse/ArtV4/Materials/M_HH4_HearthGlow.uasset": {
+      "bytes": 8823,
+      "sha256": "984681e31163c9afd9e4fba0c50427572f61d90f50e7aab9dc19ae79ff05e036"
+    },
+    "Content/Environment/HealingHouse/ArtV4/Materials/M_HH4_HerbalWoven.uasset": {
+      "bytes": 17080,
+      "sha256": "a27f711ec9c237ffb147275cd3a6c8f1d9ed1b1f832ca67998b8443c9085a9c5"
+    },
+    "Content/Environment/HealingHouse/ArtV4/Materials/M_HH4_OakFloor.uasset": {
+      "bytes": 20378,
+      "sha256": "c5c6d7d1869680507d250469f4c2af907e87d27b158927c5aa275c4c433ee0b8"
+    },
+    "Content/Environment/HealingHouse/ArtV4/Meshes/SM_HH4_BedCanopy.uasset": {
+      "bytes": 99600,
+      "sha256": "ed27f90a07e4b966d9c9efec68c65871ae822953cfd7cec27aebcb83869dc675"
+    },
+    "Content/Environment/HealingHouse/ArtV4/Meshes/SM_HH4_FallenBranch.uasset": {
+      "bytes": 78522,
+      "sha256": "12ca5f26088e4e1a10da92d07f1a640bff8d08d87fd99075426cca62c31222ba"
+    },
+    "Content/Environment/HealingHouse/ArtV4/Meshes/SM_HH4_FlagstoneApron.uasset": {
+      "bytes": 372223,
+      "sha256": "b363f6e7c01434a48ed6e95c8a4508bc06386dc524835c6811c2dfa8c5ade971"
+    },
+    "Content/Environment/HealingHouse/ArtV4/Meshes/SM_HH4_Hearth.uasset": {
+      "bytes": 134865,
+      "sha256": "4a3556f48e2356ba465b9a876464aaaa2f5750abd499fb0d32d5770c8b5c1f25"
+    },
+    "Content/Environment/HealingHouse/ArtV4/Meshes/SM_HH4_HearthFlames.uasset": {
+      "bytes": 72565,
+      "sha256": "a9d5cc515b6c0806ae1cab3232c99244c7d76f8e2a84bb390f76db2745b15f93"
+    },
+    "Content/Environment/HealingHouse/ArtV4/Meshes/SM_HH4_HerbalBanner.uasset": {
+      "bytes": 91408,
+      "sha256": "6f7760b4058c35522b88b3fdb52d7d51f93cbdb9dadad5762321c4eb625a715f"
+    },
+    "Content/Environment/HealingHouse/ArtV4/Meshes/SM_HH4_HerbalWindowShelf.uasset": {
+      "bytes": 114299,
+      "sha256": "63799509b65d56f359674d6f6baffd52c0824bcf7051bc601d15e15972e42dcb"
+    },
+    "Content/Environment/HealingHouse/ArtV4/Meshes/SM_HH4_RemedyCabinet.uasset": {
+      "bytes": 271745,
+      "sha256": "ece1fb32ee0d4a1342f5ab0fe6ad695152889a615f944f722a2c5b41737f0418"
+    },
+    "Content/Environment/HealingHouse/ArtV4/Meshes/SM_HH4_WovenRug.uasset": {
+      "bytes": 140487,
+      "sha256": "c9278d05150ff946412b5084285a64b0d10f233dc68afbce05997265cf65bdde"
+    },
+    "Tools/ProjectMaintenance/ArtV4ComposeFinish.py": {
+      "bytes": 1475,
+      "sha256": "a99f874930a263f464b835975f54365a81aac27354972a1e29f43629c6646b01"
+    },
+    "Tools/ProjectMaintenance/ArtV4FinalComposition.py": {
+      "bytes": 1966,
+      "sha256": "3ef2e5f24991550d5fba64873d347053954098160e00198ac1a08c830a676bb1"
+    },
+    "Tools/ProjectMaintenance/ArtV4FireFinish.py": {
+      "bytes": 1081,
+      "sha256": "0b44930ce04ea875f010ea70e3c407d37f34817679647243eab1cf18ee3afb1c"
+    },
+    "Tools/ProjectMaintenance/ArtV4FurnitureCollision.py": {
+      "bytes": 2351,
+      "sha256": "34becec4f43c54b9dacef4553df79a821fcda249ec111be0d5793889a5af2961"
+    },
+    "Tools/ProjectMaintenance/ArtV4Healer.py": {
+      "bytes": 6464,
+      "sha256": "ebdb0f6d43fd26ebeeb4752a9218f9a7bc7b4bce176047d6e0963f75e20efdc5"
+    },
+    "Tools/ProjectMaintenance/ArtV4IdleReview.py": {
+      "bytes": 1929,
+      "sha256": "72ce88ed60b5f3cb6d7e97f924969698694156b73bbdf5a76470104ddbe39b59"
+    },
+    "Tools/ProjectMaintenance/ArtV4Interior.py": {
+      "bytes": 9682,
+      "sha256": "c6cc85c940e92a705a93b05cdc499b7d65e2971592fca74e7b98329591b14669"
+    },
+    "Tools/ProjectMaintenance/ArtV4Landscape.py": {
+      "bytes": 7623,
+      "sha256": "55d39b2bb630f0db15a5ef826fb4c2b514899d8ab0da3d3cf1e274171c05459c"
+    },
+    "Tools/ProjectMaintenance/ArtV4MapChecks.py": {
+      "bytes": 1472,
+      "sha256": "584cda0f87e8fd55775b1e6abcf9a45fbd1b4d52f4a7f941f78ee0f2d38b9f0c"
+    },
+    "Tools/ProjectMaintenance/ArtV4MaterialFingerprint.py": {
+      "bytes": 2161,
+      "sha256": "b3b1496b22477c3f814593b77772925ca9b9cfb2c32adea83a8a1cc28e6f2f7a"
+    },
+    "Tools/ProjectMaintenance/ArtV4Photos.py": {
+      "bytes": 2436,
+      "sha256": "6b205a5a31ae046720ed19cf3f6320b38eeebfe58b4bffc05b3754c8c54c6140"
+    },
+    "Tools/ProjectMaintenance/ArtV4RuntimeAudit.py": {
+      "bytes": 2956,
+      "sha256": "bafe7dd5f8dc08a70624866a57518c6d9a6ea5ab64198fe7a21aec7336cdea33"
+    },
+    "Tools/ProjectMaintenance/ArtV4SaveStoneUsage.py": {
+      "bytes": 1424,
+      "sha256": "319e6d80d411bcc08f836372be53b4d49dcaef9bca4b776ebd7234ef556ce2a0"
+    },
+    "Tools/ProjectMaintenance/ArtV4Signatures.json": {
+      "bytes": 136147,
+      "sha256": "7d0d011086d9af3907bbadbddd383147d48be9f6065d2f19fb4d057a577e3341"
+    },
+    "Tools/ProjectMaintenance/ArtV4WindowMotion.py": {
+      "bytes": 2638,
+      "sha256": "357895f928700baa5be41660a60ca94165b4c6ca995b83343583d7553ed9f49a"
+    },
+    "Tools/ProjectMaintenance/BuildHealerV4.py": {
+      "bytes": 6102,
+      "sha256": "f4637e836420caadb8a330ca3f92829074470fdf21ebb4edd7786960d695916b"
+    },
+    "Tools/ProjectMaintenance/BuildHealingArtV4.py": {
+      "bytes": 9933,
+      "sha256": "70ba05ebbabae944f14c103812e05bf6ef8d931e8469b3277fbd92adb5e6d29f"
+    },
+    "Tools/ProjectMaintenance/BuildHealingRug.py": {
+      "bytes": 2046,
+      "sha256": "a7565de23cbd9cfca688beae51f8b9fdef4bcf6304669c7cf5d306e04372d103"
+    },
+    "Tools/ProjectMaintenance/CorrectHealingArtV4.py": {
+      "bytes": 4750,
+      "sha256": "5d7c1a2f01b62faeb33d2cf3b954cc8286f96da01babbbdbcd243c08c2d740b9"
+    },
+    "Tools/ProjectMaintenance/FinishHealingArtV4.py": {
+      "bytes": 2104,
+      "sha256": "bfe6d4a678c22b81b14f365131fea5b671811c4e55080759823ac0335b2ceaed"
+    },
+    "Tools/ProjectMaintenance/FixHealingRugUV.py": {
+      "bytes": 1660,
+      "sha256": "fe3b9c5ae67059d7b21f739077bd290125c5edc8abd22575e83405235ee7c460"
+    },
+    "Tools/ProjectMaintenance/ReimportHealingRug.py": {
+      "bytes": 1695,
+      "sha256": "17a7ff0bb2a5c0e9de1618f9cc7c12c81cd1a940f220c3fbe364159c18e57044"
+    },
+    "Tools/ProjectMaintenance/RunArtV4Gameplay.py": {
+      "bytes": 4364,
+      "sha256": "13ef11d9aa3bf7547072264d807f303bdf8ea001d053113d42bc83b9bfa4f78d"
+    },
+    "Tools/ProjectMaintenance/ValidateArtPassV4.py": {
+      "bytes": 6495,
+      "sha256": "8fd05ac7eaca93b41c3a5b56feb7b22452c946c2e8ee0a7f8ef18250d5657d9f"
+    },
+    "Tools/ProjectMaintenance/ArtV4Acceptance.json": {
+      "bytes": 12792,
+      "sha256": "e210c0a915b0ab2daed7d50c1d5c08449ecd351c17ee2bd54ab99662b8ff1ada"
     }
   }
 }

@@ -1,0 +1,29 @@
+{
+  "actor": "PokeMonsterNPCVisualActor_1",
+  "mesh": "/Game/Characters/NPCs/SilverLady/HealerArtV4/Meshes/SK_WestlandHealer_ArtV4.SK_WestlandHealer_ArtV4",
+  "skeleton": "/Game/Characters/NPCs/SilverLady/HealerArtV4/Meshes/SK_WestlandHealer_ArtV4_Skeleton.SK_WestlandHealer_ArtV4_Skeleton",
+  "idle": "/Game/Characters/NPCs/SilverLady/HealerArtV4/Animations/A_WestlandHealer_Idle.A_WestlandHealer_Idle",
+  "seconds": 4.0,
+  "material": "/Game/Characters/NPCs/SilverLady/HealerArtV4/Materials/M_WestlandHealer_HerbalLinen.M_WestlandHealer_HerbalLinen",
+  "no_physics_asset": true,
+  "source_actor_unchanged": "PokeMonsterRestPoint_1",
+  "scale": [
+    0.905,
+    0.905,
+    0.905
+  ],
+  "limits": "3 deform bones plus FBX helper root; quiet 4-second idle only; no walk or dedicated talk gesture",
+  "presentation_forward_yaw_offset": 0,
+  "presentation_initial_yaw": 180,
+  "deform_bones": [
+    "root",
+    "chest",
+    "head"
+  ],
+  "unreal_bones": [
+    "Westland_Healer_Idle",
+    "root",
+    "chest",
+    "head"
+  ]
+}

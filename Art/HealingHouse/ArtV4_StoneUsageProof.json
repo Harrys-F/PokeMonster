@@ -1,0 +1,8 @@
+{
+  "same_nodes_and_links": true,
+  "same_parent_and_texture_scalar_vector_values": true,
+  "same_all_root_properties": true,
+  "only_difference": "MaterialInstance base-property override: InstancedStaticMeshes usage bit 128. No color, texture, roughness, emissive, shading or geometry changes.",
+  "original_file_same_sha256": true,
+  "safe_plan": "Keep the current usage-bit update and save this exact asset; no reload, no discarded state."
+}

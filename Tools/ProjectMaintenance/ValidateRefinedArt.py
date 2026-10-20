@@ -2,7 +2,10 @@
 from pathlib import Path
 import unreal,runpy
 _v3=Path(unreal.Paths.project_dir()).resolve()/'Tools/ProjectMaintenance/ArtV3Signatures.json'
-if _v3.exists():
+_v4=_v3.with_name('ArtV4Signatures.json')
+if _v4.exists():
+ runpy.run_path(str(_v4.with_name('ValidateArtPassV4.py')),run_name='__main__')
+elif _v3.exists():
  runpy.run_path(str(_v3.with_name('ValidateArtPassV3.py')),run_name='__main__')
 else:
  """Strict saved VisualV2 scope, material graph, import and zero-new-collision validation."""

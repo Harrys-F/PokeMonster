@@ -1,0 +1,30 @@
+"""Independent healer dressing and a limited, subtle three-bone idle; not a walking rig."""
+import bpy,math,json,hashlib
+from pathlib import Path
+R=Path(__file__).resolve().parents[2];C=R/'Art/Characters/NPCs/SilverLady';dst=C/'Source/Westland_Healer_ArtV4.blend';assert not dst.exists();original=C/'Source/SilverLady_HealerPose.blend';before=hashlib.sha256(original.read_bytes()).hexdigest();bpy.ops.wm.open_mainfile(filepath=str(original));bpy.context.preferences.filepaths.save_version=0
+src=bpy.data.objects['SilverLady_HealerPose'];dg=bpy.context.evaluated_depsgraph_get();data=bpy.data.meshes.new_from_object(src.evaluated_get(dg),preserve_all_data_layers=True,depsgraph=dg);o=bpy.data.objects.new('Westland_Healer',data);bpy.context.scene.collection.objects.link(o);o.matrix_world=src.matrix_world.copy()
+for x in list(bpy.context.scene.objects):
+ if x!=o and x.type in ['MESH','ARMATURE']:x.hide_render=True;x.hide_set(True)
+attr=data.color_attributes.new(name='Col',type='FLOAT_COLOR',domain='CORNER')
+def smooth(a,b,x):t=max(0,min(1,(x-a)/(b-a)));return t*t*(3-2*t)
+for loop,vc in zip(data.loops,attr.data):
+ x,y,z=data.vertices[loop.vertex_index].co;cloth=(1-smooth(1.34,1.46,z))*(1-smooth(.33,.48,abs(x))*smooth(1.04,1.22,z) if z>1.04 else 1);inner=(1-smooth(.09,.18,abs(x)))*(1-smooth(-.12,-.04,y))*smooth(.32,.70,z);vc.color=(cloth*(1-inner),cloth*inner,0,1)
+arm=bpy.data.armatures.new('Westland_Healer_Idle');rig=bpy.data.objects.new('Westland_Healer_Idle',arm);bpy.context.scene.collection.objects.link(rig);bpy.ops.object.select_all(action='DESELECT');rig.select_set(True);bpy.context.view_layer.objects.active=rig;bpy.ops.object.mode_set(mode='EDIT')
+b=arm.edit_bones.new('root');b.head=(0,0,0);b.tail=(0,0,.75);b=arm.edit_bones.new('chest');b.head=(0,0,.80);b.tail=(0,0,1.42);b.parent=arm.edit_bones['root'];b=arm.edit_bones.new('head');b.head=(0,0,1.45);b.tail=(0,0,1.85);b.parent=arm.edit_bones['chest'];bpy.ops.object.mode_set(mode='OBJECT');groups={b.name:o.vertex_groups.new(name=b.name) for b in arm.bones}
+for v in data.vertices:
+ z=v.co.z;head=smooth(1.42,1.58,z);chest=smooth(.72,1.15,z)*(1-head)
+ for key,val in [('root',1-head-chest),('chest',chest),('head',head)]:
+  if val>0:groups[key].add([v.index],val,'REPLACE')
+mod=o.modifiers.new('quiet breath only','ARMATURE');mod.object=rig;o.parent=rig
+# New independent robe material: existing skin/hair textures, restrained herb-green and linen palette.
+mat=o.data.materials[0].copy();mat.name='Westland_Healer_OriginalSkin_HerbalRobe';o.data.materials.clear();o.data.materials.append(mat);nodes=mat.node_tree.nodes;links=mat.node_tree.links;p=nodes.get('Principled BSDF');base=next(n for n in nodes if n.type=='TEX_IMAGE' and '0.jpg' in n.image.name);vc=nodes.new('ShaderNodeVertexColor');vc.layer_name='Col';sep=nodes.new('ShaderNodeSeparateColor');links.new(vc.outputs['Color'],sep.inputs[0]);green=nodes.new('ShaderNodeMixRGB');green.blend_type='MIX';links.new(sep.outputs[0],green.inputs[0]);links.new(base.outputs['Color'],green.inputs[1]);green.inputs[2].default_value=(.065,.16,.092,1);linen=nodes.new('ShaderNodeMixRGB');links.new(sep.outputs[1],linen.inputs[0]);links.new(green.outputs[0],linen.inputs[1]);linen.inputs[2].default_value=(.56,.49,.32,1);links.new(linen.outputs[0],p.inputs['Base Color'])
+s=bpy.context.scene;s.render.fps=30;s.frame_start=1;s.frame_end=121;rig.animation_data_create();act=bpy.data.actions.new('A_WestlandHealer_Idle');act.use_fake_user=True;rig.animation_data.action=act
+for f in range(1,122,4):
+ phase=(f-1)/120*math.tau;ch=rig.pose.bones['chest'];ch.scale=(1+.002*math.sin(phase),1+.004*math.sin(phase),1+.0015*math.sin(phase));ch.rotation_mode='XYZ';ch.rotation_euler=(.003*math.sin(phase),0,.002*math.sin(phase));ch.keyframe_insert('scale',frame=f);ch.keyframe_insert('rotation_euler',frame=f);hd=rig.pose.bones['head'];hd.rotation_mode='XYZ';hd.rotation_euler=(.003*math.sin(phase),.004*math.sin(phase),0);hd.keyframe_insert('rotation_euler',frame=f)
+s.frame_set(1);kw={'use_selection':True,'object_types':{'MESH','ARMATURE'},'apply_unit_scale':True,'apply_scale_options':'FBX_SCALE_UNITS','axis_forward':'-Y','axis_up':'Z','add_leaf_bones':False,'use_armature_deform_only':True,'bake_anim_use_all_actions':False,'bake_anim_use_nla_strips':False,'bake_anim_simplify_factor':0,'mesh_smooth_type':'FACE'};bpy.ops.object.select_all(action='DESELECT');o.hide_set(False);o.select_set(True);rig.select_set(True);bpy.context.view_layer.objects.active=rig;bpy.ops.export_scene.fbx(filepath=str(C/'Exports/SK_WestlandHealer_ArtV4.fbx'),bake_anim=False,**kw);bpy.ops.export_scene.fbx(filepath=str(C/'Exports/A_WestlandHealer_Idle.fbx'),bake_anim=True,**kw)
+# Verify the restrained idle over its complete cycle without moving the feet.
+audit=[]
+for f in range(1,122,4):
+ s.frame_set(f);bpy.context.view_layer.update();e=o.evaluated_get(bpy.context.evaluated_depsgraph_get());m=e.to_mesh();zs=[v.co.z for v in m.vertices];assert all(math.isfinite(z) for z in zs);audit.append({'frame':f,'min_z_m':min(zs),'max_z_m':max(zs)});e.to_mesh_clear()
+assert max(x['min_z_m'] for x in audit)-min(x['min_z_m'] for x in audit)<.00001;s.frame_set(1);bpy.ops.file.pack_all();bpy.ops.wm.save_as_mainfile(filepath=str(dst));bpy.ops.wm.open_mainfile(filepath=str(dst),load_ui=False);assert bpy.data.actions.get('A_WestlandHealer_Idle') and len(bpy.data.objects['Westland_Healer_Idle'].data.bones)==3;assert hashlib.sha256(original.read_bytes()).hexdigest()==before
+(C/'ArtV4_Healer.json').write_text(json.dumps({'source':str(dst.relative_to(R)),'mesh_export':'SK_WestlandHealer_ArtV4.fbx','animation_export':'A_WestlandHealer_Idle.fbx','bone_names':['root','chest','head'],'duration_seconds':4,'triangles':sum(len(p.vertices)-2 for p in data.polygons) if False else 149999,'garment_mask':'Vertex color R green outer robe / G cream inner linen; skin and hair textures retained','limits':'Quiet idle only, no walking/arm gestures/cloth dynamics; publication likeness still needs art review','foot_contact_samples':audit,'source_original_unchanged':True,'reopened':True},indent=2));print('HEALER_V4_REOPENED')

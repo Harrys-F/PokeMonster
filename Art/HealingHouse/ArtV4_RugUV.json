@@ -1,0 +1,7 @@
+{
+  "cause": "Solidify copied coincident UVs to the thin cloth rim; Mikk tangent/binormal warning on these faces",
+  "repair": "Dedicated height-vs-length UV strips on rim; top/bottom motif UVs preserved",
+  "zero_uv_area_triangles": 0,
+  "triangles": 3296,
+  "geometry_and_thickness_unchanged": true
+}

@@ -1,0 +1,385 @@
+{
+  "schema": 1,
+  "baseline_commit": "24843e8b970ed68e60137720dbc887ff63b35b10",
+  "map": "/Game/Maps/Dev_TestMap_VisualV2",
+  "editor_build": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 27.466414213180542
+  },
+  "automation": {
+    "mode": "Automation",
+    "exit": 0,
+    "seconds": 31.927926063537598,
+    "summary": {
+      "succeeded": 50,
+      "succeededWithWarnings": 0,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0
+    }
+  },
+  "map_checks": [
+    {
+      "map": "/Game/Maps/Dev_BattleTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BuildingKitTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_HealingHouseTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_NPCMotionV3",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2EnvironmentQualityV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandAssetLibrary",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandRegion",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandVillage",
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "gameplay": {
+    "npc_sprite_fallback_checked": true,
+    "ranger_mesh": "SK_Ranger_NPC_V1",
+    "no_test_teleports": true,
+    "max_speed_cm_s": 315.0000000000077,
+    "original_maps_unchanged": "verified separately by SHA-256, not asserted by this script",
+    "passed": true,
+    "error": null,
+    "distance_m": 285.92621288614754,
+    "game_seconds": 177.61208782717586,
+    "wall_seconds": 207.75543825002387
+  },
+  "runtime": {
+    "time": 177.6324267014861,
+    "interior_frames": 319,
+    "exterior_frames": 2079,
+    "healer_talk_frames": 38,
+    "shots": 4,
+    "phase": false,
+    "settle": 63.00733079761267,
+    "talk_time": 2.055406417697668,
+    "errors": [],
+    "last_position": [
+      -791.941123601655,
+      -1386.2874011502004,
+      50.150000897564524
+    ],
+    "passed": true
+  },
+  "furniture_collision": {
+    "passed": true,
+    "method": "Diagnostic initial positioning then actual Enhanced Input into and away from each new collider",
+    "probes": [
+      {
+        "furniture": "RemedyCabinet",
+        "start_x": 17220,
+        "stopped_x": 17294.884766432016,
+        "walked_away_x": 17147.619435959044,
+        "no_fall": true
+      },
+      {
+        "furniture": "Hearth",
+        "start_x": 17150,
+        "stopped_x": 17263.395082358824,
+        "walked_away_x": 17118.146352197666,
+        "no_fall": true
+      }
+    ]
+  },
+  "blender_reopen": [
+    {
+      "file": "Art/Characters/NPCs/SilverLady/Source/Westland_Healer_ArtV4.blend",
+      "reopened": true,
+      "unchanged_by_check": true,
+      "packed_images": 5,
+      "mesh_objects": 3,
+      "armatures": 2,
+      "actions": 1,
+      "missing_images": []
+    },
+    {
+      "file": "Art/HealingHouse/Source/HealingHouse_ArtV4.blend",
+      "reopened": true,
+      "unchanged_by_check": true,
+      "packed_images": 0,
+      "mesh_objects": 9,
+      "armatures": 0,
+      "actions": 0,
+      "missing_images": []
+    }
+  ],
+  "scope": {
+    "passed": true,
+    "detailed_before_after": true,
+    "changed_existing_labels": [
+      "V2_House_HH_V3_HerbShelf",
+      "V2_House_HH_V3_ShelfVial_0_Body",
+      "V2_House_HH_V3_ShelfVial_0_Neck",
+      "V2_House_HH_V3_ShelfVial_0_Cork",
+      "V2_House_HH_V3_ShelfVial_1_Body",
+      "V2_House_HH_V3_ShelfVial_1_Neck",
+      "V2_House_HH_V3_ShelfVial_1_Cork",
+      "V2_House_HH_V3_ShelfVial_2_Body",
+      "V2_House_HH_V3_ShelfVial_2_Neck",
+      "V2_House_HH_V3_ShelfVial_2_Cork",
+      "V2_House_HH_V3_ShelfVial_3_Body",
+      "V2_House_HH_V3_ShelfVial_3_Neck",
+      "V2_House_HH_V3_ShelfVial_3_Cork",
+      "V2_House_HH_V3_ShelfVial_4_Body",
+      "V2_House_HH_V3_ShelfVial_4_Neck",
+      "V2_House_HH_V3_ShelfVial_4_Cork",
+      "V2_House_HH_V3_ShelfVial_5_Body",
+      "V2_House_HH_V3_ShelfVial_5_Neck",
+      "V2_House_HH_V3_ShelfVial_5_Cork",
+      "V2_House_HH_V3_ShelfHerb_0_Pot",
+      "V2_House_HH_V3_ShelfHerb_0_Leaf0",
+      "V2_House_HH_V3_ShelfHerb_0_Leaf1",
+      "V2_House_HH_V3_ShelfHerb_0_Leaf2",
+      "V2_House_HH_V3_ShelfHerb_1_Pot",
+      "V2_House_HH_V3_ShelfHerb_1_Leaf0",
+      "V2_House_HH_V3_ShelfHerb_1_Leaf1",
+      "V2_House_HH_V3_ShelfHerb_1_Leaf2",
+      "V2_House_HH_V3_ShelfHerb_2_Pot",
+      "V2_House_HH_V3_ShelfHerb_2_Leaf0",
+      "V2_House_HH_V3_ShelfHerb_2_Leaf1",
+      "V2_House_HH_V3_ShelfHerb_2_Leaf2",
+      "V2_House_HH_Art_Floor_0_0",
+      "V2_House_HH_Art_Floor_0_1",
+      "V2_House_HH_Art_Floor_0_2",
+      "V2_House_HH_Art_Floor_0_3",
+      "V2_House_HH_Art_Floor_0_4",
+      "V2_House_HH_Art_Floor_0_5",
+      "V2_House_HH_Art_Floor_1_0",
+      "V2_House_HH_Art_Floor_1_1",
+      "V2_House_HH_Art_Floor_1_2",
+      "V2_House_HH_Art_Floor_1_3",
+      "V2_House_HH_Art_Floor_1_4",
+      "V2_House_HH_Art_Floor_1_5",
+      "V2_House_HH_Art_Floor_2_0",
+      "V2_House_HH_Art_Floor_2_1",
+      "V2_House_HH_Art_Floor_2_2",
+      "V2_House_HH_Art_Floor_2_3",
+      "V2_House_HH_Art_Floor_2_4",
+      "V2_House_HH_Art_Floor_2_5",
+      "V2_House_HH_Art_Floor_3_0",
+      "V2_House_HH_Art_Floor_3_1",
+      "V2_House_HH_Art_Floor_3_2",
+      "V2_House_HH_Art_Floor_3_3",
+      "V2_House_HH_Art_Floor_3_4",
+      "V2_House_HH_Art_Floor_3_5",
+      "V2_House_HH_Art_Floor_4_0",
+      "V2_House_HH_Art_Floor_4_1",
+      "V2_House_HH_Art_Floor_4_2",
+      "V2_House_HH_Art_Floor_4_3",
+      "V2_House_HH_Art_Floor_4_4",
+      "V2_House_HH_Art_Floor_4_5",
+      "V2_House_HH_Art_WaitingRug",
+      "V2_House_HH_Art_MainRunner",
+      "V2_House_HH_Art_BannerReception",
+      "V2_House_HH_Art_HerbShelfStock_0",
+      "V2_House_HH_Art_HerbShelfStock_1",
+      "V2_House_HH_Art_HerbShelfStock_2",
+      "V2_House_HH_Q3_Visual_HH_V3_HerbShelf",
+      "V2_House_HH_Q3_Visual_HH_V3_TreatmentBedSmall",
+      "V2_House_HH_Q3_Visual_HH_V3_TreatmentBedLarge",
+      "V2_House_SilverLady_HealerVisual",
+      "V2_House_InteriorDiffuse"
+    ],
+    "new_actors": 22,
+    "new_landscape_instances": 727,
+    "existing_gameplay_camera_route_collisions_and_exterior_lights_preserved": true
+  },
+  "protection": {
+    "passed": true,
+    "protected_untracked_unchanged": 53,
+    "other_maps_byte_identical": 10,
+    "dev_save_sha256": "a0ad009a7b3c6f883d1413b0f96df5b25bc7ab953d0154e29ae50f35ad48bf0a",
+    "backup_refs_unchanged": true
+  },
+  "idle": {
+    "passed": true,
+    "seconds": 10.11675975099206,
+    "frames": 20,
+    "bone_names": [
+      "Westland_Healer_Idle",
+      "root",
+      "chest",
+      "head"
+    ]
+  },
+  "window_review": {
+    "actual_frames": 78,
+    "resolution": [
+      1280,
+      720
+    ],
+    "sequences": [
+      "InteriorStill",
+      "InteriorWalk",
+      "ExteriorApproach",
+      "ExteriorReverse"
+    ],
+    "finding": "No reproducible flicker found in sampled still/walking sequences; intermittent fault and root cause remain unconfirmed. Not a successful video or exhaustive temporal acceptance."
+  },
+  "qhd_pairs": {
+    "passed": true,
+    "pairs": [
+      {
+        "name": "Wald",
+        "before": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Before/Wald00000.png",
+        "after": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/FinalReview/Wald00000.png",
+        "comparison": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Comparisons/Wald.jpg",
+        "pixels": [
+          2560,
+          1440
+        ],
+        "screen_percentage": 100,
+        "camera_max_difference_cm_or_deg": 6.468760460620615e-07
+      },
+      {
+        "name": "Wiese",
+        "before": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Before/Wiese00000.png",
+        "after": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/FinalReview/Wiese00000.png",
+        "comparison": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Comparisons/Wiese.jpg",
+        "pixels": [
+          2560,
+          1440
+        ],
+        "screen_percentage": 100,
+        "camera_max_difference_cm_or_deg": 1.5056684787850827e-09
+      },
+      {
+        "name": "Flussufer",
+        "before": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Before/Flussufer00000.png",
+        "after": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/FinalReview/Flussufer00000.png",
+        "comparison": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Comparisons/Flussufer.jpg",
+        "pixels": [
+          2560,
+          1440
+        ],
+        "screen_percentage": 100,
+        "camera_max_difference_cm_or_deg": 5.650235834764317e-10
+      },
+      {
+        "name": "Uferabzweig",
+        "before": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Before/Uferabzweig00000.png",
+        "after": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/FinalReview/Uferabzweig00000.png",
+        "comparison": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Comparisons/Uferabzweig.jpg",
+        "pixels": [
+          2560,
+          1440
+        ],
+        "screen_percentage": 100,
+        "camera_max_difference_cm_or_deg": 6.311893230304122e-10
+      },
+      {
+        "name": "Heilhaus",
+        "before": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Before/Heilhaus00000.png",
+        "after": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/FinalReview/Heilhaus00000.png",
+        "comparison": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Comparisons/Heilhaus.jpg",
+        "pixels": [
+          2560,
+          1440
+        ],
+        "screen_percentage": 100,
+        "camera_max_difference_cm_or_deg": 1.0550138540565968e-10
+      },
+      {
+        "name": "Fassade",
+        "before": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Before/Fassade00000.png",
+        "after": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/FinalReview/Fassade00000.png",
+        "comparison": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Comparisons/Fassade.jpg",
+        "pixels": [
+          2560,
+          1440
+        ],
+        "screen_percentage": 100,
+        "camera_max_difference_cm_or_deg": 6.011759978719056e-10
+      },
+      {
+        "name": "Innenraum",
+        "before": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Before/Innenraum00000.png",
+        "after": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/FinalLight/Innenraum00000.png",
+        "comparison": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Comparisons/Innenraum.jpg",
+        "pixels": [
+          2560,
+          1440
+        ],
+        "screen_percentage": 100,
+        "camera_max_difference_cm_or_deg": 0.0
+      },
+      {
+        "name": "Empfang",
+        "before": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Before/Empfang00000.png",
+        "after": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/FinalLight/Empfang00000.png",
+        "comparison": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Comparisons/Empfang.jpg",
+        "pixels": [
+          2560,
+          1440
+        ],
+        "screen_percentage": 100,
+        "camera_max_difference_cm_or_deg": 0.0
+      },
+      {
+        "name": "Heilbereich",
+        "before": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Before/Heilbereich00000.png",
+        "after": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/FinalLight/Heilbereich00000.png",
+        "comparison": "/Users/harry/Developer/PokeMonster/Saved/ArtPassV4/Comparisons/Heilbereich.jpg",
+        "pixels": [
+          2560,
+          1440
+        ],
+        "screen_percentage": 100,
+        "camera_max_difference_cm_or_deg": 0.0
+      }
+    ]
+  },
+  "art_acceptance": "Implemented and technically tested; visual acceptance pending. Concept target not fully reached.",
+  "limitations": [
+    "Remaining simple fireplace/material forms, regular stone-panel silhouette and plain areas compared with concept.",
+    "Path material improvement is more subtle than vegetation/room improvement.",
+    "Healer face/hair remain original; wardrobe and limited idle do not establish publication-ready independent identity.",
+    "No whole-character walking/cloth deformation rig; no video acceptance.",
+    "No FPS benchmark, cooked package or standalone gameplay acceptance in this pass.",
+    "Existing generic Engine startup Condition failed / idevice_id CPU-type / audio / MotionVectorSimulation warnings retained, separate from 50 successful project tests."
+  ]
+}
