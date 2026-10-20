@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Engine/EngineTypes.h"
 #include "PokeMonsterBuildingCutaway.generated.h"
 
 class UBoxComponent;
@@ -60,6 +61,8 @@ public:
 	UFUNCTION(BlueprintPure, Category="Building") bool IsViewerInDoorway(FVector WorldLocation) const;
 	UFUNCTION(BlueprintPure, Category="Building") bool IsCutawayActive() const { return bCutawayActive; }
 	UFUNCTION(BlueprintPure, Category="Building") float GetCutawayAmount() const { return CutawayAmount; }
+	/** Opt-in room-only lighting; exterior primitive channels/shadow flags are restored exactly. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Interior Lighting") bool bUseShadowlessInteriorLighting = false;
 	virtual void Tick(float DeltaSeconds) override;
 protected:
 	virtual void BeginPlay() override;
@@ -67,6 +70,11 @@ protected:
 private:
 	TWeakObjectPtr<APokeMonsterPlayerCharacter> CameraViewer;
 	void RefreshVisibility(float DeltaSeconds);
+	void UpdateViewerLighting(APawn* Player);
+	void RestoreViewerLighting();
+	struct FViewerLightState { FLightingChannels Channels; bool bCastShadow = false; };
+	TMap<TWeakObjectPtr<UPrimitiveComponent>, FViewerLightState> OriginalViewerLighting;
+	TWeakObjectPtr<APawn> LightingViewer;
 	void UpdateRelocation(APawn* Player, bool bInside, float DeltaSeconds);
 	void ApplyRelocationMask(APawn* Player);
 	void ApplyVisibility();

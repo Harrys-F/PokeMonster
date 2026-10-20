@@ -267,6 +267,7 @@ void APokeMonsterBuildingCutaway::RefreshVisibility(float DeltaSeconds)
 			FMath::Max(DeltaSeconds, 0.f), 1.f / FMath::Max(FadeDuration, 0.05f));
 		if (FMath::IsNearlyEqual(CutawayAmount, Target, KINDA_SMALL_NUMBER)) CutawayAmount = Target;
 	}
+	UpdateViewerLighting(Player);
 	if (bUseInteriorCamera && (bCutawayActive || CutawayAmount > 0.f))
 	{
 		auto* Viewer = Cast<APokeMonsterPlayerCharacter>(Player);
@@ -282,6 +283,39 @@ void APokeMonsterBuildingCutaway::RefreshVisibility(float DeltaSeconds)
 	}
 	if (OriginalHiddenStates.IsEmpty() || PreviousAmount != CutawayAmount)
 		ApplyVisibility();
+}
+
+void APokeMonsterBuildingCutaway::RestoreViewerLighting()
+{
+	for (const auto& Entry : OriginalViewerLighting)
+		if (UPrimitiveComponent* Component = Entry.Key.Get())
+		{
+			const FLightingChannels& Channels = Entry.Value.Channels;
+			Component->SetLightingChannels(Channels.bChannel0, Channels.bChannel1, Channels.bChannel2);
+			Component->SetCastShadow(Entry.Value.bCastShadow);
+		}
+	OriginalViewerLighting.Reset();
+	LightingViewer.Reset();
+}
+
+void APokeMonsterBuildingCutaway::UpdateViewerLighting(APawn* Player)
+{
+	const bool bInLitRoom = bUseShadowlessInteriorLighting && Player &&
+		(bUseRelocatedInterior ? IsViewerInRelocatedRoom(Player->GetActorLocation()) : IsViewerInside(Player->GetActorLocation()));
+	if (!bInLitRoom || (LightingViewer.IsValid() && LightingViewer.Get() != Player)) RestoreViewerLighting();
+	if (!bInLitRoom) return;
+	LightingViewer = Player;
+	TInlineComponentArray<UPrimitiveComponent*> Components(Player);
+	for (UPrimitiveComponent* Component : Components)
+	{
+		const TWeakObjectPtr<UPrimitiveComponent> Key(Component);
+		if (!OriginalViewerLighting.Contains(Key))
+		{
+			OriginalViewerLighting.Add(Key, { Component->LightingChannels, Component->CastShadow != 0 });
+			Component->SetLightingChannels(false, true, false);
+			Component->SetCastShadow(false);
+		}
+	}
 }
 
 void APokeMonsterBuildingCutaway::ApplyVisibility()
@@ -315,6 +349,7 @@ void APokeMonsterBuildingCutaway::EndPlay(const EEndPlayReason::Type EndPlayReas
 				if (Controller->PlayerCameraManager) Controller->PlayerCameraManager->StopCameraFade();
 	if (auto* Viewer = CameraViewer.Get()) Viewer->ClearInteriorCameraSource(this);
 	CameraViewer.Reset();
+	RestoreViewerLighting();
 	for (const auto& Data : OriginalFadeData)
 		if (UPrimitiveComponent* Component = Data.Key.Get())
 			Component->SetCustomPrimitiveDataFloat(CutawayDataIndex, Data.Value);

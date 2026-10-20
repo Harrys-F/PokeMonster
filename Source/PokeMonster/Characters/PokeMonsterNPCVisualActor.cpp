@@ -3,6 +3,7 @@
 #include "../Dialogue/PokeMonsterDialogueSubsystem.h"
 #include "Animation/AnimSequence.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
 #include "Kismet/GameplayStatics.h"
@@ -19,11 +20,32 @@ APokeMonsterNPCVisualActor::APokeMonsterNPCVisualActor()
  Visual->VisibilityBasedAnimTickOption = EVisibilityBasedAnimTickOption::OnlyTickPoseWhenRendered;
  Visual->bEnableUpdateRateOptimizations = true;
  Visual->SetAnimInstanceClass(UPokeMonsterNPCAnimInstance::StaticClass());
+
 }
 void APokeMonsterNPCVisualActor::RefreshPresentation()
 {
- const bool bReady = bUseVisual && SourceActor && Visual->GetSkeletalMeshAsset() && IdleAnimation;
- Visual->SetVisibility(bReady, true);
+ // Unchanged skeletal NPCs do not acquire an unused component or new asset references.
+ if (StaticPresentationMesh && !IsValid(StaticVisual))
+ {
+  StaticVisual = NewObject<UStaticMeshComponent>(this, TEXT("NPCStaticVisual"), RF_Transient);
+  StaticVisual->SetupAttachment(Visual);
+  StaticVisual->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+  StaticVisual->SetGenerateOverlapEvents(false);
+  StaticVisual->SetCanEverAffectNavigation(false);
+  AddInstanceComponent(StaticVisual);
+  StaticVisual->RegisterComponent();
+ }
+ if (StaticVisual) StaticVisual->SetStaticMesh(StaticPresentationMesh);
+ if (bShadowlessInteriorPresentation)
+ {
+  Visual->SetLightingChannels(false, true, false); Visual->SetCastShadow(false);
+  if (StaticVisual) { StaticVisual->SetLightingChannels(false, true, false); StaticVisual->SetCastShadow(false); }
+ }
+ const bool bAnimatedReady = bUseVisual && SourceActor && Visual->GetSkeletalMeshAsset() && IdleAnimation;
+ const bool bStaticReady = bUseVisual && SourceActor && !bAnimatedReady && StaticVisual && StaticVisual->GetStaticMesh();
+ const bool bReady = bAnimatedReady || bStaticReady;
+ Visual->SetVisibility(bAnimatedReady, false);
+ if (StaticVisual) StaticVisual->SetVisibility(bStaticReady, false);
  if (SourceActor)
  {
   auto* Sprite = SourceActor->FindComponentByClass<UPaperSpriteComponent>();

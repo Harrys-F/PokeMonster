@@ -787,3 +787,7 @@ Der ausdrückliche Gesamtauftrag erlaubt die Entfernung ausschließlich vollstä
 ### 19.10.2026 – VisualV2 nach geprüfter Kartenbereinigung weitergestaltet
 
 Das bestehende Heilhaus V4 und die vorhandenen Landschafts-/Innenraumsysteme bleiben Grundlage. Private Materialvarianten und kleine austauschbare Blender-Details statt neuer Gebäudeversion oder Map. Gemeinsame Originalmaterialien und bisherige Quellen bleiben erhalten. Die ausdrücklich freigegebene warme Lichtabstimmung verwendet nur bestehende Füll-/Innen-/Fensterlichter; Sonnenrichtung, Kamera, TAA und Gameplay bleiben unverändert. Technische Abnahme ist erfolgt; endgültige künstlerische Freigabe bleibt anhand echter QHD-Bildpaare beim Nutzer. Zwei Altkarten mit nicht ersetzter unabhängiger Testabdeckung werden nicht entfernt.
+
+### 20.10.2026 – Schattenfreier Heilraum über getrennte direkte Beleuchtung
+
+Der neue ausdrückliche Art-Pass-V3-Auftrag ersetzt für das Heilhaus die bisher beibehaltenen sichtbaren Innenraumschlagschatten. Die technische Lösung ist ein opt-in Raumlichtkanal mit unveränderten Außenlichtern; keine globale Lumen-/Skylight-/Shadow-Quality-Abschaltung. Lichtkanäle trennen direkte Beleuchtung, nicht Lumen-GI. Räumliche Materialwirkung und indirekte Umgebungslichtwirkung werden visuell gesondert geprüft. Ein vorhandenes ungeriggtes SilverLady-Modell darf über den vorhandenen NPC-Präsentationspfad angebunden werden, ohne es als bereits animationsfertig auszugeben oder den Heilpunkt zu ersetzen.

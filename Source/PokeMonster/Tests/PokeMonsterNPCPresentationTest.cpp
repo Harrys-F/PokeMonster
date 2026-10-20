@@ -5,6 +5,8 @@
 #include "../Characters/PokeMonsterNPCAnimInstance.h"
 #include "../Dialogue/PokeMonsterNPC.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Components/StaticMeshComponent.h"
+#include "Engine/StaticMesh.h"
 #include "Animation/AnimSequence.h"
 #include "Engine/SkeletalMesh.h"
 #include "Engine/Engine.h"
@@ -35,6 +37,19 @@ bool FPokeMonsterNPCPresentationTest::RunTest(const FString& Parameters)
  V->bUseVisual=false; V->RefreshPresentation();
  TestTrue(TEXT("Disabling 3D restores the original sprite"),NPC->Sprite->IsVisible());
  TestFalse(TEXT("Disabled 3D is hidden"),V->Visual->IsVisible());
+ V->Visual->SetSkeletalMesh(nullptr); V->IdleAnimation=nullptr;
+ auto* StaticMesh=LoadObject<UStaticMesh>(nullptr,TEXT("/Game/Characters/NPCs/SilverLady/Meshes/SM_SilverLady_Reference_V1.SM_SilverLady_Reference_V1"));
+ if (!TestNotNull(TEXT("Existing SilverLady static asset loads"),StaticMesh)) return false;
+ TestNull(TEXT("Existing skeletal NPCs have no extra static component"),V->StaticVisual.Get());
+ V->StaticPresentationMesh=StaticMesh; V->bShadowlessInteriorPresentation=true; V->bUseVisual=true; V->RefreshPresentation();
+ TestTrue(TEXT("Static interior presentation uses only room lighting"),!V->StaticVisual->LightingChannels.bChannel0 && V->StaticVisual->LightingChannels.bChannel1);
+ TestFalse(TEXT("Static interior presentation casts no shadow"),V->StaticVisual->CastShadow != 0);
+ TestTrue(TEXT("Unrigged visual can use the existing NPC presentation"),V->StaticVisual->IsVisible());
+ TestFalse(TEXT("Static presentation hides only its source sprite"),NPC->Sprite->IsVisible());
+ TestEqual(TEXT("Static presentation has no additional gameplay collider"),V->StaticVisual->GetCollisionEnabled(),ECollisionEnabled::NoCollision);
+ V->bUseVisual=false; V->RefreshPresentation();
+ TestTrue(TEXT("Static presentation preserves the original sprite fallback"),NPC->Sprite->IsVisible());
+ TestFalse(TEXT("Disabled static visual is hidden"),V->StaticVisual->IsVisible());
  TestTrue(TEXT("Presentation does not move or rotate gameplay NPC"),NPC->GetActorTransform().Equals(Before));
  return true;
 }

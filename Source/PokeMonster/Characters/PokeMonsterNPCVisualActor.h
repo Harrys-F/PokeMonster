@@ -3,6 +3,8 @@
 #include "GameFramework/Actor.h"
 #include "PokeMonsterNPCVisualActor.generated.h"
 class USkeletalMeshComponent;
+class UStaticMeshComponent;
+class UStaticMesh;
 class UAnimSequence;
 class UPaperSpriteComponent;
 /** Optional presentation attached to an existing NPC. Owns no interaction, collision or story state. */
@@ -13,6 +15,10 @@ class POKEMONSTER_API APokeMonsterNPCVisualActor : public AActor
 public:
  APokeMonsterNPCVisualActor();
  UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<USkeletalMeshComponent> Visual;
+ /** Optional unrigged presentation; never pretends to provide skeletal animation. */
+ UPROPERTY(Transient, VisibleAnywhere, BlueprintReadOnly) TObjectPtr<UStaticMeshComponent> StaticVisual;
+ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC Presentation") TObjectPtr<UStaticMesh> StaticPresentationMesh;
+ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC Presentation") bool bShadowlessInteriorPresentation = false;
  UPROPERTY(EditInstanceOnly, BlueprintReadWrite, Category="NPC Presentation") TObjectPtr<AActor> SourceActor;
  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC Presentation") TObjectPtr<UAnimSequence> IdleAnimation;
  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC Presentation") TObjectPtr<UAnimSequence> ConversationAnimation;
