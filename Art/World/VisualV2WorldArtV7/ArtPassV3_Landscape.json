@@ -1,0 +1,122 @@
+{
+  "ferns": [
+    {
+      "path": "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_A.SM_WA7_Fern_A",
+      "triangles": 3990,
+      "material_slots": 1
+    },
+    {
+      "path": "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_B.SM_WA7_Fern_B",
+      "triangles": 5130,
+      "material_slots": 1
+    }
+  ],
+  "bindings": [
+    {
+      "actor": "Actor_2",
+      "label": "V2_Instanced_Fern",
+      "component": "HierarchicalInstancedStaticMesh",
+      "before": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_A.SM_WLA_Fern_A",
+      "after": "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_A.SM_WA7_Fern_A",
+      "instances": 46
+    },
+    {
+      "actor": "Actor_41",
+      "label": "WAQ1_Fern",
+      "component": "HierarchicalInstancedStaticMesh",
+      "before": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_A.SM_WLA_Fern_A",
+      "after": "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_A.SM_WA7_Fern_A",
+      "instances": 12
+    },
+    {
+      "actor": "Actor_47",
+      "label": "WA5_Wald_FernA",
+      "component": "HierarchicalInstancedStaticMesh",
+      "before": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_A.SM_WLA_Fern_A",
+      "after": "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_A.SM_WA7_Fern_A",
+      "instances": 24
+    },
+    {
+      "actor": "Actor_48",
+      "label": "WA5_Wald_FernB",
+      "component": "HierarchicalInstancedStaticMesh",
+      "before": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_B.SM_WLA_Fern_B",
+      "after": "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_B.SM_WA7_Fern_B",
+      "instances": 16
+    },
+    {
+      "actor": "Actor_61",
+      "label": "WA5_Flussufer_Fern",
+      "component": "HierarchicalInstancedStaticMesh",
+      "before": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_A.SM_WLA_Fern_A",
+      "after": "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_A.SM_WA7_Fern_A",
+      "instances": 12
+    },
+    {
+      "actor": "Actor_66",
+      "label": "WA7_Westwald_FernA",
+      "component": "HierarchicalInstancedStaticMesh",
+      "before": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_A.SM_WLA_Fern_A",
+      "after": "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_A.SM_WA7_Fern_A",
+      "instances": 16
+    },
+    {
+      "actor": "Actor_67",
+      "label": "WA7_Westwald_FernB",
+      "component": "HierarchicalInstancedStaticMesh",
+      "before": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_B.SM_WLA_Fern_B",
+      "after": "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_B.SM_WA7_Fern_B",
+      "instances": 9
+    },
+    {
+      "actor": "Actor_72",
+      "label": "WA7_Ostwald_FernA",
+      "component": "HierarchicalInstancedStaticMesh",
+      "before": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_A.SM_WLA_Fern_A",
+      "after": "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_A.SM_WA7_Fern_A",
+      "instances": 19
+    },
+    {
+      "actor": "Actor_73",
+      "label": "WA7_Ostwald_FernB",
+      "component": "HierarchicalInstancedStaticMesh",
+      "before": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_B.SM_WLA_Fern_B",
+      "after": "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_B.SM_WA7_Fern_B",
+      "instances": 11
+    },
+    {
+      "actor": "Actor_84",
+      "label": "WA7_Ufer_Fern",
+      "component": "HierarchicalInstancedStaticMesh",
+      "before": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_A.SM_WLA_Fern_A",
+      "after": "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_A.SM_WA7_Fern_A",
+      "instances": 13
+    },
+    {
+      "actor": "Actor_88",
+      "label": "Refined_Forest_FernA",
+      "component": "HierarchicalInstancedStaticMesh",
+      "before": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_A.SM_WLA_Fern_A",
+      "after": "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_A.SM_WA7_Fern_A",
+      "instances": 28
+    },
+    {
+      "actor": "Actor_89",
+      "label": "Refined_Forest_FernB",
+      "component": "HierarchicalInstancedStaticMesh",
+      "before": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_B.SM_WLA_Fern_B",
+      "after": "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_B.SM_WA7_Fern_B",
+      "instances": 18
+    }
+  ],
+  "instances_preserved": 224,
+  "path_width_added_cm": [
+    8,
+    4
+  ],
+  "edge_added_cm": 3,
+  "path_centrelines_and_collision_unchanged": true,
+  "bridge_mask_preserved": true,
+  "albedo_saturation_reduction": 0.085,
+  "outdoor_light_shadow_settings_unchanged": true
+}

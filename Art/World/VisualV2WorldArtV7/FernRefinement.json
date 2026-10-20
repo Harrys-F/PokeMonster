@@ -1,0 +1,35 @@
+{
+  "source": "Art/World/VisualV2WorldArtV7/Source/Westland_Ferns.blend",
+  "reopened": true,
+  "meshes": [
+    {
+      "variant": "A",
+      "object": "WA7_Fern_A",
+      "vertices": 3017,
+      "triangles": 3990,
+      "fronds": 7,
+      "pinnae": 168,
+      "dimensions_m": [
+        1.5580017566680908,
+        1.445089340209961,
+        0.7429527044296265
+      ],
+      "source_asset_replaced_only_in_VisualV2": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_A.SM_WLA_Fern_A"
+    },
+    {
+      "variant": "B",
+      "object": "WA7_Fern_B",
+      "vertices": 3879,
+      "triangles": 5130,
+      "fronds": 9,
+      "pinnae": 216,
+      "dimensions_m": [
+        1.3592782020568848,
+        1.5080147981643677,
+        0.759395956993103
+      ],
+      "source_asset_replaced_only_in_VisualV2": "/Game/Environment/WestlandAssetLibrary/Meshes/Vegetation/SM_WLA_Fern_B.SM_WLA_Fern_B"
+    }
+  ],
+  "no_alpha_cards": true
+}

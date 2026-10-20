@@ -1,0 +1,2479 @@
+{
+  "room_components": [
+    {
+      "actor": "StaticMeshActor_363",
+      "label": "V2_House_HealingCounter",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_364",
+      "label": "V2_House_CounterTop",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PokeMonsterRestPoint_1",
+      "label": "V2_House_HouseHealer",
+      "component": "Body",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PokeMonsterRestPoint_1",
+      "label": "V2_House_HouseHealer",
+      "component": "Pedestal",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PokeMonsterRestPoint_1",
+      "label": "V2_House_HouseHealer",
+      "component": "Crystal",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PokeMonsterRestPoint_1",
+      "label": "V2_House_HouseHealer",
+      "component": "RestPointSprite",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PokeMonsterRestPoint_1",
+      "label": "V2_House_HouseHealer",
+      "component": "NameLabel",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_437",
+      "label": "V2_House_HH_V3_TreatmentBedSmall",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_438",
+      "label": "V2_House_HH_V3_TreatmentBedLarge",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_439",
+      "label": "V2_House_HH_V3_HerbShelf",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_440",
+      "label": "V2_House_HH_V3_Bookcase",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_441",
+      "label": "V2_House_HH_V3_HerbTable",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_515",
+      "label": "V2_House_HH_V3_ShelfBook_0_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_516",
+      "label": "V2_House_HH_V3_ShelfBook_0_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_517",
+      "label": "V2_House_HH_V3_ShelfBook_0_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_518",
+      "label": "V2_House_HH_V3_ShelfBook_1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_519",
+      "label": "V2_House_HH_V3_ShelfBook_1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_520",
+      "label": "V2_House_HH_V3_ShelfBook_1_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_521",
+      "label": "V2_House_HH_V3_ShelfBook_2_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_522",
+      "label": "V2_House_HH_V3_ShelfBook_2_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_523",
+      "label": "V2_House_HH_V3_ShelfBook_2_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_524",
+      "label": "V2_House_HH_V3_ShelfBook_3_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_525",
+      "label": "V2_House_HH_V3_ShelfBook_3_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_526",
+      "label": "V2_House_HH_V3_ShelfBook_3_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_527",
+      "label": "V2_House_HH_V3_ShelfBook_4_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_528",
+      "label": "V2_House_HH_V3_ShelfBook_4_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_529",
+      "label": "V2_House_HH_V3_ShelfBook_4_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_530",
+      "label": "V2_House_HH_V3_ShelfVial_0_Body",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_531",
+      "label": "V2_House_HH_V3_ShelfVial_0_Neck",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_532",
+      "label": "V2_House_HH_V3_ShelfVial_0_Cork",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_533",
+      "label": "V2_House_HH_V3_ShelfVial_1_Body",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_534",
+      "label": "V2_House_HH_V3_ShelfVial_1_Neck",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_535",
+      "label": "V2_House_HH_V3_ShelfVial_1_Cork",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_536",
+      "label": "V2_House_HH_V3_ShelfVial_2_Body",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_537",
+      "label": "V2_House_HH_V3_ShelfVial_2_Neck",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_538",
+      "label": "V2_House_HH_V3_ShelfVial_2_Cork",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_539",
+      "label": "V2_House_HH_V3_ShelfVial_3_Body",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_540",
+      "label": "V2_House_HH_V3_ShelfVial_3_Neck",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_541",
+      "label": "V2_House_HH_V3_ShelfVial_3_Cork",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_542",
+      "label": "V2_House_HH_V3_ShelfVial_4_Body",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_543",
+      "label": "V2_House_HH_V3_ShelfVial_4_Neck",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_544",
+      "label": "V2_House_HH_V3_ShelfVial_4_Cork",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_545",
+      "label": "V2_House_HH_V3_ShelfVial_5_Body",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_546",
+      "label": "V2_House_HH_V3_ShelfVial_5_Neck",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_547",
+      "label": "V2_House_HH_V3_ShelfVial_5_Cork",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_548",
+      "label": "V2_House_HH_V3_ShelfHerb_0_Pot",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_549",
+      "label": "V2_House_HH_V3_ShelfHerb_0_Leaf0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_550",
+      "label": "V2_House_HH_V3_ShelfHerb_0_Leaf1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_551",
+      "label": "V2_House_HH_V3_ShelfHerb_0_Leaf2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_552",
+      "label": "V2_House_HH_V3_ShelfHerb_1_Pot",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_553",
+      "label": "V2_House_HH_V3_ShelfHerb_1_Leaf0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_554",
+      "label": "V2_House_HH_V3_ShelfHerb_1_Leaf1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_555",
+      "label": "V2_House_HH_V3_ShelfHerb_1_Leaf2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_556",
+      "label": "V2_House_HH_V3_ShelfHerb_2_Pot",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_557",
+      "label": "V2_House_HH_V3_ShelfHerb_2_Leaf0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_558",
+      "label": "V2_House_HH_V3_ShelfHerb_2_Leaf1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_559",
+      "label": "V2_House_HH_V3_ShelfHerb_2_Leaf2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_560",
+      "label": "V2_House_HH_V3_TableHerb_0_Pot",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_561",
+      "label": "V2_House_HH_V3_TableHerb_0_Leaf0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_562",
+      "label": "V2_House_HH_V3_TableHerb_0_Leaf1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_563",
+      "label": "V2_House_HH_V3_TableHerb_0_Leaf2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_564",
+      "label": "V2_House_HH_V3_TableHerb_1_Pot",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_565",
+      "label": "V2_House_HH_V3_TableHerb_1_Leaf0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_566",
+      "label": "V2_House_HH_V3_TableHerb_1_Leaf1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_567",
+      "label": "V2_House_HH_V3_TableHerb_1_Leaf2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_568",
+      "label": "V2_House_HH_V3_WorkVial_Body",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_569",
+      "label": "V2_House_HH_V3_WorkVial_Neck",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_570",
+      "label": "V2_House_HH_V3_WorkVial_Cork",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_571",
+      "label": "V2_House_HH_V3_TreatmentCloth",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_572",
+      "label": "V2_House_HH_V3_CounterBook_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_573",
+      "label": "V2_House_HH_V3_CounterBook_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_574",
+      "label": "V2_House_HH_V3_CounterBook_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_575",
+      "label": "V2_House_HH_V3_CounterVial_Body",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_576",
+      "label": "V2_House_HH_V3_CounterVial_Neck",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_577",
+      "label": "V2_House_HH_V3_CounterVial_Cork",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_578",
+      "label": "V2_House_HH_V3_CounterBandage",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_579",
+      "label": "V2_House_HH_V3_CounterBowl",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_580",
+      "label": "V2_House_HH_V3_NookTableTop",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_581",
+      "label": "V2_House_HH_V3_NookTableLeg_326_215",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_582",
+      "label": "V2_House_HH_V3_NookTableLeg_326_262",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_583",
+      "label": "V2_House_HH_V3_NookTableLeg_384_215",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_584",
+      "label": "V2_House_HH_V3_NookTableLeg_384_262",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_585",
+      "label": "V2_House_HH_V3_NookBenchSeat",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_586",
+      "label": "V2_House_HH_V3_NookBenchLeg_313",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_587",
+      "label": "V2_House_HH_V3_NookBenchLeg_383",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_588",
+      "label": "V2_House_HH_V3_NookBenchBack",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_589",
+      "label": "V2_House_HH_V3_ReadingBook",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_590",
+      "label": "V2_House_HH_V3_AisleRug",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_591",
+      "label": "V2_House_HH_V3_RugBorder_-81",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_592",
+      "label": "V2_House_HH_V3_RugBorder_111",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_593",
+      "label": "V2_House_HH_V3_RugBorder_-177",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_594",
+      "label": "V2_House_HH_V3_RugBorder_53",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_595",
+      "label": "V2_House_HH_V3_DriedHerbBundle_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_596",
+      "label": "V2_House_HH_V3_DriedHerbBundle_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_597",
+      "label": "V2_House_HH_V3_DriedHerbBundle_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PointLight_1",
+      "label": "V2_House_HH_V3_CounterGlow",
+      "component": "BillboardComponent_0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PointLight_1",
+      "label": "V2_House_HH_V3_CounterGlow",
+      "light": true,
+      "old_cast_shadows": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PointLight_2",
+      "label": "V2_House_HH_V3_RestAreaGlow",
+      "component": "BillboardComponent_0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PointLight_2",
+      "label": "V2_House_HH_V3_RestAreaGlow",
+      "light": true,
+      "old_cast_shadows": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_598",
+      "label": "V2_House_HH_V3_InteriorLantern_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_599",
+      "label": "V2_House_HH_V3_InteriorLantern_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_600",
+      "label": "V2_House_HH_Expanded_Floor",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_601",
+      "label": "V2_House_HH_Expanded_DoorApron",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_602",
+      "label": "V2_House_HH_Expanded_RearWall_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_603",
+      "label": "V2_House_HH_Expanded_RearWall_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_604",
+      "label": "V2_House_HH_Expanded_RearWall_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_605",
+      "label": "V2_House_HH_Expanded_RearWall_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_606",
+      "label": "V2_House_HH_Expanded_RearWall_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_607",
+      "label": "V2_House_HH_Expanded_RearWall_5",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_608",
+      "label": "V2_House_HH_Expanded_SideWall_-1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_609",
+      "label": "V2_House_HH_Expanded_SideWall_-1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_610",
+      "label": "V2_House_HH_Expanded_SideWall_-1_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_611",
+      "label": "V2_House_HH_Expanded_SideWall_-1_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_612",
+      "label": "V2_House_HH_Expanded_SideWall_-1_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_613",
+      "label": "V2_House_HH_Expanded_SideWall_1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_614",
+      "label": "V2_House_HH_Expanded_SideWall_1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_615",
+      "label": "V2_House_HH_Expanded_SideWall_1_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_616",
+      "label": "V2_House_HH_Expanded_SideWall_1_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_617",
+      "label": "V2_House_HH_Expanded_SideWall_1_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_618",
+      "label": "V2_House_HH_Expanded_FrontWall_-1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_619",
+      "label": "V2_House_HH_Expanded_DoorPost_-1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_620",
+      "label": "V2_House_HH_Expanded_FrontWall_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_621",
+      "label": "V2_House_HH_Expanded_DoorPost_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_622",
+      "label": "V2_House_HH_Expanded_DoorLintel",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_623",
+      "label": "V2_House_HH_Expanded_DoorBeam",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_624",
+      "label": "V2_House_HH_Expanded_RearBeam_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_625",
+      "label": "V2_House_HH_Expanded_RearBeam_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_626",
+      "label": "V2_House_HH_Expanded_RearBeam_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_627",
+      "label": "V2_House_HH_Expanded_RearBeam_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_628",
+      "label": "V2_House_HH_Expanded_RearBeam_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_629",
+      "label": "V2_House_HH_Expanded_RearBeam_5",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_630",
+      "label": "V2_House_HH_Expanded_SideBeam_-1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_631",
+      "label": "V2_House_HH_Expanded_SideBeam_-1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_632",
+      "label": "V2_House_HH_Expanded_SideBeam_-1_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_633",
+      "label": "V2_House_HH_Expanded_SideBeam_-1_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_634",
+      "label": "V2_House_HH_Expanded_SideBeam_-1_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_635",
+      "label": "V2_House_HH_Expanded_SideBeam_1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_636",
+      "label": "V2_House_HH_Expanded_SideBeam_1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_637",
+      "label": "V2_House_HH_Expanded_SideBeam_1_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_638",
+      "label": "V2_House_HH_Expanded_SideBeam_1_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_639",
+      "label": "V2_House_HH_Expanded_SideBeam_1_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_640",
+      "label": "V2_House_HH_Expanded_CounterVisual",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_641",
+      "label": "V2_House_HH_Expanded_Fireplace",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_642",
+      "label": "V2_House_HH_Art_Floor_0_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_643",
+      "label": "V2_House_HH_Art_Floor_0_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_644",
+      "label": "V2_House_HH_Art_Floor_0_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_645",
+      "label": "V2_House_HH_Art_Floor_0_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_646",
+      "label": "V2_House_HH_Art_Floor_0_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_647",
+      "label": "V2_House_HH_Art_Floor_0_5",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_648",
+      "label": "V2_House_HH_Art_Floor_1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_649",
+      "label": "V2_House_HH_Art_Floor_1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_650",
+      "label": "V2_House_HH_Art_Floor_1_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_651",
+      "label": "V2_House_HH_Art_Floor_1_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_652",
+      "label": "V2_House_HH_Art_Floor_1_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_653",
+      "label": "V2_House_HH_Art_Floor_1_5",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_654",
+      "label": "V2_House_HH_Art_Floor_2_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_655",
+      "label": "V2_House_HH_Art_Floor_2_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_656",
+      "label": "V2_House_HH_Art_Floor_2_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_657",
+      "label": "V2_House_HH_Art_Floor_2_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_658",
+      "label": "V2_House_HH_Art_Floor_2_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_659",
+      "label": "V2_House_HH_Art_Floor_2_5",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_660",
+      "label": "V2_House_HH_Art_Floor_3_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_661",
+      "label": "V2_House_HH_Art_Floor_3_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_662",
+      "label": "V2_House_HH_Art_Floor_3_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_663",
+      "label": "V2_House_HH_Art_Floor_3_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_664",
+      "label": "V2_House_HH_Art_Floor_3_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_665",
+      "label": "V2_House_HH_Art_Floor_3_5",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_666",
+      "label": "V2_House_HH_Art_Floor_4_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_667",
+      "label": "V2_House_HH_Art_Floor_4_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_668",
+      "label": "V2_House_HH_Art_Floor_4_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_669",
+      "label": "V2_House_HH_Art_Floor_4_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_670",
+      "label": "V2_House_HH_Art_Floor_4_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_671",
+      "label": "V2_House_HH_Art_Floor_4_5",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_672",
+      "label": "V2_House_HH_Art_RetainedBlocker_HH_Expanded_SideWall_-1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_673",
+      "label": "V2_House_HH_Art_RetainedBlocker_HH_Expanded_SideWall_-1_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_674",
+      "label": "V2_House_HH_Art_RetainedBlocker_HH_Expanded_SideWall_1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_675",
+      "label": "V2_House_HH_Art_RetainedBlocker_HH_Expanded_SideWall_1_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_676",
+      "label": "V2_House_HH_Art_RetainedBlocker_HH_Expanded_RearWall_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_677",
+      "label": "V2_House_HH_Art_RetainedBlocker_HH_Expanded_RearWall_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_678",
+      "label": "V2_House_HH_Art_StoneSide_-1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_679",
+      "label": "V2_House_HH_Art_StoneSide_-1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_680",
+      "label": "V2_House_HH_Art_StoneSide_-1_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_681",
+      "label": "V2_House_HH_Art_StoneSide_-1_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_682",
+      "label": "V2_House_HH_Art_StoneSide_-1_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_683",
+      "label": "V2_House_HH_Art_PostSide_-1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_684",
+      "label": "V2_House_HH_Art_PostSide_-1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_685",
+      "label": "V2_House_HH_Art_PostSide_-1_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_686",
+      "label": "V2_House_HH_Art_PostSide_-1_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_687",
+      "label": "V2_House_HH_Art_PostSide_-1_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_688",
+      "label": "V2_House_HH_Art_PostSide_-1_5",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_689",
+      "label": "V2_House_HH_Art_StoneSide_1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_690",
+      "label": "V2_House_HH_Art_StoneSide_1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_691",
+      "label": "V2_House_HH_Art_StoneSide_1_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_692",
+      "label": "V2_House_HH_Art_StoneSide_1_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_693",
+      "label": "V2_House_HH_Art_StoneSide_1_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_694",
+      "label": "V2_House_HH_Art_PostSide_1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_695",
+      "label": "V2_House_HH_Art_PostSide_1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_696",
+      "label": "V2_House_HH_Art_PostSide_1_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_697",
+      "label": "V2_House_HH_Art_PostSide_1_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_698",
+      "label": "V2_House_HH_Art_PostSide_1_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_699",
+      "label": "V2_House_HH_Art_PostSide_1_5",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_700",
+      "label": "V2_House_HH_Art_StoneRear_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_701",
+      "label": "V2_House_HH_Art_StoneRear_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_702",
+      "label": "V2_House_HH_Art_StoneRear_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_703",
+      "label": "V2_House_HH_Art_StoneRear_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_704",
+      "label": "V2_House_HH_Art_StoneRear_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_705",
+      "label": "V2_House_HH_Art_StoneRear_5",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_706",
+      "label": "V2_House_HH_Art_PostRear_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_707",
+      "label": "V2_House_HH_Art_PostRear_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_708",
+      "label": "V2_House_HH_Art_PostRear_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_709",
+      "label": "V2_House_HH_Art_PostRear_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_710",
+      "label": "V2_House_HH_Art_PostRear_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_711",
+      "label": "V2_House_HH_Art_PostRear_5",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_712",
+      "label": "V2_House_HH_Art_PostRear_6",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_713",
+      "label": "V2_House_HH_Art_Reception",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_714",
+      "label": "V2_House_HH_Art_Fireplace",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_715",
+      "label": "V2_House_HH_Art_BenchWaiting",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_716",
+      "label": "V2_House_HH_Art_BenchCompanion",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_717",
+      "label": "V2_House_HH_Art_TableWaiting",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_718",
+      "label": "V2_House_HH_Art_WaitingRug",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_719",
+      "label": "V2_House_HH_Art_MainRunner",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_720",
+      "label": "V2_House_HH_Art_ReceptionRug",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_721",
+      "label": "V2_House_HH_Art_PillowSmall",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_722",
+      "label": "V2_House_HH_Art_PillowLarge",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_723",
+      "label": "V2_House_HH_Art_CounterVial_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_724",
+      "label": "V2_House_HH_Art_CounterVial_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_725",
+      "label": "V2_House_HH_Art_CounterVial_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_726",
+      "label": "V2_House_HH_Art_CounterVial_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_727",
+      "label": "V2_House_HH_Art_CounterJar",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_728",
+      "label": "V2_House_HH_Art_CounterPlant",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_729",
+      "label": "V2_House_HH_Art_CounterBasket",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_730",
+      "label": "V2_House_HH_Art_BannerReception",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_731",
+      "label": "V2_House_HH_Art_WaitingPot",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_732",
+      "label": "V2_House_HH_Art_WaitingJar",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_733",
+      "label": "V2_House_HH_Art_WaitingBasket",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_734",
+      "label": "V2_House_HH_Art_HerbShelfStock_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_735",
+      "label": "V2_House_HH_Art_HerbShelfStock_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_736",
+      "label": "V2_House_HH_Art_HerbShelfStock_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_737",
+      "label": "V2_House_HH_Art_BookStock_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_738",
+      "label": "V2_House_HH_Art_BookStock_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_739",
+      "label": "V2_House_HH_Art_BookStock_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_740",
+      "label": "V2_House_HH_Art_RearHerb_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_741",
+      "label": "V2_House_HH_Art_RearHerb_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_742",
+      "label": "V2_House_HH_Art_RearHerb_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_743",
+      "label": "V2_House_HH_Art_WindowPot_-1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_744",
+      "label": "V2_House_HH_Art_WallHerb_-1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_745",
+      "label": "V2_House_HH_Art_WindowPot_-1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_746",
+      "label": "V2_House_HH_Art_WallHerb_-1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_747",
+      "label": "V2_House_HH_Art_WindowPot_1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_748",
+      "label": "V2_House_HH_Art_WallHerb_1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_749",
+      "label": "V2_House_HH_Art_WindowPot_1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_750",
+      "label": "V2_House_HH_Art_WallHerb_1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_751",
+      "label": "V2_House_HH_Art_FloorHerb_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_752",
+      "label": "V2_House_HH_Art_FloorHerb_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_753",
+      "label": "V2_House_HH_Art_FloorHerb_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_754",
+      "label": "V2_House_HH_Art_FloorHerb_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_755",
+      "label": "V2_House_HH_Art_TreatmentJar_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_756",
+      "label": "V2_House_HH_Art_TreatmentJar_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_757",
+      "label": "V2_House_HH_Art_TreatmentJar_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_758",
+      "label": "V2_House_HH_Art_TreatmentJar_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_759",
+      "label": "V2_House_HH_Art_TreatmentJar_4",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PointLight_3",
+      "label": "V2_House_HH_Art_Light_Fire",
+      "component": "BillboardComponent_0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PointLight_3",
+      "label": "V2_House_HH_Art_Light_Fire",
+      "light": true,
+      "old_cast_shadows": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PointLight_4",
+      "label": "V2_House_HH_Art_Light_Waiting",
+      "component": "BillboardComponent_0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PointLight_4",
+      "label": "V2_House_HH_Art_Light_Waiting",
+      "light": true,
+      "old_cast_shadows": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PointLight_5",
+      "label": "V2_House_HH_Art_Light_Reception",
+      "component": "BillboardComponent_0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PointLight_5",
+      "label": "V2_House_HH_Art_Light_Reception",
+      "light": true,
+      "old_cast_shadows": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PointLight_6",
+      "label": "V2_House_HH_Art_Light_Treatment",
+      "component": "BillboardComponent_0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "PointLight_6",
+      "label": "V2_House_HH_Art_Light_Treatment",
+      "light": true,
+      "old_cast_shadows": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_760",
+      "label": "V2_House_HH_Art_Lantern_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_761",
+      "label": "V2_House_HH_Art_Lantern_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_762",
+      "label": "V2_House_HH_Art_Lantern_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_763",
+      "label": "V2_House_HH_Art_Lantern_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_764",
+      "label": "V2_House_HH_Art_RearApothecary_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_765",
+      "label": "V2_House_HH_Art_RearStock_0_0_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_766",
+      "label": "V2_House_HH_Art_RearStock_0_0_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_767",
+      "label": "V2_House_HH_Art_RearStock_0_1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_768",
+      "label": "V2_House_HH_Art_RearStock_0_1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_769",
+      "label": "V2_House_HH_Art_RearStock_0_2_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_770",
+      "label": "V2_House_HH_Art_RearStock_0_2_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_771",
+      "label": "V2_House_HH_Art_RearApothecary_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_772",
+      "label": "V2_House_HH_Art_RearStock_1_0_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_773",
+      "label": "V2_House_HH_Art_RearStock_1_0_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_774",
+      "label": "V2_House_HH_Art_RearStock_1_1_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_775",
+      "label": "V2_House_HH_Art_RearStock_1_1_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_776",
+      "label": "V2_House_HH_Art_RearStock_1_2_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_777",
+      "label": "V2_House_HH_Art_RearStock_1_2_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_778",
+      "label": "V2_House_HH_Q2_CoverletSmall",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_779",
+      "label": "V2_House_HH_Q2_CoverletLarge",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_781",
+      "label": "V2_House_HH_Q3_Visual_HH_Art_BenchWaiting",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_782",
+      "label": "V2_House_HH_Q3_Visual_HH_Art_BenchCompanion",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_783",
+      "label": "V2_House_HH_Q3_Visual_HH_Art_TableWaiting",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_784",
+      "label": "V2_House_HH_Q3_Visual_HH_V3_HerbTable",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_785",
+      "label": "V2_House_HH_Q3_Visual_HH_V3_Bookcase",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_786",
+      "label": "V2_House_HH_Q3_Visual_HH_V3_HerbShelf",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_787",
+      "label": "V2_House_HH_Q3_Visual_HH_Art_RearApothecary_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_788",
+      "label": "V2_House_HH_Q3_Visual_HH_Art_RearApothecary_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_789",
+      "label": "V2_House_HH_Q3_Visual_HH_V3_TreatmentBedSmall",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_790",
+      "label": "V2_House_HH_Q3_Visual_HH_V3_TreatmentBedLarge",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_819",
+      "label": "V2_House_HH_Q3_HangingHook_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_820",
+      "label": "V2_House_HH_Q3_HangingHerb_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_821",
+      "label": "V2_House_HH_Q3_HangingHook_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_822",
+      "label": "V2_House_HH_Q3_HangingHerb_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_823",
+      "label": "V2_House_HH_Q3_HangingHook_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_824",
+      "label": "V2_House_HH_Q3_HangingHerb_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_825",
+      "label": "V2_House_HH_Q3_HerbBundle_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_826",
+      "label": "V2_House_HH_Q3_HerbBundle_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_827",
+      "label": "V2_House_HH_Q3_HerbBundle_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_0",
+      "label": "V2_House_HH_Q3_WindowLight_0",
+      "component": "ArrowComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_0",
+      "label": "V2_House_HH_Q3_WindowLight_0",
+      "component": "BillboardComponent_0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_0",
+      "label": "V2_House_HH_Q3_WindowLight_0",
+      "light": true,
+      "old_cast_shadows": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_1",
+      "label": "V2_House_HH_Q3_WindowLight_1",
+      "component": "ArrowComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_1",
+      "label": "V2_House_HH_Q3_WindowLight_1",
+      "component": "BillboardComponent_0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_1",
+      "label": "V2_House_HH_Q3_WindowLight_1",
+      "light": true,
+      "old_cast_shadows": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_2",
+      "label": "V2_House_HH_Q3_WindowLight_2",
+      "component": "ArrowComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_2",
+      "label": "V2_House_HH_Q3_WindowLight_2",
+      "component": "BillboardComponent_0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_2",
+      "label": "V2_House_HH_Q3_WindowLight_2",
+      "light": true,
+      "old_cast_shadows": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_3",
+      "label": "V2_House_HH_Q3_WindowLight_3",
+      "component": "ArrowComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_3",
+      "label": "V2_House_HH_Q3_WindowLight_3",
+      "component": "BillboardComponent_0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_3",
+      "label": "V2_House_HH_Q3_WindowLight_3",
+      "light": true,
+      "old_cast_shadows": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_4",
+      "label": "V2_House_HH_Q3_WindowLight_4",
+      "component": "ArrowComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_4",
+      "label": "V2_House_HH_Q3_WindowLight_4",
+      "component": "BillboardComponent_0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_4",
+      "label": "V2_House_HH_Q3_WindowLight_4",
+      "light": true,
+      "old_cast_shadows": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_5",
+      "label": "V2_House_HH_Q3_WindowLight_5",
+      "component": "ArrowComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_5",
+      "label": "V2_House_HH_Q3_WindowLight_5",
+      "component": "BillboardComponent_0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "SpotLight_5",
+      "label": "V2_House_HH_Q3_WindowLight_5",
+      "light": true,
+      "old_cast_shadows": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_950",
+      "label": "V2_InteriorUnderfloor",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": false,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_505",
+      "label": "Refined_HerbalRemedyTray_0",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_980",
+      "label": "Refined_HerbalMortar_1",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_981",
+      "label": "Refined_HerbalRemedyTray_2",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_982",
+      "label": "Refined_HerbalMortar_3",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_985",
+      "label": "Refined_HealingHerbs_6",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    },
+    {
+      "actor": "StaticMeshActor_986",
+      "label": "Refined_HealingHerbs_7",
+      "component": "StaticMeshComponent0",
+      "old_cast_shadow": true,
+      "old_channels": "(bChannel0=True,bChannel1=False,bChannel2=False)"
+    }
+  ],
+  "cutaway": "PokeMonsterBuildingCutaway_0",
+  "furniture_moves": [
+    {
+      "name": "StaticMeshActor_716",
+      "label": "V2_House_HH_Art_BenchCompanion",
+      "before": [
+        16825.0,
+        200.0,
+        0.0
+      ],
+      "after": [
+        16520.0,
+        190.0,
+        0.0
+      ]
+    },
+    {
+      "name": "StaticMeshActor_782",
+      "label": "V2_House_HH_Q3_Visual_HH_Art_BenchCompanion",
+      "before": [
+        16825.0,
+        200.0,
+        0.0
+      ],
+      "after": [
+        16520.0,
+        190.0,
+        0.0
+      ]
+    },
+    {
+      "name": "StaticMeshActor_717",
+      "label": "V2_House_HH_Art_TableWaiting",
+      "before": [
+        16670.0,
+        215.0,
+        0.0
+      ],
+      "after": [
+        16635.0,
+        215.0,
+        0.0
+      ]
+    },
+    {
+      "name": "StaticMeshActor_783",
+      "label": "V2_House_HH_Q3_Visual_HH_Art_TableWaiting",
+      "before": [
+        16670.0,
+        215.0,
+        0.0
+      ],
+      "after": [
+        16635.0,
+        215.0,
+        0.0
+      ]
+    },
+    {
+      "name": "StaticMeshActor_731",
+      "label": "V2_House_HH_Art_WaitingPot",
+      "before": [
+        16660.0,
+        220.0,
+        75.0
+      ],
+      "after": [
+        16625.0,
+        220.0,
+        75.0
+      ]
+    },
+    {
+      "name": "StaticMeshActor_732",
+      "label": "V2_House_HH_Art_WaitingJar",
+      "before": [
+        16700.0,
+        200.0,
+        75.0
+      ],
+      "after": [
+        16665.0,
+        200.0,
+        75.0
+      ]
+    },
+    {
+      "name": "StaticMeshActor_733",
+      "label": "V2_House_HH_Art_WaitingBasket",
+      "before": [
+        16635.0,
+        197.0,
+        75.0
+      ],
+      "after": [
+        16600.0,
+        197.0,
+        75.0
+      ]
+    },
+    {
+      "name": "StaticMeshActor_982",
+      "label": "Refined_HerbalMortar_3",
+      "before": [
+        16670.0,
+        215.0,
+        77.0
+      ],
+      "after": [
+        16635.0,
+        215.0,
+        77.0
+      ]
+    },
+    {
+      "name": "StaticMeshActor_719",
+      "label": "V2_House_HH_Art_MainRunner",
+      "before": [
+        16785.0,
+        505.0,
+        3.0
+      ],
+      "after": [
+        16665.0,
+        505.0,
+        3.0
+      ]
+    }
+  ],
+  "entrance_runner_old_transform": "<Struct 'Transform' (0x71425315c0) {rotation: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}, translation: {x: 16785.000000, y: 505.000000, z: 3.000000}, scale3d: {x: 2.100000, y: 1.200000, z: 1.000000}}>",
+  "entrance_runner_scale": [
+    1.25,
+    0.86,
+    1
+  ],
+  "hidden_redundant_rug": "StaticMeshActor_720",
+  "new_healer_visual": "PokeMonsterNPCVisualActor_1",
+  "healer_source": "PokeMonsterRestPoint_1",
+  "healer_source_transform_unchanged": true,
+  "static_mesh": "/Game/Characters/NPCs/SilverLady/Meshes/SM_SilverLady_HealerPose.SM_SilverLady_HealerPose",
+  "static_triangles": 149999,
+  "height_cm": 172.2409213,
+  "rig_status": "Static pose only; no validated animation rig or clips",
+  "outdoor_lights_unchanged": true
+}

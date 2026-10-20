@@ -8538,8 +8538,8 @@
       "sha256": "d9855c7a10dee76c73ab260871e220abc2371ef61e91d269b145a498bd26176f"
     },
     "Content/Maps/Dev_TestMap_VisualV2.umap": {
-      "bytes": 3900536,
-      "sha256": "9dc3c758b456514d173786ecdb7a37513dd42c23abd12b1a4d4e5638190defc9"
+      "bytes": 3938667,
+      "sha256": "769c9723f7c81921a0ff2e22eaa7259eaa3179fde02df2234c73faf7c00bd211"
     },
     "Content/Maps/Dev_TestMap_VisualV2GPUBottleneckV1.umap": {
       "bytes": 3300685,
@@ -8870,8 +8870,8 @@
       "sha256": "bfec32896f5b95199b6c3b69101a2424c2689626e0e778323007f653cf5879c4"
     },
     "Source/PokeMonster/Characters/PokeMonsterNPCVisualActor.cpp": {
-      "bytes": 5927,
-      "sha256": "67922fcc0cebaceae903a7659e2d1124926039ad1450ecc4f73b7257ec4cc2e5"
+      "bytes": 5946,
+      "sha256": "eda19f9109ccaf07aafed852d4457741be8661cc76d2dcc1eb24a49ab37aa746"
     },
     "Source/PokeMonster/Characters/PokeMonsterNPCVisualActor.h": {
       "bytes": 4114,
@@ -14082,8 +14082,8 @@
       "sha256": "8d630fec0d7446ec5f1a2cc14a9b8455ca89020cc104ed49ae9537186cb04aae"
     },
     "Art/HealingHouse/RefinedGraphs.json": {
-      "bytes": 99967,
-      "sha256": "233740406f2828abee4e393f33273f60bcc07c0040a9afb12d1c9116f4d69711"
+      "bytes": 101362,
+      "sha256": "1d2960243dc95c389fc2a97f1e04c88a4a7081b8984be375ab73ed47034553e9"
     },
     "Art/HealingHouse/Refinement.json": {
       "bytes": 88461,
@@ -14126,16 +14126,16 @@
       "sha256": "bc609b4b1ac0f54ce30a82a282d322f6ff198984d63db4f8752df867dfa7a206"
     },
     "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_LandscapeGround.uasset": {
-      "bytes": 44246,
-      "sha256": "5f880636a2123d3408473698ee40cc34c175f40254058a93012c45fdda4b5091"
+      "bytes": 44886,
+      "sha256": "1bb59f64c2090fdd488a12f7006eea2c1c8aee6f972051c53f7279016e878ff2"
     },
     "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_LandscapeMainPath.uasset": {
-      "bytes": 61360,
-      "sha256": "92f4e88e1a741dd7354483b0377ea472948b6f5c72d41012f6490e5bbc3b7fab"
+      "bytes": 61935,
+      "sha256": "3224396ec240bafea0183504e1179ee23bc52ab0cb27db3cf187a63e1f146fc1"
     },
     "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_LandscapeNorthPath.uasset": {
-      "bytes": 63737,
-      "sha256": "46a2bb735ec27d4e05eeaf54f9e9e2fae9a34a695711fa89bd9371b3e598f47d"
+      "bytes": 64300,
+      "sha256": "42532dbeddf694a63a1471acc6d5a7eb01078c6799b58c4a3ba5923783969758"
     },
     "Content/Environment/VisualV2HealingArtV4/Materials/M_HH_RefinedPlaster.uasset": {
       "bytes": 19115,
@@ -14218,8 +14218,8 @@
       "sha256": "3059b9e548db4c8889bf8ae4d43d351d1a1a3e29158bf1ccfba47270ece41b8b"
     },
     "Tools/ProjectMaintenance/ValidateRefinedArt.py": {
-      "bytes": 4740,
-      "sha256": "1ae9fc980f6b6b3622b64cb498aab007a2be50594fa82de814b3acd22109a22b"
+      "bytes": 5133,
+      "sha256": "d87617785406407285681ef073de54b21ba419295fa7dec763c1532c66705ecb"
     },
     "Tools/ProjectMaintenance/VerifyRemoteLFS.py": {
       "bytes": 2453,
@@ -14228,6 +14228,110 @@
     "Source/PokeMonster/Tests/PokeMonsterInteriorLightingTest.cpp": {
       "bytes": 3033,
       "sha256": "54096f192d48c48e7c518c832ccda5f0b24cba60792646a3c52f7164c72f3bb8"
+    },
+    "Art/Characters/NPCs/SilverLady/Exports/SM_SilverLady_HealerPose.fbx": {
+      "bytes": 9414396,
+      "sha256": "7c989080d069d8abf74a05d4b629b58a809b0292b0580fb3bb92cdeddc9230eb"
+    },
+    "Art/Characters/NPCs/SilverLady/HealerPose.json": {
+      "bytes": 272,
+      "sha256": "2a75aae7299beffe3a43476eaee404e4aa51c7406ec5b7ed61b7fb4278adff3d"
+    },
+    "Art/Characters/NPCs/SilverLady/Source/SilverLady_HealerPose.blend": {
+      "bytes": 36527666,
+      "sha256": "98d0e88facd2b49915eb88fcb8004f11459a3312e9b10b38a7d52b4d151efed8"
+    },
+    "Art/HealingHouse/ArtPassV3_Interior.json": {
+      "bytes": 84894,
+      "sha256": "0ac99f8a9651220a568b0c677e88d8c05d5eb8987206902d0dd9db4791c27190"
+    },
+    "Art/HealingHouse/ArtPassV3_Lighting.json": {
+      "bytes": 542,
+      "sha256": "575687ed79da086ddaa1a1e5a6839a6c599190a258b09663f5c59766a9c037c0"
+    },
+    "Art/World/VisualV2WorldArtV7/ArtPassV3_Landscape.json": {
+      "bytes": 4759,
+      "sha256": "bbda872743f621854548b17a61687203badc987c4e5118c38aa68ebe07963882"
+    },
+    "Art/World/VisualV2WorldArtV7/ArtPassV3_PathGraphs.json": {
+      "bytes": 182600,
+      "sha256": "eca9aa270bc98d7bef3ee3c3bb5e6cc139de2b81e6d393b813809f28ec7bd692"
+    },
+    "Art/World/VisualV2WorldArtV7/Exports/SM_WA7_Fern_A.fbx": {
+      "bytes": 136924,
+      "sha256": "007edd2d127cc3eaf97e8fcd79044dad3d30646191c7c9b642ec5ad4fa7fff2e"
+    },
+    "Art/World/VisualV2WorldArtV7/Exports/SM_WA7_Fern_B.fbx": {
+      "bytes": 171164,
+      "sha256": "5b42ecd7814b3d49e6c156831d15585f97367213466821ec810f5c62c35d1283"
+    },
+    "Art/World/VisualV2WorldArtV7/FernRefinement.json": {
+      "bytes": 946,
+      "sha256": "3c9a452b3027da30400c41058c27394a38c6d70a12c2c316c03b84998d6f9abe"
+    },
+    "Art/World/VisualV2WorldArtV7/Source/Westland_Ferns.blend": {
+      "bytes": 246793,
+      "sha256": "3ec3491d608bdfc14d23ff0d1878ef91b7c791432ace9aedcbd3b9f35066ea64"
+    },
+    "Content/Characters/NPCs/SilverLady/Meshes/SM_SilverLady_HealerPose.uasset": {
+      "bytes": 10013270,
+      "sha256": "acdc245299623b9819c9365d2be1fcce6cfa27b8a95e109a9ad7d9e728972dcd"
+    },
+    "Content/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_A.uasset": {
+      "bytes": 199269,
+      "sha256": "78d031662464e3277c8d4994c91c02cd627a8fd42b750031a10dab272730a7b6"
+    },
+    "Content/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_B.uasset": {
+      "bytes": 223603,
+      "sha256": "c3df346e7f9f71bcc5071208d0b1bb521c58fc61aa8a6e053ec31f7b7251b152"
+    },
+    "Tools/ProjectMaintenance/ArtV3Interior.py": {
+      "bytes": 6223,
+      "sha256": "b15cd8e2c7b85cb060e5e87b037520ab147e9d55bd80eb36a2b6cfe1597a142b"
+    },
+    "Tools/ProjectMaintenance/ArtV3Landscape.py": {
+      "bytes": 5144,
+      "sha256": "a6b3d8326021447a5032b31ae9ace3119e4c61dfd11c961562a3179239d18a26"
+    },
+    "Tools/ProjectMaintenance/ArtV3MapChecks.py": {
+      "bytes": 1472,
+      "sha256": "3a75a534291bf81bfdfb0165b1103dca1a7e2f8ed692be058349f168b21f2c25"
+    },
+    "Tools/ProjectMaintenance/ArtV3Photos.py": {
+      "bytes": 2436,
+      "sha256": "10fc51f001201c7e9d90c80f1848533d82dd00b7b39bbc0fb14ccb868cb363fb"
+    },
+    "Tools/ProjectMaintenance/ArtV3RoomFill.py": {
+      "bytes": 2485,
+      "sha256": "e07dc473c187be9d2117e01a2c42293f32b43d7f90d3a84c656fb0f73cf7f730"
+    },
+    "Tools/ProjectMaintenance/ArtV3RuntimeAudit.py": {
+      "bytes": 2970,
+      "sha256": "5b8dd3ddde368bf36181dee59c8eb41caeb95369f4824e9162c08c6b322a773e"
+    },
+    "Tools/ProjectMaintenance/ArtV3Signatures.json": {
+      "bytes": 134157,
+      "sha256": "6a6bd8dd45bacd1725c5e29384acc09c89c87e25493364380ae75e52eae0f794"
+    },
+    "Tools/ProjectMaintenance/ArtV3WindowMotion.py": {
+      "bytes": 2638,
+      "sha256": "3eba20eff7e21b8a6c9efd855ae99fd2aaaa14499355b0eccf68eb0780c4e5b1"
+    },
+    "Tools/ProjectMaintenance/BuildWestlandFerns.py": {
+      "bytes": 4999,
+      "sha256": "4474b47f40f7f10dce787b1f5d435aaebff6104e940772bb6feea9b42535d4eb"
+    },
+    "Tools/ProjectMaintenance/PoseSilverLady.py": {
+      "bytes": 6579,
+      "sha256": "bf0096f2c739a8aa8510a5b1a991a07024c5d411600835fde434adecc4971fb8"
+    },
+    "Tools/ProjectMaintenance/RunArtV3Gameplay.py": {
+      "bytes": 4434,
+      "sha256": "f928f892a27422864895a3590cdb6e395f3f5ae5309b1a9dca1d3d21a1583325"
+    },
+    "Tools/ProjectMaintenance/ValidateArtPassV3.py": {
+      "bytes": 5714,
+      "sha256": "021dd86dfabcd66dbb2d9c85cf0a43c129ae08bc88707b52125acb3ab4da7f89"
     }
   }
 }

@@ -79,7 +79,7 @@ void APokeMonsterNPCVisualActor::HandleDialogueChanged()
   if (const auto* Player = UGameplayStatics::GetPlayerPawn(this, 0))
   {
    const FVector Direction = Player->GetActorLocation() - GetActorLocation();
-   DesiredRotation = FRotator(0, Direction.Rotation().Yaw, 0); SetActorTickEnabled(true);
+   DesiredRotation = FRotator(0, Direction.Rotation().Yaw + ForwardYawOffset, 0); SetActorTickEnabled(true);
   }
 }
 void APokeMonsterNPCVisualActor::SampleMotion(float DeltaSeconds)

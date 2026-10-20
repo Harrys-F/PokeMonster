@@ -1,0 +1,10 @@
+{
+  "vertices": 177228,
+  "triangles": 149999,
+  "min_z": -0.002399742603302002,
+  "max_z": 1.9008147716522217,
+  "width": 1.138324499130249,
+  "finite": true,
+  "rig_purpose": "Static arm/sleeve pose study, not validated animation rig",
+  "original_fbx_unchanged": true
+}

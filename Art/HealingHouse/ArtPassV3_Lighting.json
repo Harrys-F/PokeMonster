@@ -1,0 +1,29 @@
+{
+  "actor": "RectLight_0",
+  "label": "V2_House_InteriorDiffuse",
+  "type": "RectLight",
+  "position": [
+    16900.0,
+    500.0,
+    285.0
+  ],
+  "rotation": [
+    0.0,
+    -90.0,
+    0.0
+  ],
+  "intensity_lumens": 550,
+  "source_width_cm": 650,
+  "source_height_cm": 500,
+  "temperature_K": 5000,
+  "channels": [
+    false,
+    true,
+    false
+  ],
+  "cast_shadows": false,
+  "indirect_lighting_intensity": 0,
+  "exterior_channel_0_receives_no_direct_light": true,
+  "silver_lady_presentation_yaw": 90,
+  "silver_lady_forward_offset": -90
+}
