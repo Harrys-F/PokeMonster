@@ -2,17 +2,19 @@
 #include "CoreMinimal.h"
 #include "Subsystems/WorldSubsystem.h"
 #include "PokeMonsterCreatureCompanionSubsystem.generated.h"
+struct FPokeMonsterCreatureInstance;
 class APokeMonsterCreatureVisualActor;
 class UPokeMonsterCreatureRoamingComponent;
 class UPokeMonsterCreatureSpeciesData;
 class UPokeMonsterEncounterSubsystem;
 
-/** One visual of the first conscious, configured party member. Owns no creature/gameplay data. */
+/** One visual of party slot zero; never silently substitutes another member. Owns no creature/gameplay data. */
 UCLASS()
 class POKEMONSTER_API UPokeMonsterCreatureCompanionSubsystem : public UTickableWorldSubsystem
 {
 	GENERATED_BODY()
 public:
+	static int32 SelectPartyIndex(const TArray<FPokeMonsterCreatureInstance>& Team);
 	virtual void Tick(float DeltaTime) override;
 	virtual TStatId GetStatId() const override;
 	virtual void Deinitialize() override;

@@ -35,14 +35,16 @@ void UPokeMonsterCreatureRoamingComponent::Configure(const UPokeMonsterCreatureS
 	HabitatOrigin = GetOwner()->GetActorLocation() - FVector(0, 0, Offset);
 	Buildings.Reset();
 	for (TActorIterator<APokeMonsterBuildingCutaway> It(GetWorld()); It; ++It) Buildings.Add(*It);
-	Random.Initialize(Seed); DistanceTravelled = 0.f; SuccessfulPlans = BlockedSteps = 0;
+	Random.Initialize(Seed); DistanceTravelled = 0.f; SuccessfulPlans = BlockedSteps = RejectedTargets = 0;
+	CurrentSpeed = AngularVelocity = 0.f; RecentGoals.Reset();
+	for (int32& Visits : SectorVisits) Visits=0;
 	Path.Reset(); bPaused = false; bRecalling = false; bReady = true; BeginPause();
 	SetComponentTickEnabled(true);
 }
 void UPokeMonsterCreatureRoamingComponent::SetMovementPaused(bool Paused)
 {
 	if (bPaused != Paused) { Path.Reset(); PauseRemaining = .2f; ReplanRemaining = 0.f; }
-	bPaused = Paused;
+	bPaused = Paused; if(Paused) CurrentSpeed=AngularVelocity=0.f;
 }
 FCollisionQueryParams UPokeMonsterCreatureRoamingComponent::Query() const
 {
@@ -124,6 +126,7 @@ bool UPokeMonsterCreatureRoamingComponent::Plan(const FVector& Target)
 void UPokeMonsterCreatureRoamingComponent::BeginPause()
 {
 	PauseRemaining = Random.FRandRange(Settings.PauseMinimum, Settings.PauseMaximum);
+	AngularVelocity=0.f;
 	LookYaw = GetOwner()->GetActorRotation().Yaw + Random.FRandRange(-35.f, 35.f);
 	Path.Reset();
 }
@@ -142,7 +145,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	if (!FollowTarget.IsValid() && Player && (Player->IsOverworldInputLocked()
 		|| FVector::Dist2D(Current, Player->GetActorLocation()) < 110.f))
 	{
-		Path.Reset(); PauseRemaining = .6f;
+		Path.Reset(); CurrentSpeed=0.f; PauseRemaining = .6f;
 		const float Yaw = (Player->GetActorLocation() - Current).Rotation().Yaw;
 		Owner->SetActorRotation(FMath::RInterpConstantTo(Owner->GetActorRotation(), FRotator(0,Yaw,0),Delta,Settings.TurnDegreesPerSecond));
 		return;
@@ -161,7 +164,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 			Speed = FMath::Min(Settings.CompanionMaximumSpeed,
 				FMath::Max(Run, FollowTarget->GetVelocity().Size2D() + 70.f));
 			PauseRemaining = 0;
-			if (Path.IsEmpty() || ReplanRemaining <= 0)
+			if (ReplanRemaining <= 0)
 			{
 				const FVector Toward = (FollowTarget->GetActorLocation() - Current).GetSafeNormal2D();
 				FVector Target = Distance > 900.f ? Current + Toward * 800.f
@@ -184,47 +187,83 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	}
 	if (PauseRemaining > 0 && !bRecalling)
 	{
-		PauseRemaining -= Delta;
+		CurrentSpeed=0.f; PauseRemaining -= Delta;
 		Owner->SetActorRotation(FMath::RInterpConstantTo(Owner->GetActorRotation(), FRotator(0,LookYaw,0),Delta,35.f));
 		return;
 	}
 	if (Path.IsEmpty())
 	{
+		CurrentSpeed=0.f;
 		if (bRecalling || ReplanRemaining > 0) return;
 		const FVector Center = FollowTarget.IsValid() ? FollowTarget->GetActorLocation() : HabitatOrigin;
 		const float Radius = FollowTarget.IsValid() ? Settings.CompanionRoamRadius
 			: HabitatRadiusOverride > 0 ? HabitatRadiusOverride : Settings.RoamRadius;
-		for (int32 Attempt = 0; Attempt < 12; ++Attempt)
+		struct FCandidate { FVector Point; float Score; int32 Sector; };
+		TArray<FCandidate> Candidates;
+		for (int32 Attempt=0; Attempt<16; ++Attempt)
 		{
-			const float Angle = Random.FRandRange(-PI, PI), Distance = Radius * FMath::Sqrt(Random.FRand());
-			FVector Goal = Center + FVector(FMath::Cos(Angle)*Distance,FMath::Sin(Angle)*Distance,0); Goal.Z = Current.Z;
-			if (FVector::Dist2D(Current, Goal) < (FollowTarget.IsValid() ? 90.f : Settings.MinimumTravel)) continue;
-			if (FollowTarget.IsValid() && FVector::Dist2D(Goal, Center) < 100.f) continue;
-			if (FVector::Dist2D(Current, Goal) > 1000.f) Goal = Current + (Goal-Current).GetSafeNormal2D()*1000.f;
-			if (Plan(Goal)) break;
+			const float Angle=Random.FRandRange(-PI,PI), Distance=Radius*FMath::Sqrt(Random.FRand());
+			FVector Goal=Center+FVector(FMath::Cos(Angle)*Distance,FMath::Sin(Angle)*Distance,0); Goal.Z=Current.Z;
+			if(FVector::Dist2D(Current,Goal)<(FollowTarget.IsValid()?90.f:Settings.MinimumTravel)) continue;
+			if(FollowTarget.IsValid() && FVector::Dist2D(Goal,Center)<100.f) continue;
+			if(RecentGoals.ContainsByPredicate([&](const FVector& P){return FVector::Dist2D(P,Goal)<Settings.MinimumTravel*.65f;})) continue;
+			if(FVector::Dist2D(Current,Goal)>1000.f) Goal=Current+(Goal-Current).GetSafeNormal2D()*1000.f;
+			const int32 Sector=FMath::Clamp(FMath::FloorToInt((Angle+PI)/(PI/4)),0,7);
+			const float Score=FollowTarget.IsValid()?Random.FRand():4.f/(1+SectorVisits[Sector])+Distance/Radius+Random.FRand()*.4f;
+			Candidates.Add({Goal,Score,Sector});
+		}
+		Candidates.Sort([](const FCandidate& A,const FCandidate& B){return A.Score>B.Score;});
+		for(const auto& Candidate:Candidates)
+		{
+			if(Plan(Candidate.Point))
+			{
+				if(!FollowTarget.IsValid()) ++SectorVisits[Candidate.Sector];
+				RecentGoals.Add(Candidate.Point); if(RecentGoals.Num()>4) RecentGoals.RemoveAt(0);
+				break;
+			}
+			++RejectedTargets;
 		}
 		if (Path.IsEmpty()) { BeginPause(); ReplanRemaining = 1.f; return; }
 	}
-	while (!Path.IsEmpty() && FVector::Dist2D(Current, Path[0]) < 4.f) Path.RemoveAt(0);
+	while (!Path.IsEmpty() && FVector::Dist2D(Current, Path[0]) < 1.f) Path.RemoveAt(0);
 	if (Path.IsEmpty()) { if (!bRecalling) BeginPause(); return; }
 	const FVector Target = Path[0];
 	const FVector Direction = (Target - Current).GetSafeNormal2D();
 	const float TargetYaw = Direction.Rotation().Yaw;
-	const FRotator Rotation = FMath::RInterpConstantTo(Owner->GetActorRotation(), FRotator(0,TargetYaw,0),Delta,Settings.TurnDegreesPerSecond);
+	const FRotator Rotation(0,AdvanceHeading(Owner->GetActorRotation().Yaw,TargetYaw,AngularVelocity,Settings,Delta),0);
 	Owner->SetActorRotation(Rotation);
 	// Turn before translating; this avoids diagonal sideways steps at large heading changes.
-	if (FMath::Abs(FMath::FindDeltaAngleDegrees(Rotation.Yaw, TargetYaw)) > 35.f) return;
-	const FVector Candidate = Current + Direction * FMath::Min(Speed * FMath::Min(Delta, .1f), FVector::Dist2D(Current,Target));
+	if (FMath::Abs(FMath::FindDeltaAngleDegrees(Rotation.Yaw, TargetYaw)) > 35.f) { CurrentSpeed=0.f; return; }
+	CurrentSpeed=AdvanceSpeed(CurrentSpeed,Speed,Path.Num()==1?FVector::Dist2D(Current,Target):BIG_NUMBER,FollowTarget.IsValid(),Settings,Delta);
+	const FVector Candidate = Current + Direction * FMath::Min(CurrentSpeed * FMath::Min(Delta, .1f), FVector::Dist2D(Current,Target));
 	FVector Ground;
 	if (!ProjectWalkable(Candidate, Ground) || !CanTraverse(Current, Ground))
-	{ ++BlockedSteps; BeginPause(); ReplanRemaining = .5f; return; }
+	{ ++BlockedSteps; CurrentSpeed=0.f; BeginPause(); ReplanRemaining = .5f; return; }
 	const FVector Before = Owner->GetActorLocation(); FHitResult Hit;
 	Owner->SetActorLocation(Ground + FVector(0,0,Offset), true, &Hit);
 	DistanceTravelled += FVector::Dist2D(Before, Owner->GetActorLocation());
-	if (Hit.bBlockingHit) { ++BlockedSteps; BeginPause(); return; }
-	if (FVector::Dist2D(Ground, Target) < 4.f)
+	if (Hit.bBlockingHit) { ++BlockedSteps; CurrentSpeed=0.f; BeginPause(); return; }
+	if (FVector::Dist2D(Ground, Target) < 1.f)
 	{
 		Path.RemoveAt(0);
 		if (Path.IsEmpty() && !bRecalling) BeginPause();
 	}
+}
+
+float UPokeMonsterCreatureRoamingComponent::AdvanceSpeed(float Current,float Desired,float Distance,bool Companion,
+ const FPokeMonsterCreatureOverworldSettings& Config,float Delta)
+{
+ if(!FMath::IsFinite(Current)||!FMath::IsFinite(Desired)||!FMath::IsFinite(Distance)||!FMath::IsFinite(Delta)||Delta<=0) return 0.f;
+ const float Brake=Companion?Config.CompanionBrakingDeceleration:Config.BrakingDeceleration;
+ const float Accel=Companion?Config.CompanionAcceleration:Config.Acceleration;
+ const float Target=FMath::Min(FMath::Max(0.f,Desired),FMath::Sqrt(2.f*Brake*FMath::Max(0.f,Distance)));
+ return FMath::FInterpConstantTo(FMath::Max(0.f,Current),Target,FMath::Min(Delta,.1f),Target>Current?Accel:Brake);
+}
+float UPokeMonsterCreatureRoamingComponent::AdvanceHeading(float CurrentYaw,float DesiredYaw,float& Velocity,
+ const FPokeMonsterCreatureOverworldSettings& Config,float Delta)
+{
+ const float Error=FMath::FindDeltaAngleDegrees(CurrentYaw,DesiredYaw),Step=FMath::Clamp(Delta,0.f,.1f);
+ if(FMath::Abs(Error)<.05f){Velocity=0;return DesiredYaw;}
+ Velocity=FMath::FInterpConstantTo(Velocity,FMath::Clamp(Error*4.f,-Config.TurnDegreesPerSecond,Config.TurnDegreesPerSecond),Step,Config.TurnAcceleration);
+ return FRotator::NormalizeAxis(CurrentYaw+FMath::Clamp(Velocity*Step,-FMath::Abs(Error),FMath::Abs(Error)));
 }

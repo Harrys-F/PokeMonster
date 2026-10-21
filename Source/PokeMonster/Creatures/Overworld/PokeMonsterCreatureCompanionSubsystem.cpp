@@ -71,11 +71,10 @@ void UPokeMonsterCreatureCompanionSubsystem::Tick(float Delta)
 	if (E->IsEncounterActive() || (Checkpoint && Checkpoint->IsReturningFromDefeat()))
 	{ HideForEncounter(); return; }
 	UPokeMonsterCreatureSpeciesData* Species = nullptr; FGuid Id;
-	for (const auto& C : E->GetPlayerParty())
+	const auto& Team=E->GetPlayerParty();
+	if(SelectPartyIndex(Team)==0)
 	{
-		if (C.CurrentHP <= 0 || !C.IsValid()) continue;
-		auto* S = C.Species.LoadSynchronous();
-		if (S && !S->GetVisuals().Presentation.IsNull()) { Species = S; Id = C.InstanceId; break; }
+		Species=Team[0].Species.LoadSynchronous(); Id=Team[0].InstanceId;
 	}
 	if (!Species) { ClearVisual(); return; }
 	if (!Visual)
@@ -133,4 +132,12 @@ void UPokeMonsterCreatureCompanionSubsystem::Deinitialize()
 {
 	if (BoundEncounter) BoundEncounter->OnEncounterStarted.RemoveDynamic(this, &UPokeMonsterCreatureCompanionSubsystem::HideForEncounter);
 	ClearVisual(); BoundEncounter = nullptr; Super::Deinitialize();
+}
+
+int32 UPokeMonsterCreatureCompanionSubsystem::SelectPartyIndex(const TArray<FPokeMonsterCreatureInstance>& Team)
+{
+ if(Team.IsEmpty()||Team[0].CurrentHP<=0||!Team[0].IsValid())return INDEX_NONE;
+ const auto* S=Team[0].Species.LoadSynchronous();
+ const auto* Profile=S?S->GetVisuals().Presentation.LoadSynchronous():nullptr;
+ return Profile&&Profile->GetValidationErrors().IsEmpty()?0:INDEX_NONE;
 }

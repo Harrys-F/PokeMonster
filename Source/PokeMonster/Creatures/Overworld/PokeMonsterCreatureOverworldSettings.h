@@ -16,6 +16,11 @@ struct POKEMONSTER_API FPokeMonsterCreatureOverworldSettings
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(ClampMin="0.25")) float PauseMinimum = 1.4f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(ClampMin="0.25")) float PauseMaximum = 3.8f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(ClampMin="1")) float TurnDegreesPerSecond = 110.f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(ClampMin="1")) float Acceleration = 90.f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(ClampMin="1")) float BrakingDeceleration = 180.f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(ClampMin="1")) float CompanionAcceleration = 480.f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(ClampMin="1")) float CompanionBrakingDeceleration = 600.f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(ClampMin="1")) float TurnAcceleration = 260.f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(ClampMin="1")) float MaxStepHeight = 25.f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(ClampMin="1")) float BodyRadius = 24.f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(ClampMin="100")) float CompanionRoamRadius = 260.f;

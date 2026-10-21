@@ -6,11 +6,13 @@ bool FPokeMonsterCreatureOverworldSettings::IsValid() const
 {
 	const float Values[] = {RoamRadius, MinimumTravel, WalkSpeedOverride, RunSpeedOverride,
 		PauseMinimum, PauseMaximum, TurnDegreesPerSecond, MaxStepHeight, BodyRadius,
-		CompanionRoamRadius, RecallDistance, CompanionMaximumSpeed, MaximumActiveDistance, SprintReferenceSpeed};
+		CompanionRoamRadius, RecallDistance, CompanionMaximumSpeed, MaximumActiveDistance, SprintReferenceSpeed, Acceleration, BrakingDeceleration, CompanionAcceleration, CompanionBrakingDeceleration, TurnAcceleration};
 	for (float V : Values) if (!FMath::IsFinite(V)) return false;
 	return RoamRadius >= 150.f && RoamRadius <= 5000.f && MinimumTravel >= 50.f
 		&& MinimumTravel < RoamRadius && WalkSpeedOverride >= 0.f && RunSpeedOverride >= 0.f
 		&& PauseMinimum >= .25f && PauseMaximum >= PauseMinimum && TurnDegreesPerSecond > 0.f
+		&& Acceleration > 0.f && BrakingDeceleration > 0.f && CompanionAcceleration > 0.f
+		&& CompanionBrakingDeceleration > 0.f && TurnAcceleration > 0.f
 		&& MaxStepHeight > 0.f && MaxStepHeight <= 50.f && BodyRadius > 0.f
 		&& CompanionRoamRadius >= 100.f && RecallDistance > CompanionRoamRadius
 		&& CompanionMaximumSpeed > 0.f && MaximumActiveDistance > RecallDistance
@@ -28,8 +30,7 @@ bool FPokeMonsterCreaturePath::Find(const FVector& Start, const FVector& Goal,
 	if (CanCross(Start, Goal)) { Out.Add(Goal); return true; }
 	struct FNode { FVector Ground; FIntPoint Parent; float Cost = TNumericLimits<float>::Max(); };
 	const FIntPoint Origin(0, 0);
-	const FIntPoint Target(FMath::RoundToInt((Goal.X - Start.X) / CellSize),
-		FMath::RoundToInt((Goal.Y - Start.Y) / CellSize));
+
 	TMap<FIntPoint, FNode> Nodes;
 	Nodes.Add(Origin, {Start, Origin, 0.f});
 	TArray<FIntPoint> Open = {Origin};
@@ -45,7 +46,7 @@ bool FPokeMonsterCreaturePath::Find(const FVector& Start, const FVector& Goal,
 		}
 		const FIntPoint Key = Open[Best]; Open.RemoveAtSwap(Best);
 		const FNode Current = Nodes.FindChecked(Key); Closed.Add(Key);
-		if (Key == Target && CanCross(Current.Ground, Goal))
+		if (FVector::Dist2D(Current.Ground, Goal) <= CellSize * 1.5f && CanCross(Current.Ground, Goal))
 		{
 			Out.Add(Goal); FIntPoint Trace = Key;
 			while (Trace != Origin && Out.Num() <= MaximumExpanded)
@@ -53,7 +54,16 @@ bool FPokeMonsterCreaturePath::Find(const FVector& Start, const FVector& Goal,
 				const auto& N = Nodes.FindChecked(Trace);
 				if (!N.Ground.Equals(Out.Last(), .1f)) Out.Add(N.Ground); Trace = N.Parent;
 			}
-			Algo::Reverse(Out); return true;
+			Algo::Reverse(Out);
+			// Remove only redundant collision-checked grid corners, not obstacles.
+			TArray<FVector> Smooth; FVector Anchor = Start;
+			for (int32 I=0; I<Out.Num();)
+			{
+				int32 Last=FMath::Min(I+4,Out.Num()-1);
+				while (Last>I && !CanCross(Anchor,Out[Last])) --Last;
+				Smooth.Add(Out[Last]); Anchor=Out[Last]; I=Last+1;
+			}
+			Out=MoveTemp(Smooth); return true;
 		}
 		for (int32 X = -1; X <= 1; ++X) for (int32 Y = -1; Y <= 1; ++Y)
 		{

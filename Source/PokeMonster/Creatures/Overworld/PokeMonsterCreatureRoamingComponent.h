@@ -22,6 +22,12 @@ public:
 	UFUNCTION(BlueprintPure, Category="Creature|Movement") bool ProjectWalkable(const FVector& Point, FVector& Ground) const;
 	UFUNCTION(BlueprintPure, Category="Creature|Movement") bool CanTraverse(const FVector& Start, const FVector& End) const;
 	UFUNCTION(BlueprintPure, Category="Creature|Movement") bool IsInsideHabitat(const FVector& Point) const;
+	static float AdvanceSpeed(float Current, float Desired, float Distance, bool Companion,
+		const FPokeMonsterCreatureOverworldSettings& Config, float Delta);
+	static float AdvanceHeading(float CurrentYaw, float DesiredYaw, float& AngularVelocity,
+		const FPokeMonsterCreatureOverworldSettings& Config, float Delta);
+	UPROPERTY(Transient, VisibleAnywhere, BlueprintReadOnly, Category="Movement") float CurrentSpeed = 0.f;
+	UPROPERTY(Transient, VisibleAnywhere, BlueprintReadOnly, Category="Movement") int32 RejectedTargets = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Habitat", meta=(ClampMin="0")) float HabitatRadiusOverride = 0.f;
 	/** Optional bounds around the original spawn, intersected with species radius. Zero disables the box. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Habitat") FVector2D HabitatHalfExtent = FVector2D::ZeroVector;
@@ -41,6 +47,9 @@ private:
 	TArray<TWeakObjectPtr<APokeMonsterBuildingCutaway>> Buildings;
 	TArray<FVector> Path;
 	FRandomStream Random;
+	TArray<FVector> RecentGoals;
+	int32 SectorVisits[8] = {};
+	float AngularVelocity = 0.f;
 	float Offset = 0.f, BodyRadius = 24.f, BodyHalfHeight = 30.f, PauseRemaining = 0.f;
 	float ReplanRemaining = 0.f, LookYaw = 0.f;
 	bool bReady = false, bPaused = false;

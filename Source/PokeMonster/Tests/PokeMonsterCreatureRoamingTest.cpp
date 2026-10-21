@@ -2,6 +2,8 @@
 #include "Misc/AutomationTest.h"
 #include "Misc/ScopeExit.h"
 #include "../Creatures/Overworld/PokeMonsterCreaturePath.h"
+#include "../Creatures/Overworld/PokeMonsterCreatureCompanionSubsystem.h"
+#include "../Creatures/PokeMonsterCreatureInstance.h"
 #include "../Creatures/Overworld/PokeMonsterCreatureRoamingComponent.h"
 #include "../Creatures/PokeMonsterCreaturePresentation.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
@@ -90,5 +92,64 @@ bool FCreatureMovementConfigTest::RunTest(const FString& Parameters)
 	TestEqual(TEXT("Sprint speed measured without 300 cm/s clipping"),APokeMonsterCreatureVisualActor::SampleSpeed(FVector(38.5,0,0),.1,true),385.f);
 	TestEqual(TEXT("Actual teleport still ignored"),APokeMonsterCreatureVisualActor::SampleSpeed(FVector(210,0,0),.1,true),0.f);
 	return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCreatureSmoothMovementTest, "PokeMonster.Creatures.Overworld.SmoothMovementAndFirstPartySlot",
+ EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FCreatureSmoothMovementTest::RunTest(const FString& Parameters)
+{
+ FPokeMonsterCreatureOverworldSettings S;
+ using M=UPokeMonsterCreatureRoamingComponent;
+ float Speed=0.f, Yaw=0.f, Angular=0.f;
+ for(int32 I=0;I<30;++I)
+ {
+  const float Before=Speed;
+  Speed=M::AdvanceSpeed(Speed,315.f,10000.f,true,S,1.f/60);
+  TestTrue(TEXT("No instantaneous sprint acceleration"),Speed>=Before && Speed-Before<=S.CompanionAcceleration/60+.01f);
+  const float Previous=Yaw;
+  Yaw=M::AdvanceHeading(Yaw,90.f,Angular,S,1.f/60);
+  TestTrue(TEXT("No abrupt heading jumps"),FMath::Abs(Yaw-Previous)<=S.TurnDegreesPerSecond/60+.01f);
+ }
+ TestTrue(TEXT("Companion accelerates enough to catch a sprinting player"),Speed>200.f);
+ TestTrue(TEXT("Turn makes gradual progress"),Yaw>20.f && Yaw<90.f);
+ TestTrue(TEXT("Approaching final goal brakes"),M::AdvanceSpeed(100,100,5,false,S,.1f)<100.f);
+ TestEqual(TEXT("Pause can come to rest"),M::AdvanceSpeed(10,0,0,false,S,.1f),0.f);
+ TArray<FPokeMonsterCreatureInstance> Team;
+ for(const TCHAR* Id : {TEXT("Schiggy"),TEXT("Bisasam")})
+ {
+  FPokeMonsterCreatureInstance C;
+  C.Species=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,*(FString(TEXT("/Game/Data/Creatures/DA_"))+Id+TEXT(".DA_")+Id));
+  C=FPokeMonsterCreatureInstance::CreateFromSpecies(C.Species.LoadSynchronous(),10); Team.Add(C);
+ }
+ TestEqual(TEXT("First actual party slot chosen"),UPokeMonsterCreatureCompanionSubsystem::SelectPartyIndex(Team),0);
+ const FGuid Second=Team[1].InstanceId;
+ Team[0].CurrentHP=0;
+ TestEqual(TEXT("Never silently substitute a later party member"),UPokeMonsterCreatureCompanionSubsystem::SelectPartyIndex(Team),INDEX_NONE);
+ TestEqual(TEXT("Party order/identity untouched"),Team[1].InstanceId,Second);
+ Team[0].CurrentHP=Team[0].GetMaxHP(); Team.Swap(0,1);
+ TestEqual(TEXT("Explicit party reorder selects new first member"),UPokeMonsterCreatureCompanionSubsystem::SelectPartyIndex(Team),0);
+ return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCreatureExactPathGoalTest, "PokeMonster.Creatures.Overworld.ExactGoalBesideBlockedGridCell",
+ EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FCreatureExactPathGoalTest::RunTest(const FString& Parameters)
+{
+ const FBox Wall(FVector(100,-100,-1),FVector(180,100,1));
+ auto Project=[&](const FVector& P,FVector& G)
+ {
+  G=FVector(P.X,P.Y,0);
+  return G.Size2D()<600 && !Wall.IsInside(G) && FVector::Dist2D(G,FVector(325,0,0))>12;
+ };
+ auto Cross=[&](const FVector& A,const FVector& B)
+ {
+  for(int I=0;I<=100;++I){FVector G;if(!Project(FMath::Lerp(A,B,I/100.f),G))return false;}return true;
+ };
+ const FVector Start(0,0,0),Goal(300,15,0);TArray<FVector> Route;
+ TestFalse(TEXT("Direct path blocked"),Cross(Start,Goal));
+ TestTrue(TEXT("Actual goal is reachable despite blocked rounded cell"),FPokeMonsterCreaturePath::Find(Start,Goal,Project,Cross,Route));
+ FVector Previous=Start;
+ for(const auto& Point:Route){TestTrue(TEXT("Smoothed path never cuts obstacle"),Cross(Previous,Point));Previous=Point;}
+ TestTrue(TEXT("Exact requested goal reached"),Previous.Equals(Goal,.01));
+ return true;
 }
 #endif

@@ -2,7 +2,7 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "checked_starter_overworld_integration",
+  "snapshot_kind": "checked_starter_polish_movement",
   "generated_at": "2026-10-21",
   "files": {
     ".codex/config.toml": {
@@ -9990,32 +9990,32 @@
       "sha256": "635a81f0410e3f1798a52c9ff842e73b2b50b838bb20a33a6973ae9422d3de69"
     },
     "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureCompanionSubsystem.cpp": {
-      "bytes": 6819,
-      "sha256": "0d2e4cc67f472d7f4c88cc37cf4c2370dc2162f4b25f3d15928bc1f0107a64b0"
+      "bytes": 7128,
+      "sha256": "0bcd1ac1a6de4807aa8e36c1e81b9e51e46992051c892aad309e86443be33be2"
     },
     "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureCompanionSubsystem.h": {
-      "bytes": 1705,
-      "sha256": "45ab7e09e196d2e27d35c84a949ceefdaa53eefb9b3f37656558c3e91b7018e1"
+      "bytes": 1838,
+      "sha256": "6b4565fd34f29d0215becb59affd7c46e4ad152b5de52e8fd38e7b21b9c10d10"
     },
     "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureOverworldSettings.h": {
-      "bytes": 2083,
-      "sha256": "7000971c5b168ebd5394f18388626acdc10865e6e306a944772aa232cbc6f4c4"
+      "bytes": 2588,
+      "sha256": "9da6dd1b17d72aec7efbaa5118cd4b8deeb276a362b80a0ac668b397a5867b96"
     },
     "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreaturePath.cpp": {
-      "bytes": 3561,
-      "sha256": "9a77c4b8de0d6eea9f16bb42bca4ecc32f9536970d3470d928bc353bc85b73bd"
+      "bytes": 4085,
+      "sha256": "8ff7216bd80f79d22b86a89eb9ec9acd0f8ae5a51fd00f16fe57d46f635cefe3"
     },
     "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreaturePath.h": {
       "bytes": 483,
       "sha256": "787fac20759eeea73a0ba72965409becd65590f8a724a58801ac482f3d80a6b9"
     },
     "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureRoamingComponent.cpp": {
-      "bytes": 11949,
-      "sha256": "87698896fb4b49a887f10732934f5bc914cd48e34f402939c32c617e7bf44cb8"
+      "bytes": 14459,
+      "sha256": "f6e69856ed016b7ea13131dc638857671e0d83de9c70f0688bd6851fff3c875f"
     },
     "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureRoamingComponent.h": {
-      "bytes": 3030,
-      "sha256": "862bdf94d4b23b4f376bac34941145510d2b24c2d5ca5eb8a2f05ba32592dc2a"
+      "bytes": 3646,
+      "sha256": "c74e96cb5267ebe5b293eec204930d9987c46b0e1dca573f20bed5abb6daa265"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureInstance.cpp": {
       "bytes": 7309,
@@ -10418,8 +10418,8 @@
       "sha256": "6791e2b2e8f8a4aad0e4ce675c0e215eceaa08f4a60154efe4781289cc1cf5d5"
     },
     "Source/PokeMonster/Tests/PokeMonsterCreatureRoamingTest.cpp": {
-      "bytes": 5660,
-      "sha256": "a079ed23336d175838eb650f6e4d7c20940d426216ad14728a7dd969bf6f4ab4"
+      "bytes": 9083,
+      "sha256": "fa2b0e48e6197a36a42356acacf666de5d4754961711ff5ddbf6e574c9c23c5b"
     },
     "Source/PokeMonster/Tests/PokeMonsterDialogueTest.cpp": {
       "bytes": 5403,
@@ -15984,6 +15984,10 @@
     "Tools/ZunderlaufV1/ValidateWorld.py": {
       "bytes": 2456,
       "sha256": "f11ca90fee28b17b3fc13e83519f74c2db634c72a8e296a58fed0074f4a28600"
+    },
+    "Docs/STARTER_FEINSCHLIFF_V2_PRUEFBERICHT.md": {
+      "bytes": 3333,
+      "sha256": "a3506c515da4878d1375bc1cfac34c98c0ad363d1f05ea137f519439c6bce53e"
     }
   }
 }
