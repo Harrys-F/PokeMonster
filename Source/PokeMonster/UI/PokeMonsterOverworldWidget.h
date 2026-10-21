@@ -25,17 +25,29 @@ public:
 	void SetBattleVisible(bool bBattleVisible);
 	void SetInteractionAvailable(bool bAvailable,const FString& Action=FString());
 	void UpdateView(const FPokeMonsterOverworldView& NewView);
+	UFUNCTION(BlueprintCallable, Category="PokeMonster|Team") bool SelectTeamSlot(int32 TeamIndex);
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Overworld UI") bool IsMenuOpen() const { return bMenuOpen; }
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Overworld UI") EPokeMonsterOverworldMenuSection GetSection() const { return Section; }
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Overworld UI") const FPokeMonsterOverworldView& GetView() const { return View; }
 protected:
 	virtual TSharedRef<SWidget> RebuildWidget() override;
 	virtual void NativeConstruct() override;
-	virtual FReply NativeOnKeyDown(const FGeometry& InGeometry, const FKeyEvent& InKeyEvent) override;
+	virtual FNavigationReply NativeOnNavigation(const FGeometry& Geometry, const FNavigationEvent& Event) override;
+	virtual FReply NativeOnPreviewKeyDown(const FGeometry& InGeometry, const FKeyEvent& InKeyEvent) override;
 	UFUNCTION(BlueprintImplementableEvent, Category="PokeMonster|Overworld UI")
 	void OnOverworldViewUpdated(const FPokeMonsterOverworldView& NewView);
 private:
 	void BuildDefaultTree();
+	void RefreshTeamFocus();
+	UFUNCTION() void Team0();
+	UFUNCTION() void Team1();
+	UFUNCTION() void Team2();
+	UFUNCTION() void Team3();
+	UFUNCTION() void Team4();
+	UFUNCTION() void Team5();
+	UPROPERTY(Transient) TArray<TObjectPtr<UButton>> TeamButtons;
+	FGuid SelectedInstanceId;
+	int32 FocusedTeamSlot = 0;
 	void Render();
 	UFUNCTION() void OpenInventory();
 	UFUNCTION() void ShowTeam();

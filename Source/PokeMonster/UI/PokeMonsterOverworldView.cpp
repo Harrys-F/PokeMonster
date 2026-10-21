@@ -34,6 +34,7 @@ FPokeMonsterOverworldView FPokeMonsterOverworldViewBuilder::Build(
 			FPokeMonsterOverworldTeamRow& Row = View.Team.AddDefaulted_GetRef();
 			const UPokeMonsterCreatureSpeciesData* Species = Creature.Species.LoadSynchronous();
 			Row.Name = IsValid(Species) ? Species->GetDisplayName() : FText::FromString(TEXT("Unbekannte Kreatur"));
+			Row.InstanceId = Creature.InstanceId;
 			Row.Level = Creature.Level;
 			Row.CurrentHP = Creature.CurrentHP;
 			Row.MaxHP = Creature.GetMaxHP();

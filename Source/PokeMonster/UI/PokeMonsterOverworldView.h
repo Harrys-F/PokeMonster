@@ -11,6 +11,7 @@ USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterOverworldTeamRow
 {
 	GENERATED_BODY()
+	UPROPERTY(BlueprintReadOnly) FGuid InstanceId;
 	UPROPERTY(BlueprintReadOnly) FText Name;
 	UPROPERTY(BlueprintReadOnly) int32 Level = 1;
 	UPROPERTY(BlueprintReadOnly) int32 CurrentHP = 0;

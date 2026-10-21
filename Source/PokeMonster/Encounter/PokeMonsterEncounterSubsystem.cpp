@@ -88,6 +88,29 @@ bool UPokeMonsterEncounterSubsystem::RestorePlayerPartyAtRestPoint()
 	return true;
 }
 
+bool UPokeMonsterEncounterSubsystem::ReorderParty(const FGuid SourceInstanceId, const int32 TargetIndex)
+{
+	if (bActive || !SourceInstanceId.IsValid() || TargetIndex < 0 || TargetIndex >= 6) return false;
+	const auto* Checkpoint = GetGameInstance() ? GetGameInstance()->GetSubsystem<UPokeMonsterCheckpointSubsystem>() : nullptr;
+	if (Checkpoint && Checkpoint->IsReturningFromDefeat()) return false;
+	TSet<FGuid> Seen;
+	for (const auto& Member : PlayerParty)
+	{
+		if (!Member.IsValid() || Seen.Contains(Member.InstanceId)) return false;
+		Seen.Add(Member.InstanceId);
+	}
+	const int32 Source = PlayerParty.IndexOfByPredicate([&](const auto& Member) { return Member.InstanceId == SourceInstanceId; });
+	if (Source == INDEX_NONE) return false;
+	if (PlayerParty.IsValidIndex(TargetIndex)) PlayerParty.Swap(Source, TargetIndex);
+	else
+	{
+		FPokeMonsterCreatureInstance Member = PlayerParty[Source];
+		PlayerParty.RemoveAt(Source);
+		PlayerParty.Add(MoveTemp(Member));
+	}
+	return true;
+}
+
 bool UPokeMonsterEncounterSubsystem::PrepareWildEncounter(const UPokeMonsterEncounterProfile* Profile,
 	const FPokeMonsterEncounterContext& Context, EPokeMonsterEncounterSource Source,
 	AActor* SourceActor, int32 Seed, FName EncounterId, FPokeMonsterEncounterStartData& OutStart)

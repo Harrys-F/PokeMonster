@@ -128,6 +128,15 @@ bool APokeMonsterOverworldPlayerController::CloseMenu()
 	return true;
 }
 
+bool APokeMonsterOverworldPlayerController::ReorderParty(const FGuid SourceInstanceId, const int32 TargetIndex)
+{
+	if (!bMenuOpen || !OverworldWidget || OverworldWidget->GetSection() != EPokeMonsterOverworldMenuSection::Team) return false;
+	auto* Encounter = GetGameInstance() ? GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
+	if (!Encounter || !Encounter->ReorderParty(SourceInstanceId, TargetIndex)) return false;
+	RefreshHUD();
+	return true;
+}
+
 void APokeMonsterOverworldPlayerController::ToggleMenu()
 {
 	if (bMenuOpen) CloseMenu();

@@ -26,6 +26,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Dialogue") bool AdvanceDialogue();
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Dialogue") void CloseDialogue();
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Dialogue") UPokeMonsterDialogueWidget* GetDialogueWidget() const { return DialogueWidget; }
+	UFUNCTION(BlueprintCallable, Category="PokeMonster|Team") bool ReorderParty(FGuid SourceInstanceId, int32 TargetIndex);
 	static bool CanOpenMenu(const APokeMonsterPlayerCharacter* Player,
 		const UPokeMonsterEncounterSubsystem* Encounter, bool bAlreadyOpen);
 	static bool TryLockMenu(APokeMonsterPlayerCharacter* Player,

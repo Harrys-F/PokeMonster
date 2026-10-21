@@ -51,10 +51,10 @@ static FAutoConsoleCommand Start(TEXT("pm.StarterReview.Start"),
 	}
 }));
 static FAutoConsoleCommand Party(TEXT("pm.StarterReview.Party"),
-	TEXT("Explicit unsaved party fixture: one to three configured creature IDs, outside battle only."),
+	TEXT("Explicit unsaved party fixture: one to six configured creature IDs, outside battle only."),
 	FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& Args)
 {
-	if (Args.IsEmpty() || Args.Num() > 3) return;
+	if (Args.IsEmpty() || Args.Num() > 6) return;
 	TArray<FPokeMonsterCreatureInstance> Team;
 	for (const FString& Id : Args)
 	{

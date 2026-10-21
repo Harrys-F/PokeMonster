@@ -1,6 +1,7 @@
 #include "PokeMonsterOverworldWidget.h"
 
 #include "PokeMonsterOverworldPlayerController.h"
+#include "../Characters/PokeMonsterPlayerCharacter.h"
 #include "Blueprint/WidgetTree.h"
 #include "Components/Button.h"
 #include "Components/CanvasPanel.h"
@@ -70,7 +71,7 @@ namespace
 	{
 		FString Key = FString::FromInt(static_cast<int32>(Section));
 		for (const auto& Row : View.Team)
-			Key += FString::Printf(TEXT("|%s:%d:%d:%d:%d"), *Row.Name.ToString(), Row.Level,
+			Key += Row.InstanceId.ToString() + FString::Printf(TEXT("|%s:%d:%d:%d:%d"), *Row.Name.ToString(), Row.Level,
 				Row.CurrentHP, Row.MaxHP, Row.bKnockedOut ? 1 : 0);
 	for (const auto& Row : View.Inventory)
 			Key += FString::Printf(TEXT("|%s:%s:%d"), *Row.Name.ToString(),
@@ -141,7 +142,7 @@ void UPokeMonsterOverworldWidget::BuildDefaultTree()
 	Place(MenuLayer,SectionTitle,FVector2D(-378,-102),FVector2D(500,36),FAnchors(0.5f,0.5f));
 	MenuRows = WidgetTree->ConstructWidget<UVerticalBox>(UVerticalBox::StaticClass(),TEXT("MenuRows"));
 	Place(MenuLayer,MenuRows,FVector2D(-380,-51),FVector2D(748,296),FAnchors(0.5f,0.5f));
-	Place(MenuLayer,MakeText(WidgetTree,TEXT("MenuHint"),TEXT("T: Team  ·  I: Inventar  ·  TAB/ESC: Schließen"),14,OverworldDarkInk),
+	Place(MenuLayer,MakeText(WidgetTree,TEXT("MenuHint"),TEXT("↑↓: Platz · Interagieren: wählen/tauschen · ESC: zurück"),14,OverworldDarkInk),
 		FVector2D(-378,255),FVector2D(600,26),FAnchors(0.5f,0.5f));
 	MenuLayer->SetVisibility(ESlateVisibility::Collapsed);
 }
@@ -172,8 +173,27 @@ void UPokeMonsterOverworldWidget::NativeConstruct()
 	Render();
 }
 
-FReply UPokeMonsterOverworldWidget::NativeOnKeyDown(const FGeometry& InGeometry, const FKeyEvent& InKeyEvent)
+FReply UPokeMonsterOverworldWidget::NativeOnPreviewKeyDown(const FGeometry& InGeometry, const FKeyEvent& InKeyEvent)
 {
+	const FKey Key = InKeyEvent.GetKey();
+	if (bMenuOpen && Section == EPokeMonsterOverworldMenuSection::Team)
+	{
+		if (Key == EKeys::Up || Key == EKeys::Down || Key == EKeys::Gamepad_DPad_Up || Key == EKeys::Gamepad_DPad_Down)
+		{
+			FocusedTeamSlot = (FocusedTeamSlot + (Key == EKeys::Up || Key == EKeys::Gamepad_DPad_Up ? 5 : 1)) % 6;
+			RefreshTeamFocus(); return FReply::Handled();
+		}
+		const auto* Player = OwnerController.IsValid() ? Cast<APokeMonsterPlayerCharacter>(OwnerController->GetPawn()) : nullptr;
+		if (Player && Player->GetInteractionKeys().Contains(Key))
+		{
+			SelectTeamSlot(FocusedTeamSlot); return FReply::Handled();
+		}
+		if (Key == EKeys::Escape && SelectedInstanceId.IsValid())
+		{
+			SelectedInstanceId.Invalidate(); LastRenderKey.Reset(); Render(); return FReply::Handled();
+		}
+	}
+
 	if (bMenuOpen && InKeyEvent.GetKey() == EKeys::I)
 	{
 		ShowInventory();
@@ -189,12 +209,13 @@ FReply UPokeMonsterOverworldWidget::NativeOnKeyDown(const FGeometry& InGeometry,
 		CloseMenu();
 		return FReply::Handled();
 	}
-	return Super::NativeOnKeyDown(InGeometry, InKeyEvent);
+	return Super::NativeOnPreviewKeyDown(InGeometry, InKeyEvent);
 }
 
 void UPokeMonsterOverworldWidget::SetMenuOpen(const bool bOpen, const EPokeMonsterOverworldMenuSection InitialSection)
 {
 	bMenuOpen = bOpen;
+	SelectedInstanceId.Invalidate(); FocusedTeamSlot = 0;
 	Section = InitialSection;
 	LastRenderKey.Reset();
 	if (MenuLayer) MenuLayer->SetVisibility(bOpen ? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
@@ -223,7 +244,7 @@ void UPokeMonsterOverworldWidget::UpdateView(const FPokeMonsterOverworldView& Ne
 
 void UPokeMonsterOverworldWidget::Render()
 {
-	const FString Key = RenderKey(View, Section);
+	const FString Key = RenderKey(View, Section) + SelectedInstanceId.ToString();
 	if (Key == LastRenderKey || !WidgetTree || !HudTeamRows || !MenuRows) return;
 	LastRenderKey = Key;
 	if (QuestPanel) QuestPanel->SetVisibility(View.ActiveQuestName.IsEmpty()
@@ -252,19 +273,32 @@ void UPokeMonsterOverworldWidget::Render()
 	}
 	if (SectionTitle) SectionTitle->SetText(FText::FromString(Section == EPokeMonsterOverworldMenuSection::Team
 		? TEXT("Deine Kreaturen") : TEXT("Deine Gegenstände")));
+	TeamButtons.Reset();
 	MenuRows->ClearChildren();
 	if (Section == EPokeMonsterOverworldMenuSection::Team)
 	{
 		if (View.Team.IsEmpty())
 			MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,TEXT("Noch keine Kreaturen im Team."),19,OverworldDarkInk));
-		for (const auto& Row : View.Team)
+		if (SelectedInstanceId.IsValid() && !View.Team.ContainsByPredicate([&](const auto& Row) { return Row.InstanceId == SelectedInstanceId; })) SelectedInstanceId.Invalidate();
+		if (SectionTitle) SectionTitle->SetText(FText::FromString(SelectedInstanceId.IsValid()
+			? TEXT("Zielplatz wählen · freie Plätze rücken ans Teamende") : TEXT("Pokémon wählen · danach Zielplatz")));
+		for (int32 Index = 0; Index < 6; ++Index)
 		{
-			const FString Line = FString::Printf(TEXT("%s     ·     Level %d     ·     %s"), *Row.Name.ToString(),
-				Row.Level, Row.bKnockedOut ? TEXT("K.O.")
-					: *FString::Printf(TEXT("%d / %d HP"),Row.CurrentHP,Row.MaxHP));
-			MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,Line,21,
-				Row.bKnockedOut ? FLinearColor(0.52f,0.25f,0.20f) : OverworldDarkInk));
+			const auto* Row = View.Team.IsValidIndex(Index) ? &View.Team[Index] : nullptr;
+			const FString Line = Row ? FString::Printf(TEXT("%d  %s%s  ·  Lv %d  ·  %d/%d KP"), Index+1,
+				Row->InstanceId == SelectedInstanceId ? TEXT("↔ ") : TEXT(""), *Row->Name.ToString(), Row->Level, Row->CurrentHP, Row->MaxHP)
+				: FString::Printf(TEXT("%d  Frei%s"), Index+1, SelectedInstanceId.IsValid() ? TEXT(" · ans Teamende verschieben") : TEXT(""));
+			auto* Button = WidgetTree->ConstructWidget<UButton>(UButton::StaticClass());
+			Button->AddChild(MakeText(WidgetTree, NAME_None, Line, 19, OverworldDarkInk));
+			MenuRows->AddChildToVerticalBox(Button); TeamButtons.Add(Button);
 		}
+		TeamButtons[0]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::Team0);
+		TeamButtons[1]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::Team1);
+		TeamButtons[2]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::Team2);
+		TeamButtons[3]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::Team3);
+		TeamButtons[4]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::Team4);
+		TeamButtons[5]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::Team5);
+		RefreshTeamFocus();
 	}
 	else
 	{
@@ -293,6 +327,7 @@ void UPokeMonsterOverworldWidget::ShowTeam()
 
 void UPokeMonsterOverworldWidget::ShowInventory()
 {
+	SelectedInstanceId.Invalidate();
 	Section = EPokeMonsterOverworldMenuSection::Inventory;
 	LastRenderKey.Reset(); Render();
 }
@@ -301,3 +336,43 @@ void UPokeMonsterOverworldWidget::CloseMenu()
 {
 	if (APokeMonsterOverworldPlayerController* Controller = OwnerController.Get()) Controller->CloseMenu();
 }
+
+void UPokeMonsterOverworldWidget::RefreshTeamFocus()
+{
+	for (int32 Index=0; Index<TeamButtons.Num(); ++Index)
+		if (TeamButtons[Index]) TeamButtons[Index]->SetBackgroundColor(Index == FocusedTeamSlot
+			? FLinearColor(.40f,.67f,.45f) : FLinearColor(.78f,.79f,.65f));
+}
+
+bool UPokeMonsterOverworldWidget::SelectTeamSlot(const int32 Slot)
+{
+	if (!bMenuOpen || bBattleVisible || Section != EPokeMonsterOverworldMenuSection::Team || Slot < 0 || Slot >= 6) return false;
+	FocusedTeamSlot = Slot;
+	if (!SelectedInstanceId.IsValid())
+	{
+		if (!View.Team.IsValidIndex(Slot)) return false;
+		SelectedInstanceId = View.Team[Slot].InstanceId;
+	}
+	else
+	{
+		const FGuid Source = SelectedInstanceId;
+		SelectedInstanceId.Invalidate();
+		const bool bChanged = OwnerController.IsValid() && OwnerController->ReorderParty(Source, Slot);
+		LastRenderKey.Reset(); Render(); return bChanged;
+	}
+	LastRenderKey.Reset(); Render(); return true;
+}
+
+FNavigationReply UPokeMonsterOverworldWidget::NativeOnNavigation(const FGeometry& Geometry, const FNavigationEvent& Event)
+{
+	if (bMenuOpen && Section == EPokeMonsterOverworldMenuSection::Team)
+	{
+		const auto Direction = Event.GetNavigationType();
+		FocusedTeamSlot = (FocusedTeamSlot + (Direction == EUINavigation::Up || Direction == EUINavigation::Previous ? 5 : 1)) % 6;
+		RefreshTeamFocus(); return FNavigationReply::Stop();
+	}
+	return Super::NativeOnNavigation(Geometry, Event);
+}
+void UPokeMonsterOverworldWidget::Team0(){SelectTeamSlot(0);} void UPokeMonsterOverworldWidget::Team1(){SelectTeamSlot(1);}
+void UPokeMonsterOverworldWidget::Team2(){SelectTeamSlot(2);} void UPokeMonsterOverworldWidget::Team3(){SelectTeamSlot(3);}
+void UPokeMonsterOverworldWidget::Team4(){SelectTeamSlot(4);} void UPokeMonsterOverworldWidget::Team5(){SelectTeamSlot(5);}

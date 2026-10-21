@@ -109,6 +109,9 @@ public:
 	bool UseHealingItemOnPartyMember(const UPokeMonsterItemData* Item, int32 TeamIndex);
 	/** Restores the whole persistent party outside battle; no item is consumed. */
 	bool RestorePlayerPartyAtRestPoint();
+	/** Swap occupied slots; free targets append with compact save-compatible ordering. */
+	UFUNCTION(BlueprintCallable, Category="PokeMonster|Team")
+	bool ReorderParty(FGuid SourceInstanceId, int32 TargetIndex);
 	/** Savegame handoff: copy these IDs into a future save object and restore them on load. */
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Encounter")
 	TArray<FName> GetDefeatedTrainerIds() const { return DefeatedTrainerIds.Array(); }
@@ -140,6 +143,7 @@ private:
 	friend class FPokeMonsterCaptureTest;
 	friend class FPokeMonsterTrainerEncounterTest;
 	friend class FPokeMonsterOverworldUITest;
+	friend class FPokeMonsterPartyOrderTest;
 #endif
 	static bool BuildTestTeams(TArray<FPokeMonsterCreatureInstance>& Player,
 		TArray<FPokeMonsterCreatureInstance>& Opponent);
