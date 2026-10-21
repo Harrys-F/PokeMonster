@@ -1,0 +1,287 @@
+{
+  "species": "Myrapla",
+  "source": "Art/Characters/Creatures/Incoming/Myrapla.glb",
+  "source_sha256": "9366b9df15b683429a4169b4a5b8c25cba7547645c9dea3704d9bfdb5f090fd0",
+  "height_m": 0.5,
+  "size_basis": "standing_height",
+  "size_measurement": "complete neutral model including ears/leaves/gas silhouette; no runtime actor rescaling",
+  "front": "-Y",
+  "anatomical_origin_offset_m": [
+    0,
+    0,
+    0
+  ],
+  "scale": 0.2902095487658547,
+  "vertices": 124466,
+  "triangles": 224602,
+  "materials": 1,
+  "bones": {
+    "root": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0.02
+      ],
+      null
+    ],
+    "pelvis": [
+      [
+        0,
+        -0.025,
+        0.075
+      ],
+      [
+        0,
+        -0.025,
+        0.17
+      ],
+      "root"
+    ],
+    "chest": [
+      [
+        0,
+        -0.025,
+        0.17
+      ],
+      [
+        0,
+        -0.025,
+        0.23
+      ],
+      "pelvis"
+    ],
+    "head": [
+      [
+        0,
+        -0.025,
+        0.23
+      ],
+      [
+        0,
+        -0.025,
+        0.26
+      ],
+      "chest"
+    ],
+    "thigh_L": [
+      [
+        0.06,
+        -0.025,
+        0.075
+      ],
+      [
+        0.069,
+        -0.042,
+        0.04
+      ],
+      "pelvis"
+    ],
+    "shin_L": [
+      [
+        0.069,
+        -0.042,
+        0.04
+      ],
+      [
+        0.073,
+        -0.044,
+        0.014
+      ],
+      "thigh_L"
+    ],
+    "foot_L": [
+      [
+        0.073,
+        -0.044,
+        0.014
+      ],
+      [
+        0.073,
+        -0.078,
+        0.012
+      ],
+      "shin_L"
+    ],
+    "thigh_R": [
+      [
+        -0.06,
+        -0.025,
+        0.075
+      ],
+      [
+        -0.069,
+        -0.042,
+        0.04
+      ],
+      "pelvis"
+    ],
+    "shin_R": [
+      [
+        -0.069,
+        -0.042,
+        0.04
+      ],
+      [
+        -0.073,
+        -0.044,
+        0.014
+      ],
+      "thigh_R"
+    ],
+    "foot_R": [
+      [
+        -0.073,
+        -0.044,
+        0.014
+      ],
+      [
+        -0.073,
+        -0.078,
+        0.012
+      ],
+      "shin_R"
+    ],
+    "leaf_L0": [
+      [
+        0.025,
+        -0.06,
+        0.23
+      ],
+      [
+        0.21,
+        -0.06,
+        0.39
+      ],
+      "head"
+    ],
+    "leaf_L1": [
+      [
+        0.025,
+        0.07,
+        0.23
+      ],
+      [
+        0.21,
+        0.07,
+        0.39
+      ],
+      "head"
+    ],
+    "leaf_R0": [
+      [
+        -0.025,
+        -0.06,
+        0.23
+      ],
+      [
+        -0.21,
+        -0.06,
+        0.39
+      ],
+      "head"
+    ],
+    "leaf_R1": [
+      [
+        -0.025,
+        0.07,
+        0.23
+      ],
+      [
+        -0.21,
+        0.07,
+        0.39
+      ],
+      "head"
+    ],
+    "leaf_centre": [
+      [
+        0,
+        0,
+        0.23
+      ],
+      [
+        0,
+        0.06,
+        0.48
+      ],
+      "head"
+    ]
+  },
+  "leg_chains": [
+    {
+      "id": "L",
+      "upper": "thigh_L",
+      "lower": "shin_L",
+      "foot": "foot_L",
+      "pole": -1,
+      "phase": 0
+    },
+    {
+      "id": "R",
+      "upper": "thigh_R",
+      "lower": "shin_R",
+      "foot": "foot_R",
+      "pole": -1,
+      "phase": 0.5
+    }
+  ],
+  "rig_family": "Biped",
+  "walk_speed_m_s": 0.1,
+  "run_speed_m_s": 0.21,
+  "geometry_unchanged": true,
+  "uv_original": true,
+  "weights": {
+    "method": "explicit hand-fitted anatomical segment envelopes, maximum four normalized influences; pose inspection required",
+    "bone_heat": "Pikachu original Bone Heat failed; incomplete weights rejected, not transferred",
+    "vertices_per_bone": {
+      "leaf_R1": 55566,
+      "leaf_R0": 68579,
+      "leaf_centre": 82909,
+      "leaf_L1": 55813,
+      "leaf_L0": 68769,
+      "head": 38032,
+      "foot_R": 4991,
+      "shin_R": 4764,
+      "thigh_R": 4382,
+      "pelvis": 8054,
+      "chest": 5271,
+      "foot_L": 4895,
+      "shin_L": 4713,
+      "thigh_L": 4329
+    },
+    "unweighted_vertices": 0,
+    "original_geometry_unchanged": true,
+    "smoothing": {
+      "iterations": 18,
+      "virtual_vertices": 112303,
+      "original_vertices": 124466,
+      "maximum_influences": 4,
+      "no_geometry_or_uv_changes": true
+    }
+  },
+  "sole_vertices_locked": 5009,
+  "notes": [
+    "Original source appearance preserved; no remesh or decimation."
+  ],
+  "local_sole_weight_correction": {
+    "changed_vertices": 7262,
+    "sole_threshold_m": 0.035,
+    "actions_unchanged_sha256": "7cd80f825e8b3d33b9b6856962eab2773eb1404a8855de6e7e0273bda69612ee",
+    "geometry_uv_rig_materials_images_unchanged_sha256": "5969e3948ea272da35742776124703a1d198a91c5ff175c63885cf6f38ed2196",
+    "ground": {
+      "Walk": {
+        "before_min_z_m": -0.011600983329117298,
+        "after_min_z_m": -1.4570538553471124e-08
+      },
+      "Run": {
+        "before_min_z_m": -0.016571426764130592,
+        "after_min_z_m": -4.158080990634971e-09
+      }
+    }
+  }
+}

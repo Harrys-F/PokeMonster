@@ -1,0 +1,353 @@
+{
+  "species": "Pikachu",
+  "source": "Art/Characters/Creatures/Incoming/Pikachu.glb",
+  "source_sha256": "e6b07702c0bc25852e5fb33c91d3564883e01082cb1e4632cae65f4d3ae0cefb",
+  "height_m": 0.4,
+  "size_basis": "standing_height",
+  "size_measurement": "complete neutral model including ears/leaves/gas silhouette; no runtime actor rescaling",
+  "front": "-Y",
+  "anatomical_origin_offset_m": [
+    -0.07,
+    0,
+    0
+  ],
+  "scale": 0.2457420613094894,
+  "vertices": 76489,
+  "triangles": 137094,
+  "materials": 1,
+  "bones": {
+    "root": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0.016
+      ],
+      null
+    ],
+    "pelvis": [
+      [
+        0,
+        -0.025,
+        0.105
+      ],
+      [
+        0,
+        -0.025,
+        0.185
+      ],
+      "root"
+    ],
+    "chest": [
+      [
+        0,
+        -0.025,
+        0.185
+      ],
+      [
+        0,
+        -0.035,
+        0.235
+      ],
+      "pelvis"
+    ],
+    "head": [
+      [
+        0,
+        -0.035,
+        0.235
+      ],
+      [
+        0,
+        -0.035,
+        0.3
+      ],
+      "chest"
+    ],
+    "thigh_L": [
+      [
+        0.052,
+        -0.025,
+        0.105
+      ],
+      [
+        0.06,
+        -0.04,
+        0.055
+      ],
+      "pelvis"
+    ],
+    "shin_L": [
+      [
+        0.06,
+        -0.04,
+        0.055
+      ],
+      [
+        0.06,
+        -0.04,
+        0.012
+      ],
+      "thigh_L"
+    ],
+    "foot_L": [
+      [
+        0.06,
+        -0.04,
+        0.012
+      ],
+      [
+        0.06,
+        -0.07,
+        0.01
+      ],
+      "shin_L"
+    ],
+    "upperarm_L": [
+      [
+        0.065,
+        -0.025,
+        0.187
+      ],
+      [
+        0.105,
+        -0.027,
+        0.185
+      ],
+      "chest"
+    ],
+    "forearm_L": [
+      [
+        0.105,
+        -0.027,
+        0.185
+      ],
+      [
+        0.145,
+        -0.032,
+        0.181
+      ],
+      "upperarm_L"
+    ],
+    "hand_L": [
+      [
+        0.145,
+        -0.032,
+        0.181
+      ],
+      [
+        0.157,
+        -0.04,
+        0.18
+      ],
+      "forearm_L"
+    ],
+    "thigh_R": [
+      [
+        -0.052,
+        -0.025,
+        0.105
+      ],
+      [
+        -0.06,
+        -0.04,
+        0.055
+      ],
+      "pelvis"
+    ],
+    "shin_R": [
+      [
+        -0.06,
+        -0.04,
+        0.055
+      ],
+      [
+        -0.06,
+        -0.04,
+        0.012
+      ],
+      "thigh_R"
+    ],
+    "foot_R": [
+      [
+        -0.06,
+        -0.04,
+        0.012
+      ],
+      [
+        -0.06,
+        -0.07,
+        0.01
+      ],
+      "shin_R"
+    ],
+    "upperarm_R": [
+      [
+        -0.065,
+        -0.025,
+        0.187
+      ],
+      [
+        -0.105,
+        -0.027,
+        0.185
+      ],
+      "chest"
+    ],
+    "forearm_R": [
+      [
+        -0.105,
+        -0.027,
+        0.185
+      ],
+      [
+        -0.145,
+        -0.032,
+        0.181
+      ],
+      "upperarm_R"
+    ],
+    "hand_R": [
+      [
+        -0.145,
+        -0.032,
+        0.181
+      ],
+      [
+        -0.157,
+        -0.04,
+        0.18
+      ],
+      "forearm_R"
+    ],
+    "tail_base": [
+      [
+        0,
+        0.045,
+        0.075
+      ],
+      [
+        0.075,
+        0.065,
+        0.1
+      ],
+      "pelvis"
+    ],
+    "tail_mid": [
+      [
+        0.075,
+        0.065,
+        0.1
+      ],
+      [
+        0.1,
+        0.075,
+        0.2
+      ],
+      "tail_base"
+    ],
+    "tail_tip": [
+      [
+        0.1,
+        0.075,
+        0.2
+      ],
+      [
+        0.2,
+        0.075,
+        0.26
+      ],
+      "tail_mid"
+    ],
+    "ear_L": [
+      [
+        0.055,
+        -0.025,
+        0.28
+      ],
+      [
+        0.115,
+        -0.02,
+        0.365
+      ],
+      "head"
+    ],
+    "ear_R": [
+      [
+        -0.055,
+        -0.025,
+        0.28
+      ],
+      [
+        -0.115,
+        -0.02,
+        0.365
+      ],
+      "head"
+    ]
+  },
+  "leg_chains": [
+    {
+      "id": "L",
+      "upper": "thigh_L",
+      "lower": "shin_L",
+      "foot": "foot_L",
+      "pole": -1,
+      "phase": 0
+    },
+    {
+      "id": "R",
+      "upper": "thigh_R",
+      "lower": "shin_R",
+      "foot": "foot_R",
+      "pole": -1,
+      "phase": 0.5
+    }
+  ],
+  "rig_family": "Biped",
+  "walk_speed_m_s": 0.13,
+  "run_speed_m_s": 0.28,
+  "geometry_unchanged": true,
+  "uv_original": true,
+  "weights": {
+    "method": "explicit hand-fitted anatomical segment envelopes, maximum four normalized influences; pose inspection required",
+    "bone_heat": "Pikachu original Bone Heat failed; incomplete weights rejected, not transferred",
+    "vertices_per_bone": {
+      "hand_R": 1929,
+      "forearm_R": 2168,
+      "upperarm_R": 2069,
+      "chest": 50597,
+      "ear_R": 2195,
+      "pelvis": 42295,
+      "head": 58481,
+      "shin_R": 4390,
+      "thigh_R": 2712,
+      "foot_R": 4540,
+      "tail_tip": 21903,
+      "shin_L": 5523,
+      "thigh_L": 5127,
+      "foot_L": 5134,
+      "ear_L": 1899,
+      "upperarm_L": 3171,
+      "forearm_L": 2755,
+      "hand_L": 2572
+    },
+    "unweighted_vertices": 0,
+    "original_geometry_unchanged": true,
+    "smoothing": {
+      "iterations": 18,
+      "virtual_vertices": 68549,
+      "original_vertices": 76489,
+      "maximum_influences": 4,
+      "no_geometry_or_uv_changes": true
+    }
+  },
+  "sole_vertices_locked": 4233,
+  "notes": [
+    "Original source appearance preserved; no remesh or decimation."
+  ]
+}

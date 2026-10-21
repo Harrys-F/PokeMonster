@@ -1,0 +1,254 @@
+{
+  "Pikachu": {
+    "dex": 25,
+    "height": 40,
+    "types": [
+      "ELECTRIC",
+      "NONE"
+    ],
+    "stats": [
+      35,
+      55,
+      30,
+      50,
+      40,
+      90
+    ],
+    "growth": "MEDIUM_FAST",
+    "capture": 190,
+    "female": 0.5,
+    "xp": 82,
+    "level": 11,
+    "moves": [
+      [
+        1,
+        "Growl"
+      ],
+      [
+        6,
+        "TailWhip"
+      ],
+      [
+        11,
+        "QuickAttack"
+      ]
+    ],
+    "behavior": "CURIOUS",
+    "radius": 18,
+    "source": "https://www.serebii.net/pokedex-gs/025.shtml",
+    "status": "provisional development habitat/level and deliberately incomplete supported learnset; canonical values, not final balancing",
+    "navigation_radius": 32
+  },
+  "Myrapla": {
+    "dex": 43,
+    "height": 50,
+    "types": [
+      "GRASS",
+      "POISON"
+    ],
+    "stats": [
+      45,
+      50,
+      55,
+      75,
+      65,
+      30
+    ],
+    "growth": "MEDIUM_SLOW",
+    "capture": 255,
+    "female": 0.5,
+    "xp": 78,
+    "level": 10,
+    "moves": [
+      [
+        1,
+        "Absorb"
+      ]
+    ],
+    "behavior": "CALM",
+    "radius": 20,
+    "source": "https://www.serebii.net/pokedex-gs/043.shtml",
+    "status": "provisional development habitat/level and deliberately incomplete supported learnset; canonical values, not final balancing",
+    "navigation_radius": 30
+  },
+  "Enton": {
+    "dex": 54,
+    "height": 80,
+    "types": [
+      "WATER",
+      "NONE"
+    ],
+    "stats": [
+      50,
+      52,
+      48,
+      65,
+      50,
+      55
+    ],
+    "growth": "MEDIUM_FAST",
+    "capture": 190,
+    "female": 0.5,
+    "xp": 80,
+    "level": 13,
+    "moves": [
+      [
+        1,
+        "Scratch"
+      ],
+      [
+        5,
+        "TailWhip"
+      ]
+    ],
+    "behavior": "SHY",
+    "radius": 30,
+    "source": "https://www.serebii.net/pokedex-gs/054.shtml",
+    "status": "provisional development habitat/level and deliberately incomplete supported learnset; canonical values, not final balancing",
+    "navigation_radius": 50
+  },
+  "Machomei": {
+    "dex": 68,
+    "height": 160,
+    "types": [
+      "FIGHTING",
+      "NONE"
+    ],
+    "stats": [
+      90,
+      130,
+      80,
+      65,
+      85,
+      55
+    ],
+    "growth": "MEDIUM_SLOW",
+    "capture": 45,
+    "female": 0.25,
+    "xp": 193,
+    "level": 36,
+    "moves": [
+      [
+        1,
+        "Leer"
+      ],
+      [
+        19,
+        "SeismicToss"
+      ]
+    ],
+    "behavior": "TERRITORIAL",
+    "radius": 43,
+    "source": "https://www.serebii.net/pokedex-gs/068.shtml",
+    "status": "provisional development habitat/level and deliberately incomplete supported learnset; canonical values, not final balancing",
+    "navigation_radius": 98
+  },
+  "Nebulak": {
+    "dex": 92,
+    "height": 130,
+    "types": [
+      "GHOST",
+      "POISON"
+    ],
+    "stats": [
+      30,
+      35,
+      30,
+      100,
+      35,
+      80
+    ],
+    "growth": "MEDIUM_SLOW",
+    "capture": 190,
+    "female": 0.5,
+    "xp": 95,
+    "level": 21,
+    "moves": [
+      [
+        21,
+        "NightShade"
+      ]
+    ],
+    "behavior": "SHY",
+    "radius": 30,
+    "source": "https://www.serebii.net/pokedex-gs/092.shtml",
+    "status": "provisional development habitat/level and deliberately incomplete supported learnset; canonical values, not final balancing",
+    "navigation_radius": 67
+  },
+  "Gengar": {
+    "dex": 94,
+    "height": 150,
+    "types": [
+      "GHOST",
+      "POISON"
+    ],
+    "stats": [
+      60,
+      65,
+      60,
+      130,
+      75,
+      110
+    ],
+    "growth": "MEDIUM_SLOW",
+    "capture": 45,
+    "female": 0.5,
+    "xp": 190,
+    "level": 25,
+    "moves": [
+      [
+        21,
+        "NightShade"
+      ]
+    ],
+    "behavior": "TERRITORIAL",
+    "radius": 45,
+    "source": "https://www.serebii.net/pokedex-gs/094.shtml",
+    "status": "provisional development habitat/level and deliberately incomplete supported learnset; canonical values, not final balancing",
+    "navigation_radius": 100
+  },
+  "Glurak": {
+    "dex": 6,
+    "height": 170,
+    "types": [
+      "FIRE",
+      "FLYING"
+    ],
+    "stats": [
+      78,
+      84,
+      78,
+      109,
+      85,
+      100
+    ],
+    "growth": "MEDIUM_SLOW",
+    "capture": 45,
+    "female": 0.125,
+    "xp": 209,
+    "level": 36,
+    "moves": [
+      [
+        1,
+        "Scratch"
+      ],
+      [
+        1,
+        "Growl"
+      ],
+      [
+        7,
+        "Ember"
+      ],
+      [
+        36,
+        "WingAttack"
+      ]
+    ],
+    "behavior": "TERRITORIAL",
+    "radius": 50,
+    "source": "https://www.serebii.net/pokedex-gs/006.shtml",
+    "status": "provisional development habitat/level and deliberately incomplete supported learnset; canonical values, not final balancing",
+    "navigation_radius": 165
+  }
+}

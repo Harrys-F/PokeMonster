@@ -1,0 +1,72 @@
+{
+  "Idle": {
+    "frames": 61,
+    "duration_s": 2.0,
+    "speed_cm_s": 0,
+    "foot_stance_increment_error_m": 0,
+    "max_unreachable_m": 0.0,
+    "min_z_m": -0.026399707421660423,
+    "max_min_z_m": 0.02644479274749756,
+    "foot_tracks": {}
+  },
+  "Walk": {
+    "frames": 20,
+    "duration_s": 0.6333333333333333,
+    "speed_cm_s": 32.0,
+    "foot_stance_increment_error_m": 0,
+    "max_unreachable_m": 0.0,
+    "min_z_m": -0.02622392401099205,
+    "max_min_z_m": 0.026414144784212112,
+    "foot_tracks": {}
+  },
+  "Run": {
+    "frames": 13,
+    "duration_s": 0.4,
+    "speed_cm_s": 65.0,
+    "foot_stance_increment_error_m": 0,
+    "max_unreachable_m": 0.0,
+    "min_z_m": -0.026386240497231483,
+    "max_min_z_m": 0.026425667107105255,
+    "foot_tracks": {}
+  },
+  "Attack": {
+    "frames": 25,
+    "duration_s": 0.8,
+    "speed_cm_s": 0,
+    "foot_stance_increment_error_m": 0,
+    "max_unreachable_m": 0.0,
+    "min_z_m": -0.0030769554432481527,
+    "max_min_z_m": 0.0032361126504838467,
+    "foot_tracks": {}
+  },
+  "Hit": {
+    "frames": 13,
+    "duration_s": 0.4,
+    "speed_cm_s": 0,
+    "foot_stance_increment_error_m": 0,
+    "max_unreachable_m": 0.0,
+    "min_z_m": -0.0030622007325291634,
+    "max_min_z_m": 0.0030476071406155825,
+    "foot_tracks": {}
+  },
+  "Faint": {
+    "frames": 37,
+    "duration_s": 1.2,
+    "speed_cm_s": 0,
+    "foot_stance_increment_error_m": 0,
+    "max_unreachable_m": 0.0,
+    "min_z_m": 0.0,
+    "max_min_z_m": 0.006371877156198025,
+    "foot_tracks": {}
+  },
+  "Happy": {
+    "frames": 31,
+    "duration_s": 1.0,
+    "speed_cm_s": 0,
+    "foot_stance_increment_error_m": 0,
+    "max_unreachable_m": 0.0,
+    "min_z_m": -0.02640032209455967,
+    "max_min_z_m": 0.02649674192070961,
+    "foot_tracks": {}
+  }
+}

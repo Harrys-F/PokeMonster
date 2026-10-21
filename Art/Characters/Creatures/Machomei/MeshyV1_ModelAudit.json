@@ -1,0 +1,347 @@
+{
+  "species": "Machomei",
+  "source": "Art/Characters/Creatures/Incoming/Machomei.glb",
+  "source_sha256": "7a61d7b100bc706e2f78f243a74c37f2fe4cdb7fe07c766f76e3b58831f65663",
+  "height_m": 1.6,
+  "size_basis": "standing_height",
+  "size_measurement": "complete neutral model including ears/leaves/gas silhouette; no runtime actor rescaling",
+  "front": "-Y",
+  "anatomical_origin_offset_m": [
+    0,
+    0,
+    0
+  ],
+  "scale": 1.93893561149845,
+  "vertices": 19281,
+  "triangles": 21708,
+  "materials": 1,
+  "bones": {
+    "root": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0.064
+      ],
+      null
+    ],
+    "pelvis": [
+      [
+        0,
+        -0.015,
+        0.75
+      ],
+      [
+        0,
+        -0.015,
+        1.15
+      ],
+      "root"
+    ],
+    "chest": [
+      [
+        0,
+        -0.015,
+        1.15
+      ],
+      [
+        0,
+        -0.03,
+        1.33
+      ],
+      "pelvis"
+    ],
+    "head": [
+      [
+        0,
+        -0.03,
+        1.33
+      ],
+      [
+        0,
+        -0.035,
+        1.48
+      ],
+      "chest"
+    ],
+    "thigh_L": [
+      [
+        0.22,
+        -0.01,
+        0.75
+      ],
+      [
+        0.275,
+        -0.13,
+        0.4
+      ],
+      "pelvis"
+    ],
+    "shin_L": [
+      [
+        0.275,
+        -0.13,
+        0.4
+      ],
+      [
+        0.3,
+        -0.08,
+        0.075
+      ],
+      "thigh_L"
+    ],
+    "foot_L": [
+      [
+        0.3,
+        -0.08,
+        0.075
+      ],
+      [
+        0.3,
+        -0.25,
+        0.03
+      ],
+      "shin_L"
+    ],
+    "upperarm_L": [
+      [
+        0.28,
+        -0.015,
+        1.2
+      ],
+      [
+        0.56,
+        -0.04,
+        1.14
+      ],
+      "chest"
+    ],
+    "forearm_L": [
+      [
+        0.56,
+        -0.04,
+        1.14
+      ],
+      [
+        0.77,
+        -0.1,
+        1.09
+      ],
+      "upperarm_L"
+    ],
+    "hand_L": [
+      [
+        0.77,
+        -0.1,
+        1.09
+      ],
+      [
+        0.89,
+        -0.15,
+        1.08
+      ],
+      "forearm_L"
+    ],
+    "thigh_R": [
+      [
+        -0.22,
+        -0.01,
+        0.75
+      ],
+      [
+        -0.275,
+        -0.13,
+        0.4
+      ],
+      "pelvis"
+    ],
+    "shin_R": [
+      [
+        -0.275,
+        -0.13,
+        0.4
+      ],
+      [
+        -0.3,
+        -0.08,
+        0.075
+      ],
+      "thigh_R"
+    ],
+    "foot_R": [
+      [
+        -0.3,
+        -0.08,
+        0.075
+      ],
+      [
+        -0.3,
+        -0.25,
+        0.03
+      ],
+      "shin_R"
+    ],
+    "upperarm_R": [
+      [
+        -0.28,
+        -0.015,
+        1.2
+      ],
+      [
+        -0.56,
+        -0.04,
+        1.14
+      ],
+      "chest"
+    ],
+    "forearm_R": [
+      [
+        -0.56,
+        -0.04,
+        1.14
+      ],
+      [
+        -0.77,
+        -0.1,
+        1.09
+      ],
+      "upperarm_R"
+    ],
+    "hand_R": [
+      [
+        -0.77,
+        -0.1,
+        1.09
+      ],
+      [
+        -0.89,
+        -0.15,
+        1.08
+      ],
+      "forearm_R"
+    ],
+    "lower_upperarm_L": [
+      [
+        0.25,
+        0.06,
+        1.03
+      ],
+      [
+        0.47,
+        0.02,
+        0.85
+      ],
+      "chest"
+    ],
+    "lower_forearm_L": [
+      [
+        0.47,
+        0.02,
+        0.85
+      ],
+      [
+        0.68,
+        -0.1,
+        0.77
+      ],
+      "lower_upperarm_L"
+    ],
+    "lower_hand_L": [
+      [
+        0.68,
+        -0.1,
+        0.77
+      ],
+      [
+        0.79,
+        -0.16,
+        0.75
+      ],
+      "lower_forearm_L"
+    ],
+    "lower_upperarm_R": [
+      [
+        -0.25,
+        0.06,
+        1.03
+      ],
+      [
+        -0.47,
+        0.02,
+        0.85
+      ],
+      "chest"
+    ],
+    "lower_forearm_R": [
+      [
+        -0.47,
+        0.02,
+        0.85
+      ],
+      [
+        -0.68,
+        -0.1,
+        0.77
+      ],
+      "lower_upperarm_R"
+    ],
+    "lower_hand_R": [
+      [
+        -0.68,
+        -0.1,
+        0.77
+      ],
+      [
+        -0.79,
+        -0.16,
+        0.75
+      ],
+      "lower_forearm_R"
+    ]
+  },
+  "leg_chains": [
+    {
+      "id": "L",
+      "upper": "thigh_L",
+      "lower": "shin_L",
+      "foot": "foot_L",
+      "pole": -1,
+      "phase": 0
+    },
+    {
+      "id": "R",
+      "upper": "thigh_R",
+      "lower": "shin_R",
+      "foot": "foot_R",
+      "pole": -1,
+      "phase": 0.5
+    }
+  ],
+  "rig_family": "Biped",
+  "walk_speed_m_s": 0.42,
+  "run_speed_m_s": 0.78,
+  "geometry_unchanged": true,
+  "uv_original": true,
+  "weights": {
+    "method": "Blender bone heat on temporary 1-micrometre welded helper; normalized weights only",
+    "helper_vertices": 10853,
+    "unweighted_vertices": 0,
+    "maximum_transfer_distance_m": 1.3348812899494078e-07,
+    "original_geometry_unchanged": true,
+    "smoothing": {
+      "iterations": 18,
+      "virtual_vertices": 10853,
+      "original_vertices": 19281,
+      "maximum_influences": 4,
+      "no_geometry_or_uv_changes": true
+    }
+  },
+  "sole_vertices_locked": 1139,
+  "notes": [
+    "Original source appearance preserved; no remesh or decimation."
+  ]
+}

@@ -6,6 +6,7 @@
 #include "../../Checkpoint/PokeMonsterCheckpointSubsystem.h"
 #include "../../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "Components/PrimitiveComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/InstancedStaticMeshComponent.h"
 #include "Engine/StaticMesh.h"
@@ -36,8 +37,9 @@ void UPokeMonsterCreatureRoamingComponent::Configure(const UPokeMonsterCreatureS
 	Settings = Species->Overworld;
 	if(bOverrideBehavior) { if(!BehaviorOverride.IsValid()) return; Settings.Behavior=BehaviorOverride; }
 	BehaviorState=EPokeMonsterOverworldState::Rest; WarningElapsed=CooldownRemaining=ReactionRemaining=InterestRemaining=0; bTerritoryArmed=true; bEscapingDefeat=bEscapeBlocked=false; EscapeElapsed=EscapeReplan=EscapeStalled=0;
-	Offset = RootGroundOffset; BodyRadius = Radius;
-	BodyHalfHeight = FMath::Max(HalfHeight, Radius); FollowTarget = Follow;
+	Offset = RootGroundOffset; BodyRadius = FMath::Max(Radius, Settings.BodyRadius);
+	// Wide visual appendages may need more navigation clearance than the contact capsule.
+	BodyHalfHeight = FMath::Max(HalfHeight, BodyRadius); FollowTarget = Follow;
 	HabitatOrigin = GetOwner()->GetActorLocation() - FVector(0, 0, Offset);
 	Buildings.Reset();
 	for (TActorIterator<APokeMonsterBuildingCutaway> It(GetWorld()); It; ++It) Buildings.Add(*It);
@@ -86,6 +88,9 @@ FCollisionQueryParams UPokeMonsterCreatureRoamingComponent::Query() const
 	TArray<AActor*> Attached; GetOwner()->GetAttachedActors(Attached);
 	for (AActor* Actor : Attached) Q.AddIgnoredActor(Actor);
 	if (FollowTarget.IsValid()) Q.AddIgnoredActor(FollowTarget.Get());
+	// Escape uses the actual body-radius guard below, rather than trapping the contact
+	// start inside the larger silhouette navigation buffer. All world checks remain active.
+	if(bEscapingDefeat)Q.AddIgnoredActor(UGameplayStatics::GetPlayerPawn(this,0));
 	return Q;
 }
 bool UPokeMonsterCreatureRoamingComponent::IsInsideHabitat(const FVector& Point) const
@@ -136,6 +141,12 @@ bool UPokeMonsterCreatureRoamingComponent::ProjectWalkable(const FVector& Point,
 bool UPokeMonsterCreatureRoamingComponent::CanTraverse(const FVector& Start, const FVector& End) const
 {
 	if (!GetWorld() || !bReady || Start.ContainsNaN() || End.ContainsNaN()) return false;
+	if(bEscapingDefeat)if(const auto* Player=UGameplayStatics::GetPlayerPawn(this,0))
+	{
+	 const auto* Body=GetOwner()->FindComponentByClass<UCapsuleComponent>();
+	 const auto* PlayerBody=Player->FindComponentByClass<UCapsuleComponent>();
+	 if(!Body||!PlayerBody||!CanSeparateFromContact(Start,End,Player->GetActorLocation(),Body->GetScaledCapsuleRadius()+PlayerBody->GetScaledCapsuleRadius()))return false;
+	}
 	// Continuous clearance for local decoration cores. Sparse ground samples alone can
  // miss a very short crossing of an expanded rock/trunk corner, then reject each real step.
  for(const auto& Box:DecorativeObstacles)
@@ -184,7 +195,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	const auto* C = GI ? GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>() : nullptr;
 	if ((E && E->IsEncounterActive()) || (C && C->IsReturningFromDefeat())) return;
 	const FVector Current = Owner->GetActorLocation() - FVector(0, 0, Offset);
-	const auto* Player = Cast<APokeMonsterPlayerCharacter>(UGameplayStatics::GetPlayerPawn(this, 0));
+	auto* Player = Cast<APokeMonsterPlayerCharacter>(UGameplayStatics::GetPlayerPawn(this, 0));
 	if (!FollowTarget.IsValid() && Player && (Player->IsOverworldInputLocked()
 		))
 	{
@@ -197,7 +208,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	if(bEscapingDefeat)
 	{
 	 EscapeElapsed+=Delta; EscapeReplan-=Delta; PauseRemaining=0;
-	 Speed=FMath::Clamp((Settings.RunSpeedOverride>0?Settings.RunSpeedOverride:Presentation->RunSpeed)*1.5f,75.f,180.f);
+	 Speed=FMath::Clamp((Settings.RunSpeedOverride>0?Settings.RunSpeedOverride:Presentation->RunSpeed)*1.5f,25.f,180.f);
 	 if(Path.IsEmpty() && EscapeReplan<=0)
 	 {
 	  if(!PlanEscape(Current,Player)){EscapeStalled+=1.5f; bEscapeBlocked=EscapeStalled>=6.f;}
@@ -301,7 +312,11 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	if (!ProjectWalkable(Candidate, Ground) || !CanTraverse(Current, Ground))
 	{ ++BlockedSteps; CurrentSpeed=0.f; BeginPause(); ReplanRemaining = .5f; return; }
 	const FVector Before = Owner->GetActorLocation(); FHitResult Hit;
+	auto* Primitive=Cast<UPrimitiveComponent>(Owner->GetRootComponent());
+	const bool IgnoreContact=bEscapingDefeat&&Primitive&&Player&&!Primitive->GetMoveIgnoreActors().Contains(Player);
+	if(IgnoreContact)Primitive->IgnoreActorWhenMoving(Player,true);
 	Owner->SetActorLocation(Ground + FVector(0,0,Offset), true, &Hit);
+	if(IgnoreContact)Primitive->IgnoreActorWhenMoving(Player,false);
 	DistanceTravelled += FVector::Dist2D(Before, Owner->GetActorLocation());
 	if (Hit.bBlockingHit) { ++BlockedSteps; CurrentSpeed=0.f; BeginPause(); return; }
 	if (FVector::Dist2D(Ground, Target) < 1.f)
@@ -441,4 +456,25 @@ bool UPokeMonsterCreatureRoamingComponent::IsDecorativeSegmentBlocked(const FBox
 {
  const FBox Clearance(Bounds.Min-FVector(Radius,Radius,HalfHeight*2),Bounds.Max+FVector(Radius,Radius,StepHeight));
  return FMath::LineBoxIntersection(Clearance,Start,End,End-Start);
+}
+
+
+bool UPokeMonsterCreatureRoamingComponent::CanSeparateFromContact(const FVector& Start,const FVector& End,const FVector& Player,float Radius)
+{
+ if(Start.ContainsNaN()||End.ContainsNaN()||Player.ContainsNaN()||!FMath::IsFinite(Radius)||Radius<=0)return false;
+ const FVector2D From(Start.X-Player.X,Start.Y-Player.Y),Delta(End.X-Start.X,End.Y-Start.Y);
+ const double Initial=From.SizeSquared(),Length=Delta.SizeSquared(),Limit=double(Radius)*Radius;
+ if(Length<=UE_DOUBLE_SMALL_NUMBER)return Initial>=Limit;
+ const double Dot=FVector2D::DotProduct(From,Delta);
+ if(Initial<Limit)return Dot>=0 && (From+Delta).SizeSquared()>Initial;
+ const double Fraction=FMath::Clamp(-Dot/Length,0.,1.);
+ return (From+Delta*Fraction).SizeSquared()>=Limit-UE_DOUBLE_KINDA_SMALL_NUMBER;
+}
+
+
+bool UPokeMonsterCreatureRoamingComponent::IsInRelocatedInterior(const FVector& Point) const
+{
+ for(const auto& Building:Buildings)
+  if(Building.IsValid()&&Building->IsViewerInRelocatedRoom(Point))return true;
+ return false;
 }

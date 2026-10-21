@@ -115,16 +115,14 @@ void UPokeMonsterCreatureCompanionSubsystem::Tick(float Delta)
 		Movement->SetMovementPaused(true);
 	}
 	if (!bPlaced && !PlaceNearPlayer(Player)) { Visual->SetActorHiddenInGame(true); return; }
-	// Follow the existing room-only lighting contract; never alter the room or exterior lights.
-	if (const auto* PlayerMesh = Player->FindComponentByClass<USkeletalMeshComponent>())
-	{
-		const FLightingChannels Channels = PlayerMesh->LightingChannels;
-		Visual->Mesh->SetLightingChannels(Channels.bChannel0, Channels.bChannel1, false);
-		Visual->Mesh->SetCastShadow(PlayerMesh->CastShadow);
-		Visual->Flame->SetLightingChannels(Channels.bChannel0, Channels.bChannel1, false);
-		for (const auto& Effect : Visual->EffectComponents) if (Effect)
-			Effect->SetLightingChannels(Channels.bChannel0, Channels.bChannel1, false);
-	}
+	// A companion can still be inside after its player crosses the doorway.
+	// Use its own room membership; never change room or exterior lighting.
+	const bool Interior = Movement->IsInRelocatedInterior(Visual->GetActorLocation()+FVector(0,0,30));
+	Visual->Mesh->SetLightingChannels(!Interior, Interior, false);
+	Visual->Mesh->SetCastShadow(!Interior);
+	Visual->Flame->SetLightingChannels(!Interior, Interior, false);
+	for (const auto& Effect : Visual->EffectComponents) if (Effect)
+		Effect->SetLightingChannels(!Interior, Interior, false);
 	Movement->SetMovementPaused(Player->IsOverworldInputLocked());
 	Visual->SetActorHiddenInGame(false);
 }

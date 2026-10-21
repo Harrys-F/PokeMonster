@@ -22,6 +22,8 @@ public:
 	UFUNCTION(BlueprintPure, Category="Creature|Movement") bool ProjectWalkable(const FVector& Point, FVector& Ground) const;
 	UFUNCTION(BlueprintPure, Category="Creature|Movement") bool CanTraverse(const FVector& Start, const FVector& End) const;
 	UFUNCTION(BlueprintPure, Category="Creature|Movement") bool IsInsideHabitat(const FVector& Point) const;
+	bool IsInRelocatedInterior(const FVector& Point) const;
+	static bool CanSeparateFromContact(const FVector& Start,const FVector& End,const FVector& Player,float ContactRadius);
 	static bool IsDecorativeSegmentBlocked(const FBox& Bounds,const FVector& Start,const FVector& End,float Radius,float HalfHeight,float StepHeight);
 	static float AdvanceSpeed(float Current, float Desired, float Distance, bool Companion,
 		const FPokeMonsterCreatureOverworldSettings& Config, float Delta);

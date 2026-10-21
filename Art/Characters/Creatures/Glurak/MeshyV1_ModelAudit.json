@@ -1,0 +1,398 @@
+{
+  "species": "Glurak",
+  "source": "Art/Characters/Creatures/Incoming/Glurak.glb",
+  "source_sha256": "ff10e35e0cce21b4f1b65e4d9f17d7c07076062f9aea7dd6aaa1d2b4b605338a",
+  "height_m": 1.7,
+  "size_basis": "standing_height",
+  "size_measurement": "complete neutral model including ears/leaves/gas silhouette; no runtime actor rescaling",
+  "front": "-Y",
+  "anatomical_origin_offset_m": [
+    0,
+    -0.25,
+    0
+  ],
+  "scale": 1.7105162719874714,
+  "vertices": 135600,
+  "triangles": 246066,
+  "materials": 2,
+  "bones": {
+    "root": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0.068
+      ],
+      null
+    ],
+    "pelvis": [
+      [
+        0,
+        -0.13,
+        0.45
+      ],
+      [
+        0,
+        -0.13,
+        0.85
+      ],
+      "root"
+    ],
+    "chest": [
+      [
+        0,
+        -0.13,
+        0.85
+      ],
+      [
+        0,
+        -0.2,
+        1.16
+      ],
+      "pelvis"
+    ],
+    "head": [
+      [
+        0,
+        -0.2,
+        1.16
+      ],
+      [
+        0,
+        -0.27,
+        1.54
+      ],
+      "chest"
+    ],
+    "thigh_L": [
+      [
+        0.3,
+        -0.08,
+        0.45
+      ],
+      [
+        0.38,
+        -0.26,
+        0.25
+      ],
+      "pelvis"
+    ],
+    "shin_L": [
+      [
+        0.38,
+        -0.26,
+        0.25
+      ],
+      [
+        0.38,
+        -0.25,
+        0.075
+      ],
+      "thigh_L"
+    ],
+    "foot_L": [
+      [
+        0.38,
+        -0.25,
+        0.075
+      ],
+      [
+        0.38,
+        -0.43,
+        0.035
+      ],
+      "shin_L"
+    ],
+    "upperarm_L": [
+      [
+        0.26,
+        -0.14,
+        0.96
+      ],
+      [
+        0.52,
+        -0.18,
+        0.94
+      ],
+      "chest"
+    ],
+    "forearm_L": [
+      [
+        0.52,
+        -0.18,
+        0.94
+      ],
+      [
+        0.7,
+        -0.25,
+        0.91
+      ],
+      "upperarm_L"
+    ],
+    "hand_L": [
+      [
+        0.7,
+        -0.25,
+        0.91
+      ],
+      [
+        0.8,
+        -0.3,
+        0.88
+      ],
+      "forearm_L"
+    ],
+    "thigh_R": [
+      [
+        -0.3,
+        -0.08,
+        0.45
+      ],
+      [
+        -0.38,
+        -0.26,
+        0.25
+      ],
+      "pelvis"
+    ],
+    "shin_R": [
+      [
+        -0.38,
+        -0.26,
+        0.25
+      ],
+      [
+        -0.38,
+        -0.25,
+        0.075
+      ],
+      "thigh_R"
+    ],
+    "foot_R": [
+      [
+        -0.38,
+        -0.25,
+        0.075
+      ],
+      [
+        -0.38,
+        -0.43,
+        0.035
+      ],
+      "shin_R"
+    ],
+    "upperarm_R": [
+      [
+        -0.26,
+        -0.14,
+        0.96
+      ],
+      [
+        -0.52,
+        -0.18,
+        0.94
+      ],
+      "chest"
+    ],
+    "forearm_R": [
+      [
+        -0.52,
+        -0.18,
+        0.94
+      ],
+      [
+        -0.7,
+        -0.25,
+        0.91
+      ],
+      "upperarm_R"
+    ],
+    "hand_R": [
+      [
+        -0.7,
+        -0.25,
+        0.91
+      ],
+      [
+        -0.8,
+        -0.3,
+        0.88
+      ],
+      "forearm_R"
+    ],
+    "tail_base": [
+      [
+        0,
+        0.12,
+        0.36
+      ],
+      [
+        -0.44,
+        0.5,
+        0.25
+      ],
+      "pelvis"
+    ],
+    "tail_mid": [
+      [
+        -0.44,
+        0.5,
+        0.25
+      ],
+      [
+        -0.98,
+        0.88,
+        0.31
+      ],
+      "tail_base"
+    ],
+    "tail_tip": [
+      [
+        -0.98,
+        0.88,
+        0.31
+      ],
+      [
+        -1.38,
+        1.04,
+        0.58
+      ],
+      "tail_mid"
+    ],
+    "flame_tip": [
+      [
+        -1.38,
+        1.04,
+        0.58
+      ],
+      [
+        -1.38,
+        1.04,
+        0.78
+      ],
+      "tail_tip"
+    ],
+    "wing_base_L": [
+      [
+        0.2,
+        0.08,
+        1.03
+      ],
+      [
+        0.67,
+        0.12,
+        1.53
+      ],
+      "chest"
+    ],
+    "wing_tip_L": [
+      [
+        0.67,
+        0.12,
+        1.53
+      ],
+      [
+        1.52,
+        0.16,
+        0.96
+      ],
+      "wing_base_L"
+    ],
+    "wing_base_R": [
+      [
+        -0.2,
+        0.08,
+        1.03
+      ],
+      [
+        -0.67,
+        0.12,
+        1.53
+      ],
+      "chest"
+    ],
+    "wing_tip_R": [
+      [
+        -0.67,
+        0.12,
+        1.53
+      ],
+      [
+        -1.52,
+        0.16,
+        0.96
+      ],
+      "wing_base_R"
+    ]
+  },
+  "leg_chains": [
+    {
+      "id": "L",
+      "upper": "thigh_L",
+      "lower": "shin_L",
+      "foot": "foot_L",
+      "pole": -1,
+      "phase": 0
+    },
+    {
+      "id": "R",
+      "upper": "thigh_R",
+      "lower": "shin_R",
+      "foot": "foot_R",
+      "pole": -1,
+      "phase": 0.5
+    }
+  ],
+  "rig_family": "Winged",
+  "walk_speed_m_s": 0.36,
+  "run_speed_m_s": 0.74,
+  "geometry_unchanged": true,
+  "uv_original": true,
+  "weights": {
+    "method": "explicit hand-fitted anatomical segment envelopes, maximum four normalized influences; pose inspection required",
+    "bone_heat": "Pikachu original Bone Heat failed; incomplete weights rejected, not transferred",
+    "vertices_per_bone": {
+      "tail_tip": 26374,
+      "tail_mid": 26374,
+      "tail_base": 26374,
+      "hand_R": 11951,
+      "forearm_R": 12394,
+      "upperarm_R": 13625,
+      "chest": 53804,
+      "flame_tip": 7763,
+      "wing_tip_R": 7923,
+      "wing_base_R": 7923,
+      "shin_R": 5574,
+      "foot_R": 4923,
+      "thigh_R": 6120,
+      "pelvis": 24969,
+      "head": 46444,
+      "thigh_L": 11374,
+      "shin_L": 10821,
+      "upperarm_L": 13889,
+      "foot_L": 10138,
+      "forearm_L": 12597,
+      "wing_base_L": 7825,
+      "wing_tip_L": 7825,
+      "hand_L": 12185
+    },
+    "unweighted_vertices": 0,
+    "original_geometry_unchanged": true,
+    "smoothing": {
+      "iterations": 18,
+      "virtual_vertices": 123035,
+      "original_vertices": 135600,
+      "maximum_influences": 4,
+      "no_geometry_or_uv_changes": true
+    },
+    "original_flame_faces": 14406
+  },
+  "sole_vertices_locked": 9575,
+  "notes": [
+    "Original source appearance preserved; no remesh or decimation."
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "species": "Enton",
+  "source": "Art/Characters/Creatures/Incoming/Enton.glb",
+  "source_sha256": "1dcc483860dd217c074d6aa79b0f4f113b7321b6894b57f181770022a9eb11d0",
+  "height_m": 0.8,
+  "size_basis": "standing_height",
+  "size_measurement": "complete neutral model including ears/leaves/gas silhouette; no runtime actor rescaling",
+  "front": "-Y",
+  "anatomical_origin_offset_m": [
+    0,
+    0,
+    0
+  ],
+  "scale": 0.9700414796960529,
+  "vertices": 11090,
+  "triangles": 16491,
+  "materials": 1,
+  "bones": {
+    "root": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0.032
+      ],
+      null
+    ],
+    "pelvis": [
+      [
+        0,
+        -0.04,
+        0.2
+      ],
+      [
+        0,
+        -0.04,
+        0.4
+      ],
+      "root"
+    ],
+    "chest": [
+      [
+        0,
+        -0.04,
+        0.4
+      ],
+      [
+        0,
+        -0.04,
+        0.53
+      ],
+      "pelvis"
+    ],
+    "head": [
+      [
+        0,
+        -0.04,
+        0.53
+      ],
+      [
+        0,
+        -0.06,
+        0.69
+      ],
+      "chest"
+    ],
+    "thigh_L": [
+      [
+        0.115,
+        -0.03,
+        0.2
+      ],
+      [
+        0.13,
+        -0.11,
+        0.11
+      ],
+      "pelvis"
+    ],
+    "shin_L": [
+      [
+        0.13,
+        -0.11,
+        0.11
+      ],
+      [
+        0.135,
+        -0.1,
+        0.025
+      ],
+      "thigh_L"
+    ],
+    "foot_L": [
+      [
+        0.135,
+        -0.1,
+        0.025
+      ],
+      [
+        0.135,
+        -0.22,
+        0.014
+      ],
+      "shin_L"
+    ],
+    "upperarm_L": [
+      [
+        0.14,
+        -0.03,
+        0.46
+      ],
+      [
+        0.245,
+        -0.025,
+        0.45
+      ],
+      "chest"
+    ],
+    "forearm_L": [
+      [
+        0.245,
+        -0.025,
+        0.45
+      ],
+      [
+        0.365,
+        -0.04,
+        0.45
+      ],
+      "upperarm_L"
+    ],
+    "hand_L": [
+      [
+        0.365,
+        -0.04,
+        0.45
+      ],
+      [
+        0.43,
+        -0.06,
+        0.45
+      ],
+      "forearm_L"
+    ],
+    "thigh_R": [
+      [
+        -0.115,
+        -0.03,
+        0.2
+      ],
+      [
+        -0.13,
+        -0.11,
+        0.11
+      ],
+      "pelvis"
+    ],
+    "shin_R": [
+      [
+        -0.13,
+        -0.11,
+        0.11
+      ],
+      [
+        -0.135,
+        -0.1,
+        0.025
+      ],
+      "thigh_R"
+    ],
+    "foot_R": [
+      [
+        -0.135,
+        -0.1,
+        0.025
+      ],
+      [
+        -0.135,
+        -0.22,
+        0.014
+      ],
+      "shin_R"
+    ],
+    "upperarm_R": [
+      [
+        -0.14,
+        -0.03,
+        0.46
+      ],
+      [
+        -0.245,
+        -0.025,
+        0.45
+      ],
+      "chest"
+    ],
+    "forearm_R": [
+      [
+        -0.245,
+        -0.025,
+        0.45
+      ],
+      [
+        -0.365,
+        -0.04,
+        0.45
+      ],
+      "upperarm_R"
+    ],
+    "hand_R": [
+      [
+        -0.365,
+        -0.04,
+        0.45
+      ],
+      [
+        -0.43,
+        -0.06,
+        0.45
+      ],
+      "forearm_R"
+    ],
+    "tail_base": [
+      [
+        0,
+        0.13,
+        0.12
+      ],
+      [
+        0,
+        0.28,
+        0.17
+      ],
+      "pelvis"
+    ]
+  },
+  "leg_chains": [
+    {
+      "id": "L",
+      "upper": "thigh_L",
+      "lower": "shin_L",
+      "foot": "foot_L",
+      "pole": -1,
+      "phase": 0
+    },
+    {
+      "id": "R",
+      "upper": "thigh_R",
+      "lower": "shin_R",
+      "foot": "foot_R",
+      "pole": -1,
+      "phase": 0.5
+    }
+  ],
+  "rig_family": "Biped",
+  "walk_speed_m_s": 0.21,
+  "run_speed_m_s": 0.42,
+  "geometry_unchanged": true,
+  "uv_original": true,
+  "weights": {
+    "method": "Blender bone heat on temporary 1-micrometre welded helper; normalized weights only",
+    "helper_vertices": 8268,
+    "unweighted_vertices": 0,
+    "maximum_transfer_distance_m": 6.143906006172983e-08,
+    "original_geometry_unchanged": true,
+    "smoothing": {
+      "iterations": 18,
+      "virtual_vertices": 8268,
+      "original_vertices": 11090,
+      "maximum_influences": 4,
+      "no_geometry_or_uv_changes": true
+    }
+  },
+  "sole_vertices_locked": 941,
+  "notes": [
+    "Original source appearance preserved; no remesh or decimation."
+  ],
+  "local_sole_weight_correction": {
+    "changed_vertices": 710,
+    "sole_threshold_m": 0.045,
+    "actions_unchanged_sha256": "21c938e348e6edc41f31db1c06f420e6617461cf26a83a98adf33d8dbabef469",
+    "geometry_uv_rig_materials_images_unchanged_sha256": "9fc394cef118ef9f9c89a3a36ba4daa4a0d2f1308bcfd7bbd84eb1fd153fc361",
+    "ground": {
+      "Walk": {
+        "before_min_z_m": -0.0011031231842935085,
+        "after_min_z_m": -3.883057431153247e-09
+      },
+      "Run": {
+        "before_min_z_m": -0.012290678918361664,
+        "after_min_z_m": -0.012290678918361664
+      }
+    }
+  }
+}
