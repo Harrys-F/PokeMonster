@@ -918,3 +918,8 @@ AP-Erschöpfung wird über einen ausdrücklich gekennzeichneten Verzweifler-Notf
 aufgelöst (Gen-2-Datenreferenz), ohne gelernte Slots zu verändern. Die frühere
 UI-Sackgasse mit gesperrter Bedienung ist damit ersetzt. Save-Schema 4 ergänzt den
 persistenten Verbrennungsstatus und behält lesende Migration für Schema 1–3.
+
+
+## 21.10.2026 – Starter-Erweiterung: abgeschlossene Niederlagen speichern
+
+Nach vollständiger Niederlage wird erst nach bestätigter Platzierung am gültigen Rückkehrpunkt und vollständiger Teamheilung automatisch gespeichert. Ein blockierter Rückkehrpunkt darf nur durch einen ebenfalls kollisionsgeprüften PlayerStart ersetzt werden; die tatsächlich erreichte Position wird gespeichert. Kampf und laufende Rückkehr bleiben für Snapshots gesperrt. Auf macOS wird das bestehende SaveGame-Format zunächst in eine temporäre Nachbardatei geschrieben, byteweise geprüft und atomar umbenannt. Ein Fehler erhält den vorherigen Slot und wird im Rückkehrhinweis angezeigt. Kein neues Speicherformat, kein zusätzlicher dauerhafter Backupslot. ClassicBattle-Darstellung und Regeln bleiben unverändert.

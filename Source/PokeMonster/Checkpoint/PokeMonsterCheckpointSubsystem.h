@@ -30,10 +30,11 @@ public:
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	virtual void Deinitialize() override;
 	bool ActivateCheckpoint(FName Id, const UWorld* World, const FTransform& SafePlayerTransform);
-	bool RestoreCheckpoint(const FPokeMonsterCheckpointData& Data);
-	const FPokeMonsterCheckpointData& GetActiveCheckpoint() const { return ActiveCheckpoint; }
+	UFUNCTION(BlueprintCallable, Category="Checkpoint") bool RestoreCheckpoint(const FPokeMonsterCheckpointData& Data);
+	UFUNCTION(BlueprintPure, Category="Checkpoint") const FPokeMonsterCheckpointData& GetActiveCheckpoint() const { return ActiveCheckpoint; }
 	bool HasActiveCheckpoint() const { return ActiveCheckpoint.IsValid(); }
 	bool IsReturningFromDefeat() const { return bReturning; }
+	UFUNCTION(BlueprintPure, Category="Checkpoint") bool WasLastRecoverySaved() const { return bLastRecoverySaved; }
 	bool BeginDefeatRecovery(APokeMonsterPlayerCharacter* Player, APlayerController* Controller);
 	static FName GetMapPackage(const UWorld* World);
 	static bool ResolveReturnTarget(FName CurrentMap, const FPokeMonsterCheckpointData& Active,
@@ -41,6 +42,9 @@ public:
 	static bool RestoreTeamAfterDefeat(UPokeMonsterEncounterSubsystem* Encounter);
 
 private:
+#if WITH_DEV_AUTOMATION_TESTS
+	friend class FPokeMonsterCheckpointSaveGuardTest;
+#endif
 	void PerformReturn();
 	void FinishReturn(UWorld* World);
 	void UnlockAfterReturn();
@@ -58,4 +62,5 @@ private:
 	FDelegateHandle PostLoadMapHandle;
 	int32 ReturnAttempts = 0;
 	bool bReturning = false;
+	bool bLastRecoverySaved = false;
 };

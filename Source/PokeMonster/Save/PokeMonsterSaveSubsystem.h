@@ -25,6 +25,9 @@ public:
 	/** Explicit PIE diagnostics: mutate, save, clear, load and verify session state. */
 	bool RunDevRoundTripTest();
 
+	/** macOS: verified sibling write followed by atomic rename; the previous slot survives failure. */
+	static bool SaveSnapshotToSlot(UPokeMonsterSaveGame* Save, const FString& SlotName);
+
 	/** Exposed for precise tests and future save transports; no runtime mutation. */
 	static UPokeMonsterSaveGame* CaptureSnapshot(const UPokeMonsterEncounterSubsystem* Encounter,
 		const UPokeMonsterInventorySubsystem* Inventory, UObject* Outer,

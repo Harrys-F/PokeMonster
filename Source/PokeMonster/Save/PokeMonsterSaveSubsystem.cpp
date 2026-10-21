@@ -8,6 +8,9 @@
 #include "../Moves/PokeMonsterMoveData.h"
 #include "../Quest/PokeMonsterQuestSubsystem.h"
 #include "Kismet/GameplayStatics.h"
+#include "HAL/PlatformFileManager.h"
+#include "Misc/FileHelper.h"
+#include "Misc/Paths.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogPokeMonsterSave, Log, All);
 
@@ -195,6 +198,32 @@ bool UPokeMonsterSaveSubsystem::RestoreSnapshot(const UPokeMonsterSaveGame* Save
 	return true;
 }
 
+bool UPokeMonsterSaveSubsystem::SaveSnapshotToSlot(UPokeMonsterSaveGame* Save, const FString& SlotName)
+{
+	// This project targets macOS. Its physical MoveFile uses same-filesystem rename(2),
+	// replacing the old destination atomically, without deleting it first.
+#if PLATFORM_MAC
+	if (!IsValid(Save) || SlotName.IsEmpty() || SlotName != FPaths::GetCleanFilename(SlotName)
+		|| SlotName.Contains(TEXT("..")) || SlotName.Contains(TEXT(":"))) return false;
+	TArray<uint8> Bytes;
+	if (!UGameplayStatics::SaveGameToMemory(Save, Bytes) || Bytes.IsEmpty()) return false;
+	IPlatformFile& Files = FPlatformFileManager::Get().GetPlatformPhysical();
+	const FString Directory = FPaths::ConvertRelativePathToFull(FPaths::ProjectSavedDir() / TEXT("SaveGames"));
+	if (!Files.CreateDirectoryTree(*Directory)) return false;
+	const FString Destination = Directory / (SlotName + TEXT(".sav"));
+	const FString Temporary = Destination + TEXT(".") + FGuid::NewGuid().ToString(EGuidFormats::Digits) + TEXT(".pending");
+	TArray<uint8> Verified;
+	const bool bWritten = FFileHelper::SaveArrayToFile(Bytes, *Temporary)
+		&& FFileHelper::LoadFileToArray(Verified, *Temporary) && Verified == Bytes
+		&& Cast<UPokeMonsterSaveGame>(UGameplayStatics::LoadGameFromMemory(Verified));
+	const bool bCommitted = bWritten && Files.MoveFile(*Destination, *Temporary);
+	if (!bCommitted && Files.FileExists(*Temporary)) Files.DeleteFile(*Temporary);
+	return bCommitted;
+#else
+	return false;
+#endif
+}
+
 bool UPokeMonsterSaveSubsystem::SaveCurrentGame()
 {
 	UGameInstance* Instance = GetGameInstance();
@@ -204,7 +233,7 @@ bool UPokeMonsterSaveSubsystem::SaveCurrentGame()
 		Instance->GetSubsystem<UPokeMonsterCheckpointSubsystem>(),
 		Instance->GetSubsystem<UPokeMonsterQuestSubsystem>());
 	if (!Save) return false;
-	const bool bSaved = UGameplayStatics::SaveGameToSlot(Save, DevSlotName, 0);
+	const bool bSaved = SaveSnapshotToSlot(Save, DevSlotName);
 	if (bSaved) { UE_LOG(LogPokeMonsterSave, Display, TEXT("Save written: %s"), *DevSlotName); }
 	else { UE_LOG(LogPokeMonsterSave, Error, TEXT("Save failed: %s"), *DevSlotName); }
 	return bSaved;

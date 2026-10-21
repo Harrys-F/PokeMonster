@@ -2,8 +2,8 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "checked_battle_system_v3",
-  "generated_at": "2026-10-20",
+  "snapshot_kind": "checked_starter_defeat_save",
+  "generated_at": "2026-10-21",
   "files": {
     ".codex/config.toml": {
       "bytes": 59,
@@ -9326,8 +9326,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 126738,
-      "sha256": "655fd4ef74ea8be475983af63ee1639376a91eaa731a5cdd4872294224ff4e79"
+      "bytes": 127549,
+      "sha256": "7f5916693d399fac7fc54a9e52f1a967c1a9a73d4546ac215851d5a31e778592"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
@@ -9658,12 +9658,12 @@
       "sha256": "9630b00ca1054544d19a61fd295d9d716a4323834b68c062bc1d45dcaea8aa3d"
     },
     "Source/PokeMonster/Checkpoint/PokeMonsterCheckpointSubsystem.cpp": {
-      "bytes": 8837,
-      "sha256": "a41dec848d50283ce77f8aa6e19447641b49fea593c5dfb7fe3e4054cfc8cc34"
+      "bytes": 9887,
+      "sha256": "9933f10d3052a41f06eb5c71622ac78a604f3f8f1955e6bf4de4992c74d738e7"
     },
     "Source/PokeMonster/Checkpoint/PokeMonsterCheckpointSubsystem.h": {
-      "bytes": 2695,
-      "sha256": "47294d2d8782211c46394481fae86e61b68dafe0c5ee6e08f12846e07c2d01cc"
+      "bytes": 3031,
+      "sha256": "635a81f0410e3f1798a52c9ff842e73b2b50b838bb20a33a6973ae9422d3de69"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureInstance.cpp": {
       "bytes": 7309,
@@ -9962,12 +9962,12 @@
       "sha256": "78a1f4829a1c852bf9015c1eb2faadd4c25bffd43f01850320285c3f0c23d559"
     },
     "Source/PokeMonster/Save/PokeMonsterSaveSubsystem.cpp": {
-      "bytes": 13771,
-      "sha256": "9ec74b90e3c54fa604edecb9b715c3efec3656efde24aa264571d35912ce991a"
+      "bytes": 15306,
+      "sha256": "d8d959c4e24a68a79311897b57b00a586d7961ed931637f4126a4daf206e242e"
     },
     "Source/PokeMonster/Save/PokeMonsterSaveSubsystem.h": {
-      "bytes": 1740,
-      "sha256": "6f7ba16885fa93ca84e1a072101edfd8e0f690c0bd458cdd1b47b55be0177ace"
+      "bytes": 1928,
+      "sha256": "b500de59b8dbf4ddca7582cfbd59edab135f1f1b45ef52dfc00c2762abc41608"
     },
     "Source/PokeMonster/Story/PokeMonsterStoryGoal.cpp": {
       "bytes": 7464,
@@ -15516,6 +15516,22 @@
     "Docs/KAMPFSYSTEM_V3_PRUEFBERICHT.md": {
       "bytes": 16125,
       "sha256": "0344bde48c43e12431c256018f51cb7f1106a1240ffd6cb40e065b9b69c827ef"
+    },
+    "Docs/STARTER_ERWEITERUNG_V1_PRUEFBERICHT.md": {
+      "bytes": 2924,
+      "sha256": "0bf7bea7473f81d7ba6a708701a2fa10cd9da83899474d452dd46ed0c8980e83"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterCheckpointSaveTest.cpp": {
+      "bytes": 4059,
+      "sha256": "7605d1df97781482164932ab70cb0658522ffcc07e32ebacd1af31eb5e0f0996"
+    },
+    "Tools/StarterExpansionV1/RunDefeatSave.py": {
+      "bytes": 1553,
+      "sha256": "b4bfb2aab3590fa7cc1c66314fad33a4fe42c34ba842ef717a5e9d07c29e63a6"
+    },
+    "Tools/StarterExpansionV1/ReviewDefeatSave.py": {
+      "bytes": 3657,
+      "sha256": "d92405faea2cbd807554bf3b82beb2733fd92f8585357e02ad9fbc90686fb4c8"
     }
   }
 }

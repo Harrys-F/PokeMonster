@@ -3,6 +3,7 @@
 #include "../Characters/PokeMonsterPlayerCharacter.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "../UI/PokeMonsterDefeatWidget.h"
+#include "../Save/PokeMonsterSaveSubsystem.h"
 #include "Blueprint/UserWidget.h"
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
@@ -134,10 +135,11 @@ bool UPokeMonsterCheckpointSubsystem::BeginDefeatRecovery(
 {
 	UWorld* World = IsValid(Player) ? Player->GetWorld() : nullptr;
 	FTransform Fallback;
-	if (bReturning || !World || !IsValid(Controller)
+	if (bReturning || PendingTarget.IsValid() || !World || !IsValid(Controller)
 		|| (!ActiveCheckpoint.IsValid() && !FindFallback(World, Fallback))
 		|| !ResolveReturnTarget(GetMapPackage(World), ActiveCheckpoint, Fallback, PendingTarget)) return false;
 	bReturning = true;
+	bLastRecoverySaved = false;
 	ReturningPlayer = Player;
 	ReturningController = Controller;
 	ReturnAttempts = 0;
@@ -184,27 +186,45 @@ void UPokeMonsterCheckpointSubsystem::FinishReturn(UWorld* World)
 			this, &UPokeMonsterCheckpointSubsystem::FinishReturn, World), 0.1f, false);
 		return;
 	}
-	if (IsValid(Player))
+	bool bPlaced = false;
+	FPokeMonsterCheckpointData ActualTarget = PendingTarget;
+	if (IsValid(Player) && GetMapPackage(World) == PendingTarget.MapPackage)
 	{
 		Player->SetOverworldInputLocked(true);
-		if (!Player->TeleportTo(PendingTarget.Location, PendingTarget.Rotation, false, false))
+		bPlaced = Player->TeleportTo(PendingTarget.Location, PendingTarget.Rotation, false, false);
+		if (!bPlaced)
 		{
 			FTransform Fallback;
 			if (FindFallback(World, Fallback))
-				Player->TeleportTo(Fallback.GetLocation(), Fallback.Rotator(), false, true);
-			UE_LOG(LogPokeMonsterCheckpoint, Warning, TEXT("Checkpoint location blocked; used map fallback."));
+			{
+				bPlaced = Player->TeleportTo(Fallback.GetLocation(), Fallback.Rotator(), false, false);
+				if (bPlaced) ResolveReturnTarget(GetMapPackage(World), {}, Fallback, ActualTarget);
+			}
+			UE_LOG(LogPokeMonsterCheckpoint, Warning, TEXT("Checkpoint blocked; checked fallback placement: %s."),
+				bPlaced ? TEXT("succeeded") : TEXT("failed"));
 		}
-		if (IsValid(Controller)) Controller->SetControlRotation(PendingTarget.Rotation);
+		if (bPlaced && IsValid(Controller)) Controller->SetControlRotation(ActualTarget.Rotation);
 	}
-	const bool bHealed = RestoreTeamAfterDefeat(GetGameInstance()
+	const bool bHealed = bPlaced && RestoreTeamAfterDefeat(GetGameInstance()
 		? GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr);
+	if (bPlaced && bHealed)
+	{
+		// The world, position and party are now authoritative. The overlay still locks
+		// input until UnlockAfterReturn, but this is no longer an unfinished return.
+		ActualTarget.Location = Player->GetActorLocation();
+		ActiveCheckpoint = ActualTarget;
+		bReturning = false;
+		auto* Saves = GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>();
+		bLastRecoverySaved = Saves && Saves->SaveCurrentGame();
+	}
 	UE_LOG(LogPokeMonsterCheckpoint, Display,
-		TEXT("Defeat return to '%s' in '%s': team restore %s."),
-		*PendingTarget.CheckpointId.ToString(), *PendingTarget.MapPackage.ToString(),
-		bHealed ? TEXT("succeeded") : TEXT("failed"));
-	ShowOverlay(Controller, FText::FromString(bHealed
-		? TEXT("Du bist am Ruhepunkt erwacht. Dein Team ist wieder fit.")
-		: TEXT("Du bist zurückgekehrt. Die Teamheilung ist fehlgeschlagen.")));
+		TEXT("Defeat return '%s': placed=%d healed=%d autosaved=%d."),
+		*ActualTarget.CheckpointId.ToString(), bPlaced, bHealed, bLastRecoverySaved);
+	ShowOverlay(Controller, FText::FromString(!bPlaced
+		? TEXT("Rückkehr fehlgeschlagen. Dein bisheriger Spielstand wurde nicht verändert.")
+		: !bHealed ? TEXT("Teamheilung fehlgeschlagen. Es wurde nicht gespeichert.")
+		: bLastRecoverySaved ? TEXT("Dein Team ist wieder fit. Der Spielstand wurde gespeichert.")
+		: TEXT("Dein Team ist wieder fit. Speichern fehlgeschlagen – bitte erneut speichern.")));
 	World->GetTimerManager().SetTimer(TransitionTimer, this,
 		&UPokeMonsterCheckpointSubsystem::UnlockAfterReturn, 1.0f, false);
 }
