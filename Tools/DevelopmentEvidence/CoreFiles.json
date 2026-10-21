@@ -3,7 +3,7 @@
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
   "snapshot_kind": "motion_refinement_v5_glurak_nebulak_player",
-  "generated_at": "2026-10-21",
+  "generated_at": "2026-10-22",
   "files": {
     ".codex/config.toml": {
       "bytes": 59,
@@ -17910,8 +17910,8 @@
       "sha256": "adec939ffd58b2a11910443719b4518b7225a528a7593780e1b4537a715d08f4"
     },
     "Docs/MOTION_REFINEMENT_V5_PRUEFBERICHT.md": {
-      "bytes": 21104,
-      "sha256": "b71411c3bec32c8c20102dc3570e8e8fd40eeacfc8b5f3b6dfab59050462fb83"
+      "bytes": 23661,
+      "sha256": "e3c7c54dfaa0cd1576fd5a86ed4a3ad4830950530a7190d3351d34093248c52f"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureGroundHover.cpp": {
       "bytes": 4431,
@@ -17966,20 +17966,20 @@
       "sha256": "e11421e4c8ead5bc002d0b3abafbbfd100416dee614bacff7f07c300a37c24a4"
     },
     "Tools/MotionRefinementV5/README.md": {
-      "bytes": 3550,
-      "sha256": "76ba38059178dbd2291f668e95aaedc612a27675a1fbcb5ab33719c345bfc720"
+      "bytes": 4513,
+      "sha256": "ad9be76f1f9770a856a900fdf2b0c5682d2a3b8e6a37ba405c2c60fcd5fc4d85"
     },
     "Tools/MotionRefinementV5/RefineGlurakContacts.py": {
       "bytes": 3115,
       "sha256": "8141d8f63491abcee08faba2c962f01e253ebc8071ea7f5b68a626e3e2cdcfdb"
     },
     "Tools/MotionRefinementV5/ReviewPlayer.py": {
-      "bytes": 5568,
-      "sha256": "6bcf0459498a741a3753f9296fc742c8fe9ffefbd81a71225e8913f683d6892c"
+      "bytes": 7820,
+      "sha256": "13c4b70247fd777773b1b2db113101ff55558a930f13151c6e9e263272cbf4a4"
     },
     "Tools/MotionRefinementV5/RunPlayer.py": {
-      "bytes": 1195,
-      "sha256": "a4549ba0e9d27189d55443e6c0d61a0684b6d63c8f2f1cddbdf917ac56db70ee"
+      "bytes": 1240,
+      "sha256": "ad26861f76a256c180a531369d327cc540588105999259d871afebb2bcf9629c"
     },
     "Tools/MotionRefinementV5/RunTargets.py": {
       "bytes": 2518,

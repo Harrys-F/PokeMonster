@@ -1,7 +1,7 @@
 from pathlib import Path
 import sys,json,time,hashlib
 R=Path(__file__).resolve().parents[2];sys.path.insert(0,str(R/'Tools/ProjectMaintenance'));from ArtControl import job
-label=sys.argv[1];assert label.isalnum();O=R/'Saved/MotionRefinementV5';assert not(O/label).exists();(O/'PlayerRequest.json').write_text(json.dumps(dict(label=label,native_record=str(R/'Saved/VisualV2TAAIntegrationV1/Recordings'/label)if '--record'in sys.argv else None)));slot=R/'Saved/SaveGames/PokeMonster_Dev.sav';before=hashlib.sha256(slot.read_bytes()).hexdigest();job('start_pie');time.sleep(2)
+label=sys.argv[1];assert label.isalnum();O=R/'Saved/MotionRefinementV5';assert not(O/label).exists();(O/'PlayerRequest.json').write_text(json.dumps(dict(label=label,original_clips='--original-clips'in sys.argv,native_record=str(R/'Saved/VisualV2TAAIntegrationV1/Recordings'/label)if '--record'in sys.argv else None)));slot=R/'Saved/SaveGames/PokeMonster_Dev.sav';before=hashlib.sha256(slot.read_bytes()).hexdigest();job('start_pie');time.sleep(2)
 try:
  job('script','Tools/MotionRefinementV5/ReviewPlayer.py');start=time.monotonic()
  while not(O/label/'Result.json').exists():time.sleep(1);assert time.monotonic()-start<200

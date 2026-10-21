@@ -20,6 +20,7 @@ python3 Tools/MotionRefinementV5/RunTargets.py NeuerDeckenTest Glurak --hover --
 python3 Tools/MotionRefinementV5/RunTargets.py NeuerAbschnittstest Glurak --hover --route-probe
 python3 Tools/MotionRefinementV5/RunTargets.py NeuerGasFrontTest Nebulak --record
 python3 Tools/MotionRefinementV5/RunTargets.py NeuerGasSeitentest Nebulak --yaw=45 --record
+python3 Tools/MotionRefinementV5/RunPlayer.py NeuerSpielerReferenztest --original-clips
 python3 Tools/MotionRefinementV5/RunPlayer.py NeuerSpielertest --record
 ```
 
@@ -28,3 +29,9 @@ python3 Tools/MotionRefinementV5/RunPlayer.py NeuerSpielertest --record
 `--record` verwendet den vorhandenen asynchronen `pm.TAAReview`-Framebuffer-Recorder. Unveränderte QHD-Kamera, tatsächliche Bildzeitstempel und Originalframes; keine Bildinterpolation. `EncodeSequence.swift` kodiert diese Dateien über das vorhandene macOS AVFoundation. Die Ausgabe liegt lokal unter `Saved/VisualV2TAAIntegrationV1/Recordings/<Label>/`. Variable Capture-Abstände und einzelne Screenshot-Hitches sind sichtbar; das Video ist kein FPS-Benchmark. Die PNG-Fallback-Aufnahme ist deutlich langsamer und wurde nicht als flüssige Videoabnahme gewertet.
 
 Quellenvalidierung, Sichtprüfung und Regressionen aus `Docs/MOTION_REFINEMENT_V5_PRUEFBERICHT.md` gemeinsam betrachten. Ein grüner Prozesscode ersetzt keine visuelle Abnahme. Physischer Switch-Pro-Test bleibt offen.
+
+## Geerdete Spielerprüfung (22.10.)
+
+Die Spieler-Runde liest vor dem Start die Bounds der bestehenden `V2_Ground` und prüft ihre gesamte geplante Ausdehnung. Während aller acht Richtungen werden `MOVE_WALKING`, konstante Bodenhöhe und der normale CharacterMovement-Kapselabstand geprüft. Keine neue Bodenfläche und kein geändertes Kollisionsverhalten. Frühere Runden am westlichen Kartenrand konnten aus der Map laufen und sind deshalb kein vollständiger Bodenkontakt-Nachweis.
+
+`--original-clips` lädt ausschließlich in der eigenen PIE-Instanz die erhaltenen V2/V1-Clips und restauriert danach die aktuellen MotionV3-Referenzen. Die heutige native Steuerungs-/Blendschicht bleibt dabei aktiv; der Vergleich wird genau so bezeichnet, nicht als Rückbau des alten C++-Stands. Tatsächliche Clipreferenzen, geerdete Richtungen und Prüfsummen werden protokolliert.
