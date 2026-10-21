@@ -120,4 +120,10 @@ Offen bleiben ein vollständiges prozedurales Fuß-Locking bei engen Spielerwend
 
 ## GitHub-Sicherung
 
-Gezielter Sicherungsumfang und Commit-/Remote-/LFS-Nachweise werden nach den abschließenden Prüfungen ergänzt. Kontrollbilder, Videos, Logs, Renderings und temporäre Dateien bleiben unversioniert unter ignoriertem `Saved/`.
+Implementierungscommit [`3b4724ca446c0aff17599d8a1d9cdd13a0d996f7`](https://github.com/Harrys-F/PokeMonster/commit/3b4724ca446c0aff17599d8a1d9cdd13a0d996f7), regulär nach `origin/main` gepusht und unmittelbar über `git ls-remote` bestätigt. 96 exakt geprüfte Commitpfade; 55 neue LFS-Objekte mit **108.188.690 Bytes**, normale benötigte Dateien vor Packkompression rund **1,30 MiB**. Keine Map, kein Kontrollbild, Video, Cache oder temporäres Rendering im Commit.
+
+Alle 55 LFS-Objekte wurden nach Upload authentifiziert über Download-Batch, deklarierte Größe und je einen Bytebereich auf tatsächliche Verfügbarkeit geprüft; komplette SHA-256-Prüfung aller lokalen Payloads. Das ist **kein vollständiger Remote-Payload-SHA-256-Download**. Die Quittung liegt lokal unter `Saved/MotionRefinementV5/RemoteFeatureAvailability.json`; frühere Prüfquittungen wurden nicht überschrieben.
+
+Aktuelle [GitHub-Grenzen](https://docs.github.com/en/repositories/creating-and-managing-repositories/repository-limits) und [LFS-Einzeldateigrenzen](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage) vor Upload geprüft: keine normale Datei nahe 100 MiB, kein LFS-Objekt nahe 2 GB; normale Daten deutlich unter der Projektvorgabe 1 GiB pro Push. Keine Käufe, Budgetänderungen, Force-Pushes oder Backup-Referenzen übertragen.
+
+Dieser abschließende Dokumentations-/Manifestnachweis wird separat gesichert. Kontrollbilder, Videos, Logs und temporäre Dateien bleiben ausschließlich lokal im ignorierten `Saved/`. Alle zuvor vorhandenen 51 unversionierten Dateien bleiben unverändert; der Git-Status ist deshalb absichtlich nicht vollständig leer.
