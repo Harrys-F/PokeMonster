@@ -8,7 +8,7 @@ bool UPokeMonsterBattleLibrary::CheckHit(const UPokeMonsterMoveData* Move, const
 }
 
 FPokeMonsterDamageResult UPokeMonsterBattleLibrary::CalculateDamage(const FPokeMonsterCreatureInstance& Attacker,
-	const FPokeMonsterCreatureInstance& Defender, const UPokeMonsterMoveData* Move, int32 AttackStage)
+	const FPokeMonsterCreatureInstance& Defender, const UPokeMonsterMoveData* Move, int32 AttackStage, int32 DefenseStage)
 {
 	FPokeMonsterDamageResult Result;
 	if (!IsValid(Move) || !Move->IsConfigured() || !Attacker.IsValid() || !Defender.IsValid()) return Result;
@@ -17,14 +17,14 @@ FPokeMonsterDamageResult UPokeMonsterBattleLibrary::CalculateDamage(const FPokeM
 	if (!IsValid(AttackerSpecies) || !IsValid(DefenderSpecies)) return Result;
 	if (Move->Category == EPokeMonsterMoveCategory::Status)
 	{
-		Result.bValid = true; // Status effects and their own immunity/targeting rules are not implemented.
+		Result.bValid = true; // BattleSession applies the supported status effects.
 		return Result;
 	}
 	const bool bPhysical = Move->Category == EPokeMonsterMoveCategory::Physical;
 	int32 Offense = bPhysical ? Attacker.CalculatedStats.Attack : Attacker.CalculatedStats.SpecialAttack;
  if(Offense<=0)return Result; // Stage clamping must not turn invalid source stats into a legal attack.
  if(bPhysical){const int S=FMath::Clamp(AttackStage,-6,6);Offense=int32(FMath::Clamp<int64>(int64(Offense)*(S>=0?2+S:2)/(S>=0?2:2-S),1,MAX_int32));if(Attacker.Status==EPokeMonsterCreatureStatus::Burn)Offense=FMath::Max(1,Offense/2);}
-	const int32 Defense = bPhysical ? Defender.CalculatedStats.Defense : Defender.CalculatedStats.SpecialDefense;
+	const int32 Defense = bPhysical ? ApplyStage(Defender.CalculatedStats.Defense, DefenseStage) : Defender.CalculatedStats.SpecialDefense;
 	if (Offense <= 0 || Defense <= 0) return Result;
 	Result.TypeMultiplier = Move->Effect.EffectId==TEXT("Struggle")?1.f:GetTypeMultiplier(Move->Type, DefenderSpecies->GetPrimaryType(), DefenderSpecies->GetSecondaryType());
 	if (Result.TypeMultiplier < 0.0f) return Result;
@@ -52,4 +52,11 @@ bool UPokeMonsterBattleLibrary::AssignMove(FPokeMonsterCreatureInstance& Creatur
 bool UPokeMonsterBattleLibrary::ConsumeMovePP(FPokeMonsterCreatureInstance& Creature, const int32 SlotIndex, const int32 Amount)
 {
 	return Creature.IsValid() && Creature.ConsumeMovePP(SlotIndex, Amount);
+}
+
+int32 UPokeMonsterBattleLibrary::ApplyStage(int32 Value,int32 Stage)
+{
+ if(Value<=0)return 0;
+ const int S=FMath::Clamp(Stage,-6,6);
+ return int32(FMath::Clamp<int64>(int64(Value)*(S>=0?2+S:2)/(S>=0?2:2-S),1,MAX_int32));
 }

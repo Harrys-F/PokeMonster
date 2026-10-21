@@ -233,10 +233,16 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
 			Index == 0 ? Next.SideB : Next.SideA, Moves[Index]);
 		if (!Damage[Index].bValid) return Reject(EError::InvalidDamage, Index == 0 ? ESide::A : ESide::B);
 	}
-	const bool bBothMove = Moves[0] != nullptr && Moves[1] != nullptr;
+	// Battle-only stages reset on switching; persistent individual data stays unchanged.
+ for(int I=0;I<2;++I)if(Choices[I].Type==EPokeMonsterBattleChoiceType::Switch)
+ {
+  if(I==0){Next.DefenseStageA=Next.SpeedStageA=0;Next.bSeededA=false;}
+  else{Next.DefenseStageB=Next.SpeedStageB=0;Next.bSeededB=false;}
+ }
+ const bool bBothMove = Moves[0] != nullptr && Moves[1] != nullptr;
 	const bool bAFirst = !bBothMove || (Moves[0]->Priority != Moves[1]->Priority
 		? Moves[0]->Priority > Moves[1]->Priority
-		: Next.SideA.CalculatedStats.Speed >= Next.SideB.CalculatedStats.Speed);
+		: B::ApplyStage(Next.SideA.CalculatedStats.Speed,Next.SpeedStageA) >= B::ApplyStage(Next.SideB.CalculatedStats.Speed,Next.SpeedStageB));
 	const int32 Order[2] = {bAFirst ? 0 : 1, bAFirst ? 1 : 0};
 	FRandomStream NextRandom = Random;
  // All mutations, including RNG, remain provisional until the turn commits.
@@ -301,7 +307,7 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
 		auto& Defender = Index == 0 ? Next.SideB : Next.SideA;
 		const ESide Side = Index == 0 ? ESide::A : ESide::B;
 		if (Attacker.CurrentHP <= 0 || Defender.CurrentHP <= 0) break;
-  Damage[Index]=B::CalculateDamage(Attacker,Defender,Moves[Index],Index==0?Next.AttackStageA:Next.AttackStageB);if(!Damage[Index].bValid)return Reject(EError::InvalidDamage,Side);
+  Damage[Index]=B::CalculateDamage(Attacker,Defender,Moves[Index],Index==0?Next.AttackStageA:Next.AttackStageB,Index==0?Next.DefenseStageB:Next.DefenseStageA);if(!Damage[Index].bValid)return Reject(EError::InvalidDamage,Side);
 		const bool Fallback=Choices[Index].Index==INDEX_NONE;
 		const int32 BeforePP = Fallback?0:Attacker.GetMoveSlots()[Choices[Index].Index].GetCurrentPP();
 		if (!Fallback&&!Attacker.ConsumeMovePP(Choices[Index].Index)) return Reject(EError::InvalidPP, Side);
@@ -317,6 +323,20 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
   }
   if(Moves[Index]->Category==EPokeMonsterMoveCategory::Status){
    if(Moves[Index]->Effect.EffectId==TEXT("AttackDown")){int& Stage=Index==0?Next.AttackStageB:Next.AttackStageA;const bool Can=Stage>-6;if(Can)--Stage;AddEvent(Result,Next,Can?EEvent::AttackLowered:EEvent::EffectFailed,Side,Choices[Index].Index,Moves[Index]).StageAfter=Stage;}
+   else if(Moves[Index]->Effect.EffectId==TEXT("DefenseDown") || Moves[Index]->Effect.EffectId==TEXT("DefenseUp"))
+   {
+    const bool Self=Moves[Index]->Effect.EffectId==TEXT("DefenseUp");
+    int& Stage=Self?(Index==0?Next.DefenseStageA:Next.DefenseStageB):(Index==0?Next.DefenseStageB:Next.DefenseStageA);
+    const bool Can=Self?Stage<6:Stage>-6;if(Can)Stage+=Self?1:-1;
+    auto& Effect=AddEvent(Result,Next,Can?(Self?EEvent::DefenseRaised:EEvent::DefenseLowered):EEvent::EffectFailed,Side,Choices[Index].Index,Moves[Index]);
+    Effect.StageAfter=Stage;if(Self){Effect.Target=Side;Effect.TargetInstanceId=Attacker.InstanceId;}
+   }
+   else if(Moves[Index]->Effect.EffectId==TEXT("LeechSeed"))
+   {
+    bool& Seed=Index==0?Next.bSeededB:Next.bSeededA;const auto* D=Defender.Species.LoadSynchronous();
+    const bool Can=!Seed&&D->GetPrimaryType()!=EPokeMonsterCreatureType::Grass&&D->GetSecondaryType()!=EPokeMonsterCreatureType::Grass;
+    if(Can)Seed=true;AddEvent(Result,Next,Can?EEvent::Seeded:EEvent::EffectFailed,Side,Choices[Index].Index,Moves[Index]);
+   }
    BurnTick(Side);if(Next.Phase!=EPhase::AwaitingChoices)break;continue;
   }
 		const float Multiplier = Damage[Index].TypeMultiplier;
@@ -341,9 +361,28 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
   if(Moves[Index]->Effect.EffectId==TEXT("Burn")&&Defender.Status==EPokeMonsterCreatureStatus::None){
    const auto* D=Defender.Species.LoadSynchronous();if(D->GetPrimaryType()!=EPokeMonsterCreatureType::Fire&&D->GetSecondaryType()!=EPokeMonsterCreatureType::Fire&&NextRandom.RandRange(0,99)<Moves[Index]->Effect.ChancePercent){Defender.Status=EPokeMonsterCreatureStatus::Burn;AddEvent(Result,Next,EEvent::Burned,Side,Choices[Index].Index,Moves[Index]);}
   }
+  if(Moves[Index]->Effect.EffectId==TEXT("SpeedDown")&&NextRandom.RandRange(0,99)<Moves[Index]->Effect.ChancePercent)
+  {
+   int& Stage=Index==0?Next.SpeedStageB:Next.SpeedStageA;const bool Can=Stage>-6;if(Can)--Stage;
+   AddEvent(Result,Next,Can?EEvent::SpeedLowered:EEvent::EffectFailed,Side,Choices[Index].Index,Moves[Index]).StageAfter=Stage;
+  }
   BurnTick(Side);if(Next.Phase!=EPhase::AwaitingChoices)break;
 	}
  for(int I=0;I<2&&Next.Phase==EPhase::AwaitingChoices;++I)if(!Moves[I])BurnTick(I==0?ESide::A:ESide::B);
+ // Leech Seed is volatile, grass-immune, and drains once at round end.
+ for(int I:Order)
+ {
+  if(Next.Phase!=EPhase::AwaitingChoices)break;
+  const ESide Victim=I==0?ESide::A:ESide::B, Recipient=I==0?ESide::B:ESide::A;
+  if(!(I==0?Next.bSeededA:Next.bSeededB))continue;
+  auto& V=ActiveFor(Next,Victim);auto& H=ActiveFor(Next,Recipient);
+  if(V.CurrentHP<=0||H.CurrentHP<=0)continue;
+  const int Before=V.CurrentHP,Removed=FMath::Min(Before,FMath::Max(1,V.GetMaxHP()/8));V.CurrentHP-=Removed;
+  auto& D=AddEvent(Result,Next,EEvent::SeedDamage,Recipient);D.Target=Victim;D.TargetInstanceId=V.InstanceId;D.HPBefore=Before;D.HPAfter=V.CurrentHP;D.Damage=Removed;
+  const int Healed=FMath::Min(Removed,H.GetMaxHP()-H.CurrentHP);
+  if(Healed>0){auto& E=AddEvent(Result,Next,EEvent::SeedHeal,Recipient);E.Target=Recipient;E.TargetInstanceId=H.InstanceId;E.HPBefore=H.CurrentHP;H.CurrentHP+=Healed;E.HPAfter=H.CurrentHP;E.RestoredHP=Healed;}
+  if(V.CurrentHP==0)Knockout(Victim);
+ }
 	SyncActive(Next);
 	State = MoveTemp(Next);
 	Random = NextRandom;
@@ -364,6 +403,8 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ForceSwitch(ESide Side, int3
 	ActiveIndexFor(State, Side) = TeamIndex;
 	ActiveFor(State, Side) = Team[TeamIndex];
  if(Side==ESide::A){State.AttackStageA=0;State.ParticipantsA.Add(State.SideA.InstanceId);}else{State.AttackStageB=0;State.ParticipantsA.Reset();if(State.SideA.CurrentHP>0)State.ParticipantsA.Add(State.SideA.InstanceId);}
+ if(Side==ESide::A){State.DefenseStageA=State.SpeedStageA=0;State.bSeededA=false;}
+ else{State.DefenseStageB=State.SpeedStageB=0;State.bSeededB=false;}
 	State.Phase = State.SideA.CurrentHP==0||State.SideB.CurrentHP==0?EPhase::AwaitingSwitch:EPhase::AwaitingChoices;
 	FPokeMonsterBattleResult Result;
 	Result.bSucceeded = true;

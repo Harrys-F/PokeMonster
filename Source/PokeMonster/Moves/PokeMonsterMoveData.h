@@ -13,7 +13,7 @@ enum class EPokeMonsterMoveCategory : uint8
 	Status
 };
 
-/** Declarative effects: BattleSession implements AttackDown and Burn; unknown IDs remain inert. */
+/** Declarative effects: BattleSession implements the documented starter effects; unknown IDs remain inert. */
 USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterMoveEffect
 {

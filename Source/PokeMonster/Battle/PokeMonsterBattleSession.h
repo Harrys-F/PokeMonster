@@ -28,7 +28,7 @@ enum class EPokeMonsterBattleEventType : uint8
 {
 	MoveChosen, MoveExecuted, Missed, Damage, SuperEffective, NotVeryEffective, Immune, KnockedOut, BattleEnded,
 	SwitchChosen, SwitchedIn, CaptureChosen, CaptureSucceeded, CaptureFailed,
- Recoil, FleeChosen, FleeSucceeded, FleeFailed, ItemChosen, Healed, AttackLowered, EffectFailed, Burned, BurnDamage, ExperienceGained, LevelUp
+ Recoil, FleeChosen, FleeSucceeded, FleeFailed, ItemChosen, Healed, AttackLowered, EffectFailed, Burned, BurnDamage, ExperienceGained, LevelUp, DefenseLowered, DefenseRaised, SpeedLowered, Seeded, SeedDamage, SeedHeal
 };
 
 UENUM(BlueprintType)
@@ -144,6 +144,12 @@ struct POKEMONSTER_API FPokeMonsterBattleState
  UPROPERTY(BlueprintReadOnly) int32 FleeAttempts=0;
  UPROPERTY(BlueprintReadOnly) int32 AttackStageA=0;
  UPROPERTY(BlueprintReadOnly) int32 AttackStageB=0;
+ UPROPERTY(BlueprintReadOnly) int32 DefenseStageA=0;
+ UPROPERTY(BlueprintReadOnly) int32 DefenseStageB=0;
+ UPROPERTY(BlueprintReadOnly) int32 SpeedStageA=0;
+ UPROPERTY(BlueprintReadOnly) int32 SpeedStageB=0;
+ UPROPERTY(BlueprintReadOnly) bool bSeededA=false;
+ UPROPERTY(BlueprintReadOnly) bool bSeededB=false;
  UPROPERTY() TSet<FGuid> ParticipantsA;
 
 	/** Preserves the exact wild individual at capture time, including HP, PP and level. */

@@ -2,7 +2,7 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "checked_starter_polish_movement",
+  "snapshot_kind": "checked_starter_polish_v2",
   "generated_at": "2026-10-21",
   "files": {
     ".codex/config.toml": {
@@ -6690,12 +6690,12 @@
       "sha256": "c7ecddb3c227422cb0c58e3edc89dc7c3417366ad5745fe33718ce72852af029"
     },
     "Content/Data/Creatures/DA_Bisasam.uasset": {
-      "bytes": 4117,
-      "sha256": "c205b0135de1df0f10ffd5e08da531434d160053275df3277cfb9789413097d2"
+      "bytes": 4271,
+      "sha256": "08e1ea715546ae91daa4762930e2256012fc54965738443f139a255430843d55"
     },
     "Content/Data/Creatures/DA_Schiggy.uasset": {
-      "bytes": 3939,
-      "sha256": "58fb59f6286fc2dd2f0f8ed3d936b8d2a399a168f66fd3f13972d345abf9627b"
+      "bytes": 4388,
+      "sha256": "7fcdd6aa0bacaae6b587250616fafaf605ab7b663601596052b1865b94505bfc"
     },
     "Content/Data/Creatures/DA_TestFire.uasset": {
       "bytes": 2295,
@@ -6710,8 +6710,8 @@
       "sha256": "89bcb68d3b1be93bc3372f30ab395eb22837b31e7adc52ba9eab7a798c9b06ee"
     },
     "Content/Data/Creatures/DA_Zunderlauf.uasset": {
-      "bytes": 3684,
-      "sha256": "3ea0eb0298ba0194167f721fea6ce52981f2ed5eccc43b51d0e9c3fb02e04874"
+      "bytes": 3706,
+      "sha256": "9bd6626d6577dca16d5c074863b3dd1f6abf9e5187cad41c4a23c4dc4967b73b"
     },
     "Content/Data/Dialogues/DA_DevArchivistDialogue.uasset": {
       "bytes": 3704,
@@ -9638,8 +9638,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 130937,
-      "sha256": "cfbc42c570e0e42bac5a5289e9e3583edf075a7a62392f81817d7daa9fcf183c"
+      "bytes": 132758,
+      "sha256": "1621f22276f7a78cf1447976b9a2a61f2ad0b45b49cb69ad000239c29e7c4b97"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
@@ -9706,8 +9706,8 @@
       "sha256": "0344bde48c43e12431c256018f51cb7f1106a1240ffd6cb40e065b9b69c827ef"
     },
     "Docs/KREATUREN_PIPELINE_V2.md": {
-      "bytes": 21153,
-      "sha256": "c78454be5eb3a39b13d31c236b5d764a94ddd1e2c7bd86fc2eddca91fe1fb9e2"
+      "bytes": 23260,
+      "sha256": "5c17db385e642f2ad396de0fb4611f18412175400f09254870c4978abb574639"
     },
     "Docs/KREATUREN_PIPELINE_V2_PRUEFBERICHT.md": {
       "bytes": 14577,
@@ -9766,8 +9766,8 @@
       "sha256": "3b2a6986a1fdaeca80e58e4c8432476440109c8aeb874d4515ebd3880804e202"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 155286,
-      "sha256": "5d7ddb2d751bb16004201c6270d49903b31143638825915053ec6f0e8cae8f68"
+      "bytes": 156553,
+      "sha256": "f9cb8598c154b8054fac5f6e6a3d24ee31fec90982bf0c06c2c05d5b30b8782c"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -9878,20 +9878,20 @@
       "sha256": "8fc42efd0bd6999011a08a3fbb6c2beee73fa48f1479f9766d42de80571b0d1a"
     },
     "Source/PokeMonster/Battle/PokeMonsterBattleLibrary.cpp": {
-      "bytes": 3276,
-      "sha256": "4acbcc80ead8a3772796463949eef2556e31fe3b8744ba9db41a24b3a0d43ff1"
+      "bytes": 3523,
+      "sha256": "781bfbff06ce4edab032b8f93ebfffd2430ec441d3cb0150d759ce4ca3988d08"
     },
     "Source/PokeMonster/Battle/PokeMonsterBattleLibrary.h": {
-      "bytes": 2194,
-      "sha256": "2db03732866006220567d975ac432997faa7c6d83696caae97d5f0c22e52a05c"
+      "bytes": 2270,
+      "sha256": "6cdca3eed3c29a6d603a828f5737f9dfc004534c662ed9be2e5a5ea2857672b4"
     },
     "Source/PokeMonster/Battle/PokeMonsterBattleSession.cpp": {
-      "bytes": 21556,
-      "sha256": "f0c4da3250ae513e7dec7d1fde67f6266b6835bf2f40d92cf6d311e056756154"
+      "bytes": 24527,
+      "sha256": "d2765d8618e5e9a119d46f1ac5746e0c9dd85a9e6a181fadbe53da82ccda4a54"
     },
     "Source/PokeMonster/Battle/PokeMonsterBattleSession.h": {
-      "bytes": 10145,
-      "sha256": "0bad8f66367a478458db0754a51eac523303babd2902bf141f33b2c1f2e4875c"
+      "bytes": 10530,
+      "sha256": "0c9ec278dfb39ea164b752ec3445027fcbac8c63ebfd6078d4e10e0ca5f172fe"
     },
     "Source/PokeMonster/Battle/PokeMonsterTypeChart.cpp": {
       "bytes": 2858,
@@ -10290,8 +10290,8 @@
       "sha256": "7d3dae10fe913ce99994d3cdb0165f2ba13af08f686e8ddedaae00aac721e396"
     },
     "Source/PokeMonster/Moves/PokeMonsterMoveData.h": {
-      "bytes": 2200,
-      "sha256": "0b8a6102b1fbe6e754f8c56fe3a5396d2a00d1e9b56ab30147d84001e3f35d4e"
+      "bytes": 2211,
+      "sha256": "f9a6564cc5d2831883b648df19b3fa0c4ac3a09f17113eebf7ad7b34396a4b56"
     },
     "Source/PokeMonster/Moves/PokeMonsterMoveSlot.cpp": {
       "bytes": 896,
@@ -10442,8 +10442,8 @@
       "sha256": "68b1dec51b685611dfbd4c5046b141785b701bedde65ea4d471d73f68cf9f9f5"
     },
     "Source/PokeMonster/Tests/PokeMonsterGlumandaV11Test.cpp": {
-      "bytes": 2579,
-      "sha256": "c07fdb985d72e11e4331a44b2773f45c2842794fe5b5436886bd8f972daa2fff"
+      "bytes": 3131,
+      "sha256": "4080f75273efd53a196c6a861602ede993519e05fbc3355b9eac7794c7ba1af1"
     },
     "Source/PokeMonster/Tests/PokeMonsterHealingHouseTest.cpp": {
       "bytes": 29463,
@@ -10542,16 +10542,16 @@
       "sha256": "55d70f93abb849f16f01832d820ddcf111ec1c7114d0ee3126579c680fd7b5d8"
     },
     "Source/PokeMonster/UI/PokeMonsterBattlePresentationPlan.cpp": {
-      "bytes": 4943,
-      "sha256": "ad7db77c941aac7d9bad5a13903797a4fd9c0b8c50e9f26402aedbf3b92bbed8"
+      "bytes": 5848,
+      "sha256": "142ebf9980b8ef2ec13ea669faa45a5aabbdbeb4e94983b0fd21be49650572a5"
     },
     "Source/PokeMonster/UI/PokeMonsterBattlePresentationPlan.h": {
       "bytes": 3075,
       "sha256": "d51cb85507043f0a1cb55ace60211e32ad395e0accc5b03860986fed9f18066e"
     },
     "Source/PokeMonster/UI/PokeMonsterBattlePresenter.cpp": {
-      "bytes": 22201,
-      "sha256": "13aab6f8902c9c026b9b1406e4f6511de986843e83fccafe6bcfe683526a9366"
+      "bytes": 22776,
+      "sha256": "d495796742bac8ddb034bfb2e9d6ba4e9386cabf1854fe8e996a2f859f3aa4db"
     },
     "Source/PokeMonster/UI/PokeMonsterBattlePresenter.h": {
       "bytes": 6555,
@@ -13390,8 +13390,8 @@
       "sha256": "d92405faea2cbd807554bf3b82beb2733fd92f8585357e02ad9fbc90686fb4c8"
     },
     "Tools/StarterExpansionV1/ReviewModels.py": {
-      "bytes": 4942,
-      "sha256": "c352427759489ec9ddf9671d57fcb0017e5deae13cbd05807e67503287691d3e"
+      "bytes": 5000,
+      "sha256": "1d8a93b29dc7bd80f000cae974fb95510ca8ef4694676eb2d75380987ddc7399"
     },
     "Tools/StarterExpansionV1/ReviewMovement.py": {
       "bytes": 8760,
@@ -15986,8 +15986,136 @@
       "sha256": "f11ca90fee28b17b3fc13e83519f74c2db634c72a8e296a58fed0074f4a28600"
     },
     "Docs/STARTER_FEINSCHLIFF_V2_PRUEFBERICHT.md": {
-      "bytes": 3333,
-      "sha256": "a3506c515da4878d1375bc1cfac34c98c0ad363d1f05ea137f519439c6bce53e"
+      "bytes": 19637,
+      "sha256": "b95b9b7cceb5e0b31000031588875f528b15b6339d9a7c4b2c3257f176a945cc"
+    },
+    "Art/Characters/Creatures/Bisasam/Exports/PolishV2/Bisasam_Skin.fbx": {
+      "bytes": 1088636,
+      "sha256": "c935160ce63547990e20e15ce31eeb785d5650e4de0c18f5a32d8b58d6e7197b"
+    },
+    "Art/Characters/Creatures/Bisasam/PolishV2_AnimationAudit.json": {
+      "bytes": 112518,
+      "sha256": "6d01ac133daaaae0ca308114851c64636a2b647465440e4b0055d374411bceee"
+    },
+    "Art/Characters/Creatures/Bisasam/Source/Bisasam_Meshy_PolishV2.blend": {
+      "bytes": 7686232,
+      "sha256": "a96f0a3d7b19caec117090dd076e5fb51b45fe308b88ca6a72dd7675eeccefe6"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Exports/PolishV2/Glumanda_Faint.fbx": {
+      "bytes": 1146556,
+      "sha256": "7f9534ce1be411e0e7508afeaaf5f18130ed1f0cfac6a073bb998e70915c1633"
+    },
+    "Art/Characters/Creatures/Zunderlauf/PolishV2_AnimationAudit.json": {
+      "bytes": 10767,
+      "sha256": "672e35f81a9c8a3e83152518a5f52a1993e6f121a19dcb507a488fd05fbd9002"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Source/Glumanda_Faint_PolishV2.blend": {
+      "bytes": 115476,
+      "sha256": "17289ac737359ddc6add10f5387c6c1ee32dce68ea38cdfdb760fb5d72c3977b"
+    },
+    "Content/Characters/Creatures/Bisasam/PolishV2/DA_Bisasam_Presentation.uasset": {
+      "bytes": 3928,
+      "sha256": "83f1b4b702b2e2d922a0fb4f63715450cc3947eb4614fc8248160db76aa399c7"
+    },
+    "Content/Characters/Creatures/Bisasam/PolishV2/SK_Bisasam_Skin.uasset": {
+      "bytes": 3692859,
+      "sha256": "f3f6c292382868cd7f94b5e37087deb4f1d7ae18c9caad0e2ad0b114270568fd"
+    },
+    "Content/Characters/Creatures/Zunderlauf/PolishV2/A_Glumanda_Faint.uasset": {
+      "bytes": 37432,
+      "sha256": "b476c0a25a74a066017c5fa05edbb0d73f91cea3d07c57b0feea41d899feca09"
+    },
+    "Content/Characters/Creatures/Zunderlauf/PolishV2/DA_Zunderlauf_Presentation.uasset": {
+      "bytes": 5298,
+      "sha256": "ae7be2459145ea089e4077740dc074a24c801cf412936219a29b1edefe816698"
+    },
+    "Content/Data/Moves/DA_Bubble.uasset": {
+      "bytes": 2229,
+      "sha256": "85fed973992506a6ba8c8c944eb493835c4714d9d425eb03db4e1c8c2153c5b8"
+    },
+    "Content/Data/Moves/DA_LeechSeed.uasset": {
+      "bytes": 2232,
+      "sha256": "ac0692a5ef6e666618e9e6c255abe20f291e74f346270358fe907f9809bfd9ba"
+    },
+    "Content/Data/Moves/DA_TailWhip.uasset": {
+      "bytes": 2050,
+      "sha256": "e5f087044bfc0b58c018abe8f8e197389230855193ea9e30f5141cd3ba5b46a6"
+    },
+    "Content/Data/Moves/DA_Withdraw.uasset": {
+      "bytes": 2206,
+      "sha256": "f03144b5610cad936657b4d61852fd92f96e9b05898c65275d2035775ee2c043"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterStarterPolishTest.cpp": {
+      "bytes": 7863,
+      "sha256": "cdce81d04ebeb423457c6e8cb3e4680faefada68d8e72b00ba6699d5964eaad8"
+    },
+    "Tools/StarterPolishV2/CheckQHD.py": {
+      "bytes": 1182,
+      "sha256": "426b8759af848c4b601e1db28c3bc7f2b1f9b74a8a2045f21c8d7529aeacd8be"
+    },
+    "Tools/StarterPolishV2/CorrectAnimationSources.py": {
+      "bytes": 7167,
+      "sha256": "467515535fd68866dcd94c43e8b5d8e22baa9b6b073c25e19269a8254a62b608"
+    },
+    "Tools/StarterPolishV2/CreateMoveData.py": {
+      "bytes": 2325,
+      "sha256": "ef63874060fb3cb9f201aed4955d12b2453da35bd6db95ac5587cd72f1671aa7"
+    },
+    "Tools/StarterPolishV2/DiagnoseDeformation.py": {
+      "bytes": 854,
+      "sha256": "4357a790048220eed8d600994bf40b3a705bd9c3cd02eb9cc32c2f175d75769c"
+    },
+    "Tools/StarterPolishV2/ImportCorrections.py": {
+      "bytes": 4514,
+      "sha256": "33f046d3b461b01d66fc97ef7c8c8192d76f4fec6f77e9ff5786e14d3a88a3e5"
+    },
+    "Tools/StarterPolishV2/InspectAnimations.py": {
+      "bytes": 3634,
+      "sha256": "e8f70a1bbfb943774e25a3d0bfa613441513b5ee08bbb6b1c8b007e1dc4edfa2"
+    },
+    "Tools/StarterPolishV2/InspectLive.py": {
+      "bytes": 1436,
+      "sha256": "fca2e69527dfa0529f90f82b97db7400e0b52685c82e9907a21d92c4671ad506"
+    },
+    "Tools/StarterPolishV2/README.md": {
+      "bytes": 3704,
+      "sha256": "eb032e9bb47fee0cbc4403644442dc1a50b1d25f7c678b25cfb3ae86029ad8ba"
+    },
+    "Tools/StarterPolishV2/ReviewEffects.py": {
+      "bytes": 3353,
+      "sha256": "3c8a404e06324589cf3982b07bd2801be2cbe6026e7254d3174ec70cddbe4ad4"
+    },
+    "Tools/StarterPolishV2/ReviewFinalReactions.py": {
+      "bytes": 3226,
+      "sha256": "8453b1a137704fe552d09caf2a3e0de4e39cff6bc62b0d01236cf36bc3f365f7"
+    },
+    "Tools/StarterPolishV2/ReviewMovement.py": {
+      "bytes": 8773,
+      "sha256": "b549dc99674ea9b7045d6380a07daa1b1ed5a6f03aae8f148826b432ec033117"
+    },
+    "Tools/StarterPolishV2/ReviewVisuals.py": {
+      "bytes": 3128,
+      "sha256": "bf350338b1cc556100b01143600e1e5d088ba3a908d720b7161d37a33cdb6b71"
+    },
+    "Tools/StarterPolishV2/ReviewVisualsAfter.py": {
+      "bytes": 3574,
+      "sha256": "366ce3e5624fd8b097e409dbf1c2b0938f8e5095e70efb1bf9eb62bf48228f1a"
+    },
+    "Tools/StarterPolishV2/RunMovement.py": {
+      "bytes": 1414,
+      "sha256": "45659e66106d507c051abd684ce7bb9ff6a292dd6407d101ecda47a437ff5d12"
+    },
+    "Tools/StarterPolishV2/SetQHD.py": {
+      "bytes": 223,
+      "sha256": "7511e4c722404a0c7e7c62e6d9897d2a028cd6aabea9ee851e3be31be81b378c"
+    },
+    "Tools/StarterPolishV2/StopQHD.py": {
+      "bytes": 166,
+      "sha256": "78633c7bcc8256ba3525776e626bdb7fda5c5c3c3daf00760017b44c6c55107f"
+    },
+    "Tools/StarterPolishV2/ValidateCorrections.py": {
+      "bytes": 3273,
+      "sha256": "4782eb26112e00312c43902358be6be70f66aa2cf43554d6dd4fcf9d2a19973f"
     }
   }
 }

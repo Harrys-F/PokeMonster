@@ -1,0 +1,410 @@
+{
+  "species": "Zunderlauf",
+  "reference": "Art/Characters/Creatures/Zunderlauf/Source/Glumanda_Meshy_V11.blend",
+  "reference_sha256": "aa870c19df09078b2624079df6841e9ff91138667fa22cc1e80f227cdc8b9428",
+  "source": "Art/Characters/Creatures/Zunderlauf/Source/Glumanda_Faint_PolishV2.blend",
+  "export": "Art/Characters/Creatures/Zunderlauf/Exports/PolishV2/Glumanda_Faint.fbx",
+  "before": [
+    {
+      "frame": 1.0,
+      "max_edge_growth_m": 0.0054479823612939154,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.001000002957880497
+    },
+    {
+      "frame": 2.03125,
+      "max_edge_growth_m": 0.0054381621126842195,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0010000020265579224
+    },
+    {
+      "frame": 3.0625,
+      "max_edge_growth_m": 0.0054302110918430235,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.000999982701614499
+    },
+    {
+      "frame": 4.09375,
+      "max_edge_growth_m": 0.0054243898839668216,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.000999845564365387
+    },
+    {
+      "frame": 5.125,
+      "max_edge_growth_m": 0.005599548262067329,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009994544088840485
+    },
+    {
+      "frame": 6.15625,
+      "max_edge_growth_m": 0.008606323450450117,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.001010814681649208
+    },
+    {
+      "frame": 7.1875,
+      "max_edge_growth_m": 0.012270620270725452,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.000997208058834076
+    },
+    {
+      "frame": 8.21875,
+      "max_edge_growth_m": 0.016557434145308414,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009949766099452972
+    },
+    {
+      "frame": 9.25,
+      "max_edge_growth_m": 0.021424270813302792,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.000991683453321457
+    },
+    {
+      "frame": 10.28125,
+      "max_edge_growth_m": 0.026819900892576593,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.000987466424703598
+    },
+    {
+      "frame": 11.3125,
+      "max_edge_growth_m": 0.0326846825345074,
+      "edges_over_3cm": 13,
+      "minimum_z_m": 0.0009919926524162292
+    },
+    {
+      "frame": 12.34375,
+      "max_edge_growth_m": 0.038951282013546445,
+      "edges_over_3cm": 23,
+      "minimum_z_m": 0.0009760260581970215
+    },
+    {
+      "frame": 13.375,
+      "max_edge_growth_m": 0.045545800012707485,
+      "edges_over_3cm": 40,
+      "minimum_z_m": 0.0009693577885627747
+    },
+    {
+      "frame": 14.40625,
+      "max_edge_growth_m": 0.0523893879427727,
+      "edges_over_3cm": 57,
+      "minimum_z_m": 0.000962480902671814
+    },
+    {
+      "frame": 15.4375,
+      "max_edge_growth_m": 0.05940019834150975,
+      "edges_over_3cm": 66,
+      "minimum_z_m": 0.0009557977318763733
+    },
+    {
+      "frame": 16.46875,
+      "max_edge_growth_m": 0.06658600647342741,
+      "edges_over_3cm": 80,
+      "minimum_z_m": 0.0009498074650764465
+    },
+    {
+      "frame": 17.5,
+      "max_edge_growth_m": 0.07396638216925053,
+      "edges_over_3cm": 93,
+      "minimum_z_m": 0.0009448826313018799
+    },
+    {
+      "frame": 18.53125,
+      "max_edge_growth_m": 0.08127823286104577,
+      "edges_over_3cm": 103,
+      "minimum_z_m": 0.0009480267763137817
+    },
+    {
+      "frame": 19.5625,
+      "max_edge_growth_m": 0.08844255196723233,
+      "edges_over_3cm": 111,
+      "minimum_z_m": 0.0009397342801094055
+    },
+    {
+      "frame": 20.59375,
+      "max_edge_growth_m": 0.09538684383360455,
+      "edges_over_3cm": 121,
+      "minimum_z_m": 0.0009399503469467163
+    },
+    {
+      "frame": 21.625,
+      "max_edge_growth_m": 0.10204627419622281,
+      "edges_over_3cm": 131,
+      "minimum_z_m": 0.0009420514106750488
+    },
+    {
+      "frame": 22.65625,
+      "max_edge_growth_m": 0.10836407169697534,
+      "edges_over_3cm": 136,
+      "minimum_z_m": 0.0009459704160690308
+    },
+    {
+      "frame": 23.6875,
+      "max_edge_growth_m": 0.11429144312248557,
+      "edges_over_3cm": 143,
+      "minimum_z_m": 0.0009514540433883667
+    },
+    {
+      "frame": 24.71875,
+      "max_edge_growth_m": 0.11978683597165629,
+      "edges_over_3cm": 149,
+      "minimum_z_m": 0.0009581148624420166
+    },
+    {
+      "frame": 25.75,
+      "max_edge_growth_m": 0.12481523216159943,
+      "edges_over_3cm": 154,
+      "minimum_z_m": 0.0009654313325881958
+    },
+    {
+      "frame": 26.78125,
+      "max_edge_growth_m": 0.12934654957284705,
+      "edges_over_3cm": 159,
+      "minimum_z_m": 0.0023412108421325684
+    },
+    {
+      "frame": 27.8125,
+      "max_edge_growth_m": 0.1333545393050962,
+      "edges_over_3cm": 165,
+      "minimum_z_m": 0.0009657442569732666
+    },
+    {
+      "frame": 28.84375,
+      "max_edge_growth_m": 0.136814995124775,
+      "edges_over_3cm": 165,
+      "minimum_z_m": 0.0009753704071044922
+    },
+    {
+      "frame": 29.875,
+      "max_edge_growth_m": 0.1397042485555267,
+      "edges_over_3cm": 167,
+      "minimum_z_m": 0.0009842216968536377
+    },
+    {
+      "frame": 30.90625,
+      "max_edge_growth_m": 0.14199696221124317,
+      "edges_over_3cm": 172,
+      "minimum_z_m": 0.0009914934635162354
+    },
+    {
+      "frame": 31.9375,
+      "max_edge_growth_m": 0.14366506605992396,
+      "edges_over_3cm": 172,
+      "minimum_z_m": 0.0009963810443878174
+    },
+    {
+      "frame": 32.96875,
+      "max_edge_growth_m": 0.14467572654516994,
+      "edges_over_3cm": 172,
+      "minimum_z_m": 0.0009990036487579346
+    },
+    {
+      "frame": 34.0,
+      "max_edge_growth_m": 0.14498994056842213,
+      "edges_over_3cm": 172,
+      "minimum_z_m": 0.0009999573230743408
+    }
+  ],
+  "after": [
+    {
+      "frame": 1.0,
+      "max_edge_growth_m": 0.005448001906481672,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009999929461628199
+    },
+    {
+      "frame": 2.03125,
+      "max_edge_growth_m": 0.005447994819859268,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.001000015065073967
+    },
+    {
+      "frame": 3.0625,
+      "max_edge_growth_m": 0.005447979567159117,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.00099995918571949
+    },
+    {
+      "frame": 4.09375,
+      "max_edge_growth_m": 0.005447985961344035,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009998655878007412
+    },
+    {
+      "frame": 5.125,
+      "max_edge_growth_m": 0.0054480083287155,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.000999540090560913
+    },
+    {
+      "frame": 6.15625,
+      "max_edge_growth_m": 0.005447986102372935,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0010080598294734955
+    },
+    {
+      "frame": 7.1875,
+      "max_edge_growth_m": 0.005447989660513557,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009975899010896683
+    },
+    {
+      "frame": 8.21875,
+      "max_edge_growth_m": 0.005447990614456024,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.000995635986328125
+    },
+    {
+      "frame": 9.25,
+      "max_edge_growth_m": 0.0054479856812162004,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.000992845743894577
+    },
+    {
+      "frame": 10.28125,
+      "max_edge_growth_m": 0.005447983232649965,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009891577064990997
+    },
+    {
+      "frame": 11.3125,
+      "max_edge_growth_m": 0.005448000976273803,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0010034777224063873
+    },
+    {
+      "frame": 12.34375,
+      "max_edge_growth_m": 0.005447987755660449,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009793415665626526
+    },
+    {
+      "frame": 13.375,
+      "max_edge_growth_m": 0.005447988925967016,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009735524654388428
+    },
+    {
+      "frame": 14.40625,
+      "max_edge_growth_m": 0.005447978460140328,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009675994515419006
+    },
+    {
+      "frame": 15.4375,
+      "max_edge_growth_m": 0.005447992122032459,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009617730975151062
+    },
+    {
+      "frame": 16.46875,
+      "max_edge_growth_m": 0.005447985700677619,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009564906358718872
+    },
+    {
+      "frame": 17.5,
+      "max_edge_growth_m": 0.0054479901961635435,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009521618485450745
+    },
+    {
+      "frame": 18.53125,
+      "max_edge_growth_m": 0.005447999636941838,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.000949077308177948
+    },
+    {
+      "frame": 19.5625,
+      "max_edge_growth_m": 0.005447983400879489,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009496361017227173
+    },
+    {
+      "frame": 20.59375,
+      "max_edge_growth_m": 0.00544798119247885,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009476020932197571
+    },
+    {
+      "frame": 21.625,
+      "max_edge_growth_m": 0.005448001493707728,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009493529796600342
+    },
+    {
+      "frame": 22.65625,
+      "max_edge_growth_m": 0.005447981222456731,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009526908397674561
+    },
+    {
+      "frame": 23.6875,
+      "max_edge_growth_m": 0.005447993517152874,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009573698043823242
+    },
+    {
+      "frame": 24.71875,
+      "max_edge_growth_m": 0.005447991017197708,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009631067514419556
+    },
+    {
+      "frame": 25.75,
+      "max_edge_growth_m": 0.005447989921072507,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0014179646968841553
+    },
+    {
+      "frame": 26.78125,
+      "max_edge_growth_m": 0.005447989218433813,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0010036304593086243
+    },
+    {
+      "frame": 27.8125,
+      "max_edge_growth_m": 0.005447985539096183,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009808838367462158
+    },
+    {
+      "frame": 28.84375,
+      "max_edge_growth_m": 0.005448002282868673,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009866505861282349
+    },
+    {
+      "frame": 29.875,
+      "max_edge_growth_m": 0.005447991711961982,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009937584400177002
+    },
+    {
+      "frame": 30.90625,
+      "max_edge_growth_m": 0.005447979469919588,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009958744049072266
+    },
+    {
+      "frame": 31.9375,
+      "max_edge_growth_m": 0.005447989829439462,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009982883930206299
+    },
+    {
+      "frame": 32.96875,
+      "max_edge_growth_m": 0.005447987356101525,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009996592998504639
+    },
+    {
+      "frame": 34.0,
+      "max_edge_growth_m": 0.00544798756312229,
+      "edges_over_3cm": 0,
+      "minimum_z_m": 0.0009999722242355347
+    }
+  ],
+  "changed_vertices": [],
+  "reopened": true,
+  "reference_unchanged": true
+}

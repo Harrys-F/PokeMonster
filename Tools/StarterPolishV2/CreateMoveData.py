@@ -1,0 +1,11 @@
+"""Four verified Gen2 moves only. Existing saved individual move slots are not migrated."""
+import unreal,json
+from pathlib import Path
+R=Path(unreal.Paths.project_dir()).resolve();assert not unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_game_world();assert not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()and not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages();T=unreal.AssetToolsHelpers.get_asset_tools();rows=[];moves={}
+for internal,label,typ,category,power,acc,pp,effect,chance in [('TailWhip','Rutenschlag','NORMAL','STATUS',0,100,30,'DefenseDown',100),('Bubble','Blubber','WATER','SPECIAL',20,100,30,'SpeedDown',10),('Withdraw','Panzerschutz','WATER','STATUS',0,100,40,'DefenseUp',100),('LeechSeed','Egelsamen','GRASS','STATUS',0,90,10,'LeechSeed',100)]:
+ path='/Game/Data/Moves/DA_'+internal;assert not unreal.EditorAssetLibrary.does_asset_exist(path);f=unreal.DataAssetFactory();f.set_editor_property('data_asset_class',unreal.PokeMonsterMoveData);a=T.create_asset('DA_'+internal,'/Game/Data/Moves',unreal.PokeMonsterMoveData,f)
+ for k,v in dict(internal_id=internal,display_name=label,type=getattr(unreal.PokeMonsterCreatureType,typ),category=getattr(unreal.PokeMonsterMoveCategory,category),base_power=power,accuracy=acc,max_pp=pp,priority=0,effect=unreal.PokeMonsterMoveEffect(effect_id=effect,chance_percent=chance,description=label+' – Gen 2')).items():a.set_editor_property(k,v)
+ assert unreal.EditorAssetLibrary.save_loaded_asset(a,False);moves[internal]=a;rows.append({'asset':a.get_path_name(),'power':power,'accuracy':acc,'pp':pp,'effect':effect,'chance':chance})
+for name,levels in [('Schiggy',[(1,'Tackle'),(4,'TailWhip'),(7,'Bubble'),(10,'Withdraw'),(13,'WaterGun')]),('Bisasam',[(1,'Tackle'),(4,'Growl'),(7,'LeechSeed'),(10,'VineWhip')])]:
+ s=unreal.load_asset('/Game/Data/Creatures/DA_'+name);s.set_editor_property('level_up_moves',[unreal.PokeMonsterLevelMove(level=level,move=moves.get(move)or unreal.load_asset('/Game/Data/Moves/DA_'+move))for level,move in levels]);assert unreal.EditorAssetLibrary.save_loaded_asset(s,False)
+assert not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()and not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages();(R/'Saved/StarterPolishV2/MoveData.json').write_text(json.dumps(rows,indent=2))

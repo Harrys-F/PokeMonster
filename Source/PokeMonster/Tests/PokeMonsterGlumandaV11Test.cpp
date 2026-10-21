@@ -12,7 +12,13 @@ bool FGlumandaV11Assets::RunTest(const FString&)
  if(!TestNotNull(TEXT("Stable species asset"),S)||!TestNotNull(TEXT("Original profile retained"),Before)||!TestNotNull(TEXT("Repaired skin profile"),After))return false;
  TestEqual(TEXT("Visible name"),S->GetDisplayName().ToString(),FString(TEXT("Glumanda")));
  TestEqual(TEXT("Saved identity unchanged"),S->GetPrimaryAssetId().ToString(),FString(TEXT("CreatureSpecies:Zunderlauf")));
- TestEqual(TEXT("Only active presentation replaced"),S->GetVisuals().Presentation.LoadSynchronous(),After);
+ const auto* Active=S->GetVisuals().Presentation.LoadSynchronous();
+ if(!TestNotNull(TEXT("Current complete starter profile"),Active))return false;
+ TestTrue(TEXT("Current profile valid"),Active->GetValidationErrors().IsEmpty());
+ TestEqual(TEXT("V11 repaired skin remains active"),Active->Mesh,After->Mesh);
+ TestEqual(TEXT("Only seven role bindings"),Active->Clips.Num(),7);
+ for(const auto& P:After->Clips)if(P.Key!=EPokeMonsterCreatureClip::Faint)TestEqual(TEXT("Six original clips unchanged"),Active->Clips.FindRef(P.Key),P.Value);
+ TestTrue(TEXT("Corrected Faint uses original skeleton"),Active->Clips.FindRef(EPokeMonsterCreatureClip::Faint)!=nullptr);
  if(!TestTrue(TEXT("Complete valid profile"),After->GetValidationErrors().IsEmpty()))return false;
  TestTrue(TEXT("Independent mesh"),After->Mesh!=Before->Mesh);TestEqual(TEXT("Exact original skeleton reused"),After->Mesh->GetSkeleton(),Before->Mesh->GetSkeleton());
  TestTrue(TEXT("Original 60cm silhouette"),FMath::Abs(After->Mesh->GetBounds().BoxExtent.Z*2-60.f)<.2f);

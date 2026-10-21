@@ -391,9 +391,15 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
 		case EPokeMonsterBattleEventType::FleeChosen:case EPokeMonsterBattleEventType::ItemChosen:break;
   case EPokeMonsterBattleEventType::FleeSucceeded:LogLines.Add(TEXT("Du bist entkommen!"));break;
   case EPokeMonsterBattleEventType::FleeFailed:LogLines.Add(TEXT("Flucht fehlgeschlagen!"));break;
+  case EPokeMonsterBattleEventType::SeedHeal:
   case EPokeMonsterBattleEventType::Healed:LogLines.Add(FString::Printf(TEXT("%s erhält %d KP zurück."),*Other,Event.RestoredHP));break;
   case EPokeMonsterBattleEventType::AttackLowered:LogLines.Add(Other+TEXT("s Angriff sinkt!"));break;
-  case EPokeMonsterBattleEventType::EffectFailed:LogLines.Add(TEXT("Der Angriff kann nicht weiter sinken."));break;
+  case EPokeMonsterBattleEventType::EffectFailed:LogLines.Add(TEXT("Die Attacke hat keine weitere Wirkung."));break;
+  case EPokeMonsterBattleEventType::DefenseLowered:LogLines.Add(Other+TEXT("s Verteidigung sinkt!"));break;
+  case EPokeMonsterBattleEventType::DefenseRaised:LogLines.Add(Other+TEXT("s Verteidigung steigt!"));break;
+  case EPokeMonsterBattleEventType::SpeedLowered:LogLines.Add(Other+TEXT("s Initiative sinkt!"));break;
+  case EPokeMonsterBattleEventType::Seeded:LogLines.Add(Other+TEXT(" wurde bepflanzt!"));break;
+  case EPokeMonsterBattleEventType::SeedDamage:LogLines.Add(Other+TEXT(" verliert KP durch Egelsamen."));break;
   case EPokeMonsterBattleEventType::Burned:LogLines.Add(Other+TEXT(" erleidet eine Verbrennung!"));break;
   case EPokeMonsterBattleEventType::Recoil:LogLines.Add(Who+TEXT(" erleidet Rückstoßschaden."));break;
   case EPokeMonsterBattleEventType::BurnDamage:LogLines.Add(Who+TEXT(" leidet unter der Verbrennung."));break;
