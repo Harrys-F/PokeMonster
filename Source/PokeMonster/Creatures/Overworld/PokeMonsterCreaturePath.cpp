@@ -8,7 +8,7 @@ bool FPokeMonsterCreatureOverworldSettings::IsValid() const
 		PauseMinimum, PauseMaximum, TurnDegreesPerSecond, MaxStepHeight, BodyRadius,
 		CompanionRoamRadius, RecallDistance, CompanionMaximumSpeed, MaximumActiveDistance, SprintReferenceSpeed, Acceleration, BrakingDeceleration, CompanionAcceleration, CompanionBrakingDeceleration, TurnAcceleration};
 	for (float V : Values) if (!FMath::IsFinite(V)) return false;
-	return RoamRadius >= 150.f && RoamRadius <= 5000.f && MinimumTravel >= 50.f
+	return Behavior.IsValid() && RoamRadius >= 150.f && RoamRadius <= 5000.f && MinimumTravel >= 50.f
 		&& MinimumTravel < RoamRadius && WalkSpeedOverride >= 0.f && RunSpeedOverride >= 0.f
 		&& PauseMinimum >= .25f && PauseMaximum >= PauseMinimum && TurnDegreesPerSecond > 0.f
 		&& Acceleration > 0.f && BrakingDeceleration > 0.f && CompanionAcceleration > 0.f

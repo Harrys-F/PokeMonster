@@ -949,3 +949,12 @@ Die vorhandene Wanderkomponente bleibt bestehen. Beschleunigung/Bremsung und beg
 ### Starter-Feinschliff V2 – begrenzte Gen-2-Attackenwirkungen (21.10.2026)
 
 Die bisher dokumentierte Zurückstellung von Rutenschlag, Blubber, Panzerschutz und Egelsamen wird für diese vier verifizierten Wirkungen ersetzt: physische Verteidigungsstufen, Initiative-Stufen sowie ein kampflokaler Egelsamen-Zustand. Stufen und Samen enden beim Auswechseln des betroffenen Pokémon; sie werden nicht in Spezies-IDs oder Speicherformat übernommen. Bestehende individuelle Attackenslots bleiben erhalten. Neue Individuen erhalten das vorhandene chronologische Vier-Slot-Lernschema mit den Gen-2-Lernleveln. Die bestehende vereinfachte Schadensformel und Kampfansicht bleiben Grundlage; dies ist keine vollständige Gen-2-Simulation. Quellen und tatsächliche Prüfungen stehen im Feinschliffbericht.
+
+
+### Oberwelt-KI V2 – begrenzte, datengetriebene Reaktionen
+
+Die vorhandene Wanderkomponente, Bodenprüfung und lokale Wegsuche bleiben Grundlage. Ein artspezifisches Verhaltensprofil (neugierig, scheu, territorial, ruhig) kann an einer platzierten Begegnung überschrieben werden. Annäherung und Rückzug nutzen dieselbe Erreichbarkeitsprüfung wie normales Wandern. Territoriale Begegnungen benötigen Sichtkontakt, Warnzeit und Nahbereich; nach einem Kampf verhindern Abklingzeit und notwendiges Verlassen des Reaktionsbereichs sofortige Wiederholungen. Manuelle Interaktion bleibt möglich. Zustände sind flüchtig, keine Änderung an Spezies-IDs, individuellen Kreaturen oder Saveformat. Gruppen entstehen nur durch bereits platzierte Begegnungen, nicht durch zusätzliche automatische Spawns.
+
+Die Charakteraufhellung wird zunächst isoliert über einen unbenutzten Lichtkanal geprüft. Ein nur die Spielfigur betreffendes schattenloses Fülllicht erhält die normale Materialbeleuchtung. Kollisionslose Baumkronen erlauben keine exakte CPU-Schattenmessung; eine eventuelle Kronenkern-Schätzung muss als Näherung dokumentiert und an realen Sonnen-/Schattenbildern geprüft werden. Globale Lichtänderungen bleiben Diagnose und werden zurückgenommen.
+
+Schiggys zwei sichtbare kleine Öffnungen neben dem Auge werden in einer neuen bearbeitbaren Quelle lokal geschlossen. Originaleingabe, bisherige Quelle, UVs und übrige Geometrie bleiben erhalten. Keine pauschale Verschweißung der UV-Nähte oder globale Neuvernetzung.

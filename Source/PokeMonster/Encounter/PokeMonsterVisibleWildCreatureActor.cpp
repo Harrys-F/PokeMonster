@@ -105,7 +105,7 @@ void APokeMonsterVisibleWildCreatureActor::Interact_Implementation(APawn* Intera
 void APokeMonsterVisibleWildCreatureActor::OnContact(UPrimitiveComponent*, AActor* OtherActor,
 	UPrimitiveComponent*, int32, bool, const FHitResult&)
 {
-	TryStart(Cast<APokeMonsterPlayerCharacter>(OtherActor));
+	if(!bAmbientMotion||OverworldMovement->AllowsContactEncounter()) TryStart(Cast<APokeMonsterPlayerCharacter>(OtherActor));
 }
 
 bool APokeMonsterVisibleWildCreatureActor::TryStart(APokeMonsterPlayerCharacter* Player)
@@ -120,6 +120,7 @@ bool APokeMonsterVisibleWildCreatureActor::TryStart(APokeMonsterPlayerCharacter*
 
 void APokeMonsterVisibleWildCreatureActor::OnEncounterFinished(const FPokeMonsterEncounterEndData& Result)
 {
+	if(Result.SourceActor==this)OverworldMovement->NotifyEncounterEnded();
 	if (Result.SourceActor != this || !bDeactivateAfterVictory
 		|| (Result.Outcome != EPokeMonsterEncounterOutcome::Victory
 			&& Result.Outcome != EPokeMonsterEncounterOutcome::Captured)) return;
@@ -137,7 +138,14 @@ void APokeMonsterVisibleWildCreatureActor::EndPlay(const EEndPlayReason::Type Re
 void APokeMonsterVisibleWildCreatureActor::Tick(float Delta)
 {
  Super::Tick(Delta);
- if(!bDeactivated && Visual && Visual->Presentation) UpdateVisualGround();
+ if(!bDeactivated && Visual && Visual->Presentation)
+ {
+  UpdateVisualGround();
+  const bool Warning=OverworldMovement->BehaviorState==EPokeMonsterOverworldState::Warning;
+  if(Warning&&!bWasWarning)Visual->PlayReaction(EPokeMonsterCreatureClip::Attack);
+  bWasWarning=Warning;
+  if(OverworldMovement->ConsumeEncounterRequest()) TryStart(Cast<APokeMonsterPlayerCharacter>(UGameplayStatics::GetPlayerPawn(this,0)));
+ }
 }
 
 void APokeMonsterVisibleWildCreatureActor::SuppressPresentation(bool Suppressed)

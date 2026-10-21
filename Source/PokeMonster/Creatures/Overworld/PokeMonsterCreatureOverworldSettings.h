@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "PokeMonsterCreatureBehavior.h"
 #include "PokeMonsterCreatureOverworldSettings.generated.h"
 
 class UAnimSequence;
@@ -32,5 +33,6 @@ struct POKEMONSTER_API FPokeMonsterCreatureOverworldSettings
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta=(ClampMin="0")) float SprintReferenceSpeed = 0.f;
 	/** Land locomotion by default, including Schiggy. Swimming requires a later rig/terrain contract. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite) bool bCanEnterWater = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) FPokeMonsterCreatureBehaviorProfile Behavior;
 	bool IsValid() const;
 };

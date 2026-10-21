@@ -1,6 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "PokeMonsterPlayerCharacter.h"
+#include "PokeMonsterCharacterFillComponent.h"
 #include "PokeMonsterMeshyVisualComponent.h"
 #include "../Camera/PokeMonsterCameraVisibilityComponent.h"
 
@@ -135,6 +136,7 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 	FollowCamera->bUsePawnControlRotation = false;
 	FollowCamera->FieldOfView = 35.0f;
 	CameraVisibility = CreateDefaultSubobject<UPokeMonsterCameraVisibilityComponent>(TEXT("CameraVisibility"));
+	CreateDefaultSubobject<UPokeMonsterCharacterFillComponent>(TEXT("CharacterFill"));
 
 	MoveAction = CreateDefaultSubobject<UInputAction>(TEXT("MoveAction"));
 	MoveAction->ValueType = EInputActionValueType::Axis2D;

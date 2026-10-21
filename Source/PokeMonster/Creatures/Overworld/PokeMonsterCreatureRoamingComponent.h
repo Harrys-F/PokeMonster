@@ -38,7 +38,19 @@ public:
 	UPROPERTY(Transient, VisibleAnywhere, BlueprintReadOnly, Category="Movement") int32 BlockedSteps = 0;
 	UPROPERTY(Transient, VisibleAnywhere, BlueprintReadOnly, Category="Movement") bool bRecalling = false;
 	UPROPERTY(Transient, VisibleAnywhere, BlueprintReadOnly, Category="Movement") FPokeMonsterCreatureOverworldSettings Settings;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Behavior") bool bOverrideBehavior=false;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Behavior") FPokeMonsterCreatureBehaviorProfile BehaviorOverride;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") EPokeMonsterOverworldState BehaviorState=EPokeMonsterOverworldState::Rest;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") float WarningElapsed=0.f;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") float CooldownRemaining=0.f;
+ UFUNCTION(BlueprintCallable,Category="Behavior") void NotifyEncounterEnded();
+ bool ConsumeEncounterRequest();
+ bool AllowsContactEncounter() const;
 private:
+ bool UpdateBehavior(float Delta,const FVector& Current,const APawn* Player,float& Speed);
+ bool PlayerVisible(const APawn* Player) const;
+ bool bEncounterRequested=false,bTerritoryArmed=true;
+ float ReactionRemaining=0.f,InterestRemaining=0.f;
 	bool Plan(const FVector& Goal);
 	void BeginPause();
 	FCollisionQueryParams Query() const;

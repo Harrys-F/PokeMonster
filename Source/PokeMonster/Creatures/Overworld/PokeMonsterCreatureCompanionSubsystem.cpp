@@ -119,11 +119,11 @@ void UPokeMonsterCreatureCompanionSubsystem::Tick(float Delta)
 	if (const auto* PlayerMesh = Player->FindComponentByClass<USkeletalMeshComponent>())
 	{
 		const FLightingChannels Channels = PlayerMesh->LightingChannels;
-		Visual->Mesh->SetLightingChannels(Channels.bChannel0, Channels.bChannel1, Channels.bChannel2);
+		Visual->Mesh->SetLightingChannels(Channels.bChannel0, Channels.bChannel1, false);
 		Visual->Mesh->SetCastShadow(PlayerMesh->CastShadow);
-		Visual->Flame->SetLightingChannels(Channels.bChannel0, Channels.bChannel1, Channels.bChannel2);
+		Visual->Flame->SetLightingChannels(Channels.bChannel0, Channels.bChannel1, false);
 		for (const auto& Effect : Visual->EffectComponents) if (Effect)
-			Effect->SetLightingChannels(Channels.bChannel0, Channels.bChannel1, Channels.bChannel2);
+			Effect->SetLightingChannels(Channels.bChannel0, Channels.bChannel1, false);
 	}
 	Movement->SetMovementPaused(Player->IsOverworldInputLocked());
 	Visual->SetActorHiddenInGame(false);

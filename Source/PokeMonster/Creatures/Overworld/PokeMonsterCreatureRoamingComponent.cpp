@@ -30,7 +30,10 @@ void UPokeMonsterCreatureRoamingComponent::Configure(const UPokeMonsterCreatureS
 		|| HabitatHalfExtent.ContainsNaN() || HabitatHalfExtent.X < 0 || HabitatHalfExtent.Y < 0) return;
 	Presentation = Species->GetVisuals().Presentation.LoadSynchronous();
 	if (!Presentation || !Presentation->GetValidationErrors().IsEmpty()) return;
-	Settings = Species->Overworld; Offset = RootGroundOffset; BodyRadius = Radius;
+	Settings = Species->Overworld;
+	if(bOverrideBehavior) { if(!BehaviorOverride.IsValid()) return; Settings.Behavior=BehaviorOverride; }
+	BehaviorState=EPokeMonsterOverworldState::Rest; WarningElapsed=CooldownRemaining=ReactionRemaining=InterestRemaining=0; bTerritoryArmed=true; bEncounterRequested=false;
+	Offset = RootGroundOffset; BodyRadius = Radius;
 	BodyHalfHeight = FMath::Max(HalfHeight, Radius); FollowTarget = Follow;
 	HabitatOrigin = GetOwner()->GetActorLocation() - FVector(0, 0, Offset);
 	Buildings.Reset();
@@ -125,7 +128,7 @@ bool UPokeMonsterCreatureRoamingComponent::Plan(const FVector& Target)
 }
 void UPokeMonsterCreatureRoamingComponent::BeginPause()
 {
-	PauseRemaining = Random.FRandRange(Settings.PauseMinimum, Settings.PauseMaximum);
+	PauseRemaining = Random.FRandRange(Settings.PauseMinimum, Settings.PauseMaximum)*(FollowTarget.IsValid()?1.f:Settings.Behavior.RestMultiplier);
 	AngularVelocity=0.f;
 	LookYaw = GetOwner()->GetActorRotation().Yaw + Random.FRandRange(-35.f, 35.f);
 	Path.Reset();
@@ -143,7 +146,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	const FVector Current = Owner->GetActorLocation() - FVector(0, 0, Offset);
 	const auto* Player = Cast<APokeMonsterPlayerCharacter>(UGameplayStatics::GetPlayerPawn(this, 0));
 	if (!FollowTarget.IsValid() && Player && (Player->IsOverworldInputLocked()
-		|| FVector::Dist2D(Current, Player->GetActorLocation()) < 110.f))
+		))
 	{
 		Path.Reset(); CurrentSpeed=0.f; PauseRemaining = .6f;
 		const float Yaw = (Player->GetActorLocation() - Current).Rotation().Yaw;
@@ -151,12 +154,18 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 		return;
 	}
 	float Speed = Settings.WalkSpeedOverride > 0 ? Settings.WalkSpeedOverride : Presentation->WalkSpeed;
+	if(!FollowTarget.IsValid())
+	{
+	 Speed*=Settings.Behavior.WalkMultiplier;
+	 if(UpdateBehavior(Delta,Current,Player,Speed)) return;
+	}
 	ReplanRemaining -= Delta;
 	if (FollowTarget.IsValid())
 	{
 		const float Distance = FVector::Dist2D(Current, FollowTarget->GetActorLocation());
-		if (Distance > Settings.RecallDistance) bRecalling = true;
+		if (Distance > Settings.RecallDistance || (FollowTarget->GetVelocity().Size2D()>30.f && Distance>Settings.CompanionRoamRadius)) bRecalling = true;
 		else if (Distance < 170.f) bRecalling = false;
+		BehaviorState=bRecalling?EPokeMonsterOverworldState::Follow:Path.IsEmpty()?EPokeMonsterOverworldState::Rest:EPokeMonsterOverworldState::Wander;
 		if (bRecalling)
 		{
 			const float Run = Settings.RunSpeedOverride > 0 ? Settings.RunSpeedOverride
@@ -194,7 +203,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	if (Path.IsEmpty())
 	{
 		CurrentSpeed=0.f;
-		if (bRecalling || ReplanRemaining > 0) return;
+		if (bRecalling || ReplanRemaining > 0 || BehaviorState==EPokeMonsterOverworldState::Approach || BehaviorState==EPokeMonsterOverworldState::Retreat) return;
 		const FVector Center = FollowTarget.IsValid() ? FollowTarget->GetActorLocation() : HabitatOrigin;
 		const float Radius = FollowTarget.IsValid() ? Settings.CompanionRoamRadius
 			: HabitatRadiusOverride > 0 ? HabitatRadiusOverride : Settings.RoamRadius;
@@ -266,4 +275,84 @@ float UPokeMonsterCreatureRoamingComponent::AdvanceHeading(float CurrentYaw,floa
  if(FMath::Abs(Error)<.05f){Velocity=0;return DesiredYaw;}
  Velocity=FMath::FInterpConstantTo(Velocity,FMath::Clamp(Error*4.f,-Config.TurnDegreesPerSecond,Config.TurnDegreesPerSecond),Step,Config.TurnAcceleration);
  return FRotator::NormalizeAxis(CurrentYaw+FMath::Clamp(Velocity*Step,-FMath::Abs(Error),FMath::Abs(Error)));
+}
+
+
+bool UPokeMonsterCreatureRoamingComponent::PlayerVisible(const APawn* Player) const
+{
+ if(!Player||!GetWorld())return false;
+ FCollisionQueryParams Q=Query();Q.AddIgnoredActor(Player);
+ FHitResult Hit;
+ return !GetWorld()->LineTraceSingleByChannel(Hit,GetOwner()->GetActorLocation()+FVector(0,0,35),
+  Player->GetActorLocation()+FVector(0,0,35),ECC_Visibility,Q);
+}
+bool UPokeMonsterCreatureRoamingComponent::UpdateBehavior(float Delta,const FVector& Current,const APawn* Player,float& Speed)
+{
+ using S=EPokeMonsterOverworldState;using T=EPokeMonsterOverworldTemperament;
+ CooldownRemaining=FMath::Max(0.f,CooldownRemaining-Delta);
+ const auto& P=Settings.Behavior;
+ const float D=Player?FVector::Dist2D(Current,Player->GetActorLocation()):BIG_NUMBER;
+ // Leaving the entire response radius is necessary even after the time cooldown has expired.
+ if(D>P.DisengageRadius)bTerritoryArmed=true;
+ const bool Visible=Player&&D<=P.DisengageRadius&&PlayerVisible(Player);
+ const bool Reacting=BehaviorState==S::Approach||BehaviorState==S::Retreat||BehaviorState==S::Observe||BehaviorState==S::Warning;
+ S Next=FPokeMonsterCreatureBehavior::Decide(P,D,Visible,Reacting,CooldownRemaining>0||(P.Temperament==T::Territorial&&!bTerritoryArmed));
+ // Curiosity alternates observation and approach, rather than following forever.
+ InterestRemaining=FMath::Max(0.f,InterestRemaining-Delta);
+ if(P.Temperament==T::Curious && Next==S::Approach && InterestRemaining>0)Next=S::Observe;
+ if(Next!=BehaviorState)
+ {
+  Path.Reset();ReactionRemaining=0;WarningElapsed=0;PauseRemaining=0;
+  if(BehaviorState==S::Approach&&Next==S::Observe)InterestRemaining=Random.FRandRange(1.5f,3.5f);
+  BehaviorState=Next;
+ }
+ if(Next==S::Warning||Next==S::Observe)
+ {
+  CurrentSpeed=0;Path.Reset();
+  if(Player)GetOwner()->SetActorRotation(FMath::RInterpConstantTo(GetOwner()->GetActorRotation(),
+   FRotator(0,(Player->GetActorLocation()-Current).Rotation().Yaw,0),Delta,Settings.TurnDegreesPerSecond));
+  if(Next==S::Warning)
+  {
+   WarningElapsed+=Delta;
+   if(FPokeMonsterCreatureBehavior::CanInitiate(P,D,WarningElapsed,Visible,bTerritoryArmed,CooldownRemaining>0))
+   {bEncounterRequested=true;bTerritoryArmed=false;CooldownRemaining=P.EncounterCooldown;}
+  }
+  return true;
+ }
+ WarningElapsed=0;
+ if(Next==S::Approach||Next==S::Retreat)
+ {
+  PauseRemaining=0;ReactionRemaining-=Delta;
+  if(Next==S::Retreat)Speed*=P.ReactionSpeedMultiplier;
+  if(ReactionRemaining<=0)
+  {
+   const FVector Away=(Current-Player->GetActorLocation()).GetSafeNormal2D(SMALL_NUMBER,FVector::ForwardVector);
+   const FVector Direction=Next==S::Retreat?Away:-Away;
+   const float Distance=Next==S::Retreat?320.f:FMath::Clamp(D-P.PersonalSpace-100.f,5.f,350.f);
+   Path.Reset();
+   for(float Angle:{0.f,30.f,-30.f,60.f,-60.f,90.f,-90.f})
+   {
+    const FVector Candidate=Current+Direction.RotateAngleAxis(Angle,FVector::UpVector)*Distance;
+    if(Next==S::Retreat && FVector::Dist2D(Candidate,Player->GetActorLocation())<D+30.f)continue;
+    if(Plan(Candidate))break;
+    ++RejectedTargets;
+   }
+   ReactionRemaining=Random.FRandRange(1.1f,1.8f);
+  }
+ }
+ return false;
+}
+void UPokeMonsterCreatureRoamingComponent::NotifyEncounterEnded()
+{
+ CooldownRemaining=Settings.Behavior.EncounterCooldown;bTerritoryArmed=false;bEncounterRequested=false;
+ WarningElapsed=0;BehaviorState=EPokeMonsterOverworldState::Cooldown;CurrentSpeed=0;BeginPause();
+}
+bool UPokeMonsterCreatureRoamingComponent::ConsumeEncounterRequest()
+{
+ const bool Value=bEncounterRequested;bEncounterRequested=false;return Value;
+}
+bool UPokeMonsterCreatureRoamingComponent::AllowsContactEncounter() const
+{
+ // A territorial contact must not bypass its warning; manually pressing E still uses normal interaction.
+ return Settings.Behavior.Temperament!=EPokeMonsterOverworldTemperament::Territorial&&CooldownRemaining<=0;
 }

@@ -52,4 +52,5 @@ private:
 	UPROPERTY(VisibleAnywhere) TObjectPtr<UTextRenderComponent> Label;
 	UPROPERTY(Transient) TObjectPtr<APokeMonsterCreatureVisualActor> Visual;
 	bool bDeactivated = false;
+ bool bWasWarning=false;
 };
