@@ -1,0 +1,311 @@
+{
+  "species": "Bisasam",
+  "source": "Art/Characters/Creatures/Incoming/Bisasam.glb",
+  "source_sha256": "01ee8bc064635aeaaed2b356e1c87e0a9d0ab819fa6285d86cfbe0460466306d",
+  "height_m": 0.7,
+  "scale": 0.7707527893398213,
+  "vertices": 13885,
+  "triangles": 21545,
+  "meshes": 1,
+  "materials": 1,
+  "packed_images": [
+    {
+      "name": "Image_0",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Image_1",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Image_2",
+      "size": [
+        2048,
+        2048
+      ]
+    }
+  ],
+  "bones": {
+    "root": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0.04
+      ],
+      null
+    ],
+    "pelvis": [
+      [
+        0,
+        0.13,
+        0.205
+      ],
+      [
+        0,
+        0.05,
+        0.225
+      ],
+      "root"
+    ],
+    "spine": [
+      [
+        0,
+        0.05,
+        0.225
+      ],
+      [
+        0,
+        -0.06,
+        0.235
+      ],
+      "pelvis"
+    ],
+    "chest": [
+      [
+        0,
+        -0.06,
+        0.235
+      ],
+      [
+        0,
+        -0.165,
+        0.26
+      ],
+      "spine"
+    ],
+    "head": [
+      [
+        0,
+        -0.165,
+        0.26
+      ],
+      [
+        0,
+        -0.295,
+        0.28
+      ],
+      "chest"
+    ],
+    "bulb": [
+      [
+        0,
+        0.085,
+        0.33
+      ],
+      [
+        0,
+        0.13,
+        0.65
+      ],
+      "spine"
+    ],
+    "front_L_upper": [
+      [
+        0.155,
+        -0.175,
+        0.19
+      ],
+      [
+        0.18,
+        -0.145,
+        0.105
+      ],
+      "chest"
+    ],
+    "front_L_lower": [
+      [
+        0.18,
+        -0.145,
+        0.105
+      ],
+      [
+        0.187,
+        -0.217,
+        0.025
+      ],
+      "front_L_upper"
+    ],
+    "front_L_foot": [
+      [
+        0.187,
+        -0.217,
+        0.025
+      ],
+      [
+        0.187,
+        -0.26,
+        0.012
+      ],
+      "front_L_lower"
+    ],
+    "hind_L_upper": [
+      [
+        0.205,
+        0.165,
+        0.19
+      ],
+      [
+        0.23,
+        0.095,
+        0.105
+      ],
+      "pelvis"
+    ],
+    "hind_L_lower": [
+      [
+        0.23,
+        0.095,
+        0.105
+      ],
+      [
+        0.241,
+        0.118,
+        0.025
+      ],
+      "hind_L_upper"
+    ],
+    "hind_L_foot": [
+      [
+        0.241,
+        0.118,
+        0.025
+      ],
+      [
+        0.241,
+        0.075,
+        0.012
+      ],
+      "hind_L_lower"
+    ],
+    "front_R_upper": [
+      [
+        -0.155,
+        -0.175,
+        0.19
+      ],
+      [
+        -0.18,
+        -0.145,
+        0.105
+      ],
+      "chest"
+    ],
+    "front_R_lower": [
+      [
+        -0.18,
+        -0.145,
+        0.105
+      ],
+      [
+        -0.187,
+        -0.217,
+        0.025
+      ],
+      "front_R_upper"
+    ],
+    "front_R_foot": [
+      [
+        -0.187,
+        -0.217,
+        0.025
+      ],
+      [
+        -0.187,
+        -0.26,
+        0.012
+      ],
+      "front_R_lower"
+    ],
+    "hind_R_upper": [
+      [
+        -0.205,
+        0.165,
+        0.19
+      ],
+      [
+        -0.23,
+        0.095,
+        0.105
+      ],
+      "pelvis"
+    ],
+    "hind_R_lower": [
+      [
+        -0.23,
+        0.095,
+        0.105
+      ],
+      [
+        -0.241,
+        0.118,
+        0.025
+      ],
+      "hind_R_upper"
+    ],
+    "hind_R_foot": [
+      [
+        -0.241,
+        0.118,
+        0.025
+      ],
+      [
+        -0.241,
+        0.075,
+        0.012
+      ],
+      "hind_R_lower"
+    ]
+  },
+  "leg_chains": [
+    {
+      "id": "front_L",
+      "upper": "front_L_upper",
+      "lower": "front_L_lower",
+      "foot": "front_L_foot",
+      "pole": 1,
+      "phase": 0
+    },
+    {
+      "id": "hind_L",
+      "upper": "hind_L_upper",
+      "lower": "hind_L_lower",
+      "foot": "hind_L_foot",
+      "pole": -1,
+      "phase": 0.5
+    },
+    {
+      "id": "front_R",
+      "upper": "front_R_upper",
+      "lower": "front_R_lower",
+      "foot": "front_R_foot",
+      "pole": 1,
+      "phase": 0.5
+    },
+    {
+      "id": "hind_R",
+      "upper": "hind_R_upper",
+      "lower": "hind_R_lower",
+      "foot": "hind_R_foot",
+      "pole": -1,
+      "phase": 0
+    }
+  ],
+  "rig_family": "Quadruped",
+  "rest_position_error_m": 0.0,
+  "faces_added_or_removed": 0,
+  "uv_original": true,
+  "walk_speed_m_s": 0.32,
+  "run_speed_m_s": 0.72,
+  "weights": "Blender bone heat on temporary position-welded helper (1 micrometre), verified complete weights transferred by <=2 micrometre position match; source geometry/UV/normals untouched; rigid sole refinement before final export."
+}

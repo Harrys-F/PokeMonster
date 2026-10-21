@@ -1,0 +1,321 @@
+{
+  "species": "Schiggy",
+  "source": "Art/Characters/Creatures/Incoming/Shiggy.glb",
+  "source_sha256": "8353b766fc36d90d3c7a8905e82ae9c407a974959dcab6cac629c5127446a127",
+  "height_m": 0.5,
+  "scale": 0.5256672852480803,
+  "vertices": 14162,
+  "triangles": 21273,
+  "meshes": 1,
+  "materials": 1,
+  "packed_images": [
+    {
+      "name": "Image_0",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Image_1",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Image_2",
+      "size": [
+        2048,
+        2048
+      ]
+    }
+  ],
+  "bones": {
+    "root": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0.04
+      ],
+      null
+    ],
+    "pelvis": [
+      [
+        0,
+        -0.03,
+        0.145
+      ],
+      [
+        0,
+        -0.03,
+        0.205
+      ],
+      "root"
+    ],
+    "spine": [
+      [
+        0,
+        -0.03,
+        0.205
+      ],
+      [
+        0,
+        -0.03,
+        0.265
+      ],
+      "pelvis"
+    ],
+    "chest": [
+      [
+        0,
+        -0.03,
+        0.265
+      ],
+      [
+        0,
+        -0.075,
+        0.32
+      ],
+      "spine"
+    ],
+    "head": [
+      [
+        0,
+        -0.095,
+        0.32
+      ],
+      [
+        0,
+        -0.1,
+        0.47
+      ],
+      "chest"
+    ],
+    "shell": [
+      [
+        0,
+        0.04,
+        0.12
+      ],
+      [
+        0,
+        0.05,
+        0.29
+      ],
+      "chest"
+    ],
+    "upperarm_L": [
+      [
+        0.09,
+        -0.085,
+        0.29
+      ],
+      [
+        0.145,
+        -0.13,
+        0.265
+      ],
+      "chest"
+    ],
+    "forearm_L": [
+      [
+        0.145,
+        -0.13,
+        0.265
+      ],
+      [
+        0.19,
+        -0.155,
+        0.247
+      ],
+      "upperarm_L"
+    ],
+    "hand_L": [
+      [
+        0.19,
+        -0.155,
+        0.247
+      ],
+      [
+        0.204,
+        -0.175,
+        0.235
+      ],
+      "forearm_L"
+    ],
+    "thigh_L": [
+      [
+        0.1,
+        -0.03,
+        0.145
+      ],
+      [
+        0.12,
+        -0.085,
+        0.085
+      ],
+      "pelvis"
+    ],
+    "shin_L": [
+      [
+        0.12,
+        -0.085,
+        0.085
+      ],
+      [
+        0.118,
+        -0.075,
+        0.022
+      ],
+      "thigh_L"
+    ],
+    "foot_L": [
+      [
+        0.118,
+        -0.075,
+        0.022
+      ],
+      [
+        0.118,
+        -0.12,
+        0.012
+      ],
+      "shin_L"
+    ],
+    "upperarm_R": [
+      [
+        -0.09,
+        -0.085,
+        0.29
+      ],
+      [
+        -0.145,
+        -0.13,
+        0.265
+      ],
+      "chest"
+    ],
+    "forearm_R": [
+      [
+        -0.145,
+        -0.13,
+        0.265
+      ],
+      [
+        -0.19,
+        -0.155,
+        0.247
+      ],
+      "upperarm_R"
+    ],
+    "hand_R": [
+      [
+        -0.19,
+        -0.155,
+        0.247
+      ],
+      [
+        -0.204,
+        -0.175,
+        0.235
+      ],
+      "forearm_R"
+    ],
+    "thigh_R": [
+      [
+        -0.1,
+        -0.03,
+        0.145
+      ],
+      [
+        -0.12,
+        -0.085,
+        0.085
+      ],
+      "pelvis"
+    ],
+    "shin_R": [
+      [
+        -0.12,
+        -0.085,
+        0.085
+      ],
+      [
+        -0.118,
+        -0.075,
+        0.022
+      ],
+      "thigh_R"
+    ],
+    "foot_R": [
+      [
+        -0.118,
+        -0.075,
+        0.022
+      ],
+      [
+        -0.118,
+        -0.12,
+        0.012
+      ],
+      "shin_R"
+    ],
+    "tail_base": [
+      [
+        0,
+        0.065,
+        0.07
+      ],
+      [
+        0.08,
+        0.135,
+        0.07
+      ],
+      "pelvis"
+    ],
+    "tail_tip": [
+      [
+        0.08,
+        0.135,
+        0.07
+      ],
+      [
+        0.16,
+        0.175,
+        0.12
+      ],
+      "tail_base"
+    ]
+  },
+  "leg_chains": [
+    {
+      "id": "L",
+      "upper": "thigh_L",
+      "lower": "shin_L",
+      "foot": "foot_L",
+      "pole": -1,
+      "phase": 0
+    },
+    {
+      "id": "R",
+      "upper": "thigh_R",
+      "lower": "shin_R",
+      "foot": "foot_R",
+      "pole": -1,
+      "phase": 0.5
+    }
+  ],
+  "rig_family": "Biped",
+  "rest_position_error_m": 0.0,
+  "faces_added_or_removed": 0,
+  "uv_original": true,
+  "walk_speed_m_s": 0.26,
+  "run_speed_m_s": 0.5,
+  "weights": "Blender bone heat on temporary position-welded helper (1 micrometre), verified complete weights transferred by <=2 micrometre position match; source geometry/UV/normals untouched; rigid sole refinement before final export."
+}

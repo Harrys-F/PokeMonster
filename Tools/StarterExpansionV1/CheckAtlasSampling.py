@@ -1,0 +1,4 @@
+"""Isolated diagnosis on the newly imported Schiggy atlas only; no original image edits."""
+import unreal,json
+from pathlib import Path
+R=Path(unreal.Paths.project_dir());assert not unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_game_world();p=R/'Saved/StarterExpansionV1/AtlasSampling.json';assert not p.exists();t=unreal.load_asset('/Game/Characters/Creatures/Schiggy/MeshyV1/Textures/T_Schiggy_BaseColor');before={'mips':str(t.get_editor_property('mip_gen_settings')),'lod_bias':t.get_editor_property('lod_bias'),'filter':str(t.get_editor_property('filter'))};t.set_editor_property('mip_gen_settings',unreal.TextureMipGenSettings.TMGS_NO_MIPMAPS);assert unreal.EditorAssetLibrary.save_loaded_asset(t);p.write_text(json.dumps({'before':before,'diagnostic_no_mipmaps':True,'source_jpeg_unchanged':True},indent=2))
