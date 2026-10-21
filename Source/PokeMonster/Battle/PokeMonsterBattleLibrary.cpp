@@ -30,6 +30,13 @@ FPokeMonsterDamageResult UPokeMonsterBattleLibrary::CalculateDamage(const FPokeM
 	if (Result.TypeMultiplier < 0.0f) return Result;
 	Result.bValid = true;
 	if (Result.TypeMultiplier == 0.0f) return Result;
+	if (Move->Effect.EffectId == TEXT("UserLevelDamage"))
+	{
+		// Night Shade / Seismic Toss: immunity applies; resistance/weakness does not.
+		Result.TypeMultiplier = 1.f;
+		Result.Damage = Attacker.Level;
+		return Result;
+	}
 	// Working formula only: no STAB, critical hits, random damage, abilities or complete Generation-2 arithmetic.
 	// Double intermediates avoid integer overflow even for malformed/extreme positive designer values.
 	const double Base = FMath::FloorToDouble((2 * Attacker.Level / 5 + 2) * static_cast<double>(Move->BasePower)

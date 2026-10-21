@@ -9,7 +9,7 @@ bool UPokeMonsterMoveData::IsConfigured() const
 {
 	const bool bKnownType = Type >= EPokeMonsterCreatureType::Normal && Type <= EPokeMonsterCreatureType::Steel;
 	const bool bValidPower = Category == EPokeMonsterMoveCategory::Status ? BasePower == 0
-		: (Category == EPokeMonsterMoveCategory::Physical || Category == EPokeMonsterMoveCategory::Special) && BasePower > 0;
+		: (Category == EPokeMonsterMoveCategory::Physical || Category == EPokeMonsterMoveCategory::Special) && (BasePower > 0 || (BasePower == 0 && Effect.EffectId == TEXT("UserLevelDamage")));
 	return !InternalId.IsNone() && !DisplayName.IsEmpty() && bKnownType && bValidPower
 		&& Accuracy >= 0 && Accuracy <= 100 && MaxPP > 0
 		&& Effect.ChancePercent >= 0 && Effect.ChancePercent <= 100;

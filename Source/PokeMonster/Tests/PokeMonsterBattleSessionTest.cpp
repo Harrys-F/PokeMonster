@@ -305,4 +305,41 @@ bool FPokeMonsterSessionValidationTest::RunTest(const FString& Parameters)
 	return true;
 }
 
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPokeMonsterExpansionFixedDamageTest, "PokeMonster.Battle.Session.ExpansionFixedDamage",
+ EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FPokeMonsterExpansionFixedDamageTest::RunTest(const FString& Parameters)
+{
+ for (const auto TargetType : {EPokeMonsterCreatureType::Normal, EPokeMonsterCreatureType::Ghost, EPokeMonsterCreatureType::Psychic, EPokeMonsterCreatureType::Dark})
+ {
+  FFixture Fixture; Fixture.StatusB(); Fixture.SetTargetType(TargetType);
+  Fixture.MoveA->Effect.EffectId=TEXT("UserLevelDamage"); Fixture.MoveA->BasePower=0; Fixture.MoveA->Type=EPokeMonsterCreatureType::Ghost;
+  TStrongObjectPtr<UPokeMonsterBattleSession> Session(NewObject<UPokeMonsterBattleSession>());
+  TestTrue(TEXT("Fixed-damage fixture initializes"),Session->Initialize(Fixture.A,Fixture.B).bSucceeded);
+  const auto Result=Session->ResolveRound(0,0); TestTrue(TEXT("Fixed move resolves"),Result.bSucceeded);
+  TestEqual(TEXT("Immunity only; resistance and weakness do not scale fixed damage"),500-Session->GetState().SideB.CurrentHP,TargetType==EPokeMonsterCreatureType::Normal?0:50);
+  TestEqual(TEXT("Exactly one PP used"),Session->GetState().SideA.GetMoveSlots()[0].GetCurrentPP(),49);
+ }
+ return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPokeMonsterExpansionDrainTest, "PokeMonster.Battle.Session.ExpansionDrainActualDamage",
+ EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+bool FPokeMonsterExpansionDrainTest::RunTest(const FString& Parameters)
+{
+ for (const int TargetHP : {1,5,500})
+ {
+  FFixture Fixture; Fixture.StatusB(); Fixture.MoveA->Effect.EffectId=TEXT("DrainHalf");
+  Fixture.A.CurrentHP=400;Fixture.B.CurrentHP=TargetHP;
+  TStrongObjectPtr<UPokeMonsterBattleSession> Session(NewObject<UPokeMonsterBattleSession>());Session->Initialize(Fixture.A,Fixture.B);
+  const auto Result=Session->ResolveRound(0,0);TestTrue(TEXT("Drain resolves, including final KO"),Result.bSucceeded);
+  const int Removed=TargetHP-Session->GetState().SideB.CurrentHP;
+  TestEqual(TEXT("Heal uses actual HP removed, not unclamped damage"),Session->GetState().SideA.CurrentHP,400+FMath::Max(1,Removed/2));
+  TestEqual(TEXT("Drain consumes one PP"),Session->GetState().SideA.GetMoveSlots()[0].GetCurrentPP(),49);
+ }
+ FFixture Full; Full.StatusB();Full.MoveA->Effect.EffectId=TEXT("DrainHalf");
+ TStrongObjectPtr<UPokeMonsterBattleSession> Session(NewObject<UPokeMonsterBattleSession>());Session->Initialize(Full.A,Full.B);const auto Result=Session->ResolveRound(0,0);
+ TestEqual(TEXT("Full HP never over-heals"),Session->GetState().SideA.CurrentHP,500);
+ TestEqual(TEXT("No empty healing event"),Count(Result,EPokeMonsterBattleEventType::Healed),0);
+ return true;
+}
 #endif

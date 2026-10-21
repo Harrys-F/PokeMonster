@@ -355,6 +355,11 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
 		DamageEvent.TypeMultiplier = Multiplier;
 		DamageEvent.HPBefore = BeforeHP;
 		DamageEvent.HPAfter = Defender.CurrentHP;
+  if(Moves[Index]->Effect.EffectId==TEXT("DrainHalf") && AppliedDamage>0)
+  {
+   const int Restored=FMath::Min(Attacker.GetMaxHP()-Attacker.CurrentHP,FMath::Max(1,AppliedDamage/2));
+   if(Restored>0){auto& Heal=AddEvent(Result,Next,EEvent::Healed,Side,Choices[Index].Index,Moves[Index]);Heal.Target=Side;Heal.TargetInstanceId=Attacker.InstanceId;Heal.HPBefore=Attacker.CurrentHP;Attacker.CurrentHP+=Restored;Heal.HPAfter=Attacker.CurrentHP;Heal.RestoredHP=Restored;}
+  }
   if(Fallback){const int Before=Attacker.CurrentHP;Attacker.CurrentHP=FMath::Max(0,Before-FMath::Max(1,AppliedDamage/4));auto& R=AddEvent(Result,Next,EEvent::Recoil,Side);R.Target=Side;R.TargetInstanceId=Attacker.InstanceId;R.HPBefore=Before;R.HPAfter=Attacker.CurrentHP;R.Damage=Before-Attacker.CurrentHP;}
   if(Defender.CurrentHP==0||Attacker.CurrentHP==0){Knockout(Defender.CurrentHP==0?(Index==0?ESide::B:ESide::A):Side);break;}
 

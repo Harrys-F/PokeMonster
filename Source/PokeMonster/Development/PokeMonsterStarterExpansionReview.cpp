@@ -13,15 +13,16 @@ namespace PMStarterReview
 {
 static bool Creature(const FString& Name, FPokeMonsterCreatureInstance& Out)
 {
-	if (Name != TEXT("Schiggy") && Name != TEXT("Bisasam") && Name != TEXT("Zunderlauf")) return false;
+	const TSet<FString> Allowed = {TEXT("Schiggy"),TEXT("Bisasam"),TEXT("Zunderlauf"),TEXT("Pikachu"),TEXT("Myrapla"),TEXT("Enton"),TEXT("Machomei"),TEXT("Nebulak"),TEXT("Gengar"),TEXT("Glurak")};
+	if (!Allowed.Contains(Name)) return false;
 	const FString Path = TEXT("/Game/Data/Creatures/DA_") + Name + TEXT(".DA_") + Name;
 	auto* Species = LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr, *Path);
 	if (!Species) return false;
-	Out = FPokeMonsterCreatureInstance::CreateFromSpecies(Species, Name == TEXT("Schiggy") ? 13 : 10);
+	Out = FPokeMonsterCreatureInstance::CreateFromSpecies(Species, Species->GetStartingLevel());
 	return Out.AssignSpeciesMoves();
 }
 static FAutoConsoleCommand Start(TEXT("pm.StarterReview.Start"),
-	TEXT("Runtime-only battle fixture: classic|world Schiggy|Bisasam|Zunderlauf opponent."),
+	TEXT("Runtime-only battle fixture: classic|world configured species ID opponent."),
 	FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& Args)
 {
 	if (Args.Num() != 3 || (Args[0] != TEXT("classic") && Args[0] != TEXT("world"))) return;
@@ -50,7 +51,7 @@ static FAutoConsoleCommand Start(TEXT("pm.StarterReview.Start"),
 	}
 }));
 static FAutoConsoleCommand Party(TEXT("pm.StarterReview.Party"),
-	TEXT("Explicit unsaved party fixture: one to three existing starter IDs, outside battle only."),
+	TEXT("Explicit unsaved party fixture: one to three configured creature IDs, outside battle only."),
 	FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& Args)
 {
 	if (Args.IsEmpty() || Args.Num() > 3) return;
