@@ -5,19 +5,19 @@
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FOverworldBehaviorPolicy,"PokeMonster.Overworld.Behavior.PerceptionAndHysteresis",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
 bool FOverworldBehaviorPolicy::RunTest(const FString&)
 {
- using T=EPokeMonsterOverworldTemperament;using S=EPokeMonsterOverworldState;FPokeMonsterCreatureBehaviorProfile P;
- P.Temperament=T::Curious;
- TestEqual(TEXT("Curious notices and approaches"),FPokeMonsterCreatureBehavior::Decide(P,450,true,false,false),S::Approach);
- TestEqual(TEXT("Curious observes at a respectful distance"),FPokeMonsterCreatureBehavior::Decide(P,220,true,true,false),S::Observe);
- TestEqual(TEXT("Curious retreats inside personal space"),FPokeMonsterCreatureBehavior::Decide(P,120,true,true,false),S::Retreat);
- P.Temperament=T::Shy;
- TestEqual(TEXT("Shy flees"),FPokeMonsterCreatureBehavior::Decide(P,400,true,false,false),S::Retreat);
- TestEqual(TEXT("Hysteresis retains fleeing outside initial detection"),FPokeMonsterCreatureBehavior::Decide(P,650,true,true,false),S::Retreat);
- TestEqual(TEXT("Unseen player behind obstacle is not pursued"),FPokeMonsterCreatureBehavior::Decide(P,300,false,true,false),S::Wander);
- TestEqual(TEXT("Beyond disengagement returns to habitat wander"),FPokeMonsterCreatureBehavior::Decide(P,800,true,true,false),S::Wander);
- P.Temperament=T::Calm;
- TestEqual(TEXT("Calm doesn't chase"),FPokeMonsterCreatureBehavior::Decide(P,400,true,false,false),S::Wander);
- TestEqual(TEXT("Calm nearby observes without attacking"),FPokeMonsterCreatureBehavior::Decide(P,120,true,false,false),S::Observe);
+ using EOverworldTemperament = EPokeMonsterOverworldTemperament;using EOverworldState = EPokeMonsterOverworldState;FPokeMonsterCreatureBehaviorProfile P;
+ P.Temperament=EOverworldTemperament::Curious;
+ TestEqual(TEXT("Curious notices and approaches"),FPokeMonsterCreatureBehavior::Decide(P,450,true,false,false),EOverworldState::Approach);
+ TestEqual(TEXT("Curious observes at a respectful distance"),FPokeMonsterCreatureBehavior::Decide(P,220,true,true,false),EOverworldState::Observe);
+ TestEqual(TEXT("Curious retreats inside personal space"),FPokeMonsterCreatureBehavior::Decide(P,120,true,true,false),EOverworldState::Retreat);
+ P.Temperament=EOverworldTemperament::Shy;
+ TestEqual(TEXT("Shy flees"),FPokeMonsterCreatureBehavior::Decide(P,400,true,false,false),EOverworldState::Retreat);
+ TestEqual(TEXT("Hysteresis retains fleeing outside initial detection"),FPokeMonsterCreatureBehavior::Decide(P,650,true,true,false),EOverworldState::Retreat);
+ TestEqual(TEXT("Unseen player behind obstacle is not pursued"),FPokeMonsterCreatureBehavior::Decide(P,300,false,true,false),EOverworldState::Wander);
+ TestEqual(TEXT("Beyond disengagement returns to habitat wander"),FPokeMonsterCreatureBehavior::Decide(P,800,true,true,false),EOverworldState::Wander);
+ P.Temperament=EOverworldTemperament::Calm;
+ TestEqual(TEXT("Calm doesn't chase"),FPokeMonsterCreatureBehavior::Decide(P,400,true,false,false),EOverworldState::Wander);
+ TestEqual(TEXT("Calm nearby observes without attacking"),FPokeMonsterCreatureBehavior::Decide(P,120,true,false,false),EOverworldState::Observe);
  P.NoticeRadius=P.PersonalSpace;TestFalse(TEXT("Invalid distance contract rejected"),P.IsValid());
  return true;
 }

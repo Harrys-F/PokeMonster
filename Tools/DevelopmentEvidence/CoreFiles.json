@@ -2,7 +2,7 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "checked_overworld_ai_v2_code",
+  "snapshot_kind": "checked_overworld_ai_v2_surface",
   "generated_at": "2026-10-21",
   "files": {
     ".codex/config.toml": {
@@ -297,6 +297,10 @@
       "bytes": 1235452,
       "sha256": "8050536f0ddfebc6a2f34fff9f177acbb52570cd83ae8a1254fdbb51e141fd67"
     },
+    "Art/Characters/Creatures/Schiggy/Exports/SurfaceV2/Schiggy_Surface.fbx": {
+      "bytes": 1079436,
+      "sha256": "48f4feda660c243d1999993eea31b8df818f86c75018070e28fd699e90fe6a15"
+    },
     "Art/Characters/Creatures/Schiggy/MeshyV1_AnimationAudit.json": {
       "bytes": 15778,
       "sha256": "86f89892a798c06be9ece362ec88e83348ae7b20636c6beb662f22aa76a66b59"
@@ -316,6 +320,14 @@
     "Art/Characters/Creatures/Schiggy/Source/Schiggy_OverworldSprint_V1.blend": {
       "bytes": 137032,
       "sha256": "d59a071bbb45a2a98f0927990ca651c67003c451e7eaec720412cb883450ad96"
+    },
+    "Art/Characters/Creatures/Schiggy/Source/Schiggy_Surface_V2.blend": {
+      "bytes": 7459757,
+      "sha256": "939ecb75f54201ba3e2a3f074467c9486bb04b31b21ea98025b5c509eaa0ac3f"
+    },
+    "Art/Characters/Creatures/Schiggy/SurfaceV2_Audit.json": {
+      "bytes": 938,
+      "sha256": "858ea8351fd06f0c34e20b8c5591f330fc5a71f1f40e1e0c3f6e188fc1eee89a"
     },
     "Art/Characters/Creatures/Schiggy/Textures/MeshyV1/Schiggy_BaseColor.jpg": {
       "bytes": 2351219,
@@ -5797,6 +5809,18 @@
       "bytes": 73581,
       "sha256": "dae2c37b5d4dc7ebd5dd26b079a47518bd9364f42b773c41b224ce73faa82a6d"
     },
+    "Content/Characters/Creatures/Schiggy/SurfaceV2/DA_Schiggy_Presentation.uasset": {
+      "bytes": 3933,
+      "sha256": "db588955a5afffc478560548047c93f0df72d6956f4a93e837c97cd0a948dbef"
+    },
+    "Content/Characters/Creatures/Schiggy/SurfaceV2/M_Schiggy_LocalSurfaceCaps.uasset": {
+      "bytes": 9567,
+      "sha256": "328682d6e0d41c366bfd9c80306c10fa506a2bada264182f4155dacd6ad06783"
+    },
+    "Content/Characters/Creatures/Schiggy/SurfaceV2/SK_Schiggy_Surface.uasset": {
+      "bytes": 3656726,
+      "sha256": "0971695af99d4695f64edbc94c4dcabb9960e781ff187bf9753a8317ab3d4e16"
+    },
     "Content/Characters/Creatures/Zunderlauf/Animations/A_Zunderlauf_Attack.uasset": {
       "bytes": 41560,
       "sha256": "753bfba5aff8b830bb29b943409948762830997a7480787e1756b4b8308a8a07"
@@ -6730,12 +6754,12 @@
       "sha256": "c7ecddb3c227422cb0c58e3edc89dc7c3417366ad5745fe33718ce72852af029"
     },
     "Content/Data/Creatures/DA_Bisasam.uasset": {
-      "bytes": 4271,
-      "sha256": "08e1ea715546ae91daa4762930e2256012fc54965738443f139a255430843d55"
+      "bytes": 4672,
+      "sha256": "231f0620efe909c466be88468c0587228359024fa4187e1cd8eeb19edfdd70ec"
     },
     "Content/Data/Creatures/DA_Schiggy.uasset": {
-      "bytes": 4388,
-      "sha256": "7fcdd6aa0bacaae6b587250616fafaf605ab7b663601596052b1865b94505bfc"
+      "bytes": 4683,
+      "sha256": "e9cce60c0cbcc6f84945af76536b5c5cdfd04668a697202ef10910c16b0dd185"
     },
     "Content/Data/Creatures/DA_TestFire.uasset": {
       "bytes": 2295,
@@ -6750,8 +6774,8 @@
       "sha256": "89bcb68d3b1be93bc3372f30ab395eb22837b31e7adc52ba9eab7a798c9b06ee"
     },
     "Content/Data/Creatures/DA_Zunderlauf.uasset": {
-      "bytes": 3706,
-      "sha256": "9bd6626d6577dca16d5c074863b3dd1f6abf9e5187cad41c4a23c4dc4967b73b"
+      "bytes": 4111,
+      "sha256": "7439a5262d25f40a6534142fd486adcedf30f0a9353b354c893ea573b1cccced"
     },
     "Content/Data/Dialogues/DA_DevArchivistDialogue.uasset": {
       "bytes": 3704,
@@ -9694,8 +9718,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 134294,
-      "sha256": "65f1039bf0f8592456c72efdcf40111adf6606c2671a4853dc22d2d1a86529f0"
+      "bytes": 135201,
+      "sha256": "cd68d32ca8d516f2938446bab9e02ab1cd20efc1c9705f2bd261488748151d47"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
@@ -9788,6 +9812,10 @@
     "Docs/MESHY_RANGER_ANIMATION_QUALITY_V3_PRUEFBERICHT.md": {
       "bytes": 21840,
       "sha256": "5452f7dc20fabf444c1218ffadfb0f22915e36bd87af1656e76f9f30f14a331d"
+    },
+    "Docs/OBERWELT_KI_V2_PRUEFBERICHT.md": {
+      "bytes": 22193,
+      "sha256": "e43dd981f3eea3ccbbd7bcefb83adcb3762a7b4df336ead1868fc4c44b12853d"
     },
     "Docs/OVERWORLD_KAMERA_2026_10_09_PRUEFBERICHT.md": {
       "bytes": 10915,
@@ -10058,8 +10086,8 @@
       "sha256": "635a81f0410e3f1798a52c9ff842e73b2b50b838bb20a33a6973ae9422d3de69"
     },
     "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureBehavior.cpp": {
-      "bytes": 1830,
-      "sha256": "cfb5dae0925ba6d8172d5c262f250a4f8209bdc89328969aff06071d8c6589fc"
+      "bytes": 2068,
+      "sha256": "1443d57f9034b82aee7a471fc527b4ad0bbf152fbdf01e56d9c7b5b871bb4dd5"
     },
     "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureBehavior.h": {
       "bytes": 1908,
@@ -10086,8 +10114,8 @@
       "sha256": "787fac20759eeea73a0ba72965409becd65590f8a724a58801ac482f3d80a6b9"
     },
     "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureRoamingComponent.cpp": {
-      "bytes": 19044,
-      "sha256": "5588bfe23d26b535eb4c50af70a5a23f39ba05093a2d4e4524c12c240300ddd2"
+      "bytes": 19374,
+      "sha256": "1305cfc77c884a86cae6cf2c85f147b2a0aea22aa2092c54b4dbe6f187796063"
     },
     "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureRoamingComponent.h": {
       "bytes": 4611,
@@ -10562,8 +10590,8 @@
       "sha256": "1b7e5ad022bee75025189886d71cbbee6d958772a95811af5dffda384f04129e"
     },
     "Source/PokeMonster/Tests/PokeMonsterOverworldBehaviorTest.cpp": {
-      "bytes": 4092,
-      "sha256": "85160ca188697a2d1d00dc71e82889f44b33bc69c390c8f8f898b361f6d1ecff"
+      "bytes": 4316,
+      "sha256": "e4b33025e870ba9d5ea619b649a9c3d5095797378267dc7c70ce2db8ef61929d"
     },
     "Source/PokeMonster/Tests/PokeMonsterOverworldUITest.cpp": {
       "bytes": 5713,
@@ -10596,6 +10624,10 @@
     "Source/PokeMonster/Tests/PokeMonsterScaleCalibrationTest.cpp": {
       "bytes": 8154,
       "sha256": "78586eab0ee7e20fbc0679e3b3b83354864b84b1c9fe2eed9a9f049f3e17e655"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterSchiggySurfaceTest.cpp": {
+      "bytes": 3341,
+      "sha256": "3dc4d9d1ff9685e110a9d9403043fea2f558c1fb856304d95194e248f4b65161"
     },
     "Source/PokeMonster/Tests/PokeMonsterStarterModelsTest.cpp": {
       "bytes": 5198,
@@ -12232,6 +12264,98 @@
     "Tools/OptimizeDevTestMapVisualV2.py": {
       "bytes": 3691,
       "sha256": "e1e809f31a973d217570ecf08743ea390bcdd88c920346722f614e382ffc5305"
+    },
+    "Tools/OverworldAIV2/CompareLighting.py": {
+      "bytes": 3193,
+      "sha256": "363d90475212187911189e97673b8feadd230bb0e1a24c9355763b6747085cef"
+    },
+    "Tools/OverworldAIV2/CompareLightingFinal.py": {
+      "bytes": 3295,
+      "sha256": "4ccacddc86a4e0db57b83bab7eff4b0f5020cce8ad5ee0fa0eafc58982717afe"
+    },
+    "Tools/OverworldAIV2/CompareOverlap.py": {
+      "bytes": 3266,
+      "sha256": "e02db8cadd141f51416844f83593e37297e9c922ef68637716eb0797b8257a53"
+    },
+    "Tools/OverworldAIV2/FindOverlap.py": {
+      "bytes": 1385,
+      "sha256": "c8ec157887eee3cb178e07c9eb7899cc154470b34277323d3f6a1625867bb079"
+    },
+    "Tools/OverworldAIV2/ImportAndConfigure.py": {
+      "bytes": 5128,
+      "sha256": "0df39467deae543b11258061f9939b185ad2e2348d6879c36832065adc5c4904"
+    },
+    "Tools/OverworldAIV2/InspectLighting.py": {
+      "bytes": 2228,
+      "sha256": "eefcd80592d8f63f61c4be67d73f04dd3db0ad5514b1998a9e6817f8fc423c64"
+    },
+    "Tools/OverworldAIV2/InspectSchiggy.py": {
+      "bytes": 3760,
+      "sha256": "0a21100baf01c87aacd865562b0f8ecf7680c57b67af22efa87ae0a16db4bcb1"
+    },
+    "Tools/OverworldAIV2/InspectTreeCPU.py": {
+      "bytes": 660,
+      "sha256": "735fd5c0cf5d539045ef74f79576c608cea9d9ff58fc3b5c4b7e2848747b1543"
+    },
+    "Tools/OverworldAIV2/ObserveFill.py": {
+      "bytes": 1242,
+      "sha256": "714fa2f01cdd3a9a01bd774580e13063f99adda0900f4f0532bb7fbb3b2b62df"
+    },
+    "Tools/OverworldAIV2/README.md": {
+      "bytes": 5595,
+      "sha256": "540c53f6071164ac04db30a8a8cf730975bbf182af30d70764031dc9be6eee5e"
+    },
+    "Tools/OverworldAIV2/ReimportSurface.py": {
+      "bytes": 3847,
+      "sha256": "41805c29bc79d072657fef09ee9b3720cf54db61f1dee6d4b75e1a4859967e5d"
+    },
+    "Tools/OverworldAIV2/RepairSchiggy.py": {
+      "bytes": 8441,
+      "sha256": "5e1b437cefcd31d5f1575e07b7f70c230841e5a894d3aeaf465488039389a519"
+    },
+    "Tools/OverworldAIV2/ReviewBehavior.py": {
+      "bytes": 5733,
+      "sha256": "bf52b82ac854b24786e1b324f4618dd4fa315ac07f4265df7099ff19ab8053d2"
+    },
+    "Tools/OverworldAIV2/ReviewMovement.py": {
+      "bytes": 8904,
+      "sha256": "e3a352fc94b8b358e4e47fdada04190cb18ddf79868b7633bab92a399ab7a16a"
+    },
+    "Tools/OverworldAIV2/ReviewSchiggyAccepted.py": {
+      "bytes": 3653,
+      "sha256": "54ba7fcde4dd570958a0b5303fbd9d37ad7d4edbc437c9635c254415eb68107f"
+    },
+    "Tools/OverworldAIV2/ReviewSchiggyClose.py": {
+      "bytes": 2956,
+      "sha256": "6b07cf47b895cbdeb4be630206bd8bbed2675d45292435d18f04e78ab4bbc123"
+    },
+    "Tools/OverworldAIV2/RunFullGameplay.py": {
+      "bytes": 2133,
+      "sha256": "5f9c79e88c520a4d7ae5ce5f9ca89dbac0ddbfb492f013170387d7599bd98869"
+    },
+    "Tools/OverworldAIV2/RunMovement.py": {
+      "bytes": 1412,
+      "sha256": "ff1f631fd77624ac8332b851e31253cf01178516e0c7e764f8889ba0d3adab3f"
+    },
+    "Tools/OverworldAIV2/RunReview.py": {
+      "bytes": 979,
+      "sha256": "ebea91beb8a95f9074caa8cbdbbf7b996d0e89cefa5c55d0d73921625379e1e3"
+    },
+    "Tools/OverworldAIV2/RunUnityBuild.py": {
+      "bytes": 1069,
+      "sha256": "cb6fd85d242a2c0372a6d591a93ba83cde62875fb62e9ec162d34804b45371b8"
+    },
+    "Tools/OverworldAIV2/StartFullGameplay.py": {
+      "bytes": 977,
+      "sha256": "ad03f7fe774c45a21430cc7339d1245967299afead6eac69aa2b402b7f5cad27"
+    },
+    "Tools/OverworldAIV2/ValidateAssets.py": {
+      "bytes": 2254,
+      "sha256": "12e7861bdfb3e48952f25d1df504bc84cacd582dc919ad479967a027d5b289cb"
+    },
+    "Tools/OverworldAIV2/ValidateSchiggy.py": {
+      "bytes": 2564,
+      "sha256": "092942edfd3555516f749b8208237cc8826da17d02ec9e5177b23cf8d7d60ea4"
     },
     "Tools/PerformanceRangerV2/AnimationAndLODTour.py": {
       "bytes": 2601,

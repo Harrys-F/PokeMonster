@@ -1,0 +1,33 @@
+{
+  "original": "Art/Characters/Creatures/Schiggy/Source/Schiggy_Meshy_V1.blend",
+  "original_sha256": "370643ec5faf226874940278c5b998df610db8ac216acc13de85e1d93fa9fca5",
+  "source": "Art/Characters/Creatures/Schiggy/Source/Schiggy_Surface_V2.blend",
+  "export": "Art/Characters/Creatures/Schiggy/Exports/SurfaceV2/Schiggy_Surface.fbx",
+  "patches": [
+    {
+      "center": [
+        0.06496407091617584,
+        -0.18370111286640167,
+        0.3876796364784241
+      ],
+      "boundary_edges": 5
+    },
+    {
+      "center": [
+        0.08508726954460144,
+        -0.1626667082309723,
+        0.3818017542362213
+      ],
+      "boundary_edges": 4
+    }
+  ],
+  "original_vertices_faces_uv_weights_preserved": true,
+  "triangles_before": 21273,
+  "triangles_after": 21282,
+  "added_vertices": 2,
+  "nonmanifold_before": 471,
+  "nonmanifold_after": 462,
+  "cap_material_only_new_faces": true,
+  "cap_triangle_count": 9,
+  "reopened": true
+}

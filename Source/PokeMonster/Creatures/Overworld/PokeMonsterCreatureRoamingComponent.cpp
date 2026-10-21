@@ -288,30 +288,30 @@ bool UPokeMonsterCreatureRoamingComponent::PlayerVisible(const APawn* Player) co
 }
 bool UPokeMonsterCreatureRoamingComponent::UpdateBehavior(float Delta,const FVector& Current,const APawn* Player,float& Speed)
 {
- using S=EPokeMonsterOverworldState;using T=EPokeMonsterOverworldTemperament;
+ using EOverworldState = EPokeMonsterOverworldState;using EOverworldTemperament = EPokeMonsterOverworldTemperament;
  CooldownRemaining=FMath::Max(0.f,CooldownRemaining-Delta);
  const auto& P=Settings.Behavior;
  const float D=Player?FVector::Dist2D(Current,Player->GetActorLocation()):BIG_NUMBER;
  // Leaving the entire response radius is necessary even after the time cooldown has expired.
  if(D>P.DisengageRadius)bTerritoryArmed=true;
  const bool Visible=Player&&D<=P.DisengageRadius&&PlayerVisible(Player);
- const bool Reacting=BehaviorState==S::Approach||BehaviorState==S::Retreat||BehaviorState==S::Observe||BehaviorState==S::Warning;
- S Next=FPokeMonsterCreatureBehavior::Decide(P,D,Visible,Reacting,CooldownRemaining>0||(P.Temperament==T::Territorial&&!bTerritoryArmed));
+ const bool Reacting=BehaviorState==EOverworldState::Approach||BehaviorState==EOverworldState::Retreat||BehaviorState==EOverworldState::Observe||BehaviorState==EOverworldState::Warning;
+ EOverworldState Next=FPokeMonsterCreatureBehavior::Decide(P,D,Visible,Reacting,CooldownRemaining>0||(P.Temperament==EOverworldTemperament::Territorial&&!bTerritoryArmed));
  // Curiosity alternates observation and approach, rather than following forever.
  InterestRemaining=FMath::Max(0.f,InterestRemaining-Delta);
- if(P.Temperament==T::Curious && Next==S::Approach && InterestRemaining>0)Next=S::Observe;
+ if(P.Temperament==EOverworldTemperament::Curious && Next==EOverworldState::Approach && InterestRemaining>0)Next=EOverworldState::Observe;
  if(Next!=BehaviorState)
  {
   Path.Reset();ReactionRemaining=0;WarningElapsed=0;PauseRemaining=0;
-  if(BehaviorState==S::Approach&&Next==S::Observe)InterestRemaining=Random.FRandRange(1.5f,3.5f);
+  if(BehaviorState==EOverworldState::Approach&&Next==EOverworldState::Observe)InterestRemaining=Random.FRandRange(1.5f,3.5f);
   BehaviorState=Next;
  }
- if(Next==S::Warning||Next==S::Observe)
+ if(Next==EOverworldState::Warning||Next==EOverworldState::Observe)
  {
   CurrentSpeed=0;Path.Reset();
   if(Player)GetOwner()->SetActorRotation(FMath::RInterpConstantTo(GetOwner()->GetActorRotation(),
    FRotator(0,(Player->GetActorLocation()-Current).Rotation().Yaw,0),Delta,Settings.TurnDegreesPerSecond));
-  if(Next==S::Warning)
+  if(Next==EOverworldState::Warning)
   {
    WarningElapsed+=Delta;
    if(FPokeMonsterCreatureBehavior::CanInitiate(P,D,WarningElapsed,Visible,bTerritoryArmed,CooldownRemaining>0))
@@ -320,20 +320,20 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateBehavior(float Delta,const FVec
   return true;
  }
  WarningElapsed=0;
- if(Next==S::Approach||Next==S::Retreat)
+ if(Next==EOverworldState::Approach||Next==EOverworldState::Retreat)
  {
   PauseRemaining=0;ReactionRemaining-=Delta;
-  if(Next==S::Retreat)Speed*=P.ReactionSpeedMultiplier;
+  if(Next==EOverworldState::Retreat)Speed*=P.ReactionSpeedMultiplier;
   if(ReactionRemaining<=0)
   {
    const FVector Away=(Current-Player->GetActorLocation()).GetSafeNormal2D(SMALL_NUMBER,FVector::ForwardVector);
-   const FVector Direction=Next==S::Retreat?Away:-Away;
-   const float Distance=Next==S::Retreat?320.f:FMath::Clamp(D-P.PersonalSpace-100.f,5.f,350.f);
+   const FVector Direction=Next==EOverworldState::Retreat?Away:-Away;
+   const float Distance=Next==EOverworldState::Retreat?320.f:FMath::Clamp(D-P.PersonalSpace-100.f,5.f,350.f);
    Path.Reset();
    for(float Angle:{0.f,30.f,-30.f,60.f,-60.f,90.f,-90.f})
    {
     const FVector Candidate=Current+Direction.RotateAngleAxis(Angle,FVector::UpVector)*Distance;
-    if(Next==S::Retreat && FVector::Dist2D(Candidate,Player->GetActorLocation())<D+30.f)continue;
+    if(Next==EOverworldState::Retreat && FVector::Dist2D(Candidate,Player->GetActorLocation())<D+30.f)continue;
     if(Plan(Candidate))break;
     ++RejectedTargets;
    }

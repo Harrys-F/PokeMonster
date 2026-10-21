@@ -12,16 +12,16 @@ bool FPokeMonsterCreatureBehaviorProfile::IsValid() const
 EPokeMonsterOverworldState FPokeMonsterCreatureBehavior::Decide(const FPokeMonsterCreatureBehaviorProfile& P,
  float D,bool Visible,bool Reacting,bool Cooling)
 {
- using S=EPokeMonsterOverworldState;using T=EPokeMonsterOverworldTemperament;
- if(!P.IsValid()||!FMath::IsFinite(D)||D<0)return S::Rest;
- if(Cooling)return S::Cooldown;
- if(!Visible||D>(Reacting?P.DisengageRadius:P.NoticeRadius))return S::Wander;
+ using EOverworldState = EPokeMonsterOverworldState;using EOverworldTemperament = EPokeMonsterOverworldTemperament;
+ if(!P.IsValid()||!FMath::IsFinite(D)||D<0)return EOverworldState::Rest;
+ if(Cooling)return EOverworldState::Cooldown;
+ if(!Visible||D>(Reacting?P.DisengageRadius:P.NoticeRadius))return EOverworldState::Wander;
  switch(P.Temperament)
  {
- case T::Shy:return S::Retreat;
- case T::Curious:return D<P.PersonalSpace?S::Retreat:D>P.PersonalSpace+100?S::Approach:S::Observe;
- case T::Territorial:return S::Warning;
- default:return D<P.PersonalSpace?S::Observe:S::Wander;
+ case EOverworldTemperament::Shy:return EOverworldState::Retreat;
+ case EOverworldTemperament::Curious:return D<P.PersonalSpace?EOverworldState::Retreat:D>P.PersonalSpace+100?EOverworldState::Approach:EOverworldState::Observe;
+ case EOverworldTemperament::Territorial:return EOverworldState::Warning;
+ default:return D<P.PersonalSpace?EOverworldState::Observe:EOverworldState::Wander;
  }
 }
 bool FPokeMonsterCreatureBehavior::CanInitiate(const FPokeMonsterCreatureBehaviorProfile& P,float D,

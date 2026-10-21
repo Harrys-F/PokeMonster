@@ -1,0 +1,27 @@
+# Oberwelt-KI V2 und Charakterlesbarkeit
+
+Nur bestehendes Projekt und VisualV2, keine Map-Erzeugung. Quellen/Assets werden gezielt gespeichert; Kontrollmedien bleiben unter `Saved/OverworldAIV2`.
+
+## Laufzeit
+
+- Spezies: `DA_*/Overworld/Behavior`. Platzierte Wildakteure können an `OverworldMovement` das Profil mit `OverrideBehavior` überschreiben. `Configure` übernimmt und validiert diese Werte; ein aktives Profil ist danach unter `Settings` sichtbar.
+- `Curious`: beobachten, vorsichtige Annäherung und Rückzug bei unterschrittener Individualdistanz. `Shy`: erreichbarer Rückzug mit Hysterese. `Territorial`: Warnung/Angriffsgeste, Sichtkontakt und Nahbereich vor normalem Encounter; Cooldown UND Verlassen des Reaktionsbereichs vor erneuter Auslösung. `Calm`: langsames, unterbrochenes Wandern. Keine automatisch erzeugten Gruppen; mehrere bewusst platzierte ruhige Begegnungen können dieselbe Konfiguration nutzen.
+- Debugzustände sind flüchtig. Profilparameter verändern weder Kampfwerte noch IDs oder Saveformate. Rückzug und Annäherung verwenden dieselben Boden-, Habitat-, Wasser- und Kollisionsprüfungen wie Wanderziele.
+- Begleiter: ausschließlich Teamplatz 1; beim Loslaufen früher folgen, beim Sprinten aufholen, bei Stillstand locker wandern/umsehen. Keine zusätzliche Kollision, während Kämpfen verborgen/pausiert.
+- `pm.PlayerFill.Mode 0/1/2`: aus / automatische konservative Abschätzung / nur Diagnose erzwungen. `pm.PlayerFill.Lumens` kalibriert die geringe, ausschließlich über Kanal 2 auf die Spielfigur wirkende Füllbeleuchtung. Innenraumkanal 1 hat Vorrang; Begleiter übernehmen den privaten Kanal 2 ausdrücklich nicht.
+- Die Baumabschätzung ist **kein Zugriff auf den GPU-Schattenpuffer**. Die vorhandenen Bäume besitzen keine Kollision und keinen CPU-LOD-Zugriff. Fünf Sonnenstrahlen durch innere Kronenvolumen erkennen nur konservative Bereiche; massive Schattenwerfer werden zusätzlich gegen tatsächliche Kollisionsgeometrie geprüft. Fünf Aktualisierungen pro Sekunde, geglättete Lichtwirkung. Einzelne Blattlücken, Wind und teilweise beschattete Stellen bleiben Grenzen der Näherung.
+
+## Quellen und Prüfungen
+
+1. `InspectLighting.py`, `InspectTreeCPU.py`: lesende PIE-/Assetinventare.
+2. `InspectSchiggy.py`: Originalquelle, seam-aware Topologie sowie Normal-/Clay-Diagnose. Kein Speichern der Eingabe. `RepairSchiggy.py` verwendet die unveränderte, per SHA-256 geschützte Originalquelle, korrigiert nur die zwei bestätigten Augenrandöffnungen und schreibt eine neue Quelle/FBX. Bereits erzeugte eigene Ausgaben nur explizit mit `--revise-generated` erneuern.
+3. `ValidateSchiggy.py`: Originalpunkte/-flächen/-UVs, Normalenrundung, sieben Clips, erneutes Öffnen und tatsächlicher FBX-Reimport mit 50 cm/20 Bones. `InspectSchiggy.py -- --final` erzeugt zusätzliche Prüfrenderings; das sind ausdrücklich Blender-Diagnosen, keine Unreal-Spielnachweise.
+4. `ImportAndConfigure.py`: einmaliger Import nur neuer SurfaceV2-Assets und explizite Overworld-Konfiguration der drei Starter. `ReimportSurface.py` darf ausschließlich das von diesem Werkzeug erzeugte neue Mesh aktualisieren, keine Originalassets. Beide verlangen einen sauberen Editor ohne PIE.
+5. `CompareLighting*.py`, `CompareOverlap.py`: identische reale QHD-Spielkamerabilder, nur transiente Varianten. Ursprüngliche Sky-/Playerwerte werden zurückgenommen. Diagnoseplatzierungen sind keine Laufprüfung.
+6. `RunReview.py SCRIPT RESULT`: führt einen frischen No-Save-PIE-Test aus, verlangt Ergebnis und unveränderten Dev-Save-Hash. `ReviewBehavior.py` prüft alle Profile auf einem bereits vorhandenen Wildakteur; testweise Profilüberschreibungen und Positionen gelten nur im PIE. `ReviewSchiggyAccepted.py` vergleicht Original und Korrektur am regulären Begleiter nach echter Enhanced-Input-Bewegung ohne Größen-/Kameraänderung. Frühere verdeckte beziehungsweise zu früh angehaltene Poseaufnahmen gelten nicht als visuelle Abnahme. Die finale Oberweltroutine verwendet ausschließlich die tatsächliche native Spiel-Animationsinstanz mit weiterlaufender Idle-Atmung.
+7. `RunMovement.py LABEL`: bestehende Enhanced-Input-Sprintroute, echter Begleiter und ClassicBattle-Pause. Die alte Annahme, dass jedes Wildtier neben einem ruhenden Spieler immer wandern muss, gilt nicht für territoriales Beobachten. Eigene Profiltests belegen die neuen Zustände separat.
+8. `RunFullGameplay.py LABEL`: bestehender kompletter Enhanced-Input-Fußlauf einschließlich Dialog/Quest/Liora/Kampf/Fang/Heilhaus/SaveLoad/Sprint. Ein territorial automatisch begonnener Kampf ersetzt im Prüfablauf lediglich die frühere manuelle E-Auslösung; keine künstlichen Testteleports. Originalslot wird mit dem vorhandenen gezielten Save-Testverfahren exakt restauriert. `ObserveFill.py` liest zusätzlich Lichtzustand und unveränderten Sichtkreis.
+
+Build/Automation über `Tools/ProjectMaintenance/ProjectQA.py`, alle vorhandenen Maps über `Tools/StarterExpansionV1/CheckMaps.py` und `SummarizeMaps.py`. Laufzeitskripte verwenden die bestehende autorisierte `ArtSession.py`/`ArtControl.py`-Warteschlange. Keine originalen GLBs reimportieren, keine Map speichern, keine Kontrollmedien stagen.
+
+`RunUnityBuild.py LABEL` erzwingt zusätzlich den echten Unity-Build ohne adaptive Ausschlüsse. `ValidateAssets.py` prüft aktive Profile, Originalmaterial/Clips, Mips und lokale Importquellen. `ReviewSchiggyClose.py` verwendet unverändert die bereits vorhandene ClassicBattle-Kamera; deren natives RenderTarget ist 2560 × 1080 und wird ausdrücklich nicht als QHD ausgegeben.
