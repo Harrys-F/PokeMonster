@@ -176,8 +176,14 @@ Offen: pixelgenaue Schattenklassifizierung bei Wind/Blattlücken, feinste Schigg
 
 ## 7. Git/GitHub und nächste Abnahme
 
-Bereits verifizierter Code-Meilenstein: `470a5110fd3598ba2ef7619f329b7e983ad69b82`. Ein folgender normaler Commit enthält die endgültigen SurfaceV2-Assets, Speziesprofile, Unity-Korrektur, Werkzeuge und diesen Prüfbericht. Exakte Asset-Commit- und LFS-Verifikationsdaten werden nach dem Push ergänzt.
+Bereits verifizierter Code-Meilenstein: `470a5110fd3598ba2ef7619f329b7e983ad69b82`. Der ebenfalls regulär gepushte Asset-/Validierungscommit `187bf25677d509a48b7bda37fb270b38444330eb` enthält die endgültigen SurfaceV2-Assets, Speziesprofile, Unity-Korrektur, Werkzeuge und diesen Prüfbericht. Beide Remote-Commits wurden direkt über `git ls-remote origin refs/heads/main` bestätigt. Acht neue/geänderte LFS-Objekte mit insgesamt **12.222.885 Bytes** wurden hochgeladen und anschließend separat von GitHub heruntergeladen; alle acht SHA-256-Prüfsummen stimmen. Normale Git-Dateien: unkomprimierte Obergrenze der 39 vorgemerkten Pfade **999.005 Bytes**, deutlich unter 1 GiB; sämtliche normalen Einzeldateien unter 100 MiB. Keine Kontrollmedien aufgenommen. Der reine Dokumentationsnachtrag wird separat regulär gesichert.
 
 Nur benötigte Quellen, Assets, Prüfwerkzeuge und Dokumentation werden aufgenommen. Keine Kontrollbilder, Videos, Shader-Caches, Builds oder Saved-Ausgaben. Kein Force-Push, keine Käufe oder Budgetänderungen. Nach technischer Sicherung endet dieser Auftrag; weitere Kreaturen oder Landschaftsarbeiten werden nicht begonnen.
 
 Empfehlung: die gezielte Variante B und das konfigurierbare KI-System als geprüfte Arbeitsgrundlage verwenden. Die oben benannten konservativen Schatten-/Atlasgrenzen bleiben offen. Visuelle Abnahme anhand der echten Sonnen-/Schatten- und Schiggy-Nachweise; technische Tests ersetzen diese Entscheidung nicht.
+
+### Abschlusskontrolle
+
+Der getrackte Arbeitsbaum war nach dem Asset-Push sauber. Verblieben sind ausschließlich dieselben 58 geschützten unversionierten Einzeldateien wie zu Beginn (die kurze Statusansicht fasst Verzeichnisse zusammen). 4064 erforderliche Kernpfade wurden vor dem Commit tatsächlich gegen den Index geprüft; keine fehlenden oder abweichenden Quellen. Acht lokale LFS-Objekte wurden vor dem Commit zusätzlich mit Arbeitsdatei und Indexpointer per SHA-256 verglichen. Remote-Downloadnachweis lokal: `Saved/OverworldAIV2/RemoteLFSAsset.json`. Ursprünglicher Spielstand und beide Backup-Refs unverändert. Engine nach den Sichtprüfungen sauber geschlossen, kein offenes/fremdes Paket verworfen.
+
+Die nativen Oberweltaufnahmen zeigen den vollständigen Begleiter in der echten Spiel-Animationsinstanz. Frühere SingleNode-Diagnosebilder bleiben ausschließlich lokale Fehlversuchsnachweise und sind nicht die visuelle Referenz dieses Abschlusses.
