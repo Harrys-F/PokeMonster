@@ -128,6 +128,8 @@ Storyboards enthalten nur proportional verkleinerte ganze Originalframes plus ge
 
 Konservative Stamm-/Felskörper ersetzen keine Dreiecksnavigation für alle Dekorationen. Bewegliche neue Hindernisse erhalten weiter die reale Kollisionsprüfung; die dekorativen Kerne werden beim Configure erfasst. Schwimmen, Fliegen und neue Körperformen sind nicht neu implementiert. Bei versperrtem Weg kann Warten sichtbar bleiben; verfolgt der Spieler die Flucht dauerhaft, ist keine feste Despawnzeit garantiert. Der sichere geschlossene-Ring-Ablauf ist automatisiert, keine behauptete reale PIE-Ringaufnahme.
 
+Die Fluchtabnahme gilt für die drei gültig konfigurierten 3D-Starter. Reine historische Sprite-Platzhalter ohne gültige Präsentation und Wanderkonfiguration sind nicht als vollständig animierte Fluchtgegner abgenommen; sie verbleiben gegebenenfalls sicher nicht interaktiv im Wartestatus.
+
 Physischer Switch-Pro-Controller-Test **offen**. Keine FPS-Benchmarks oder neuen Performancebehauptungen. Keine neuen Modelle, keine Animationserstellung und keine Landschafts-/Heilhaus-/Licht-/Sichtkreisänderungen. Die technische Arbeit ist abgeschlossen; eine visuelle Nutzerabnahme der bestehenden Darstellung und der Interaktionsmarkierung bleibt sinnvoll.
 
 ## Git-/Originalschutz und Sicherung
@@ -136,4 +138,11 @@ Physischer Switch-Pro-Controller-Test **offen**. Keine FPS-Benchmarks oder neuen
 
 Die tatsächliche VisualV2-Datei hat 4,154,391 Bytes. Sie ist die einzige neue LFS-Fassung dieses Pakets. Vor Commit werden die vollständige Indexliste, Core-Prüfsummen, canonical LFS-Pointer, lokales Objekt, Größen und Diff-Check geprüft. Nur benötigte Quellen, Werkzeuge und Dokumentation werden aufgenommen.
 
-**GitHub-Sicherung:** technische Tests abgeschlossen; Commit-/Push-Belege werden nach dem regulären Push und tatsächlicher Remote-/LFS-Verifikation unten ergänzt. Keine kostenpflichtigen Aktionen.
+**GitHub-Sicherung verifiziert:**
+
+- Implementierung, geprüfte Mapkonfiguration, Tests, Werkzeuge und Bericht: Commit `ed0eb6a9592a69d610a2557ab531f153ee9211aa` (`feat: add behavior-based wild encounters and visible defeat escapes`), regulär nach `origin/main` gepusht. Direkter `git ls-remote` und lokales `origin/main` stimmen überein.
+- Tatsächlicher Index: exakt **48** freigegebene Pfade, **4.089** erforderliche Dateien gegen den Index-Prüfsummenstand validiert. Keine vorbestehende unversionierte Datei aufgenommen. `git diff --cached --check` bestanden.
+- Normale Git-Daten: konservative unkomprimierte Obergrenze **1.318.401 Bytes**, deutlich unter der Projektgrenze von 1 GiB je Push. Keine übergroße normale Git-Datei.
+- LFS separat: genau **1 Objekt, 4.154.391 Bytes** (VisualV2). OID `e5077409ff4ac69f12a9ce9b154419af916a2df3ac97714dcc38159cb0790d56`. Lokales Objekt und canonical Indexpointer geprüft; Upload erfolgreich; anschließend tatsächlicher Download von GitHub mit identischer Größe und SHA-256. Receipt: `Saved/WildEncountersV2/RemoteLFS_Implementation.json`.
+- Nach dem Implementierungspush waren Index und getrackter Arbeitsbaum sauber; alle **58** geschützten unversionierten Dateien unverändert erhalten. Kein Force-Push, Kauf, Budgetwechsel oder LFS-Prune.
+- Dieser abschließende Sicherungsnachtrag betrifft ausschließlich den Bericht und dessen Eintrag im Core-Prüfsummenmanifest. Sein separater Dokumentationscommit ist über die Git-Historie und den Abschluss im Chat nachvollziehbar; keine erneute Gameplayänderung.
