@@ -1,0 +1,49 @@
+{
+  "species": "Glurak",
+  "source": "Art/Characters/Creatures/Glurak/Source/Glurak_PolishV4.blend",
+  "original_sha256": "0ad263ba61ba8bc1e89c8c6fe088d2031b9018275cbd7ac8a2d78d176c79a99f",
+  "source_sha256": "1a777d5e3d28a589bfd84977b59c176d6b78bb685d9b071811453cbbb4fad0d3",
+  "geometry_uv_rest_preserved": true,
+  "changes": {
+    "rear_wing_corners": 38330,
+    "rear_wing_mask": "smooth vertex-normal mask over rear wing geometry; no texture-color threshold",
+    "final_rig_policy": "Exact original skin and seven actions retained. Stronger wing motion and Glurak Run-belly experiment not accepted; not an animation-quality approval."
+  },
+  "minima": {
+    "Idle": {
+      "min_z_cm": -6.194180457441689e-06,
+      "max_min_z_cm": -6.194180457441689e-06
+    },
+    "Walk": {
+      "min_z_cm": -4.575114758154086e-05,
+      "max_min_z_cm": 0.01778628065949306
+    },
+    "Run": {
+      "min_z_cm": -1.100907102227211,
+      "max_min_z_cm": -0.5908600986003876
+    },
+    "Attack": {
+      "min_z_cm": -1.170224663837871e-05,
+      "max_min_z_cm": -1.4950236604249767e-06
+    },
+    "Hit": {
+      "min_z_cm": -1.1329716897989783e-05,
+      "max_min_z_cm": -6.194180457441689e-06
+    },
+    "Faint": {
+      "min_z_cm": 0.0,
+      "max_min_z_cm": 0.0
+    },
+    "Happy": {
+      "min_z_cm": -6.194180457441689e-06,
+      "max_min_z_cm": -6.194180457441689e-06
+    }
+  },
+  "exports": [
+    {
+      "role": "Idle",
+      "sha256": "710e72754bf40e0f4ea0309be97b133dcac1efbd305c973fed1efe428924f441",
+      "contains_mesh": true
+    }
+  ]
+}

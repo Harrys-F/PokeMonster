@@ -1,0 +1,15 @@
+"""Refresh only this task's verified new Run asset after preserving its original foot transforms."""
+import unreal,json,hashlib
+from pathlib import Path
+R=Path(unreal.Paths.project_dir()).resolve();assert not __import__('subprocess').check_output(['git','ls-files','--','Content/Characters/Creatures/Glurak/PolishV4'],cwd=R).strip(),'Released V4 assets must not be overwritten by a one-time import tool';O=R/'Saved/CreaturePolishV4';E=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);assert not E.get_game_world()and not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()and not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages();p=unreal.load_asset('/Game/Characters/Creatures/Glurak/PolishV4/DA_Glurak_Presentation');clip=p.clips[unreal.PokeMonsterCreatureClip.RUN];path=clip.get_path_name().split('.')[0];assert path.startswith('/Game/Characters/Creatures/Glurak/PolishV4/');proof=json.loads((R/'Art/Characters/Creatures/Glurak/PolishV4_Audit.json').read_text());file=R/'Art/Characters/Creatures/Glurak/Exports/PolishV4/Glurak_Run.fbx';assert hashlib.sha256(file.read_bytes()).hexdigest()==next(e['sha256']for e in proof['exports']if e['role']=='Run');assert str(file)in clip.get_editor_property('asset_import_data').extract_filenames();old=unreal.SystemLibrary.get_console_variable_int_value('Interchange.FeatureFlags.Import.FBX');unreal.SystemLibrary.execute_console_command(E.get_editor_world(),'Interchange.FeatureFlags.Import.FBX 0')
+try:
+ ui=unreal.FbxImportUI()
+ for k,v in dict(import_mesh=False,import_as_skeletal=True,import_animations=True,import_materials=False,import_textures=False,automated_import_should_detect_type=False,mesh_type_to_import=unreal.FBXImportType.FBXIT_ANIMATION,skeleton=p.mesh.skeleton,override_full_name=True).items():ui.set_editor_property(k,v)
+ for k,v in dict(convert_scene=True,convert_scene_unit=True,force_front_x_axis=True,import_uniform_scale=1.,use_default_sample_rate=False,custom_sample_rate=30,animation_length=unreal.FBXAnimationLengthImportType.FBXALIT_EXPORTED_TIME).items():ui.anim_sequence_import_data.set_editor_property(k,v)
+ t=unreal.AssetImportTask()
+ for k,v in dict(filename=str(file),destination_path=path.rsplit('/',1)[0],destination_name=path.rsplit('/',1)[1],automated=True,save=False,replace_existing=True,options=ui).items():t.set_editor_property(k,v)
+ unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks([t]);assert clip in list(t.get_objects());assert unreal.EditorAssetLibrary.save_loaded_asset(clip,False)
+ for package in unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages():
+  assert package.get_path_name().startswith('/Game/Characters/Creatures/Glurak/PolishV4/');assert unreal.EditorAssetLibrary.save_loaded_asset(p.mesh.skeleton,False)
+ assert not p.get_validation_errors();(O/'GlurakRunRefresh.json').write_text(json.dumps(dict(path=path,source_sha256=hashlib.sha256(file.read_bytes()).hexdigest(),foot_delta_m=proof['changes']['max_foot_transform_delta_m'])))
+finally:unreal.SystemLibrary.execute_console_command(E.get_editor_world(),'Interchange.FeatureFlags.Import.FBX '+str(old))

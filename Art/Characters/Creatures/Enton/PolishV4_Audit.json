@@ -1,0 +1,48 @@
+{
+  "species": "Enton",
+  "source": "Art/Characters/Creatures/Enton/Source/Enton_PolishV4.blend",
+  "original_sha256": "1bf63b2e0e26047b4387d5abaf48295dce7969210f6dfb13d652817a74f8ae16",
+  "source_sha256": "ca8d5ebcd65118906cf7f9e429da25a30a5ceb54429cf1449b0715b534c7303b",
+  "geometry_uv_rest_preserved": true,
+  "changes": {
+    "tail_weight_vertices": 899,
+    "central_belly_weight_vertices": 173
+  },
+  "minima": {
+    "Idle": {
+      "min_z_cm": 1.6634693622563645e-07,
+      "max_min_z_cm": 1.6634693622563645e-07
+    },
+    "Walk": {
+      "min_z_cm": -3.8830574311532473e-07,
+      "max_min_z_cm": 1.1223407980764932e-06
+    },
+    "Run": {
+      "min_z_cm": -1.7599606216833763e-07,
+      "max_min_z_cm": 8.988271460452779e-07
+    },
+    "Attack": {
+      "min_z_cm": -2.0618209362055495e-07,
+      "max_min_z_cm": 4.457425539783344e-07
+    },
+    "Hit": {
+      "min_z_cm": -2.0618209362055495e-07,
+      "max_min_z_cm": 2.594786163712115e-07
+    },
+    "Faint": {
+      "min_z_cm": -1.4901161193847656e-05,
+      "max_min_z_cm": 0.03496964927762747
+    },
+    "Happy": {
+      "min_z_cm": 1.6634693622563645e-07,
+      "max_min_z_cm": 1.6634693622563645e-07
+    }
+  },
+  "exports": [
+    {
+      "role": "Idle",
+      "sha256": "a8376fb89a0a80646b9aba6f7d3af6e9ff40361c4363f81158cbb0b6db995c1a",
+      "contains_mesh": true
+    }
+  ]
+}

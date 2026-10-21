@@ -1,0 +1,78 @@
+{
+  "species": "Nebulak",
+  "source": "Art/Characters/Creatures/Nebulak/Source/Nebulak_PolishV4.blend",
+  "original_sha256": "81c1ae26946e2e52b6dbcd8fb0da413191e68c67e2379cb08f35f0c6519ccd04",
+  "source_sha256": "e2f65bc54f8d9fb3db73de52cd199614fa2a6c2e191cdf7867f34422c063670f",
+  "geometry_uv_rest_preserved": true,
+  "changes": {
+    "gas_vertices": 10282,
+    "modified_bone_channels": "peripheral gas scales"
+  },
+  "minima": {
+    "Idle": {
+      "min_z_cm": -3.756575286388397,
+      "max_min_z_cm": 2.9610490426421165
+    },
+    "Walk": {
+      "min_z_cm": -3.734297677874565,
+      "max_min_z_cm": 2.9577553272247314
+    },
+    "Run": {
+      "min_z_cm": -3.706362098455429,
+      "max_min_z_cm": 2.9447443783283234
+    },
+    "Attack": {
+      "min_z_cm": -1.4630073681473732,
+      "max_min_z_cm": 0.99060432985425
+    },
+    "Hit": {
+      "min_z_cm": -1.3916406780481339,
+      "max_min_z_cm": 0.9751210920512676
+    },
+    "Faint": {
+      "min_z_cm": -1.0593198239803314,
+      "max_min_z_cm": 1.420228835195303
+    },
+    "Happy": {
+      "min_z_cm": -3.7619076669216156,
+      "max_min_z_cm": 2.970769628882408
+    }
+  },
+  "exports": [
+    {
+      "role": "Idle",
+      "sha256": "473aa133e08ca56f24b0d2a11056461e8120c21d086320248ddd6019317dad8c",
+      "contains_mesh": true
+    },
+    {
+      "role": "Walk",
+      "sha256": "f0d99d42634b0911419a1553c8bb462a1df154b3c812fd32aa37094b5c034869",
+      "contains_mesh": false
+    },
+    {
+      "role": "Run",
+      "sha256": "81c46d616df4369c3239167e2c25730aa59267544288f6c99ce569ae09e8be29",
+      "contains_mesh": false
+    },
+    {
+      "role": "Attack",
+      "sha256": "89c8753d2f4a4b17e4bfdc8172f0017734bafbfaf29d37437e9178cb124a7032",
+      "contains_mesh": false
+    },
+    {
+      "role": "Hit",
+      "sha256": "d623a24c4916a57341e5952fd9cb874222fa4a4bcd66139de83e0385bc267577",
+      "contains_mesh": false
+    },
+    {
+      "role": "Faint",
+      "sha256": "a3de00cf03f9027592eb991d8a58c714a12d41749155bdd45ad6db4510c88743",
+      "contains_mesh": false
+    },
+    {
+      "role": "Happy",
+      "sha256": "4d7400590c9d5a8f878dced8259ae8d4576548604c93168ed3f34c09f41e9973",
+      "contains_mesh": false
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "checked_creature_polish_v4_team",
+  "snapshot_kind": "creature_polish_v4_with_documented_external_engine_warning",
   "generated_at": "2026-10-21",
   "files": {
     ".codex/config.toml": {
@@ -7546,16 +7546,16 @@
       "sha256": "231f0620efe909c466be88468c0587228359024fa4187e1cd8eeb19edfdd70ec"
     },
     "Content/Data/Creatures/DA_Enton.uasset": {
-      "bytes": 3652,
-      "sha256": "ed24dcb85fb12b1d27c5aa0977c5c0d4ee8e8513bd8c0bb9c1f8cca41fde6893"
+      "bytes": 3653,
+      "sha256": "f956f6caaa5f478e466e942b43c73ece711860825e044d27addf3224eb217509"
     },
     "Content/Data/Creatures/DA_Gengar.uasset": {
       "bytes": 3820,
       "sha256": "15ca3118fb5fb686f5d3aa0bf4be27b4a5089d31c4c75b69a9c7e2aeb3186021"
     },
     "Content/Data/Creatures/DA_Glurak.uasset": {
-      "bytes": 4409,
-      "sha256": "163b4be89e180ff7539eda9bca14b5c96c595a2a9c7625536c01ead7c2d469fe"
+      "bytes": 4410,
+      "sha256": "49a7b5c72aa79df87a73dda12696cfa491387286a8bbd08b33d5fc47f9068a56"
     },
     "Content/Data/Creatures/DA_Machomei.uasset": {
       "bytes": 4009,
@@ -7566,8 +7566,8 @@
       "sha256": "6fd1a56b0822b6ba729c2cf06b113a39fb719f83016cc6d233333b9b6653a74c"
     },
     "Content/Data/Creatures/DA_Nebulak.uasset": {
-      "bytes": 3823,
-      "sha256": "03f7a056e0f595df0a65a665fdd11eb202f5ed04c10cb7eb2e5da8ffd2c57072"
+      "bytes": 3824,
+      "sha256": "02ed0739cd5240eef0eb6b11252470b3c29ac9e996f650bfe6ce0c370d85f521"
     },
     "Content/Data/Creatures/DA_Pikachu.uasset": {
       "bytes": 3834,
@@ -10535,7 +10535,7 @@
     },
     "Content/Maps/Dev_TestMap_VisualV2.umap": {
       "bytes": 4174877,
-      "sha256": "a4ace058d9dfd10352bb30f063dc720f57b1668ee65faf03447f981cb2aecd76"
+      "sha256": "e89f49c960f67c3e4a111607f1cb2641cb4096b8d816e493307784895692dab5"
     },
     "Content/Maps/Dev_TestMap_VisualV2GPUBottleneckV1.umap": {
       "bytes": 3300685,
@@ -10586,8 +10586,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 140200,
-      "sha256": "99013bf1567a4d60f499c7e8639c78cc8623e468e7d759f439df3420883e6678"
+      "bytes": 143014,
+      "sha256": "3671e59b5952bdebea9275ad2ee4df0c09d5d97b6b64f4ee94e77dbc696cef1c"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
@@ -10726,8 +10726,8 @@
       "sha256": "126135cb9953aa7decad5fcc28e30339420efa960fe4f4d8870cfc8c5267b8be"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 161947,
-      "sha256": "eacd9560851accf2a7d74d2cc3a89b64c8c458c686c0c6e8a9cbcc82239622ce"
+      "bytes": 163772,
+      "sha256": "de3b1eeec602e7f7b1c3451ec75a879db4eb84ec971aeb97c6c4fb26c086e75f"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -17384,6 +17384,306 @@
     "Docs/TEAMREIHENFOLGE_V4.md": {
       "bytes": 1998,
       "sha256": "1ede0acfca40e87ac09ffe5dbe8993e5cb6142cff2aebf509f4cb084ae6e53fc"
+    },
+    "Art/Characters/Creatures/Enton/Exports/PolishV4/Enton_Idle.fbx": {
+      "bytes": 1046684,
+      "sha256": "a8376fb89a0a80646b9aba6f7d3af6e9ff40361c4363f81158cbb0b6db995c1a"
+    },
+    "Art/Characters/Creatures/Enton/PolishV4_Audit.json": {
+      "bytes": 1347,
+      "sha256": "59fe102d5b21cc49ea1b69b91445d8331276d6cab25cae964a225e8ad0687c94"
+    },
+    "Art/Characters/Creatures/Enton/Source/Enton_PolishV4.blend": {
+      "bytes": 5588144,
+      "sha256": "ca8d5ebcd65118906cf7f9e429da25a30a5ceb54429cf1449b0715b534c7303b"
+    },
+    "Art/Characters/Creatures/Glurak/Exports/PolishV4/Glurak_Idle.fbx": {
+      "bytes": 11579196,
+      "sha256": "710e72754bf40e0f4ea0309be97b133dcac1efbd305c973fed1efe428924f441"
+    },
+    "Art/Characters/Creatures/Glurak/PolishV4_Audit.json": {
+      "bytes": 1542,
+      "sha256": "25b5c285f84a6468bbc2382bc5f45ffa7fe7dcf68ede1f5b60c868634d7e3f84"
+    },
+    "Art/Characters/Creatures/Glurak/Source/Glurak_PolishV4.blend": {
+      "bytes": 30528840,
+      "sha256": "1a777d5e3d28a589bfd84977b59c176d6b78bb685d9b071811453cbbb4fad0d3"
+    },
+    "Art/Characters/Creatures/Nebulak/Exports/PolishV4/Nebulak_Attack.fbx": {
+      "bytes": 114172,
+      "sha256": "89c8753d2f4a4b17e4bfdc8172f0017734bafbfaf29d37437e9178cb124a7032"
+    },
+    "Art/Characters/Creatures/Nebulak/Exports/PolishV4/Nebulak_Faint.fbx": {
+      "bytes": 123740,
+      "sha256": "a3de00cf03f9027592eb991d8a58c714a12d41749155bdd45ad6db4510c88743"
+    },
+    "Art/Characters/Creatures/Nebulak/Exports/PolishV4/Nebulak_Happy.fbx": {
+      "bytes": 121420,
+      "sha256": "4d7400590c9d5a8f878dced8259ae8d4576548604c93168ed3f34c09f41e9973"
+    },
+    "Art/Characters/Creatures/Nebulak/Exports/PolishV4/Nebulak_Hit.fbx": {
+      "bytes": 101644,
+      "sha256": "d623a24c4916a57341e5952fd9cb874222fa4a4bcd66139de83e0385bc267577"
+    },
+    "Art/Characters/Creatures/Nebulak/Exports/PolishV4/Nebulak_Idle.fbx": {
+      "bytes": 1344220,
+      "sha256": "473aa133e08ca56f24b0d2a11056461e8120c21d086320248ddd6019317dad8c"
+    },
+    "Art/Characters/Creatures/Nebulak/Exports/PolishV4/Nebulak_Run.fbx": {
+      "bytes": 101644,
+      "sha256": "81c46d616df4369c3239167e2c25730aa59267544288f6c99ce569ae09e8be29"
+    },
+    "Art/Characters/Creatures/Nebulak/Exports/PolishV4/Nebulak_Walk.fbx": {
+      "bytes": 108316,
+      "sha256": "f0d99d42634b0911419a1553c8bb462a1df154b3c812fd32aa37094b5c034869"
+    },
+    "Art/Characters/Creatures/Nebulak/PolishV4_Audit.json": {
+      "bytes": 2195,
+      "sha256": "9be233cb31a826647406287552d6fffe3b06d2097dad76f23ce4241fc4a452a7"
+    },
+    "Art/Characters/Creatures/Nebulak/Source/Nebulak_PolishV4.blend": {
+      "bytes": 8858220,
+      "sha256": "e2f65bc54f8d9fb3db73de52cd199614fa2a6c2e191cdf7867f34422c063670f"
+    },
+    "Content/Characters/Creatures/Enton/PolishV4/A_Enton_Attack.uasset": {
+      "bytes": 55542,
+      "sha256": "19a80099ebdfa4197cd8ea9503c365f2e7973195edc48df0a3404b8a5712d11a"
+    },
+    "Content/Characters/Creatures/Enton/PolishV4/A_Enton_Faint.uasset": {
+      "bytes": 72683,
+      "sha256": "697cd670f8f0a78951f765706f2a641de0ae77ecb0d0e9bb3999e9aaf2a78ffe"
+    },
+    "Content/Characters/Creatures/Enton/PolishV4/A_Enton_Happy.uasset": {
+      "bytes": 57321,
+      "sha256": "52e040da45a55966a1c2995724b623b813c1988bb55c4077e024bfb26a148733"
+    },
+    "Content/Characters/Creatures/Enton/PolishV4/A_Enton_Hit.uasset": {
+      "bytes": 43949,
+      "sha256": "62c7f2e2dda643412ad3d2a0a5ee6d561d98b47bd83291601cd0c2e92eccc0bf"
+    },
+    "Content/Characters/Creatures/Enton/PolishV4/A_Enton_Idle.uasset": {
+      "bytes": 82287,
+      "sha256": "2ef9660af07a7034bd46f435e159b1df658f676d6652108d81938a58c53ec8e3"
+    },
+    "Content/Characters/Creatures/Enton/PolishV4/A_Enton_Run.uasset": {
+      "bytes": 42642,
+      "sha256": "d576480caeca49fd5409bc9da388683debea0027c1457abe4c1dd11408179e59"
+    },
+    "Content/Characters/Creatures/Enton/PolishV4/A_Enton_Walk.uasset": {
+      "bytes": 48746,
+      "sha256": "869312034f37c5d4b0a07a239aecc32c6584ac181926be30b29ed9e2a40aa497"
+    },
+    "Content/Characters/Creatures/Enton/PolishV4/DA_Enton_Presentation.uasset": {
+      "bytes": 3800,
+      "sha256": "40a6b2a94020c8aaff51d57f556e650a6150e9271a240246d938116909802e58"
+    },
+    "Content/Characters/Creatures/Enton/PolishV4/SK_Enton_PolishV4.uasset": {
+      "bytes": 2927608,
+      "sha256": "bf0b6df81bc7f1679ba5bda92077d91d8b29b8f4162b1e4fc77808f6e26b1eee"
+    },
+    "Content/Characters/Creatures/Enton/PolishV4/SK_Enton_PolishV4_Skeleton.uasset": {
+      "bytes": 11806,
+      "sha256": "6a885a8d63518dcd15f9234a926994c8b528c4ea006a8d6c3feace0e55125305"
+    },
+    "Content/Characters/Creatures/Glurak/PolishV4/DA_Glurak_Presentation.uasset": {
+      "bytes": 3902,
+      "sha256": "e6d3e28aa33c30ecbef95504921f212b2234552b4d31ac5257a0d6896d57e095"
+    },
+    "Content/Characters/Creatures/Glurak/PolishV4/M_Glurak_PolishV4.uasset": {
+      "bytes": 16912,
+      "sha256": "40755b92f18d9cb39d6de97fec4326ed2fdf945fa96ca8c1f68b9041743a1232"
+    },
+    "Content/Characters/Creatures/Glurak/PolishV4/SK_Glurak_PolishV4.uasset": {
+      "bytes": 34634392,
+      "sha256": "15622076498c9d3c5d2f2a6cb160a601b48289c03c7f8d12b3f6649d55c8aac8"
+    },
+    "Content/Characters/Creatures/Nebulak/PolishV4/A_Nebulak_Attack.uasset": {
+      "bytes": 55805,
+      "sha256": "ad88932f9653618d0434ca23b44314e3271f493344e536bc4bf641a23f647c79"
+    },
+    "Content/Characters/Creatures/Nebulak/PolishV4/A_Nebulak_Faint.uasset": {
+      "bytes": 73606,
+      "sha256": "741366292ea29207340dc7b75e4561ebd41a600f656c9eec32507bbdc1236c6f"
+    },
+    "Content/Characters/Creatures/Nebulak/PolishV4/A_Nebulak_Happy.uasset": {
+      "bytes": 62001,
+      "sha256": "45824ceb467eef92eea63e3b473dbe2421ce916b8385f77b485aecf2f9adee7a"
+    },
+    "Content/Characters/Creatures/Nebulak/PolishV4/A_Nebulak_Hit.uasset": {
+      "bytes": 41701,
+      "sha256": "ddb063cef5e313b779f53cc1280c8b7583c96f84078e79d85838e12376da94ab"
+    },
+    "Content/Characters/Creatures/Nebulak/PolishV4/A_Nebulak_Idle.uasset": {
+      "bytes": 96552,
+      "sha256": "917634d948a5d736b00b80e0837d7a7110b396da0f8da84f90edfdff477f765c"
+    },
+    "Content/Characters/Creatures/Nebulak/PolishV4/A_Nebulak_Run.uasset": {
+      "bytes": 40830,
+      "sha256": "a730866aa15955c7ffd10b688af63304df23fedf185186b86de9da09ac553364"
+    },
+    "Content/Characters/Creatures/Nebulak/PolishV4/A_Nebulak_Walk.uasset": {
+      "bytes": 48682,
+      "sha256": "742dbe6807633e9f90aa023d9d1ecb223aaf2a52e926a85e76cccb340355b05b"
+    },
+    "Content/Characters/Creatures/Nebulak/PolishV4/DA_Nebulak_Presentation.uasset": {
+      "bytes": 3917,
+      "sha256": "f3989ba698f20c854774cf87ab0f4f2d2ba500bf43475c1bc6301164aefcca56"
+    },
+    "Content/Characters/Creatures/Nebulak/PolishV4/M_Nebulak_PolishV4.uasset": {
+      "bytes": 23666,
+      "sha256": "bbedb7e4d053597570809aac91c7ab6cfc019f5674b3190d09f1c7ddce5dc72e"
+    },
+    "Content/Characters/Creatures/Nebulak/PolishV4/SK_Nebulak_PolishV4.uasset": {
+      "bytes": 4015258,
+      "sha256": "224992adcfb6c0540ec4bd209e357bb6afc2034cb4d42fe35790030817acc407"
+    },
+    "Content/Characters/Creatures/Nebulak/PolishV4/SK_Nebulak_PolishV4_Skeleton.uasset": {
+      "bytes": 9799,
+      "sha256": "20a60a08e920f7c7e3ad2e5f52cedb7b1316e6df3465baafc79a4a1a64fd1d89"
+    },
+    "Docs/POKEMON_ANIMATIONSFEINSCHLIFF_V4_PRUEFBERICHT.md": {
+      "bytes": 16143,
+      "sha256": "79ce6d47263e8beaaddd83e3d5e6a74c87b78a24acba5c80889d4a265669534c"
+    },
+    "Source/PokeMonster/Development/PokeMonsterCreaturePolishLibrary.cpp": {
+      "bytes": 2461,
+      "sha256": "c72b7853f084abd8c32bd293dd657cc274d9f7b48ad07ce50b36d3738a2933fb"
+    },
+    "Source/PokeMonster/Development/PokeMonsterCreaturePolishLibrary.h": {
+      "bytes": 914,
+      "sha256": "29197906e160d6eb0d1de613aa1851c8849c7ab0893f0131a5d7e7141bbb1efc"
+    },
+    "Tools/CreaturePolishV4/AcceptCandidates.py": {
+      "bytes": 3118,
+      "sha256": "4e0ac5552c5c98380ca36caeedd9a7e06231db57f01887bf9996b0a9885dc32c"
+    },
+    "Tools/CreaturePolishV4/AuditAllSources.py": {
+      "bytes": 2195,
+      "sha256": "795f43686450606915da792be63fddd5dd9126455c1330eb20a9dbb6fc9e8d41"
+    },
+    "Tools/CreaturePolishV4/AuditLiveLights.py": {
+      "bytes": 909,
+      "sha256": "c5aeef0a32b60dc68eaee01c2ec75839d3a7749b288417bcdaf1f02f7db863ac"
+    },
+    "Tools/CreaturePolishV4/AuditUnusedCandidates.py": {
+      "bytes": 2030,
+      "sha256": "b67358af2a026779758188a9ce1bd1e24d576e5b12505f98c905119da2abdc2d"
+    },
+    "Tools/CreaturePolishV4/BindOriginalGlurakRig.py": {
+      "bytes": 1909,
+      "sha256": "90743f35a695949b03894814514cd6cb67f74e58fc24ca11f4878882fed09149"
+    },
+    "Tools/CreaturePolishV4/CompareFillLight.py": {
+      "bytes": 3799,
+      "sha256": "ebd3e8a14ffa0e807c6f4347e93673ff111cb46b1c4e175369eb80d8823c7091"
+    },
+    "Tools/CreaturePolishV4/CompareShadows.py": {
+      "bytes": 3281,
+      "sha256": "1d47fc0fce33a024833f825d2f2bc4f01f5e65a19596663f0318931e5f40f867"
+    },
+    "Tools/CreaturePolishV4/FinalizeGlurakFallback.py": {
+      "bytes": 3088,
+      "sha256": "48b22311240d58195e0144a9f75b3edf02ea3749459e960f3a8428947478e860"
+    },
+    "Tools/CreaturePolishV4/ImportCandidates.py": {
+      "bytes": 9265,
+      "sha256": "3cb925ebf34558fc566df2b938f42e4c0892b6a831fd5cb22d316328b5699c3e"
+    },
+    "Tools/CreaturePolishV4/Inspect.py": {
+      "bytes": 1740,
+      "sha256": "871f8ca5b6fb949793e3e65389a7dbb0a19fd1b27bb1d0dc671bb966cdc2025b"
+    },
+    "Tools/CreaturePolishV4/InspectBlender.py": {
+      "bytes": 1261,
+      "sha256": "871fb46b364bdd4f7434d534aefc33b344dfd259cc9f563647916efcd593579e"
+    },
+    "Tools/CreaturePolishV4/InspectEntonCandidate.py": {
+      "bytes": 778,
+      "sha256": "636cd444d11fb548bbe612eb4e4d890eae2bd50852784ca690060eddc665d629"
+    },
+    "Tools/CreaturePolishV4/InspectRigEvaluation.py": {
+      "bytes": 1321,
+      "sha256": "dcb79345131e4aabe42841f1eaefff80074561fc4b7b489b3c8bf0f9fb69b9ab"
+    },
+    "Tools/CreaturePolishV4/InspectRuntime.py": {
+      "bytes": 795,
+      "sha256": "e09b2be8779ddc77138ab4d8e0653e1bedcb137dd512d0e08ff8522249af1e99"
+    },
+    "Tools/CreaturePolishV4/InspectSites.py": {
+      "bytes": 1049,
+      "sha256": "01744ad512b8ac622092e66258cb29581da5c0ff3ca7cf7f8a279c5baba12976"
+    },
+    "Tools/CreaturePolishV4/LimitWingMotion.py": {
+      "bytes": 5286,
+      "sha256": "e3bcc5256667373dc6b13ed23417c924637619014ce31bdc142d4520721a1707"
+    },
+    "Tools/CreaturePolishV4/PolishSources.py": {
+      "bytes": 6870,
+      "sha256": "ffc6c59dab4d323056b855aa9b9ef6bb2c60a43ab3043e8dee9e6ef763c777d7"
+    },
+    "Tools/CreaturePolishV4/README.md": {
+      "bytes": 5324,
+      "sha256": "d75cf24483d153a6e22721b743cd8dc413b4a9addf2da41bd5a0ab2f557ca268"
+    },
+    "Tools/CreaturePolishV4/RefineEntonCore.py": {
+      "bytes": 2571,
+      "sha256": "4f0e35b7a8f1bc8f00178060a6765bdaa1275061aa398c70323981bc25cfad4a"
+    },
+    "Tools/CreaturePolishV4/RefineGlurakRun.py": {
+      "bytes": 3705,
+      "sha256": "de7212974a85a8bcc054e9ba28bf0fc2d4ae964c7ad022e78ce7fac2f2a32a98"
+    },
+    "Tools/CreaturePolishV4/RefineWingContinuity.py": {
+      "bytes": 4529,
+      "sha256": "1963f24614b40c6f7a1d11e4ad444cd1c133c216186c203a9b5f6019125b661c"
+    },
+    "Tools/CreaturePolishV4/RefineWingGeodesic.py": {
+      "bytes": 6823,
+      "sha256": "81000efdcdb823161037200dcad028dae6120ca4b51e7c4dbb759f750a99d16c"
+    },
+    "Tools/CreaturePolishV4/RefineWingMask.py": {
+      "bytes": 2153,
+      "sha256": "acd5f6eabb05eb993b0671e51368c17d52b923eee5ba897106ca2e628906fa91"
+    },
+    "Tools/CreaturePolishV4/RefineWingSkin.py": {
+      "bytes": 3660,
+      "sha256": "892c53f53bcf6f6b06288529df996993514ed4c326c85651b846db97075c58bd"
+    },
+    "Tools/CreaturePolishV4/RefreshOwnAppearance.py": {
+      "bytes": 4866,
+      "sha256": "fd104764aa3a81cdf289ea9fe7dd8d141765705e8fb5f145caa274a34187f6f6"
+    },
+    "Tools/CreaturePolishV4/RefreshOwnGlurakRun.py": {
+      "bytes": 3113,
+      "sha256": "f6ba17948f8291958d48c8d9bd86f7682fe44f1d46b89883d07e0e8b3b74d32d"
+    },
+    "Tools/CreaturePolishV4/ReviewActiveBattle.py": {
+      "bytes": 7572,
+      "sha256": "c04799f3163fa86d833f5bd5f422dfa87dcace8973ddb2067e9ac30aaf3a0f12"
+    },
+    "Tools/CreaturePolishV4/RunActiveBattle.py": {
+      "bytes": 1278,
+      "sha256": "03027b9f8dc9c929502b899d3bdcedabbb758e1200f80a87e7e1d8c498730bc4"
+    },
+    "Tools/CreaturePolishV4/RunRegressionOutcomes.py": {
+      "bytes": 610,
+      "sha256": "29514a409df4551d6b65fd9199c10413bcb208257f851c16960a62cc79a36152"
+    },
+    "Tools/CreaturePolishV4/RunShowcase.py": {
+      "bytes": 1758,
+      "sha256": "5792bcac2631739c69951b40f231f6372e4e278a9ea8940676ed41e4392b9874"
+    },
+    "Tools/CreaturePolishV4/Showcase.py": {
+      "bytes": 6283,
+      "sha256": "861c99a10da6f3131baf0085e324b8580471314d70c920c0a8892059f0ae140e"
+    },
+    "Tools/CreaturePolishV4/ValidateCandidates.py": {
+      "bytes": 1905,
+      "sha256": "f32646a31a6f520cd6480e880df9fd00cc9258e50377cea62cab8a577aa5503c"
+    },
+    "Tools/CreaturePolishV4/VerifyAccepted.py": {
+      "bytes": 2266,
+      "sha256": "2dc4e7cd5282ce5642f4c51e6fe09da7178759e2bf20669bc645dbb4e43929b6"
     }
   }
 }
