@@ -813,7 +813,7 @@ Die bestehende Trennung aus Spezies, Instanzzustand und optionaler Präsentation
 
 Zusätzliche `EffectAnchors` erlauben einfache kollisionsfreie Mesh-Effekte an pro Modell definierten Bones/Sockets, mit lokalem Offset und optional weltaufrechter Rotation. Der vorhandene `TailFlame`-Pfad bleibt unverändert gültig. Keine Migration bestehender Assets und keine neue Save-Version. Das Saveformat speichert weiter stabile Spezies-IDs und individuelle HP/PP/Level/XP, keine visuellen Assetpfade.
 
-`Tools/CreaturePipelineV2` enthält lesende Blender-/Unreal-Inspektion, SHA-/Pfad-/Skalierungs-Vorprüfung, einen bewusst unvollständigen Glumanda-Plan sowie Kandidaten- und Map-Prüfer. Keine automatische 251er-Erzeugung oder Batchintegration. Aktuell existieren vier technische Spezies mit Prototypnummern; kein vollständiger Größenkatalog. Glumandas belegtes späteres Ziel ist 60 cm Stehhöhe; die bestehende Zunderlauf-V1-Größe bleibt unverändert. Die nationale Nummer im Intake ist getrennt von bestehenden Spielidentitäten. Vollständiger Ablauf einschließlich Längenmessung bei anderen Körperformen und konkretem identitätserhaltendem Austausch: `Docs/KREATUREN_PIPELINE_V2.md`. Große Körper, Flug-/Schwimm-KI und universelle Gelände-IK sind damit nicht automatisch abgenommen.
+`Tools/CreaturePipelineV2` enthält lesende Blender-/Unreal-Inspektion, SHA-/Pfad-/Skalierungs-Vorprüfung, einen bewusst unvollständigen Glumanda-Plan sowie Kandidaten- und Map-Prüfer. Keine automatische 251er-Erzeugung oder Batchintegration. Am Pipeline-V2-Ausgangspunkt existierten vier technische Spezies mit Prototypnummern; dies war kein vollständiger Größenkatalog. Glumandas belegtes späteres Ziel ist 60 cm Stehhöhe; die bestehende Zunderlauf-V1-Größe bleibt unverändert. Die nationale Nummer im Intake ist getrennt von bestehenden Spielidentitäten. Vollständiger Ablauf einschließlich Längenmessung bei anderen Körperformen und konkretem identitätserhaltendem Austausch: `Docs/KREATUREN_PIPELINE_V2.md`. Große Körper, Flug-/Schwimm-KI und universelle Gelände-IK sind damit nicht automatisch abgenommen.
 
 ## Meshy-Glumanda Integration V1 (20.10.2026)
 
@@ -968,3 +968,11 @@ Ereignisse. Ausführung sperrt Mehrfachklicks; HP-Veränderungen werden interpol
 Statusattacken zeigen keinen Schadenswert. Glut erhält einen kleinen zeitlich
 gebundenen Flame-Sprite ohne neue Weltbeleuchtung; Schwanzflammen bleiben unverändert.
 Prüfablauf: `Tools/BattleSystemV3/README.md`. Physischer Switch-Pro-Test ausdrücklich offen.
+
+### Starter-Erweiterung: Schiggy, Bisasam und freie Landbewegung (21.10.2026)
+
+Zwei zusätzliche Meshy-Spezies verwenden eigene Rigs: Schiggy 50 cm (Biped), Bisasam 70 cm (Quadruped). Glumanda bleibt 60 cm unter der bestehenden ID Zunderlauf. Originale in Incoming bleiben unverändert. Je sieben eigene Clips und unabhängige Unreal-Namensräume; keine Veränderung der ClassicBattle-Kamera, UI, Umgebungen oder Regeln. Originaldaten und Messgrenzen stehen im `STARTER_ERWEITERUNG_V1_PRUEFBERICHT.md`.
+
+`Species.Overworld` und `Creatures/Overworld` steuern größere Landhabitate, kollisionsgeprüfte lokale Routen, Ruhephasen und einen rein visuellen Begleiter des vorhandenen Teams. Bewegung wird vor der Präsentation aktualisiert, damit deren Geschwindigkeitsmessung nicht zwischen zwei Tick-Zeitpunkten springt. Optionaler Begleiter-Sprint nutzt ein temporäres Profil; Kampfclips bleiben erhalten. Tatsächliche Playergeschwindigkeit wird berücksichtigt, nicht fest auf 210 cm/s gesetzt. Keine zusätzliche Spieler-Kollision, kein zweites Party-/Save-System und keine Schwimm-/Flugnavigation. Bestehende Wasserblocker und Gebäudegrenzen bleiben wirksam. Ausführlicher Konfigurations-/Import-/Prüfablauf: `KREATUREN_PIPELINE_V2.md`, Abschnitt 10.
+
+Nach Niederlage wird erst nach kollisionsgeprüfter Rückkehr und vollständiger Heilung automatisch gespeichert. Saveformat 4 bleibt kompatibel; macOS schreibt zunächst eine geprüfte temporäre Nachbardatei und ersetzt den Slot atomar. Ein Fehler darf den vorhandenen Slot nicht vorab löschen. QA verwendet den realen Dev-Slot nur mit SHA-kontrollierter Wiederherstellung.

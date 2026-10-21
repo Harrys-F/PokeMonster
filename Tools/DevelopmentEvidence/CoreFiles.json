@@ -2,7 +2,7 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "checked_starter_model_integration",
+  "snapshot_kind": "checked_starter_overworld_integration",
   "generated_at": "2026-10-21",
   "files": {
     ".codex/config.toml": {
@@ -177,9 +177,145 @@
       "bytes": 14925,
       "sha256": "4d5066c8f9f05695e4308ad95f3b0eec0711d2d854caee1afdd0d78630f6a4c5"
     },
+    "Art/Characters/Creatures/Bisasam/Exports/MeshyV1/Bisasam_Attack.fbx": {
+      "bytes": 1227036,
+      "sha256": "10f651b820082abb4db9de02756e49db0a8cc7026fd3863b7918789f421085f3"
+    },
+    "Art/Characters/Creatures/Bisasam/Exports/MeshyV1/Bisasam_Faint.fbx": {
+      "bytes": 1233820,
+      "sha256": "9932bdf6a856bfa0a29825795d9fbfecd1bb07674a7f08c28d0aa136c996b1cb"
+    },
+    "Art/Characters/Creatures/Bisasam/Exports/MeshyV1/Bisasam_Happy.fbx": {
+      "bytes": 1237644,
+      "sha256": "a3d82a1534020ccba5b8cec5d276d801173ccbb1d92950eb46f41d0f99d21286"
+    },
+    "Art/Characters/Creatures/Bisasam/Exports/MeshyV1/Bisasam_Hit.fbx": {
+      "bytes": 1208748,
+      "sha256": "8343749f28f6bb7d2c647bcc599b96b7cad11eef871690446d365938e16f0645"
+    },
+    "Art/Characters/Creatures/Bisasam/Exports/MeshyV1/Bisasam_Idle.fbx": {
+      "bytes": 1257228,
+      "sha256": "12232dcdd74fd83ae4e27d729c0bc8f8b88eadde2b0719d2b2686a88894167ab"
+    },
+    "Art/Characters/Creatures/Bisasam/Exports/MeshyV1/Bisasam_Run.fbx": {
+      "bytes": 1208748,
+      "sha256": "27ae4a800f480becbe8ffa25a46b731179a07d5c60d591e3a81c66a0bb2041fb"
+    },
+    "Art/Characters/Creatures/Bisasam/Exports/MeshyV1/Bisasam_Walk.fbx": {
+      "bytes": 1216604,
+      "sha256": "555d16f412649747ceab31038f5f8d7bf9ae03486890618be7af1273505ab424"
+    },
+    "Art/Characters/Creatures/Bisasam/Exports/OverworldV1/Bisasam_Sprint.fbx": {
+      "bytes": 1236620,
+      "sha256": "1f875889e2b921b8d6b944fe09323b2cc3775b59f91bb66a27bd72c8feaf95d0"
+    },
+    "Art/Characters/Creatures/Bisasam/MeshyV1_AnimationAudit.json": {
+      "bytes": 29833,
+      "sha256": "b1b415a64f9fd9b7d15ecf6d655c5307379afd261b28ba92f03fe945261db32e"
+    },
+    "Art/Characters/Creatures/Bisasam/MeshyV1_ModelAudit.json": {
+      "bytes": 4620,
+      "sha256": "2a039a934ff95b7e6caf33f38a0f9b588ff550934ccf989889d020db2e7ef947"
+    },
+    "Art/Characters/Creatures/Bisasam/OverworldSprint_AnimationAudit.json": {
+      "bytes": 25070,
+      "sha256": "fb73747ed46a77ed22841ed648d7a2bd37ac572bf3dfc7c77ce1e73107b174fa"
+    },
+    "Art/Characters/Creatures/Bisasam/Source/Bisasam_Meshy_V1.blend": {
+      "bytes": 7688025,
+      "sha256": "c3e753014737c39365793db74d6320df355d5edd480c4f0d82f8a0db3703f50d"
+    },
+    "Art/Characters/Creatures/Bisasam/Source/Bisasam_OverworldSprint_V1.blend": {
+      "bytes": 136180,
+      "sha256": "75324d5c92fcabad6460cc3acbff6ebe0c8b511e289690845a33f7059ff2d963"
+    },
+    "Art/Characters/Creatures/Bisasam/Textures/MeshyV1/Bisasam_BaseColor.jpg": {
+      "bytes": 2285790,
+      "sha256": "b1f135d37cd762d38aae8796ac99c1bd4b944e2e4f4423f6977157896a8d808a"
+    },
+    "Art/Characters/Creatures/Bisasam/Textures/MeshyV1/Bisasam_MetallicRoughness.jpg": {
+      "bytes": 1369210,
+      "sha256": "fe5f66cdb81e339f26469a63c7e48f4a2bd499f2ad78cdbce76d9504bbcc50c9"
+    },
+    "Art/Characters/Creatures/Bisasam/Textures/MeshyV1/Bisasam_Normal.jpg": {
+      "bytes": 1629615,
+      "sha256": "1c3d77010ddb64fd799cd80bd492774f680441ca4bc3246da8ae6aa0f30a9d1e"
+    },
+    "Art/Characters/Creatures/Incoming/Bisasam.glb": {
+      "bytes": 5989748,
+      "sha256": "01ee8bc064635aeaaed2b356e1c87e0a9d0ab819fa6285d86cfbe0460466306d"
+    },
     "Art/Characters/Creatures/Incoming/Glumanda.glb": {
       "bytes": 6123824,
       "sha256": "44a82157d256a1ae4526f13c37aa3fc85d1022f2615f2812a2a8bba04ba4285c"
+    },
+    "Art/Characters/Creatures/Incoming/Shiggy.glb": {
+      "bytes": 5898576,
+      "sha256": "8353b766fc36d90d3c7a8905e82ae9c407a974959dcab6cac629c5127446a127"
+    },
+    "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Attack.fbx": {
+      "bytes": 1224860,
+      "sha256": "92fd6f8085f1c059f4eb91944f9970251833ba1eb5b4025a93e6b7cb0a248e61"
+    },
+    "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Faint.fbx": {
+      "bytes": 1233884,
+      "sha256": "3aa588c336ad330fc9a093caa3690290d50f201fd128ad4d4b028ae83e60ee23"
+    },
+    "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Happy.fbx": {
+      "bytes": 1236588,
+      "sha256": "d4d29745901af69989bc427176ec8fbfe2bb8dee440558126a7f910ce9a6e49e"
+    },
+    "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Hit.fbx": {
+      "bytes": 1204636,
+      "sha256": "30ac81b21a601c843c148d2baafda24437d4a2a4b129fad4676f032321e09372"
+    },
+    "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Idle.fbx": {
+      "bytes": 1258044,
+      "sha256": "cad7ebba63cd3d8b72358fcf246299338e673a9fdec4cfad89b7632db52e04cd"
+    },
+    "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Run.fbx": {
+      "bytes": 1204636,
+      "sha256": "33292f47c87a9f21b7a755edcda2d5d27ff3326581669a76179c82ff25ef7506"
+    },
+    "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Walk.fbx": {
+      "bytes": 1213340,
+      "sha256": "1e346a6e72c80219a24c27c81d4bf867b96dedd6751c57c9cfb0dccf667c9a3d"
+    },
+    "Art/Characters/Creatures/Schiggy/Exports/OverworldV1/Schiggy_Sprint.fbx": {
+      "bytes": 1235452,
+      "sha256": "8050536f0ddfebc6a2f34fff9f177acbb52570cd83ae8a1254fdbb51e141fd67"
+    },
+    "Art/Characters/Creatures/Schiggy/MeshyV1_AnimationAudit.json": {
+      "bytes": 15778,
+      "sha256": "86f89892a798c06be9ece362ec88e83348ae7b20636c6beb662f22aa76a66b59"
+    },
+    "Art/Characters/Creatures/Schiggy/MeshyV1_ModelAudit.json": {
+      "bytes": 4468,
+      "sha256": "f3d05cd58a13fd75628adabbf6f2dc3dc842928c9250ad4ca020acef3c4c773f"
+    },
+    "Art/Characters/Creatures/Schiggy/OverworldSprint_AnimationAudit.json": {
+      "bytes": 12942,
+      "sha256": "6a1a088bd177aee7b13d7f9b6c075d78a0538e360a5918dc479949a92666d510"
+    },
+    "Art/Characters/Creatures/Schiggy/Source/Schiggy_Meshy_V1.blend": {
+      "bytes": 7633933,
+      "sha256": "370643ec5faf226874940278c5b998df610db8ac216acc13de85e1d93fa9fca5"
+    },
+    "Art/Characters/Creatures/Schiggy/Source/Schiggy_OverworldSprint_V1.blend": {
+      "bytes": 137032,
+      "sha256": "d59a071bbb45a2a98f0927990ca651c67003c451e7eaec720412cb883450ad96"
+    },
+    "Art/Characters/Creatures/Schiggy/Textures/MeshyV1/Schiggy_BaseColor.jpg": {
+      "bytes": 2351219,
+      "sha256": "07cd273451e77abd9d00afc44bb2d2e98e9e1641851e1c5039b9d694ec7e2dae"
+    },
+    "Art/Characters/Creatures/Schiggy/Textures/MeshyV1/Schiggy_MetallicRoughness.jpg": {
+      "bytes": 1287871,
+      "sha256": "f4ccd6d1fb4b245bac6d5a16be45c3e662b81c7471cf895cf4f2d92d8b4c4c32"
+    },
+    "Art/Characters/Creatures/Schiggy/Textures/MeshyV1/Schiggy_Normal.jpg": {
+      "bytes": 1548712,
+      "sha256": "c88976ebefd54af71230dda014c2ae5166a8c24469842a72dd02ebe7b95527c5"
     },
     "Art/Characters/Creatures/Zunderlauf/AnimationAudit.json": {
       "bytes": 1326,
@@ -224,6 +360,10 @@
     "Art/Characters/Creatures/Zunderlauf/Exports/MeshyV11/Glumanda_Skin_V11.fbx": {
       "bytes": 973292,
       "sha256": "114346471bdb40f60bb15774bff20d60bd4e0ec8cfd7a3e8d52f61390b30fc44"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Exports/OverworldV1/Zunderlauf_Sprint.fbx": {
+      "bytes": 1155868,
+      "sha256": "ce69f6593c85fe5bcb439372830b527602890267c6fcdaaa1ae6d60ce6ae7e78"
     },
     "Art/Characters/Creatures/Zunderlauf/Exports/Zunderlauf_Attack.fbx": {
       "bytes": 1521388,
@@ -285,6 +425,10 @@
       "bytes": 702,
       "sha256": "aa467c02c10a030238ee137965c256702455b60dbd7df78ef59488b8b7245617"
     },
+    "Art/Characters/Creatures/Zunderlauf/OverworldSprint_AnimationAudit.json": {
+      "bytes": 12913,
+      "sha256": "a91fdd0cc9dcbb795a8a4943cf8b021e8aa7023c7516ec1b128d60745b05af71"
+    },
     "Art/Characters/Creatures/Zunderlauf/References/Primary_Design.jpg": {
       "bytes": 166220,
       "sha256": "1ee17479e0dd2130621cf24a10da3a6e128bcfe9289858557275ea07f1c40412"
@@ -304,6 +448,10 @@
     "Art/Characters/Creatures/Zunderlauf/Source/Glumanda_Meshy_V11.blend": {
       "bytes": 7895769,
       "sha256": "aa870c19df09078b2624079df6841e9ff91138667fa22cc1e80f227cdc8b9428"
+    },
+    "Art/Characters/Creatures/Zunderlauf/Source/Zunderlauf_OverworldSprint_V1.blend": {
+      "bytes": 146862,
+      "sha256": "6b201d6ffcf63428f7011a0816bd9df913076a98484f390838795a43c715509e"
     },
     "Art/Characters/Creatures/Zunderlauf/Source/Zunderlauf_V1.blend": {
       "bytes": 3687736,
@@ -5497,6 +5645,126 @@
       "bytes": 674613,
       "sha256": "ca70921863cf722b66f13b4af57f9be8643e8025e1d3ab9d4a825d1193c328a4"
     },
+    "Content/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Attack.uasset": {
+      "bytes": 36377,
+      "sha256": "0f177a03fd69448156ed2402c34c96e600b879ef6978bc04cc82a4e80a3b316c"
+    },
+    "Content/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Faint.uasset": {
+      "bytes": 43499,
+      "sha256": "79bcc2463ca5c9f15010f571fa0c0bbf29df4f6b7f1598b20cd8f51c7655892b"
+    },
+    "Content/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Happy.uasset": {
+      "bytes": 64101,
+      "sha256": "2ae5eeb5728e4c9ba4f626e55b0d472ec7101d660c10cea6e357ce08e235083b"
+    },
+    "Content/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Hit.uasset": {
+      "bytes": 34402,
+      "sha256": "d33ca89f2e24edfd0cd9c8ed68575e3167b1b36ab3b7cd4a2fe8d35329bd40c0"
+    },
+    "Content/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Idle.uasset": {
+      "bytes": 94800,
+      "sha256": "0b8b90b0c223323679b15c5b1c894203c129f09decfde6637fc0987b0e86e54e"
+    },
+    "Content/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Run.uasset": {
+      "bytes": 49683,
+      "sha256": "f1806c6237736e0ba61c4840679c52196e49c1ffd2d3f33735309a321b19af4e"
+    },
+    "Content/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Walk.uasset": {
+      "bytes": 57770,
+      "sha256": "855bcc506db256c20b6e57233f0577de480520103e0de5b2416eacaa921aa043"
+    },
+    "Content/Characters/Creatures/Bisasam/MeshyV1/DA_Bisasam_Presentation.uasset": {
+      "bytes": 3934,
+      "sha256": "2c0d466ba8a0c4ad9d2561ec263f01f14222c8add061ee0d762fafe439c33a7a"
+    },
+    "Content/Characters/Creatures/Bisasam/MeshyV1/Materials/M_Bisasam.uasset": {
+      "bytes": 13239,
+      "sha256": "872687418e5fa36f6f95ad72c0c461d868444e7d785c0a36880f1a8a24f2b198"
+    },
+    "Content/Characters/Creatures/Bisasam/MeshyV1/Meshes/SK_Bisasam_Meshy.uasset": {
+      "bytes": 3696331,
+      "sha256": "e24ff8d37155292a2b876f4cd3cd00f503872f58abd73f9afb9a1746e642c4f8"
+    },
+    "Content/Characters/Creatures/Bisasam/MeshyV1/Meshes/SK_Bisasam_Meshy_Skeleton.uasset": {
+      "bytes": 12066,
+      "sha256": "7781c9821e9c81b5ff89fa78968fbe3392e8408da919e9835cb9a35f177ad6b1"
+    },
+    "Content/Characters/Creatures/Bisasam/MeshyV1/Textures/T_Bisasam_BaseColor.uasset": {
+      "bytes": 2303738,
+      "sha256": "2f14fdbdf95455b60254918b2f6f0e92545912da07c6774d29fa6f87bad88ce6"
+    },
+    "Content/Characters/Creatures/Bisasam/MeshyV1/Textures/T_Bisasam_MetallicRoughness.uasset": {
+      "bytes": 1380336,
+      "sha256": "f8c5842997b5604380d13a8ce7c361fde617768f887dc3aaeef23e4ccc49feaf"
+    },
+    "Content/Characters/Creatures/Bisasam/MeshyV1/Textures/T_Bisasam_Normal.uasset": {
+      "bytes": 1640746,
+      "sha256": "203e3fc3b32e6eb31fd07a78726ffdb0f4eefd54f81ae5890b9e0468a20965f9"
+    },
+    "Content/Characters/Creatures/Bisasam/OverworldV1/Animations/A_Bisasam_Sprint.uasset": {
+      "bytes": 73363,
+      "sha256": "999a23070a588f5e34790aa7a0706321f7fd7c5ebf2c257a7b166731edbf9cbf"
+    },
+    "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Attack.uasset": {
+      "bytes": 51026,
+      "sha256": "89b18b32b598a604e7be92587ad391a90523edb70c78d6b5a86e0448d1a9491f"
+    },
+    "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Faint.uasset": {
+      "bytes": 65151,
+      "sha256": "8ca23838bac9e1ebfe390e99b5986e6e9e84e50869faec8b354449cefb566236"
+    },
+    "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Happy.uasset": {
+      "bytes": 73096,
+      "sha256": "bf1c1e95a1168b9e017868a2dc0334fafec9eae6957fe3d5ccadb54667fe38d2"
+    },
+    "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Hit.uasset": {
+      "bytes": 42558,
+      "sha256": "8c66aaea542be46acedf32c860f9833d3fda4bca62e9d51377cf3e94cc9fb8ff"
+    },
+    "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Idle.uasset": {
+      "bytes": 103689,
+      "sha256": "32715e3a5a231d38b279712a6942a8935e1ba6a64bf018cddccfe602985f54d2"
+    },
+    "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Run.uasset": {
+      "bytes": 50447,
+      "sha256": "b5bb89612449417410a564cc7f108c5abf8d4d428e38aa5d53f0a45ddba59c84"
+    },
+    "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Walk.uasset": {
+      "bytes": 58338,
+      "sha256": "4f62e8aefc8e80b5f5dcddcd25721a72fcd4c5d9a81b046a25af24cdc800f5f0"
+    },
+    "Content/Characters/Creatures/Schiggy/MeshyV1/DA_Schiggy_Presentation.uasset": {
+      "bytes": 3930,
+      "sha256": "04103ca214605148b3a857212453b79aad87e91f21567b21a646a1b6a02a566d"
+    },
+    "Content/Characters/Creatures/Schiggy/MeshyV1/Materials/M_Schiggy.uasset": {
+      "bytes": 12708,
+      "sha256": "5edf25e0eac9b9bd993fe53e3d0852e216e4fb5276092baff40c4d87afbec8c7"
+    },
+    "Content/Characters/Creatures/Schiggy/MeshyV1/Meshes/SK_Schiggy_Meshy.uasset": {
+      "bytes": 3654249,
+      "sha256": "a9de8692fba74f9773295bc756adf8da8a2926c752f51365ef39f236e0db9440"
+    },
+    "Content/Characters/Creatures/Schiggy/MeshyV1/Meshes/SK_Schiggy_Meshy_Skeleton.uasset": {
+      "bytes": 11710,
+      "sha256": "c155d209592aa936237be562fc505a6e413483d5f228cb2179351ee5040c6d24"
+    },
+    "Content/Characters/Creatures/Schiggy/MeshyV1/Textures/T_Schiggy_BaseColor.uasset": {
+      "bytes": 2370168,
+      "sha256": "095880e8124e7974bedcde021baf394549e621c9b0ec998a512d9c23d7ab4b87"
+    },
+    "Content/Characters/Creatures/Schiggy/MeshyV1/Textures/T_Schiggy_MetallicRoughness.uasset": {
+      "bytes": 1298996,
+      "sha256": "d560709d748c459dc0413b99177e3f37df365b2121833709cf389e16cfaba6d2"
+    },
+    "Content/Characters/Creatures/Schiggy/MeshyV1/Textures/T_Schiggy_Normal.uasset": {
+      "bytes": 1559842,
+      "sha256": "45ef3c30148cacd2da46c0a03c3aa4207f5bd26764da6f184b7d97c86c3e1056"
+    },
+    "Content/Characters/Creatures/Schiggy/OverworldV1/Animations/A_Schiggy_Sprint.uasset": {
+      "bytes": 73581,
+      "sha256": "dae2c37b5d4dc7ebd5dd26b079a47518bd9364f42b773c41b224ce73faa82a6d"
+    },
     "Content/Characters/Creatures/Zunderlauf/Animations/A_Zunderlauf_Attack.uasset": {
       "bytes": 41560,
       "sha256": "753bfba5aff8b830bb29b943409948762830997a7480787e1756b4b8308a8a07"
@@ -5620,6 +5888,10 @@
     "Content/Characters/Creatures/Zunderlauf/MeshyV11/SK_Glumanda_V11.uasset": {
       "bytes": 3268084,
       "sha256": "8ff5a37ea7d62df6cc91f97425222dfeef25103e4e1dd0954ea229189de3ad0d"
+    },
+    "Content/Characters/Creatures/Zunderlauf/OverworldV1/Animations/A_Zunderlauf_Sprint.uasset": {
+      "bytes": 76701,
+      "sha256": "ed7ede8c9ca5afa45e327812b9d2bf36f9b9f5d4e5673165d0f3b57dd126dcd8"
     },
     "Content/Characters/Creatures/Zunderlauf/Textures/T_Zunderlauf_DIFFUSE.uasset": {
       "bytes": 828579,
@@ -6417,6 +6689,14 @@
       "bytes": 1699,
       "sha256": "c7ecddb3c227422cb0c58e3edc89dc7c3417366ad5745fe33718ce72852af029"
     },
+    "Content/Data/Creatures/DA_Bisasam.uasset": {
+      "bytes": 4117,
+      "sha256": "c205b0135de1df0f10ffd5e08da531434d160053275df3277cfb9789413097d2"
+    },
+    "Content/Data/Creatures/DA_Schiggy.uasset": {
+      "bytes": 3939,
+      "sha256": "58fb59f6286fc2dd2f0f8ed3d936b8d2a399a168f66fd3f13972d345abf9627b"
+    },
     "Content/Data/Creatures/DA_TestFire.uasset": {
       "bytes": 2295,
       "sha256": "bf2319282b324760aa187b277d125aa20b46c0cfd32868a532165957ec69439d"
@@ -6430,8 +6710,8 @@
       "sha256": "89bcb68d3b1be93bc3372f30ab395eb22837b31e7adc52ba9eab7a798c9b06ee"
     },
     "Content/Data/Creatures/DA_Zunderlauf.uasset": {
-      "bytes": 3238,
-      "sha256": "f4d102a17953d7d23f7f7f0821dbbbb627dc2392d390b1d85a81641221f6bd49"
+      "bytes": 3684,
+      "sha256": "3ea0eb0298ba0194167f721fea6ce52981f2ed5eccc43b51d0e9c3fb02e04874"
     },
     "Content/Data/Dialogues/DA_DevArchivistDialogue.uasset": {
       "bytes": 3704,
@@ -6449,9 +6729,17 @@
       "bytes": 5288,
       "sha256": "e9af03322afee38ca41802b129462e4106e9a64abf10096ad1cc5c374c2a070e"
     },
+    "Content/Data/Encounters/DA_Bisasam_Wild.uasset": {
+      "bytes": 2230,
+      "sha256": "eaa7f2cc8690a4d215d4dec4917b114a4c61cf6b4e173a0d7bf85928295c8d08"
+    },
     "Content/Data/Encounters/DA_DevWild.uasset": {
       "bytes": 2902,
       "sha256": "f9bf633ed42a58761dd3bf9d6c255a259e1ede022655b6aa12fcc91a048c0293"
+    },
+    "Content/Data/Encounters/DA_Schiggy_Wild.uasset": {
+      "bytes": 2230,
+      "sha256": "d437a7a2a793818da59328e4c4ea15690635bb24d134313febe9d7181b11c8cf"
     },
     "Content/Data/Encounters/DA_Zunderlauf_Wild.uasset": {
       "bytes": 2254,
@@ -6469,6 +6757,22 @@
       "bytes": 2399,
       "sha256": "9367fc57459ec38606529770ccded02259dda13763ae37c9efd8ebc903c6d5a2"
     },
+    "Content/Data/Moves/DA_Ember.uasset": {
+      "bytes": 2159,
+      "sha256": "918778173c82bc76a89b272b6392ea263403b9d1ce0618a90ac66519f9185890"
+    },
+    "Content/Data/Moves/DA_Growl.uasset": {
+      "bytes": 2026,
+      "sha256": "838285de1ca7f886e0e908af6246f7d9861add56b5d3e49a1aae51d533ab1846"
+    },
+    "Content/Data/Moves/DA_Scratch.uasset": {
+      "bytes": 1613,
+      "sha256": "6d667f8a634940887e647e32a1dccb054ae5fdb8d568187ab8536f8bbb9b2026"
+    },
+    "Content/Data/Moves/DA_Tackle.uasset": {
+      "bytes": 1539,
+      "sha256": "fea427761ed2c8c61a1e93f6f042405c80fd900ee92c3d919efbaffcea697b86"
+    },
     "Content/Data/Moves/DA_TestFireSpecial.uasset": {
       "bytes": 2169,
       "sha256": "028c1117aa8fc0c646808f39a70ff4ce0f144256de947b5f321a9976c3824938"
@@ -6480,6 +6784,14 @@
     "Content/Data/Moves/DA_TestStatus.uasset": {
       "bytes": 2028,
       "sha256": "69fbe624140370a81abb1502b74a585dae0444b1dd309f056af4cd48395e98e7"
+    },
+    "Content/Data/Moves/DA_VineWhip.uasset": {
+      "bytes": 1912,
+      "sha256": "550f15125ad8bddb908fe0ada750f391b238d1ecd6a65ad1f05fc092c75a12eb"
+    },
+    "Content/Data/Moves/DA_WaterGun.uasset": {
+      "bytes": 1865,
+      "sha256": "d8089ff3b5bf62533ba8269c4d3ed8f5aa5e909c7bdec9d79040079a6af5974d"
     },
     "Content/Data/Quests/DA_SliceArchiveQuest.uasset": {
       "bytes": 2688,
@@ -9274,8 +9586,8 @@
       "sha256": "d9855c7a10dee76c73ab260871e220abc2371ef61e91d269b145a498bd26176f"
     },
     "Content/Maps/Dev_TestMap_VisualV2.umap": {
-      "bytes": 4148586,
-      "sha256": "5a72145ff1bee432d2a962b93bcec2293e5e03a3c1d5ece971ff4b89a3736d91"
+      "bytes": 4154344,
+      "sha256": "c6bbe8656d44cee82c0d5a80d6f230f28d24ce3053a84f1e5eed74e10be2abb5"
     },
     "Content/Maps/Dev_TestMap_VisualV2GPUBottleneckV1.umap": {
       "bytes": 3300685,
@@ -9326,8 +9638,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 129341,
-      "sha256": "ba2b990d1b38833133914de2650c9f0008544ae19474cb84b52af7eb78e64105"
+      "bytes": 130937,
+      "sha256": "cfbc42c570e0e42bac5a5289e9e3583edf075a7a62392f81817d7daa9fcf183c"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
@@ -9385,9 +9697,17 @@
       "bytes": 11955,
       "sha256": "4712350bf9f54907f5eaf8047529816f2d564b952f703bc4633ca57274bf00f6"
     },
+    "Docs/KAMPFANSICHT_V2_PRUEFBERICHT.md": {
+      "bytes": 16372,
+      "sha256": "a0206ef7f74663323d0ef12de65751914dab97d5f8d84486f753360fa5ef38aa"
+    },
+    "Docs/KAMPFSYSTEM_V3_PRUEFBERICHT.md": {
+      "bytes": 16125,
+      "sha256": "0344bde48c43e12431c256018f51cb7f1106a1240ffd6cb40e065b9b69c827ef"
+    },
     "Docs/KREATUREN_PIPELINE_V2.md": {
-      "bytes": 18112,
-      "sha256": "fd1adb7e7efa99e53a269924357e682f7c833c2e7d7dc653333ca1097d1d9a43"
+      "bytes": 21153,
+      "sha256": "c78454be5eb3a39b13d31c236b5d764a94ddd1e2c7bd86fc2eddca91fe1fb9e2"
     },
     "Docs/KREATUREN_PIPELINE_V2_PRUEFBERICHT.md": {
       "bytes": 14577,
@@ -9441,9 +9761,13 @@
       "bytes": 10295,
       "sha256": "1021cb6f8ba2455e0e4dada658a9fa31e31566b543d8c7b76fc47d83d6a8649a"
     },
+    "Docs/STARTER_ERWEITERUNG_V1_PRUEFBERICHT.md": {
+      "bytes": 22349,
+      "sha256": "3b2a6986a1fdaeca80e58e4c8432476440109c8aeb874d4515ebd3880804e202"
+    },
     "Docs/TECHNIK.md": {
-      "bytes": 153619,
-      "sha256": "094f127aef37079fee2a0707d248b802172a1bb0e8aa6e50906435cff6ad4726"
+      "bytes": 155286,
+      "sha256": "5d7ddb2d751bb16004201c6270d49903b31143638825915053ec6f0e8cae8f68"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -9665,6 +9989,34 @@
       "bytes": 3031,
       "sha256": "635a81f0410e3f1798a52c9ff842e73b2b50b838bb20a33a6973ae9422d3de69"
     },
+    "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureCompanionSubsystem.cpp": {
+      "bytes": 6819,
+      "sha256": "0d2e4cc67f472d7f4c88cc37cf4c2370dc2162f4b25f3d15928bc1f0107a64b0"
+    },
+    "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureCompanionSubsystem.h": {
+      "bytes": 1705,
+      "sha256": "45ab7e09e196d2e27d35c84a949ceefdaa53eefb9b3f37656558c3e91b7018e1"
+    },
+    "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureOverworldSettings.h": {
+      "bytes": 2083,
+      "sha256": "7000971c5b168ebd5394f18388626acdc10865e6e306a944772aa232cbc6f4c4"
+    },
+    "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreaturePath.cpp": {
+      "bytes": 3561,
+      "sha256": "9a77c4b8de0d6eea9f16bb42bca4ecc32f9536970d3470d928bc353bc85b73bd"
+    },
+    "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreaturePath.h": {
+      "bytes": 483,
+      "sha256": "787fac20759eeea73a0ba72965409becd65590f8a724a58801ac482f3d80a6b9"
+    },
+    "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureRoamingComponent.cpp": {
+      "bytes": 11949,
+      "sha256": "87698896fb4b49a887f10732934f5bc914cd48e34f402939c32c617e7bf44cb8"
+    },
+    "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureRoamingComponent.h": {
+      "bytes": 3030,
+      "sha256": "862bdf94d4b23b4f376bac34941145510d2b24c2d5ca5eb8a2f05ba32592dc2a"
+    },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureInstance.cpp": {
       "bytes": 7309,
       "sha256": "e68255837651da3552ed05e5ca43e89c3cc70864e85cc179c3bcc402da3a8928"
@@ -9674,8 +10026,8 @@
       "sha256": "a702e9c283a0905dcc52ceba5b96e021ede346af8a7acb8b636e7d48e02967e1"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreaturePresentation.cpp": {
-      "bytes": 9216,
-      "sha256": "bd94bf98d1dbefcc73eaad8988a254a7fd93c48ffa4da2911635007113767bf0"
+      "bytes": 9311,
+      "sha256": "52211aaba2148392d7cbe7d71839b5fef53752e5a6577bd62c0b8fff98e36727"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreaturePresentation.h": {
       "bytes": 4857,
@@ -9694,12 +10046,20 @@
       "sha256": "ae053598520b3f6be50c9bded32c5a3bf51bf497dccd2da44b2a9b09096a4df4"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureSpeciesData.h": {
-      "bytes": 4664,
-      "sha256": "e431236fd9736dd699cccccf1fba749b0414f0c7d9793adb4ae21d95eb900cab"
+      "bytes": 4841,
+      "sha256": "3768ff81241a5ec644a6f46ce40078a98a4dda14a5e70dde7753dc64fa4f1b62"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureTypes.h": {
       "bytes": 6367,
       "sha256": "34be6f16a21fe121de3d76ab0a146dc06033dde6e4d77a43dd021bd9ac5dd748"
+    },
+    "Source/PokeMonster/Development/PokeMonsterBattleSystemV3Review.cpp": {
+      "bytes": 4471,
+      "sha256": "28fd60a27e0d8f942049a707ae5d5690b6df27d12562b93b179bd85f7d52401c"
+    },
+    "Source/PokeMonster/Development/PokeMonsterCreatureReviewCapture.cpp": {
+      "bytes": 6263,
+      "sha256": "fdf137f03abf9349ba9a8b0e21590b0b84ec2fa16ea579ac4a2e3302d43c87b7"
     },
     "Source/PokeMonster/Development/PokeMonsterEnvironmentPerformanceProbe.cpp": {
       "bytes": 17431,
@@ -9777,6 +10137,10 @@
       "bytes": 192,
       "sha256": "81e8ea7bd2921a2fe547560f74ec4eb72f5c6fc2c85d4ee5b1858ebf7071f623"
     },
+    "Source/PokeMonster/Development/PokeMonsterStarterExpansionReview.cpp": {
+      "bytes": 3346,
+      "sha256": "e91054b8235ba541fa2168a860b1ff24ab654d1b13e6b6915e9fa655c1ec0cb8"
+    },
     "Source/PokeMonster/Development/PokeMonsterTAAReviewCapture.cpp": {
       "bytes": 3632,
       "sha256": "f1d0e465a74b49fdf51ebf51b798b2ebf895f66e58d8284a4949ae83c826e93a"
@@ -9813,6 +10177,22 @@
       "bytes": 890,
       "sha256": "53cead80ae83f58e389578c710741d838a86849ad927e311ac2b7495a1a32db5"
     },
+    "Source/PokeMonster/Encounter/PokeMonsterBattleEnvironment.h": {
+      "bytes": 275,
+      "sha256": "590f3c1da220e8bcf30e83176c231423aab57fb905782c3806ae6f96875626a8"
+    },
+    "Source/PokeMonster/Encounter/PokeMonsterBattlePresentationMode.h": {
+      "bytes": 283,
+      "sha256": "33c7520bbd768ff37f44aa700ef083c0c08c57d6f45a48420e17715ce4a46bd0"
+    },
+    "Source/PokeMonster/Encounter/PokeMonsterClassicBattleScene.cpp": {
+      "bytes": 14203,
+      "sha256": "a86a8c30687b7b31126f90b36da372eb4b911924517dd0558444190f542112b2"
+    },
+    "Source/PokeMonster/Encounter/PokeMonsterClassicBattleScene.h": {
+      "bytes": 2457,
+      "sha256": "fbeae16ae8d1ead60de57ec5c13b7ecf0d023c599b8864701d77b4fbf499c6e3"
+    },
     "Source/PokeMonster/Encounter/PokeMonsterEncounterProfile.cpp": {
       "bytes": 2380,
       "sha256": "6a87aa2ce3937ad811b948fd3d75f9c2c1ebb405935cefb512d66322e4e215a7"
@@ -9846,12 +10226,12 @@
       "sha256": "2f68c6e471eb29d7e2f08b2c2530c36995f29e35c75ccfd71782ff05f0e4eebb"
     },
     "Source/PokeMonster/Encounter/PokeMonsterVisibleWildCreatureActor.cpp": {
-      "bytes": 8865,
-      "sha256": "f8102e0aa63b45611399a498339f653eec4a6b139d2f62592e8f2d60f84fd1e3"
+      "bytes": 7681,
+      "sha256": "fb4f1f49ec1b2d2d712727745ec571eeee8277ce7cc82d9237a772124389ad2f"
     },
     "Source/PokeMonster/Encounter/PokeMonsterVisibleWildCreatureActor.h": {
-      "bytes": 2846,
-      "sha256": "34afa8eddc4d1a71d9e234c509fd93a254b87560331a448b20b3ce652702ba02"
+      "bytes": 2972,
+      "sha256": "5e180a67f1ea03c9fa16299654bf65ca2153c0db7e93e810994beaf8801d197e"
     },
     "Source/PokeMonster/Encounter/PokeMonsterWildEncounterZone.cpp": {
       "bytes": 3797,
@@ -9985,6 +10365,10 @@
       "bytes": 16954,
       "sha256": "1b05319bad16a34a7d37e75beddbe3ae015d6d8ea4fcdd378263fdeef1cc41ab"
     },
+    "Source/PokeMonster/Tests/PokeMonsterBattleSystemV3Test.cpp": {
+      "bytes": 14841,
+      "sha256": "fa84bece4f0f23e906a0226e0cf253bfc3abc9940cada802bb20dddf74ab4194"
+    },
     "Source/PokeMonster/Tests/PokeMonsterBattleTest.cpp": {
       "bytes": 13472,
       "sha256": "be00cf21b450bd7e6dc56f01bb35d8a29e47f9c89b4f078c7825859941ff01bb"
@@ -9992,6 +10376,10 @@
     "Source/PokeMonster/Tests/PokeMonsterBattleUITest.cpp": {
       "bytes": 9047,
       "sha256": "98ab17702b9629197e2e19dee01381af4aa24cdf530c138c5e23878a4e86f334"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterBattleViewV2Test.cpp": {
+      "bytes": 4680,
+      "sha256": "13b77b20c01903f1130174690984d9612e6936c21f9884082f255054ddc9e6c8"
     },
     "Source/PokeMonster/Tests/PokeMonsterBuildingCameraTest.cpp": {
       "bytes": 11181,
@@ -10005,9 +10393,17 @@
       "bytes": 14042,
       "sha256": "22f1afbf0226aa621a215e17bb96a6d6eb17ee0193ed75730e2431f7db5d0259"
     },
+    "Source/PokeMonster/Tests/PokeMonsterCheckpointSaveTest.cpp": {
+      "bytes": 4059,
+      "sha256": "7605d1df97781482164932ab70cb0658522ffcc07e32ebacd1af31eb5e0f0996"
+    },
     "Source/PokeMonster/Tests/PokeMonsterCheckpointTest.cpp": {
       "bytes": 6540,
       "sha256": "139d1eb956b7036fe51341e7c850a81b27137b62d58a9dabff1cb60948328ae9"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterClassicBattleTest.cpp": {
+      "bytes": 4151,
+      "sha256": "7af8b4b786522906064a5d35e7534916550ac89af8039df6f2bb8b5064429e3b"
     },
     "Source/PokeMonster/Tests/PokeMonsterCreatureDataTest.cpp": {
       "bytes": 3906,
@@ -10020,6 +10416,10 @@
     "Source/PokeMonster/Tests/PokeMonsterCreatureProgressionTest.cpp": {
       "bytes": 12547,
       "sha256": "6791e2b2e8f8a4aad0e4ce675c0e215eceaa08f4a60154efe4781289cc1cf5d5"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterCreatureRoamingTest.cpp": {
+      "bytes": 5660,
+      "sha256": "a079ed23336d175838eb650f6e4d7c20940d426216ad14728a7dd969bf6f4ab4"
     },
     "Source/PokeMonster/Tests/PokeMonsterDialogueTest.cpp": {
       "bytes": 5403,
@@ -10116,6 +10516,10 @@
     "Source/PokeMonster/Tests/PokeMonsterScaleCalibrationTest.cpp": {
       "bytes": 8154,
       "sha256": "78586eab0ee7e20fbc0679e3b3b83354864b84b1c9fe2eed9a9f049f3e17e655"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterStarterModelsTest.cpp": {
+      "bytes": 5198,
+      "sha256": "d858bcebb80ccd2f09c207e7ca88930264e34bd709d810de7df8c0676af8bbdf"
     },
     "Source/PokeMonster/Tests/PokeMonsterTeamBattleTest.cpp": {
       "bytes": 8509,
@@ -10220,6 +10624,70 @@
     "Source/PokeMonsterEditor.Target.cs": {
       "bytes": 416,
       "sha256": "a8209a828f353e29ce917946a62c8cecd508647a12ea9a082f1e352bb3566f9f"
+    },
+    "Tools/BattleSystemV3/CheckMaps.py": {
+      "bytes": 1037,
+      "sha256": "4ecc81dd4acc964af804506097b8052241fcbffaece65958d76ef6dd5f6f74a5"
+    },
+    "Tools/BattleSystemV3/PrepareData.py": {
+      "bytes": 3738,
+      "sha256": "4d2fac732229e13ed784f6a9a3b501d4669b39c405557dac926de57bcd58b7fc"
+    },
+    "Tools/BattleSystemV3/Protection.py": {
+      "bytes": 1903,
+      "sha256": "333615840c94e3f52b4400f9ee17d1c945df0765e3d9989b69d8ef189c050175"
+    },
+    "Tools/BattleSystemV3/README.md": {
+      "bytes": 3797,
+      "sha256": "253cce4a3cf16aace542b8125e04bb8f93f5766e07df0f6fe82ec27705979726"
+    },
+    "Tools/BattleSystemV3/Review.py": {
+      "bytes": 10130,
+      "sha256": "44bfb6a26c3c44a110c7ba87f3993d0e2bfb4387bdd91c1530433bb0ea2162f5"
+    },
+    "Tools/BattleSystemV3/RunPIE.py": {
+      "bytes": 817,
+      "sha256": "b81577efc7adc7d60246e8c64f3b124df95403c073215a63cd25ff0d85af96b6"
+    },
+    "Tools/BattleSystemV3/ValidateData.py": {
+      "bytes": 1883,
+      "sha256": "668358f3b9bb65ce63d9523533d97057b3f1ca439fd74577737aa3f158fa7f11"
+    },
+    "Tools/BattleViewV2/CheckMaps.py": {
+      "bytes": 1035,
+      "sha256": "4296b1e40dadd0011f6c9f097157e58f4897587a7d34c77120856637c50265c1"
+    },
+    "Tools/BattleViewV2/Native.py": {
+      "bytes": 1014,
+      "sha256": "d3be725dd56975ca9dd5a48241a7792807739fd9ab12832d0f3dc3b7db907ac1"
+    },
+    "Tools/BattleViewV2/Protection.py": {
+      "bytes": 1146,
+      "sha256": "7c3840c82aa94feb8303fce269fcd19d5a7f0b5415e924291138d938fb9b3a53"
+    },
+    "Tools/BattleViewV2/README.md": {
+      "bytes": 2914,
+      "sha256": "05ccbe7296c92fb0bd43378e49e621f4bb37109691d579e1112786b69e56abca"
+    },
+    "Tools/BattleViewV2/Review.py": {
+      "bytes": 5099,
+      "sha256": "95e6b4174ccc9fdc0d448066c429c2c728ad4a1dfda5a7b9867627566a0b980e"
+    },
+    "Tools/BattleViewV2/ReviewInput.py": {
+      "bytes": 3062,
+      "sha256": "783b6a87f43cdcc79ed1f312ebd73f751ee5ee5a0f1c19bf94e102ed7a817636"
+    },
+    "Tools/BattleViewV2/ReviewWorld.py": {
+      "bytes": 3401,
+      "sha256": "bd54cad158d7092c515f39e35ea8bf8c5c25c9ceefd0ebbc76139a9d1f4e687f"
+    },
+    "Tools/BattleViewV2/RunNative.py": {
+      "bytes": 1407,
+      "sha256": "6ed3baea9302d59216bdcfbd7b17604286c27cea572e82aa9ae320dd34dc2e9e"
+    },
+    "Tools/BattleViewV2/RunPIE.py": {
+      "bytes": 991,
+      "sha256": "74a234278e12507a16792e5c2c99ae148fa95e991a48c137ec84ac9b0f69c7e6"
     },
     "Tools/Blender/AnimateMeshyPlayerV2.py": {
       "bytes": 6624,
@@ -11277,6 +11745,14 @@
       "bytes": 1307,
       "sha256": "284d226fd0084e559945667b5753a86cb8651d24fc05d531a7f5405c226d6fb7"
     },
+    "Tools/GlumandaV11/CheckMaps.py": {
+      "bytes": 1043,
+      "sha256": "c958e92b01d5a7fd307a7a54103a37b6e879a438961d7e5d48be331cb56d71c7"
+    },
+    "Tools/GlumandaV11/CheckProtection.py": {
+      "bytes": 1144,
+      "sha256": "0283343bb5cb33f639ea1debb13735b01184f2d38e84d4bf0a259966dda2b0c1"
+    },
     "Tools/GlumandaV11/ImportMesh.py": {
       "bytes": 3212,
       "sha256": "580e9adf86a08ce0ba61ca7426c7fd675f4ed40de3dce45bf47a89187a8993bf"
@@ -11293,9 +11769,21 @@
       "bytes": 1366,
       "sha256": "9bdc933539986144879c0ad484c0d882cfe724fe35f39facb7dc7dc134a4bce6"
     },
+    "Tools/GlumandaV11/InspectSpeciesNames.py": {
+      "bytes": 528,
+      "sha256": "6f4272afb226129fa8f063204331211f67b88dc57b2914b3c2eeae61f170195a"
+    },
+    "Tools/GlumandaV11/ObserveGameplay.py": {
+      "bytes": 3693,
+      "sha256": "f6e2fcb91e854536a36a81bdac28ee381b09a96a0e85acdfb75a578fb00fed42"
+    },
     "Tools/GlumandaV11/PrepareEvidence.py": {
       "bytes": 2820,
       "sha256": "10e5cd5aaf1450c437382b3e88f5db474f6612dcebfa88f68b392eed1cbc0320"
+    },
+    "Tools/GlumandaV11/PrepareFinalEvidence.py": {
+      "bytes": 1483,
+      "sha256": "fa8a98d71ecc3041995e569a1fdaa89e2b5c006906458b4d584b676564d4aaa2"
     },
     "Tools/GlumandaV11/PrepareMesh.py": {
       "bytes": 10047,
@@ -11309,9 +11797,33 @@
       "bytes": 1089,
       "sha256": "72e64b3de342f3aae2abf8ed1f28228042862ba73f9a059c774ee01b9a1550da"
     },
+    "Tools/GlumandaV11/ReviewButtonInput.py": {
+      "bytes": 2780,
+      "sha256": "3c36ab5c39825077d27a161d33ff02f32e97ec0469693d208a0f83dc8a3ad86f"
+    },
     "Tools/GlumandaV11/ReviewCandidate.py": {
       "bytes": 5858,
       "sha256": "4e744bb0af9d68111b30e1f7e95a6b39436d698351bab47ea43b23308dd7d860"
+    },
+    "Tools/GlumandaV11/ReviewClassic.py": {
+      "bytes": 4794,
+      "sha256": "d59be439eb837c0ea8d09cc35a91fb485c5c96e054f4b4820eab66b5a58f83d4"
+    },
+    "Tools/GlumandaV11/ReviewSight.py": {
+      "bytes": 2791,
+      "sha256": "cb99e312557b668565bf15e1ed0f7ca0f9b8cc8b59b04dcd8f9b584775172477"
+    },
+    "Tools/GlumandaV11/ReviewWorld.py": {
+      "bytes": 3194,
+      "sha256": "b9218d55f8b9a14d39a73c09ded37982d53a865e61b35d22a3a353a33ac92672"
+    },
+    "Tools/GlumandaV11/RunGameplay.py": {
+      "bytes": 1968,
+      "sha256": "64d40bbd9b0ba1806f93232411aa340b28984ca4732c7f55f229aeec2ffb4330"
+    },
+    "Tools/GlumandaV11/StartGameplay.py": {
+      "bytes": 843,
+      "sha256": "7b45cbfb8883d136176af335f7400d6d5ab8398c8e4cbe80c9ec9d3592b792f9"
     },
     "Tools/GlumandaV11/ValidateMesh.py": {
       "bytes": 3328,
@@ -12808,6 +13320,126 @@
     "Tools/ScopeDevTestMapVisualV2Materials.py": {
       "bytes": 2015,
       "sha256": "841099dbb97775352ba6b6a87f3aa07dda7ab41be52421b440cadf2433877190"
+    },
+    "Tools/StarterExpansionV1/AnimateModels.py": {
+      "bytes": 8237,
+      "sha256": "4f9c12c8d16b649a87b408bc2a4b6bbfcc4c0bbfe62e7f948b7f5984336cea33"
+    },
+    "Tools/StarterExpansionV1/AutomaticSkin.py": {
+      "bytes": 2506,
+      "sha256": "991ccb724148f465264acf28f0c874d1f9a87b7a2250cbb68c2ca982a9ead800"
+    },
+    "Tools/StarterExpansionV1/CheckAtlasSampling.py": {
+      "bytes": 830,
+      "sha256": "3c051bf4075253d36653afeda484e4bd9c92569071ddba2454bd69c8ff82d65c"
+    },
+    "Tools/StarterExpansionV1/CheckMaps.py": {
+      "bytes": 1065,
+      "sha256": "e48dacc217273d5e25b2893cd5569d8741b1e6c0ce78c105b7280c81615e006c"
+    },
+    "Tools/StarterExpansionV1/CheckWildPlacement.py": {
+      "bytes": 1859,
+      "sha256": "942af051059edc5a43ccadafd7c8645b921ae4c3f92970b78f383ed546616a50"
+    },
+    "Tools/StarterExpansionV1/CreateOverworldSprints.py": {
+      "bytes": 7352,
+      "sha256": "c88ccb8e8a2b6f908b5db6b359d58592a814c7a8a866d9c6270bac03f9e6487f"
+    },
+    "Tools/StarterExpansionV1/DiagnoseSkin.py": {
+      "bytes": 1203,
+      "sha256": "c19cddf606d78ada315f57b294b4eeadd0637dcea8ecc6e2cb9b11cec218cec5"
+    },
+    "Tools/StarterExpansionV1/ImportModels.py": {
+      "bytes": 9407,
+      "sha256": "2c9ccbaf70d51197b3d570a1799043ff5b31526a79d7c2d236b40451baf7929c"
+    },
+    "Tools/StarterExpansionV1/ImportOverworldSprints.py": {
+      "bytes": 4492,
+      "sha256": "6cb04d4c10b2bc0cb2e4e8bf6349f73de5780883742fdda8527d9a69be916d1b"
+    },
+    "Tools/StarterExpansionV1/InspectModels.py": {
+      "bytes": 3738,
+      "sha256": "bcf37c3619dd12c22cdf8f59006863027193276b2b17d1c9abe05648e1481d55"
+    },
+    "Tools/StarterExpansionV1/InspectWorld.py": {
+      "bytes": 1194,
+      "sha256": "5da2eee2dcf9ab0b2356016dcd39ea51c6a5b00b3114315672dfe5cecadc3ea8"
+    },
+    "Tools/StarterExpansionV1/ObserveCompanion.py": {
+      "bytes": 3100,
+      "sha256": "a711b99132b4dcf9e9c82c93dc25bdf58009d4b03d6e04554a9ba2580c80b457"
+    },
+    "Tools/StarterExpansionV1/PlaceWild.py": {
+      "bytes": 4335,
+      "sha256": "0e22b331cff1c063d2436dcc8214f07309bee33e8ce7c618df367cd242c15f55"
+    },
+    "Tools/StarterExpansionV1/PrepareModels.py": {
+      "bytes": 4706,
+      "sha256": "ed749703d939f6b264f015852ec18917421cd8d56049522af30145717db98ca6"
+    },
+    "Tools/StarterExpansionV1/README.md": {
+      "bytes": 4882,
+      "sha256": "9a1dafb62e3f814bc3da1c416d4b79fd71a1ae479573dfde9324ada93ac03b40"
+    },
+    "Tools/StarterExpansionV1/ReviewCapture.py": {
+      "bytes": 5296,
+      "sha256": "2f05c437b3f8b21d76ad34410c46de66e652d19817d73b71f1f8601d73b9265c"
+    },
+    "Tools/StarterExpansionV1/ReviewDefeatSave.py": {
+      "bytes": 3657,
+      "sha256": "d92405faea2cbd807554bf3b82beb2733fd92f8585357e02ad9fbc90686fb4c8"
+    },
+    "Tools/StarterExpansionV1/ReviewModels.py": {
+      "bytes": 4942,
+      "sha256": "c352427759489ec9ddf9671d57fcb0017e5deae13cbd05807e67503287691d3e"
+    },
+    "Tools/StarterExpansionV1/ReviewMovement.py": {
+      "bytes": 8760,
+      "sha256": "174501a05e4fbdb8cb7cd7b155ee88fc4daefeb683bd0d27cf5aef1f6bcdf8c1"
+    },
+    "Tools/StarterExpansionV1/RigLayout.py": {
+      "bytes": 2002,
+      "sha256": "603cc5f0ba9b3d5aa9c2d72b9e994b924240cd54b3c463629130047efbc6c78a"
+    },
+    "Tools/StarterExpansionV1/RunCapture.py": {
+      "bytes": 1414,
+      "sha256": "dc3404ac5bf0ee99ae2a8e3b3493e2b9409d60851140b14580bcfc7d396924b6"
+    },
+    "Tools/StarterExpansionV1/RunDefeatSave.py": {
+      "bytes": 1553,
+      "sha256": "b4bfb2aab3590fa7cc1c66314fad33a4fe42c34ba842ef717a5e9d07c29e63a6"
+    },
+    "Tools/StarterExpansionV1/RunFullGameplay.py": {
+      "bytes": 2138,
+      "sha256": "b31836f4173194f90c8c9a328b99a82eb646a153e90c3f7acbc7c694be215f39"
+    },
+    "Tools/StarterExpansionV1/RunModels.py": {
+      "bytes": 1409,
+      "sha256": "14d24a1a5c5ba97f2eb84d68c1e9fcda23ef64402121773581a88dff73990dc4"
+    },
+    "Tools/StarterExpansionV1/RunMovement.py": {
+      "bytes": 1417,
+      "sha256": "f3fb037a73e5959afcdc233e6e891b3fe829b84292395b26dced01aab9732858"
+    },
+    "Tools/StarterExpansionV1/StartFullGameplay.py": {
+      "bytes": 352,
+      "sha256": "3464b7db529fb29d59af7bd56496ab3ba12f974679cf09cdbd304d3b202fc2c4"
+    },
+    "Tools/StarterExpansionV1/SummarizeMaps.py": {
+      "bytes": 1041,
+      "sha256": "bc3334f2a786a5977dd6925658b291e9eb9c90e3d70bcc7b67840dd6efa9b4c6"
+    },
+    "Tools/StarterExpansionV1/ValidateBlender.py": {
+      "bytes": 3436,
+      "sha256": "67c04cf9d5a47daafa0ba907017f9441421db411213cc6c3c8316456090fd0cb"
+    },
+    "Tools/StarterExpansionV1/ValidateOverworldSprints.py": {
+      "bytes": 2897,
+      "sha256": "6bfd36cbee9ba7d353cdacc1e7bdf31efbdd9370013ff96a96626673d4bac796"
+    },
+    "Tools/StarterExpansionV1/VerifyWorldScope.py": {
+      "bytes": 1500,
+      "sha256": "080ef60073082af592968a0007e012dbcfb5b96a67e99288867901732e2b899e"
     },
     "Tools/SummarizeWestlandAssetLibraryV1Performance.py": {
       "bytes": 2119,
@@ -15352,502 +15984,6 @@
     "Tools/ZunderlaufV1/ValidateWorld.py": {
       "bytes": 2456,
       "sha256": "f11ca90fee28b17b3fc13e83519f74c2db634c72a8e296a58fed0074f4a28600"
-    },
-    "Source/PokeMonster/Tests/PokeMonsterClassicBattleTest.cpp": {
-      "bytes": 4151,
-      "sha256": "7af8b4b786522906064a5d35e7534916550ac89af8039df6f2bb8b5064429e3b"
-    },
-    "Source/PokeMonster/Development/PokeMonsterCreatureReviewCapture.cpp": {
-      "bytes": 6263,
-      "sha256": "fdf137f03abf9349ba9a8b0e21590b0b84ec2fa16ea579ac4a2e3302d43c87b7"
-    },
-    "Source/PokeMonster/Encounter/PokeMonsterBattlePresentationMode.h": {
-      "bytes": 283,
-      "sha256": "33c7520bbd768ff37f44aa700ef083c0c08c57d6f45a48420e17715ce4a46bd0"
-    },
-    "Source/PokeMonster/Encounter/PokeMonsterClassicBattleScene.cpp": {
-      "bytes": 14203,
-      "sha256": "a86a8c30687b7b31126f90b36da372eb4b911924517dd0558444190f542112b2"
-    },
-    "Source/PokeMonster/Encounter/PokeMonsterClassicBattleScene.h": {
-      "bytes": 2457,
-      "sha256": "fbeae16ae8d1ead60de57ec5c13b7ecf0d023c599b8864701d77b4fbf499c6e3"
-    },
-    "Tools/GlumandaV11/CheckMaps.py": {
-      "bytes": 1043,
-      "sha256": "c958e92b01d5a7fd307a7a54103a37b6e879a438961d7e5d48be331cb56d71c7"
-    },
-    "Tools/GlumandaV11/CheckProtection.py": {
-      "bytes": 1144,
-      "sha256": "0283343bb5cb33f639ea1debb13735b01184f2d38e84d4bf0a259966dda2b0c1"
-    },
-    "Tools/GlumandaV11/InspectSpeciesNames.py": {
-      "bytes": 528,
-      "sha256": "6f4272afb226129fa8f063204331211f67b88dc57b2914b3c2eeae61f170195a"
-    },
-    "Tools/GlumandaV11/ObserveGameplay.py": {
-      "bytes": 3693,
-      "sha256": "f6e2fcb91e854536a36a81bdac28ee381b09a96a0e85acdfb75a578fb00fed42"
-    },
-    "Tools/GlumandaV11/PrepareFinalEvidence.py": {
-      "bytes": 1483,
-      "sha256": "fa8a98d71ecc3041995e569a1fdaa89e2b5c006906458b4d584b676564d4aaa2"
-    },
-    "Tools/GlumandaV11/ReviewButtonInput.py": {
-      "bytes": 2780,
-      "sha256": "3c36ab5c39825077d27a161d33ff02f32e97ec0469693d208a0f83dc8a3ad86f"
-    },
-    "Tools/GlumandaV11/ReviewClassic.py": {
-      "bytes": 4794,
-      "sha256": "d59be439eb837c0ea8d09cc35a91fb485c5c96e054f4b4820eab66b5a58f83d4"
-    },
-    "Tools/GlumandaV11/ReviewSight.py": {
-      "bytes": 2791,
-      "sha256": "cb99e312557b668565bf15e1ed0f7ca0f9b8cc8b59b04dcd8f9b584775172477"
-    },
-    "Tools/GlumandaV11/ReviewWorld.py": {
-      "bytes": 3194,
-      "sha256": "b9218d55f8b9a14d39a73c09ded37982d53a865e61b35d22a3a353a33ac92672"
-    },
-    "Tools/GlumandaV11/RunGameplay.py": {
-      "bytes": 1968,
-      "sha256": "64d40bbd9b0ba1806f93232411aa340b28984ca4732c7f55f229aeec2ffb4330"
-    },
-    "Tools/GlumandaV11/StartGameplay.py": {
-      "bytes": 843,
-      "sha256": "7b45cbfb8883d136176af335f7400d6d5ab8398c8e4cbe80c9ec9d3592b792f9"
-    },
-    "Docs/KAMPFANSICHT_V2_PRUEFBERICHT.md": {
-      "bytes": 16372,
-      "sha256": "a0206ef7f74663323d0ef12de65751914dab97d5f8d84486f753360fa5ef38aa"
-    },
-    "Source/PokeMonster/Encounter/PokeMonsterBattleEnvironment.h": {
-      "bytes": 275,
-      "sha256": "590f3c1da220e8bcf30e83176c231423aab57fb905782c3806ae6f96875626a8"
-    },
-    "Source/PokeMonster/Tests/PokeMonsterBattleViewV2Test.cpp": {
-      "bytes": 4680,
-      "sha256": "13b77b20c01903f1130174690984d9612e6936c21f9884082f255054ddc9e6c8"
-    },
-    "Tools/BattleViewV2/CheckMaps.py": {
-      "bytes": 1035,
-      "sha256": "4296b1e40dadd0011f6c9f097157e58f4897587a7d34c77120856637c50265c1"
-    },
-    "Tools/BattleViewV2/Native.py": {
-      "bytes": 1014,
-      "sha256": "d3be725dd56975ca9dd5a48241a7792807739fd9ab12832d0f3dc3b7db907ac1"
-    },
-    "Tools/BattleViewV2/Protection.py": {
-      "bytes": 1146,
-      "sha256": "7c3840c82aa94feb8303fce269fcd19d5a7f0b5415e924291138d938fb9b3a53"
-    },
-    "Tools/BattleViewV2/README.md": {
-      "bytes": 2914,
-      "sha256": "05ccbe7296c92fb0bd43378e49e621f4bb37109691d579e1112786b69e56abca"
-    },
-    "Tools/BattleViewV2/Review.py": {
-      "bytes": 5099,
-      "sha256": "95e6b4174ccc9fdc0d448066c429c2c728ad4a1dfda5a7b9867627566a0b980e"
-    },
-    "Tools/BattleViewV2/ReviewInput.py": {
-      "bytes": 3062,
-      "sha256": "783b6a87f43cdcc79ed1f312ebd73f751ee5ee5a0f1c19bf94e102ed7a817636"
-    },
-    "Tools/BattleViewV2/ReviewWorld.py": {
-      "bytes": 3401,
-      "sha256": "bd54cad158d7092c515f39e35ea8bf8c5c25c9ceefd0ebbc76139a9d1f4e687f"
-    },
-    "Tools/BattleViewV2/RunNative.py": {
-      "bytes": 1407,
-      "sha256": "6ed3baea9302d59216bdcfbd7b17604286c27cea572e82aa9ae320dd34dc2e9e"
-    },
-    "Tools/BattleViewV2/RunPIE.py": {
-      "bytes": 991,
-      "sha256": "74a234278e12507a16792e5c2c99ae148fa95e991a48c137ec84ac9b0f69c7e6"
-    },
-    "Content/Data/Moves/DA_Ember.uasset": {
-      "bytes": 2159,
-      "sha256": "918778173c82bc76a89b272b6392ea263403b9d1ce0618a90ac66519f9185890"
-    },
-    "Content/Data/Moves/DA_Growl.uasset": {
-      "bytes": 2026,
-      "sha256": "838285de1ca7f886e0e908af6246f7d9861add56b5d3e49a1aae51d533ab1846"
-    },
-    "Content/Data/Moves/DA_Scratch.uasset": {
-      "bytes": 1613,
-      "sha256": "6d667f8a634940887e647e32a1dccb054ae5fdb8d568187ab8536f8bbb9b2026"
-    },
-    "Source/PokeMonster/Development/PokeMonsterBattleSystemV3Review.cpp": {
-      "bytes": 4471,
-      "sha256": "28fd60a27e0d8f942049a707ae5d5690b6df27d12562b93b179bd85f7d52401c"
-    },
-    "Source/PokeMonster/Tests/PokeMonsterBattleSystemV3Test.cpp": {
-      "bytes": 14841,
-      "sha256": "fa84bece4f0f23e906a0226e0cf253bfc3abc9940cada802bb20dddf74ab4194"
-    },
-    "Tools/BattleSystemV3/CheckMaps.py": {
-      "bytes": 1037,
-      "sha256": "4ecc81dd4acc964af804506097b8052241fcbffaece65958d76ef6dd5f6f74a5"
-    },
-    "Tools/BattleSystemV3/PrepareData.py": {
-      "bytes": 3738,
-      "sha256": "4d2fac732229e13ed784f6a9a3b501d4669b39c405557dac926de57bcd58b7fc"
-    },
-    "Tools/BattleSystemV3/Protection.py": {
-      "bytes": 1903,
-      "sha256": "333615840c94e3f52b4400f9ee17d1c945df0765e3d9989b69d8ef189c050175"
-    },
-    "Tools/BattleSystemV3/README.md": {
-      "bytes": 3797,
-      "sha256": "253cce4a3cf16aace542b8125e04bb8f93f5766e07df0f6fe82ec27705979726"
-    },
-    "Tools/BattleSystemV3/Review.py": {
-      "bytes": 10130,
-      "sha256": "44bfb6a26c3c44a110c7ba87f3993d0e2bfb4387bdd91c1530433bb0ea2162f5"
-    },
-    "Tools/BattleSystemV3/RunPIE.py": {
-      "bytes": 817,
-      "sha256": "b81577efc7adc7d60246e8c64f3b124df95403c073215a63cd25ff0d85af96b6"
-    },
-    "Tools/BattleSystemV3/ValidateData.py": {
-      "bytes": 1883,
-      "sha256": "668358f3b9bb65ce63d9523533d97057b3f1ca439fd74577737aa3f158fa7f11"
-    },
-    "Docs/KAMPFSYSTEM_V3_PRUEFBERICHT.md": {
-      "bytes": 16125,
-      "sha256": "0344bde48c43e12431c256018f51cb7f1106a1240ffd6cb40e065b9b69c827ef"
-    },
-    "Docs/STARTER_ERWEITERUNG_V1_PRUEFBERICHT.md": {
-      "bytes": 9239,
-      "sha256": "d336d8751a9d88398ccf43a8f93a0ac4eb17f8cf52719c4ec0d2df2cfa8e5556"
-    },
-    "Source/PokeMonster/Tests/PokeMonsterCheckpointSaveTest.cpp": {
-      "bytes": 4059,
-      "sha256": "7605d1df97781482164932ab70cb0658522ffcc07e32ebacd1af31eb5e0f0996"
-    },
-    "Tools/StarterExpansionV1/RunDefeatSave.py": {
-      "bytes": 1553,
-      "sha256": "b4bfb2aab3590fa7cc1c66314fad33a4fe42c34ba842ef717a5e9d07c29e63a6"
-    },
-    "Tools/StarterExpansionV1/ReviewDefeatSave.py": {
-      "bytes": 3657,
-      "sha256": "d92405faea2cbd807554bf3b82beb2733fd92f8585357e02ad9fbc90686fb4c8"
-    },
-    "Source/PokeMonster/Development/PokeMonsterStarterExpansionReview.cpp": {
-      "bytes": 3346,
-      "sha256": "e91054b8235ba541fa2168a860b1ff24ab654d1b13e6b6915e9fa655c1ec0cb8"
-    },
-    "Source/PokeMonster/Tests/PokeMonsterStarterModelsTest.cpp": {
-      "bytes": 5198,
-      "sha256": "d858bcebb80ccd2f09c207e7ca88930264e34bd709d810de7df8c0676af8bbdf"
-    },
-    "Art/Characters/Creatures/Incoming/Shiggy.glb": {
-      "bytes": 5898576,
-      "sha256": "8353b766fc36d90d3c7a8905e82ae9c407a974959dcab6cac629c5127446a127"
-    },
-    "Art/Characters/Creatures/Incoming/Bisasam.glb": {
-      "bytes": 5989748,
-      "sha256": "01ee8bc064635aeaaed2b356e1c87e0a9d0ab819fa6285d86cfbe0460466306d"
-    },
-    "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Attack.fbx": {
-      "bytes": 1224860,
-      "sha256": "92fd6f8085f1c059f4eb91944f9970251833ba1eb5b4025a93e6b7cb0a248e61"
-    },
-    "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Faint.fbx": {
-      "bytes": 1233884,
-      "sha256": "3aa588c336ad330fc9a093caa3690290d50f201fd128ad4d4b028ae83e60ee23"
-    },
-    "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Happy.fbx": {
-      "bytes": 1236588,
-      "sha256": "d4d29745901af69989bc427176ec8fbfe2bb8dee440558126a7f910ce9a6e49e"
-    },
-    "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Hit.fbx": {
-      "bytes": 1204636,
-      "sha256": "30ac81b21a601c843c148d2baafda24437d4a2a4b129fad4676f032321e09372"
-    },
-    "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Idle.fbx": {
-      "bytes": 1258044,
-      "sha256": "cad7ebba63cd3d8b72358fcf246299338e673a9fdec4cfad89b7632db52e04cd"
-    },
-    "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Run.fbx": {
-      "bytes": 1204636,
-      "sha256": "33292f47c87a9f21b7a755edcda2d5d27ff3326581669a76179c82ff25ef7506"
-    },
-    "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Walk.fbx": {
-      "bytes": 1213340,
-      "sha256": "1e346a6e72c80219a24c27c81d4bf867b96dedd6751c57c9cfb0dccf667c9a3d"
-    },
-    "Art/Characters/Creatures/Schiggy/MeshyV1_AnimationAudit.json": {
-      "bytes": 15778,
-      "sha256": "86f89892a798c06be9ece362ec88e83348ae7b20636c6beb662f22aa76a66b59"
-    },
-    "Art/Characters/Creatures/Schiggy/MeshyV1_ModelAudit.json": {
-      "bytes": 4468,
-      "sha256": "f3d05cd58a13fd75628adabbf6f2dc3dc842928c9250ad4ca020acef3c4c773f"
-    },
-    "Art/Characters/Creatures/Schiggy/Source/Schiggy_Meshy_V1.blend": {
-      "bytes": 7633933,
-      "sha256": "370643ec5faf226874940278c5b998df610db8ac216acc13de85e1d93fa9fca5"
-    },
-    "Art/Characters/Creatures/Schiggy/Textures/MeshyV1/Schiggy_BaseColor.jpg": {
-      "bytes": 2351219,
-      "sha256": "07cd273451e77abd9d00afc44bb2d2e98e9e1641851e1c5039b9d694ec7e2dae"
-    },
-    "Art/Characters/Creatures/Schiggy/Textures/MeshyV1/Schiggy_MetallicRoughness.jpg": {
-      "bytes": 1287871,
-      "sha256": "f4ccd6d1fb4b245bac6d5a16be45c3e662b81c7471cf895cf4f2d92d8b4c4c32"
-    },
-    "Art/Characters/Creatures/Schiggy/Textures/MeshyV1/Schiggy_Normal.jpg": {
-      "bytes": 1548712,
-      "sha256": "c88976ebefd54af71230dda014c2ae5166a8c24469842a72dd02ebe7b95527c5"
-    },
-    "Art/Characters/Creatures/Bisasam/Exports/MeshyV1/Bisasam_Attack.fbx": {
-      "bytes": 1227036,
-      "sha256": "10f651b820082abb4db9de02756e49db0a8cc7026fd3863b7918789f421085f3"
-    },
-    "Art/Characters/Creatures/Bisasam/Exports/MeshyV1/Bisasam_Faint.fbx": {
-      "bytes": 1233820,
-      "sha256": "9932bdf6a856bfa0a29825795d9fbfecd1bb07674a7f08c28d0aa136c996b1cb"
-    },
-    "Art/Characters/Creatures/Bisasam/Exports/MeshyV1/Bisasam_Happy.fbx": {
-      "bytes": 1237644,
-      "sha256": "a3d82a1534020ccba5b8cec5d276d801173ccbb1d92950eb46f41d0f99d21286"
-    },
-    "Art/Characters/Creatures/Bisasam/Exports/MeshyV1/Bisasam_Hit.fbx": {
-      "bytes": 1208748,
-      "sha256": "8343749f28f6bb7d2c647bcc599b96b7cad11eef871690446d365938e16f0645"
-    },
-    "Art/Characters/Creatures/Bisasam/Exports/MeshyV1/Bisasam_Idle.fbx": {
-      "bytes": 1257228,
-      "sha256": "12232dcdd74fd83ae4e27d729c0bc8f8b88eadde2b0719d2b2686a88894167ab"
-    },
-    "Art/Characters/Creatures/Bisasam/Exports/MeshyV1/Bisasam_Run.fbx": {
-      "bytes": 1208748,
-      "sha256": "27ae4a800f480becbe8ffa25a46b731179a07d5c60d591e3a81c66a0bb2041fb"
-    },
-    "Art/Characters/Creatures/Bisasam/Exports/MeshyV1/Bisasam_Walk.fbx": {
-      "bytes": 1216604,
-      "sha256": "555d16f412649747ceab31038f5f8d7bf9ae03486890618be7af1273505ab424"
-    },
-    "Art/Characters/Creatures/Bisasam/MeshyV1_AnimationAudit.json": {
-      "bytes": 29833,
-      "sha256": "b1b415a64f9fd9b7d15ecf6d655c5307379afd261b28ba92f03fe945261db32e"
-    },
-    "Art/Characters/Creatures/Bisasam/MeshyV1_ModelAudit.json": {
-      "bytes": 4620,
-      "sha256": "2a039a934ff95b7e6caf33f38a0f9b588ff550934ccf989889d020db2e7ef947"
-    },
-    "Art/Characters/Creatures/Bisasam/Source/Bisasam_Meshy_V1.blend": {
-      "bytes": 7688025,
-      "sha256": "c3e753014737c39365793db74d6320df355d5edd480c4f0d82f8a0db3703f50d"
-    },
-    "Art/Characters/Creatures/Bisasam/Textures/MeshyV1/Bisasam_BaseColor.jpg": {
-      "bytes": 2285790,
-      "sha256": "b1f135d37cd762d38aae8796ac99c1bd4b944e2e4f4423f6977157896a8d808a"
-    },
-    "Art/Characters/Creatures/Bisasam/Textures/MeshyV1/Bisasam_MetallicRoughness.jpg": {
-      "bytes": 1369210,
-      "sha256": "fe5f66cdb81e339f26469a63c7e48f4a2bd499f2ad78cdbce76d9504bbcc50c9"
-    },
-    "Art/Characters/Creatures/Bisasam/Textures/MeshyV1/Bisasam_Normal.jpg": {
-      "bytes": 1629615,
-      "sha256": "1c3d77010ddb64fd799cd80bd492774f680441ca4bc3246da8ae6aa0f30a9d1e"
-    },
-    "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Attack.uasset": {
-      "bytes": 51026,
-      "sha256": "89b18b32b598a604e7be92587ad391a90523edb70c78d6b5a86e0448d1a9491f"
-    },
-    "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Faint.uasset": {
-      "bytes": 65151,
-      "sha256": "8ca23838bac9e1ebfe390e99b5986e6e9e84e50869faec8b354449cefb566236"
-    },
-    "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Happy.uasset": {
-      "bytes": 73096,
-      "sha256": "bf1c1e95a1168b9e017868a2dc0334fafec9eae6957fe3d5ccadb54667fe38d2"
-    },
-    "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Hit.uasset": {
-      "bytes": 42558,
-      "sha256": "8c66aaea542be46acedf32c860f9833d3fda4bca62e9d51377cf3e94cc9fb8ff"
-    },
-    "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Idle.uasset": {
-      "bytes": 103689,
-      "sha256": "32715e3a5a231d38b279712a6942a8935e1ba6a64bf018cddccfe602985f54d2"
-    },
-    "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Run.uasset": {
-      "bytes": 50447,
-      "sha256": "b5bb89612449417410a564cc7f108c5abf8d4d428e38aa5d53f0a45ddba59c84"
-    },
-    "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Walk.uasset": {
-      "bytes": 58338,
-      "sha256": "4f62e8aefc8e80b5f5dcddcd25721a72fcd4c5d9a81b046a25af24cdc800f5f0"
-    },
-    "Content/Characters/Creatures/Schiggy/MeshyV1/DA_Schiggy_Presentation.uasset": {
-      "bytes": 3930,
-      "sha256": "04103ca214605148b3a857212453b79aad87e91f21567b21a646a1b6a02a566d"
-    },
-    "Content/Characters/Creatures/Schiggy/MeshyV1/Materials/M_Schiggy.uasset": {
-      "bytes": 12708,
-      "sha256": "5edf25e0eac9b9bd993fe53e3d0852e216e4fb5276092baff40c4d87afbec8c7"
-    },
-    "Content/Characters/Creatures/Schiggy/MeshyV1/Meshes/SK_Schiggy_Meshy.uasset": {
-      "bytes": 3654249,
-      "sha256": "a9de8692fba74f9773295bc756adf8da8a2926c752f51365ef39f236e0db9440"
-    },
-    "Content/Characters/Creatures/Schiggy/MeshyV1/Meshes/SK_Schiggy_Meshy_Skeleton.uasset": {
-      "bytes": 11710,
-      "sha256": "c155d209592aa936237be562fc505a6e413483d5f228cb2179351ee5040c6d24"
-    },
-    "Content/Characters/Creatures/Schiggy/MeshyV1/Textures/T_Schiggy_BaseColor.uasset": {
-      "bytes": 2370168,
-      "sha256": "095880e8124e7974bedcde021baf394549e621c9b0ec998a512d9c23d7ab4b87"
-    },
-    "Content/Characters/Creatures/Schiggy/MeshyV1/Textures/T_Schiggy_MetallicRoughness.uasset": {
-      "bytes": 1298996,
-      "sha256": "d560709d748c459dc0413b99177e3f37df365b2121833709cf389e16cfaba6d2"
-    },
-    "Content/Characters/Creatures/Schiggy/MeshyV1/Textures/T_Schiggy_Normal.uasset": {
-      "bytes": 1559842,
-      "sha256": "45ef3c30148cacd2da46c0a03c3aa4207f5bd26764da6f184b7d97c86c3e1056"
-    },
-    "Content/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Attack.uasset": {
-      "bytes": 36377,
-      "sha256": "0f177a03fd69448156ed2402c34c96e600b879ef6978bc04cc82a4e80a3b316c"
-    },
-    "Content/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Faint.uasset": {
-      "bytes": 43499,
-      "sha256": "79bcc2463ca5c9f15010f571fa0c0bbf29df4f6b7f1598b20cd8f51c7655892b"
-    },
-    "Content/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Happy.uasset": {
-      "bytes": 64101,
-      "sha256": "2ae5eeb5728e4c9ba4f626e55b0d472ec7101d660c10cea6e357ce08e235083b"
-    },
-    "Content/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Hit.uasset": {
-      "bytes": 34402,
-      "sha256": "d33ca89f2e24edfd0cd9c8ed68575e3167b1b36ab3b7cd4a2fe8d35329bd40c0"
-    },
-    "Content/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Idle.uasset": {
-      "bytes": 94800,
-      "sha256": "0b8b90b0c223323679b15c5b1c894203c129f09decfde6637fc0987b0e86e54e"
-    },
-    "Content/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Run.uasset": {
-      "bytes": 49683,
-      "sha256": "f1806c6237736e0ba61c4840679c52196e49c1ffd2d3f33735309a321b19af4e"
-    },
-    "Content/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Walk.uasset": {
-      "bytes": 57770,
-      "sha256": "855bcc506db256c20b6e57233f0577de480520103e0de5b2416eacaa921aa043"
-    },
-    "Content/Characters/Creatures/Bisasam/MeshyV1/DA_Bisasam_Presentation.uasset": {
-      "bytes": 3934,
-      "sha256": "2c0d466ba8a0c4ad9d2561ec263f01f14222c8add061ee0d762fafe439c33a7a"
-    },
-    "Content/Characters/Creatures/Bisasam/MeshyV1/Materials/M_Bisasam.uasset": {
-      "bytes": 13239,
-      "sha256": "872687418e5fa36f6f95ad72c0c461d868444e7d785c0a36880f1a8a24f2b198"
-    },
-    "Content/Characters/Creatures/Bisasam/MeshyV1/Meshes/SK_Bisasam_Meshy.uasset": {
-      "bytes": 3696331,
-      "sha256": "e24ff8d37155292a2b876f4cd3cd00f503872f58abd73f9afb9a1746e642c4f8"
-    },
-    "Content/Characters/Creatures/Bisasam/MeshyV1/Meshes/SK_Bisasam_Meshy_Skeleton.uasset": {
-      "bytes": 12066,
-      "sha256": "7781c9821e9c81b5ff89fa78968fbe3392e8408da919e9835cb9a35f177ad6b1"
-    },
-    "Content/Characters/Creatures/Bisasam/MeshyV1/Textures/T_Bisasam_BaseColor.uasset": {
-      "bytes": 2303738,
-      "sha256": "2f14fdbdf95455b60254918b2f6f0e92545912da07c6774d29fa6f87bad88ce6"
-    },
-    "Content/Characters/Creatures/Bisasam/MeshyV1/Textures/T_Bisasam_MetallicRoughness.uasset": {
-      "bytes": 1380336,
-      "sha256": "f8c5842997b5604380d13a8ce7c361fde617768f887dc3aaeef23e4ccc49feaf"
-    },
-    "Content/Characters/Creatures/Bisasam/MeshyV1/Textures/T_Bisasam_Normal.uasset": {
-      "bytes": 1640746,
-      "sha256": "203e3fc3b32e6eb31fd07a78726ffdb0f4eefd54f81ae5890b9e0468a20965f9"
-    },
-    "Content/Data/Creatures/DA_Schiggy.uasset": {
-      "bytes": 3476,
-      "sha256": "3e5dfeec534b9b1eae811f9ec7f532318f12d92f45d02d6a79337f6b02d90604"
-    },
-    "Content/Data/Creatures/DA_Bisasam.uasset": {
-      "bytes": 3702,
-      "sha256": "a51a709a613f19613e28c57cad8b6e36306c0c7df84b6eef4282a4240d593b0f"
-    },
-    "Content/Data/Encounters/DA_Schiggy_Wild.uasset": {
-      "bytes": 2230,
-      "sha256": "d437a7a2a793818da59328e4c4ea15690635bb24d134313febe9d7181b11c8cf"
-    },
-    "Content/Data/Encounters/DA_Bisasam_Wild.uasset": {
-      "bytes": 2230,
-      "sha256": "eaa7f2cc8690a4d215d4dec4917b114a4c61cf6b4e173a0d7bf85928295c8d08"
-    },
-    "Content/Data/Moves/DA_Tackle.uasset": {
-      "bytes": 1539,
-      "sha256": "fea427761ed2c8c61a1e93f6f042405c80fd900ee92c3d919efbaffcea697b86"
-    },
-    "Content/Data/Moves/DA_VineWhip.uasset": {
-      "bytes": 1912,
-      "sha256": "550f15125ad8bddb908fe0ada750f391b238d1ecd6a65ad1f05fc092c75a12eb"
-    },
-    "Content/Data/Moves/DA_WaterGun.uasset": {
-      "bytes": 1865,
-      "sha256": "d8089ff3b5bf62533ba8269c4d3ed8f5aa5e909c7bdec9d79040079a6af5974d"
-    },
-    "Tools/StarterExpansionV1/InspectModels.py": {
-      "bytes": 3738,
-      "sha256": "bcf37c3619dd12c22cdf8f59006863027193276b2b17d1c9abe05648e1481d55"
-    },
-    "Tools/StarterExpansionV1/PrepareModels.py": {
-      "bytes": 4706,
-      "sha256": "ed749703d939f6b264f015852ec18917421cd8d56049522af30145717db98ca6"
-    },
-    "Tools/StarterExpansionV1/RigLayout.py": {
-      "bytes": 2002,
-      "sha256": "603cc5f0ba9b3d5aa9c2d72b9e994b924240cd54b3c463629130047efbc6c78a"
-    },
-    "Tools/StarterExpansionV1/AutomaticSkin.py": {
-      "bytes": 2506,
-      "sha256": "991ccb724148f465264acf28f0c874d1f9a87b7a2250cbb68c2ca982a9ead800"
-    },
-    "Tools/StarterExpansionV1/AnimateModels.py": {
-      "bytes": 8237,
-      "sha256": "4f9c12c8d16b649a87b408bc2a4b6bbfcc4c0bbfe62e7f948b7f5984336cea33"
-    },
-    "Tools/StarterExpansionV1/ValidateBlender.py": {
-      "bytes": 3436,
-      "sha256": "67c04cf9d5a47daafa0ba907017f9441421db411213cc6c3c8316456090fd0cb"
-    },
-    "Tools/StarterExpansionV1/ImportModels.py": {
-      "bytes": 9407,
-      "sha256": "2c9ccbaf70d51197b3d570a1799043ff5b31526a79d7c2d236b40451baf7929c"
-    },
-    "Tools/StarterExpansionV1/ReviewModels.py": {
-      "bytes": 4321,
-      "sha256": "7c39920bcf1e921614332eeac59420145e8a341d4ad1a9332092d5ae3884ae6b"
-    },
-    "Tools/StarterExpansionV1/RunModels.py": {
-      "bytes": 1409,
-      "sha256": "14d24a1a5c5ba97f2eb84d68c1e9fcda23ef64402121773581a88dff73990dc4"
-    },
-    "Tools/StarterExpansionV1/InspectWorld.py": {
-      "bytes": 1194,
-      "sha256": "5da2eee2dcf9ab0b2356016dcd39ea51c6a5b00b3114315672dfe5cecadc3ea8"
-    },
-    "Tools/StarterExpansionV1/CheckMaps.py": {
-      "bytes": 1065,
-      "sha256": "e48dacc217273d5e25b2893cd5569d8741b1e6c0ce78c105b7280c81615e006c"
-    },
-    "Tools/StarterExpansionV1/CheckAtlasSampling.py": {
-      "bytes": 830,
-      "sha256": "3c051bf4075253d36653afeda484e4bd9c92569071ddba2454bd69c8ff82d65c"
-    },
-    "Tools/StarterExpansionV1/DiagnoseSkin.py": {
-      "bytes": 1203,
-      "sha256": "c19cddf606d78ada315f57b294b4eeadd0637dcea8ecc6e2cb9b11cec218cec5"
-    },
-    "Tools/StarterExpansionV1/README.md": {
-      "bytes": 2622,
-      "sha256": "ca2f9706dbb1ad62ca24249b878d54b18eac171ee9aa43467b2de3a736d5d332"
     }
   }
 }

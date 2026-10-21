@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
 #include "PokeMonsterCreatureTypes.h"
+#include "Overworld/PokeMonsterCreatureOverworldSettings.h"
 #include "PokeMonsterCreatureSpeciesData.generated.h"
 
 class UPokeMonsterMoveData;
@@ -64,6 +65,7 @@ public:
  UFUNCTION(BlueprintPure) int32 GetBaseExperienceYield()const{return BaseExperienceYield;}
  TArray<UPokeMonsterMoveData*> MovesForLevel(int32 Level)const;
  UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Moves") TArray<FPokeMonsterLevelMove> LevelUpMoves;
+ UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Overworld") FPokeMonsterCreatureOverworldSettings Overworld;
 private:
  UPROPERTY(EditDefaultsOnly,Category="Growth",meta=(ClampMin="0")) int32 BaseExperienceYield=0;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Identity", meta = (AllowPrivateAccess = "true"))

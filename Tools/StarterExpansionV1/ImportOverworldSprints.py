@@ -1,0 +1,22 @@
+"""Import optional companion-only clips; original seven-role profiles stay byte-identical."""
+import unreal,json,hashlib
+from pathlib import Path
+R=Path(unreal.Paths.project_dir()).resolve();O=R/'Saved/StarterExpansionV1';assert not(O/'SprintImport.json').exists();E=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);assert not E.get_game_world()and not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()and all(x.get_path_name()=='/Game/Characters/Creatures/Zunderlauf/OverworldV1/Animations/A_Zunderlauf_Sprint' for x in unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages());w=E.get_editor_world();T=unreal.AssetToolsHelpers.get_asset_tools();rows=[];old=unreal.SystemLibrary.get_console_variable_int_value('Interchange.FeatureFlags.Import.FBX');unreal.SystemLibrary.execute_console_command(w,'Interchange.FeatureFlags.Import.FBX 0')
+try:
+ for name,radius,roam in [('Zunderlauf',30.,650.),('Schiggy',30.,550.),('Bisasam',38.,650.)]:
+  source=R/'Art/Characters/Creatures'/name;audit=json.loads((source/'OverworldSprint_AnimationAudit.json').read_text());assert hashlib.sha256((R/audit['reference_source']).read_bytes()).hexdigest()==audit['reference_source_sha256'];s=unreal.load_asset('/Game/Data/Creatures/DA_'+name);profile=s.get_visuals().presentation;assert profile and not profile.get_validation_errors();sk=profile.mesh.skeleton;before={'species':str(s.get_internal_id()),'profile':profile.get_path_name(),'mesh':profile.mesh.get_path_name(),'clips':{str(k):v.get_path_name()for k,v in profile.clips.items()}};folder='/Game/Characters/Creatures/'+name+'/OverworldV1/Animations';asset=folder+'/A_'+name+'_Sprint';existing=unreal.load_asset(asset) if unreal.EditorAssetLibrary.does_asset_exist(asset) else None
+  ui=unreal.FbxImportUI()
+  for k,v in dict(import_mesh=False,import_as_skeletal=True,import_animations=True,import_materials=False,import_textures=False,automated_import_should_detect_type=False,mesh_type_to_import=unreal.FBXImportType.FBXIT_ANIMATION,skeleton=sk,override_full_name=True).items():ui.set_editor_property(k,v)
+  for k,v in dict(convert_scene=True,convert_scene_unit=True,force_front_x_axis=True,import_uniform_scale=1.,use_default_sample_rate=False,custom_sample_rate=60,animation_length=unreal.FBXAnimationLengthImportType.FBXALIT_EXPORTED_TIME).items():ui.anim_sequence_import_data.set_editor_property(k,v)
+  task=unreal.AssetImportTask()
+  for k,v in dict(filename=str(R/audit['fbx']),destination_path=folder,destination_name='A_'+name+'_Sprint',automated=True,save=False,replace_existing=False,options=ui).items():task.set_editor_property(k,v)
+  if existing:
+   clip=existing;assert clip.get_editor_property('asset_import_data').get_first_filename()==str(R/audit['fbx'])
+  else:
+   T.import_asset_tasks([task]);clip=next(a for a in task.get_objects()if isinstance(a,unreal.AnimSequence))
+  if clip.get_path_name().split('.')[0]!=asset:assert not unreal.EditorAssetLibrary.does_asset_exist(asset);assert unreal.EditorAssetLibrary.rename_asset(clip.get_path_name().split('.')[0],asset);clip=unreal.load_asset(asset)
+  clip.set_editor_property('enable_root_motion',False);assert clip.get_skeleton()==sk;assert abs(clip.get_play_length()-.5)<.001;assert unreal.EditorAssetLibrary.save_loaded_asset(clip)
+  settings=s.get_editor_property('overworld');settings.set_editor_property('roam_radius',roam);settings.set_editor_property('minimum_travel',180.);settings.set_editor_property('body_radius',radius);settings.set_editor_property('sprint_animation',clip);settings.set_editor_property('sprint_reference_speed',audit['reference_speed_cm_s']);s.set_editor_property('overworld',settings);assert unreal.EditorAssetLibrary.save_loaded_asset(s)
+  after={'species':str(s.get_internal_id()),'profile':s.get_visuals().presentation.get_path_name(),'mesh':profile.mesh.get_path_name(),'clips':{str(k):v.get_path_name()for k,v in profile.clips.items()}};assert after==before;rows.append({'species':name,'new_clip':clip.get_path_name(),'reference_speed_cm_s':audit['reference_speed_cm_s'],'radius_cm':roam,'body_radius_cm':radius,'base_profile_unchanged':before})
+finally:unreal.SystemLibrary.execute_console_command(w,'Interchange.FeatureFlags.Import.FBX '+str(old))
+assert not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()and not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages();(O/'SprintImport.json').write_text(json.dumps({'rows':rows,'no_map_changed':True},indent=2));unreal.log('STARTER_SPRINT_IMPORT_PASS')

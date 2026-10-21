@@ -84,7 +84,7 @@ float APokeMonsterCreatureVisualActor::SampleSpeed(const FVector& Delta,float Se
 {
  const float Distance=Delta.Size2D();
  // Long capture/background frames are still movement. Reject actual teleports instead.
- return HasPrevious&&Seconds>SMALL_NUMBER&&Seconds<=1.f&&Distance<200.f?FMath::Min(Distance/Seconds,300.f):0.f;
+ return HasPrevious&&Seconds>SMALL_NUMBER&&Seconds<=1.f&&Distance<200.f?FMath::Min(Distance/Seconds,450.f):0.f;
 }
 void APokeMonsterCreatureVisualActor::Tick(float Delta)
 {
@@ -112,9 +112,10 @@ struct FCreatureProxy final:FAnimInstanceProxy
   auto Get=[D](EPokeMonsterCreatureClip C)->UAnimSequence*{const auto* P=D->Clips.Find(C);return P?P->Get():nullptr;};
   Idle=Get(EPokeMonsterCreatureClip::Idle);Walk=Get(EPokeMonsterCreatureClip::Walk);Run=Get(EPokeMonsterCreatureClip::Run);
   const float Speed=A->MotionSpeed;
-  Rate=Speed/FMath::Max(FMath::Lerp(Walk?Walk->GetPlayLength()*D->WalkSpeed:1.f,Run?Run->GetPlayLength()*D->RunSpeed:1.f,RunAlpha),1.f);
   WalkAlpha=FMath::FInterpConstantTo(WalkAlpha,Speed>2.f&&Walk?1.f:0.f,Dt,1.f/.14f);
   RunAlpha=FMath::FInterpConstantTo(RunAlpha,Run?FMath::Clamp((Speed-D->WalkSpeed)/(FMath::Max(D->RunSpeed-D->WalkSpeed,1.f)),0.f,1.f):0.f,Dt,1.f/.14f);
+  // Use this frame's stride blend, especially when a companion blends into its longer sprint.
+  Rate=Speed/FMath::Max(FMath::Lerp(Walk?Walk->GetPlayLength()*D->WalkSpeed:1.f,Run?Run->GetPlayLength()*D->RunSpeed:1.f,RunAlpha),1.f);
   if(A->ReactionSerial!=Serial){Serial=A->ReactionSerial;OneShot=A->Reaction>EPokeMonsterCreatureClip::Run?Get(A->Reaction):nullptr;ShotTime=0;ShotAlpha=0;bHold=A->Reaction==EPokeMonsterCreatureClip::Faint;}
  }
  virtual void Update(float Dt)override

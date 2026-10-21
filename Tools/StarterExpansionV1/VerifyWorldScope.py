@@ -1,0 +1,7 @@
+"""Read-only comparison against the actual pre-placement actor inventory after map reload."""
+import unreal,json,re
+from pathlib import Path
+R=Path(unreal.Paths.project_dir()).resolve();O=R/'Saved/StarterExpansionV1';E=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);A=unreal.get_editor_subsystem(unreal.EditorActorSubsystem);assert not E.get_game_world()and E.get_editor_world().get_name()=='Dev_TestMap_VisualV2';source=(R/'Tools/StarterExpansionV1/PlaceWild.py').read_text();exec(compile(source[source.index('def stable'):source.index('before=snapshot()')],'read_only_actor_snapshot','exec'),globals());before=json.loads((O/'WildPlacement.json').read_text())['existing_actor_snapshot'];after=snapshot()
+def canonical(row):
+ row=dict(row);row['components']=sorted(row['components'],key=lambda x:x['name']);return row
+diff={k:{'before':before[k],'after':after.get(k)}for k in before if k not in after or canonical(before[k])!=canonical(after[k])};new={k:v['label']for k,v in after.items()if k not in before};result={'existing_count':len(before),'after_count':len(after),'new':new,'diff':diff,'passed':not diff and len(new)==2 and set(new.values())=={'Slice_Wild_Schiggy','Slice_Wild_Bisasam'}};(O/'WorldScopeReopened.json').write_text(json.dumps(result,indent=2));assert result['passed'],list(diff);assert not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()and not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages();unreal.log('STARTER_WORLD_SCOPE_REOPENED_PASS')

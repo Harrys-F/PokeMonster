@@ -7,6 +7,7 @@
 #include "PokeMonsterEncounterSubsystem.h"
 #include "PokeMonsterVisibleWildCreatureActor.generated.h"
 
+class UPokeMonsterCreatureRoamingComponent;
 class UCapsuleComponent;
 class USphereComponent;
 class UPaperSpriteComponent;
@@ -34,6 +35,7 @@ public:
 	/** Optional, opt-in 3D presentation for a deliberately placed species. */
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Wild Presentation") TSoftObjectPtr<UPokeMonsterCreatureSpeciesData> VisualSpecies;
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Wild Presentation") bool bAmbientMotion=false;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Wild Movement") TObjectPtr<UPokeMonsterCreatureRoamingComponent> OverworldMovement;
 protected:
 	virtual void EndPlay(const EEndPlayReason::Type Reason) override;
 	virtual void BeginPlay() override;
@@ -49,7 +51,5 @@ private:
 	UPROPERTY(VisibleAnywhere) TObjectPtr<UPaperSpriteComponent> Sprite;
 	UPROPERTY(VisibleAnywhere) TObjectPtr<UTextRenderComponent> Label;
 	UPROPERTY(Transient) TObjectPtr<APokeMonsterCreatureVisualActor> Visual;
-	FVector Home=FVector::ZeroVector;
-	float AmbientTime=0.f;
 	bool bDeactivated = false;
 };
