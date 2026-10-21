@@ -58,6 +58,7 @@ USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterEncounterEndData
 {
 	GENERATED_BODY()
+ UPROPERTY(BlueprintReadOnly,Category="Encounter") EPokeMonsterBattlePresentationMode PresentationMode=EPokeMonsterBattlePresentationMode::ClassicBattle;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") FName EncounterId;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") FName TrainerId;
 	UPROPERTY(BlueprintReadOnly, Category="Encounter") EPokeMonsterEncounterKind Kind = EPokeMonsterEncounterKind::Test;
@@ -117,7 +118,7 @@ public:
 	bool RestorePersistentState(const TArray<FPokeMonsterCreatureInstance>& Team,
 		const TArray<FName>& TrainerIds, const TArray<FName>& EncounterIds);
 	TArray<FName> GetCompletedEncounterIds() const { return CompletedEncounterIds.Array(); }
-	bool IsEncounterCompleted(FName EncounterId) const
+	UFUNCTION(BlueprintPure,Category="PokeMonster|Encounter") bool IsEncounterCompleted(FName EncounterId) const
 	{ return !EncounterId.IsNone() && CompletedEncounterIds.Contains(EncounterId); }
 	void MarkEncounterCompleted(FName EncounterId)
 	{ if (!EncounterId.IsNone()) CompletedEncounterIds.Add(EncounterId); }

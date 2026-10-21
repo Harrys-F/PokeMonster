@@ -75,6 +75,8 @@ public:
  UPROPERTY(Transient, BlueprintReadOnly) TArray<TObjectPtr<UStaticMeshComponent>> EffectComponents;
  UPROPERTY(Transient, BlueprintReadOnly) float MotionSpeed=0.f;
  UPROPERTY(Transient, BlueprintReadOnly) EPokeMonsterCreatureClip Reaction=EPokeMonsterCreatureClip::Idle;
+ /** Per-visual idle phase only; locomotion cadence remains speed-driven. */
+ UPROPERTY(Transient,BlueprintReadWrite) float IdlePhaseOffset=0.f;
  uint32 ReactionSerial=0;
 private:
  FVector PreviousLocation=FVector::ZeroVector;

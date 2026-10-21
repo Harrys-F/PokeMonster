@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "InputActionValue.h"
+#include "InputCoreTypes.h"
 #include "PaperCharacter.h"
 #include "PokeMonsterPlayerCharacter.generated.h"
 
@@ -153,7 +154,12 @@ public:
 	/** Starts a deterministic one-turn loss to exercise the checkpoint return in PIE. */
 	UFUNCTION(Exec) void PMDevDefeatReturn();
 
-	UFUNCTION(BlueprintPure, Category = "PokeMonster|Interaction")
+	/** One shared action; the physical controller key remains an explicit user choice. */
+ UFUNCTION(BlueprintPure,Category="PokeMonster|Input") UInputAction* GetInteractionAction() const {return InteractAction.Get();}
+ UFUNCTION(BlueprintCallable,Category="PokeMonster|Input") bool SetInteractionControllerKey(FKey Key);
+ UFUNCTION(BlueprintPure,Category="PokeMonster|Input") TArray<FKey> GetInteractionKeys() const;
+ static float InteractionTargetScore(const FVector& Delta,const FVector& Facing,float Range);
+ UFUNCTION(BlueprintPure,Category="PokeMonster|Interaction")
 	float GetInteractionRange() const { return InteractionRange; }
 
 protected:
@@ -254,6 +260,7 @@ private:
 
 	UPROPERTY(Transient)
 	TObjectPtr<UInputAction> InteractAction;
+ FKey OptionalInteractionControllerKey;
 
 	UPROPERTY(Transient)
 	TObjectPtr<UInputAction> MenuAction;

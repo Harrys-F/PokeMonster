@@ -3,7 +3,8 @@ bool FPokeMonsterCreatureBehaviorProfile::IsValid() const
 {
  const float V[]={NoticeRadius,PersonalSpace,DisengageRadius,WarningSeconds,EncounterRadius,EncounterCooldown,WalkMultiplier,ReactionSpeedMultiplier,RestMultiplier};
  for(float X:V) if(!FMath::IsFinite(X))return false;
- return static_cast<uint8>(Temperament)<=static_cast<uint8>(EPokeMonsterOverworldTemperament::Calm)
+ return static_cast<uint8>(Temperament)<=static_cast<uint8>(EPokeMonsterOverworldTemperament::Aggressive)
+  && static_cast<uint8>(Initiation)<=static_cast<uint8>(EPokeMonsterEncounterInitiation::Disabled)
   && PersonalSpace>=100 && NoticeRadius>PersonalSpace && DisengageRadius>NoticeRadius
   && WarningSeconds>=1 && EncounterRadius>=100 && EncounterRadius<NoticeRadius && EncounterCooldown>=5
   && WalkMultiplier>0 && WalkMultiplier<=1.5f && ReactionSpeedMultiplier>=1 && ReactionSpeedMultiplier<=3
@@ -20,14 +21,22 @@ EPokeMonsterOverworldState FPokeMonsterCreatureBehavior::Decide(const FPokeMonst
  {
  case EOverworldTemperament::Shy:return EOverworldState::Retreat;
  case EOverworldTemperament::Curious:return D<P.PersonalSpace?EOverworldState::Retreat:D>P.PersonalSpace+100?EOverworldState::Approach:EOverworldState::Observe;
+ case EOverworldTemperament::Aggressive:return EOverworldState::Approach;
  case EOverworldTemperament::Territorial:return EOverworldState::Warning;
  default:return D<P.PersonalSpace?EOverworldState::Observe:EOverworldState::Wander;
  }
 }
-bool FPokeMonsterCreatureBehavior::CanInitiate(const FPokeMonsterCreatureBehaviorProfile& P,float D,
- float Elapsed,bool Visible,bool Armed,bool Cooling)
+EPokeMonsterEncounterInitiation FPokeMonsterCreatureBehavior::InitiationFor(const FPokeMonsterCreatureBehaviorProfile& P)
 {
- return P.IsValid()&&P.Temperament==EPokeMonsterOverworldTemperament::Territorial&&P.bCanInitiateEncounter
-  &&FMath::IsFinite(D)&&D>=0&&D<=P.EncounterRadius&&FMath::IsFinite(Elapsed)&&Elapsed>=P.WarningSeconds
-  &&Visible&&Armed&&!Cooling;
+ if(!P.IsValid()||!P.bCanInitiateEncounter)return EPokeMonsterEncounterInitiation::Disabled;
+ if(P.Initiation!=EPokeMonsterEncounterInitiation::ByTemperament)return P.Initiation;
+ return P.Temperament==EPokeMonsterOverworldTemperament::Territorial||P.Temperament==EPokeMonsterOverworldTemperament::Aggressive
+  ? EPokeMonsterEncounterInitiation::Contact : EPokeMonsterEncounterInitiation::Challenge;
+}
+bool FPokeMonsterCreatureBehavior::CanInitiate(const FPokeMonsterCreatureBehaviorProfile& P,bool Contact,bool Interaction,bool Cooling)
+{
+ if(Cooling)return false;
+ const auto Mode=InitiationFor(P);
+ return (Mode==EPokeMonsterEncounterInitiation::Contact && Contact && !Interaction)
+  ||(Mode==EPokeMonsterEncounterInitiation::Challenge && Interaction && !Contact);
 }

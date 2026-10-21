@@ -22,6 +22,7 @@ public:
 	UFUNCTION(BlueprintPure, Category="Creature|Movement") bool ProjectWalkable(const FVector& Point, FVector& Ground) const;
 	UFUNCTION(BlueprintPure, Category="Creature|Movement") bool CanTraverse(const FVector& Start, const FVector& End) const;
 	UFUNCTION(BlueprintPure, Category="Creature|Movement") bool IsInsideHabitat(const FVector& Point) const;
+	static bool IsDecorativeSegmentBlocked(const FBox& Bounds,const FVector& Start,const FVector& End,float Radius,float HalfHeight,float StepHeight);
 	static float AdvanceSpeed(float Current, float Desired, float Distance, bool Companion,
 		const FPokeMonsterCreatureOverworldSettings& Config, float Delta);
 	static float AdvanceHeading(float CurrentYaw, float DesiredYaw, float& AngularVelocity,
@@ -44,12 +45,19 @@ public:
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") float WarningElapsed=0.f;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") float CooldownRemaining=0.f;
  UFUNCTION(BlueprintCallable,Category="Behavior") void NotifyEncounterEnded();
- bool ConsumeEncounterRequest();
- bool AllowsContactEncounter() const;
+ bool CanReengage() const;
+ void CancelDefeatEscape();
+ UFUNCTION(BlueprintCallable,Category="Behavior") bool BeginDefeatEscape();
+ UFUNCTION(BlueprintPure,Category="Behavior") FPokeMonsterCreatureBehaviorProfile GetBehaviorProfile() const;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") bool bEscapingDefeat=false;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") bool bEscapeBlocked=false;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") float EscapeElapsed=0.f;
 private:
  bool UpdateBehavior(float Delta,const FVector& Current,const APawn* Player,float& Speed);
  bool PlayerVisible(const APawn* Player) const;
- bool bEncounterRequested=false,bTerritoryArmed=true;
+ bool bTerritoryArmed=true;
+ float EscapeReplan=0.f,EscapeStalled=0.f;
+ bool PlanEscape(const FVector& Current,const APawn* Player);
  float ReactionRemaining=0.f,InterestRemaining=0.f;
 	bool Plan(const FVector& Goal);
 	void BeginPause();
@@ -58,6 +66,7 @@ private:
 	TWeakObjectPtr<AActor> FollowTarget;
 	TArray<TWeakObjectPtr<APokeMonsterBuildingCutaway>> Buildings;
 	TArray<FVector> Path;
+ TArray<FBox> DecorativeObstacles;
 	FRandomStream Random;
 	TArray<FVector> RecentGoals;
 	int32 SectorVisits[8] = {};

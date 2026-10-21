@@ -1,5 +1,7 @@
 # Oberwelt-KI V2 und Charakterlesbarkeit
 
+**Begegnungsregeln inzwischen ersetzt:** `ReviewBehavior.py` und seine frühere territoriale Nahbereichsabnahme sind historische Nachweise. Aktuelle Kontakt-/Herausforderungsregel, Gruppen und KO-Flucht: `../WildEncountersV2/README.md`. Alte Drei-Wild-Actor-Annahmen sind durch die explizite Bisasam-Gruppe überholt. Licht- und Schiggy-Prüfungen bleiben eigenständig gültig.
+
 Nur bestehendes Projekt und VisualV2, keine Map-Erzeugung. Quellen/Assets werden gezielt gespeichert; Kontrollmedien bleiben unter `Saved/OverworldAIV2`.
 
 ## Laufzeit

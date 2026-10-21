@@ -25,13 +25,23 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FOverworldTerritoryPolicy,"PokeMonster.Overworl
 bool FOverworldTerritoryPolicy::RunTest(const FString&)
 {
  FPokeMonsterCreatureBehaviorProfile P;P.Temperament=EPokeMonsterOverworldTemperament::Territorial;
- TestFalse(TEXT("Cannot bypass warning by contact"),FPokeMonsterCreatureBehavior::CanInitiate(P,100,0,true,true,false));
- TestTrue(TEXT("Warned visible near player may start normal encounter"),FPokeMonsterCreatureBehavior::CanInitiate(P,100,3,true,true,false));
- TestFalse(TEXT("Not through a wall"),FPokeMonsterCreatureBehavior::CanInitiate(P,100,3,false,true,false));
- TestFalse(TEXT("Not at arbitrary distance"),FPokeMonsterCreatureBehavior::CanInitiate(P,500,3,true,true,false));
- TestFalse(TEXT("Cooldown prevents repeat"),FPokeMonsterCreatureBehavior::CanInitiate(P,100,3,true,true,true));
- TestFalse(TEXT("Time alone doesn't rearm territory"),FPokeMonsterCreatureBehavior::CanInitiate(P,100,3,true,false,false));
- P.bCanInitiateEncounter=false;TestFalse(TEXT("Encounter override can disable auto battle"),FPokeMonsterCreatureBehavior::CanInitiate(P,100,3,true,true,false));
+ TestFalse(TEXT("Warning/proximity never initiates"),FPokeMonsterCreatureBehavior::CanInitiate(P,false,false,false));
+ TestTrue(TEXT("Actual territorial contact initiates"),FPokeMonsterCreatureBehavior::CanInitiate(P,true,false,false));
+ TestFalse(TEXT("Contact mode does not accept a remote interaction"),FPokeMonsterCreatureBehavior::CanInitiate(P,false,true,false));
+ TestFalse(TEXT("Cooldown blocks actual contact"),FPokeMonsterCreatureBehavior::CanInitiate(P,true,false,true));
+ for(auto Temperament:{EPokeMonsterOverworldTemperament::Calm,EPokeMonsterOverworldTemperament::Curious,EPokeMonsterOverworldTemperament::Shy})
+ {
+  P.Temperament=Temperament;
+  TestFalse(TEXT("Peaceful/shy contact is not a challenge"),FPokeMonsterCreatureBehavior::CanInitiate(P,true,false,false));
+  TestTrue(TEXT("Peaceful/shy explicit challenge allowed"),FPokeMonsterCreatureBehavior::CanInitiate(P,false,true,false));
+  TestFalse(TEXT("Challenge respects cooldown"),FPokeMonsterCreatureBehavior::CanInitiate(P,false,true,true));
+ }
+ P.Temperament=EPokeMonsterOverworldTemperament::Aggressive;
+ TestTrue(TEXT("Aggressive actual contact initiates"),FPokeMonsterCreatureBehavior::CanInitiate(P,true,false,false));
+ P.Initiation=EPokeMonsterEncounterInitiation::Challenge;
+ TestFalse(TEXT("Encounter-specific override disables contact"),FPokeMonsterCreatureBehavior::CanInitiate(P,true,false,false));
+ TestTrue(TEXT("Encounter-specific override allows challenge"),FPokeMonsterCreatureBehavior::CanInitiate(P,false,true,false));
+ P.bCanInitiateEncounter=false;TestFalse(TEXT("Disabled means no initiation"),FPokeMonsterCreatureBehavior::CanInitiate(P,false,true,false));
  return true;
 }
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FCharacterCanopyEstimate,"PokeMonster.Player.Visibility.ConservativeCanopyCore",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)

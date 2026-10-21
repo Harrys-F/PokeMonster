@@ -23,7 +23,7 @@ public:
 	void SetOwnerController(APokeMonsterOverworldPlayerController* InController) { OwnerController = InController; }
 	void SetMenuOpen(bool bOpen, EPokeMonsterOverworldMenuSection InitialSection = EPokeMonsterOverworldMenuSection::Team);
 	void SetBattleVisible(bool bBattleVisible);
-	void SetInteractionAvailable(bool bAvailable);
+	void SetInteractionAvailable(bool bAvailable,const FString& Action=FString());
 	void UpdateView(const FPokeMonsterOverworldView& NewView);
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Overworld UI") bool IsMenuOpen() const { return bMenuOpen; }
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Overworld UI") EPokeMonsterOverworldMenuSection GetSection() const { return Section; }

@@ -6,6 +6,7 @@
 #include "../Dialogue/PokeMonsterDialogueSubsystem.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "../Interaction/PokeMonsterInteractable.h"
+#include "../Encounter/PokeMonsterVisibleWildCreatureActor.h"
 #include "../Items/PokeMonsterInventorySubsystem.h"
 #include "../Quest/PokeMonsterQuestSubsystem.h"
 #include "Blueprint/UserWidget.h"
@@ -190,8 +191,11 @@ void APokeMonsterOverworldPlayerController::RefreshHUD()
 	AActor* Target = Player && !Player->IsOverworldInputLocked() && !bMenuOpen
 		&& !(Encounter && Encounter->IsEncounterActive())
 		? Player->FindInteractableInRange() : nullptr;
-	OverworldWidget->SetInteractionAvailable(Target &&
-		IPokeMonsterInteractable::Execute_CanInteract(Target, Player));
+	auto* Wild=Cast<APokeMonsterVisibleWildCreatureActor>(Target);
+ if(FocusedWild.IsValid()&&FocusedWild.Get()!=Wild)FocusedWild->SetChallengeFocused(false);
+ FocusedWild=Wild;if(Wild)Wild->SetChallengeFocused(true);
+ OverworldWidget->SetInteractionAvailable(Target &&
+		IPokeMonsterInteractable::Execute_CanInteract(Target, Player),Wild?FString::Printf(TEXT("Interagieren · %s herausfordern"),*Wild->GetChallengeName()):FString());
 }
 
 void APokeMonsterOverworldPlayerController::OnEncounterStarted()

@@ -6,6 +6,7 @@
 #include "PokeMonsterOverworldPlayerController.generated.h"
 
 class APokeMonsterPlayerCharacter;
+class APokeMonsterVisibleWildCreatureActor;
 class UPokeMonsterEncounterSubsystem;
 class UPokeMonsterDialogueWidget;
 struct FPokeMonsterEncounterEndData;
@@ -41,5 +42,6 @@ private:
 	UPROPERTY(Transient) TObjectPtr<UPokeMonsterOverworldWidget> OverworldWidget;
 	UPROPERTY(Transient) TObjectPtr<UPokeMonsterDialogueWidget> DialogueWidget;
 	FTimerHandle RefreshTimer;
+ TWeakObjectPtr<APokeMonsterVisibleWildCreatureActor> FocusedWild;
 	bool bMenuOpen = false;
 };

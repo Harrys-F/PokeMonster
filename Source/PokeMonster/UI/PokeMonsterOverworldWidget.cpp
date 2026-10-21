@@ -208,9 +208,10 @@ void UPokeMonsterOverworldWidget::SetBattleVisible(const bool bVisible)
 	SetVisibility(bVisible ? ESlateVisibility::Collapsed : ESlateVisibility::SelfHitTestInvisible);
 }
 
-void UPokeMonsterOverworldWidget::SetInteractionAvailable(const bool bAvailable)
+void UPokeMonsterOverworldWidget::SetInteractionAvailable(const bool bAvailable,const FString& Action)
 {
-	if (InteractionLabel) InteractionLabel->SetVisibility(bAvailable ? ESlateVisibility::HitTestInvisible : ESlateVisibility::Collapsed);
+	if (InteractionLabel) {InteractionLabel->SetVisibility(bAvailable ? ESlateVisibility::HitTestInvisible : ESlateVisibility::Collapsed);
+  InteractionLabel->SetText(FText::FromString(Action.IsEmpty()?TEXT("E · Interagieren"):Action));}
 }
 
 void UPokeMonsterOverworldWidget::UpdateView(const FPokeMonsterOverworldView& NewView)

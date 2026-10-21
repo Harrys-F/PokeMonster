@@ -505,29 +505,30 @@ FVector APokeMonsterPlayerCharacter::GetInteractionWorldDirection() const
 	return CalculateCameraRelativeMovement(FacingInput, GetMovementBasisYaw());
 }
 
+float APokeMonsterPlayerCharacter::InteractionTargetScore(const FVector& Delta,const FVector& Facing,float Range)
+{
+ const float Distance=Delta.Size2D();
+ if(!FMath::IsFinite(Distance)||!FMath::IsFinite(Range)||Range<=0||Distance>Range||FMath::Abs(Delta.Z)>120.f)return -1.f;
+ const float Dot=Distance<1.f?1.f:FVector::DotProduct(Delta.GetSafeNormal2D(),Facing.GetSafeNormal2D());
+ if(Dot<.35f)return -1.f;
+ return Distance*(1.25f-.75f*Dot);
+}
 AActor* APokeMonsterPlayerCharacter::FindInteractableInRange() const
 {
-	const UWorld* World = GetWorld();
-	if (!World)
-	{
-		return nullptr;
-	}
-
-	const FVector Start = GetActorLocation();
-	const FVector End = Start + GetInteractionWorldDirection() * InteractionRange;
-	FCollisionQueryParams QueryParams(SCENE_QUERY_STAT(PokeMonsterInteraction), false, this);
-	FHitResult Hit;
-	const bool bHit = World->SweepSingleByChannel(
-		Hit,
-		Start,
-		End,
-		FQuat::Identity,
-		ECC_Visibility,
-		FCollisionShape::MakeSphere(InteractionTraceRadius),
-		QueryParams);
-
-	AActor* HitActor = bHit ? Hit.GetActor() : nullptr;
-	return HitActor && HitActor->Implements<UPokeMonsterInteractable>() ? HitActor : nullptr;
+ const UWorld* World=GetWorld();if(!World||bOverworldInputLocked)return nullptr;
+ AActor* Best=nullptr;float BestScore=BIG_NUMBER;
+ for(TActorIterator<AActor> It(World);It;++It)
+ {
+  AActor* Candidate=*It;
+  if(Candidate==this||Candidate->IsHidden()||!Candidate->Implements<UPokeMonsterInteractable>()
+   ||!IPokeMonsterInteractable::Execute_CanInteract(Candidate,const_cast<APokeMonsterPlayerCharacter*>(this)))continue;
+  const float Score=InteractionTargetScore(Candidate->GetActorLocation()-GetActorLocation(),GetInteractionWorldDirection(),InteractionRange+InteractionTraceRadius);
+  if(Score<0||Score>=BestScore)continue;
+  FCollisionQueryParams Q(SCENE_QUERY_STAT(PokeMonsterInteraction),false,this);Q.AddIgnoredActor(Candidate);FHitResult Hit;
+  if(World->LineTraceSingleByChannel(Hit,GetActorLocation(),Candidate->GetActorLocation(),ECC_Visibility,Q))continue;
+  Best=Candidate;BestScore=Score;
+ }
+ return Best;
 }
 
 bool APokeMonsterPlayerCharacter::TryInteract()
@@ -720,4 +721,19 @@ EPokeMonsterFacingDirection APokeMonsterPlayerCharacter::CalculateFacingDirectio
 		return CurrentDirection;
 	}
 	return static_cast<EPokeMonsterFacingDirection>(CandidateIndex);
+}
+
+TArray<FKey> APokeMonsterPlayerCharacter::GetInteractionKeys() const
+{
+ TArray<FKey> Keys;if(DefaultMappingContext)for(const auto& Mapping:DefaultMappingContext->GetMappings())if(Mapping.Action==InteractAction)Keys.Add(Mapping.Key);return Keys;
+}
+bool APokeMonsterPlayerCharacter::SetInteractionControllerKey(FKey Key)
+{
+ if(!DefaultMappingContext||!InteractAction||(Key.IsValid()&&!Key.IsGamepadKey()))return false;
+ if(OptionalInteractionControllerKey.IsValid())DefaultMappingContext->UnmapKey(InteractAction,OptionalInteractionControllerKey);
+ OptionalInteractionControllerKey=Key;
+ if(Key.IsValid())DefaultMappingContext->MapKey(InteractAction,Key);
+ if(const auto* PC=Cast<APlayerController>(GetController()))if(auto* Local=PC->GetLocalPlayer())
+  if(auto* Input=Local->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())Input->RequestRebuildControlMappings();
+ return true;
 }

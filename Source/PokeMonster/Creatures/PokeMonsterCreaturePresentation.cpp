@@ -104,13 +104,14 @@ struct FCreatureProxy final:FAnimInstanceProxy
  explicit FCreatureProxy(UAnimInstance* I):FAnimInstanceProxy(I){}
  UAnimSequence *Idle=nullptr,*Walk=nullptr,*Run=nullptr,*OneShot=nullptr;
  float IdleTime=0,Phase=0,ShotTime=0,WalkAlpha=0,RunAlpha=0,ShotAlpha=0,Rate=0;
- bool bHold=false;uint32 Serial=0;
+ bool bHold=false,bPhaseInitialized=false;uint32 Serial=0;
  virtual void PreUpdate(UAnimInstance* I,float Dt)override
  {
   FAnimInstanceProxy::PreUpdate(I,Dt);auto* A=Cast<APokeMonsterCreatureVisualActor>(I->GetOwningActor());
   if(!A||!A->Presentation)return;auto* D=A->Presentation.Get();
   auto Get=[D](EPokeMonsterCreatureClip C)->UAnimSequence*{const auto* P=D->Clips.Find(C);return P?P->Get():nullptr;};
   Idle=Get(EPokeMonsterCreatureClip::Idle);Walk=Get(EPokeMonsterCreatureClip::Walk);Run=Get(EPokeMonsterCreatureClip::Run);
+  if(!bPhaseInitialized&&Idle){IdleTime=FMath::Fmod(FMath::Max(0.f,A->IdlePhaseOffset),1.f)*Idle->GetPlayLength();bPhaseInitialized=true;}
   const float Speed=A->MotionSpeed;
   WalkAlpha=FMath::FInterpConstantTo(WalkAlpha,Speed>2.f&&Walk?1.f:0.f,Dt,1.f/.14f);
   RunAlpha=FMath::FInterpConstantTo(RunAlpha,Run?FMath::Clamp((Speed-D->WalkSpeed)/(FMath::Max(D->RunSpeed-D->WalkSpeed,1.f)),0.f,1.f):0.f,Dt,1.f/.14f);

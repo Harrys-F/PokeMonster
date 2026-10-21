@@ -276,6 +276,7 @@ FPokeMonsterEncounterEndData UPokeMonsterEncounterSubsystem::BuildEndData(
 	const FPokeMonsterEncounterStartData& Start, const FPokeMonsterBattleState& State)
 {
 	FPokeMonsterEncounterEndData End;
+ End.PresentationMode=Start.PresentationMode;
 	End.EncounterId = Start.EncounterId;
 	End.TrainerId = Start.TrainerId;
 	End.Kind = Start.Kind;

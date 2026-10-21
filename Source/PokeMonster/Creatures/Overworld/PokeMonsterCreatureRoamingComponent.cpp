@@ -6,6 +6,9 @@
 #include "../../Checkpoint/PokeMonsterCheckpointSubsystem.h"
 #include "../../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "Components/PrimitiveComponent.h"
+#include "Components/StaticMeshComponent.h"
+#include "Components/InstancedStaticMeshComponent.h"
+#include "Engine/StaticMesh.h"
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
@@ -32,13 +35,40 @@ void UPokeMonsterCreatureRoamingComponent::Configure(const UPokeMonsterCreatureS
 	if (!Presentation || !Presentation->GetValidationErrors().IsEmpty()) return;
 	Settings = Species->Overworld;
 	if(bOverrideBehavior) { if(!BehaviorOverride.IsValid()) return; Settings.Behavior=BehaviorOverride; }
-	BehaviorState=EPokeMonsterOverworldState::Rest; WarningElapsed=CooldownRemaining=ReactionRemaining=InterestRemaining=0; bTerritoryArmed=true; bEncounterRequested=false;
+	BehaviorState=EPokeMonsterOverworldState::Rest; WarningElapsed=CooldownRemaining=ReactionRemaining=InterestRemaining=0; bTerritoryArmed=true; bEscapingDefeat=bEscapeBlocked=false; EscapeElapsed=EscapeReplan=EscapeStalled=0;
 	Offset = RootGroundOffset; BodyRadius = Radius;
 	BodyHalfHeight = FMath::Max(HalfHeight, Radius); FollowTarget = Follow;
 	HabitatOrigin = GetOwner()->GetActorLocation() - FVector(0, 0, Offset);
 	Buildings.Reset();
 	for (TActorIterator<APokeMonsterBuildingCutaway> It(GetWorld()); It; ++It) Buildings.Add(*It);
-	Random.Initialize(Seed); DistanceTravelled = 0.f; SuccessfulPlans = BlockedSteps = RejectedTargets = 0;
+	// Some art props intentionally have no gameplay collision. Avoid their solid trunk/rock
+ // cores locally, without changing landscape/player collision or treating foliage as a wall.
+ DecorativeObstacles.Reset();
+ for(TActorIterator<AActor> It(GetWorld());It;++It)
+ {
+  TInlineComponentArray<UStaticMeshComponent*> Components(*It);
+  for(const auto* Mesh:Components)
+  {
+   if(!Mesh->GetStaticMesh()||(Mesh->GetCollisionResponseToChannel(ECC_Pawn)==ECR_Block&&Mesh->IsCollisionEnabled()))continue;
+   const FString Asset=Mesh->GetStaticMesh()->GetPathName();
+   const bool Tree=Asset.Contains(TEXT("/Trees/")),Rock=Asset.Contains(TEXT("Boulder"));if(!Tree&&!Rock)continue;
+   auto Add=[&](const FTransform& Transform)
+   {
+    const FBox Local=Mesh->GetStaticMesh()->GetBoundingBox(),World=Local.TransformBy(Transform);
+    if(Tree)
+    {
+     const FVector Bottom=Transform.TransformPosition(FVector(0,0,Local.Min.Z));
+     const float Radius=FMath::Clamp(FMath::Min(World.GetExtent().X,World.GetExtent().Y)*.12f,12.f,65.f);
+     DecorativeObstacles.Add(FBox(Bottom-FVector(Radius,Radius,5),Bottom+FVector(Radius,Radius,FMath::Min(250.f,World.GetSize().Z*.4f))));
+    }
+    else if(World.GetSize().Z>35.f)DecorativeObstacles.Add(World);
+   };
+   if(const auto* Instances=Cast<UInstancedStaticMeshComponent>(Mesh))
+   {for(int32 I=0;I<Instances->GetInstanceCount();++I){FTransform Transform;if(Instances->GetInstanceTransform(I,Transform,true))Add(Transform);}}
+   else Add(Mesh->GetComponentTransform());
+  }
+ }
+ Random.Initialize(Seed); DistanceTravelled = 0.f; SuccessfulPlans = BlockedSteps = RejectedTargets = 0;
 	CurrentSpeed = AngularVelocity = 0.f; RecentGoals.Reset();
 	for (int32& Visits : SectorVisits) Visits=0;
 	Path.Reset(); bPaused = false; bRecalling = false; bReady = true; BeginPause();
@@ -77,6 +107,7 @@ bool UPokeMonsterCreatureRoamingComponent::IsInsideHabitat(const FVector& Point)
 	if (FollowTarget.IsValid())
 		return FVector::DistSquared2D(Point, FollowTarget->GetActorLocation())
 			<= FMath::Square(Settings.MaximumActiveDistance);
+	if(bEscapingDefeat)return FVector::DistSquared2D(Point,HabitatOrigin)<=FMath::Square(6000.f);
 	const float Radius = HabitatRadiusOverride > 0 ? HabitatRadiusOverride : Settings.RoamRadius;
 	const FVector D = Point - HabitatOrigin;
 	return D.SizeSquared2D() <= FMath::Square(Radius)
@@ -94,13 +125,22 @@ bool UPokeMonsterCreatureRoamingComponent::ProjectWalkable(const FVector& Point,
 	if (Surface && (Surface->ActorHasTag(TEXT("CreatureNoWalk"))
 		|| (!Settings.bCanEnterWater && Surface->ActorHasTag(TEXT("Water"))))) return false;
 	Ground = Hit.ImpactPoint;
-	return !W->OverlapBlockingTestByChannel(Ground + FVector(0, 0, BodyHalfHeight + Settings.MaxStepHeight + 2.f),
+ for(const auto& Box:DecorativeObstacles)
+ {
+  if(Ground.Z+BodyHalfHeight*2 < Box.Min.Z || Ground.Z>Box.Max.Z+Settings.MaxStepHeight)continue;
+  if(Ground.X>=Box.Min.X-BodyRadius && Ground.X<=Box.Max.X+BodyRadius && Ground.Y>=Box.Min.Y-BodyRadius && Ground.Y<=Box.Max.Y+BodyRadius)return false;
+ }
+ return !W->OverlapBlockingTestByChannel(Ground + FVector(0, 0, BodyHalfHeight + Settings.MaxStepHeight + 2.f),
 		FQuat::Identity, ECC_Pawn, FCollisionShape::MakeCapsule(BodyRadius, BodyHalfHeight), Q);
 }
 bool UPokeMonsterCreatureRoamingComponent::CanTraverse(const FVector& Start, const FVector& End) const
 {
 	if (!GetWorld() || !bReady || Start.ContainsNaN() || End.ContainsNaN()) return false;
-	const auto Q = Query(); FHitResult Obstacle;
+	// Continuous clearance for local decoration cores. Sparse ground samples alone can
+ // miss a very short crossing of an expanded rock/trunk corner, then reject each real step.
+ for(const auto& Box:DecorativeObstacles)
+  if(IsDecorativeSegmentBlocked(Box,Start,End,BodyRadius,BodyHalfHeight,Settings.MaxStepHeight))return false;
+ const auto Q = Query(); FHitResult Obstacle;
 	const float Lift = BodyHalfHeight + Settings.MaxStepHeight + 2.f;
 	if (GetWorld()->SweepSingleByChannel(Obstacle, Start + FVector(0, 0, Lift),
 		End + FVector(0, 0, Lift), FQuat::Identity, ECC_Pawn,
@@ -154,7 +194,19 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 		return;
 	}
 	float Speed = Settings.WalkSpeedOverride > 0 ? Settings.WalkSpeedOverride : Presentation->WalkSpeed;
-	if(!FollowTarget.IsValid())
+	if(bEscapingDefeat)
+	{
+	 EscapeElapsed+=Delta; EscapeReplan-=Delta; PauseRemaining=0;
+	 Speed=FMath::Clamp((Settings.RunSpeedOverride>0?Settings.RunSpeedOverride:Presentation->RunSpeed)*1.5f,75.f,180.f);
+	 if(Path.IsEmpty() && EscapeReplan<=0)
+	 {
+	  if(!PlanEscape(Current,Player)){EscapeStalled+=1.5f; bEscapeBlocked=EscapeStalled>=6.f;}
+	  else {EscapeStalled=0; bEscapeBlocked=false;}
+	  EscapeReplan=1.5f;
+	 }
+	 if(Path.IsEmpty()){CurrentSpeed=0;return;}
+	}
+	else if(!FollowTarget.IsValid())
 	{
 	 Speed*=Settings.Behavior.WalkMultiplier;
 	 if(UpdateBehavior(Delta,Current,Player,Speed)) return;
@@ -235,7 +287,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 		if (Path.IsEmpty()) { BeginPause(); ReplanRemaining = 1.f; return; }
 	}
 	while (!Path.IsEmpty() && FVector::Dist2D(Current, Path[0]) < 1.f) Path.RemoveAt(0);
-	if (Path.IsEmpty()) { if (!bRecalling) BeginPause(); return; }
+	if (Path.IsEmpty()) { if (!bRecalling&&!bEscapingDefeat) BeginPause(); return; }
 	const FVector Target = Path[0];
 	const FVector Direction = (Target - Current).GetSafeNormal2D();
 	const float TargetYaw = Direction.Rotation().Yaw;
@@ -255,7 +307,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	if (FVector::Dist2D(Ground, Target) < 1.f)
 	{
 		Path.RemoveAt(0);
-		if (Path.IsEmpty() && !bRecalling) BeginPause();
+		if (Path.IsEmpty() && !bRecalling&&!bEscapingDefeat) BeginPause();
 	}
 }
 
@@ -300,12 +352,18 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateBehavior(float Delta,const FVec
  // Curiosity alternates observation and approach, rather than following forever.
  InterestRemaining=FMath::Max(0.f,InterestRemaining-Delta);
  if(P.Temperament==EOverworldTemperament::Curious && Next==EOverworldState::Approach && InterestRemaining>0)Next=EOverworldState::Observe;
+ if(P.Temperament==EOverworldTemperament::Territorial && BehaviorState==EOverworldState::Approach && Visible && bTerritoryArmed && CooldownRemaining<=0)Next=EOverworldState::Approach;
  if(Next!=BehaviorState)
  {
   Path.Reset();ReactionRemaining=0;WarningElapsed=0;PauseRemaining=0;
   if(BehaviorState==EOverworldState::Approach&&Next==EOverworldState::Observe)InterestRemaining=Random.FRandRange(1.5f,3.5f);
   BehaviorState=Next;
  }
+ if(Next==EOverworldState::Warning && BehaviorState==EOverworldState::Warning) WarningElapsed+=Delta;
+ if(Next==EOverworldState::Warning && WarningElapsed>=P.WarningSeconds)Next=EOverworldState::Approach;
+ // Chasing follows the warning, never starts a battle; only the actor's actual contact gate can.
+ if(BehaviorState==EOverworldState::Approach && P.Temperament==EOverworldTemperament::Territorial && Visible && bTerritoryArmed)Next=EOverworldState::Approach;
+ if(Next==EOverworldState::Approach && BehaviorState!=Next){BehaviorState=Next;Path.Reset();ReactionRemaining=0;}
  if(Next==EOverworldState::Warning||Next==EOverworldState::Observe)
  {
   CurrentSpeed=0;Path.Reset();
@@ -313,9 +371,7 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateBehavior(float Delta,const FVec
    FRotator(0,(Player->GetActorLocation()-Current).Rotation().Yaw,0),Delta,Settings.TurnDegreesPerSecond));
   if(Next==EOverworldState::Warning)
   {
-   WarningElapsed+=Delta;
-   if(FPokeMonsterCreatureBehavior::CanInitiate(P,D,WarningElapsed,Visible,bTerritoryArmed,CooldownRemaining>0))
-   {bEncounterRequested=true;bTerritoryArmed=false;CooldownRemaining=P.EncounterCooldown;}
+   // Warning animation is visual only.
   }
   return true;
  }
@@ -328,7 +384,7 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateBehavior(float Delta,const FVec
   {
    const FVector Away=(Current-Player->GetActorLocation()).GetSafeNormal2D(SMALL_NUMBER,FVector::ForwardVector);
    const FVector Direction=Next==EOverworldState::Retreat?Away:-Away;
-   const float Distance=Next==EOverworldState::Retreat?320.f:FMath::Clamp(D-P.PersonalSpace-100.f,5.f,350.f);
+   const float Distance=Next==EOverworldState::Retreat?320.f:FMath::Clamp(D-(P.Temperament==EOverworldTemperament::Curious?P.PersonalSpace+100.f:65.f),5.f,350.f);
    Path.Reset();
    for(float Angle:{0.f,30.f,-30.f,60.f,-60.f,90.f,-90.f})
    {
@@ -344,15 +400,45 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateBehavior(float Delta,const FVec
 }
 void UPokeMonsterCreatureRoamingComponent::NotifyEncounterEnded()
 {
- CooldownRemaining=Settings.Behavior.EncounterCooldown;bTerritoryArmed=false;bEncounterRequested=false;
+ CooldownRemaining=Settings.Behavior.EncounterCooldown;bTerritoryArmed=false;
  WarningElapsed=0;BehaviorState=EPokeMonsterOverworldState::Cooldown;CurrentSpeed=0;BeginPause();
 }
-bool UPokeMonsterCreatureRoamingComponent::ConsumeEncounterRequest()
+FPokeMonsterCreatureBehaviorProfile UPokeMonsterCreatureRoamingComponent::GetBehaviorProfile() const
 {
- const bool Value=bEncounterRequested;bEncounterRequested=false;return Value;
+ return bOverrideBehavior?BehaviorOverride:Settings.Behavior;
 }
-bool UPokeMonsterCreatureRoamingComponent::AllowsContactEncounter() const
+bool UPokeMonsterCreatureRoamingComponent::BeginDefeatEscape()
 {
- // A territorial contact must not bypass its warning; manually pressing E still uses normal interaction.
- return Settings.Behavior.Temperament!=EPokeMonsterOverworldTemperament::Territorial&&CooldownRemaining<=0;
+ if(!bReady||FollowTarget.IsValid())return false;
+ bEscapingDefeat=true;bEscapeBlocked=false;EscapeElapsed=EscapeReplan=EscapeStalled=0;
+ bPaused=false;Path.Reset();PauseRemaining=0;CurrentSpeed=AngularVelocity=0;
+ BehaviorState=EPokeMonsterOverworldState::Retreat;SetComponentTickEnabled(true);return true;
+}
+bool UPokeMonsterCreatureRoamingComponent::PlanEscape(const FVector& Current,const APawn* Player)
+{
+ const FVector Away=Player?(Current-Player->GetActorLocation()).GetSafeNormal2D(SMALL_NUMBER,FVector::ForwardVector):GetOwner()->GetActorForwardVector();
+ // Routes may turn around an obstruction; a bounded A* validates every segment and ground sample.
+ for(float Length:{850.f,550.f,300.f})for(float Angle:{0.f,35.f,-35.f,70.f,-70.f,110.f,-110.f,150.f,-150.f})
+ {
+  const FVector Target=Current+Away.RotateAngleAxis(Angle,FVector::UpVector)*Length;
+  if(RecentGoals.ContainsByPredicate([&](const FVector& P){return FVector::Dist2D(P,Target)<120.f;}))continue;
+  if(Plan(Target)){RecentGoals.Add(Target);if(RecentGoals.Num()>8)RecentGoals.RemoveAt(0);return true;}
+  ++RejectedTargets;
+ }
+ return false;
+}
+
+bool UPokeMonsterCreatureRoamingComponent::CanReengage() const
+{
+ return CooldownRemaining<=0 && (Settings.Behavior.Temperament!=EPokeMonsterOverworldTemperament::Territorial||bTerritoryArmed);
+}
+void UPokeMonsterCreatureRoamingComponent::CancelDefeatEscape()
+{
+ bEscapingDefeat=bEscapeBlocked=false;EscapeElapsed=0;Path.Reset();CurrentSpeed=0;BeginPause();
+}
+
+bool UPokeMonsterCreatureRoamingComponent::IsDecorativeSegmentBlocked(const FBox& Bounds,const FVector& Start,const FVector& End,float Radius,float HalfHeight,float StepHeight)
+{
+ const FBox Clearance(Bounds.Min-FVector(Radius,Radius,HalfHeight*2),Bounds.Max+FVector(Radius,Radius,StepHeight));
+ return FMath::LineBoxIntersection(Clearance,Start,End,End-Start);
 }

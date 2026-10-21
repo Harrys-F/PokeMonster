@@ -7,6 +7,9 @@
 #include "PokeMonsterEncounterSubsystem.h"
 #include "PokeMonsterVisibleWildCreatureActor.generated.h"
 
+UENUM(BlueprintType)
+enum class EPokeMonsterWildLifeState : uint8 { Active, Recovering, Escaping, WaitingForExit, Removed };
+
 class UPokeMonsterCreatureRoamingComponent;
 class UCapsuleComponent;
 class USphereComponent;
@@ -24,7 +27,15 @@ class POKEMONSTER_API APokeMonsterVisibleWildCreatureActor : public AActor, publ
 public:
 	APokeMonsterVisibleWildCreatureActor();
 	virtual void Tick(float DeltaSeconds) override;
+ UFUNCTION(BlueprintPure,Category="Wild Encounter") bool IsOutsidePlayerView() const;
+ UFUNCTION(BlueprintPure,Category="Wild Encounter") bool IsTouchingPlayer(const APokeMonsterPlayerCharacter* Player) const;
+ UFUNCTION(BlueprintPure,Category="Wild Encounter") FString GetChallengeName() const;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Wild Encounter") EPokeMonsterWildLifeState LifeState=EPokeMonsterWildLifeState::Active;
+ /** Explicit, stable-ID group. Each member remains an independent encounter; never a group battle. */
+ UPROPERTY(EditInstanceOnly,BlueprintReadOnly,Category="Wild Group",meta=(ClampMin="1",ClampMax="4")) int32 GroupSize=1;
+ UPROPERTY(EditInstanceOnly,BlueprintReadOnly,Category="Wild Group",meta=(ClampMin="120",ClampMax="400")) float GroupSpacing=180.f;
 	void SuppressPresentation(bool Suppressed);
+ void SetChallengeFocused(bool Focused);
 	virtual bool CanInteract_Implementation(APawn* Interactor) const override;
 	virtual void Interact_Implementation(APawn* Interactor) override;
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Wild Encounter") TSoftObjectPtr<UPokeMonsterEncounterProfile> Profile;
@@ -40,7 +51,13 @@ protected:
 	virtual void EndPlay(const EEndPlayReason::Type Reason) override;
 	virtual void BeginPlay() override;
 private:
-	bool TryStart(APokeMonsterPlayerCharacter* Player);
+	bool TryStart(APokeMonsterPlayerCharacter* Player,bool Contact=false);
+ bool IsReady(const APokeMonsterPlayerCharacter* Player) const;
+ void RemoveWildPresentation();
+ void SpawnGroup();
+ FTransform InitialSpawnTransform;
+ float EncounterReadyAt=0.f,RecoveryRemaining=0.f,OffscreenSeconds=0.f;
+ bool bAwaitSeparation=false;
 	void UpdateVisualGround();
 	UFUNCTION() void OnContact(UPrimitiveComponent* Overlapped, AActor* OtherActor,
 		UPrimitiveComponent* OtherComponent, int32 BodyIndex, bool bFromSweep, const FHitResult& Hit);

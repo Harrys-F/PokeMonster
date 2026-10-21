@@ -203,3 +203,9 @@ AP steht Verzweifler mit Rückstoß zur Verfügung. Freiwilliger Wechsel kostet 
 Zug, ein notwendiger Ersatz nach K.O. keinen zusätzlichen Zug. Kampf-XP nutzen
 belegte Ertragsdaten und die bestehenden Wachstumskurven. Dieser kleine Teilumfang
 ersetzt die früheren offenen Flucht-/Heilitem-Platzhalter, kein endgültiges Gesamtbalancing.
+
+
+### Wilde Begegnungen V2
+Territoriale/aggressive Wild-Pokémon beginnen normale Kämpfe nur bei tatsächlichem Kontakt mit der Spielfigur. Ruhige, neugierige und scheue Pokémon werden über die gemeinsame Interaktionsaktion gezielt herausgefordert. Warnung, Sichtkontakt und Annäherung allein starten keinen Kampf. Begleiter sind ausgeschlossen.
+
+Besiegte sichtbare Wild-Pokémon verlassen nach ClassicBattle sichtbar den Spielbereich; sie werden erst außerhalb des Kamerabildes entfernt. Gefangene werden direkt übertragen und entfernt. Nach erfolgreicher Spielerflucht bleiben Wild-Pokémon mit kurzer Wiederholungssperre erhalten. Besondere WorldBattle-Regeln bleiben gesondert.
