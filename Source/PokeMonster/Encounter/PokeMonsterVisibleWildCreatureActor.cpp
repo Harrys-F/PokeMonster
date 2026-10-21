@@ -70,7 +70,7 @@ void APokeMonsterVisibleWildCreatureActor::BeginPlay()
    Visual->SetActorRelativeLocation(FVector(0,0,-Body->GetScaledCapsuleHalfHeight()));
    UpdateVisualGround();Sprite->SetVisibility(false);Label->SetVisibility(false);SetActorTickEnabled(true);
    OverworldMovement->Configure(Species, Body->GetScaledCapsuleHalfHeight(), Body->GetScaledCapsuleRadius(), Body->GetScaledCapsuleHalfHeight(), nullptr, Seed);
-   OverworldMovement->SetComponentTickEnabled(bAmbientMotion);
+   OverworldMovement->SetComponentTickEnabled(bAmbientMotion);Visual->SetGroundHoverContext(OverworldMovement);
   }
   else if(Visual){Visual->Destroy();Visual=nullptr;}
  }

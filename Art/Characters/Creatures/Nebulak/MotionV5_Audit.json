@@ -1,0 +1,69 @@
+{
+  "source": "Art/Characters/Creatures/Nebulak/Source/Nebulak_MotionV5.blend",
+  "source_sha256": "4c196f9c8ed5f4a29714214aa3a560569d63d47698361a8d2c659a38ccf36d1c",
+  "original_sha256": "e2f65bc54f8d9fb3db73de52cd199614fa2a6c2e191cdf7867f34422c063670f",
+  "original_mesh_geometry_weights_uvs_preserved": true,
+  "gas_surface_faces": 14199,
+  "envelope_triangles": 2520,
+  "envelope_vertices": 1290,
+  "anchor": "head",
+  "envelope_coordinates": "Mesh reference local; Unreal EffectAnchor.Offset is inverse exact imported head reference transform",
+  "face_aperture": "Fixed front-space mask, original opaque face retained",
+  "exports": [
+    {
+      "role": "Idle",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/MotionV5/Nebulak_Idle.fbx",
+      "sha256": "ecc5c4426510a3edeefdad932f34ab2d8ae1ac9e0348c39df3a693b3019205a1",
+      "contains_mesh": true,
+      "seconds": 2.0
+    },
+    {
+      "role": "Walk",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/MotionV5/Nebulak_Walk.fbx",
+      "sha256": "cfa8ad1e6f76c2ed3dccf9e9693d59fe6fbc8f170f40b6fc09c882492aae77f3",
+      "contains_mesh": false,
+      "seconds": 0.6333333333333333
+    },
+    {
+      "role": "Run",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/MotionV5/Nebulak_Run.fbx",
+      "sha256": "2b2f021d4fd9a0848037fb043d4647a848d4e0ce9099dd552f2b06427839af07",
+      "contains_mesh": false,
+      "seconds": 0.4
+    },
+    {
+      "role": "Attack",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/MotionV5/Nebulak_Attack.fbx",
+      "sha256": "22855dbeae053772c11f7ed4723051059884806295844f52c138596fb67332be",
+      "contains_mesh": false,
+      "seconds": 0.8
+    },
+    {
+      "role": "Hit",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/MotionV5/Nebulak_Hit.fbx",
+      "sha256": "78fca16347d4c81a47c504f65ede57ebf763e6b77e22c0e116ac171d6fa626ae",
+      "contains_mesh": false,
+      "seconds": 0.4
+    },
+    {
+      "role": "Faint",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/MotionV5/Nebulak_Faint.fbx",
+      "sha256": "99053fc594323ae237690f1019f8b8dc5121348367b187c6265c60bb0a90d618",
+      "contains_mesh": false,
+      "seconds": 1.2
+    },
+    {
+      "role": "Happy",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/MotionV5/Nebulak_Happy.fbx",
+      "sha256": "23fdddff9a056cd09065ebcb90937d59c1418a29d1ebc373b55013755c219ed2",
+      "contains_mesh": false,
+      "seconds": 1.0
+    },
+    {
+      "role": "GasEnvelope",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/MotionV5/Nebulak_GasEnvelope.fbx",
+      "sha256": "bbbc22e4c1f6c20def436a8b8c49b49fd14160ac9a624d0d82780f5d09990255",
+      "static_mesh": true
+    }
+  ]
+}

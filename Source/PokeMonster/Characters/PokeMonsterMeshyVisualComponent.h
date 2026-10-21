@@ -37,6 +37,10 @@ public:
     bool IsMeshyActive() const;
     UFUNCTION(BlueprintCallable, Category="Player Presentation")
     void SetMeshyEnabled(bool bEnabled);
-    void UpdatePresentation();
+    void UpdatePresentation(float DeltaTime=0.f);
+    static float AdvanceVisualYaw(float Current, float Target, float& Velocity, float Delta);
+private:
+    bool bHaveVisualFacing=false;
+    float VisualAngularVelocity=0.f;
 
 };

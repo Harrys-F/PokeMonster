@@ -34,7 +34,7 @@ struct FMeshyAnimationProxy : FAnimInstanceProxy
     UAnimSequence* Walk = nullptr;
     UAnimSequence* Run = nullptr;
     float RunAlpha = 0.f, RunRate = 0.f, RunTime = 0.f;
-    float Alpha = 0.f, Rate = 0.f, IdleTime = 0.f, WalkTime = 0.f;
+    float MoveProgress = 0.f, Alpha = 0.f, Rate = 0.f, IdleTime = 0.f, WalkTime = 0.f;
     float PreviousYaw = 0.f, PreviousSpeed = 0.f;
     bool bHavePrevious = false;
     FAccessorySpring CapePitch, CapeSwing, BagSwing;
@@ -52,7 +52,8 @@ struct FMeshyAnimationProxy : FAnimInstanceProxy
             / FMath::Max(Visual->AuthoredRunSpeed - Visual->AuthoredWalkSpeed, 1.f), 0.f, 1.f) : 0.f;
         RunAlpha = FMath::FInterpConstantTo(RunAlpha, RunTarget, Delta, 1.f / .18f);
         const float Target = Rate > 0.f ? 1.f : 0.f;
-        Alpha = FMath::FInterpConstantTo(Alpha, Target, Delta, 1.f / .18f);
+        MoveProgress = FMath::FInterpConstantTo(MoveProgress, Target, Delta, 1.f / (Target>0.f?.16f:.24f));
+        Alpha = MoveProgress*MoveProgress*(3.f-2.f*MoveProgress);
         const float Yaw = Visual->GetComponentRotation().Yaw;
         const float Dt = FMath::Max(Delta, .001f);
         const float Turn = bHavePrevious ? FMath::Clamp(FMath::FindDeltaAngleDegrees(PreviousYaw, Yaw) / Dt, -540.f, 540.f) : 0.f;

@@ -25,7 +25,10 @@ public:
 	bool IsInRelocatedInterior(const FVector& Point) const;
 	static bool CanSeparateFromContact(const FVector& Start,const FVector& End,const FVector& Player,float ContactRadius);
 	static bool IsDecorativeSegmentBlocked(const FBox& Bounds,const FVector& Start,const FVector& End,float Radius,float HalfHeight,float StepHeight);
-	static float AdvanceSpeed(float Current, float Desired, float Distance, bool Companion,
+	bool CanGroundHover(float Height, const FBox& VisualBounds) const;
+ void SetPresentationHoverClearance(float Height,const FBox& Bounds) { PresentationHoverHeight=Height;PresentationHoverBounds=Bounds; }
+ void SetPresentationHold(bool Held) { bPresentationHold=Held; }
+ static float AdvanceSpeed(float Current, float Desired, float Distance, bool Companion,
 		const FPokeMonsterCreatureOverworldSettings& Config, float Delta);
 	static float AdvanceHeading(float CurrentYaw, float DesiredYaw, float& AngularVelocity,
 		const FPokeMonsterCreatureOverworldSettings& Config, float Delta);
@@ -55,6 +58,9 @@ public:
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") bool bEscapeBlocked=false;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") float EscapeElapsed=0.f;
 private:
+ bool CanTraverseHoverColumn(const FVector& Start,const FVector& End,float Height,const FBox& Bounds) const;
+ float PresentationHoverHeight=0.f;
+ FBox PresentationHoverBounds{ForceInit};
  bool UpdateBehavior(float Delta,const FVector& Current,const APawn* Player,float& Speed);
  bool PlayerVisible(const APawn* Player) const;
  bool bTerritoryArmed=true;
@@ -69,11 +75,12 @@ private:
 	TArray<TWeakObjectPtr<APokeMonsterBuildingCutaway>> Buildings;
 	TArray<FVector> Path;
  TArray<FBox> DecorativeObstacles;
+ TArray<FBox> HoverObstacles;
 	FRandomStream Random;
 	TArray<FVector> RecentGoals;
 	int32 SectorVisits[8] = {};
 	float AngularVelocity = 0.f;
 	float Offset = 0.f, BodyRadius = 24.f, BodyHalfHeight = 30.f, PauseRemaining = 0.f;
 	float ReplanRemaining = 0.f, LookYaw = 0.f;
-	bool bReady = false, bPaused = false;
+	bool bReady = false, bPaused = false, bPresentationHold=false;
 };

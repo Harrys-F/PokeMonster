@@ -1,0 +1,51 @@
+{
+  "source": "Art/Characters/YoungTrainer/Source/Player_Meshy_MotionQuality_V3.blend",
+  "source_sha256": "4c79aeabb130f4fec4fcdd9759f543540224c96819186fddbe5d528f2a4475f6",
+  "original_sha256": "04e1cfa77f90d2620eeb13b004469650e3946c9ac06667139d7fe0fc0797e4ab",
+  "mesh_weights_uvs_and_rest_skeleton_unchanged": true,
+  "metrics": {
+    "Idle": {
+      "duration": 3.0,
+      "minimum_z_cm": 0.049992825370281935,
+      "max_knee_ankle_join_gap_cm": 2.800076412457915e-05
+    },
+    "Walk": {
+      "duration": 0.55,
+      "minimum_z_cm": 0.04999744123779237,
+      "max_knee_ankle_join_gap_cm": 0.00023235301857620034
+    },
+    "Run": {
+      "duration": 0.45,
+      "minimum_z_cm": 0.0499984307680279,
+      "max_knee_ankle_join_gap_cm": 0.0002972249426200179
+    }
+  },
+  "recovery_curve": "Cubic Hermite matches stance velocity at both endpoints",
+  "authored_speeds_cm_s": {
+    "Walk": 210,
+    "Run": 315
+  },
+  "exports": [
+    {
+      "role": "Idle",
+      "path": "Art/Characters/YoungTrainer/Exports/MotionV3/Player_Idle.fbx",
+      "sha256": "679d4f983691f870c2b357117f0e7d4f2922186cf2adffd500bcf571f39f1ecb",
+      "contains_mesh": false,
+      "seconds": 3.0
+    },
+    {
+      "role": "Walk",
+      "path": "Art/Characters/YoungTrainer/Exports/MotionV3/Player_Walk.fbx",
+      "sha256": "faa76b548302d771e55e7d1e6bfc8ef616f5806a319c862d9298f5e63c12da63",
+      "contains_mesh": false,
+      "seconds": 0.55
+    },
+    {
+      "role": "Run",
+      "path": "Art/Characters/YoungTrainer/Exports/MotionV3/Player_Run.fbx",
+      "sha256": "58aa1971df67a5621a1f0f5e2c8f22bce588d9765b395061686d842a972aac0f",
+      "contains_mesh": false,
+      "seconds": 0.45
+    }
+  ]
+}

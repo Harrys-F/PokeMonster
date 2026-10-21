@@ -100,7 +100,7 @@ void UPokeMonsterCreatureCompanionSubsystem::Tick(float Delta)
 		CurrentSpecies = Species; CurrentId = Id;
 		Movement->Configure(Species, -Visual->Presentation->GroundOffsetCm, Species->Overworld.BodyRadius,
 			FMath::Max(Visual->Presentation->ReferenceSizeCm * .5f, Species->Overworld.BodyRadius), Player, GetTypeHash(Id));
-		bPlaced = false;
+		Visual->SetGroundHoverContext(Movement);bPlaced = false;
 	}
 	const FVector PlayerLocation = Player->GetActorLocation();
 	const bool bTeleport = bHavePlayerLocation && FVector::Dist2D(PreviousPlayerLocation, PlayerLocation) > 800.f;

@@ -6,6 +6,8 @@
 #include "Animation/AnimSequence.h"
 #include "AnimationRuntime.h"
 #include "Engine/SkeletalMesh.h"
+#include "Components/SceneComponent.h"
+#include "Overworld/PokeMonsterCreatureRoamingComponent.h"
 TArray<FString> UPokeMonsterCreaturePresentationData::GetValidationErrors() const
 {
  TArray<FString> Errors;
@@ -37,12 +39,20 @@ TArray<FString> UPokeMonsterCreaturePresentationData::GetValidationErrors() cons
   if(A.Offset.ContainsNaN()||Scale.GetMin()<=0.f||!A.Offset.GetRotation().IsNormalized())Errors.Add(TEXT("Effect offset must be finite with positive scale and normalized rotation"));
   if(TailFlame&&A.Mesh==TailFlame&&A.Socket==FlameBone)Errors.Add(TEXT("Duplicate legacy tail flame; use one effect binding"));
  }
+ if (bAllowGroundHover)
+ {
+  if (!FMath::IsFinite(HoverHeightCm)||HoverHeightCm<50.f||HoverHeightCm>150.f) Errors.Add(TEXT("Ground hover height must be 50..150 cm"));
+  for (const UAnimSequence* Clip:{TakeoffClip.Get(),HoverClip.Get(),LandClip.Get()})
+   if (!Clip || Clip->GetSkeleton()!=Mesh->GetSkeleton() || Clip->bEnableRootMotion || Clip->GetPlayLength()<=0.f)
+    Errors.Add(TEXT("Ground hover requires three in-place clips on the exact mesh skeleton"));
+ }
  return Errors;
 }
 APokeMonsterCreatureVisualActor::APokeMonsterCreatureVisualActor()
 {
  PrimaryActorTick.bCanEverTick=true;
- Mesh=CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CreatureMesh"));SetRootComponent(Mesh);
+ VisualOrigin=CreateDefaultSubobject<USceneComponent>(TEXT("VisualOrigin"));SetRootComponent(VisualOrigin);
+ Mesh=CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CreatureMesh"));Mesh->SetupAttachment(VisualOrigin);
  Mesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);Mesh->AddTickPrerequisiteActor(this);
  Mesh->VisibilityBasedAnimTickOption=EVisibilityBasedAnimTickOption::OnlyTickPoseWhenRendered;
  Flame=CreateDefaultSubobject<UStaticMeshComponent>(TEXT("TailFlameOnly"));Flame->SetupAttachment(Mesh);
@@ -58,6 +68,8 @@ bool APokeMonsterCreatureVisualActor::SetPresentation(UPokeMonsterCreaturePresen
  if(!Candidate||!Candidate->GetValidationErrors().IsEmpty())return false;
  for(const auto& Component:EffectComponents)if(Component)Component->DestroyComponent();
  EffectComponents.Reset();Presentation=Candidate;MotionSpeed=0.f;
+ if (HoverContext.IsValid()) { HoverContext->SetPresentationHold(false);HoverContext->SetPresentationHoverClearance(0.f,FBox(ForceInit)); }
+ HoverState=EHoverState::Grounded;HoverStateTime=HoverHeight=HoverPoseAlpha=0.f;ActiveHoverClip=nullptr;Mesh->SetRelativeLocation(FVector::ZeroVector);
  Mesh->SetSkeletalMesh(Presentation->Mesh);Mesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
  Mesh->SetAnimInstanceClass(UPokeMonsterCreatureAnimInstance::StaticClass());
  const bool bTail=Presentation->TailFlame&&Mesh->DoesSocketExist(Presentation->FlameBone);
@@ -90,7 +102,7 @@ void APokeMonsterCreatureVisualActor::Tick(float Delta)
 {
  Super::Tick(Delta);const FVector P=GetActorLocation();
  MotionSpeed=SampleSpeed(P-PreviousLocation,Delta,bHavePrevious);
- PreviousLocation=P;bHavePrevious=true;
+ PreviousLocation=P;bHavePrevious=true;UpdateGroundHover(Delta);
 }
 bool APokeMonsterCreatureVisualActor::PlayReaction(EPokeMonsterCreatureClip Clip)
 {
@@ -102,7 +114,8 @@ namespace
 struct FCreatureProxy final:FAnimInstanceProxy
 {
  explicit FCreatureProxy(UAnimInstance* I):FAnimInstanceProxy(I){}
- UAnimSequence *Idle=nullptr,*Walk=nullptr,*Run=nullptr,*OneShot=nullptr;
+ UAnimSequence *Idle=nullptr,*Walk=nullptr,*Run=nullptr,*OneShot=nullptr,*Hover=nullptr,*PreviousHover=nullptr;
+ float HoverTime=0,HoverAlpha=0,PreviousHoverTime=0,HoverTransition=1.f;
  float IdleTime=0,Phase=0,ShotTime=0,WalkAlpha=0,RunAlpha=0,ShotAlpha=0,Rate=0;
  bool bHold=false,bPhaseInitialized=false;uint32 Serial=0;
  virtual void PreUpdate(UAnimInstance* I,float Dt)override
@@ -112,6 +125,9 @@ struct FCreatureProxy final:FAnimInstanceProxy
   auto Get=[D](EPokeMonsterCreatureClip C)->UAnimSequence*{const auto* P=D->Clips.Find(C);return P?P->Get():nullptr;};
   Idle=Get(EPokeMonsterCreatureClip::Idle);Walk=Get(EPokeMonsterCreatureClip::Walk);Run=Get(EPokeMonsterCreatureClip::Run);
   if(!bPhaseInitialized&&Idle){IdleTime=FMath::Fmod(FMath::Max(0.f,A->IdlePhaseOffset),1.f)*Idle->GetPlayLength();bPhaseInitialized=true;}
+  if (Hover!=A->ActiveHoverClip) { PreviousHover=Hover;PreviousHoverTime=HoverTime;Hover=A->ActiveHoverClip;HoverTransition=0.f; }
+  HoverTime=A->HoverClipTime;HoverAlpha=A->HoverPoseAlpha;
+  HoverTransition=FMath::Min(1.f,HoverTransition+Dt/.20f);
   const float Speed=A->MotionSpeed;
   WalkAlpha=FMath::FInterpConstantTo(WalkAlpha,Speed>2.f&&Walk?1.f:0.f,Dt,1.f/.14f);
   RunAlpha=FMath::FInterpConstantTo(RunAlpha,Run?FMath::Clamp((Speed-D->WalkSpeed)/(FMath::Max(D->RunSpeed-D->WalkSpeed,1.f)),0.f,1.f):0.f,Dt,1.f/.14f);
@@ -137,6 +153,12 @@ struct FCreatureProxy final:FAnimInstanceProxy
   auto Blend=[&](UAnimSequence* Clip,float Time,float Alpha){if(!Clip||Alpha<=0)return;FPoseContext Base(Out),Other(Out);Base.Pose=Out.Pose;Base.Curve=Out.Curve;Base.CustomAttributes=Out.CustomAttributes;Other.ResetToRefPose();FAnimationPoseData A(Base),B(Other);Clip->GetAnimationPose(B,FAnimExtractContext(Time,false));FAnimationRuntime::BlendTwoPosesTogether(A,B,1.f-Alpha,Result);};
   Blend(Walk,Walk?Phase*Walk->GetPlayLength():0,WalkAlpha);
   Blend(Run,Run?Phase*Run->GetPlayLength():0,RunAlpha*WalkAlpha);
+  if (Hover && HoverAlpha>0.f)
+  {
+   // Crossfade between takeoff/loop/landing poses before layering any combat reaction.
+   if (PreviousHover && HoverTransition<1.f) Blend(PreviousHover,PreviousHoverTime,HoverAlpha);
+   Blend(Hover,FMath::Min(HoverTime,Hover->GetPlayLength()),HoverAlpha*HoverTransition);
+  }
   Blend(OneShot,OneShot?FMath::Min(ShotTime,OneShot->GetPlayLength()):0,ShotAlpha);
   return true;
  }

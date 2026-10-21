@@ -1,0 +1,619 @@
+{
+  "source": "Art/Characters/Creatures/Glurak/Source/Glurak_MotionV5.blend",
+  "source_sha256": "6c2067598419799c02a3f42f3e217119793a781a394348a82b4255a322dd588a",
+  "original_sha256": "1a777d5e3d28a589bfd84977b59c176d6b78bb685d9b071811453cbbb4fad0d3",
+  "original_geometry_uvs_preserved": true,
+  "changed_weight_vertices": 35341,
+  "wing_seeds": 6016,
+  "virtual_welded_vertices": 123035,
+  "metrics": {
+    "Idle": {
+      "minimum_z_cm": -6.194180457441689e-06,
+      "maximum_wing_edge_growth_cm": 0.5341694831665751,
+      "frames": 61,
+      "worst": {
+        "frame": 49,
+        "growth_m": 0.005341694831665751,
+        "edge": [
+          {
+            "vertex": 121776,
+            "rest": [
+              0.7421075105667114,
+              -0.14204087853431702,
+              0.8359977006912231
+            ],
+            "field": 0.5591824293136596,
+            "wing_distance": 0.9948249865901492,
+            "body_distance": 0.10746592855666426,
+            "weights": {
+              "chest": 0.44081756472587585,
+              "wing_base_L": 0.5591824054718018
+            }
+          },
+          {
+            "vertex": 121950,
+            "rest": [
+              0.7301920652389526,
+              -0.15375451743602753,
+              0.8306198120117188
+            ],
+            "field": 0.32490965127944943,
+            "wing_distance": 0.9824843585963101,
+            "body_distance": 0.08991289860945526,
+            "weights": {
+              "wing_base_L": 0.32490965723991394,
+              "chest": 0.6750903725624084
+            }
+          }
+        ]
+      },
+      "lowest": {
+        "frame": 1,
+        "z": -6.194180457441689e-08,
+        "vertex": 20076,
+        "rest": [
+          -1.1690421104431152,
+          1.0654672384262085,
+          0.0
+        ],
+        "field": 0.0
+      }
+    },
+    "Walk": {
+      "minimum_z_cm": -4.575114758154086e-05,
+      "maximum_wing_edge_growth_cm": 0.7555792750021513,
+      "frames": 20,
+      "worst": {
+        "frame": 16,
+        "growth_m": 0.007555792750021512,
+        "edge": [
+          {
+            "vertex": 121776,
+            "rest": [
+              0.7421075105667114,
+              -0.14204087853431702,
+              0.8359977006912231
+            ],
+            "field": 0.5591824293136596,
+            "wing_distance": 0.9948249865901492,
+            "body_distance": 0.10746592855666426,
+            "weights": {
+              "chest": 0.44081756472587585,
+              "wing_base_L": 0.5591824054718018
+            }
+          },
+          {
+            "vertex": 121950,
+            "rest": [
+              0.7301920652389526,
+              -0.15375451743602753,
+              0.8306198120117188
+            ],
+            "field": 0.32490965127944943,
+            "wing_distance": 0.9824843585963101,
+            "body_distance": 0.08991289860945526,
+            "weights": {
+              "wing_base_L": 0.32490965723991394,
+              "chest": 0.6750903725624084
+            }
+          }
+        ]
+      },
+      "lowest": {
+        "frame": 1,
+        "z": -4.5751147581540863e-07,
+        "vertex": 20076,
+        "rest": [
+          -1.1690421104431152,
+          1.0654672384262085,
+          0.0
+        ],
+        "field": 0.0
+      }
+    },
+    "Run": {
+      "minimum_z_cm": -2.8357700898595795e-05,
+      "maximum_wing_edge_growth_cm": 1.0616972045058883,
+      "frames": 13,
+      "worst": {
+        "frame": 11,
+        "growth_m": 0.010616972045058883,
+        "edge": [
+          {
+            "vertex": 121776,
+            "rest": [
+              0.7421075105667114,
+              -0.14204087853431702,
+              0.8359977006912231
+            ],
+            "field": 0.5591824293136596,
+            "wing_distance": 0.9948249865901492,
+            "body_distance": 0.10746592855666426,
+            "weights": {
+              "chest": 0.44081756472587585,
+              "wing_base_L": 0.5591824054718018
+            }
+          },
+          {
+            "vertex": 121950,
+            "rest": [
+              0.7301920652389526,
+              -0.15375451743602753,
+              0.8306198120117188
+            ],
+            "field": 0.32490965127944943,
+            "wing_distance": 0.9824843585963101,
+            "body_distance": 0.08991289860945526,
+            "weights": {
+              "wing_base_L": 0.32490965723991394,
+              "chest": 0.6750903725624084
+            }
+          }
+        ]
+      },
+      "lowest": {
+        "frame": 4,
+        "z": -0.01100907102227211,
+        "vertex": 78894,
+        "rest": [
+          -0.005323086865246296,
+          0.06690892577171326,
+          0.04849139228463173
+        ],
+        "field": 0.0
+      }
+    },
+    "Attack": {
+      "minimum_z_cm": -1.170224663837871e-05,
+      "maximum_wing_edge_growth_cm": 2.5362153054755483,
+      "frames": 25,
+      "worst": {
+        "frame": 6,
+        "growth_m": 0.025362153054755483,
+        "edge": [
+          {
+            "vertex": 31285,
+            "rest": [
+              -0.7560806274414062,
+              -0.1502256989479065,
+              0.9229141473770142
+            ],
+            "field": 0.3954860210418701,
+            "wing_distance": 1.0010992815696107,
+            "body_distance": 0.10702416990536348,
+            "weights": {
+              "wing_base_R": 0.3954860270023346,
+              "chest": 0.6045140027999878
+            }
+          },
+          {
+            "vertex": 31361,
+            "rest": [
+              -0.753253161907196,
+              -0.13552039861679077,
+              0.9134635329246521
+            ],
+            "field": 0.6895920276641845,
+            "wing_distance": 0.9949631936090656,
+            "body_distance": 0.12473164100381945,
+            "weights": {
+              "chest": 0.31040796637535095,
+              "wing_base_R": 0.6895920038223267
+            }
+          }
+        ]
+      },
+      "lowest": {
+        "frame": 11,
+        "z": -1.170224663837871e-07,
+        "vertex": 20076,
+        "rest": [
+          -1.1690421104431152,
+          1.0654672384262085,
+          0.0
+        ],
+        "field": 0.0
+      }
+    },
+    "Hit": {
+      "minimum_z_cm": -1.1329716897989783e-05,
+      "maximum_wing_edge_growth_cm": 0.5202879504815412,
+      "frames": 13,
+      "worst": {
+        "frame": 11,
+        "growth_m": 0.005202879504815412,
+        "edge": [
+          {
+            "vertex": 121776,
+            "rest": [
+              0.7421075105667114,
+              -0.14204087853431702,
+              0.8359977006912231
+            ],
+            "field": 0.5591824293136596,
+            "wing_distance": 0.9948249865901492,
+            "body_distance": 0.10746592855666426,
+            "weights": {
+              "chest": 0.44081756472587585,
+              "wing_base_L": 0.5591824054718018
+            }
+          },
+          {
+            "vertex": 121950,
+            "rest": [
+              0.7301920652389526,
+              -0.15375451743602753,
+              0.8306198120117188
+            ],
+            "field": 0.32490965127944943,
+            "wing_distance": 0.9824843585963101,
+            "body_distance": 0.08991289860945526,
+            "weights": {
+              "wing_base_L": 0.32490965723991394,
+              "chest": 0.6750903725624084
+            }
+          }
+        ]
+      },
+      "lowest": {
+        "frame": 6,
+        "z": -1.1329716897989783e-07,
+        "vertex": 20076,
+        "rest": [
+          -1.1690421104431152,
+          1.0654672384262085,
+          0.0
+        ],
+        "field": 0.0
+      }
+    },
+    "Faint": {
+      "minimum_z_cm": -5.9604644775390625e-06,
+      "maximum_wing_edge_growth_cm": 0.3024925169762011,
+      "frames": 37,
+      "worst": {
+        "frame": 30,
+        "growth_m": 0.0030249251697620112,
+        "edge": [
+          {
+            "vertex": 121776,
+            "rest": [
+              0.7421075105667114,
+              -0.14204087853431702,
+              0.8359977006912231
+            ],
+            "field": 0.5591824293136596,
+            "wing_distance": 0.9948249865901492,
+            "body_distance": 0.10746592855666426,
+            "weights": {
+              "chest": 0.44081756472587585,
+              "wing_base_L": 0.5591824054718018
+            }
+          },
+          {
+            "vertex": 121950,
+            "rest": [
+              0.7301920652389526,
+              -0.15375451743602753,
+              0.8306198120117188
+            ],
+            "field": 0.32490965127944943,
+            "wing_distance": 0.9824843585963101,
+            "body_distance": 0.08991289860945526,
+            "weights": {
+              "wing_base_L": 0.32490965723991394,
+              "chest": 0.6750903725624084
+            }
+          }
+        ]
+      },
+      "lowest": {
+        "frame": 15,
+        "z": -5.960464477539063e-08,
+        "vertex": 119484,
+        "rest": [
+          0.5937304496765137,
+          -0.21281178295612335,
+          0.0012863116571679711
+        ],
+        "field": 0.0
+      }
+    },
+    "Happy": {
+      "minimum_z_cm": -6.194180457441689e-06,
+      "maximum_wing_edge_growth_cm": 1.517725069902652,
+      "frames": 31,
+      "worst": {
+        "frame": 25,
+        "growth_m": 0.01517725069902652,
+        "edge": [
+          {
+            "vertex": 121776,
+            "rest": [
+              0.7421075105667114,
+              -0.14204087853431702,
+              0.8359977006912231
+            ],
+            "field": 0.5591824293136596,
+            "wing_distance": 0.9948249865901492,
+            "body_distance": 0.10746592855666426,
+            "weights": {
+              "chest": 0.44081756472587585,
+              "wing_base_L": 0.5591824054718018
+            }
+          },
+          {
+            "vertex": 121950,
+            "rest": [
+              0.7301920652389526,
+              -0.15375451743602753,
+              0.8306198120117188
+            ],
+            "field": 0.32490965127944943,
+            "wing_distance": 0.9824843585963101,
+            "body_distance": 0.08991289860945526,
+            "weights": {
+              "wing_base_L": 0.32490965723991394,
+              "chest": 0.6750903725624084
+            }
+          }
+        ]
+      },
+      "lowest": {
+        "frame": 1,
+        "z": -6.194180457441689e-08,
+        "vertex": 20076,
+        "rest": [
+          -1.1690421104431152,
+          1.0654672384262085,
+          0.0
+        ],
+        "field": 0.0
+      }
+    },
+    "Takeoff": {
+      "minimum_z_cm": -6.194180457441689e-06,
+      "maximum_wing_edge_growth_cm": 5.218034028048506,
+      "frames": 49,
+      "worst": {
+        "frame": 31,
+        "growth_m": 0.05218034028048506,
+        "edge": [
+          {
+            "vertex": 31285,
+            "rest": [
+              -0.7560806274414062,
+              -0.1502256989479065,
+              0.9229141473770142
+            ],
+            "field": 0.3954860210418701,
+            "wing_distance": 1.0010992815696107,
+            "body_distance": 0.10702416990536348,
+            "weights": {
+              "wing_base_R": 0.3954860270023346,
+              "chest": 0.6045140027999878
+            }
+          },
+          {
+            "vertex": 31361,
+            "rest": [
+              -0.753253161907196,
+              -0.13552039861679077,
+              0.9134635329246521
+            ],
+            "field": 0.6895920276641845,
+            "wing_distance": 0.9949631936090656,
+            "body_distance": 0.12473164100381945,
+            "weights": {
+              "chest": 0.31040796637535095,
+              "wing_base_R": 0.6895920038223267
+            }
+          }
+        ]
+      },
+      "lowest": {
+        "frame": 1,
+        "z": -6.194180457441689e-08,
+        "vertex": 20076,
+        "rest": [
+          -1.1690421104431152,
+          1.0654672384262085,
+          0.0
+        ],
+        "field": 0.0
+      }
+    },
+    "Hover": {
+      "minimum_z_cm": -6.194180457441689e-06,
+      "maximum_wing_edge_growth_cm": 5.166981989170565,
+      "frames": 37,
+      "worst": {
+        "frame": 8,
+        "growth_m": 0.051669819891705646,
+        "edge": [
+          {
+            "vertex": 31285,
+            "rest": [
+              -0.7560806274414062,
+              -0.1502256989479065,
+              0.9229141473770142
+            ],
+            "field": 0.3954860210418701,
+            "wing_distance": 1.0010992815696107,
+            "body_distance": 0.10702416990536348,
+            "weights": {
+              "wing_base_R": 0.3954860270023346,
+              "chest": 0.6045140027999878
+            }
+          },
+          {
+            "vertex": 31361,
+            "rest": [
+              -0.753253161907196,
+              -0.13552039861679077,
+              0.9134635329246521
+            ],
+            "field": 0.6895920276641845,
+            "wing_distance": 0.9949631936090656,
+            "body_distance": 0.12473164100381945,
+            "weights": {
+              "chest": 0.31040796637535095,
+              "wing_base_R": 0.6895920038223267
+            }
+          }
+        ]
+      },
+      "lowest": {
+        "frame": 1,
+        "z": -6.194180457441689e-08,
+        "vertex": 20076,
+        "rest": [
+          -1.1690421104431152,
+          1.0654672384262085,
+          0.0
+        ],
+        "field": 0.0
+      }
+    },
+    "Land": {
+      "minimum_z_cm": -6.194180457441689e-06,
+      "maximum_wing_edge_growth_cm": 4.1788823312925505,
+      "frames": 43,
+      "worst": {
+        "frame": 10,
+        "growth_m": 0.04178882331292551,
+        "edge": [
+          {
+            "vertex": 31285,
+            "rest": [
+              -0.7560806274414062,
+              -0.1502256989479065,
+              0.9229141473770142
+            ],
+            "field": 0.3954860210418701,
+            "wing_distance": 1.0010992815696107,
+            "body_distance": 0.10702416990536348,
+            "weights": {
+              "wing_base_R": 0.3954860270023346,
+              "chest": 0.6045140027999878
+            }
+          },
+          {
+            "vertex": 31361,
+            "rest": [
+              -0.753253161907196,
+              -0.13552039861679077,
+              0.9134635329246521
+            ],
+            "field": 0.6895920276641845,
+            "wing_distance": 0.9949631936090656,
+            "body_distance": 0.12473164100381945,
+            "weights": {
+              "chest": 0.31040796637535095,
+              "wing_base_R": 0.6895920038223267
+            }
+          }
+        ]
+      },
+      "lowest": {
+        "frame": 1,
+        "z": -6.194180457441689e-08,
+        "vertex": 20076,
+        "rest": [
+          -1.1690421104431152,
+          1.0654672384262085,
+          0.0
+        ],
+        "field": 0.0
+      }
+    }
+  },
+  "actions": {
+    "Idle": "Glurak_Idle_MotionV5",
+    "Walk": "Glurak_Walk_MotionV5",
+    "Run": "Glurak_Run_MotionV5",
+    "Attack": "Glurak_Attack_MotionV5",
+    "Hit": "Glurak_Hit_MotionV5",
+    "Faint": "Glurak_Faint_MotionV5",
+    "Happy": "Glurak_Happy_MotionV5",
+    "Takeoff": "Glurak_Takeoff_MotionV5",
+    "Hover": "Glurak_Hover_MotionV5",
+    "Land": "Glurak_Land_MotionV5"
+  },
+  "run_contact_repair": {
+    "hip_lift_cm": 1.3,
+    "maximum_original_foot_transform_error_m": 6.664001874625056e-08
+  },
+  "exports": [
+    {
+      "role": "Idle",
+      "path": "Art/Characters/Creatures/Glurak/Exports/MotionV5/Glurak_Idle.fbx",
+      "sha256": "7c90b0c716bc8cda93d1029f233cbfac74380524d556169ee8120e759e6520dd",
+      "contains_mesh": true,
+      "seconds": 2.0
+    },
+    {
+      "role": "Walk",
+      "path": "Art/Characters/Creatures/Glurak/Exports/MotionV5/Glurak_Walk.fbx",
+      "sha256": "6e1893a2c7e5b4bf7984648fe8c948281f977f07a8e94328c25c600a23bf9448",
+      "contains_mesh": false,
+      "seconds": 0.6333333333333333
+    },
+    {
+      "role": "Run",
+      "path": "Art/Characters/Creatures/Glurak/Exports/MotionV5/Glurak_Run.fbx",
+      "sha256": "5118267d29680f3dfa4012b65b7f25d48694c05f2379d37bcaeddea8bc51342a",
+      "contains_mesh": false,
+      "seconds": 0.4
+    },
+    {
+      "role": "Attack",
+      "path": "Art/Characters/Creatures/Glurak/Exports/MotionV5/Glurak_Attack.fbx",
+      "sha256": "bd713183c82c499c752668ecc1bb7cda7b9d036a36e3669bdfaf7e757b571e71",
+      "contains_mesh": false,
+      "seconds": 0.8
+    },
+    {
+      "role": "Hit",
+      "path": "Art/Characters/Creatures/Glurak/Exports/MotionV5/Glurak_Hit.fbx",
+      "sha256": "08b00e718d681e2545a8eb1c798781389a4674d50d1a9cb567a08dbf019d5e0b",
+      "contains_mesh": false,
+      "seconds": 0.4
+    },
+    {
+      "role": "Faint",
+      "path": "Art/Characters/Creatures/Glurak/Exports/MotionV5/Glurak_Faint.fbx",
+      "sha256": "ea70064be1b2833fff947bc501181d25eb58e0c382938195f65d71c8e168c7a9",
+      "contains_mesh": false,
+      "seconds": 1.2
+    },
+    {
+      "role": "Happy",
+      "path": "Art/Characters/Creatures/Glurak/Exports/MotionV5/Glurak_Happy.fbx",
+      "sha256": "356ba4e905874733388f3462de81a19081b399dc9d25fa9769792761998882fd",
+      "contains_mesh": false,
+      "seconds": 1.0
+    },
+    {
+      "role": "Takeoff",
+      "path": "Art/Characters/Creatures/Glurak/Exports/MotionV5/Glurak_Takeoff.fbx",
+      "sha256": "34fdde173bcceb110f6f825ebdf419b128250b22767e1add2dca13b3a75dad06",
+      "contains_mesh": false,
+      "seconds": 1.6
+    },
+    {
+      "role": "Hover",
+      "path": "Art/Characters/Creatures/Glurak/Exports/MotionV5/Glurak_Hover.fbx",
+      "sha256": "7eeb1f55c1f26c77f376b0c69e00dbd2502685dc34aeb19ce71cc2e200a4523d",
+      "contains_mesh": false,
+      "seconds": 1.2
+    },
+    {
+      "role": "Land",
+      "path": "Art/Characters/Creatures/Glurak/Exports/MotionV5/Glurak_Land.fbx",
+      "sha256": "0c72505f7db06af3bfc6488340dea296f812933bd6fda7bab385a720325e399a",
+      "contains_mesh": false,
+      "seconds": 1.4
+    }
+  ]
+}

@@ -26,7 +26,7 @@ UPokeMonsterCreatureRoamingComponent::UPokeMonsterCreatureRoamingComponent()
 void UPokeMonsterCreatureRoamingComponent::Configure(const UPokeMonsterCreatureSpeciesData* Species,
 	float RootGroundOffset, float Radius, float HalfHeight, AActor* Follow, int32 Seed)
 {
-	SetComponentTickEnabled(false); bReady = false;
+	SetComponentTickEnabled(false); bReady = false; bPresentationHold = false; PresentationHoverHeight=0.f;
 	if (!Species || !Species->Overworld.IsValid() || !FMath::IsFinite(RootGroundOffset)
 		|| !FMath::IsFinite(Radius) || Radius <= 0 || !FMath::IsFinite(HalfHeight) || HalfHeight <= 0
 		|| !FMath::IsFinite(HabitatRadiusOverride) || HabitatRadiusOverride < 0
@@ -45,7 +45,7 @@ void UPokeMonsterCreatureRoamingComponent::Configure(const UPokeMonsterCreatureS
 	for (TActorIterator<APokeMonsterBuildingCutaway> It(GetWorld()); It; ++It) Buildings.Add(*It);
 	// Some art props intentionally have no gameplay collision. Avoid their solid trunk/rock
  // cores locally, without changing landscape/player collision or treating foliage as a wall.
- DecorativeObstacles.Reset();
+ DecorativeObstacles.Reset(); HoverObstacles.Reset();
  for(TActorIterator<AActor> It(GetWorld());It;++It)
  {
   TInlineComponentArray<UStaticMeshComponent*> Components(*It);
@@ -57,6 +57,7 @@ void UPokeMonsterCreatureRoamingComponent::Configure(const UPokeMonsterCreatureS
    auto Add=[&](const FTransform& Transform)
    {
     const FBox Local=Mesh->GetStaticMesh()->GetBoundingBox(),World=Local.TransformBy(Transform);
+    HoverObstacles.Add(World);
     if(Tree)
     {
      const FVector Bottom=Transform.TransformPosition(FVector(0,0,Local.Min.Z));
@@ -151,7 +152,8 @@ bool UPokeMonsterCreatureRoamingComponent::CanTraverse(const FVector& Start, con
  // miss a very short crossing of an expanded rock/trunk corner, then reject each real step.
  for(const auto& Box:DecorativeObstacles)
   if(IsDecorativeSegmentBlocked(Box,Start,End,BodyRadius,BodyHalfHeight,Settings.MaxStepHeight))return false;
- const auto Q = Query(); FHitResult Obstacle;
+ if(PresentationHoverHeight>0.f&&!CanTraverseHoverColumn(Start,End,PresentationHoverHeight,PresentationHoverBounds))return false;
+	const auto Q = Query(); FHitResult Obstacle;
 	const float Lift = BodyHalfHeight + Settings.MaxStepHeight + 2.f;
 	if (GetWorld()->SweepSingleByChannel(Obstacle, Start + FVector(0, 0, Lift),
 		End + FVector(0, 0, Lift), FQuat::Identity, ECC_Pawn,
@@ -190,6 +192,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	Super::TickComponent(Delta, Tick, Function);
 	AActor* Owner = GetOwner();
 	if (!bReady || bPaused || !Owner || Owner->IsHidden() || Delta <= 0.f) return;
+ if (bPresentationHold) { CurrentSpeed=AngularVelocity=0.f; return; }
 	const auto* GI = GetWorld()->GetGameInstance();
 	const auto* E = GI ? GI->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
 	const auto* C = GI ? GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>() : nullptr;
@@ -477,4 +480,35 @@ bool UPokeMonsterCreatureRoamingComponent::IsInRelocatedInterior(const FVector& 
  for(const auto& Building:Buildings)
   if(Building.IsValid()&&Building->IsViewerInRelocatedRoom(Point))return true;
  return false;
+}
+
+
+bool UPokeMonsterCreatureRoamingComponent::CanGroundHover(float Height, const FBox& Bounds) const
+{
+ if (!bReady || bPaused || bEscapingDefeat || !GetWorld() || !GetOwner() || !Bounds.IsValid
+  || !FMath::IsFinite(Height) || Height < 0.f || Height > 150.f) return false;
+ const FVector Ground=GetOwner()->GetActorLocation()-FVector(0,0,Offset);
+ for (const auto& Weak:Buildings) if (const auto* B=Weak.Get())
+  if (B->IsViewerInside(Ground+FVector(0,0,50))) return false;
+ FVector Projected;
+ if (!ProjectWalkable(Ground,Projected) || FMath::Abs(Projected.Z-Ground.Z)>Settings.MaxStepHeight) return false;
+ return CanTraverseHoverColumn(Ground,Ground,Height,Bounds);
+}
+
+bool UPokeMonsterCreatureRoamingComponent::CanTraverseHoverColumn(const FVector& Start,const FVector& End,float Height,const FBox& Bounds) const
+{
+ if(!Bounds.IsValid||!GetWorld()||!GetOwner())return false;
+ // Rotation-independent footprint covers both wing tips through a turn. The whole column
+ // remains clear, so hovering never permits passing above a ground obstruction or beneath
+ // an overhang that the elevated head/wings would strike. Ordinary land paths are unchanged.
+ const float Radius=FMath::Max(FMath::Max(FMath::Abs(Bounds.Min.X),FMath::Abs(Bounds.Max.X)),
+  FMath::Max(FMath::Abs(Bounds.Min.Y),FMath::Abs(Bounds.Max.Y)))+5.f;
+ const float Bottom=Bounds.Min.Z+2.f,Top=Bounds.Max.Z+Height+12.f;
+ const FVector Extent(Radius,Radius,(Top-Bottom)*.5f),Lift(0,0,(Top+Bottom)*.5f);
+ const FVector A=Start+Lift,B=End+Lift;
+ FBox Column(A-Extent,A+Extent);Column+=FBox(B-Extent,B+Extent);
+ for(const auto& Obstacle:HoverObstacles)if(Column.Intersect(Obstacle))return false;
+ const auto Q=Query();const auto Shape=FCollisionShape::MakeBox(Extent);
+ if(GetWorld()->OverlapBlockingTestByChannel(A,FQuat::Identity,ECC_Pawn,Shape,Q))return false;
+ FHitResult Hit;return !GetWorld()->SweepSingleByChannel(Hit,A,B,FQuat::Identity,ECC_Pawn,Shape,Q);
 }

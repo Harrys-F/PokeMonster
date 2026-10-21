@@ -17,12 +17,12 @@ UPokeMonsterMeshyVisualComponent::UPokeMonsterMeshyVisualComponent()
     SetAnimInstanceClass(UPokeMonsterMeshyAnimInstance::StaticClass());
     VisibilityBasedAnimTickOption = EVisibilityBasedAnimTickOption::OnlyTickPoseWhenRendered;
     static ConstructorHelpers::FObjectFinder<USkeletalMesh> Mesh(TEXT("/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2.SK_Player_Meshy_V2"));
-    static ConstructorHelpers::FObjectFinder<UAnimSequence> Idle(TEXT("/Game/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Idle_V2.A_Player_Meshy_Idle_V2"));
-    static ConstructorHelpers::FObjectFinder<UAnimSequence> Walk(TEXT("/Game/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Walk_V2.A_Player_Meshy_Walk_V2"));
+    static ConstructorHelpers::FObjectFinder<UAnimSequence> Idle(TEXT("/Game/Characters/YoungTrainer/MotionV3/A_Player_Idle_V3.A_Player_Idle_V3"));
+    static ConstructorHelpers::FObjectFinder<UAnimSequence> Walk(TEXT("/Game/Characters/YoungTrainer/MotionV3/A_Player_Walk_V3.A_Player_Walk_V3"));
     if (Mesh.Succeeded()) SetSkeletalMesh(Mesh.Object);
     IdleAnimation = Idle.Object;
     WalkAnimation = Walk.Object;
-    static ConstructorHelpers::FObjectFinder<UAnimSequence> Run(TEXT("/Game/Characters/YoungTrainer/MeshyV2/Animations/A_Player_Meshy_Run_V1.A_Player_Meshy_Run_V1"));
+    static ConstructorHelpers::FObjectFinder<UAnimSequence> Run(TEXT("/Game/Characters/YoungTrainer/MotionV3/A_Player_Run_V3.A_Player_Run_V3"));
     RunAnimation = Run.Object;
 }
 
@@ -45,7 +45,7 @@ void UPokeMonsterMeshyVisualComponent::SetMeshyEnabled(bool bEnabled)
     UpdatePresentation();
 }
 
-void UPokeMonsterMeshyVisualComponent::UpdatePresentation()
+void UPokeMonsterMeshyVisualComponent::UpdatePresentation(float DeltaTime)
 {
     auto* Player = Cast<APokeMonsterPlayerCharacter>(GetOwner());
     if (!Player) return;
@@ -55,12 +55,31 @@ void UPokeMonsterMeshyVisualComponent::UpdatePresentation()
     if (!bActive) return;
     SetRelativeLocation(FVector(0, 0, -Player->GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight()));
     // Rotate only the visual; interaction retains the player's existing world-facing direction.
-    SetWorldRotation(FRotator(0, Player->GetInteractionWorldDirection().Rotation().Yaw + ForwardYawOffset, 0));
+    const float TargetYaw=Player->GetInteractionWorldDirection().Rotation().Yaw+ForwardYawOffset;
+    float Yaw=GetComponentRotation().Yaw;
+    if (!bHaveVisualFacing || DeltaTime<=0.f) { Yaw=TargetYaw;VisualAngularVelocity=0.f;bHaveVisualFacing=true; }
+    else
+    {
+        Yaw=AdvanceVisualYaw(Yaw,TargetYaw,VisualAngularVelocity,DeltaTime);
+    }
+    SetWorldRotation(FRotator(0,Yaw,0));
 
 }
 
 void UPokeMonsterMeshyVisualComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
-    UpdatePresentation();
+    UpdatePresentation(DeltaTime);
     Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+}
+
+
+float UPokeMonsterMeshyVisualComponent::AdvanceVisualYaw(float Current,float Target,float& Velocity,float Delta)
+{
+ if (!FMath::IsFinite(Current)||!FMath::IsFinite(Target)||!FMath::IsFinite(Delta)||Delta<=0.f) return Current;
+ const float Difference=FMath::FindDeltaAngleDegrees(Current,Target);
+ const float Desired=FMath::Clamp(Difference/FMath::Max(Delta,.001f),-720.f,720.f);
+ Velocity=FMath::FInterpConstantTo(Velocity,Desired,Delta,4800.f);
+ const float Step=Velocity*Delta;
+ if (FMath::Abs(Step)>=FMath::Abs(Difference) && Step*Difference>=0.f) { Velocity=0.f;return Target; }
+ return Current+Step;
 }

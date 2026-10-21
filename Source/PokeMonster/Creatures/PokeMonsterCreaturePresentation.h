@@ -12,6 +12,8 @@ class USkeletalMeshComponent;
 class UStaticMeshComponent;
 class UPointLightComponent;
 class UPokeMonsterCreatureSpeciesData;
+class UPokeMonsterCreatureRoamingComponent;
+class USceneComponent;
 
 UENUM(BlueprintType)
 enum class EPokeMonsterCreatureClip : uint8 { Idle, Walk, Run, Attack, Hit, Faint, Happy };
@@ -50,6 +52,12 @@ public:
  UPROPERTY(EditAnywhere, BlueprintReadOnly, meta=(ClampMin="1")) float WalkSpeed=35.f;
  UPROPERTY(EditAnywhere, BlueprintReadOnly, meta=(ClampMin="1")) float RunSpeed=60.f;
  UPROPERTY(EditAnywhere, BlueprintReadOnly) float GroundOffsetCm=0.f;
+ /** Optional low hover above the same walkable route, never a flight navigation mode. */
+ UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Ground Hover") bool bAllowGroundHover=false;
+ UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Ground Hover") TObjectPtr<UAnimSequence> TakeoffClip;
+ UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Ground Hover") TObjectPtr<UAnimSequence> HoverClip;
+ UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Ground Hover") TObjectPtr<UAnimSequence> LandClip;
+ UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Ground Hover", meta=(ClampMin="50",ClampMax="150")) float HoverHeightCm=90.f;
  UPROPERTY(EditAnywhere, BlueprintReadOnly) TObjectPtr<UStaticMesh> TailFlame;
  UPROPERTY(EditAnywhere, BlueprintReadOnly) TObjectPtr<UMaterialInterface> FlameMaterial;
  UPROPERTY(EditAnywhere, BlueprintReadOnly) FName FlameBone=TEXT("tail_socket");
@@ -63,6 +71,15 @@ class POKEMONSTER_API APokeMonsterCreatureVisualActor : public AActor
 public:
  APokeMonsterCreatureVisualActor();
  virtual void Tick(float DeltaSeconds) override;
+ /** Explicit roaming context; battle visuals never receive one. */
+ void SetGroundHoverContext(UPokeMonsterCreatureRoamingComponent* Context);
+ UFUNCTION(BlueprintPure) float GetGroundHoverHeight() const { return HoverHeight; }
+ UFUNCTION(BlueprintPure) FString GetGroundHoverState() const;
+ UPROPERTY(Transient, BlueprintReadOnly) float HoverHeight=0.f;
+ UPROPERTY(Transient, BlueprintReadOnly) float HoverClipTime=0.f;
+ UPROPERTY(Transient, BlueprintReadOnly) TObjectPtr<UAnimSequence> ActiveHoverClip;
+ UPROPERTY(Transient, BlueprintReadOnly) float HoverPoseAlpha=0.f;
+ UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<USceneComponent> VisualOrigin;
  static float SampleSpeed(const FVector& Delta,float Seconds,bool HasPrevious);
  /** Rejects invalid replacement data before altering a working visual. */
  UFUNCTION(BlueprintCallable, Category="Creature|Presentation") bool SetSpecies(const UPokeMonsterCreatureSpeciesData* Species);
@@ -79,6 +96,12 @@ public:
  UPROPERTY(Transient,BlueprintReadWrite) float IdlePhaseOffset=0.f;
  uint32 ReactionSerial=0;
 private:
+ void UpdateGroundHover(float Delta);
+ TWeakObjectPtr<UPokeMonsterCreatureRoamingComponent> HoverContext;
+ enum class EHoverState : uint8 { Grounded, Takeoff, Hover, Landing };
+ EHoverState HoverState=EHoverState::Grounded;
+ float HoverStateTime=0.f, GroundWait=7.f, LandingHeight=0.f, HoverCheckRemaining=0.f;
+ bool bHoverClear=false;
  FVector PreviousLocation=FVector::ZeroVector;
  bool bHavePrevious=false;
 };
