@@ -48,6 +48,7 @@ FPokeMonsterOverworldView FPokeMonsterOverworldViewBuilder::Build(
 			const UPokeMonsterItemData* Item = Stack.Item.LoadSynchronous();
 			if (!IsValid(Item) || Stack.Quantity <= 0) continue;
 			FPokeMonsterOverworldItemRow& Row = View.Inventory.AddDefaulted_GetRef();
+			Row.Item = Stack.Item;
 			Row.Name = Item->GetDisplayName();
 			Row.Category = CategoryName(Item->GetCategory());
 			Row.Quantity = Stack.Quantity;

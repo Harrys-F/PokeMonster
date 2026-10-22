@@ -1,4 +1,7 @@
 #include "PokeMonsterOverworldPlayerController.h"
+#include "PokeMonsterControllerInput.h"
+#include "Framework/Application/SlateApplication.h"
+#include "Blueprint/WidgetBlueprintLibrary.h"
 
 #include "PokeMonsterOverworldView.h"
 #include "PokeMonsterDialogueWidget.h"
@@ -39,6 +42,11 @@ void APokeMonsterOverworldPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 	if (!IsLocalController()) return;
+ if (FSlateApplication::IsInitialized())
+ {
+  InputObserver = PokeMonsterControllerInput::MakeObserver();
+  FSlateApplication::Get().RegisterInputPreProcessor(InputObserver, 0);
+ }
 	OverworldWidget = CreateWidget<UPokeMonsterOverworldWidget>(this,
 		UPokeMonsterOverworldWidget::StaticClass());
 	if (!OverworldWidget) return;
@@ -67,6 +75,7 @@ void APokeMonsterOverworldPlayerController::BeginPlay()
 	}
 	bShowMouseCursor = true;
 	SetInputMode(FInputModeGameAndUI());
+ UWidgetBlueprintLibrary::SetFocusToGameViewport();
 	GetWorldTimerManager().SetTimer(RefreshTimer, this,
 		&APokeMonsterOverworldPlayerController::RefreshHUD, 0.25f, true);
 	RefreshHUD();
@@ -76,6 +85,9 @@ void APokeMonsterOverworldPlayerController::BeginPlay()
 void APokeMonsterOverworldPlayerController::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	GetWorldTimerManager().ClearTimer(RefreshTimer);
+ if (InputObserver.IsValid() && FSlateApplication::IsInitialized())
+  FSlateApplication::Get().UnregisterInputPreProcessor(InputObserver);
+ InputObserver.Reset();
 	if (UGameInstance* Instance = GetGameInstance())
 	{
 		if (UPokeMonsterEncounterSubsystem* Encounter = Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>())
@@ -123,9 +135,19 @@ bool APokeMonsterOverworldPlayerController::CloseMenu()
 	if (OverworldWidget) OverworldWidget->SetMenuOpen(false);
 	UnlockMenu(Cast<APokeMonsterPlayerCharacter>(GetPawn()));
 	SetInputMode(FInputModeGameAndUI());
+ UWidgetBlueprintLibrary::SetFocusToGameViewport();
 	bShowMouseCursor = true;
 	RefreshHUD();
 	return true;
+}
+
+bool APokeMonsterOverworldPlayerController::UseMenuHealingItem(UPokeMonsterItemData* Item, int32 TeamIndex)
+{
+ if (!bMenuOpen || !OverworldWidget || OverworldWidget->GetSection()!=EPokeMonsterOverworldMenuSection::Team) return false;
+ auto* Encounter=GetGameInstance()?GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>():nullptr;
+ const bool bUsed=Encounter && Encounter->UseHealingItemOnPartyMember(Item,TeamIndex);
+ if (bUsed) RefreshHUD();
+ return bUsed;
 }
 
 bool APokeMonsterOverworldPlayerController::ReorderParty(const FGuid SourceInstanceId, const int32 TargetIndex)
@@ -135,6 +157,12 @@ bool APokeMonsterOverworldPlayerController::ReorderParty(const FGuid SourceInsta
 	if (!Encounter || !Encounter->ReorderParty(SourceInstanceId, TargetIndex)) return false;
 	RefreshHUD();
 	return true;
+}
+
+void APokeMonsterOverworldPlayerController::ToggleMainMenu()
+{
+ if (bMenuOpen) CloseMenu();
+ else OpenMenu(EPokeMonsterOverworldMenuSection::Main);
 }
 
 void APokeMonsterOverworldPlayerController::ToggleMenu()
@@ -180,6 +208,7 @@ void APokeMonsterOverworldPlayerController::OnDialogueChanged()
 		if (!bMenuOpen && !(Encounter && Encounter->IsEncounterActive()))
 		{
 			SetInputMode(FInputModeGameAndUI());
+ UWidgetBlueprintLibrary::SetFocusToGameViewport();
 			bShowMouseCursor = true;
 		}
 	}
@@ -223,6 +252,7 @@ void APokeMonsterOverworldPlayerController::OnEncounterEnded(const FPokeMonsterE
 	if (Result.Outcome != EPokeMonsterEncounterOutcome::Defeat)
 	{
 		SetInputMode(FInputModeGameAndUI());
+ UWidgetBlueprintLibrary::SetFocusToGameViewport();
 		bShowMouseCursor = true;
 	}
 	RefreshHUD();

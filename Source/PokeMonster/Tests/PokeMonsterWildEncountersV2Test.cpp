@@ -23,7 +23,7 @@ bool FWildExactContact::RunTest(const FString&)
  Player->SetActorLocation(FVector(0,0,400),false);TestFalse(TEXT("Different floors do not touch"),Wild->IsTouchingPlayer(Player));
  TestFalse(TEXT("Companion/non-player cannot touch-trigger"),Wild->IsTouchingPlayer(nullptr));
  TestTrue(TEXT("Keyboard E is preserved"),Player->GetInteractionKeys().Contains(EKeys::E));
- TestEqual(TEXT("No physical controller key forced by default"),Player->GetInteractionKeys().Num(),2);
+ TestEqual(TEXT("Approved Switch B joins the two retained keyboard mappings"),Player->GetInteractionKeys().Num(),3);
  TestFalse(TEXT("Controller customization does not replace keyboard"),Player->SetInteractionControllerKey(EKeys::Q));
  TestTrue(TEXT("Optional chosen gamepad key maps the SAME action"),Player->SetInteractionControllerKey(EKeys::Gamepad_FaceButton_Right));
  TestTrue(TEXT("Chosen optional key present"),Player->GetInteractionKeys().Contains(EKeys::Gamepad_FaceButton_Right));

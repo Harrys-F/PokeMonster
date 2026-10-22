@@ -25,6 +25,8 @@ UCLASS(Blueprintable)
 class POKEMONSTER_API UPokeMonsterBattleWidget : public UUserWidget
 {
 	GENERATED_BODY()
+ friend class FPokeMonsterSwitchProInputTest;
+ friend class FPokeMonsterSwitchProWidgetTest;
 public:
 	UFUNCTION(BlueprintCallable, Category="Battle UI") void SetPresenter(UPokeMonsterBattlePresenter* InPresenter);
 	UFUNCTION(BlueprintPure, Category="Battle UI") UButton* GetAttackButton(int32 SlotIndex) const;

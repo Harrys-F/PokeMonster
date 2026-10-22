@@ -1,0 +1,1350 @@
+{
+  "schema": 1,
+  "date": "2026-10-22",
+  "foundation_commit": "624aaf4460aada95d2c0b4faffab31c3aa889f92",
+  "map": "/Game/Maps/Dev_TestMap_VisualV2",
+  "build": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 21.815160036087036
+  },
+  "automation": {
+    "mode": "Automation",
+    "exit": 0,
+    "seconds": 32.995859146118164,
+    "summary": {
+      "succeeded": 96,
+      "succeededWithWarnings": 0,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0
+    }
+  },
+  "pie_simulated_not_hardware": {
+    "passed": true,
+    "checks": [
+      "Fixture returned to world before input test",
+      "Analogstick moves via existing Enhanced Input",
+      "L3 activates existing sprint speed",
+      "Stopping retains selected sprint mode",
+      "X opens existing team menu",
+      "Held X cannot reopen or close menu",
+      "Menu pauses sprint but preserves mode",
+      "R reaches inventory",
+      "L returns to team",
+      "Repeat B preserves source selection",
+      "A cancels sorting without closing menu",
+      "Team sorting preserves all IDs and updates slot one",
+      "UI focus returns and player unlocked",
+      "Sprint mode resumes after menu",
+      "L3 toggles mode off",
+      "Overworld item opens existing team target selector",
+      "Cancelling item target consumes nothing",
+      "Overworld B uses one item on valid target",
+      "Plus opens Main in existing widget",
+      "Plus closes main menu",
+      "Keyboard inventory shortcut retained",
+      "Keyboard team shortcut retained",
+      "Main-menu save writes existing compatible slot",
+      "Save/Load retains sorted team",
+      "Existing NPC is the selected interaction target",
+      "B opens dialogue without advancing twice",
+      "Held B does not skip dialogue pages",
+      "B confirms exactly one dialogue page",
+      "A closes dialogue and restores world input",
+      "Wild challenge target is selected, not companion",
+      "B starts one ClassicBattle",
+      "Battle blocks world quick menu",
+      "Battle blocks world main menu",
+      "B selects battle command",
+      "A returns to battle commands",
+      "Bag selected through Dpad and B",
+      "Healing target team selection",
+      "Healing action submitted once",
+      "B submits an actual attack once",
+      "Battle team page reached",
+      "B submits actual battle switch",
+      "Battle ends and restores the world context",
+      "Exactly one visible companion uses party slot one Glumanda",
+      "Team reorder updates sole companion to Schiggy",
+      "ClassicBattle hides and pauses existing companion",
+      "Correct sole companion returns after battle"
+    ],
+    "diagnostic_positioning": [
+      {
+        "actor": "Slice_Wanderer_Hinweis",
+        "player": [
+          -805.0,
+          -1080.0,
+          50.14999993507629
+        ]
+      },
+      {
+        "actor": "Slice_Wild_Myrapla_V3",
+        "player": [
+          -81.26686783780588,
+          1278.9286047060805,
+          50.149999284748475
+        ]
+      }
+    ],
+    "unsaved_fixtures": "Existing BattleV3 / StarterReview APIs; no original party or save replaced permanently"
+  },
+  "map_checks": [
+    {
+      "map": "/Game/Maps/Dev_BattleTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BuildingKitTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_HealingHouseTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_NPCMotionV3",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2EnvironmentQualityV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandAssetLibrary",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandRegion",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandVillage",
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "full_walking_route": {
+    "passed": true,
+    "steps": [
+      {
+        "name": "Menu",
+        "position_cm": [
+          -760.0,
+          -1410.0,
+          50.15000202534564
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 0.10014320909976959,
+        "menu_lock_release": true
+      },
+      {
+        "name": "Dorf",
+        "position_cm": [
+          -760.0,
+          -1410.0,
+          50.15000202534564
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 1.7338769175112247
+      },
+      {
+        "name": "WandererApproach",
+        "position_cm": [
+          -832.2548602013729,
+          -1086.3467697430328,
+          50.15000044413114
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 3.3425355814397335
+      },
+      {
+        "name": "WandererFacing",
+        "position_cm": [
+          -858.9054664528742,
+          -1091.5731313655206,
+          50.1499979309901
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 3.7175355814397335
+      },
+      {
+        "name": "Wanderer",
+        "position_cm": [
+          -858.9054664528742,
+          -1091.5731313655206,
+          50.1499979309901
+        ],
+        "relocated": false,
+        "input_locked": true,
+        "time": 4.0925355814397335,
+        "dialog_active": true,
+        "battle_active": false
+      },
+      {
+        "name": "QuestDialogue",
+        "position_cm": [
+          -858.9054664528742,
+          -1091.5731313655206,
+          50.1499979309901
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 6.352533496916294
+      },
+      {
+        "name": "WildBranchEntry",
+        "position_cm": [
+          -858.9054664528742,
+          -1372.0121740607224,
+          50.1499979309901
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 7.391526371240616
+      },
+      {
+        "name": "WildApproach",
+        "position_cm": [
+          -912.0422807058528,
+          -1489.1466261328808,
+          50.1499979309901
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 8.016526371240616
+      },
+      {
+        "name": "WildFacing",
+        "position_cm": [
+          -953.5828032830515,
+          -1490.2956995999511,
+          50.15000108874189
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 8.391526371240616
+      },
+      {
+        "name": "WildContact",
+        "position_cm": [
+          -953.5828032830515,
+          -1490.2956995999511,
+          50.15000108874189
+        ],
+        "relocated": false,
+        "input_locked": true,
+        "time": 8.516526371240616,
+        "territorial_actual_contact_start": true,
+        "manual_interaction_not_used": true
+      },
+      {
+        "name": "Wild",
+        "position_cm": [
+          -953.5828032830515,
+          -1490.2956995999511,
+          50.15000108874189
+        ],
+        "relocated": false,
+        "input_locked": true,
+        "time": 8.641526371240616,
+        "territorial_actual_contact_start": true,
+        "manual_interaction_not_used": true
+      },
+      {
+        "name": "WildCapture",
+        "position_cm": [
+          -953.5828032830515,
+          -1490.2956995999511,
+          50.15000108874189
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 11.391526371240616,
+        "result": "<PokeMonsterEncounterOutcome.CAPTURED: 4>",
+        "party_count": 3
+      },
+      {
+        "name": "WildBranch",
+        "position_cm": [
+          -953.5828032830515,
+          -1490.2956995999511,
+          50.15000108874189
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 13.038383327424526
+      },
+      {
+        "name": "BackMain",
+        "position_cm": [
+          -759.4988361274882,
+          -1163.4747008679783,
+          50.15000108874189
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 14.413383327424526
+      },
+      {
+        "name": "TrainerApproachA",
+        "position_cm": [
+          -759.1048135044098,
+          -827.7760821308436,
+          50.15000108874189
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 15.788383327424526
+      },
+      {
+        "name": "TrainerApproach",
+        "position_cm": [
+          -662.2957072993812,
+          -590.927857348913,
+          50.15000108874189
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 16.788383327424526
+      },
+      {
+        "name": "TrainerFacing",
+        "position_cm": [
+          -687.170262736007,
+          -578.2397690413391,
+          50.14999761354652
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 17.163383327424526
+      },
+      {
+        "name": "Liora",
+        "position_cm": [
+          -687.170262736007,
+          -578.2397690413391,
+          50.14999761354652
+        ],
+        "relocated": false,
+        "input_locked": true,
+        "time": 18.788383327424526,
+        "dialog_active": false,
+        "battle_active": true
+      },
+      {
+        "name": "TrainerDialogue",
+        "position_cm": [
+          -687.170262736007,
+          -578.2397690413391,
+          50.14999761354652
+        ],
+        "relocated": false,
+        "input_locked": true,
+        "time": 18.913383327424526
+      },
+      {
+        "name": "TrainerBattle",
+        "position_cm": [
+          -687.170262736007,
+          -578.2397690413391,
+          50.14999761354652
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 23.038383327424526,
+        "result": "<PokeMonsterEncounterOutcome.VICTORY: 0>",
+        "party_count": 3
+      },
+      {
+        "name": "TrainerVictory",
+        "position_cm": [
+          -687.170262736007,
+          -578.2397690413391,
+          50.14999761354652
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 23.163383327424526,
+        "trainer_defeated": true
+      },
+      {
+        "name": "Wald",
+        "position_cm": [
+          -687.170262736007,
+          -578.2397690413391,
+          50.14999761354652
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 24.814192537218332
+      },
+      {
+        "name": "BridgeApproach",
+        "position_cm": [
+          -490.63814776811904,
+          -543.8263348654696,
+          50.14999761354652
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 25.564192537218332
+      },
+      {
+        "name": "BridgeEntry",
+        "position_cm": [
+          -336.3456543954712,
+          -492.36939779536283,
+          50.14999761354652
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 26.314192537218332
+      },
+      {
+        "name": "BridgeMid",
+        "position_cm": [
+          -353.51504052908854,
+          -314.47371858105464,
+          74.15000011170814
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 27.189192537218332
+      },
+      {
+        "name": "BachBruecke",
+        "position_cm": [
+          -353.9001884428856,
+          -314.0400586152747,
+          74.15000011170814
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 28.832161996513605
+      },
+      {
+        "name": "BridgeExit",
+        "position_cm": [
+          -353.9001884428856,
+          -141.03192877795033,
+          50.14999963487098
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 29.582161996513605
+      },
+      {
+        "name": "OpenWay",
+        "position_cm": [
+          -17.997965281072133,
+          -39.39217555805967,
+          50.14999963487098
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 30.957161996513605
+      },
+      {
+        "name": "OffenerWeg",
+        "position_cm": [
+          -17.564799262078097,
+          -39.0064721987129,
+          50.14999963487098
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 32.61380549892783
+      },
+      {
+        "name": "Pass1",
+        "position_cm": [
+          207.64700978116204,
+          152.9570076179671,
+          50.14999963487098
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 33.61380549892783
+      },
+      {
+        "name": "Pass2",
+        "position_cm": [
+          414.2376316951521,
+          285.9880127385259,
+          50.14999963487098
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 34.61380549892783
+      },
+      {
+        "name": "ArchiveApproach",
+        "position_cm": [
+          695.4506533093252,
+          595.9572800819451,
+          50.14999963487098
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 36.23880549892783
+      },
+      {
+        "name": "Archive",
+        "position_cm": [
+          745.7965749530124,
+          676.5322367534432,
+          50.14999963487098
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 36.73880549892783
+      },
+      {
+        "name": "ArchiveFacing",
+        "position_cm": [
+          746.9795822206718,
+          673.667336083288,
+          50.150000252916456
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 37.11380549892783
+      },
+      {
+        "name": "SaveLoad",
+        "position_cm": [
+          746.9795822206718,
+          673.667336083288,
+          50.150000252916456
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 37.23880549892783,
+        "save_load": true,
+        "hp_pp_preserved": true
+      },
+      {
+        "name": "Ruinen",
+        "position_cm": [
+          746.9795822206718,
+          673.667336083288,
+          50.150000252916456
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 38.875135999172926
+      },
+      {
+        "name": "ArchiveStone",
+        "position_cm": [
+          746.9795822206718,
+          673.667336083288,
+          50.150000252916456
+        ],
+        "relocated": false,
+        "input_locked": true,
+        "time": 39.24314511939883,
+        "dialog_active": true,
+        "battle_active": false
+      },
+      {
+        "name": "ArchiveActivation",
+        "position_cm": [
+          746.9795822206718,
+          673.667336083288,
+          50.150000252916456
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 40.49314511939883
+      },
+      {
+        "name": "ArchiveComplete",
+        "position_cm": [
+          746.9795822206718,
+          673.667336083288,
+          50.150000252916456
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 40.61814511939883,
+        "archive_flag": true
+      },
+      {
+        "name": "ArchiveReturn",
+        "position_cm": [
+          702.2963019333495,
+          604.6725029003218,
+          50.150000252916456
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 41.11814511939883
+      },
+      {
+        "name": "PassReturn2",
+        "position_cm": [
+          400.77993576412655,
+          269.30962539636363,
+          50.150000252916456
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 43.11814511939883
+      },
+      {
+        "name": "PassReturn1",
+        "position_cm": [
+          209.79261493049927,
+          149.42249890831863,
+          50.150000252916456
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 44.11814511939883
+      },
+      {
+        "name": "BridgeNorthReturn",
+        "position_cm": [
+          -341.979614701058,
+          -123.71207639162847,
+          50.150000252916456
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 46.61814511939883
+      },
+      {
+        "name": "BridgeSouthReturn",
+        "position_cm": [
+          -342.4044037479434,
+          -503.5343595215703,
+          50.14999795666084
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 48.24314511939883
+      },
+      {
+        "name": "ReturnForest",
+        "position_cm": [
+          -730.3498473553959,
+          -719.0440420386859,
+          50.14999795666084
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 50.0768819116056
+      },
+      {
+        "name": "ReturnNPC",
+        "position_cm": [
+          -830.9913779231972,
+          -1087.7430247692635,
+          50.14999795666084
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 51.7018819116056
+      },
+      {
+        "name": "ReturnNPCFacing",
+        "position_cm": [
+          -859.2807579751458,
+          -1093.4631517409648,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 52.0768819116056
+      },
+      {
+        "name": "WandererCompleted",
+        "position_cm": [
+          -859.2807579751458,
+          -1093.4631517409648,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": true,
+        "time": 52.4518819116056,
+        "dialog_active": true,
+        "battle_active": false
+      },
+      {
+        "name": "CompletedDialogue",
+        "position_cm": [
+          -859.2807579751458,
+          -1093.4631517409648,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 53.486970368772745
+      },
+      {
+        "name": "BackStart",
+        "position_cm": [
+          -766.6780856119971,
+          -1418.2044779146404,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 54.512131951749325
+      },
+      {
+        "name": "VillageFork",
+        "position_cm": [
+          -1137.4878050749924,
+          -1909.7755041678533,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 57.137131951749325
+      },
+      {
+        "name": "VillagePath",
+        "position_cm": [
+          -2101.4186583778505,
+          -2056.5614589605843,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 61.012131951749325
+      },
+      {
+        "name": "VillageSouth",
+        "position_cm": [
+          -3342.3150558362304,
+          -1708.6441845830768,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 66.13713195174932
+      },
+      {
+        "name": "VillageWest",
+        "position_cm": [
+          -4147.391083418091,
+          -693.0780081787019,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 71.01041724532843
+      },
+      {
+        "name": "HealerForecourt",
+        "position_cm": [
+          -4099.635810645795,
+          460.3532236445235,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 75.51041724532843
+      },
+      {
+        "name": "Heilhaus",
+        "position_cm": [
+          -4099.605033423149,
+          460.9324063825162,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 77.15187736600637
+      },
+      {
+        "name": "HouseDoor",
+        "position_cm": [
+          -3608.501542004469,
+          510.05464562544273,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 78.65187736600637
+      },
+      {
+        "name": "DoorStraight",
+        "position_cm": [
+          -3546.5069988560695,
+          510.46415097890093,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 79.02687736600637
+      },
+      {
+        "name": "DoorEntry",
+        "position_cm": [
+          16623.41956935346,
+          510.46415097890093,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 79.90187736600637
+      },
+      {
+        "name": "InteriorReady",
+        "position_cm": [
+          16623.99956925124,
+          510.46415097890093,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 80.80517890304327
+      },
+      {
+        "name": "Innenraum",
+        "position_cm": [
+          16623.99956925124,
+          510.46415097890093,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 82.43446922302246
+      },
+      {
+        "name": "CutawayInside",
+        "position_cm": [
+          16623.99956925124,
+          510.46415097890093,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 82.50881443172693,
+        "relocation": true,
+        "roof_front_hidden": true
+      },
+      {
+        "name": "InteriorAisle",
+        "position_cm": [
+          16882.31186537138,
+          668.5153702351041,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 83.95488538593054
+      },
+      {
+        "name": "HealerSideAisle",
+        "position_cm": [
+          17231.9481873316,
+          653.3121836845675,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 85.81266617774963
+      },
+      {
+        "name": "HealerApproach",
+        "position_cm": [
+          17232.525305881467,
+          554.83231069954,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 86.43799809366465
+      },
+      {
+        "name": "HealerFacing",
+        "position_cm": [
+          17232.525305881467,
+          520.0630456090063,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 86.74348097294569
+      },
+      {
+        "name": "Healer",
+        "position_cm": [
+          17232.525305881467,
+          519.4701745793334,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": true,
+        "time": 87.0458298549056,
+        "dialog_active": true,
+        "battle_active": false
+      },
+      {
+        "name": "Healing",
+        "position_cm": [
+          17232.525305881467,
+          519.4701745793334,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 89.27228548005223
+      },
+      {
+        "name": "HealingSaveCheckpoint",
+        "position_cm": [
+          17232.525305881467,
+          519.4701745793334,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 89.3880517296493,
+        "hp_pp_full": true,
+        "checkpoint_saved": true
+      },
+      {
+        "name": "HealerReturn",
+        "position_cm": [
+          17232.525305881467,
+          644.7077830345387,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 90.12420477345586
+      },
+      {
+        "name": "InteriorFront",
+        "position_cm": [
+          16909.980836169234,
+          672.581132581739,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 91.87949585542083
+      },
+      {
+        "name": "InsideDoor",
+        "position_cm": [
+          16461.193525514784,
+          502.3462487477939,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 94.33138145878911
+      },
+      {
+        "name": "DoorExit",
+        "position_cm": [
+          -3653.971995888689,
+          502.2830856264024,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 95.2599066235125
+      },
+      {
+        "name": "OutsideReady",
+        "position_cm": [
+          -3654.551995786467,
+          502.2830856264024,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 96.09234954044223
+      },
+      {
+        "name": "CutawayOutside",
+        "position_cm": [
+          -3654.551995786467,
+          502.2830856264024,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 96.21734954044223,
+        "outside_restored": true
+      },
+      {
+        "name": "DiagonalDoorApproach",
+        "position_cm": [
+          -3613.3748421655228,
+          543.4602392473474,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 96.55682900175452
+      },
+      {
+        "name": "DiagonalEntry",
+        "position_cm": [
+          -3504.089215862389,
+          434.99485666582615,
+          50.150000196945925
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 97.30682900175452
+      },
+      {
+        "name": "DiagonalReady",
+        "position_cm": [
+          16446.32090599842,
+          434.5847348050198,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 98.18182900175452
+      },
+      {
+        "name": "DiagonalInside",
+        "position_cm": [
+          16446.32090599842,
+          434.5847348050198,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 98.30157354101539,
+        "relocation": true,
+        "roof_front_hidden": true
+      },
+      {
+        "name": "DiagonalInsideDoor",
+        "position_cm": [
+          16457.306308051593,
+          531.9143363411132,
+          50.150000196945925
+        ],
+        "relocated": true,
+        "input_locked": false,
+        "time": 98.9199599660933
+      },
+      {
+        "name": "DiagonalExit",
+        "position_cm": [
+          -3613.72196111192,
+          419.08540661912104,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 99.86496387794614
+      },
+      {
+        "name": "DiagonalOutsideReady",
+        "position_cm": [
+          -3614.1355342359943,
+          418.6787653122352,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 100.69334655627608
+      },
+      {
+        "name": "DiagonalOutside",
+        "position_cm": [
+          -3614.1355342359943,
+          418.6787653122352,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 100.81834655627608,
+        "outside_restored": true
+      },
+      {
+        "name": "NorthFork",
+        "position_cm": [
+          -4099.398781835879,
+          461.140093731257,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 102.81834655627608
+      },
+      {
+        "name": "NorthForest",
+        "position_cm": [
+          -4294.474176472795,
+          1539.4537837637745,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 106.44334655627608
+      },
+      {
+        "name": "DichterWald",
+        "position_cm": [
+          -4294.869118136055,
+          1539.8785436536473,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 108.10549988597631
+      },
+      {
+        "name": "NorthRidge",
+        "position_cm": [
+          -3306.708940055326,
+          2038.8192183093838,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 112.10549988597631
+      },
+      {
+        "name": "NorthEast",
+        "position_cm": [
+          -2163.6323920095183,
+          1998.736336339905,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 116.60549988597631
+      },
+      {
+        "name": "ForestEast",
+        "position_cm": [
+          -1709.3004181440629,
+          1227.7386185279638,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 120.23049988597631
+      },
+      {
+        "name": "ForestMiddle",
+        "position_cm": [
+          -1538.0653205181611,
+          642.9418094425997,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 122.73049988597631
+      },
+      {
+        "name": "CrownApproach",
+        "position_cm": [
+          -1906.3260242054112,
+          524.2378461089805,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 124.35549988597631
+      },
+      {
+        "name": "CrownReveal_On",
+        "position_cm": [
+          -1906.7565439825335,
+          523.8491912454717,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 126.00617064163089
+      },
+      {
+        "name": "ForestMiddleReturn",
+        "position_cm": [
+          -1550.2056595467109,
+          646.8687172918281,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 127.38117064163089
+      },
+      {
+        "name": "ForestSouth",
+        "position_cm": [
+          -1573.270529739966,
+          -88.16919774741028,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 130.2561706416309
+      },
+      {
+        "name": "ForestReturn",
+        "position_cm": [
+          -1573.6667539476543,
+          -864.9117866542285,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 133.2561706416309
+      },
+      {
+        "name": "VillageReturn",
+        "position_cm": [
+          -1515.8393914833441,
+          -1842.0409962460747,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 136.1311706416309
+      },
+      {
+        "name": "StartReturn1",
+        "position_cm": [
+          -1142.1319210281247,
+          -1921.5356641419867,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 137.2561706416309
+      },
+      {
+        "name": "StartReturn",
+        "position_cm": [
+          -760.2125607941441,
+          -1398.9641182880846,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 139.7291676811874
+      },
+      {
+        "name": "AllEight",
+        "position_cm": [
+          -786.3818259241805,
+          -1371.2625564940292,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 143.73420210182667,
+        "eight_directions": true
+      },
+      {
+        "name": "MenuAfterTour",
+        "position_cm": [
+          -786.3818278034406,
+          -1402.2305401347596,
+          50.150000470702466
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 143.85920210182667,
+        "menu_lock_release": true
+      },
+      {
+        "name": "SprintEight",
+        "position_cm": [
+          -715.0315662281805,
+          -1086.653291092239,
+          50.14999927229114
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 147.99778247624636,
+        "sprint_max_cm_s": 315.00000000000955,
+        "released": true
+      },
+      {
+        "name": "SprintStop",
+        "position_cm": [
+          -715.0315662281805,
+          -1086.653291092239,
+          50.14999927229114
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 148.49778247624636
+      },
+      {
+        "name": "Final",
+        "position_cm": [
+          -715.0315662281805,
+          -1086.653291092239,
+          50.14999927229114
+        ],
+        "relocated": false,
+        "input_locked": false,
+        "time": 150.14697076380253
+      }
+    ],
+    "no_test_teleports": true,
+    "distance_m": 294.36457611671517,
+    "game_seconds": 150.27197076380253,
+    "wall_seconds": 235.7897990829997,
+    "max_speed_cm_s": 315.00000000000955,
+    "npc_sprite_fallback_checked": true
+  },
+  "legacy_full_walk_companion_visual_samples": 0,
+  "separate_actual_companion_checks": [
+    "Exactly one visible companion uses party slot one Glumanda",
+    "Team reorder updates sole companion to Schiggy",
+    "ClassicBattle hides and pauses existing companion",
+    "Correct sole companion returns after battle"
+  ],
+  "protected_original_save_sha256": "eeab48f3c5652ef6d24b7f386ee7c26973336c929edf39aa7f6593d407a913df",
+  "original_save_restored": true,
+  "maps_sha256_unchanged": 11,
+  "hardware": {
+    "user_previously_confirmed": [
+      "left stick movement",
+      "battle Dpad navigation",
+      "physical B confirms in battle"
+    ],
+    "new_physical_button_checks_completed": false,
+    "active_editor_apple_gc_backend": 1,
+    "additional_background_gamecontroller_inventory_returned_no_metadata": true
+  },
+  "new_lfs_upload_bytes": 0
+}

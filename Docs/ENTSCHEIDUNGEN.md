@@ -1018,3 +1018,10 @@ Die V4-Entscheidung gegen größere Glurak-Flügelschläge bleibt als historisch
 Nebulak erhält echte transparente Außenströmungen und eine kombinierte räumliche Hülle mit freiem Originalgesicht; kein volumetrisches System. Player-Mesh, Gewichte und Skeleton bleiben unverändert, nur neue MotionV3-Clips, visuelle Drehung und Bewegungsblends werden aktiv. Eine allgemeine messbare Beseitigung von Fußgleiten ist nicht belegt; enges Drehen bleibt offen.
 
 Build04, 94/94 warnungsfreie Projekt-Automation, elf Map Checks und vollständige Gameplay-/Save-/Battle-Wiederholungen sind bestanden. Frühere fehlgeschlagene Kandidaten/Fixtures und externe Warnungen bleiben im Bericht nachvollziehbar. Die technische Übernahme ersetzt keine künstlerische Abnahme durch Harry; physischer Switch-Pro-Test offen.
+
+
+## 22.10.2026 – Nintendo Switch Pro: B bestätigen, A zurück und dauerhafter L3-Modus
+
+Harry legt die physische Nintendo-Belegung ausdrücklich fest: B bestätigt/interagiert, A bricht ab, X öffnet Team/Beutel, L/R wechseln Kategorien, Plus öffnet/schließt das Hauptmenü im bestehenden Reisebuch, L3 schaltet Sprint um. Diese Freigabe ersetzt die frühere vorläufige Entscheidung, noch keine Gamepad-Interaktionstaste zuzuordnen. Sie ersetzt außerdem das Löschen des L3-Sprintzustands beim Anhalten: Der Modus bleibt bis zum nächsten L3 gewählt; UI/Kampf/Innenraum pausieren seine Wirkung. Geschwindigkeiten, Kamera, Modelle, Animationen, Kampfregeln und Save-Schema bleiben unverändert.
+
+Die technische Tastenzuordnung folgt dem tatsächlich aktiven macOS-Backend und der bereits vom Nutzer bestätigten B-Kampfeingabe. Es gibt keine parallel entwickelte Eingabe-, Inventar- oder Kampflogik. Rohereignisdiagnose und simulierte Slate-Tests sind von der noch ausstehenden physischen Abnahme der neu belegten Tasten zu unterscheiden. Details und tatsächlicher Prüfumfang stehen im Controller-V1-Prüfbericht.

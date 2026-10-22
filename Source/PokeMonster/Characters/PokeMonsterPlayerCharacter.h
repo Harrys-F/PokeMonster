@@ -106,6 +106,7 @@ public:
 
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Movement")
 	bool IsSprinting() const { return bSprintActive; }
+ UFUNCTION(BlueprintPure, Category="PokeMonster|Movement") bool IsSprintModeEnabled() const { return bSprintToggled; }
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Movement")
 	bool CanSprint() const;
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Movement")
@@ -217,6 +218,8 @@ private:
 #if WITH_DEV_AUTOMATION_TESTS
 	friend class FPokeMonsterPlayerFoundationTest;
 	friend class FPokeMonsterPlayerSprintTest;
+ friend class FPokeMonsterSwitchProInputTest;
+ friend class FPokeMonsterSwitchProWidgetTest;
 	friend class FPokeMonsterBuildingCameraTest;
 	friend class FPokeMonsterRelocatedInteriorTransitionTest;
 	friend class FPokeMonsterEncounterIntegrationTest;
@@ -264,6 +267,8 @@ private:
 
 	UPROPERTY(Transient)
 	TObjectPtr<UInputAction> MenuAction;
+ UPROPERTY(Transient) TObjectPtr<UInputAction> MainMenuAction;
+ void ToggleMainMenu(const FInputActionValue& Value);
 	UPROPERTY(Transient) TObjectPtr<UInputAction> SprintHoldAction;
 	UPROPERTY(Transient) TObjectPtr<UInputAction> SprintToggleAction;
 

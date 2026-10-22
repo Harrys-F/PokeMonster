@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "PokeMonsterOverworldView.generated.h"
 
+class UPokeMonsterItemData;
 class UPokeMonsterEncounterSubsystem;
 class UPokeMonsterInventorySubsystem;
 class UPokeMonsterQuestSubsystem;
@@ -23,6 +24,7 @@ USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterOverworldItemRow
 {
 	GENERATED_BODY()
+ UPROPERTY(BlueprintReadOnly) TSoftObjectPtr<UPokeMonsterItemData> Item;
 	UPROPERTY(BlueprintReadOnly) FText Name;
 	UPROPERTY(BlueprintReadOnly) FText Category;
 	UPROPERTY(BlueprintReadOnly) int32 Quantity = 0;

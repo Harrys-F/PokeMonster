@@ -5,6 +5,8 @@
 #include "PokeMonsterOverworldWidget.h"
 #include "PokeMonsterOverworldPlayerController.generated.h"
 
+class IInputProcessor;
+class UPokeMonsterItemData;
 class APokeMonsterPlayerCharacter;
 class APokeMonsterVisibleWildCreatureActor;
 class UPokeMonsterEncounterSubsystem;
@@ -21,12 +23,14 @@ public:
 	bool OpenMenu(EPokeMonsterOverworldMenuSection InitialSection = EPokeMonsterOverworldMenuSection::Team);
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Overworld UI") bool CloseMenu();
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Overworld UI") void ToggleMenu();
+ UFUNCTION(BlueprintCallable, Category="PokeMonster|Overworld UI") void ToggleMainMenu();
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Overworld UI") bool IsMenuOpen() const { return bMenuOpen; }
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Overworld UI") UPokeMonsterOverworldWidget* GetOverworldWidget() const { return OverworldWidget; }
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Dialogue") bool AdvanceDialogue();
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Dialogue") void CloseDialogue();
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Dialogue") UPokeMonsterDialogueWidget* GetDialogueWidget() const { return DialogueWidget; }
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Team") bool ReorderParty(FGuid SourceInstanceId, int32 TargetIndex);
+ UFUNCTION(BlueprintCallable, Category="PokeMonster|Inventory") bool UseMenuHealingItem(UPokeMonsterItemData* Item, int32 TeamIndex);
 	static bool CanOpenMenu(const APokeMonsterPlayerCharacter* Player,
 		const UPokeMonsterEncounterSubsystem* Encounter, bool bAlreadyOpen);
 	static bool TryLockMenu(APokeMonsterPlayerCharacter* Player,
@@ -45,4 +49,5 @@ private:
 	FTimerHandle RefreshTimer;
  TWeakObjectPtr<APokeMonsterVisibleWildCreatureActor> FocusedWild;
 	bool bMenuOpen = false;
+ TSharedPtr<IInputProcessor> InputObserver;
 };

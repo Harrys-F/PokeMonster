@@ -15,6 +15,8 @@ UCLASS(Blueprintable)
 class POKEMONSTER_API UPokeMonsterDialogueWidget : public UUserWidget
 {
 	GENERATED_BODY()
+ friend class FPokeMonsterSwitchProInputTest;
+ friend class FPokeMonsterSwitchProWidgetTest;
 public:
 	void SetOwnerController(APokeMonsterOverworldPlayerController* Controller);
 	void ShowPage(const FPokeMonsterDialoguePage& Page, int32 PageIndex, int32 PageCount);
@@ -23,7 +25,7 @@ public:
 protected:
 	virtual TSharedRef<SWidget> RebuildWidget() override;
 	virtual void NativeConstruct() override;
-	virtual FReply NativeOnKeyDown(const FGeometry& InGeometry, const FKeyEvent& InKeyEvent) override;
+	virtual FReply NativeOnPreviewKeyDown(const FGeometry& InGeometry, const FKeyEvent& InKeyEvent) override;
 	UFUNCTION(BlueprintImplementableEvent, Category="PokeMonster|Dialogue")
 	void OnDialoguePageChanged(const FPokeMonsterDialoguePage& Page, int32 PageIndex, int32 PageCount);
 private:

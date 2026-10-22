@@ -1,6 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "PokeMonsterPlayerCharacter.h"
+#include "../UI/PokeMonsterControllerInput.h"
 #include "PokeMonsterCharacterFillComponent.h"
 #include "PokeMonsterMeshyVisualComponent.h"
 #include "../Camera/PokeMonsterCameraVisibilityComponent.h"
@@ -180,10 +181,17 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 	InteractAction->ValueType = EInputActionValueType::Boolean;
 	DefaultMappingContext->MapKey(InteractAction, EKeys::E);
 	DefaultMappingContext->MapKey(InteractAction, EKeys::Enter);
+	OptionalInteractionControllerKey = PokeMonsterControllerInput::Confirm();
+	DefaultMappingContext->MapKey(InteractAction, OptionalInteractionControllerKey);
 
 	MenuAction = CreateDefaultSubobject<UInputAction>(TEXT("MenuAction"));
 	MenuAction->ValueType = EInputActionValueType::Boolean;
 	DefaultMappingContext->MapKey(MenuAction, EKeys::Tab);
+ DefaultMappingContext->MapKey(MenuAction, PokeMonsterControllerInput::QuickMenu());
+ MainMenuAction = CreateDefaultSubobject<UInputAction>(TEXT("MainMenuAction"));
+ MainMenuAction->ValueType = EInputActionValueType::Boolean;
+ DefaultMappingContext->MapKey(MainMenuAction, EKeys::Gamepad_Special_Right);
+ DefaultMappingContext->MapKey(MainMenuAction, EKeys::Escape);
 
 	SprintHoldAction = CreateDefaultSubobject<UInputAction>(TEXT("SprintHoldAction"));
 	SprintHoldAction->ValueType = EInputActionValueType::Boolean;
@@ -375,6 +383,7 @@ void APokeMonsterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* Pla
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Completed, this, &APokeMonsterPlayerCharacter::StopMoving);
 	EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &APokeMonsterPlayerCharacter::Interact);
 	EnhancedInputComponent->BindAction(MenuAction, ETriggerEvent::Started, this, &APokeMonsterPlayerCharacter::ToggleOverworldMenu);
+ EnhancedInputComponent->BindAction(MainMenuAction, ETriggerEvent::Started, this, &APokeMonsterPlayerCharacter::ToggleMainMenu);
 	EnhancedInputComponent->BindAction(SprintHoldAction, ETriggerEvent::Started, this, &APokeMonsterPlayerCharacter::StartSprintHold);
 	EnhancedInputComponent->BindAction(SprintHoldAction, ETriggerEvent::Completed, this, &APokeMonsterPlayerCharacter::StopSprintHold);
 	EnhancedInputComponent->BindAction(SprintHoldAction, ETriggerEvent::Canceled, this, &APokeMonsterPlayerCharacter::StopSprintHold);
@@ -396,7 +405,6 @@ void APokeMonsterPlayerCharacter::Move(const FInputActionValue& Value)
 void APokeMonsterPlayerCharacter::StopMoving(const FInputActionValue& Value)
 {
 	UpdateMovementInput(FVector2D::ZeroVector);
-	bSprintToggled = false;
 	RefreshSprint();
 }
 
@@ -429,15 +437,14 @@ void APokeMonsterPlayerCharacter::StopSprintHold(const FInputActionValue& Value)
 
 void APokeMonsterPlayerCharacter::ToggleSprint(const FInputActionValue& Value)
 {
-	// A stationary stick click never leaves sprint armed for later movement.
-	bSprintToggled = CanSprint() && GetVelocity().Size2D() > 3.f && !bSprintToggled;
+	// Explicit mode: persist across stops; menus, battles and interiors only pause it.
+	if (CanSprint()) bSprintToggled = !bSprintToggled;
 	RefreshSprint();
 }
 
 void APokeMonsterPlayerCharacter::RefreshSprint()
 {
 	const bool bAllowed = CanSprint();
-	if (!bAllowed || MovementInput.IsNearlyZero(FacingInputThreshold)) bSprintToggled = false;
 	const bool bWantsSprint = bAllowed && !MovementInput.IsNearlyZero(FacingInputThreshold)
 		&& (bSprintHeld || bSprintToggled);
 	if (bWantsSprint == bSprintActive) return;
@@ -453,15 +460,19 @@ void APokeMonsterPlayerCharacter::RefreshSprint()
 
 void APokeMonsterPlayerCharacter::OnMovementUpdated(float DeltaSeconds, FVector OldLocation, FVector OldVelocity)
 {
-	// Cancel the stick latch after an actual stop, also when stopped by collision.
-	if (bSprintToggled && GetVelocity().Size2D() <= 3.f && OldVelocity.Size2D() > 3.f)
-		bSprintToggled = false;
+	// A physical stop does not silently change the user-selected sprint mode.
 	RefreshSprint();
 }
 
 void APokeMonsterPlayerCharacter::Interact(const FInputActionValue& Value)
 {
 	TryInteract();
+}
+
+void APokeMonsterPlayerCharacter::ToggleMainMenu(const FInputActionValue& Value)
+{
+ if (auto* C = Cast<APokeMonsterOverworldPlayerController>(GetController()))
+  C->ToggleMainMenu();
 }
 
 void APokeMonsterPlayerCharacter::ToggleOverworldMenu(const FInputActionValue& Value)
@@ -554,7 +565,6 @@ void APokeMonsterPlayerCharacter::SetOverworldInputLocked(const bool bLocked)
 	if (bLocked)
 	{
 		bSprintHeld = false;
-		bSprintToggled = false;
 		UpdateMovementInput(FVector2D::ZeroVector);
 		GetCharacterMovement()->StopMovementImmediately();
 	}

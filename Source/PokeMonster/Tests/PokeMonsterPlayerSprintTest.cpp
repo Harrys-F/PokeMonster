@@ -48,10 +48,11 @@ bool FPokeMonsterPlayerSprintTest::RunTest(const FString& Parameters)
     P->ToggleSprint(FInputActionValue(true));
     P->StopMoving(FInputActionValue(FVector2D::ZeroVector));
     P->Move(FInputActionValue(FVector2D(0,1)));
-    TestFalse(TEXT("L3 latch clears on stopping"), P->IsSprinting());
-    P->ToggleSprint(FInputActionValue(true)); M->Velocity = FVector::ZeroVector;
+    TestTrue(TEXT("L3 mode survives stopping and resumes movement"), P->IsSprinting());
+    M->Velocity = FVector::ZeroVector;
     P->OnMovementUpdated(.016f, FVector::ZeroVector, FVector(315,0,0));
-    TestFalse(TEXT("Collision stop cancels the L3 latch"), P->IsSprinting());
+    TestTrue(TEXT("Explicit mode remains selected after a collision stop"), P->IsSprintModeEnabled());
+    P->ToggleSprint(FInputActionValue(true));
     P->StartSprintHold(FInputActionValue(true));
     P->SetOverworldInputLocked(true);
     TestFalse(TEXT("Existing menu/dialogue/battle lock blocks sprint"), P->CanSprint());

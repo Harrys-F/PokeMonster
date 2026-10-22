@@ -6,21 +6,24 @@
 #include "PokeMonsterOverworldWidget.generated.h"
 
 class APokeMonsterOverworldPlayerController;
+class UPokeMonsterItemData;
 class UButton;
 class UCanvasPanel;
 class UTextBlock;
 class UVerticalBox;
 
 UENUM(BlueprintType)
-enum class EPokeMonsterOverworldMenuSection : uint8 { Team, Inventory };
+enum class EPokeMonsterOverworldMenuSection : uint8 { Team, Inventory, Main };
 
 /** Native UMG fallback with named controls and a Blueprint view hook for later artwork. */
 UCLASS(Blueprintable)
 class POKEMONSTER_API UPokeMonsterOverworldWidget : public UUserWidget
 {
 	GENERATED_BODY()
+ friend class FPokeMonsterSwitchProInputTest;
+ friend class FPokeMonsterSwitchProWidgetTest;
 public:
-	void SetOwnerController(APokeMonsterOverworldPlayerController* InController) { OwnerController = InController; }
+	void SetOwnerController(APokeMonsterOverworldPlayerController* InController);
 	void SetMenuOpen(bool bOpen, EPokeMonsterOverworldMenuSection InitialSection = EPokeMonsterOverworldMenuSection::Team);
 	void SetBattleVisible(bool bBattleVisible);
 	void SetInteractionAvailable(bool bAvailable,const FString& Action=FString());
@@ -39,6 +42,12 @@ protected:
 private:
 	void BuildDefaultTree();
 	void RefreshTeamFocus();
+ void NavigateMenu(int32 Delta);
+ void ConfirmMenu();
+ UFUNCTION() void SaveGame();
+ UPROPERTY(Transient) TArray<TObjectPtr<UButton>> MainButtons;
+ int32 FocusedMainSlot = 0;
+ int32 FocusedInventorySlot = 0;
 	UFUNCTION() void Team0();
 	UFUNCTION() void Team1();
 	UFUNCTION() void Team2();
@@ -47,6 +56,7 @@ private:
 	UFUNCTION() void Team5();
 	UPROPERTY(Transient) TArray<TObjectPtr<UButton>> TeamButtons;
 	FGuid SelectedInstanceId;
+ UPROPERTY(Transient) TObjectPtr<UPokeMonsterItemData> PendingHealingItem;
 	int32 FocusedTeamSlot = 0;
 	void Render();
 	UFUNCTION() void OpenInventory();

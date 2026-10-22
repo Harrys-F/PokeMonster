@@ -1,4 +1,5 @@
 #include "PokeMonsterDialogueWidget.h"
+#include "PokeMonsterControllerInput.h"
 
 #include "PokeMonsterOverworldPlayerController.h"
 #include "Blueprint/WidgetTree.h"
@@ -114,7 +115,7 @@ void UPokeMonsterDialogueWidget::ShowPage(const FPokeMonsterDialoguePage& Page,
 	const bool bClosesWithoutAction = PageIndex + 1 == PageCount
 		&& Page.FollowUp == EPokeMonsterDialogueAction::None;
 	if (AdvanceLabel) AdvanceLabel->SetText(FText::FromString(bClosesWithoutAction
-		? TEXT("Schließen  ↵") : TEXT("Weiter  ↵")));
+		? TEXT("Schließen  B / ↵") : TEXT("Weiter  B / ↵")));
 	if (PortraitImage)
 	{
 		if (UTexture2D* Texture = Page.Portrait.LoadSynchronous())
@@ -148,18 +149,18 @@ void UPokeMonsterDialogueWidget::HideDialogue()
 	SetVisibility(ESlateVisibility::Collapsed);
 }
 
-FReply UPokeMonsterDialogueWidget::NativeOnKeyDown(const FGeometry& InGeometry, const FKeyEvent& InKeyEvent)
+FReply UPokeMonsterDialogueWidget::NativeOnPreviewKeyDown(const FGeometry& InGeometry, const FKeyEvent& InKeyEvent)
 {
 	const FKey Key = InKeyEvent.GetKey();
-	if (Key == EKeys::Enter || Key == EKeys::E || Key == EKeys::SpaceBar)
+	if (Key == EKeys::Enter || Key == EKeys::E || Key == EKeys::SpaceBar || Key == PokeMonsterControllerInput::Confirm())
 	{
-		Advance(); return FReply::Handled();
+		if (!InKeyEvent.IsRepeat()) Advance(); return FReply::Handled();
 	}
-	if (Key == EKeys::Escape)
+	if (Key == EKeys::Escape || Key == PokeMonsterControllerInput::Cancel())
 	{
-		Close(); return FReply::Handled();
+		if (!InKeyEvent.IsRepeat()) Close(); return FReply::Handled();
 	}
-	return Super::NativeOnKeyDown(InGeometry, InKeyEvent);
+	return Super::NativeOnPreviewKeyDown(InGeometry, InKeyEvent);
 }
 
 void UPokeMonsterDialogueWidget::Advance()

@@ -997,7 +997,7 @@ Kollisionslose Baumkronen werden anhand ihrer inneren, sonnenprojizierten Volume
 
 
 ### Wilde Pokémon und Begegnungen V2
-Verhaltensabhängige Initiierung im vorhandenen Profil: Kontakt ausschließlich für territorial/aggressiv, gezielte gemeinsame Interaktion für ruhig/neugierig/scheu. Kapseloberflächen statt Sensorsphärenradius; gültige Sichtlinie und Richtungs-/Entfernungsgewichtung bei Herausforderungen. Kein neues Kampf- oder Eingabesystem. Controller-Zuordnung ist optional und nutzt dieselbe bestehende Aktion, Standard ohne festgelegte Gamepad-Taste.
+Verhaltensabhängige Initiierung im vorhandenen Profil: Kontakt ausschließlich für territorial/aggressiv, gezielte gemeinsame Interaktion für ruhig/neugierig/scheu. Kapseloberflächen statt Sensorsphärenradius; gültige Sichtlinie und Richtungs-/Entfernungsgewichtung bei Herausforderungen. Kein neues Kampf- oder Eingabesystem. Die gemeinsame Interaktionsaktion bleibt erhalten. Seit dem ausdrücklichen Switch-Pro-Auftrag vom 22.10.2026 ist B zusätzlich standardmäßig zugeordnet; die frühere vorläufige Belegung ohne Gamepad-Taste ist damit ersetzt. Siehe Nintendo-Switch-Pro-Abschnitt unten.
 
 Nach normalem Classic-Wildsieg bleibt die abgeschlossene Begegnung kurz sichtbar, nutzt die bestehende lokale Wegsuche zum Verlassen des Kamerabilds und wird erst danach deaktiviert. Eine konservative vollständig projizierte Visual-Boundingbox entscheidet über das Sichtfeld. Fang, Spielerflucht, Niederlage und WorldBattle sind gesondert behandelt. Ein unerreichbarer Fluchtweg führt zu sichtbarem nicht-interaktivem Warten mit Wiederholungsplanung, niemals zu einem sichtbaren Teleport.
 
@@ -1031,3 +1031,16 @@ Nebulaks deckendes Originalgesicht bleibt erhalten. Die Zusatzhülle verwendet d
 Der Player behält sein originales V2-Mesh/Skeleton. Neue Idle/Walk/Run-Clips unter `/Game/Characters/YoungTrainer/MotionV3`, Referenz 210/315 cm/s und Zyklen 0,55/0,45 s. Rein visuelle Drehbegrenzung sowie glatte Start-/Stopblends verändern keine Interaktionsrichtung, Kamera oder Eingaben. Source-IK hält Knie-/Sprunggelenk zusammen; keine Garantie vollständigen Fuß-Lockings bei engen Wendungen.
 
 Abschluss: Development Editor Build, 94/94 Projekt-Automation ohne Testwarnungen, 11 Map Checks 0/0 und vollständiger PIE-Fußlauf mit Save-Restaurierung. Bekannte Engine-Start-/iOS-Warnungen und die unveränderten Battle-Umweltmaterial-Usage-Warnungen bleiben separat im [Prüfbericht](MOTION_REFINEMENT_V5_PRUEFBERICHT.md). Reproduzierbare Werkzeuge unter `Tools/MotionRefinementV5`; alle echten Kontrollmedien ausschließlich lokal im ignorierten `Saved/`.
+
+
+## Nintendo Switch Pro Controller V1 (22.10.2026)
+
+Bestehende Enhanced-Input-Aktionen und UMG-Kontexte werden weiterverwendet. Für das tatsächlich gelesene Apple-GameController-Backend (`Slate.MacControllerPreferGCImpl=1`) gilt B = `Gamepad_FaceButton_Right`, A = `Gamepad_FaceButton_Bottom`, X = `Gamepad_FaceButton_Left`; dies sind Framework-Tastennamen, keine Aussage über Xbox-Tastenpositionen. Der gemeinsame Helfer `PokeMonsterControllerInput` berücksichtigt den abweichenden vorhandenen Legacy-HID-Pfad ohne Umschalten des Backends. Physische B-Bestätigung im Kampf wurde vom Nutzer vorab bestätigt; alle neu ergänzten physischen Funktionen bleiben bis zur Hardwareabnahme separat offen.
+
+B verwendet dieselbe `InteractAction` wie E/Enter. X und Tab öffnen das vorhandene Team-/Beutel-Reisebuch. L/R wechseln seine zwei Kategorien, Steuerkreuz navigiert, B wählt Quelle/Ziel für freie Teamumordnung oder ein Heilitem und anschließend ein Teamziel. A bricht zuerst die jeweilige Auswahl ab. Heilung und Verbrauch bleiben in den bestehenden Encounter-/Inventar-APIs. Plus beziehungsweise Escape in der Oberwelt öffnet die Hauptseite desselben Widgets (Team, Beutel, Speichern, Fortsetzen); Speichern verwendet den bisherigen Save-Slot und dasselbe Schema.
+
+L3 ist ein dauerhafter, nicht im Spielstand gespeicherter Sprintmodus: an-/abschalten auch im Stand; Anhalten löscht ihn nicht. Menüs, Dialoge, Kämpfe und Innenräume pausieren nur die tatsächliche Sprintbewegung. Nach Freigabe setzt Bewegung den gewählten Modus fort. Gehen/Sprint bleiben 210/315 cm/s, Shift bleibt Haltesprint. Dies ersetzt ausdrücklich das frühere automatische Löschen des L3-Zustands beim Anhalten.
+
+UMG fängt Bestätigen/Abbrechen bereits im Preview-Pfad vor generischer Slate-Button-Aktivierung ab. Wiederholte Bestätigungs-/Abbruch-/Kategorie-/Menütasten lösen keine zusätzlichen Kontextwechsel aus. Der Fokus kehrt nach Schließen zur Spielansicht zurück. Ein nicht konsumierender Slate-Beobachter aktualisiert Eingabehinweise und zeigt auf `pm.Input.Trace 1` rohe UE-Tastenereignisse; `0` schaltet die Diagnose ab. `pm.Input.Key`/`pm.Input.Axis` sind ausdrücklich Entwicklungssimulationen und kein physischer Controller-Nachweis.
+
+Prüfwerkzeuge: `Tools/SwitchProControllerV1/README.md`. Tatsächliche Testergebnisse und offene Hardwaretasten: `Docs/NINTENDO_SWITCH_PRO_CONTROLLER_V1_PRUEFBERICHT.md`.

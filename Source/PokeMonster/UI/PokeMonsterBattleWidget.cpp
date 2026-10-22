@@ -1,4 +1,5 @@
 #include "PokeMonsterBattleWidget.h"
+#include "PokeMonsterControllerInput.h"
 #include "Engine/Texture2D.h"
 #include "PokeMonsterBattleTestController.h"
 #include "../Moves/PokeMonsterMoveData.h"
@@ -228,7 +229,7 @@ void UPokeMonsterBattleWidget::BuildClassicTree()
  Shape(WidgetTree,C,0,540,1280,180,FLinearColor(.035f,.068f,.057f),0);Shape(WidgetTree,C,0,538,1280,2,FLinearColor(.60f,.56f,.36f),0);
  auto* Status=Text(WidgetTree,TEXT("StatusLabel"),TEXT("Was möchtest du tun?"),22);Status->SetAutoWrapText(true);Place(C,Status,28,570,560,96);
  auto* Scroll=WidgetTree->ConstructWidget<UScrollBox>(UScrollBox::StaticClass(),TEXT("LogScroll"));auto* Log=Text(WidgetTree,TEXT("LogLabel"),TEXT(""),14);Log->SetAutoWrapText(true);Scroll->AddChild(Log);Place(C,Scroll,28,610,550,40);Scroll->SetVisibility(ESlateVisibility::Collapsed);
- MenuHint=Text(WidgetTree,TEXT("MenuHint"),TEXT("A bestätigen · B zurück · Steuerkreuz / Stick"),12,Muted);Place(C,MenuHint,28,690,590,22);
+ MenuHint=Text(WidgetTree,TEXT("MenuHint"),TEXT("B bestätigen · A zurück · Steuerkreuz / Stick"),12,Muted);Place(C,MenuHint,28,690,590,22);
  for(int I=0;I<4;++I){auto* P=WidgetTree->ConstructWidget<UCanvasPanel>();P->SetVisibility(ESlateVisibility::SelfHitTestInvisible);Place(C,P,650,553,605,145);MenuPanels.Add(P);}
  auto Button=[&](UCanvasPanel* Panel,FName Name,const FString& Label,float X,float Y,float W,float H,int Font){
   auto* B=WidgetTree->ConstructWidget<UButton>(UButton::StaticClass(),Name);TintButton(B,Muted);B->AddChild(Text(WidgetTree,NAME_None,Label,Font));Place(Panel,B,X,Y,W,H);return B;
@@ -301,6 +302,7 @@ void UPokeMonsterBattleWidget::UpdateClassicMenu()
 }
 void UPokeMonsterBattleWidget::NativeTick(const FGeometry& G,float D)
 {
+ if(MenuHint)MenuHint->SetText(FText::FromString(PokeMonsterControllerInput::IsGamepadActive()?TEXT("B bestätigen · A zurück · Steuerkreuz / Stick"):TEXT("Enter / Leertaste bestätigen · Esc zurück · Pfeiltasten")));
  Super::NativeTick(G,D);if(!bClassicPresentation&&!bEncounterOverlay)return;IntroTime+=D;const bool End=Presenter&&Presenter->GetView().bFinished&&!Presenter->GetView().bBusy;ExitTime=End?ExitTime+D:0.f;SetRenderOpacity(FMath::Min(FMath::Clamp(IntroTime/.25f,0.f,1.f),1.f-FMath::Clamp((ExitTime-.7f)/.3f,0.f,1.f)));
  if(!bInitialMenuFocused&&IntroTime>.2f&&Presenter&&!Presenter->GetView().bBusy){for(auto* B:ActiveMenuButtons())if(B&&B->GetIsEnabled()){B->SetKeyboardFocus();bInitialMenuFocused=true;break;}}
  UButton* Focus=nullptr;for(auto* B:ActiveMenuButtons())if(B&&B->HasKeyboardFocus())Focus=B;
@@ -314,8 +316,9 @@ FReply UPokeMonsterBattleWidget::NativeOnPreviewKeyDown(const FGeometry& G,const
  if(K==EKeys::Right||K==EKeys::Gamepad_DPad_Right){FocusMenu(1);return FReply::Handled();}
  if(K==EKeys::Up||K==EKeys::Gamepad_DPad_Up){FocusMenu(-Columns);return FReply::Handled();}
  if(K==EKeys::Down||K==EKeys::Gamepad_DPad_Down){FocusMenu(Columns);return FReply::Handled();}
- const FKey Accept=bNintendoButtonLayout?EKeys::Gamepad_FaceButton_Right:EKeys::Gamepad_FaceButton_Bottom,Cancel=bNintendoButtonLayout?EKeys::Gamepad_FaceButton_Bottom:EKeys::Gamepad_FaceButton_Right;
- if(K==EKeys::Escape||K==Cancel){MenuBack();return FReply::Handled();}
+ const FKey Accept=bNintendoButtonLayout?PokeMonsterControllerInput::Confirm():EKeys::Gamepad_FaceButton_Bottom,Cancel=bNintendoButtonLayout?PokeMonsterControllerInput::Cancel():EKeys::Gamepad_FaceButton_Right;
+ if(K==EKeys::Escape||K==Cancel){if(!E.IsRepeat())MenuBack();return FReply::Handled();}
+ if(K==PokeMonsterControllerInput::QuickMenu()||K==EKeys::Gamepad_Special_Right||K==EKeys::Gamepad_LeftThumbstick)return FReply::Handled();
  if(K==EKeys::Enter||K==EKeys::SpaceBar||K==Accept){if(!E.IsRepeat())for(auto* B:ActiveMenuButtons())if(B&&B->HasKeyboardFocus()&&B->GetIsEnabled()){B->OnClicked.Broadcast();break;}return FReply::Handled();}
  return Super::NativeOnPreviewKeyDown(G,E);
 }
