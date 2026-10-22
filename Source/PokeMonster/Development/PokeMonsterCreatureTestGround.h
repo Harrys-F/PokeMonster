@@ -36,6 +36,7 @@ private:
  void Message(const FString& Text) const;
  UPROPERTY(Transient) TArray<TObjectPtr<AActor>> OwnedActors;
  UPROPERTY(Transient) TArray<TObjectPtr<UTextRenderComponent>> Labels;
+ TArray<FVector2D> MovementReferenceSpeeds;
  FTransform ReturnPosition;
  TWeakObjectPtr<APawn> ReturnPawn;
  bool bHaveReturn=false;

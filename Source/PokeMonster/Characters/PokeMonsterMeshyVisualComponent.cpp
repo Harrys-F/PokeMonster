@@ -17,12 +17,12 @@ UPokeMonsterMeshyVisualComponent::UPokeMonsterMeshyVisualComponent()
     SetAnimInstanceClass(UPokeMonsterMeshyAnimInstance::StaticClass());
     VisibilityBasedAnimTickOption = EVisibilityBasedAnimTickOption::OnlyTickPoseWhenRendered;
     static ConstructorHelpers::FObjectFinder<USkeletalMesh> Mesh(TEXT("/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2.SK_Player_Meshy_V2"));
-    static ConstructorHelpers::FObjectFinder<UAnimSequence> Idle(TEXT("/Game/Characters/YoungTrainer/MotionV3/A_Player_Idle_V3.A_Player_Idle_V3"));
-    static ConstructorHelpers::FObjectFinder<UAnimSequence> Walk(TEXT("/Game/Characters/YoungTrainer/MotionV3/A_Player_Walk_V3.A_Player_Walk_V3"));
+    static ConstructorHelpers::FObjectFinder<UAnimSequence> Idle(TEXT("/Game/Characters/YoungTrainer/AnimationV6/A_Player_Idle_V6.A_Player_Idle_V6"));
+    static ConstructorHelpers::FObjectFinder<UAnimSequence> Walk(TEXT("/Game/Characters/YoungTrainer/AnimationV6/A_Player_Walk_V6.A_Player_Walk_V6"));
     if (Mesh.Succeeded()) SetSkeletalMesh(Mesh.Object);
     IdleAnimation = Idle.Object;
     WalkAnimation = Walk.Object;
-    static ConstructorHelpers::FObjectFinder<UAnimSequence> Run(TEXT("/Game/Characters/YoungTrainer/MotionV3/A_Player_Run_V3.A_Player_Run_V3"));
+    static ConstructorHelpers::FObjectFinder<UAnimSequence> Run(TEXT("/Game/Characters/YoungTrainer/AnimationV6/A_Player_Run_V6.A_Player_Run_V6"));
     RunAnimation = Run.Object;
 }
 

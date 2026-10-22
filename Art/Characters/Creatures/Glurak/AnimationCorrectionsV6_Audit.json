@@ -1,0 +1,158 @@
+{
+  "source": "Art/Characters/Creatures/Glurak/Source/Glurak_AnimationCorrections_V6.blend",
+  "source_sha256": "2d97c8cf84038642f5dbd51e45ea9a133cbbadce0ecfd04c2624380f4a04f9c8",
+  "previous_sha256": "6c2067598419799c02a3f42f3e217119793a781a394348a82b4255a322dd588a",
+  "changes": {
+    "rear_faces": 25092,
+    "two_sided_membrane_faces": 0,
+    "selection": "Exact front/rear BVH ray visibility plus anatomical wing weights; shared faces use TwoSidedSign",
+    "no_texture_hue_threshold": true
+  },
+  "original_geometry_uvs_preserved": true,
+  "metrics": {
+    "Idle": {
+      "duration": 2.0,
+      "min_z_cm": -6.194180457441689e-06,
+      "foot_width_cm": null
+    },
+    "Walk": {
+      "duration": 0.6333333333333333,
+      "min_z_cm": -4.575114758154086e-05,
+      "foot_width_cm": null
+    },
+    "Run": {
+      "duration": 0.4,
+      "min_z_cm": -2.8357700898595795e-05,
+      "foot_width_cm": null
+    },
+    "Attack": {
+      "duration": 0.8,
+      "min_z_cm": -1.170224663837871e-05,
+      "foot_width_cm": null
+    },
+    "Hit": {
+      "duration": 0.4,
+      "min_z_cm": -1.1329716897989783e-05,
+      "foot_width_cm": null
+    },
+    "Faint": {
+      "duration": 1.2,
+      "min_z_cm": -5.9604644775390625e-06,
+      "foot_width_cm": null
+    },
+    "Happy": {
+      "duration": 1.0,
+      "min_z_cm": -6.194180457441689e-06,
+      "foot_width_cm": null
+    },
+    "Takeoff": {
+      "duration": 1.6,
+      "min_z_cm": -6.194180457441689e-06,
+      "foot_width_cm": null
+    },
+    "Hover": {
+      "duration": 1.2,
+      "min_z_cm": -6.194180457441689e-06,
+      "foot_width_cm": null
+    },
+    "Land": {
+      "duration": 1.4,
+      "min_z_cm": -6.194180457441689e-06,
+      "foot_width_cm": null
+    }
+  },
+  "actions": {
+    "Idle": "Glurak_Idle_V6",
+    "Walk": "Glurak_Walk_V6",
+    "Run": "Glurak_Run_V6",
+    "Attack": "Glurak_Attack_V6",
+    "Hit": "Glurak_Hit_V6",
+    "Faint": "Glurak_Faint_V6",
+    "Happy": "Glurak_Happy_V6",
+    "Takeoff": "Glurak_Takeoff_V6",
+    "Hover": "Glurak_Hover_V6",
+    "Land": "Glurak_Land_V6"
+  },
+  "exports": [
+    {
+      "role": "Idle",
+      "path": "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Idle.fbx",
+      "sha256": "87782f63800fb9922c5cd1b726d4b4f01a138f53793ecf03cfaba387b0b518a3",
+      "fps": 30,
+      "mesh": true,
+      "seconds": 2.0
+    },
+    {
+      "role": "Walk",
+      "path": "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Walk.fbx",
+      "sha256": "957dff8936cf3a9f064af9191d55b81357a6998f70ff93ffc7291a05ade96f02",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.6333333333333333
+    },
+    {
+      "role": "Run",
+      "path": "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Run.fbx",
+      "sha256": "de0a838a14f00798ed74065bd5e45b032f4e38fc3d1eccfbe9ec0f8e5e9a98d9",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.4
+    },
+    {
+      "role": "Attack",
+      "path": "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Attack.fbx",
+      "sha256": "4cef6670f123b2a90088c15970fd1ca6e6465b24782295c957a469f7ecd0f05e",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.8
+    },
+    {
+      "role": "Hit",
+      "path": "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Hit.fbx",
+      "sha256": "5d8890fa4105843dd13b6958893f3dd5f933b31e6a0b03a83da44e5dfda15a4b",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.4
+    },
+    {
+      "role": "Faint",
+      "path": "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Faint.fbx",
+      "sha256": "d01be0293a31f69ec01aa98667bcafb304f805c6132533eb10488f63cee6d599",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 1.2
+    },
+    {
+      "role": "Happy",
+      "path": "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Happy.fbx",
+      "sha256": "4f31c646258c2f0036122f59ce89495eb28f21790bcb4bba33236c85bca08094",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 1.0
+    },
+    {
+      "role": "Takeoff",
+      "path": "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Takeoff.fbx",
+      "sha256": "af1cc2cd5a28d7f4ea7a09f5ffe489c97f16c35ff99db72c53bb0105a2e5fe0c",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 1.6
+    },
+    {
+      "role": "Hover",
+      "path": "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Hover.fbx",
+      "sha256": "07b8d198b5bceb6e72c2a3456cdfcca9b0fdcdd4099591e83cdb699791fa7708",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 1.2
+    },
+    {
+      "role": "Land",
+      "path": "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Land.fbx",
+      "sha256": "7bcf099054659e9f72c0a82728c7b1c4d416f76b2a406371614881c1ea504aa3",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 1.4
+    }
+  ]
+}

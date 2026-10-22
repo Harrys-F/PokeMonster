@@ -1013,6 +1013,8 @@ Die Spielfigur behält Mesh, Gewichte, Geschwindigkeit 210/315 cm/s, Eingaben, K
 
 #### V5 – technisch geprüfte Übernahme
 
+Historische aktive Auswahl: durch die V6-Korrekturen vom 22.10. ersetzt; ursprüngliche Quellen bleiben erhalten.
+
 Die V4-Entscheidung gegen größere Glurak-Flügelschläge bleibt als historischer Befund erhalten und wird für die getrennte MotionV5-Quelle ersetzt: korrigierte Membrangewichte, zehn kompatible Clips und begrenztes bodennahes Schweben wurden tatsächlich geprüft. Keine Flug-Navigation und keine Kollisions-/Habitatänderung am Boden. Die gesamte weitere Bewegungsstrecke erhält während Hover konservative Flügel-/Höhenfreiheit, nicht nur eine nachträgliche Prüfung am aktuellen Standort. Der kontrollierte diagonale Hindernisvergleich besteht auch mit unverändertem Hindernis nach Landung.
 
 Nebulak erhält echte transparente Außenströmungen und eine kombinierte räumliche Hülle mit freiem Originalgesicht; kein volumetrisches System. Player-Mesh, Gewichte und Skeleton bleiben unverändert, nur neue MotionV3-Clips, visuelle Drehung und Bewegungsblends werden aktiv. Eine allgemeine messbare Beseitigung von Fußgleiten ist nicht belegt; enges Drehen bleibt offen.
@@ -1042,3 +1044,12 @@ Spielstandeinträge oder Party-Manipulation. Zugang/Rückkehr über ausschließl
 PIE-spezifische Konsolenbefehle statt einer weiteren Controllerbelegung. Andere
 Maps, ausgelieferte Spiele, Kamera, Licht und Wildhabitate bleiben unverändert.
 Das historische Showcase bleibt als separates gezieltes Aufnahmeinstrument erhalten.
+
+
+## 22.10.2026 – Animations- und Modellkorrekturen V6
+
+Die aktive MotionV5-/Player-MotionV3-Auswahl wird durch getrennte V6-Quellen und kompatible Präsentationen für Player, Glurak, Nebulak, Machomei und Myrapla ersetzt. Originalgeometrien, UVs, Texturen und Rest-Rigs bleiben erhalten; Nebulak erhält als ausdrücklich benötigte Reparatur eine zusätzliche geschlossene innere Kernoberfläche und 766 wieder deckende Kernflächen. Keine neue Landschaft, Map, Kamera, Kampflogik oder Speicherstruktur.
+
+Player und Machomei erhalten einen schmaleren animierten Stand, ohne ihre Körper neu zu modellieren. Player-Ellbogen werden über die tatsächliche Posenbasis gebeugt. Zwölf nicht eindeutig als fehlerhaft identifizierte Mantelrandgewichte werden nicht automatisch umgewichtet. Vollständiges World-Space-Foot-Locking ist nicht implementiert. Gluraks gefaltete Flügelwurzelbereiche bleiben trotz deutlich verbesserter Rückseitenfarbe als sichtbarer Abnahmepunkt offen; keine pauschale Orangefärbung der gewünschten dunklen Innenseiten.
+
+Pikachu/Schiggy werden ausschließlich in der Oberwelt um 15 Prozent beschleunigt; Animationstakt folgt weiterhin der tatsächlichen Bewegung und den unveränderten authored Referenzen. Das native Testgelände verwendet diese gleichen individuellen Werte. Nebulaks zusätzliche ruhige Schwebehöhe ist nur an einen Oberwelt-Bewegungskontext gebunden und beeinflusst keine ClassicBattle-Visuals. Künstlerische Freigabe bleibt Harry vorbehalten; technische Prüfungen allein erklären keine perfekte Animation.

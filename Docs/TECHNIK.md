@@ -1024,6 +1024,8 @@ Ein während des V3-Fußlaufs belegter Begleiter-Türübergangsfehler ist lokal 
 
 ### Bewegungsüberarbeitung V5 – Glurak, Nebulak, Player
 
+Historischer Stand: Die aktive Clip-/Präsentationsauswahl ist durch die unten dokumentierten V6-Korrekturen ersetzt; V5-Quellen und Rückfallassets bleiben erhalten.
+
 Glurak und Nebulak verwenden separate `/Game/Characters/Creatures/<Name>/MotionV5`-Präsentationen; Quellen/Exporte liegen unter den bestehenden Art-Verzeichnissen. Die V4-Quellen und Assets bleiben Rückfallstände. Spezies-IDs, sieben normale Rollen und Save-Schema bleiben unverändert. Gluraks optionaler `Ground Hover` ergänzt drei eigene Clips auf dem exakten Mesh-Skeleton; bodennah 90±4 cm, kein Flug-Navigationsmodus. Visueller Ursprung trennt Lift von Bodenkapsel/Pfad. Takeoff/Land halten kurz an; Freiraumsäule und kontinuierlicher Wegsweep berücksichtigen rotierende Flügel, Decken sowie vorhandene kollisionslose Baum-/Felsdekoration. Keine Innenraum-Hover-Automatik. Battle-Visuals bekommen keinen Roaming-Kontext.
 
 Nebulaks deckendes Originalgesicht bleibt erhalten. Die Zusatzhülle verwendet das vorhandene Effekt-Ankersystem, Mesh-Referenzkoordinaten und inverse importierte Kopf-Bind-Transformation einschließlich FBX-Skalierung; kein geratenes Bone-Offset. Eine kombinierte 2.520-Dreiecks-Hülle und getrenntes vorhandenes Gasmaterial verwenden echte Transparenz und mehrere unabhängige Materialströmungen; keine Volumen-/Lichtsimulation.
@@ -1063,3 +1065,12 @@ Encounter- noch Save-Identität. Die Laufzeitobjekte dürfen beim PIE-Ende
 verschwinden; ihre automatische Verfügbarkeit beim nächsten normalen Play ist
 durch die native Entwicklungsfunktion gesichert. Anleitung und Grenzen:
 `Tools/CreatureTestGroundV1/README.md`.
+
+
+### Animations- und Modellkorrekturen V6 (22.10.2026)
+
+Aktive Player-Clips liegen unter `/Game/Characters/YoungTrainer/AnimationV6`, weiterhin auf dem unveränderten V2-Mesh/Skeleton. V6-Quellen sind in den bestehenden Art-Verzeichnissen separat gespeichert. 24 statt 32 cm Fußmittenabstand, vorhandene 210/315 cm/s und 0,55/0,45-s-Zyklen; Ellbogenbeugung berücksichtigt den tatsächlich abgesenkten Oberarm statt nur die Restbasis. Keine neue Cloth-Simulation und keine unbewiesene Mantel-/Hosen-Regewichtung.
+
+Glurak, Nebulak, Machomei und Myrapla verwenden eigene `AnimationV6`-Präsentationen mit exakt kompatiblen Rest-Bones. Gluraks 90-cm-Bodenhover bleibt erhalten. Nebulaks deckender innerer Kern und restaurierte Kernflächen sind eine lokale Darstellungsreparatur. Die optionale `OverworldFloatAmplitudeCm` gehört ausschließlich zur Darstellung: Floating-Rig, 0..10 cm, nur mit vorhandenem Roaming-Kontext; eigenständige Battle-Visuals bleiben ohne Lift/Neigung.
+
+Pikachu und Schiggy verwenden nur individuelle Oberweltüberschreibungen: 14,95/32,2 beziehungsweise 29,9/57,5 cm/s. Authored-Clipreferenzgeschwindigkeiten, Kampfwerte und Save-Schema bleiben erhalten. Das permanente Testgelände respektiert nun dieselben Artenüberschreibungen wie Wild-/Begleiterbewegung. Quellen-/Importwerkzeuge und wiederholbare Prüfungen: `Tools/AnimationCorrectionsV6/README.md`. Grenzen und Nachweise: `Docs/ANIMATIONS_UND_MODELLKORREKTUREN_V6_PRUEFBERICHT.md`.

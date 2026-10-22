@@ -2,7 +2,7 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "permanent_pokemon_test_ground_v1",
+  "snapshot_kind": "animation_model_corrections_v6",
   "generated_at": "2026-10-22",
   "files": {
     ".codex/config.toml": {
@@ -369,6 +369,50 @@
       "bytes": 1371160,
       "sha256": "9adc510de145abed42a65aeeaf94495b4ed33f2b78950b3f60676b356a02d58f"
     },
+    "Art/Characters/Creatures/Glurak/AnimationCorrectionsV6_Audit.json": {
+      "bytes": 4734,
+      "sha256": "0008d9f98a2465648818f302167ae03bcc51ba81198b7d46099dd0c6fba31c86"
+    },
+    "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Attack.fbx": {
+      "bytes": 209052,
+      "sha256": "4cef6670f123b2a90088c15970fd1ca6e6465b24782295c957a469f7ecd0f05e"
+    },
+    "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Faint.fbx": {
+      "bytes": 221084,
+      "sha256": "d01be0293a31f69ec01aa98667bcafb304f805c6132533eb10488f63cee6d599"
+    },
+    "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Happy.fbx": {
+      "bytes": 223004,
+      "sha256": "4f31c646258c2f0036122f59ce89495eb28f21790bcb4bba33236c85bca08094"
+    },
+    "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Hit.fbx": {
+      "bytes": 184972,
+      "sha256": "5d8890fa4105843dd13b6958893f3dd5f933b31e6a0b03a83da44e5dfda15a4b"
+    },
+    "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Hover.fbx": {
+      "bytes": 216828,
+      "sha256": "07b8d198b5bceb6e72c2a3456cdfcca9b0fdcdd4099591e83cdb699791fa7708"
+    },
+    "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Idle.fbx": {
+      "bytes": 11331820,
+      "sha256": "87782f63800fb9922c5cd1b726d4b4f01a138f53793ecf03cfaba387b0b518a3"
+    },
+    "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Land.fbx": {
+      "bytes": 226636,
+      "sha256": "7bcf099054659e9f72c0a82728c7b1c4d416f76b2a406371614881c1ea504aa3"
+    },
+    "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Run.fbx": {
+      "bytes": 184972,
+      "sha256": "de0a838a14f00798ed74065bd5e45b032f4e38fc3d1eccfbe9ec0f8e5e9a98d9"
+    },
+    "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Takeoff.fbx": {
+      "bytes": 236044,
+      "sha256": "af1cc2cd5a28d7f4ea7a09f5ffe489c97f16c35ff99db72c53bb0105a2e5fe0c"
+    },
+    "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Walk.fbx": {
+      "bytes": 197804,
+      "sha256": "957dff8936cf3a9f064af9191d55b81357a6998f70ff93ffc7291a05ade96f02"
+    },
     "Art/Characters/Creatures/Glurak/Exports/MeshyV1/Glurak_Attack.fbx": {
       "bytes": 11476940,
       "sha256": "22f31376deb5db5f491170c7194e58b09458aee741e80c156798dd0baa45bcc1"
@@ -457,6 +501,10 @@
       "bytes": 1542,
       "sha256": "25b5c285f84a6468bbc2382bc5f45ffa7fe7dcf68ede1f5b60c868634d7e3f84"
     },
+    "Art/Characters/Creatures/Glurak/Source/Glurak_AnimationCorrections_V6.blend": {
+      "bytes": 31033298,
+      "sha256": "2d97c8cf84038642f5dbd51e45ea9a133cbbadce0ecfd04c2624380f4a04f9c8"
+    },
     "Art/Characters/Creatures/Glurak/Source/Glurak_Meshy_V1.blend": {
       "bytes": 30443952,
       "sha256": "0ad263ba61ba8bc1e89c8c6fe088d2031b9018275cbd7ac8a2d78d176c79a99f"
@@ -521,6 +569,38 @@
       "bytes": 5898576,
       "sha256": "8353b766fc36d90d3c7a8905e82ae9c407a974959dcab6cac629c5127446a127"
     },
+    "Art/Characters/Creatures/Machomei/AnimationCorrectionsV6_Audit.json": {
+      "bytes": 3414,
+      "sha256": "012d741077a0e84385e5e43d798fae8be5c34da3af86d2c200e2816228b66f07"
+    },
+    "Art/Characters/Creatures/Machomei/Exports/AnimationV6/Machomei_Attack.fbx": {
+      "bytes": 193308,
+      "sha256": "d935103b7b75bca00958edb19aa4deb5823a79f0f8c586f54aeb34c786a07e22"
+    },
+    "Art/Characters/Creatures/Machomei/Exports/AnimationV6/Machomei_Faint.fbx": {
+      "bytes": 203772,
+      "sha256": "c0b076c43308d7b54007218eec1084f6680e374bb38ccab742ccf259bf8d68ab"
+    },
+    "Art/Characters/Creatures/Machomei/Exports/AnimationV6/Machomei_Happy.fbx": {
+      "bytes": 206140,
+      "sha256": "ac56c2d7581c0331dd918c2d2e6a4cc687e2506ed1489abc098037026a216b11"
+    },
+    "Art/Characters/Creatures/Machomei/Exports/AnimationV6/Machomei_Hit.fbx": {
+      "bytes": 171164,
+      "sha256": "d541be18e142af57c19e1f2b821c52fdd101fefed05aaa04d149a820ee4d205a"
+    },
+    "Art/Characters/Creatures/Machomei/Exports/AnimationV6/Machomei_Idle.fbx": {
+      "bytes": 1600892,
+      "sha256": "13ede8e8e9a52e5a2d721cc54eeabea0e92532610a83882191c386917142d3de"
+    },
+    "Art/Characters/Creatures/Machomei/Exports/AnimationV6/Machomei_Run.fbx": {
+      "bytes": 171164,
+      "sha256": "d6c5b99e03acd3d91dc3ae147d591495a2d3052fe132e0422d092a83e6db4ba1"
+    },
+    "Art/Characters/Creatures/Machomei/Exports/AnimationV6/Machomei_Walk.fbx": {
+      "bytes": 182956,
+      "sha256": "1729b5bd3a3346736cf96ceeb0445981506eaea0d58502c79ce9d1821a1756e6"
+    },
     "Art/Characters/Creatures/Machomei/Exports/MeshyV1/Machomei_Attack.fbx": {
       "bytes": 1554124,
       "sha256": "3a71d1cec80afe758755c1514440ec1b0d1adac941947b38cba5b02dceaedfab"
@@ -557,6 +637,10 @@
       "bytes": 5053,
       "sha256": "2e7df0f773c6e950f117ddc9e07816fd09e2eb0affe540dc333c6a94a0182d52"
     },
+    "Art/Characters/Creatures/Machomei/Source/Machomei_AnimationCorrections_V6.blend": {
+      "bytes": 9616596,
+      "sha256": "45f5d1b2948f0664fdbc181723e2790b8eff84d47e5d443a4ed442ef57f76c0e"
+    },
     "Art/Characters/Creatures/Machomei/Source/Machomei_Meshy_V1.blend": {
       "bytes": 9370759,
       "sha256": "987942b6a4ac7a56b00e743b622aa108f94fae60083a68fd93e400fb8f0cbf21"
@@ -572,6 +656,38 @@
     "Art/Characters/Creatures/Machomei/Textures/MeshyV1/Machomei_Normal.jpg": {
       "bytes": 2186673,
       "sha256": "02285b68530ddad52392fb7335e98a5bc75e3e9093539d3f89154889886fedb6"
+    },
+    "Art/Characters/Creatures/Myrapla/AnimationCorrectionsV6_Audit.json": {
+      "bytes": 3290,
+      "sha256": "d2fa44e64a05c39210871c51329024cf0b2082c4cd609f8dfcf97f3d7c580476"
+    },
+    "Art/Characters/Creatures/Myrapla/Exports/AnimationV6/Myrapla_Attack.fbx": {
+      "bytes": 137916,
+      "sha256": "f25383c55b64bd6b71269d971e72f193ec5c5e36d4369598af03fd050d9b1b1b"
+    },
+    "Art/Characters/Creatures/Myrapla/Exports/AnimationV6/Myrapla_Faint.fbx": {
+      "bytes": 144124,
+      "sha256": "7e521d2573f6e54ad6b2625b3da64fc28488742c3954dfb4f69854ff0768d4f4"
+    },
+    "Art/Characters/Creatures/Myrapla/Exports/AnimationV6/Myrapla_Happy.fbx": {
+      "bytes": 146844,
+      "sha256": "79300182ba5ea433b29dad5bd701bab914cb08ae17aa6c07dcfd1a78f710bab2"
+    },
+    "Art/Characters/Creatures/Myrapla/Exports/AnimationV6/Myrapla_Hit.fbx": {
+      "bytes": 122508,
+      "sha256": "694953565eae01cbc3bc2b5de4e5c8a1dc4af11e1cb2e21809c9731a58e9af03"
+    },
+    "Art/Characters/Creatures/Myrapla/Exports/AnimationV6/Myrapla_Idle.fbx": {
+      "bytes": 11045996,
+      "sha256": "46e09ae886fe7bbb2adb12b690c54d7d6f216774c774250e97af66d1e10dbd63"
+    },
+    "Art/Characters/Creatures/Myrapla/Exports/AnimationV6/Myrapla_Run.fbx": {
+      "bytes": 122508,
+      "sha256": "388191abae9dbabcfe4c83e7f48cebcde7a3ec12a746b37ab67e8d5bb08eece3"
+    },
+    "Art/Characters/Creatures/Myrapla/Exports/AnimationV6/Myrapla_Walk.fbx": {
+      "bytes": 130716,
+      "sha256": "9851697f30cd970a0cb0889583fb458e5d09771d92124833ddd8336aea8811b8"
     },
     "Art/Characters/Creatures/Myrapla/Exports/MeshyV1/Myrapla_Attack.fbx": {
       "bytes": 11021932,
@@ -609,6 +725,10 @@
       "bytes": 4867,
       "sha256": "0644b87e05ff26c619bebe3c161dafaec90657411fda8f7d9734321f8f08faf4"
     },
+    "Art/Characters/Creatures/Myrapla/Source/Myrapla_AnimationCorrections_V6.blend": {
+      "bytes": 27946408,
+      "sha256": "ddd4aa8c6f75109c9b2cf5eb79cdb02ce378f1abc57a1e44c1556f7f9f56079b"
+    },
     "Art/Characters/Creatures/Myrapla/Source/Myrapla_Meshy_V1.blend": {
       "bytes": 27823697,
       "sha256": "2ca1a16364af2e3056eb2290fd6387f74cd83c25347a5fa77286680891156798"
@@ -624,6 +744,38 @@
     "Art/Characters/Creatures/Myrapla/Textures/MeshyV1/Myrapla_Normal.jpg": {
       "bytes": 1298132,
       "sha256": "b0e15afb13bbd565cd440982334d72e245a59a7c216b14e84eb2ae76f1a8d4aa"
+    },
+    "Art/Characters/Creatures/Nebulak/AnimationCorrectionsV6_Audit.json": {
+      "bytes": 3396,
+      "sha256": "b066bce7670bdcc1de55ba08a6aa0506dd639ac0502a91aedd490630133eb91f"
+    },
+    "Art/Characters/Creatures/Nebulak/Exports/AnimationV6/Nebulak_Attack.fbx": {
+      "bytes": 114188,
+      "sha256": "838202fc92d243b005e2c3154610cd0878abc608459550a02dfc7da4def6d112"
+    },
+    "Art/Characters/Creatures/Nebulak/Exports/AnimationV6/Nebulak_Faint.fbx": {
+      "bytes": 123756,
+      "sha256": "580e4cc7a5c4521b1ec050465ff627744248b74306c85e9a030980196fb8424f"
+    },
+    "Art/Characters/Creatures/Nebulak/Exports/AnimationV6/Nebulak_Happy.fbx": {
+      "bytes": 121436,
+      "sha256": "f33e013a2cbc5b5e4bc6b81b8e53c45f06d0eb459f47157c0e8f0fdb960c9db5"
+    },
+    "Art/Characters/Creatures/Nebulak/Exports/AnimationV6/Nebulak_Hit.fbx": {
+      "bytes": 101660,
+      "sha256": "9fe8210f04395a9a3e63bd0f14c65b54e86998d4c48e5975e565b81a2757fb9d"
+    },
+    "Art/Characters/Creatures/Nebulak/Exports/AnimationV6/Nebulak_Idle.fbx": {
+      "bytes": 1600764,
+      "sha256": "01725670f706329507ec4eb47a9653ee1b9c47334e7b62e759cecac901d0321f"
+    },
+    "Art/Characters/Creatures/Nebulak/Exports/AnimationV6/Nebulak_Run.fbx": {
+      "bytes": 101660,
+      "sha256": "a6cea295edb61d307ac4179bcbb0cded1e81ca6a0903a6d545fca665bad175b7"
+    },
+    "Art/Characters/Creatures/Nebulak/Exports/AnimationV6/Nebulak_Walk.fbx": {
+      "bytes": 108332,
+      "sha256": "9628fb7f6ef2373601bb56f9cf173e0615dcc2c0f315189ebfa255c525dd5aa7"
     },
     "Art/Characters/Creatures/Nebulak/Exports/MeshyV1/Nebulak_Attack.fbx": {
       "bytes": 1255820,
@@ -728,6 +880,10 @@
     "Art/Characters/Creatures/Nebulak/PolishV4_Audit.json": {
       "bytes": 2195,
       "sha256": "9be233cb31a826647406287552d6fffe3b06d2097dad76f23ce4241fc4a452a7"
+    },
+    "Art/Characters/Creatures/Nebulak/Source/Nebulak_AnimationCorrections_V6.blend": {
+      "bytes": 9070725,
+      "sha256": "04b1163b9cf3ede3d626556d5be72e98a248d1cae5fdc1dee773c7d00178dfc8"
     },
     "Art/Characters/Creatures/Nebulak/Source/Nebulak_Meshy_V1.blend": {
       "bytes": 8767160,
@@ -3761,6 +3917,10 @@
       "bytes": 2971686,
       "sha256": "6c130878f33ee9c0268bc28dafa9ee292fcecce8b1e3237a3e12a99bbc91b391"
     },
+    "Art/Characters/YoungTrainer/AnimationCorrectionsV6_Audit.json": {
+      "bytes": 1792,
+      "sha256": "02c7860259dd0b99a5c6fea4daf6301f50482c0cc590bfd3a442e06199bf64ed"
+    },
     "Art/Characters/YoungTrainer/Authoring/BuildYoungTrainer.py": {
       "bytes": 9975,
       "sha256": "186862545e329e5467101510310d8ced828ba804f9163d77aee7ad297f535cfd"
@@ -3916,6 +4076,18 @@
     "Art/Characters/YoungTrainer/CLOTHING_FEET_V1_PRUEFBERICHT.md": {
       "bytes": 9768,
       "sha256": "b9a8f0528aac6b91392f956bd94711e4d03989ce98a800a5df1a08307f10f742"
+    },
+    "Art/Characters/YoungTrainer/Exports/AnimationV6/Player_Idle.fbx": {
+      "bytes": 429996,
+      "sha256": "05755287cbbfbbdf05213ee384995e0e85466a8b2996de489100b7e41955317c"
+    },
+    "Art/Characters/YoungTrainer/Exports/AnimationV6/Player_Run.fbx": {
+      "bytes": 223260,
+      "sha256": "47568b39a213b4fa69bc18954ca1d60912783e38ed54635442152d5491f6e0c3"
+    },
+    "Art/Characters/YoungTrainer/Exports/AnimationV6/Player_Walk.fbx": {
+      "bytes": 224700,
+      "sha256": "7dfceaf00c64c45c7e876e3fc51c437ebb4652a07bb49fee93490617d08c070c"
     },
     "Art/Characters/YoungTrainer/Exports/MeshyV1/A_Player_Meshy_Idle.fbx": {
       "bytes": 3329180,
@@ -4100,6 +4272,10 @@
     "Art/Characters/YoungTrainer/Review/SprintV1/PRUEFBERICHT.md": {
       "bytes": 7632,
       "sha256": "213e2293667ccc10d2178384554076635124591c79501e16d9370ac19d2a64e3"
+    },
+    "Art/Characters/YoungTrainer/Source/Player_Meshy_AnimationCorrections_V6.blend": {
+      "bytes": 12193720,
+      "sha256": "3d1b1c72eacdfbd09168699624833c638ccc1e8b8fcc4358950019803f5a3d9b"
     },
     "Art/Characters/YoungTrainer/Source/Player_Meshy_AnimationQuality_V2.blend": {
       "bytes": 11726170,
@@ -6461,6 +6637,62 @@
       "bytes": 1382251,
       "sha256": "4d1d4d613449ec95cd00aaf3bfcc9b8658905cea3dd3ec86391269359e38118b"
     },
+    "Content/Characters/Creatures/Glurak/AnimationV6/A_Glurak_Attack_V6.uasset": {
+      "bytes": 83248,
+      "sha256": "16a2f676e230d8ed2fc58dbe77462f3d8591a1f0a9a2b5a1b904d9f3e5c6b654"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV6/A_Glurak_Faint_V6.uasset": {
+      "bytes": 108916,
+      "sha256": "ddb8ebfa3a08a34b66b68ce3fdceecb4d6bcc92fb022ba2ad5ff28b3b1bc2c20"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV6/A_Glurak_Happy_V6.uasset": {
+      "bytes": 94375,
+      "sha256": "d60a136aff401ed398966c6c609863eae80a1ea8f3072c71e045b8978fa6701e"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV6/A_Glurak_Hit_V6.uasset": {
+      "bytes": 60148,
+      "sha256": "8f280c17ced4e3812bea27853154598da0dab9a498e338e7a43b16428b960335"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV6/A_Glurak_Hover_V6.uasset": {
+      "bytes": 103170,
+      "sha256": "c3313dc2c13355fe24b2858f44f1ea3bb410b6b9c91e7ed27689a2f50dc1d43f"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV6/A_Glurak_Idle_V6.uasset": {
+      "bytes": 146136,
+      "sha256": "dc773efc3fd03758e4ae1386696580b4f672b7d8099c59fc06f2e6c01a57e5cb"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV6/A_Glurak_Land_V6.uasset": {
+      "bytes": 113927,
+      "sha256": "448c821f8f0ac340f8edd84274b130c4f2a189aca4d898381cd3b58c66aebce3"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV6/A_Glurak_Run_V6.uasset": {
+      "bytes": 57653,
+      "sha256": "6cf3ae8dc368352b99050c7c12211faa54373a951e8d1c31e70d2a45e602d8cd"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV6/A_Glurak_Takeoff_V6.uasset": {
+      "bytes": 123120,
+      "sha256": "6b244813310e18e3a2b43d51ff092bfaea217152fe438b3f2c5190471025265f"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV6/A_Glurak_Walk_V6.uasset": {
+      "bytes": 68860,
+      "sha256": "7ae966d3a4a40254400753fe004a033c8e739fa293bc6351fba7db50bb1f2d1e"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV6/DA_Glurak_Presentation_V6.uasset": {
+      "bytes": 4657,
+      "sha256": "649c25d2fffddcca7b399e08c465b6e61b11d052d2281e41b29cc43a55fe932f"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV6/M_Glurak_CompleteRear_V6.uasset": {
+      "bytes": 15390,
+      "sha256": "f9397263bbee0b77aa5c878e044caa93397244f3c92dfd43d9f5e2518f6fc37d"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV6/SK_Glurak_V6.uasset": {
+      "bytes": 35929780,
+      "sha256": "7f3ea07f7442f2afc79e44cdabd0f288972be4317de06b07a5625bc1aa29c71d"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV6/SK_Glurak_V6_Skeleton.uasset": {
+      "bytes": 11922,
+      "sha256": "65250cfe8bb8885450cdfd56a885060ae3951aa010870a9d23532d4d0e4971d1"
+    },
     "Content/Characters/Creatures/Glurak/MeshyV1/Animations/A_Glurak_Attack.uasset": {
       "bytes": 79404,
       "sha256": "0b2e0dee5292778b62b42289cd82f7c44e420fc5021270e3783215830d74c4ce"
@@ -6585,6 +6817,46 @@
       "bytes": 34634392,
       "sha256": "15622076498c9d3c5d2f2a6cb160a601b48289c03c7f8d12b3f6649d55c8aac8"
     },
+    "Content/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Attack_V6.uasset": {
+      "bytes": 100713,
+      "sha256": "cbc3ae6c3d6bfa630e6f898f154189300065671d50af868790ba88ff131f76a6"
+    },
+    "Content/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Faint_V6.uasset": {
+      "bytes": 110560,
+      "sha256": "32236aebb38afd81eeb1cd355182c00b1486300db2917c581ef50fdec19b0e0a"
+    },
+    "Content/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Happy_V6.uasset": {
+      "bytes": 113611,
+      "sha256": "2dc79972c874209e155cb969b0bbc209b8173aaeef24865cb795f560d656471f"
+    },
+    "Content/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Hit_V6.uasset": {
+      "bytes": 68093,
+      "sha256": "7222cdfa27dd54eec618bbab7684f3e04f7763e811da888361afc0684f497079"
+    },
+    "Content/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Idle_V6.uasset": {
+      "bytes": 189433,
+      "sha256": "882a3b8d47075c9ed61e3974de5fa2f26d363a91d7b555facc45e953ffea822b"
+    },
+    "Content/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Run_V6.uasset": {
+      "bytes": 53875,
+      "sha256": "0219af2fe40408a505a11834cb916642b6487bcd72df5472775ca2033b80902a"
+    },
+    "Content/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Walk_V6.uasset": {
+      "bytes": 63949,
+      "sha256": "8561472ddfa8894c85913dfb9f6fa58aef5975dec52ecf2b7d47cbe1a321e004"
+    },
+    "Content/Characters/Creatures/Machomei/AnimationV6/DA_Machomei_Presentation_V6.uasset": {
+      "bytes": 3968,
+      "sha256": "99a38be9773aa0024dbc5288e9d9f711a752bd26b7b8656494a5ff5a9905d4e2"
+    },
+    "Content/Characters/Creatures/Machomei/AnimationV6/SK_Machomei_V6.uasset": {
+      "bytes": 4868391,
+      "sha256": "7501352327831e3caa1488595edb15ce8c915d6a2bb6c5e2e6c4ec5334856d4e"
+    },
+    "Content/Characters/Creatures/Machomei/AnimationV6/SK_Machomei_V6_Skeleton.uasset": {
+      "bytes": 11908,
+      "sha256": "838c0e39188bff903f5a0b016fbd0a820f6ca9ad468641c214ad48929a74ce70"
+    },
     "Content/Characters/Creatures/Machomei/MeshyV1/Animations/A_Machomei_Attack.uasset": {
       "bytes": 88802,
       "sha256": "c03295afea007f57e2dacf9b6a9ab988a5379bffeacbbdc9d3391550e9dd71c0"
@@ -6641,6 +6913,46 @@
       "bytes": 2197845,
       "sha256": "aac1a57375fde08b0d802cd4dd7db2793cd24c0745c8f7c39e91f60c8c2126c5"
     },
+    "Content/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Attack_V6.uasset": {
+      "bytes": 52503,
+      "sha256": "4e746ef74819d1714ec7cbacfc34d751989d449e921f185de336ce0290451906"
+    },
+    "Content/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Faint_V6.uasset": {
+      "bytes": 63501,
+      "sha256": "232f7357569067d451f387e7c1858e48747de4b4327f974ad291a9620e02c034"
+    },
+    "Content/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Happy_V6.uasset": {
+      "bytes": 55271,
+      "sha256": "d9a72bd60a34fd8d5b38bb89ec94d3ef7538680eedc9c92ff12b85dbacb59465"
+    },
+    "Content/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Hit_V6.uasset": {
+      "bytes": 40919,
+      "sha256": "47e579168b5f01836560927230c59408f6c6326e1aba57f8795b60797f586c2c"
+    },
+    "Content/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Idle_V6.uasset": {
+      "bytes": 81175,
+      "sha256": "051e87f2665de80676bd042bad2f45b90abd2e50a7c9ef718e5c9a356cf63080"
+    },
+    "Content/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Run_V6.uasset": {
+      "bytes": 42962,
+      "sha256": "d6db4762ac9fa428a6d0a941de30081914fd4593c9495ced875e73639cce8f5e"
+    },
+    "Content/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Walk_V6.uasset": {
+      "bytes": 50802,
+      "sha256": "c3a71e91943b9b79095693ae98c2fbde8e6b8f46eb6e9746828a356c32cdde5b"
+    },
+    "Content/Characters/Creatures/Myrapla/AnimationV6/DA_Myrapla_Presentation_V6.uasset": {
+      "bytes": 3937,
+      "sha256": "4f023ec48a95add37fb488b0e272a429bfecea71f2e3a86e8a96eb669d1a0217"
+    },
+    "Content/Characters/Creatures/Myrapla/AnimationV6/SK_Myrapla_V6.uasset": {
+      "bytes": 32136896,
+      "sha256": "83afc70d54611fb641268234fd99ec39e3b531537e47cb78cd31aa8b10d60d10"
+    },
+    "Content/Characters/Creatures/Myrapla/AnimationV6/SK_Myrapla_V6_Skeleton.uasset": {
+      "bytes": 10187,
+      "sha256": "96122872610eef0b73fed74b6d7e37464177d09a9855f72e7b6e546da76f7ffb"
+    },
     "Content/Characters/Creatures/Myrapla/MeshyV1/Animations/A_Myrapla_Attack.uasset": {
       "bytes": 52282,
       "sha256": "60b6f16466dc0628348d6eae298fd0d05982563f44256aa0ab69bf651dc1b4b7"
@@ -6696,6 +7008,58 @@
     "Content/Characters/Creatures/Myrapla/MeshyV1/Textures/T_Myrapla_Normal.uasset": {
       "bytes": 1309263,
       "sha256": "7f4df54c706fc8c8ab6cc3478b76ef44ae97190eaf007ac4721a65ab38e263f9"
+    },
+    "Content/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Attack_V6.uasset": {
+      "bytes": 54856,
+      "sha256": "4a9d25b709b86ed07436f6107fab42a80aca33a00044d602ed489af6c4be6d3d"
+    },
+    "Content/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Faint_V6.uasset": {
+      "bytes": 72665,
+      "sha256": "07fe7da73d416d3dc06055a94e030566218beafaf446f2ed200c1786ffd7421d"
+    },
+    "Content/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Happy_V6.uasset": {
+      "bytes": 61003,
+      "sha256": "503df35bc2dea29ed57b215064ede662ba47d74d6e4c959af2daa66bedffe4b7"
+    },
+    "Content/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Hit_V6.uasset": {
+      "bytes": 40713,
+      "sha256": "f84d0f7fa1377c928bde3ebaffe48b4bd13b8b08c8a49a471e264cccdd924a2d"
+    },
+    "Content/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Idle_V6.uasset": {
+      "bytes": 95553,
+      "sha256": "6c39d193d652140835a37bb555ad0beeca0a4b65003a4a0649eeff83c14bf64a"
+    },
+    "Content/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Run_V6.uasset": {
+      "bytes": 39836,
+      "sha256": "a301af6eb71288c74a48559cdf68c613dbd1ec05fdac00411a9b2f01b9df7a43"
+    },
+    "Content/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Walk_V6.uasset": {
+      "bytes": 47688,
+      "sha256": "65df0a8ab8c54eecf130d4e7b6d3f2dd7bb8c9e9faad4218aa961b1d9298e33f"
+    },
+    "Content/Characters/Creatures/Nebulak/AnimationV6/DA_Nebulak_Presentation_V6.uasset": {
+      "bytes": 5314,
+      "sha256": "4ad62503035325c3120ad1b75d4d26e77212a47865fd5882fdef29b9f3ce20ae"
+    },
+    "Content/Characters/Creatures/Nebulak/AnimationV6/M_Nebulak_ClosedCore_V6.uasset": {
+      "bytes": 8275,
+      "sha256": "e4fdf677f668c33afd6b6dd4c2b444a988ba6f0e7052f2cd62fcdc6f9174d73d"
+    },
+    "Content/Characters/Creatures/Nebulak/AnimationV6/M_Nebulak_Envelope_V6.uasset": {
+      "bytes": 15741,
+      "sha256": "db15238cbeced39c789ffa494869cd90de079114debfde762f3f56e47a4b225e"
+    },
+    "Content/Characters/Creatures/Nebulak/AnimationV6/M_Nebulak_GasSurface_V6.uasset": {
+      "bytes": 15753,
+      "sha256": "9648f81f050a4508f41bcd1da7c99d7f887aa6185f7a75b8c7fc264984df36a4"
+    },
+    "Content/Characters/Creatures/Nebulak/AnimationV6/SK_Nebulak_V6.uasset": {
+      "bytes": 4231935,
+      "sha256": "f10b0025b5e72d6706015505ac0c349acc5a93e78221f32ce2ab25c47141cc02"
+    },
+    "Content/Characters/Creatures/Nebulak/AnimationV6/SK_Nebulak_V6_Skeleton.uasset": {
+      "bytes": 9029,
+      "sha256": "dce4222eed8fc74cfa79b1cb0ea1d3149960d06260033e8d9299c6ab8b9c1fd7"
     },
     "Content/Characters/Creatures/Nebulak/MeshyV1/Animations/A_Nebulak_Attack.uasset": {
       "bytes": 36619,
@@ -7841,6 +8205,18 @@
       "bytes": 991830,
       "sha256": "c52994070777b408de293d675a00cd333175feff237433d80ea0b9196574b953"
     },
+    "Content/Characters/YoungTrainer/AnimationV6/A_Player_Idle_V6.uasset": {
+      "bytes": 241145,
+      "sha256": "d40b0cf4e5f608decfa99a349c9c3b438b7d845a01cf00c1e20f17a73ce30ea6"
+    },
+    "Content/Characters/YoungTrainer/AnimationV6/A_Player_Run_V6.uasset": {
+      "bytes": 90716,
+      "sha256": "d69fb93e0cc399be67eda908f387d36afa3130f6f9a355d55a0c044d30a65ecb"
+    },
+    "Content/Characters/YoungTrainer/AnimationV6/A_Player_Walk_V6.uasset": {
+      "bytes": 101766,
+      "sha256": "3220b11992d270299c54fd67d2529d08bbe8b488fb5cd3cb9a7e7377701b1449"
+    },
     "Content/Characters/YoungTrainer/MeshyV1/Animations/A_Player_Meshy_Idle.uasset": {
       "bytes": 62838,
       "sha256": "25691caf476e7498d7f88df64ea72f6fa80c8877c5885026f19c95dcdc4297ef"
@@ -7934,28 +8310,28 @@
       "sha256": "15ca3118fb5fb686f5d3aa0bf4be27b4a5089d31c4c75b69a9c7e2aeb3186021"
     },
     "Content/Data/Creatures/DA_Glurak.uasset": {
-      "bytes": 4410,
-      "sha256": "20c60d90d5ed9054868a0cb5c6e652ee6adf8286dbd1cd2e98a7250c73730a77"
+      "bytes": 4419,
+      "sha256": "083d67a9510b95bbb303797933faee04bf61f4cac717605134d72139b52eee5a"
     },
     "Content/Data/Creatures/DA_Machomei.uasset": {
-      "bytes": 4009,
-      "sha256": "e2a5e9c485ef7bf9fb5ef2739221346f9c442689079279b94c30d6583de3e3b2"
+      "bytes": 4019,
+      "sha256": "9368e8eb723eea1d0c95c0e5b061b6f6a1254ed4db786a73d21167978333d824"
     },
     "Content/Data/Creatures/DA_Myrapla.uasset": {
-      "bytes": 3522,
-      "sha256": "6fd1a56b0822b6ba729c2cf06b113a39fb719f83016cc6d233333b9b6653a74c"
+      "bytes": 3532,
+      "sha256": "a41e234457a913b0b0700f817a1fedc18cfb21ec72fac153d48c1398a56c3cf5"
     },
     "Content/Data/Creatures/DA_Nebulak.uasset": {
-      "bytes": 3824,
-      "sha256": "a9bf301ac79608802db187b738aab3160da9b6f5861880cfcb25ad80d0df98eb"
+      "bytes": 3833,
+      "sha256": "2dbf520bbb4ab909cd6f625a5715da662936919b600a7385991b409368f47686"
     },
     "Content/Data/Creatures/DA_Pikachu.uasset": {
-      "bytes": 3834,
-      "sha256": "fcda1388617843b93da1f864bfab1434871d4984c4af3ca27bf5ab0a676bf3d6"
+      "bytes": 3943,
+      "sha256": "4e9c49449d1b27d3acdb663a743ad96ee0387cfa8ac5ed9e555d1ff954a52191"
     },
     "Content/Data/Creatures/DA_Schiggy.uasset": {
-      "bytes": 4683,
-      "sha256": "e9cce60c0cbcc6f84945af76536b5c5cdfd04668a697202ef10910c16b0dd185"
+      "bytes": 4792,
+      "sha256": "603bde27e17bb5242e41c6735b6bea854976f04546dab1e292246a5e75b83066"
     },
     "Content/Data/Creatures/DA_TestFire.uasset": {
       "bytes": 2295,
@@ -10970,8 +11346,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 148050,
-      "sha256": "07700d07754d20809e8b55a11a81ffb15e7ff3550ee26cb93d2c59e4024fc688"
+      "bytes": 149727,
+      "sha256": "39031b5c6e29cebe0091bf3a12da1c23ae8bc6c5b44d17312121e658c8c0dc57"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
@@ -11126,8 +11502,8 @@
       "sha256": "1ede0acfca40e87ac09ffe5dbe8993e5cb6142cff2aebf509f4cb084ae6e53fc"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 169550,
-      "sha256": "a05d75b03797fa6eeaa0df6b92124ab97d327416157839013b2f5aea32a8b41a"
+      "bytes": 171187,
+      "sha256": "d6a2efb992f12075b5162c6d173286a04a7713d2a7e58808b570d4879565f158"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -11306,8 +11682,8 @@
       "sha256": "c4a7c14ae0f029de0e73e8d9bd15f78f79e402df1ff0469002f622fc348730d8"
     },
     "Source/PokeMonster/Characters/PokeMonsterMeshyVisualComponent.cpp": {
-      "bytes": 3943,
-      "sha256": "c516b86c1990f4e9bbbead2698a535f51a5adf43bd74d9b5cd5b941b47e85846"
+      "bytes": 3952,
+      "sha256": "a4fb2c5c2d31f16c1512b09e20c67607c2b37d13ad8c1a31a14bd3ae53887263"
     },
     "Source/PokeMonster/Characters/PokeMonsterMeshyVisualComponent.h": {
       "bytes": 2103,
@@ -11398,8 +11774,8 @@
       "sha256": "4a77deb470f09063bf4971f96365a25c8acb11bc29b3d998c6af74c40b24a098"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureGroundHover.cpp": {
-      "bytes": 4431,
-      "sha256": "474bc3c12692878ba0fee525da81836a82eaa4628b3f50ecb5fd4c194b15a391"
+      "bytes": 5331,
+      "sha256": "0a139add7f8263fc16b72a2856ee87618efe4ead9f06063167d5f3defd72394a"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureInstance.cpp": {
       "bytes": 7309,
@@ -11410,12 +11786,12 @@
       "sha256": "a702e9c283a0905dcc52ceba5b96e021ede346af8a7acb8b636e7d48e02967e1"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreaturePresentation.cpp": {
-      "bytes": 11147,
-      "sha256": "4fb5230a45496795ff9c4c0010716cae8a0ecd86cd55dca936134dbac64416e2"
+      "bytes": 11524,
+      "sha256": "ec776bac350b1238097b0b7a7e5938077d69d8a80fd94ad8589a0859a7984939"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreaturePresentation.h": {
-      "bytes": 6707,
-      "sha256": "937b2decd90c040de3a9c66139b22b0fd0b96d6b9b5728b85db3b454d58772f0"
+      "bytes": 6972,
+      "sha256": "f0bf477574a51c0d7e0bc03fa96f593b6962b33487aabaf4d7f2b98119f5833a"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureProgression.cpp": {
       "bytes": 4705,
@@ -11454,12 +11830,12 @@
       "sha256": "edc6ec9435c3695abb8ebad5ca16baec1685e2d3893ba99cf956f68083013b3a"
     },
     "Source/PokeMonster/Development/PokeMonsterCreatureTestGround.cpp": {
-      "bytes": 11655,
-      "sha256": "7a91933142a3b2490539a605ca97832cffe1fc880fdfd02ee46a8e6f91f90d33"
+      "bytes": 11932,
+      "sha256": "01423da6e62660d415e5b97579ecde6efa99169d388462d66aa1833ce3e6efc0"
     },
     "Source/PokeMonster/Development/PokeMonsterCreatureTestGround.h": {
-      "bytes": 2229,
-      "sha256": "edfc778a51dc49767bb585a3b54bd16a8ce1e57258b5243ffef399a9d949ea36"
+      "bytes": 2273,
+      "sha256": "d8dffc77e01971f1f38f83ece6b5a4485381e55ef7d57f42fadc2bc2237b31d2"
     },
     "Source/PokeMonster/Development/PokeMonsterEnvironmentPerformanceProbe.cpp": {
       "bytes": 17431,
@@ -11761,6 +12137,10 @@
       "bytes": 2359,
       "sha256": "a461ac0df2b12743cb85ca6ad289dde8f5fc1a2170e399d4e78b57d28618e9d7"
     },
+    "Source/PokeMonster/Tests/PokeMonsterAnimationCorrectionsV6Test.cpp": {
+      "bytes": 3011,
+      "sha256": "9794a8001d4f62f11194262920ce28c5f4d06c1a843bb132bd6683d02be63f76"
+    },
     "Source/PokeMonster/Tests/PokeMonsterBattlePresentationTest.cpp": {
       "bytes": 5226,
       "sha256": "1f8eb55684f2595591ee82c35f56f6bc72c7765622bb9cc2e9f6b7dd3b140094"
@@ -11830,8 +12210,8 @@
       "sha256": "fa2b0e48e6197a36a42356acacf666de5d4754961711ff5ddbf6e574c9c23c5b"
     },
     "Source/PokeMonster/Tests/PokeMonsterCreatureTestGroundTest.cpp": {
-      "bytes": 3819,
-      "sha256": "c579368ff6c32a8b18a647b16166d7c910c4612636d576098d847d04696f88f6"
+      "bytes": 4466,
+      "sha256": "ee0045b9b6546198743c48063a3a75cd7ecdbe38d685fc08113e3f00abca5917"
     },
     "Source/PokeMonster/Tests/PokeMonsterDialogueTest.cpp": {
       "bytes": 5403,
@@ -12072,6 +12452,94 @@
     "Source/PokeMonsterEditor.Target.cs": {
       "bytes": 416,
       "sha256": "a8209a828f353e29ce917946a62c8cecd508647a12ea9a082f1e352bb3566f9f"
+    },
+    "Tools/AnimationCorrectionsV6/AcceptCandidates.py": {
+      "bytes": 2501,
+      "sha256": "067867356652f78411289d0fe57adc32f55a5b198e0b64d191e807351953f35b"
+    },
+    "Tools/AnimationCorrectionsV6/Acceptance.json": {
+      "bytes": 53759,
+      "sha256": "e80aa6e301015866996a6358b194df85f6bcb60fae9622a6a41cb492659b28c7"
+    },
+    "Tools/AnimationCorrectionsV6/AlignedComparison.py": {
+      "bytes": 4184,
+      "sha256": "578056af420f96bad84d48fe663267afbd7b3861e2fba3213220096906200747"
+    },
+    "Tools/AnimationCorrectionsV6/AuditPlayerAxes.py": {
+      "bytes": 1531,
+      "sha256": "f928f2a41c48dbe60ac97934b198237616a05cc177cb03cc81fd340ebad4a7b6"
+    },
+    "Tools/AnimationCorrectionsV6/AuditUnreal.py": {
+      "bytes": 1163,
+      "sha256": "8f0a49957820fa6d0b3aa413ce65246276ee7c277f4cd692c91579d360c29137"
+    },
+    "Tools/AnimationCorrectionsV6/BuildCreature.py": {
+      "bytes": 10020,
+      "sha256": "22fb2eecf1671d8bd40535bc65069e2291474a79a76d87394a684e32b34b16df"
+    },
+    "Tools/AnimationCorrectionsV6/BuildPlayer.py": {
+      "bytes": 4439,
+      "sha256": "46c1cad2c829290fd072162e4376c29f25a4a05dff293bcd1e02cfdf5df7d505"
+    },
+    "Tools/AnimationCorrectionsV6/CorrectOwnGlurakSampler.py": {
+      "bytes": 908,
+      "sha256": "cd9336ba32efd139affa34324f5f6f70cd407288c636a7e8bc3aa52b62e3f9eb"
+    },
+    "Tools/AnimationCorrectionsV6/EncodeReviews.py": {
+      "bytes": 2392,
+      "sha256": "33b81e55209727b26b2db21c6ec90ed68dd853d20de94b5dacc11b7957280bef"
+    },
+    "Tools/AnimationCorrectionsV6/ExportSources.py": {
+      "bytes": 2345,
+      "sha256": "695a3a1a010315732a05aed2fc5dcb1164c1d5918a7eb7871c110a55f5e6aed1"
+    },
+    "Tools/AnimationCorrectionsV6/HandleAmbientBattles.py": {
+      "bytes": 2918,
+      "sha256": "89ca2afa73c7ea4669bd2616265ec4328aad48ad54dd1dafee40c4a2253a2446"
+    },
+    "Tools/AnimationCorrectionsV6/ImportCandidates.py": {
+      "bytes": 5515,
+      "sha256": "70420c474c4b823a384712b24250508ba61dc2b33d8ff3632ff001b06e744597"
+    },
+    "Tools/AnimationCorrectionsV6/InspectSources.py": {
+      "bytes": 3105,
+      "sha256": "00811f489df70849c473f5498bb5e7d7f0634c1e1ff002b6af8cce7ad396b5c3"
+    },
+    "Tools/AnimationCorrectionsV6/MapChecks.py": {
+      "bytes": 1064,
+      "sha256": "63ba59b3ddb294aaa97f93d06832cd4ffdc02dc09cb04b843a5518bc3261fb69"
+    },
+    "Tools/AnimationCorrectionsV6/MaterialDiagnostics.py": {
+      "bytes": 1076,
+      "sha256": "c85fe3164df4a017c554ae14ba4cf85d449c53663dfa222300ecbd22a6837678"
+    },
+    "Tools/AnimationCorrectionsV6/README.md": {
+      "bytes": 4802,
+      "sha256": "54d85e5b6392a173262deeb19f01c87e5b10fa863bffcd398e28896338a9341a"
+    },
+    "Tools/AnimationCorrectionsV6/RefreshOwnPlayerClips.py": {
+      "bytes": 2666,
+      "sha256": "3ef2f2fa2e786c62522593bf92cc749f528d7cf26e6fb6ad0815c64e9bc492de"
+    },
+    "Tools/AnimationCorrectionsV6/RefreshUnreleased.py": {
+      "bytes": 5382,
+      "sha256": "119e3b2516131d435b6bad9f3df9751d60f4656f08d2eca1a4521905239844d0"
+    },
+    "Tools/AnimationCorrectionsV6/Review.py": {
+      "bytes": 6481,
+      "sha256": "8ed403103173b30fdfcfd5af4803ec6560029b1048a8ab549128784620df4f16"
+    },
+    "Tools/AnimationCorrectionsV6/RunFullGameplay.py": {
+      "bytes": 2142,
+      "sha256": "9fd8296dcab8540bf37b583bdb8d51ae0af8dad023227f15c9ca3b68b38e1d62"
+    },
+    "Tools/AnimationCorrectionsV6/StartFullGameplay.py": {
+      "bytes": 879,
+      "sha256": "1c68696b0f4ddd2668f64cc0cd3ebba9d5f5d2957269cd008bf3effec22ccff8"
+    },
+    "Tools/AnimationCorrectionsV6/ValidateSources.py": {
+      "bytes": 1538,
+      "sha256": "bcbe0a2fca28dbbfec5b933151d499f1fad78e43e5b62723810a695813448d27"
     },
     "Tools/BattleSystemV3/CheckMaps.py": {
       "bytes": 1037,

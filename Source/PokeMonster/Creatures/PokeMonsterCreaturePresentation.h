@@ -58,6 +58,8 @@ public:
  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Ground Hover") TObjectPtr<UAnimSequence> HoverClip;
  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Ground Hover") TObjectPtr<UAnimSequence> LandClip;
  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Ground Hover", meta=(ClampMin="50",ClampMax="150")) float HoverHeightCm=90.f;
+ /** Small visual-only float, applied exclusively with an overworld movement context. */
+ UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Overworld Float", meta=(ClampMin="0",ClampMax="10")) float OverworldFloatAmplitudeCm=0.f;
  UPROPERTY(EditAnywhere, BlueprintReadOnly) TObjectPtr<UStaticMesh> TailFlame;
  UPROPERTY(EditAnywhere, BlueprintReadOnly) TObjectPtr<UMaterialInterface> FlameMaterial;
  UPROPERTY(EditAnywhere, BlueprintReadOnly) FName FlameBone=TEXT("tail_socket");
@@ -102,6 +104,7 @@ private:
  EHoverState HoverState=EHoverState::Grounded;
  float HoverStateTime=0.f, GroundWait=7.f, LandingHeight=0.f, HoverCheckRemaining=0.f;
  bool bHoverClear=false;
+ bool bUsingAmbientFloat=false;
  FVector PreviousLocation=FVector::ZeroVector;
  bool bHavePrevious=false;
 };

@@ -1,0 +1,111 @@
+{
+  "source": "Art/Characters/Creatures/Machomei/Source/Machomei_AnimationCorrections_V6.blend",
+  "source_sha256": "45f5d1b2948f0664fdbc181723e2790b8eff84d47e5d443a4ed442ef57f76c0e",
+  "previous_sha256": "987942b6a4ac7a56b00e743b622aa108f94fae60083a68fd93e400fb8f0cbf21",
+  "changes": {},
+  "original_geometry_uvs_preserved": true,
+  "metrics": {
+    "Idle": {
+      "duration": 2.0,
+      "min_z_cm": -6.989443690486041e-07,
+      "foot_width_cm": 46.00000120088703
+    },
+    "Walk": {
+      "duration": 0.6333333333333333,
+      "min_z_cm": 1.8183676786520664e-08,
+      "foot_width_cm": 46.00000150501728
+    },
+    "Run": {
+      "duration": 0.4,
+      "min_z_cm": 1.6111370015892135e-07,
+      "foot_width_cm": 46.00000163683525
+    },
+    "Attack": {
+      "duration": 0.8,
+      "min_z_cm": -1.4575811668748884e-06,
+      "foot_width_cm": 46.000000953674316
+    },
+    "Hit": {
+      "duration": 0.4,
+      "min_z_cm": -9.941478751329669e-08,
+      "foot_width_cm": 46.00000106371366
+    },
+    "Faint": {
+      "duration": 1.2,
+      "min_z_cm": -8.940696716308594e-06,
+      "foot_width_cm": 43.871489126940034
+    },
+    "Happy": {
+      "duration": 1.0,
+      "min_z_cm": -7.313687433452287e-07,
+      "foot_width_cm": 46.00000083446503
+    }
+  },
+  "actions": {
+    "Idle": "Machomei_Idle_V6",
+    "Walk": "Machomei_Walk_V6",
+    "Run": "Machomei_Run_V6",
+    "Attack": "Machomei_Attack_V6",
+    "Hit": "Machomei_Hit_V6",
+    "Faint": "Machomei_Faint_V6",
+    "Happy": "Machomei_Happy_V6"
+  },
+  "exports": [
+    {
+      "role": "Idle",
+      "path": "Art/Characters/Creatures/Machomei/Exports/AnimationV6/Machomei_Idle.fbx",
+      "sha256": "13ede8e8e9a52e5a2d721cc54eeabea0e92532610a83882191c386917142d3de",
+      "fps": 30,
+      "mesh": true,
+      "seconds": 2.0
+    },
+    {
+      "role": "Walk",
+      "path": "Art/Characters/Creatures/Machomei/Exports/AnimationV6/Machomei_Walk.fbx",
+      "sha256": "1729b5bd3a3346736cf96ceeb0445981506eaea0d58502c79ce9d1821a1756e6",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.6333333333333333
+    },
+    {
+      "role": "Run",
+      "path": "Art/Characters/Creatures/Machomei/Exports/AnimationV6/Machomei_Run.fbx",
+      "sha256": "d6c5b99e03acd3d91dc3ae147d591495a2d3052fe132e0422d092a83e6db4ba1",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.4
+    },
+    {
+      "role": "Attack",
+      "path": "Art/Characters/Creatures/Machomei/Exports/AnimationV6/Machomei_Attack.fbx",
+      "sha256": "d935103b7b75bca00958edb19aa4deb5823a79f0f8c586f54aeb34c786a07e22",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.8
+    },
+    {
+      "role": "Hit",
+      "path": "Art/Characters/Creatures/Machomei/Exports/AnimationV6/Machomei_Hit.fbx",
+      "sha256": "d541be18e142af57c19e1f2b821c52fdd101fefed05aaa04d149a820ee4d205a",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.4
+    },
+    {
+      "role": "Faint",
+      "path": "Art/Characters/Creatures/Machomei/Exports/AnimationV6/Machomei_Faint.fbx",
+      "sha256": "c0b076c43308d7b54007218eec1084f6680e374bb38ccab742ccf259bf8d68ab",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 1.2
+    },
+    {
+      "role": "Happy",
+      "path": "Art/Characters/Creatures/Machomei/Exports/AnimationV6/Machomei_Happy.fbx",
+      "sha256": "ac56c2d7581c0331dd918c2d2e6a4cc687e2506ed1489abc098037026a216b11",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 1.0
+    }
+  ]
+}

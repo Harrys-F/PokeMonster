@@ -1,0 +1,115 @@
+{
+  "source": "Art/Characters/Creatures/Nebulak/Source/Nebulak_AnimationCorrections_V6.blend",
+  "source_sha256": "04b1163b9cf3ede3d626556d5be72e98a248d1cae5fdc1dee773c7d00178dfc8",
+  "previous_sha256": "4c196f9c8ed5f4a29714214aa3a560569d63d47698361a8d2c659a38ccf36d1c",
+  "changes": {
+    "core_faces_restored_opaque": 766,
+    "closed_inner_core_triangles": 1840,
+    "original_vertices_retained": 14852
+  },
+  "original_geometry_uvs_preserved": true,
+  "metrics": {
+    "Idle": {
+      "duration": 2.0,
+      "min_z_cm": -3.756575286388397,
+      "foot_width_cm": null
+    },
+    "Walk": {
+      "duration": 0.6333333333333333,
+      "min_z_cm": -3.734297677874565,
+      "foot_width_cm": null
+    },
+    "Run": {
+      "duration": 0.4,
+      "min_z_cm": -3.706362098455429,
+      "foot_width_cm": null
+    },
+    "Attack": {
+      "duration": 0.8,
+      "min_z_cm": -1.4630073681473732,
+      "foot_width_cm": null
+    },
+    "Hit": {
+      "duration": 0.4,
+      "min_z_cm": -1.3916406780481339,
+      "foot_width_cm": null
+    },
+    "Faint": {
+      "duration": 1.2,
+      "min_z_cm": -1.0593198239803314,
+      "foot_width_cm": null
+    },
+    "Happy": {
+      "duration": 1.0,
+      "min_z_cm": -3.7619076669216156,
+      "foot_width_cm": null
+    }
+  },
+  "actions": {
+    "Idle": "Nebulak_Idle_V6",
+    "Walk": "Nebulak_Walk_V6",
+    "Run": "Nebulak_Run_V6",
+    "Attack": "Nebulak_Attack_V6",
+    "Hit": "Nebulak_Hit_V6",
+    "Faint": "Nebulak_Faint_V6",
+    "Happy": "Nebulak_Happy_V6"
+  },
+  "exports": [
+    {
+      "role": "Idle",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/AnimationV6/Nebulak_Idle.fbx",
+      "sha256": "01725670f706329507ec4eb47a9653ee1b9c47334e7b62e759cecac901d0321f",
+      "fps": 30,
+      "mesh": true,
+      "seconds": 2.0
+    },
+    {
+      "role": "Walk",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/AnimationV6/Nebulak_Walk.fbx",
+      "sha256": "9628fb7f6ef2373601bb56f9cf173e0615dcc2c0f315189ebfa255c525dd5aa7",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.6333333333333333
+    },
+    {
+      "role": "Run",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/AnimationV6/Nebulak_Run.fbx",
+      "sha256": "a6cea295edb61d307ac4179bcbb0cded1e81ca6a0903a6d545fca665bad175b7",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.4
+    },
+    {
+      "role": "Attack",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/AnimationV6/Nebulak_Attack.fbx",
+      "sha256": "838202fc92d243b005e2c3154610cd0878abc608459550a02dfc7da4def6d112",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.8
+    },
+    {
+      "role": "Hit",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/AnimationV6/Nebulak_Hit.fbx",
+      "sha256": "9fe8210f04395a9a3e63bd0f14c65b54e86998d4c48e5975e565b81a2757fb9d",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.4
+    },
+    {
+      "role": "Faint",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/AnimationV6/Nebulak_Faint.fbx",
+      "sha256": "580e4cc7a5c4521b1ec050465ff627744248b74306c85e9a030980196fb8424f",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 1.2
+    },
+    {
+      "role": "Happy",
+      "path": "Art/Characters/Creatures/Nebulak/Exports/AnimationV6/Nebulak_Happy.fbx",
+      "sha256": "f33e013a2cbc5b5e4bc6b81b8e53c45f06d0eb459f47157c0e8f0fdb960c9db5",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 1.0
+    }
+  ]
+}

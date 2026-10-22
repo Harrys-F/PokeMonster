@@ -3,6 +3,7 @@
 #include "Misc/ScopeExit.h"
 #include "../Development/PokeMonsterCreatureTestGround.h"
 #include "../Creatures/PokeMonsterCreaturePresentation.h"
+#include "../Creatures/PokeMonsterCreatureSpeciesData.h"
 #include "../Creatures/Overworld/PokeMonsterCreatureRoamingComponent.h"
 #include "../Encounter/PokeMonsterVisibleWildCreatureActor.h"
 #include "../Interaction/PokeMonsterInteractable.h"
@@ -53,6 +54,17 @@ bool FPermanentGroundIsolationTest::RunTest(const FString& Parameters)
  TestFalse(TEXT("No fabricated return anchor"),G->ReturnToWorld());
  TestFalse(TEXT("Invalid mode rejected"),G->SetMode(TEXT("flight")));
  TestTrue(TEXT("Existing run role selected"),G->SetMode(TEXT("run")));
+ G->Tick(.1f);
+ for(int32 I : {1,3})
+ {
+  const TCHAR* Name=I==1?TEXT("Schiggy"):TEXT("Pikachu");
+  const FString Path=FString::Printf(TEXT("/Game/Data/Creatures/DA_%s.DA_%s"),Name,Name);
+  const auto* Species=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,*Path);
+  const auto* Visual=G->Specimens[I].Get();
+  const float Expected=Species->Overworld.RunSpeedOverride>0.f?Species->Overworld.RunSpeedOverride:Visual->Presentation->RunSpeed;
+  TestEqual(TEXT("Test ground uses real species fast speed, not only clip reference"),G->Movements[I]->Settings.WalkSpeedOverride,Expected);
+ }
+
  TestFalse(TEXT("Invalid reaction rejected"),G->React(TEXT("unknown")));
  return true;
 }

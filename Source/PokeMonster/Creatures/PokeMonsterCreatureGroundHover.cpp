@@ -5,6 +5,7 @@
 #include "Engine/SkeletalMesh.h"
 #include "Animation/AnimSequence.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Engine/World.h"
 
 void APokeMonsterCreatureVisualActor::SetGroundHoverContext(UPokeMonsterCreatureRoamingComponent* Context)
 {
@@ -29,6 +30,19 @@ void APokeMonsterCreatureVisualActor::UpdateGroundHover(float Delta)
  auto* Context=HoverContext.Get();const auto* GI=GetGameInstance();
  const auto* E=GI?GI->GetSubsystem<UPokeMonsterEncounterSubsystem>():nullptr;
  const bool Battle=E&&E->IsEncounterActive();
+ // No effect on collision, logical ground height, or the separate ClassicBattle actors.
+ if (Context&&Presentation&&Presentation->OverworldFloatAmplitudeCm>0.f&&!IsHidden()&&!Battle)
+ {
+  Context->SetPresentationHold(false);Context->SetPresentationHoverClearance(0.f,FBox(ForceInit));
+  const float Phase=GetWorld()->GetTimeSeconds()*1.5f+IdlePhaseOffset*2.f*PI;
+  const float Amplitude=Presentation->OverworldFloatAmplitudeCm;
+  HoverHeight=Amplitude*(1.35f+FMath::Sin(Phase));
+  Mesh->SetRelativeLocation(FVector(0,0,HoverHeight));
+  Mesh->SetRelativeRotation(FRotator(1.4f*FMath::Sin(Phase*.73f),1.8f*FMath::Sin(Phase*.51f),.9f*FMath::Sin(Phase*.87f)));
+  HoverState=EHoverState::Grounded;HoverPoseAlpha=0.f;ActiveHoverClip=nullptr;bUsingAmbientFloat=true;return;
+ }
+ if (bUsingAmbientFloat) {Mesh->SetRelativeRotation(FRotator::ZeroRotator);bUsingAmbientFloat=false;}
+
  if (!Context || !Presentation || !Presentation->bAllowGroundHover || IsHidden() || Battle)
  {
   if (Context) { Context->SetPresentationHold(false);Context->SetPresentationHoverClearance(0.f,FBox(ForceInit)); }

@@ -1,0 +1,111 @@
+{
+  "source": "Art/Characters/Creatures/Myrapla/Source/Myrapla_AnimationCorrections_V6.blend",
+  "source_sha256": "ddd4aa8c6f75109c9b2cf5eb79cdb02ce378f1abc57a1e44c1556f7f9f56079b",
+  "previous_sha256": "2ca1a16364af2e3056eb2290fd6387f74cd83c25347a5fa77286680891156798",
+  "changes": {},
+  "original_geometry_uvs_preserved": true,
+  "metrics": {
+    "Idle": {
+      "duration": 2.0,
+      "min_z_cm": 7.87393972245809e-07,
+      "foot_width_cm": null
+    },
+    "Walk": {
+      "duration": 0.6333333333333333,
+      "min_z_cm": -1.4570538553471124e-06,
+      "foot_width_cm": null
+    },
+    "Run": {
+      "duration": 0.4,
+      "min_z_cm": -4.1580809906349714e-07,
+      "foot_width_cm": null
+    },
+    "Attack": {
+      "duration": 0.8,
+      "min_z_cm": 7.049633765632279e-07,
+      "foot_width_cm": null
+    },
+    "Hit": {
+      "duration": 0.4,
+      "min_z_cm": 7.87393972245809e-07,
+      "foot_width_cm": null
+    },
+    "Faint": {
+      "duration": 1.2,
+      "min_z_cm": -0.26006102561950684,
+      "foot_width_cm": null
+    },
+    "Happy": {
+      "duration": 1.0,
+      "min_z_cm": 7.87393972245809e-07,
+      "foot_width_cm": null
+    }
+  },
+  "actions": {
+    "Idle": "Myrapla_Idle_V6",
+    "Walk": "Myrapla_Walk_V6",
+    "Run": "Myrapla_Run_V6",
+    "Attack": "Myrapla_Attack_V6",
+    "Hit": "Myrapla_Hit_V6",
+    "Faint": "Myrapla_Faint_V6",
+    "Happy": "Myrapla_Happy_V6"
+  },
+  "exports": [
+    {
+      "role": "Idle",
+      "path": "Art/Characters/Creatures/Myrapla/Exports/AnimationV6/Myrapla_Idle.fbx",
+      "sha256": "46e09ae886fe7bbb2adb12b690c54d7d6f216774c774250e97af66d1e10dbd63",
+      "fps": 30,
+      "mesh": true,
+      "seconds": 2.0
+    },
+    {
+      "role": "Walk",
+      "path": "Art/Characters/Creatures/Myrapla/Exports/AnimationV6/Myrapla_Walk.fbx",
+      "sha256": "9851697f30cd970a0cb0889583fb458e5d09771d92124833ddd8336aea8811b8",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.6333333333333333
+    },
+    {
+      "role": "Run",
+      "path": "Art/Characters/Creatures/Myrapla/Exports/AnimationV6/Myrapla_Run.fbx",
+      "sha256": "388191abae9dbabcfe4c83e7f48cebcde7a3ec12a746b37ab67e8d5bb08eece3",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.4
+    },
+    {
+      "role": "Attack",
+      "path": "Art/Characters/Creatures/Myrapla/Exports/AnimationV6/Myrapla_Attack.fbx",
+      "sha256": "f25383c55b64bd6b71269d971e72f193ec5c5e36d4369598af03fd050d9b1b1b",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.8
+    },
+    {
+      "role": "Hit",
+      "path": "Art/Characters/Creatures/Myrapla/Exports/AnimationV6/Myrapla_Hit.fbx",
+      "sha256": "694953565eae01cbc3bc2b5de4e5c8a1dc4af11e1cb2e21809c9731a58e9af03",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 0.4
+    },
+    {
+      "role": "Faint",
+      "path": "Art/Characters/Creatures/Myrapla/Exports/AnimationV6/Myrapla_Faint.fbx",
+      "sha256": "7e521d2573f6e54ad6b2625b3da64fc28488742c3954dfb4f69854ff0768d4f4",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 1.2
+    },
+    {
+      "role": "Happy",
+      "path": "Art/Characters/Creatures/Myrapla/Exports/AnimationV6/Myrapla_Happy.fbx",
+      "sha256": "79300182ba5ea433b29dad5bd701bab914cb08ae17aa6c07dcfd1a78f710bab2",
+      "fps": 30,
+      "mesh": false,
+      "seconds": 1.0
+    }
+  ]
+}

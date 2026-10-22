@@ -1,0 +1,57 @@
+{
+  "source": "Art/Characters/YoungTrainer/Source/Player_Meshy_AnimationCorrections_V6.blend",
+  "source_sha256": "3d1b1c72eacdfbd09168699624833c638ccc1e8b8fcc4358950019803f5a3d9b",
+  "previous_sha256": "4c79aeabb130f4fec4fcdd9759f543540224c96819186fddbe5d528f2a4475f6",
+  "geometry_weights_uv_rest_unchanged": true,
+  "metrics": {
+    "Idle": {
+      "duration": 3.0,
+      "min_z_cm": 0.04999099182896316,
+      "max_chain_gap_cm": 3.3470255384078715e-05,
+      "foot_center_width_cm": 23.999999615862883
+    },
+    "Walk": {
+      "duration": 0.55,
+      "min_z_cm": 0.049974239664152265,
+      "max_chain_gap_cm": 0.0001745917620167352,
+      "foot_center_width_cm": 23.99999836788458
+    },
+    "Run": {
+      "duration": 0.45,
+      "min_z_cm": 0.049976358423009515,
+      "max_chain_gap_cm": 0.00023339828199404176,
+      "foot_center_width_cm": 23.999997893614427
+    }
+  },
+  "actions": {
+    "Idle": "A_Player_Idle_V6",
+    "Walk": "A_Player_Walk_V6",
+    "Run": "A_Player_Run_V6"
+  },
+  "exports": [
+    {
+      "role": "Idle",
+      "path": "Art/Characters/YoungTrainer/Exports/AnimationV6/Player_Idle.fbx",
+      "sha256": "05755287cbbfbbdf05213ee384995e0e85466a8b2996de489100b7e41955317c",
+      "fps": 60,
+      "mesh": false,
+      "seconds": 3.0
+    },
+    {
+      "role": "Walk",
+      "path": "Art/Characters/YoungTrainer/Exports/AnimationV6/Player_Walk.fbx",
+      "sha256": "7dfceaf00c64c45c7e876e3fc51c437ebb4652a07bb49fee93490617d08c070c",
+      "fps": 60,
+      "mesh": false,
+      "seconds": 0.55
+    },
+    {
+      "role": "Run",
+      "path": "Art/Characters/YoungTrainer/Exports/AnimationV6/Player_Run.fbx",
+      "sha256": "47568b39a213b4fa69bc18954ca1d60912783e38ed54635442152d5491f6e0c3",
+      "fps": 60,
+      "mesh": false,
+      "seconds": 0.45
+    }
+  ]
+}

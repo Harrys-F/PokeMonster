@@ -27,6 +27,9 @@ TArray<FString> UPokeMonsterCreaturePresentationData::GetValidationErrors() cons
  if(!FMath::IsFinite(GroundOffsetCm))Errors.Add(TEXT("Ground offset must be finite"));
  if(!FMath::IsFinite(ReferenceSizeCm)||ReferenceSizeCm<0.f)Errors.Add(TEXT("Reference size must be zero (unknown) or positive centimetres"));
  if(ReferenceSizeCm>0.f&&SizeSource.IsEmpty())Errors.Add(TEXT("Reference size requires its source"));
+ if (!FMath::IsFinite(OverworldFloatAmplitudeCm)||OverworldFloatAmplitudeCm<0.f||OverworldFloatAmplitudeCm>10.f
+     || (OverworldFloatAmplitudeCm>0.f&&RigFamily!=EPokeMonsterCreatureRigFamily::Floating))
+  Errors.Add(TEXT("Overworld float requires a floating rig and a finite amplitude of 0..10 cm"));
  auto HasAnchor=[this](FName Name){return !Name.IsNone()&&(Mesh->FindSocket(Name)||Mesh->GetRefSkeleton().FindBoneIndex(Name)!=INDEX_NONE);};
  if(TailFlame&&!HasAnchor(FlameBone))Errors.Add(TEXT("Legacy tail flame anchor is missing"));
  TSet<FName> Ids;
@@ -69,7 +72,7 @@ bool APokeMonsterCreatureVisualActor::SetPresentation(UPokeMonsterCreaturePresen
  for(const auto& Component:EffectComponents)if(Component)Component->DestroyComponent();
  EffectComponents.Reset();Presentation=Candidate;MotionSpeed=0.f;
  if (HoverContext.IsValid()) { HoverContext->SetPresentationHold(false);HoverContext->SetPresentationHoverClearance(0.f,FBox(ForceInit)); }
- HoverState=EHoverState::Grounded;HoverStateTime=HoverHeight=HoverPoseAlpha=0.f;ActiveHoverClip=nullptr;Mesh->SetRelativeLocation(FVector::ZeroVector);
+ HoverState=EHoverState::Grounded;HoverStateTime=HoverHeight=HoverPoseAlpha=0.f;ActiveHoverClip=nullptr;Mesh->SetRelativeLocation(FVector::ZeroVector);Mesh->SetRelativeRotation(FRotator::ZeroRotator);bUsingAmbientFloat=false;
  Mesh->SetSkeletalMesh(Presentation->Mesh);Mesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
  Mesh->SetAnimInstanceClass(UPokeMonsterCreatureAnimInstance::StaticClass());
  const bool bTail=Presentation->TailFlame&&Mesh->DoesSocketExist(Presentation->FlameBone);

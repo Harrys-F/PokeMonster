@@ -82,6 +82,8 @@ void UPokeMonsterCreatureTestGround::OnWorldBeginPlay(UWorld& World)
   M->BehaviorOverride.WalkMultiplier=1.f;
   M->Configure(S,-V->Presentation->GroundOffsetCm,S->Overworld.BodyRadius,FMath::Max(V->Presentation->ReferenceSizeCm*.5f,S->Overworld.BodyRadius),nullptr,7919+I*137);
   V->AddTickPrerequisiteComponent(M);V->SetGroundHoverContext(M);Specimens.Add(V);Movements.Add(M);
+  MovementReferenceSpeeds.Add(FVector2D(S->Overworld.WalkSpeedOverride>0.f?S->Overworld.WalkSpeedOverride:V->Presentation->WalkSpeed,
+    S->Overworld.RunSpeedOverride>0.f?S->Overworld.RunSpeedOverride:V->Presentation->RunSpeed));
   auto* L=NewObject<UTextRenderComponent>(V);V->AddInstanceComponent(L);L->SetupAttachment(V->GetRootComponent());L->RegisterComponent();
   L->SetText(FText::FromString(FString::Printf(TEXT("TEST %02d | %s"),I+1,DisplayNames[I])));L->SetWorldSize(26);L->SetTextRenderColor(FColor(220,240,190));L->SetHorizontalAlignment(EHTA_Center);L->SetRelativeLocation(FVector(0,0,V->Presentation->ReferenceSizeCm+55));L->SetCollisionEnabled(ECollisionEnabled::NoCollision);L->SetCastShadow(false);Labels.Add(L);
  }
@@ -97,9 +99,9 @@ void UPokeMonsterCreatureTestGround::Tick(float Delta)
   auto* V=Specimens[I].Get();auto* M=Movements[I].Get();if(!IsValid(V)||!IsValid(M))continue;
   const bool Nearby=P&&FVector::DistSquared2D(P->GetActorLocation(),V->GetActorLocation())<FMath::Square(3500.f);
   M->SetMovementPaused(!Nearby||Mode==TEXT("idle"));
-  // Reference speeds come from each existing presentation. Movement is still bounded/path-checked.
+  // Respect the same species overrides as wild/companion movement; authored clip references stay unchanged.
   const bool Run=Mode==TEXT("run")||(Mode==TEXT("auto")&&FMath::Fmod(Elapsed+I*3.7f,38.f)>24.f);
-  M->Settings.WalkSpeedOverride=Run?V->Presentation->RunSpeed:V->Presentation->WalkSpeed;
+  M->Settings.WalkSpeedOverride=Run?MovementReferenceSpeeds[I].Y:MovementReferenceSpeeds[I].X;
   if(PC&&I<Labels.Num())Labels[I]->SetWorldRotation((PC->PlayerCameraManager->GetCameraLocation()-Labels[I]->GetComponentLocation()).Rotation());
  }
 }
@@ -160,7 +162,7 @@ bool UPokeMonsterCreatureTestGround::React(const FString& Role)
 }
 void UPokeMonsterCreatureTestGround::Deinitialize()
 {
- for(const auto& A:OwnedActors)if(IsValid(A))A->Destroy();OwnedActors.Reset();Labels.Reset();Movements.Reset();Specimens.Reset();ReturnPawn.Reset();bHaveReturn=false;Super::Deinitialize();
+ for(const auto& A:OwnedActors)if(IsValid(A))A->Destroy();OwnedActors.Reset();Labels.Reset();Movements.Reset();Specimens.Reset();MovementReferenceSpeeds.Reset();ReturnPawn.Reset();bHaveReturn=false;Super::Deinitialize();
 }
 #if WITH_EDITOR && !UE_BUILD_SHIPPING
 namespace

@@ -1,0 +1,1552 @@
+{
+  "date": "2026-10-22",
+  "base": "ee6dcaf9921cd387a55e3add66539734e45444d5",
+  "source_reopen_and_actual_fbx_roundtrips": 34,
+  "build": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 26.460829734802246
+  },
+  "automation": {
+    "mode": "Automation",
+    "exit": 0,
+    "seconds": 35.66212797164917,
+    "summary": {
+      "succeeded": 99,
+      "succeededWithWarnings": 0,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0
+    }
+  },
+  "regressions": [
+    {
+      "command": [
+        "Tools/CreaturePolishV4/RunActiveBattle.py",
+        "Glurak",
+        "AnimationV6GlurakBattle"
+      ],
+      "exit": 0,
+      "save_unchanged": true
+    },
+    {
+      "command": [
+        "Tools/CreaturePolishV4/RunActiveBattle.py",
+        "Nebulak",
+        "AnimationV6NebulakBattle"
+      ],
+      "exit": 0,
+      "save_unchanged": true
+    },
+    {
+      "command": [
+        "Tools/CreaturePolishV4/RunActiveBattle.py",
+        "Machomei",
+        "AnimationV6MachomeiBattle"
+      ],
+      "exit": 0,
+      "save_unchanged": true
+    },
+    {
+      "command": [
+        "Tools/CreaturePolishV4/RunActiveBattle.py",
+        "Myrapla",
+        "AnimationV6MyraplaBattle"
+      ],
+      "exit": 0,
+      "save_unchanged": true
+    },
+    {
+      "command": [
+        "Tools/CreaturePolishV4/RunActiveBattle.py",
+        "Pikachu",
+        "AnimationV6PikachuBattle"
+      ],
+      "exit": 0,
+      "save_unchanged": true
+    },
+    {
+      "command": [
+        "Tools/CreaturePolishV4/RunActiveBattle.py",
+        "Schiggy",
+        "AnimationV6SchiggyBattle"
+      ],
+      "exit": 0,
+      "save_unchanged": true
+    },
+    {
+      "command": [
+        "Tools/CreatureExpansionV3/RunCapture.py",
+        "AnimationV6Capture"
+      ],
+      "exit": 0,
+      "save_unchanged": true
+    },
+    {
+      "command": [
+        "Tools/WildEncountersV2/RunWorldOutcome.py",
+        "AnimationV6WorldOutcome"
+      ],
+      "exit": 0,
+      "save_unchanged": true
+    },
+    {
+      "command": [
+        "Tools/StarterExpansionV1/RunDefeatSave.py",
+        "AnimationV6Defeat"
+      ],
+      "exit": 0,
+      "save_unchanged": true
+    }
+  ],
+  "protection": {
+    "passed": true,
+    "unchanged_original_files": 1556,
+    "new_incoming_originals_protected": 25,
+    "save_sha256": "eeab48f3c5652ef6d24b7f386ee7c26973336c929edf39aa7f6593d407a913df",
+    "backup_refs": {
+      "backup/full-03492bd": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
+      "refs/archive/pokemonster/full-backup-03492bd": "03492bd96b4dba44692f675c19d5f11abfa86b4b"
+    },
+    "backup_not_in_main_history": true
+  },
+  "player_axis_audit": {
+    "Before": {
+      "Idle": {
+        "min_elbow_angle_degrees": 15.176682043315624,
+        "max_elbow_angle_degrees": 15.176709364072305
+      },
+      "Walk": {
+        "min_elbow_angle_degrees": 15.176682043315624,
+        "max_elbow_angle_degrees": 15.176709364072305
+      },
+      "Run": {
+        "min_elbow_angle_degrees": 15.176682043315624,
+        "max_elbow_angle_degrees": 15.176709364072305
+      },
+      "unambiguous_front_leg_cape_influences": 0,
+      "ambiguous_edge_vertices_not_automatically_reweighted": 12
+    },
+    "After": {
+      "Idle": {
+        "min_elbow_angle_degrees": 15.01992749431654,
+        "max_elbow_angle_degrees": 15.01995481507322
+      },
+      "Walk": {
+        "min_elbow_angle_degrees": 16.10758901586417,
+        "max_elbow_angle_degrees": 24.24244677018691
+      },
+      "Run": {
+        "min_elbow_angle_degrees": 13.65629047180725,
+        "max_elbow_angle_degrees": 26.9254406988163
+      },
+      "unambiguous_front_leg_cape_influences": 0,
+      "ambiguous_edge_vertices_not_automatically_reweighted": 12
+    }
+  },
+  "adoption": [
+    {
+      "species": "Glurak",
+      "changed": "visual presentation only",
+      "profile": "/Game/Characters/Creatures/Glurak/AnimationV6/DA_Glurak_Presentation_V6.DA_Glurak_Presentation_V6"
+    },
+    {
+      "species": "Nebulak",
+      "changed": "visual presentation only",
+      "profile": "/Game/Characters/Creatures/Nebulak/AnimationV6/DA_Nebulak_Presentation_V6.DA_Nebulak_Presentation_V6"
+    },
+    {
+      "species": "Machomei",
+      "changed": "visual presentation only",
+      "profile": "/Game/Characters/Creatures/Machomei/AnimationV6/DA_Machomei_Presentation_V6.DA_Machomei_Presentation_V6"
+    },
+    {
+      "species": "Myrapla",
+      "changed": "visual presentation only",
+      "profile": "/Game/Characters/Creatures/Myrapla/AnimationV6/DA_Myrapla_Presentation_V6.DA_Myrapla_Presentation_V6"
+    },
+    {
+      "species": "Pikachu",
+      "changed": "overworld walk/run overrides only",
+      "walk": 14.949999809265137,
+      "run": 32.20000076293945,
+      "authored_walk_unchanged": 13.0,
+      "authored_run_unchanged": 28.0
+    },
+    {
+      "species": "Schiggy",
+      "changed": "overworld walk/run overrides only",
+      "walk": 29.899999618530273,
+      "run": 57.5,
+      "authored_walk_unchanged": 26.0,
+      "authored_run_unchanged": 50.0
+    }
+  ],
+  "images": [
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/MachomeiFront00000.png",
+      "sha256": "273748d48d430913006598ace21b25f316f4568d40659500baec697de8f4413c",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/MachomeiSide00000.png",
+      "sha256": "b431badace49bf7f6a2075276efef73abee40309d7857d6e4393d5d769ba0f9b",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/MachomeiRear00000.png",
+      "sha256": "5a19870a01eff92b4ad1ccde04b9231ff62bb75fd48853938d5b15abf1e78e5e",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/MachomeiWalk00000.png",
+      "sha256": "2020ea9108d012d73bd7f0f35f53471e1ae31ea2045adbf80f5b999adefe9c95",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/MachomeiRun00000.png",
+      "sha256": "481a0deac55c21d69c86420f92f797e4eb40fc0c9c311d7070d82f806001b5c1",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/MyraplaFront00000.png",
+      "sha256": "2fefa2db630f70afbacbd5754d6bd310da57591a7fc567cd603439c2eb944bce",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/MyraplaSide00000.png",
+      "sha256": "bc543e63ff6c886740e4c55f5a54ff85bb5018947d13e3c5824e95fb66b5bc42",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/MyraplaRear00000.png",
+      "sha256": "6d0695e9a95ce757d89ffd6fbc13fd37ac6b913a87d91c05906608449a9d3ab7",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/MyraplaWalk00000.png",
+      "sha256": "3ca23dbf460d97618ff96461698665020cc2c618dd7dad7c304504d98e250053",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/MyraplaRun00000.png",
+      "sha256": "39f8a8cc12573daf0b9b36e6072c78b3d72c5e75e9fa62bd052217c29c1273cf",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/NebulakFront00000.png",
+      "sha256": "7e104ae87028f3394f45f6bab8ed828925c43eafb5d5b6db66f901771909cff0",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/NebulakSide00000.png",
+      "sha256": "7d146b1472e2ba9605bca578db2400de36ab58bb7c2b5cfa0490d2cfdc0b32ba",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/NebulakRear00000.png",
+      "sha256": "dce02769348b9ce3216bb8daef696cd1320d63fdf4ee799817be00806b4ec3be",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/NebulakWalk00000.png",
+      "sha256": "10a021ff6016cf8b00fd934b0c932ab552434326258655d86bf5f78ac992129b",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/NebulakRun00000.png",
+      "sha256": "4b1d35debe23e09767ea0a2eb23e9563ffcef879918cc2f47b919a54806f37ed",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/GlurakFront00000.png",
+      "sha256": "8b8063cfff5d6cc34370e54d190f13794b2d3e983b6419236915dafcdec6350f",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/GlurakSide00000.png",
+      "sha256": "51e07c81d498bc406e85cc658bf49065dca13a8c6b6de77bb4f36b95840e23c6",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/GlurakRear00000.png",
+      "sha256": "bc70c26dfeb26989239cce9fb2a4662ec5388475435c615d3fe2a7c9320643a5",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/GlurakWalk00000.png",
+      "sha256": "a87c7937f694de6fc5796db35ea8b5e55929f5cf9d5eeb2c13eeaa436b02661c",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/GlurakRun00000.png",
+      "sha256": "ca6baa0c65f155f6f8e8263081a0cd3ae9e4d3c6ad66a4cfe5322778ce01bf0f",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PikachuFront00000.png",
+      "sha256": "28e0c703bb4706a61d3a1deb496d69ebfb842c1515c7f42e7ad44fa6f134ccb6",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PikachuSide00000.png",
+      "sha256": "dbe9aa61d25c4d62bb1d3e0d36f176a5fee306724d86d25be77202a18400c9ae",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PikachuRear00000.png",
+      "sha256": "053a33a27da6b62e58b08599e2cfb874750e55a615a2e1a7bb3c5322412ddd28",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PikachuWalk00000.png",
+      "sha256": "4626c168bbcde8461d440f909df303d3641ac5ea83989b5e8f69177dfe4eefa8",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PikachuRun00000.png",
+      "sha256": "1b15547fc94e2ebe7f834f9fabbc0cf2740d3b1008e1cc438c13530b93316191",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/SchiggyFront00000.png",
+      "sha256": "fa21ccd1dfbcae30a8a8a5042422ba0992ab181f683b324ffc759cfcf25d7677",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/SchiggySide00000.png",
+      "sha256": "b8f36f7e34c892a6ee15742af440b6da8f6ae673cb9f6b7d4e93fa5c570c22ed",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/SchiggyRear00000.png",
+      "sha256": "b5db475130fb382f6cc6969b07f37fa5585cd71d1b06923a3d61962f39564674",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/SchiggyWalk00000.png",
+      "sha256": "cb598acdcfe09e8089225d246f85dea8620c501beef44c5dd061f5a60f666b04",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/SchiggyRun00000.png",
+      "sha256": "ca329728befc1a6a09e9449ef649a9e4937e8f919c1e5c5ab007d58ce13e7e96",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerIdle00000.png",
+      "sha256": "227221ecf3b915ffcafd3cd9c399b6e2b9f23a81bed55b5852fb278a9376a264",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerWalk000000.png",
+      "sha256": "ba11a537caf2650dff932c596f9f63a1b9256c42cffc3799f1168cca52a213a4",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerWalk100000.png",
+      "sha256": "a35a02c36e9f4a74fc566940f9562739552d67acd077c65d158b94f6d19fc0d8",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerWalk200000.png",
+      "sha256": "0b3b442eb8411c8243cec62277d548a81f09b78e51c339fd51d1e02a0e38ebc1",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerWalk300000.png",
+      "sha256": "e9c5f53c62a8847517a96eacce348fa9a6c88ccb100d3e23a5aa97b5ad255d4a",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerWalk400000.png",
+      "sha256": "308bf89eeb96a3356ee37339303df591c2c8d0d7cfddf3f432c28ea499594977",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerWalk500000.png",
+      "sha256": "c033d9ff7382b6f88aac677b23f458aef7c4840cc432c3b01a7a370a9a8fc869",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerWalk600000.png",
+      "sha256": "c4bcb8043b520784b82b7a6bb9e2b9b881dc3a25d1e708bd7d166b1b75f741cf",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerWalk700000.png",
+      "sha256": "a5fa0de7ce96ac4567637a806a499843d7fb44c610153166c2654d82da0156d1",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerSprint000000.png",
+      "sha256": "1904cef59b985e160cf7fa087d0c1d77cc2485f1d4393062aa7edee3ee4cbde4",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerSprint100000.png",
+      "sha256": "4e604004ba95b3ce8ff07eac4780d1d895f9f5032b13a532585852cfe61dedd3",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerSprint200000.png",
+      "sha256": "034c1a9ba69184ab9b439b25288530ae5740ef42e42637628fbde8b5dc639537",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerSprint300000.png",
+      "sha256": "dbae65308f8f0244a768158154dc3f2003e628c355c1383cb02d35bb4c1ded2d",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerSprint400000.png",
+      "sha256": "c4146e0304273d2223c1759b823ea7fc7024cba16d35fae9a444a766dd64c067",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerSprint500000.png",
+      "sha256": "257b5b3a730a1fdff458b6eb9ac3a7973e169aa68658a4c0d9ce2520052903f0",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerSprint600000.png",
+      "sha256": "93fb431a907839c6a23b5b7d77a1ed8b8e05edf288142dede03aed2e50485305",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Before03/PlayerSprint700000.png",
+      "sha256": "c817ad68a00b8a341c7b3b786c98a76cce9c5da915d35558329c49c20b97211c",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/MachomeiFront00000.png",
+      "sha256": "265386152e30532fb9592e02a14ad31304abd9ac7d2681aaea7ae71bfe8565a1",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/MachomeiSide00000.png",
+      "sha256": "b77293926038fadff65fab5e7c3e5d5d9c4291cae8280785a5ed8f83acfd485c",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/MachomeiRear00000.png",
+      "sha256": "acdf7e535af1797f6a51ba9a3d14011e229bae9cba10f49c8c06490be6903c89",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/MachomeiWalk00000.png",
+      "sha256": "17d117281421275c3725e9c8b29f7a08382d47ee5ff090749a483ddfcae3e786",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/MachomeiRun00000.png",
+      "sha256": "ed8eb791cf2a2dad749bd26463d15b9b4f6389a39cccac239087ed5b53aa455b",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/MyraplaFront00000.png",
+      "sha256": "053adcd76259824f5fa269cc7204b153b5cec506e3bf591a990030f18b7c0e88",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/MyraplaSide00000.png",
+      "sha256": "c7a6a29ae4c700432ed3b806aabce6045cf2a059a6e38b81f5e6c79dd44b470f",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/MyraplaRear00000.png",
+      "sha256": "179717b7b7bc10033758108a993517df3323350ed43242d3313c81fdc0bccaf3",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/MyraplaWalk00000.png",
+      "sha256": "604c8a820e72eb0e71b776b5cd3fc9dc30569c4d2a4dffebb1a0eafafa0bf697",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/MyraplaRun00000.png",
+      "sha256": "482a4ae839703423bcd66978a8346aecb6edfbc4a01a1a658cf20ca29c2f329a",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/NebulakFront00000.png",
+      "sha256": "09af11caf8afb73d0c26369cfc10f33b61da293aeb4b0a5942479c3549713f19",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/NebulakSide00000.png",
+      "sha256": "7dc5a14f5d8780015532b5f6fa068140873f61334f2a5d55886ca49ef27f2795",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/NebulakRear00000.png",
+      "sha256": "b6397f77b84f9dd9a23b7d9023d8f686b0d8ec7309591dbc6a7270054d136731",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/NebulakWalk00000.png",
+      "sha256": "0cbacfbc3c0f9f10f6110e2d28d67842e800b7ff76add808a14afe5051ba8a82",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/NebulakRun00000.png",
+      "sha256": "fd0e8b16479031f14a5d438e544ad96292d1b1c45698f126107a78cbc5d1f51d",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/GlurakFront00000.png",
+      "sha256": "dc7873d8457fd3dac23c80213f08460ca8d9935ecd40e00f627d6941699283b6",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/GlurakSide00000.png",
+      "sha256": "6e38cbda8e2011a5d0bc83e27b8651e683d5625120df4cfbf4f37795813bd6f6",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/GlurakRear00000.png",
+      "sha256": "eed9c2445cdc7a09d2cf95383b8e27b2ee6e46435428ff69d4532dfdacf4b8df",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/GlurakWalk00000.png",
+      "sha256": "e52e3876ad58251bc4cf9db7aa075998f6351ad98612824ebd85a0cde10781b7",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/GlurakRun00000.png",
+      "sha256": "bee01821c2ce147240faa6fc753a3be4dd1d7c2ba6b2e17a9fa011eb1c1156a2",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PikachuFront00000.png",
+      "sha256": "39aebadc37c323abd2d2baface2d6a6046913004b6f9cc56340b4c8d68880456",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PikachuSide00000.png",
+      "sha256": "3cf19e3f83457fa6443298e560197c60bee43b53aded19e86e28c7b43e5a2224",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PikachuRear00000.png",
+      "sha256": "319c0effedba4d554658c8cc9d65f78df7643261417bacc0be06bfca9ea3da75",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PikachuWalk00000.png",
+      "sha256": "7a9cf1038f4b99c90d1ae45d2efd41d6b5bd4a4502f858e2bda306ece8f25cbc",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PikachuRun00000.png",
+      "sha256": "30fb16253c054b956a8bef094bf86aeca98854e77a9f900e47cc2dd8ebe61918",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/SchiggyFront00000.png",
+      "sha256": "63f6779c5a0a613abfff430a6889ef5418ff2ad6a459894f472d86743bae55a3",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/SchiggySide00000.png",
+      "sha256": "559caf81e8bd34acb1e04b9e1d663863f58ec3ada139119ad927f3a7be135b08",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/SchiggyRear00000.png",
+      "sha256": "d1e73cb89da863da9e68e331bdb6bcef4171a5de80afd1b653f0472314500dcb",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/SchiggyWalk00000.png",
+      "sha256": "de3fae01cfbb4567d582fd147b0e79bc4a3cf3d34fcb75fbad3541ee61a77868",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/SchiggyRun00000.png",
+      "sha256": "d73a2c9765ff2377097f386af786245c72d83035f4bc4d8a20424e2b84c1c7eb",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerIdle00000.png",
+      "sha256": "e4044a8f4f7cc49f44bb31dc4d116b36e8db5efea9c86e6a6d5d3eebef90e5df",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerWalk000000.png",
+      "sha256": "1e89d116068f5fa051b8c5ddc827463c1ca97f7f5ebebecc7c917368aac310d0",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerWalk100000.png",
+      "sha256": "2157f794edd221b06e23e97a7e94e9e10d3c9c9f606ad0d4a00d07e9a07e8dad",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerWalk200000.png",
+      "sha256": "7711c3b4d9d452001463a098a42c3792769f84a768c061f885285340f816cc2c",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerWalk300000.png",
+      "sha256": "1aff05138be66113409a93480018182b55b885b4f8b65a696e9ff7cc00409876",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerWalk400000.png",
+      "sha256": "0427d5dcb478b8085951917e28b172cbc394e6f3f093ec254eb919ff9262dedd",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerWalk500000.png",
+      "sha256": "b26a6631f45b353fea8c1daeddbc936b434c5fee4059466737e4752876fff363",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerWalk600000.png",
+      "sha256": "a514db504629dc0b238baaf0d391193d043f9430d41a332412441ad7270b9623",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerWalk700000.png",
+      "sha256": "3f45c32138a288b69a2028b28061835a9f567ec19b5f5256493a15e4f438c89d",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerSprint000000.png",
+      "sha256": "274cbeb74679eb8e7d7d5630e54ba89bcc489ca142948e2a2a84476f826c6ca1",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerSprint100000.png",
+      "sha256": "ef3962f626b6680b9314f6e93ee355e1c6610578829d44abb4cc0e098f40a5aa",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerSprint200000.png",
+      "sha256": "a384ff20bf00314aa78ec1ce641595ada7f157a70b0b23044916a33b33ff8c20",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerSprint300000.png",
+      "sha256": "0d096b6555ae2e34cddbbdcc76f17c0a181107e9b80999857a61c5e8d9bcf208",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerSprint400000.png",
+      "sha256": "03aa8b5fa130613f5f33fe756dbdf825cc9ccedfa838bf93656d52024e1af3de",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerSprint500000.png",
+      "sha256": "6ab6b2dadcb09faf193194fdc5069c4e45902152eab7000a6d36c456ea2bf449",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerSprint600000.png",
+      "sha256": "c4eb1f3780560a847001046f19f58d2fab2ae4aafc04e3ab7a91b026a5c60846",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Candidates02/PlayerSprint700000.png",
+      "sha256": "15e9c259428b563f1a2c24d646db1257c358034d3f52ad8e36cf84027276c35c",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/MachomeiDirection000000.png",
+      "sha256": "08b72984cbc8feb4fe3598e7c427a8028805ec555dda9f82b9eac36b836c1551",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/MachomeiDirection100000.png",
+      "sha256": "27310984fc48a0bafac12ac85ca785f519dc2dd82b65d69516fefbe4f0defea9",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/MachomeiDirection200000.png",
+      "sha256": "40c7da0462823d3e434303cbab782d7da645926cb68ffbac0b2bcf5364dbe6d5",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/MachomeiDirection300000.png",
+      "sha256": "346f960c63593ff189fea4cc1c907160d79720e5b4ea1dc8207adba2aa874f86",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/MachomeiDirection400000.png",
+      "sha256": "402e8154df2234d772695ba121b5360db640656f902c0b71baf3fb50fc84495c",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/MachomeiDirection500000.png",
+      "sha256": "f6d9ce3c07cf29e3744e47743534f8c6d0336b85e025ebe74f9c0bf8798062e1",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/MachomeiDirection600000.png",
+      "sha256": "0ee36bbd9b4602dbf1f7b2f832bf42351de4f06f6142376041c5dea88adb7c25",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/MachomeiDirection700000.png",
+      "sha256": "fe950b266cf63e1c09a57211bac1ecd1775dbf554c8193bd30fefa6697b1d14e",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/MachomeiWalk00000.png",
+      "sha256": "4a68541df4327c67cf0463cb247ba74a33488fddf68ff934f0757a7df24ff86f",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/MachomeiRun00000.png",
+      "sha256": "0cfe22aa08d9a9abfc16200a407a4391dd20b97e04a76695e13c18a34a375de7",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/GlurakDirection000000.png",
+      "sha256": "626f120a4c1032cf356201dbf91cd1691238e763418f46dde0b2ebe476a3cb4e",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/GlurakDirection100000.png",
+      "sha256": "7abab2a8b7a7ca4fdfa3a7bada572af36e12766c2a0eba1f7cc341d2410996d4",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/GlurakDirection200000.png",
+      "sha256": "084c64a96885e577ac2f70c90f51e3044d79b41444c06bb465a96fa1d8b25373",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/GlurakDirection300000.png",
+      "sha256": "b3830c3c1123c3691598f0df7ea7a55b296821892888d8bac45ddae94e5eb836",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/GlurakDirection400000.png",
+      "sha256": "d90d07ea46a5f110436ff8146b5c8972b9f27fb6bb90c7365a1cc20f1ecbf8e8",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/GlurakDirection500000.png",
+      "sha256": "a9daf0fce19fcd6633a6eec986aecf6393c93dbe12995711ccb9b0e800cb2009",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/GlurakDirection600000.png",
+      "sha256": "08cd166ab5e93e5f19b2690e6eeb765fe05cdb84b146f94652edb82667e7668b",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/GlurakDirection700000.png",
+      "sha256": "865ee6e33d11c4968a15e3bedeadc6da3ba19026b74d8bda140f8d307b40489f",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/GlurakWalk00000.png",
+      "sha256": "fa45439aa97a70124b1e7783911cedfeeda276209338f0e375e2c09d5d3acdd4",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Refinements03/GlurakRun00000.png",
+      "sha256": "e6e9163dade2c6e9cf88af96efc8cc169661b9662effac1615c0320ccd19f12e",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6GlurakFinal04/GlurakFront00000.png",
+      "sha256": "d497fd174303c3ab29b71c2d0b4c4853e5a80677c43e4c1231c649d272168868",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6GlurakFinal04/GlurakSide00000.png",
+      "sha256": "b50cb16ee78c094fdb70707989e37664ba2e09e904a10ae0af986840f3811de5",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6GlurakFinal04/GlurakRear00000.png",
+      "sha256": "4c014531d69a3a5826da447cb646b933ee3d82af236ec36c7c9c6e45b961e9a2",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6GlurakFinal04/GlurakWalk00000.png",
+      "sha256": "87c0db6b2631c13e146dfc0086e76c92631b882de1ed3eba3350c7755ab699b0",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6GlurakFinal04/GlurakRun00000.png",
+      "sha256": "7d05aa797768c46353074d8fa5796a7dce172529903406aa6d83b32107a0673e",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PikachuFront00000.png",
+      "sha256": "c29cae1f2fa8e023acb594df28f9ec39057417b0e5108adef7db93e81c2b38fc",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PikachuSide00000.png",
+      "sha256": "e227de075e19b27dd6a959520ec525c00ea9e355d3371656ac97e4f410a79319",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PikachuRear00000.png",
+      "sha256": "0087577ba9668757eabc6f89cb97b29b9e4a4fc91dfb9d1c3746f16fe84cf328",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PikachuWalk00000.png",
+      "sha256": "b705ebb9b89c851d6f29933dd30d83a8f3c5bae66be11fc0d31b6e8497919052",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PikachuRun00000.png",
+      "sha256": "b8e8e8a751af4794539254984468123a0adab5c69284129c3ec0e515c27bf13e",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/SchiggyFront00000.png",
+      "sha256": "454a53eaac146b2138d4c79ea5585ecfd870a684688276d8fdda3eceb38c13d3",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/SchiggySide00000.png",
+      "sha256": "1eb514b992e2b604cb6feb738a6ab8ffba52bcbba332ade7e5c2f280602edd59",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/SchiggyRear00000.png",
+      "sha256": "22576f3169de60b596bcc7a21378a04f1d0f711ff6486f10bf9441c9681e68f0",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/SchiggyWalk00000.png",
+      "sha256": "b7151fb21afdad0deebf17d849a0f65dcb9c155354db76628699faff2d9f0da5",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/SchiggyRun00000.png",
+      "sha256": "10b6f3e265d9827d20a0d223bd3d15f7522105dfd1b76c70075abcf431cd89e4",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerIdle00000.png",
+      "sha256": "482abb81359b5cf7ea6336c247d7eb6ddb8786de3749b85afa2d313ec8eae6d2",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerWalk000000.png",
+      "sha256": "edb9ccff8e8cd24e581aabb50fff98dcf79a3f48fdfd6b273fcd78cd92286c35",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerWalk100000.png",
+      "sha256": "45c6d6ea2f0f757970ec7c96b904bad5a53f79f5ad0c20985a7f33dd9ab29596",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerWalk200000.png",
+      "sha256": "2b6998b5e007a27d09a540122fd5ea241359212cd0f4e2dabaf04eabe0c1e894",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerWalk300000.png",
+      "sha256": "41cc1f1487542abc363020f711a7613651d3802c34f9639c9dcfd563c611069f",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerWalk400000.png",
+      "sha256": "ccdbe17e6dd121c28ed10606afb14be0ff99757ae2c948f8ed4612bb04c51c95",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerWalk500000.png",
+      "sha256": "ab161860d9cac16cc0bb53e6d13a255fd3a9589512a6c4ddc841864346649fbb",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerWalk600000.png",
+      "sha256": "6c0a8193ce19984890487a0c38d3bb676a9f1abef4b1653bbd54d6645502870e",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerWalk700000.png",
+      "sha256": "9328396524a2ed0156940fbdc5efa10cca17c4c53c04a251c970640f44089101",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerSprint000000.png",
+      "sha256": "301b435c66e276cf539300146dabfb42b86808af24abcf73976e9e24c93bb4e8",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerSprint100000.png",
+      "sha256": "8b6fba680d244fb50b982e74f2388e9152945d09fb85a0f04d2596d57b4b1f30",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerSprint200000.png",
+      "sha256": "b6cc89ee01a92b8133ae5d3c0c1912e10f1d3a020c99eb8555606f3908c5a00d",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerSprint300000.png",
+      "sha256": "9a95d11c9140d4f6caf35460a64b878cd6edd636e8937d03ca906d61c74aba57",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerSprint400000.png",
+      "sha256": "45c58d9a75a15a30d032f3f61038da17677a66fbbac4fe1192e69512da2227b1",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerSprint500000.png",
+      "sha256": "84b5db9ef6025b5e491715fb845b4aee61301402de325eb152793ba6572d7753",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerSprint600000.png",
+      "sha256": "665c40931bdeb71378b24d23805b9b0ee964d727bee8e55b16068a05123087ad",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6Integrated05/PlayerSprint700000.png",
+      "sha256": "2af77e08f3f5f31690cfa3cd477fa64dd0babf222e055ff69bca4ef684ce45dc",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerIdle00000.png",
+      "sha256": "0a6b2cd26353543a85bbc5348bc28fbf48ba0654f5c7520773369cd7aaaba1e1",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerWalk000000.png",
+      "sha256": "b2ef54d384433d8ceca5addabc7bfcc06de8815c0c1ac7bc4f53dd1778bde359",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerWalk100000.png",
+      "sha256": "09f718d4c9512e86f22e5bee4155c9ccca280c78080c09c5ad5f69772d652095",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerWalk200000.png",
+      "sha256": "d38fae9b029c3225705a1eed5ed9d71c76d560086c2486c03569e07c4da81c79",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerWalk300000.png",
+      "sha256": "809f9eb02d89a789f29094a396514220c15248231485fae87d22009062a66674",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerWalk400000.png",
+      "sha256": "1226808abf56a05db7c48a790c30fc0d888f69c8d61661175686a190a5d251b3",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerWalk500000.png",
+      "sha256": "c8c14a9dae1e11b0d43a25876d61ff62212e07709347d11dd4f25f25839ea988",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerWalk600000.png",
+      "sha256": "b21a53a1fdb527fe0b49195b166bb761f95233f9b7359dd3c03ea4a81c2599c8",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerWalk700000.png",
+      "sha256": "76ef5546636a56058befc4e167fd73de73f06dd9cb88ae5336a7c77b47e0e1dd",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerSprint000000.png",
+      "sha256": "db54db409211ff92f805eb081ec47dda27075169a0007c6200d167df489d22ba",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerSprint100000.png",
+      "sha256": "b3fbf37d7cfcfc620d3628c2d752abd7f8b0d40c65bfefea8f342d55982d0835",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerSprint200000.png",
+      "sha256": "3ef4d76a021ba967fd67f5e41956aebb60cbfbf093586506faccf622b253ee60",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerSprint300000.png",
+      "sha256": "132a9e270d052f543a0d8e56ebcb643a7de66e71a93a7042ea707bbdc3b58218",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerSprint400000.png",
+      "sha256": "c219ded4319f044070396ae3cd02fb93217615c8291445cbeb0bafab79f9fe1a",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerSprint500000.png",
+      "sha256": "820cd88f675619bab204a1969f4061b6c37c1aa3787f1ea4fe05e399ff5e73b9",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerSprint600000.png",
+      "sha256": "f97396458cafec1de2eb2a52dd295158f5dcb25d39bc7e713fe1aa0323190bbd",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/V6NativePlayer06/PlayerSprint700000.png",
+      "sha256": "83628baabfebb8d572c1c61b68bc03a4ac3d2077f9114a63925debf8ff732338",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/AlignedAB07/GlurakBefore00000.png",
+      "sha256": "393a9c7ab576fe54479efa81a202749094342831cf965eb1786dbe546f2f3d40",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/AlignedAB07/GlurakAfter00000.png",
+      "sha256": "8bdb1e7e85071b0239cd82473358a7cc090aea6cf79f346363d2a8104813ad73",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/AlignedAB07/NebulakBefore00000.png",
+      "sha256": "6dd740d1737932d0d24e67ffe5c8f9dbc199ec164e0570455cfa536a702889cc",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/AlignedAB07/NebulakAfter00000.png",
+      "sha256": "4502581c52ccff885c47027ea90d11bc52876036c258e036d8b857774b9c5465",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/AlignedAB07/MachomeiBefore00000.png",
+      "sha256": "ee9306b6f99866d12114ffa4bf81f623d5a903f09bcccab2b0c91f9ec285d66d",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/AlignedAB07/MachomeiAfter00000.png",
+      "sha256": "17019aeee0abb328a3bd5c3d634799b659719bd548e3c77f4413fafb51990427",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/AlignedAB07/MyraplaBefore00000.png",
+      "sha256": "76c25f29a7efd9480ddeb48595ecf6d2949f6e89384f0c0cb5e78c87b7b034ea",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/AlignedAB07/MyraplaAfter00000.png",
+      "sha256": "25953cf4dae6b5dd2ec3c1befe5493e96d2477b6c2ea4faf5661ebb9eaa87cf4",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/AlignedAB07/PlayerBefore00000.png",
+      "sha256": "704a9c29e39d41b25d337707f1d80a0d7103646e1f07203745647e6cdf59a7ea",
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/AlignedAB07/PlayerAfter00000.png",
+      "sha256": "b48fc96b7c6c331722377ebf8bda3ed83be6cf1053484113c1a7039a8eb9ba22",
+      "width": 2560,
+      "height": 1440
+    }
+  ],
+  "videos": [
+    {
+      "path": "Saved/AnimationCorrectionsV6/Media/AfterGlurak/Motion.mp4",
+      "sha256": "335dcaa552858207cc2af877188993c212783427572abf7ed3dc98de0abb838a",
+      "bytes": 120898241,
+      "original_frames": 402,
+      "original_time_span_seconds": 55.083484307,
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/Media/AfterMachomei/Motion.mp4",
+      "sha256": "2a940e5a119d4acc533a5d58bf7f842ffbdaee9f6d9a47983bf3352173f615f5",
+      "bytes": 66952803,
+      "original_frames": 220,
+      "original_time_span_seconds": 30.697044693,
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/Media/AfterMyrapla/Motion.mp4",
+      "sha256": "27fb330288def1e32817f6ae09d2a2aa149f09fdfd87f487ec2621256cfe1e4b",
+      "bytes": 38623935,
+      "original_frames": 132,
+      "original_time_span_seconds": 18.327523186999997,
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/Media/AfterNebulak/Motion.mp4",
+      "sha256": "65c04eaeb5125d9bead11db86180fd2d22ed15cbee032b192aa02bd7b91a7e0f",
+      "bytes": 37874307,
+      "original_frames": 138,
+      "original_time_span_seconds": 18.242327875999997,
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/Media/AfterPikachu/Motion.mp4",
+      "sha256": "f637800ef685aeb9f56e1e0228be307d830e7b2233806b3ce910b8ad589e13c8",
+      "bytes": 38923746,
+      "original_frames": 120,
+      "original_time_span_seconds": 18.721564852,
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/Media/AfterPlayer/Motion.mp4",
+      "sha256": "209f2cce276ebd14fbd7a3d0b0345964c0cf8f4315e972ab86a829680e09be94",
+      "bytes": 56904956,
+      "original_frames": 158,
+      "original_time_span_seconds": 25.336982973,
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/Media/AfterSchiggy/Motion.mp4",
+      "sha256": "73cd6fe0d75e9e0209b85c8171235f0a8611db579fcacb625ab15d316bae9081",
+      "bytes": 38460126,
+      "original_frames": 119,
+      "original_time_span_seconds": 18.54874254,
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/Media/BeforeGlurak/Motion.mp4",
+      "sha256": "edeef4e7028dc0e55fe3027d91a74bd8b2b4bc439ced3199ba07e02163bccfd4",
+      "bytes": 62807549,
+      "original_frames": 222,
+      "original_time_span_seconds": 28.97452703799999,
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/Media/BeforeMachomei/Motion.mp4",
+      "sha256": "2e06585897c7c13ddbb0fa17a4e3c06256e3487545c9daee6d18145ff03da3b2",
+      "bytes": 43854229,
+      "original_frames": 147,
+      "original_time_span_seconds": 19.975506261,
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/Media/BeforeMyrapla/Motion.mp4",
+      "sha256": "55689cdb2c6a9ce5b98d31d5f215088981f8f80edb5dd6772110727cbd1ed2f6",
+      "bytes": 38991912,
+      "original_frames": 142,
+      "original_time_span_seconds": 18.461788414999997,
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/Media/BeforeNebulak/Motion.mp4",
+      "sha256": "5dc999148a23082a7c83fa30f3b266d0f9838d26636f3c983cdbd21c3a1ecd9d",
+      "bytes": 38315558,
+      "original_frames": 143,
+      "original_time_span_seconds": 18.568945191000005,
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/Media/BeforePikachu/Motion.mp4",
+      "sha256": "025f723fb2a2b1a8d090b2b53458a0562c5e0ec049b43baf66afbd5595297087",
+      "bytes": 39026252,
+      "original_frames": 143,
+      "original_time_span_seconds": 18.514256582,
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/Media/BeforePlayer/Motion.mp4",
+      "sha256": "cf6d878564ac2187dce90490f356928093390f97fdb527b444fbc1c9ada74ec7",
+      "bytes": 55555433,
+      "original_frames": 167,
+      "original_time_span_seconds": 24.66456765599999,
+      "width": 2560,
+      "height": 1440
+    },
+    {
+      "path": "Saved/AnimationCorrectionsV6/Media/BeforeSchiggy/Motion.mp4",
+      "sha256": "c84b9c99d20e864e1dfb8a7bb188581b2fb7985778142e033b666863657be418",
+      "bytes": 39092348,
+      "original_frames": 142,
+      "original_time_span_seconds": 18.531197809000005,
+      "width": 2560,
+      "height": 1440
+    }
+  ],
+  "review_results": [
+    {
+      "label": "V6Before03",
+      "pairs": null,
+      "scope": "Ordinary PIE test ground, real framebuffer, simulated input",
+      "technical_route_and_save_passed": true
+    },
+    {
+      "label": "V6Candidates02",
+      "pairs": null,
+      "scope": "Ordinary PIE test ground, real framebuffer, simulated input",
+      "technical_route_and_save_passed": true
+    },
+    {
+      "label": "V6Refinements03",
+      "pairs": null,
+      "scope": "Ordinary PIE test ground, real framebuffer, simulated input",
+      "technical_route_and_save_passed": true
+    },
+    {
+      "label": "V6GlurakFinal04",
+      "pairs": null,
+      "scope": "Ordinary PIE test ground, real framebuffer, simulated input",
+      "technical_route_and_save_passed": true
+    },
+    {
+      "label": "V6Integrated05",
+      "pairs": null,
+      "scope": "Ordinary PIE test ground, real framebuffer, simulated input",
+      "technical_route_and_save_passed": true
+    },
+    {
+      "label": "V6NativePlayer06",
+      "pairs": null,
+      "scope": "Ordinary PIE test ground, real framebuffer, simulated input",
+      "technical_route_and_save_passed": true
+    },
+    {
+      "label": "AlignedAB07",
+      "pairs": [
+        {
+          "before": "GlurakBefore",
+          "after": "GlurakAfter",
+          "camera_delta_cm": 0.0,
+          "rotation_delta": 0.0
+        },
+        {
+          "before": "NebulakBefore",
+          "after": "NebulakAfter",
+          "camera_delta_cm": 0.0,
+          "rotation_delta": 0.0
+        },
+        {
+          "before": "MachomeiBefore",
+          "after": "MachomeiAfter",
+          "camera_delta_cm": 0.0,
+          "rotation_delta": 0.0
+        },
+        {
+          "before": "MyraplaBefore",
+          "after": "MyraplaAfter",
+          "camera_delta_cm": 0.0,
+          "rotation_delta": 0.0
+        },
+        {
+          "before": "PlayerBefore",
+          "after": "PlayerAfter",
+          "camera_delta_cm": 0.0,
+          "rotation_delta": 0.0
+        }
+      ],
+      "scope": "Controlled retained-old/current Unreal assets in same ordinary PIE on native test ground; no model spawning or authored map changes",
+      "technical_route_and_save_passed": true
+    }
+  ],
+  "map_checks": [
+    {
+      "map": "/Game/Maps/Dev_BattleTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BuildingKitTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_HealingHouseTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_NPCMotionV3",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2EnvironmentQualityV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandAssetLibrary",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandRegion",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandVillage",
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "full_foot_runs": [
+    {
+      "label": "AnimationV6FullFoot02",
+      "steps": 103,
+      "distance_m": 289.90729865233146,
+      "max_speed_cm_s": 315.0000000000093,
+      "save_restored": true,
+      "ambient_battles": {
+        "test_driver_only": true,
+        "uses_existing_legal_flee": true,
+        "extra_battles": [
+          {
+            "opponent": "Glurak",
+            "position": [
+              -1752.609487962259,
+              1367.1299269951407,
+              50.1500009801223
+            ],
+            "classic": true,
+            "menu_flee_enabled": true,
+            "result": "<PokeMonsterEncounterOutcome.FLED: 2>"
+          },
+          {
+            "opponent": "Gengar",
+            "position": [
+              -1655.247535929553,
+              646.073921030499,
+              50.14999979357441
+            ],
+            "classic": true,
+            "menu_flee_enabled": true,
+            "forced_switches": [
+              1
+            ],
+            "result": "<PokeMonsterEncounterOutcome.FLED: 2>"
+          }
+        ]
+      }
+    },
+    {
+      "label": "AnimationV6FullFoot03",
+      "steps": 103,
+      "distance_m": 289.10887138759676,
+      "max_speed_cm_s": 315.0000000000133,
+      "save_restored": true,
+      "ambient_battles": {
+        "test_driver_only": true,
+        "uses_existing_legal_flee": true,
+        "extra_battles": []
+      }
+    }
+  ],
+  "limitations": [
+    "Glurak: two dark folded wing-root fields remain visible; complete all-orange rear-view goal not claimed.",
+    "Player: no proven wrong cape/pants weights in unambiguous front-leg region; twelve edge candidates not automatically reweighted, no topology cut.",
+    "No complete world-space foot locking in tight turns or exhaustive continuous eight-direction contact/intersection acceptance of every species.",
+    "Original sculpted Nebulak gas silhouette remains recognizable; no volumetric simulation.",
+    "Framebuffer readback affects capture cadence; no smooth live-play or FPS benchmark claimed.",
+    "Physical Switch Pro Controller acceptance not executed.",
+    "GitHub account LFS allowance not accessible; no paid actions or budget changes."
+  ],
+  "excluded_capture_segments": {
+    "V6Before01": "Wild encounter blocked access; wrong scene; rejected.",
+    "V6Before02_and_V6Candidates01": "Positional Python Rotator produced pitch, not yaw; rejected.",
+    "V6Refinements03_Glurak": "New material sampler mismatch; grey fallback; rejected. Only the separate Machomei video from this take is used."
+  },
+  "artistic_approval": false
+}
