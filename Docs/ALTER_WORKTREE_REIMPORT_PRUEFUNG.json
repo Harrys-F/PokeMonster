@@ -1,0 +1,1044 @@
+{
+  "project": "/Users/harry/Developer/PokeMonster",
+  "started": 1792434186.952592,
+  "rows": [
+    {
+      "asset": "Content/Environment/VisualV2HealingArtV3/Textures/T_HA3_Meadow.uasset",
+      "source": "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV3/Textures/T_HA3_Meadow.png",
+      "sha256_source": "98628b8452d5cfbdd0b18eca906a83eceeada7e45b4205287f57241a8a323bbe",
+      "duplicate": "/Engine/Transient.WorktreeTextureProbe_0",
+      "import_data_duplicate": "/Engine/Transient.WorktreeTextureProbe_0:InterchangeAssetImportData_0",
+      "copied_sources_before_binding": [
+        "/Users/Shared/Epic Games/Art/World/VisualV2HealingArtV3/Textures/T_HA3_Meadow.png"
+      ],
+      "duplicate_source_binding_only": true,
+      "sources_before": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV3/Textures/T_HA3_Meadow.png"
+      ],
+      "before": {
+        "path": "/Engine/Transient.WorktreeTextureProbe_0",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "callback_received": true,
+      "callback_objects": [
+        "/Engine/Transient.WorktreeTextureProbe_0"
+      ],
+      "started": 1792434187.384175,
+      "_delegate_keepalive": "<Delegate 'OnImportDoneDynamic' (0x7112ecc8c8) /Engine/Transient.OnImportDoneDynamic__PythonCallable_0.CallPython>",
+      "start_returned": true,
+      "after": {
+        "path": "/Engine/Transient.WorktreeTextureProbe_0",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "sources_after": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV3/Textures/T_HA3_Meadow.png"
+      ],
+      "settings_equal": false,
+      "settings_differences": {
+        "mip_gen_settings": {
+          "before": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+          "after": "<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>"
+        },
+        "compression_settings": {
+          "before": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+          "after": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+        }
+      },
+      "passed": true,
+      "seconds": 2.32631778717041
+    },
+    {
+      "asset": "Content/Environment/VisualV2HealingArtV3/Textures/T_HA3_Earth.uasset",
+      "source": "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV3/Textures/T_HA3_Earth.png",
+      "sha256_source": "445f4c1c1dd13980de7d0b797765a640db167ecd112a468f3f69b6e8f0b739a1",
+      "duplicate": "/Engine/Transient.WorktreeTextureProbe_1",
+      "import_data_duplicate": "/Engine/Transient.WorktreeTextureProbe_1:InterchangeAssetImportData_0",
+      "copied_sources_before_binding": [
+        "/Users/Shared/Epic Games/Art/World/VisualV2HealingArtV3/Textures/T_HA3_Earth.png"
+      ],
+      "duplicate_source_binding_only": true,
+      "sources_before": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV3/Textures/T_HA3_Earth.png"
+      ],
+      "before": {
+        "path": "/Engine/Transient.WorktreeTextureProbe_1",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "callback_received": true,
+      "callback_objects": [
+        "/Engine/Transient.WorktreeTextureProbe_1"
+      ],
+      "started": 1792434190.7602801,
+      "_delegate_keepalive": "<Delegate 'OnImportDoneDynamic' (0x7112ecca08) /Engine/Transient.OnImportDoneDynamic__PythonCallable_1.CallPython>",
+      "start_returned": true,
+      "after": {
+        "path": "/Engine/Transient.WorktreeTextureProbe_1",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "sources_after": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV3/Textures/T_HA3_Earth.png"
+      ],
+      "settings_equal": false,
+      "settings_differences": {
+        "mip_gen_settings": {
+          "before": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+          "after": "<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>"
+        },
+        "compression_settings": {
+          "before": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+          "after": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+        }
+      },
+      "passed": true,
+      "seconds": 0.9776880741119385
+    },
+    {
+      "asset": "Content/Environment/VisualV2HealingArtV4/Textures/T_HA4_Wood.uasset",
+      "source": "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Wood.png",
+      "sha256_source": "0cf96a8b39e8b93dcd1bfaf29c409f75966c16af37a0b7f082b53ba7f40498b5",
+      "duplicate": "/Engine/Transient.WorktreeTextureProbe_2",
+      "import_data_duplicate": "/Engine/Transient.WorktreeTextureProbe_2:InterchangeAssetImportData_0",
+      "copied_sources_before_binding": [
+        "/Users/Shared/Epic Games/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Wood.png"
+      ],
+      "duplicate_source_binding_only": true,
+      "sources_before": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Wood.png"
+      ],
+      "before": {
+        "path": "/Engine/Transient.WorktreeTextureProbe_2",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "callback_received": true,
+      "callback_objects": [
+        "/Engine/Transient.WorktreeTextureProbe_2"
+      ],
+      "started": 1792434192.7839518,
+      "_delegate_keepalive": "<Delegate 'OnImportDoneDynamic' (0x7112ecca58) /Engine/Transient.OnImportDoneDynamic__PythonCallable_2.CallPython>",
+      "start_returned": true,
+      "after": {
+        "path": "/Engine/Transient.WorktreeTextureProbe_2",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "sources_after": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Wood.png"
+      ],
+      "settings_equal": false,
+      "settings_differences": {
+        "mip_gen_settings": {
+          "before": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+          "after": "<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>"
+        },
+        "compression_settings": {
+          "before": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+          "after": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+        }
+      },
+      "passed": true,
+      "seconds": 1.0341041088104248
+    },
+    {
+      "asset": "Content/Environment/VisualV2HealingArtV4/Textures/T_HA4_Meadow.uasset",
+      "source": "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Meadow.png",
+      "sha256_source": "e582bb453962a76d57ec8257ac13c87167756e870a6932fe728d2cca757684f0",
+      "duplicate": "/Engine/Transient.WorktreeTextureProbe_3",
+      "import_data_duplicate": "/Engine/Transient.WorktreeTextureProbe_3:InterchangeAssetImportData_0",
+      "copied_sources_before_binding": [
+        "/Users/Shared/Epic Games/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Meadow.png"
+      ],
+      "duplicate_source_binding_only": true,
+      "sources_before": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Meadow.png"
+      ],
+      "before": {
+        "path": "/Engine/Transient.WorktreeTextureProbe_3",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "callback_received": true,
+      "callback_objects": [
+        "/Engine/Transient.WorktreeTextureProbe_3"
+      ],
+      "started": 1792434194.9064908,
+      "_delegate_keepalive": "<Delegate 'OnImportDoneDynamic' (0x7112ecd598) /Engine/Transient.OnImportDoneDynamic__PythonCallable_3.CallPython>",
+      "start_returned": true,
+      "after": {
+        "path": "/Engine/Transient.WorktreeTextureProbe_3",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "sources_after": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Meadow.png"
+      ],
+      "settings_equal": false,
+      "settings_differences": {
+        "mip_gen_settings": {
+          "before": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+          "after": "<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>"
+        },
+        "compression_settings": {
+          "before": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+          "after": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+        }
+      },
+      "passed": true,
+      "seconds": 0.9709682464599609
+    },
+    {
+      "asset": "Content/Environment/VisualV2HealingArtV4/Textures/T_HA4_Earth.uasset",
+      "source": "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Earth.png",
+      "sha256_source": "61d1e554eb2864048a8a9a47fb8d901d72ca40048a4444003bb480a9b4e19748",
+      "duplicate": "/Engine/Transient.WorktreeTextureProbe_4",
+      "import_data_duplicate": "/Engine/Transient.WorktreeTextureProbe_4:InterchangeAssetImportData_0",
+      "copied_sources_before_binding": [
+        "/Users/Shared/Epic Games/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Earth.png"
+      ],
+      "duplicate_source_binding_only": true,
+      "sources_before": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Earth.png"
+      ],
+      "before": {
+        "path": "/Engine/Transient.WorktreeTextureProbe_4",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "callback_received": true,
+      "callback_objects": [
+        "/Engine/Transient.WorktreeTextureProbe_4"
+      ],
+      "started": 1792434196.916136,
+      "_delegate_keepalive": "<Delegate 'OnImportDoneDynamic' (0x7112ecdbd8) /Engine/Transient.OnImportDoneDynamic__PythonCallable_4.CallPython>",
+      "start_returned": true,
+      "after": {
+        "path": "/Engine/Transient.WorktreeTextureProbe_4",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "sources_after": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Earth.png"
+      ],
+      "settings_equal": false,
+      "settings_differences": {
+        "mip_gen_settings": {
+          "before": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+          "after": "<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>"
+        },
+        "compression_settings": {
+          "before": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+          "after": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+        }
+      },
+      "passed": true,
+      "seconds": 1.0001230239868164
+    },
+    {
+      "asset": "Content/Environment/VisualV2WorldArtV5/Textures/T_WA5_ForestFloor.uasset",
+      "source": "/Users/harry/Developer/PokeMonster/Art/World/VisualV2WorldArtV5/Textures/T_WA5_ForestFloor.png",
+      "sha256_source": "71bdee5eb647c981bd114218eab269265a664391d8d9cad05c96e186e5d0c9b7",
+      "duplicate": "/Engine/Transient.WorktreeTextureProbe_5",
+      "import_data_duplicate": "/Engine/Transient.WorktreeTextureProbe_5:InterchangeAssetImportData_0",
+      "copied_sources_before_binding": [
+        "/Users/Shared/Epic Games/Art/World/VisualV2WorldArtV5/Textures/T_WA5_ForestFloor.png"
+      ],
+      "duplicate_source_binding_only": true,
+      "sources_before": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2WorldArtV5/Textures/T_WA5_ForestFloor.png"
+      ],
+      "before": {
+        "path": "/Engine/Transient.WorktreeTextureProbe_5",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "callback_received": true,
+      "callback_objects": [
+        "/Engine/Transient.WorktreeTextureProbe_5"
+      ],
+      "started": 1792434198.969457,
+      "_delegate_keepalive": "<Delegate 'OnImportDoneDynamic' (0x7112ecde58) /Engine/Transient.OnImportDoneDynamic__PythonCallable_5.CallPython>",
+      "start_returned": true,
+      "after": {
+        "path": "/Engine/Transient.WorktreeTextureProbe_5",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "sources_after": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2WorldArtV5/Textures/T_WA5_ForestFloor.png"
+      ],
+      "settings_equal": false,
+      "settings_differences": {
+        "mip_gen_settings": {
+          "before": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+          "after": "<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>"
+        },
+        "compression_settings": {
+          "before": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+          "after": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+        }
+      },
+      "passed": true,
+      "seconds": 0.9938721656799316
+    },
+    {
+      "asset": "Content/Environment/VisualV2WorldArtV5/Textures/T_WA5_WetBank.uasset",
+      "source": "/Users/harry/Developer/PokeMonster/Art/World/VisualV2WorldArtV5/Textures/T_WA5_WetBank.png",
+      "sha256_source": "53759798be10b83335d76be6ffb4b2d8e480461c4ac2a27eb9d4e32e699f68c3",
+      "duplicate": "/Engine/Transient.WorktreeTextureProbe_6",
+      "import_data_duplicate": "/Engine/Transient.WorktreeTextureProbe_6:InterchangeAssetImportData_0",
+      "copied_sources_before_binding": [
+        "/Users/Shared/Epic Games/Art/World/VisualV2WorldArtV5/Textures/T_WA5_WetBank.png"
+      ],
+      "duplicate_source_binding_only": true,
+      "sources_before": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2WorldArtV5/Textures/T_WA5_WetBank.png"
+      ],
+      "before": {
+        "path": "/Engine/Transient.WorktreeTextureProbe_6",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "callback_received": true,
+      "callback_objects": [
+        "/Engine/Transient.WorktreeTextureProbe_6"
+      ],
+      "started": 1792434201.02396,
+      "_delegate_keepalive": "<Delegate 'OnImportDoneDynamic' (0x7112ece768) /Engine/Transient.OnImportDoneDynamic__PythonCallable_6.CallPython>",
+      "start_returned": true,
+      "after": {
+        "path": "/Engine/Transient.WorktreeTextureProbe_6",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "sources_after": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2WorldArtV5/Textures/T_WA5_WetBank.png"
+      ],
+      "settings_equal": false,
+      "settings_differences": {
+        "mip_gen_settings": {
+          "before": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+          "after": "<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>"
+        },
+        "compression_settings": {
+          "before": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+          "after": "<TextureCompressionSettings.TC_DEFAULT: 0>"
+        }
+      },
+      "passed": true,
+      "seconds": 1.0109639167785645
+    }
+  ],
+  "passed": true,
+  "method": "Interchange async reimport on in-memory SystemLibrary duplicates; child sandbox denies old worktree reads and Content/Art/Source/Config/.git writes",
+  "initial_dirty": {
+    "maps": [],
+    "content": []
+  },
+  "old_source_read_denied": true,
+  "originals_before": [
+    {
+      "signature": {
+        "path": "/Game/Environment/VisualV2HealingArtV3/Textures/T_HA3_Meadow.T_HA3_Meadow",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "import_sources": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV3/Textures/T_HA3_Meadow.png"
+      ],
+      "disk_sha256": "bb01a13f0660ee761dc3ea91af4703c1471387c59a99d1c04c4c30e44aee25ec"
+    },
+    {
+      "signature": {
+        "path": "/Game/Environment/VisualV2HealingArtV3/Textures/T_HA3_Earth.T_HA3_Earth",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "import_sources": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV3/Textures/T_HA3_Earth.png"
+      ],
+      "disk_sha256": "e213b0bce994c2e9dc51b220ead00f721e1214abcd76e177e7af34cc0240ee2a"
+    },
+    {
+      "signature": {
+        "path": "/Game/Environment/VisualV2HealingArtV4/Textures/T_HA4_Wood.T_HA4_Wood",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "import_sources": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Wood.png"
+      ],
+      "disk_sha256": "946c9e8b32696c559652e915501fc0c8b86455658dd51879bb28efc2e8612096"
+    },
+    {
+      "signature": {
+        "path": "/Game/Environment/VisualV2HealingArtV4/Textures/T_HA4_Meadow.T_HA4_Meadow",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "import_sources": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Meadow.png"
+      ],
+      "disk_sha256": "4ed1ee5f52c85dccf75ccbe014ce9e2107485d7a4b3af76d601ef972a1fd60ab"
+    },
+    {
+      "signature": {
+        "path": "/Game/Environment/VisualV2HealingArtV4/Textures/T_HA4_Earth.T_HA4_Earth",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "import_sources": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV4/Textures/T_HA4_Earth.png"
+      ],
+      "disk_sha256": "43b1ddf985ec2a806eed8beac01c90dba1f9c1857114f877a5f961ae6aa6e389"
+    },
+    {
+      "signature": {
+        "path": "/Game/Environment/VisualV2WorldArtV5/Textures/T_WA5_ForestFloor.T_WA5_ForestFloor",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "import_sources": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2WorldArtV5/Textures/T_WA5_ForestFloor.png"
+      ],
+      "disk_sha256": "0cf2c8424dd967be0e085e16dfbbb88bc649719bf0e3b26b25be2ba742197c47"
+    },
+    {
+      "signature": {
+        "path": "/Game/Environment/VisualV2WorldArtV5/Textures/T_WA5_WetBank.T_WA5_WetBank",
+        "class": "Texture2D",
+        "width": 2048,
+        "height": 2048,
+        "srgb": "True",
+        "compression_settings": "<TextureCompressionSettings.TC_EDITOR_ICON: 7>",
+        "lod_group": "<TextureGroup.TEXTUREGROUP_WORLD: 0>",
+        "mip_gen_settings": "<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>",
+        "max_texture_size": "2048",
+        "filter": "<TextureFilter.TF_DEFAULT: 3>",
+        "address_x": "<TextureAddress.TA_WRAP: 0>",
+        "address_y": "<TextureAddress.TA_WRAP: 0>",
+        "never_stream": "False",
+        "lossy_compression_amount": "<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>",
+        "compression_no_alpha": "False",
+        "defer_compression": "False",
+        "virtual_texture_streaming": "False"
+      },
+      "import_sources": [
+        "/Users/harry/Developer/PokeMonster/Art/World/VisualV2WorldArtV5/Textures/T_WA5_WetBank.png"
+      ],
+      "disk_sha256": "e1311a95db8750424875042fdca03c300d22d8499af3f55936dbe57fb545a395"
+    }
+  ],
+  "final_dirty": {
+    "maps": [],
+    "content": []
+  },
+  "all_duplicate_settings_equal": false,
+  "originals_unchanged": true,
+  "assets_saved": false,
+  "completed": 1792434203.071548,
+  "sandbox_profile": "(version 1)\n(allow default)\n(deny file-read* (subpath \"/Users/harry/Documents/Codex/PokeMonster_GitSicherung_V5_2026-10-16/Worktree\"))\n(deny file-write* (subpath \"/Users/harry/Developer/PokeMonster/Content\") (subpath \"/Users/harry/Developer/PokeMonster/Art\") (subpath \"/Users/harry/Developer/PokeMonster/Source\") (subpath \"/Users/harry/Developer/PokeMonster/Config\") (subpath \"/Users/harry/Developer/PokeMonster/.git\"))\n",
+  "warnings": [
+    "[2026.10.19-18.22.52:965][  0]LogHAL: Warning: FMacPlatformProcess::CreateProc: posix_spawn(\"/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id\") failed (86, Bad CPU type in executable)",
+    "[2026.10.19-18.22.52:965][  0]LogHAL: Warning: Failed to launch Tool. (/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id)",
+    "[2026.10.19-18.23.01:464][  0]LogAudioMixerAudioUnit: Warning: Error querying Sample Rate: 2003332927",
+    "[2026.10.19-18.23.02:059][  0]LogModelContextProtocol: Warning: Data transmitted via this plugin to your connected LLM service is Licensed Technology under the UE EULA. You are responsible for ensuring your LLM provider does not use it as training input. See Section 6(e) of the UE EULA for full terms.",
+    "[2026.10.19-18.23.02:966][  0]LogHAL: Warning: FMacPlatformProcess::CreateProc: posix_spawn(\"/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id\") failed (86, Bad CPU type in executable)",
+    "[2026.10.19-18.23.02:966][  0]LogHAL: Warning: Failed to launch Tool. (/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id)",
+    "[2026.10.19-18.23.08:863][  7]LogConsoleManager: Warning: Console variable 'r.MotionVectorSimulation' used in the render thread. Rendering artifacts could happen. Use ECVF_RenderThreadSafe or don't use in render thread.",
+    "[2026.10.19-18.23.12:968][ 52]LogHAL: Warning: FMacPlatformProcess::CreateProc: posix_spawn(\"/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id\") failed (86, Bad CPU type in executable)",
+    "[2026.10.19-18.23.12:968][ 52]LogHAL: Warning: Failed to launch Tool. (/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id)",
+    "[2026.10.19-18.23.22:969][161]LogHAL: Warning: FMacPlatformProcess::CreateProc: posix_spawn(\"/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id\") failed (86, Bad CPU type in executable)",
+    "[2026.10.19-18.23.22:969][161]LogHAL: Warning: Failed to launch Tool. (/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id)"
+  ],
+  "engine_error_lines": [
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed",
+    "[2026.10.19-18.23.01:101][  0]LogAutomationTest: Error: Condition failed"
+  ],
+  "engine_log_sha256": "f7bac755ba392ba3391dabc74ab1d84dfb10ca8f9232eee46efd63d34323c1f6",
+  "earlier_diagnostic_attempts": [
+    {
+      "file": "/tmp/pokemonster_worktree_reimport_result.json",
+      "passed": false,
+      "failure": "Traceback (most recent call last):\n  File \"/tmp/pokemonster_worktree_reimport_probe.py\", line 38, in tick\n    sources=list(imp.extract_filenames());assert all(str(Path(p)).startswith(str(R)+'/') for p in sources),sources\n                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ['/Users/Shared/Epic Games/Art/World/VisualV2HealingArtV3/Textures/T_HA3_Meadow.png']\n"
+    },
+    {
+      "file": "/tmp/pokemonster_worktree_reimport_bound_result.json",
+      "passed": false,
+      "failure": "Traceback (most recent call last):\n  File \"/tmp/pokemonster_worktree_reimport_bound_probe.py\", line 42, in tick\n    delegate=unreal.OnImportDoneDynamic();delegate.bind_callable(done);params.on_assets_import_done=delegate;current['_delegate_keepalive']=str(delegate);unreal._worktree_probe_params=params;unreal._worktree_probe_delegate=delegate\n                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nException: OnImportDoneDynamic: Callable has the incorrect number of arguments (expected 1, got 0)\n"
+    },
+    {
+      "file": "/tmp/pokemonster_worktree_reimport_checked_result.json",
+      "passed": false,
+      "failure": "Traceback (most recent call last):\n  File \"/tmp/pokemonster_worktree_reimport_checked_probe.py\", line 51, in tick\n    assert current['settings_equal'],(aa,bb)\nAssertionError: ({'class': 'Texture2D', 'width': 32, 'height': 32, 'srgb': 'True', 'compression_settings': '<TextureCompressionSettings.TC_EDITOR_ICON: 7>', 'lod_group': '<TextureGroup.TEXTUREGROUP_WORLD: 0>', 'mip_gen_settings': '<TextureMipGenSettings.TMGS_NO_MIPMAPS: 13>', 'max_texture_size': '2048', 'filter': '<TextureFilter.TF_DEFAULT: 3>', 'address_x': '<TextureAddress.TA_WRAP: 0>', 'address_y': '<TextureAddress.TA_WRAP: 0>', 'never_stream': 'False', 'lossy_compression_amount': '<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>', 'compression_no_alpha': 'False', 'defer_compression': 'False', 'virtual_texture_streaming': 'False'}, {'class': 'Texture2D', 'width': 2048, 'height': 2048, 'srgb': 'True', 'compression_settings': '<TextureCompressionSettings.TC_DEFAULT: 0>', 'lod_group': '<TextureGroup.TEXTUREGROUP_WORLD: 0>', 'mip_gen_settings': '<TextureMipGenSettings.TMGS_FROM_TEXTURE_GROUP: 0>', 'max_texture_size': '2048', 'filter': '<TextureFilter.TF_DEFAULT: 3>', 'address_x': '<TextureAddress.TA_WRAP: 0>', 'address_y': '<TextureAddress.TA_WRAP: 0>', 'never_stream': 'False', 'lossy_compression_amount': '<TextureLossyCompressionAmount.TLCA_DEFAULT: 0>', 'compression_no_alpha': 'False', 'defer_compression': 'False', 'virtual_texture_streaming': 'False'})\n"
+    }
+  ],
+  "blender_comparison": [
+    {
+      "old": "/Users/harry/Documents/Codex/PokeMonster_GitSicherung_V5_2026-10-16/Worktree/Saved/VisualV2HealingArtV4/GardenDetails_BeforeIvyPlacement.blend",
+      "current": "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV4/Source/HealingHouse_GardenDetails_V4.blend",
+      "objects_added_current": [],
+      "objects_old_only": [],
+      "meshes_old_only": [],
+      "materials_old_only": [],
+      "materials_changed": [],
+      "images_changed": false,
+      "objects": [
+        {
+          "object": "HA4_Flagstone",
+          "vertices_before": 27,
+          "vertices_after": 27,
+          "same_vertex_coordinates": true,
+          "moved_vertices": 0,
+          "max_coordinate_delta_m": 0.0,
+          "same_faces": true,
+          "same_transform": true,
+          "same_material_slots": true,
+          "same_material_indices": true,
+          "same_attributes": true,
+          "same_modifiers": true,
+          "same_vertex_groups": true,
+          "same_smoothing": true
+        },
+        {
+          "object": "HA4_GardenFlowers",
+          "vertices_before": 15420,
+          "vertices_after": 15420,
+          "same_vertex_coordinates": true,
+          "moved_vertices": 0,
+          "max_coordinate_delta_m": 0.0,
+          "same_faces": true,
+          "same_transform": true,
+          "same_material_slots": true,
+          "same_material_indices": true,
+          "same_attributes": true,
+          "same_modifiers": true,
+          "same_vertex_groups": true,
+          "same_smoothing": true
+        },
+        {
+          "object": "HA4_GardenHerb",
+          "vertices_before": 5656,
+          "vertices_after": 5656,
+          "same_vertex_coordinates": true,
+          "moved_vertices": 0,
+          "max_coordinate_delta_m": 0.0,
+          "same_faces": true,
+          "same_transform": true,
+          "same_material_slots": true,
+          "same_material_indices": true,
+          "same_attributes": true,
+          "same_modifiers": true,
+          "same_vertex_groups": true,
+          "same_smoothing": true
+        },
+        {
+          "object": "HA4_GrassTuft",
+          "vertices_before": 912,
+          "vertices_after": 912,
+          "same_vertex_coordinates": true,
+          "moved_vertices": 0,
+          "max_coordinate_delta_m": 0.0,
+          "same_faces": true,
+          "same_transform": true,
+          "same_material_slots": true,
+          "same_material_indices": true,
+          "same_attributes": true,
+          "same_modifiers": true,
+          "same_vertex_groups": true,
+          "same_smoothing": true
+        },
+        {
+          "object": "HA4_IvySprigA",
+          "vertices_before": 189,
+          "vertices_after": 189,
+          "same_vertex_coordinates": false,
+          "moved_vertices": 189,
+          "max_coordinate_delta_m": 0.9275000025191397,
+          "same_faces": true,
+          "same_transform": true,
+          "same_material_slots": true,
+          "same_material_indices": true,
+          "same_attributes": false,
+          "same_modifiers": true,
+          "same_vertex_groups": true,
+          "same_smoothing": true
+        },
+        {
+          "object": "HA4_IvySprigB",
+          "vertices_before": 189,
+          "vertices_after": 189,
+          "same_vertex_coordinates": false,
+          "moved_vertices": 189,
+          "max_coordinate_delta_m": 0.9275000025191397,
+          "same_faces": true,
+          "same_transform": true,
+          "same_material_slots": true,
+          "same_material_indices": true,
+          "same_attributes": false,
+          "same_modifiers": true,
+          "same_vertex_groups": true,
+          "same_smoothing": true
+        }
+      ]
+    },
+    {
+      "old": "/Users/harry/Documents/Codex/PokeMonster_GitSicherung_V5_2026-10-16/Worktree/Saved/VisualV2HealingArtV4/GardenDetails_BeforeIvyCurl.blend",
+      "current": "/Users/harry/Developer/PokeMonster/Art/World/VisualV2HealingArtV4/Source/HealingHouse_GardenDetails_V4.blend",
+      "objects_added_current": [],
+      "objects_old_only": [],
+      "meshes_old_only": [],
+      "materials_old_only": [],
+      "materials_changed": [],
+      "images_changed": false,
+      "objects": [
+        {
+          "object": "HA4_Flagstone",
+          "vertices_before": 27,
+          "vertices_after": 27,
+          "same_vertex_coordinates": true,
+          "moved_vertices": 0,
+          "max_coordinate_delta_m": 0.0,
+          "same_faces": true,
+          "same_transform": true,
+          "same_material_slots": true,
+          "same_material_indices": true,
+          "same_attributes": true,
+          "same_modifiers": true,
+          "same_vertex_groups": true,
+          "same_smoothing": true
+        },
+        {
+          "object": "HA4_GardenFlowers",
+          "vertices_before": 15420,
+          "vertices_after": 15420,
+          "same_vertex_coordinates": true,
+          "moved_vertices": 0,
+          "max_coordinate_delta_m": 0.0,
+          "same_faces": true,
+          "same_transform": true,
+          "same_material_slots": true,
+          "same_material_indices": true,
+          "same_attributes": true,
+          "same_modifiers": true,
+          "same_vertex_groups": true,
+          "same_smoothing": true
+        },
+        {
+          "object": "HA4_GardenHerb",
+          "vertices_before": 5656,
+          "vertices_after": 5656,
+          "same_vertex_coordinates": true,
+          "moved_vertices": 0,
+          "max_coordinate_delta_m": 0.0,
+          "same_faces": true,
+          "same_transform": true,
+          "same_material_slots": true,
+          "same_material_indices": true,
+          "same_attributes": true,
+          "same_modifiers": true,
+          "same_vertex_groups": true,
+          "same_smoothing": true
+        },
+        {
+          "object": "HA4_GrassTuft",
+          "vertices_before": 912,
+          "vertices_after": 912,
+          "same_vertex_coordinates": true,
+          "moved_vertices": 0,
+          "max_coordinate_delta_m": 0.0,
+          "same_faces": true,
+          "same_transform": true,
+          "same_material_slots": true,
+          "same_material_indices": true,
+          "same_attributes": true,
+          "same_modifiers": true,
+          "same_vertex_groups": true,
+          "same_smoothing": true
+        },
+        {
+          "object": "HA4_IvySprigA",
+          "vertices_before": 189,
+          "vertices_after": 189,
+          "same_vertex_coordinates": false,
+          "moved_vertices": 162,
+          "max_coordinate_delta_m": 0.4275000117396749,
+          "same_faces": true,
+          "same_transform": true,
+          "same_material_slots": true,
+          "same_material_indices": true,
+          "same_attributes": false,
+          "same_modifiers": true,
+          "same_vertex_groups": true,
+          "same_smoothing": true
+        },
+        {
+          "object": "HA4_IvySprigB",
+          "vertices_before": 189,
+          "vertices_after": 189,
+          "same_vertex_coordinates": false,
+          "moved_vertices": 162,
+          "max_coordinate_delta_m": 0.4275000117396749,
+          "same_faces": true,
+          "same_transform": true,
+          "same_material_slots": true,
+          "same_material_indices": true,
+          "same_attributes": false,
+          "same_modifiers": true,
+          "same_vertex_groups": true,
+          "same_smoothing": true
+        }
+      ]
+    }
+  ],
+  "blender_reconstruction": [
+    {
+      "path": "/Users/harry/Documents/Codex/PokeMonster_GitSicherung_V5_2026-10-16/Worktree/Saved/VisualV2HealingArtV4/GardenDetails_BeforeIvyPlacement.blend",
+      "objects": [
+        {
+          "name": "HA4_IvySprigA",
+          "vertex_count": 189,
+          "exact_float32_match": true,
+          "max_delta_m": 0.0
+        },
+        {
+          "name": "HA4_IvySprigB",
+          "vertex_count": 189,
+          "exact_float32_match": true,
+          "max_delta_m": 0.0
+        }
+      ],
+      "shape_keys": [],
+      "actions": [],
+      "armatures": [],
+      "curves": [],
+      "worlds": [
+        "Neutral inspection world"
+      ],
+      "file_unchanged": true
+    },
+    {
+      "path": "/Users/harry/Documents/Codex/PokeMonster_GitSicherung_V5_2026-10-16/Worktree/Saved/VisualV2HealingArtV4/GardenDetails_BeforeIvyCurl.blend",
+      "objects": [
+        {
+          "name": "HA4_IvySprigA",
+          "vertex_count": 189,
+          "exact_float32_match": true,
+          "max_delta_m": 0.0
+        },
+        {
+          "name": "HA4_IvySprigB",
+          "vertex_count": 189,
+          "exact_float32_match": true,
+          "max_delta_m": 0.0
+        }
+      ],
+      "shape_keys": [],
+      "actions": [],
+      "armatures": [],
+      "curves": [],
+      "worlds": [
+        "Neutral inspection world"
+      ],
+      "file_unchanged": true
+    }
+  ]
+}
