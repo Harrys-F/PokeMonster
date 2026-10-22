@@ -89,3 +89,12 @@ einen späteren Neuimport der endgültigen Blenderquelle ist die bestehende
 und das exakt geprüfte Original-Skeleton/die Originalclips verwenden; die sechs
 verworfenen Zusatzexports und acht ungenutzten UE-Zwischenassets sind ausschließlich
 lokal unter `Saved/CreaturePolishV4/RejectedInputs` erhalten.
+
+
+## Ergänzung: gewöhnliches PIE-Testgelände (22.10.2026)
+
+Die obige Aussage „Im regulären Spiel existiert das Gelände nicht“ beschreibt
+das historische explizite Showcase. Für gewöhnliches VisualV2-PIE gibt es jetzt
+einen getrennten, automatisch verfügbaren nativen Entwicklungsbereich. Zugang:
+`pm.TestGround.Go`, Rückkehr: `pm.TestGround.Return`. Kein Showcase ausführen.
+Details: `Tools/CreatureTestGroundV1/README.md`. Kein Shipping-/Standalone-Inhalt.

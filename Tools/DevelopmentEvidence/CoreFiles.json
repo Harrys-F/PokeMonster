@@ -2,7 +2,7 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "switch_pro_controller_v1",
+  "snapshot_kind": "permanent_pokemon_test_ground_v1",
   "generated_at": "2026-10-22",
   "files": {
     ".codex/config.toml": {
@@ -10941,6 +10941,10 @@
       "bytes": 11314,
       "sha256": "3be94f00ce2a2be6de0f64f4ecd2cabe3af4b4ce606f4230c197bba670f896bf"
     },
+    "Docs/DAUERHAFTES_POKEMON_TESTGELAENDE_V1_PRUEFBERICHT.md": {
+      "bytes": 14673,
+      "sha256": "44fff905246296b48645a54fb54b4bf378f1935c7c491ea3557e6b8932c54064"
+    },
     "Docs/DEV_TESTMAP_ENVIRONMENT_PERFORMANCE_V1_PRUEFBERICHT.md": {
       "bytes": 47235,
       "sha256": "307d650b53df9c1ca4ff629942c9404a036b66fe13247708173a8f2780105913"
@@ -10966,8 +10970,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 147005,
-      "sha256": "d0218019632001510277f75bc83d12f066730bb036612f663c5edabd044be35b"
+      "bytes": 148050,
+      "sha256": "07700d07754d20809e8b55a11a81ffb15e7ff3550ee26cb93d2c59e4024fc688"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
@@ -11122,8 +11126,8 @@
       "sha256": "1ede0acfca40e87ac09ffe5dbe8993e5cb6142cff2aebf509f4cb084ae6e53fc"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 168445,
-      "sha256": "1016b1333b83f14c055b1911b63e8cafe1af21c6b3805f97c5b516381bab30c4"
+      "bytes": 169550,
+      "sha256": "a05d75b03797fa6eeaa0df6b92124ab97d327416157839013b2f5aea32a8b41a"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -11448,6 +11452,14 @@
     "Source/PokeMonster/Development/PokeMonsterCreatureReviewCapture.cpp": {
       "bytes": 6774,
       "sha256": "edc6ec9435c3695abb8ebad5ca16baec1685e2d3893ba99cf956f68083013b3a"
+    },
+    "Source/PokeMonster/Development/PokeMonsterCreatureTestGround.cpp": {
+      "bytes": 11655,
+      "sha256": "7a91933142a3b2490539a605ca97832cffe1fc880fdfd02ee46a8e6f91f90d33"
+    },
+    "Source/PokeMonster/Development/PokeMonsterCreatureTestGround.h": {
+      "bytes": 2229,
+      "sha256": "edfc778a51dc49767bb585a3b54bd16a8ce1e57258b5243ffef399a9d949ea36"
     },
     "Source/PokeMonster/Development/PokeMonsterEnvironmentPerformanceProbe.cpp": {
       "bytes": 17431,
@@ -11816,6 +11828,10 @@
     "Source/PokeMonster/Tests/PokeMonsterCreatureRoamingTest.cpp": {
       "bytes": 9083,
       "sha256": "fa2b0e48e6197a36a42356acacf666de5d4754961711ff5ddbf6e574c9c23c5b"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterCreatureTestGroundTest.cpp": {
+      "bytes": 3819,
+      "sha256": "c579368ff6c32a8b18a647b16166d7c910c4612636d576098d847d04696f88f6"
     },
     "Source/PokeMonster/Tests/PokeMonsterDialogueTest.cpp": {
       "bytes": 5403,
@@ -12590,8 +12606,8 @@
       "sha256": "ffc6c59dab4d323056b855aa9b9ef6bb2c60a43ab3043e8dee9e6ef763c777d7"
     },
     "Tools/CreaturePolishV4/README.md": {
-      "bytes": 5324,
-      "sha256": "d75cf24483d153a6e22721b743cd8dc413b4a9addf2da41bd5a0ab2f557ca268"
+      "bytes": 5796,
+      "sha256": "eb3eea7657b7ded8d4612bb1ffc631dce0d0e0d1a5c2fa9e56091d794106b546"
     },
     "Tools/CreaturePolishV4/RefineEntonCore.py": {
       "bytes": 2571,
@@ -12660,6 +12676,38 @@
     "Tools/CreaturePolishV4/VerifyAccepted.py": {
       "bytes": 2266,
       "sha256": "2dc4e7cd5282ce5642f4c51e6fe09da7178759e2bf20669bc645dbb4e43929b6"
+    },
+    "Tools/CreatureTestGroundV1/Acceptance.json": {
+      "bytes": 7332,
+      "sha256": "d90254bceed157f7e779f195585ed4de693b2c1b9d4611faf61b12382528399f"
+    },
+    "Tools/CreatureTestGroundV1/Acceptance.py": {
+      "bytes": 6522,
+      "sha256": "46ca7b5fa202dabdb6e7a7f305390d009a045d74c9ce693131b6cebd07e5b278"
+    },
+    "Tools/CreatureTestGroundV1/CompanionProbe.py": {
+      "bytes": 3024,
+      "sha256": "9c2aed76e8168c112466b296281d3b894a0566b55e39f3c923a74cea1dd11e80"
+    },
+    "Tools/CreatureTestGroundV1/HandleAmbientBattles.py": {
+      "bytes": 2658,
+      "sha256": "47efcf939355b0a133bae923167048c7fe94d542d355081ad687a1c5228db123"
+    },
+    "Tools/CreatureTestGroundV1/MapChecks.py": {
+      "bytes": 1068,
+      "sha256": "9fc56c10c489303a7cab4bc213676386f8c3a5dd6d314fadf44ea1490d389a06"
+    },
+    "Tools/CreatureTestGroundV1/Observe.py": {
+      "bytes": 2267,
+      "sha256": "e48ac70043f5d8935da3a7d3179048f62db14966317a5487c91f2229f52fc5aa"
+    },
+    "Tools/CreatureTestGroundV1/README.md": {
+      "bytes": 6060,
+      "sha256": "ee687287dd83fbb7c9a11ef8aa66d866d0d733a1c85791f1f3cdf38331e9a9c6"
+    },
+    "Tools/CreatureTestGroundV1/WatchFoot.py": {
+      "bytes": 2155,
+      "sha256": "4e53125d5a3d6514ba5f54f652a249bb141f851644420c0a5db749a2a091b60c"
     },
     "Tools/DevelopmentEvidence/EvidenceManifest.json": {
       "bytes": 3101190,

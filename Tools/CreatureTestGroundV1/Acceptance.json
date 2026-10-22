@@ -1,0 +1,289 @@
+{
+  "schema": 1,
+  "date": "2026-10-22",
+  "ordinary_pie_starts_verified": 2,
+  "visual_specimens": 10,
+  "fixture_required_for_availability": false,
+  "native_feature_not_serialized_map": true,
+  "acceptance_checks": [
+    "Return anchor stored",
+    "Native center reached",
+    "Actual player moved across collidable floor",
+    "Every specimen used real bounded movement",
+    "All specimens stay in their own regions",
+    "Idle stops translation",
+    "Return restores original position",
+    "Party identity HP and XP unchanged",
+    "Wild actor population unchanged",
+    "No encounter or capture caused",
+    "Save file byte-for-byte unchanged"
+  ],
+  "acceptance_passed": true,
+  "hover_states": [
+    "Grounded",
+    "Hover",
+    "Landing",
+    "Takeoff"
+  ],
+  "max_hover_cm": 93.99945831298828,
+  "save_unchanged_sha256": "eeab48f3c5652ef6d24b7f386ee7c26973336c929edf39aa7f6593d407a913df",
+  "image_manifest": [
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Attack00000.png",
+      "sha256": "a52ba6e1c4cc9bf0e0091c0c7a58ad55b43d301d4a849b9010121e43908f2844",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Center00000.png",
+      "sha256": "5cd1bb696262e566f8e804fe95819ba4cfdf107a96e2eaa379e43114c46f0a33",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Faint00000.png",
+      "sha256": "79a470740ce25c1f2e8087dff97e9e949d2c82eae77125946e04d5534146db70",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Happy00000.png",
+      "sha256": "abfff2fe77c3e31a4ba35d630687413ae75c334b6c1dca7cb5e763bd9a3a022f",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Hit00000.png",
+      "sha256": "34b2de008f7f001241f66447483ffe6b56a87fd0ce9ecfab616b3231dbadb147",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Station0100000.png",
+      "sha256": "fb8adfb61a9bf9d42020fdfa8cf95969e18e746a2a9cd986c8278556ff51ad06",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Station0200000.png",
+      "sha256": "68b26cd27067814958c5e015f6cca65e0263eccdc7e07aef8fdec5bc177b241b",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Station0300000.png",
+      "sha256": "57ce1110648bb35fc230c58dfb1dfb36c6f02adce9e57401190469529f719858",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Station0400000.png",
+      "sha256": "2ae28fb2e5247db0a724dc2db5ffc645c63d82b445f89397bc991246e9ecf2e3",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Station0500000.png",
+      "sha256": "ef42fac8875622508644a1a3eb0485662bc1b53961301fd81a89ad64268714f0",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Station0600000.png",
+      "sha256": "1796010847a08fba9d1add7f0060eef600b3185c126b672a8167c60637d412f7",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Station0700000.png",
+      "sha256": "c100d545ffcf87a41687a4a15926f285333fe8651beebd4235c8db86bdcd6a8c",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Station0800000.png",
+      "sha256": "1537ac3ae1742d9db33699a48c0e9740d1d4d5f922ebb2f92e10ca4b01d571f0",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Station0900000.png",
+      "sha256": "0eff01c91892ad131f1812687ed0891fd4dfbf3fd667c60889efbe4850907dd3",
+      "pixels": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "file": "Saved/ProjectRefinement/TestGroundV1/Acceptance03/Station1000000.png",
+      "sha256": "bb438f6964e0c7b9a2b7db3efbccc2138fa6f0fff264b4512a22cde2ebfcd3fb",
+      "pixels": [
+        2560,
+        1440
+      ]
+    }
+  ],
+  "automation": {
+    "mode": "Automation",
+    "exit": 0,
+    "seconds": 25.61176109313965,
+    "summary": {
+      "succeeded": 98,
+      "succeededWithWarnings": 0,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0
+    }
+  },
+  "build": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 9.850727319717407
+  },
+  "map_checks": [
+    {
+      "map": "/Game/Maps/Dev_BattleTestMap",
+      "counts": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "map": "/Game/Maps/Dev_BuildingKitTestMap",
+      "counts": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "map": "/Game/Maps/Dev_HealingHouseTestMap",
+      "counts": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap",
+      "counts": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_NPCMotionV3",
+      "counts": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2",
+      "counts": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2EnvironmentQualityV1",
+      "counts": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1",
+      "counts": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandAssetLibrary",
+      "counts": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandRegion",
+      "counts": [
+        "0",
+        "0"
+      ]
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandVillage",
+      "counts": [
+        "0",
+        "0"
+      ]
+    }
+  ],
+  "physical_controller_verified": false,
+  "manual_user_walk_verified": false,
+  "gameplay": {
+    "passed": true,
+    "distance_m": 305.5561239758348,
+    "max_speed_cm_s": 315.0000000000094,
+    "game_seconds": 147.02765823155642,
+    "wall_seconds": 259.705188083999,
+    "no_test_teleports": true,
+    "step_count": 103,
+    "extra_wild_battles": [
+      {
+        "opponent": "Gengar",
+        "position": [
+          -1517.6683766686579,
+          497.85588299089346,
+          50.15000136699145
+        ],
+        "classic": true,
+        "menu_flee_enabled": true,
+        "result": "<PokeMonsterEncounterOutcome.FLED: 2>"
+      }
+    ]
+  },
+  "companion_probe": {
+    "explicit_unsaved_party_fixture": true,
+    "checks": [
+      "One existing 3D companion alongside ten independent specimens",
+      "Test faint reaction changes no party member and triggers no battle",
+      "Companion resumes near original return location; same three party IDs"
+    ],
+    "companion_distance_cm": 162.8987787969628,
+    "passed": true,
+    "error": null,
+    "save_unchanged": true
+  },
+  "first_foot_attempt": {
+    "passed": false,
+    "cause": "Additional real Glurak ClassicBattle locked movement; legacy walker reported Blocked",
+    "original_save_restored": true
+  }
+}

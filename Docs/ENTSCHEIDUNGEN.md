@@ -1025,3 +1025,20 @@ Build04, 94/94 warnungsfreie Projekt-Automation, elf Map Checks und vollständig
 Harry legt die physische Nintendo-Belegung ausdrücklich fest: B bestätigt/interagiert, A bricht ab, X öffnet Team/Beutel, L/R wechseln Kategorien, Plus öffnet/schließt das Hauptmenü im bestehenden Reisebuch, L3 schaltet Sprint um. Diese Freigabe ersetzt die frühere vorläufige Entscheidung, noch keine Gamepad-Interaktionstaste zuzuordnen. Sie ersetzt außerdem das Löschen des L3-Sprintzustands beim Anhalten: Der Modus bleibt bis zum nächsten L3 gewählt; UI/Kampf/Innenraum pausieren seine Wirkung. Geschwindigkeiten, Kamera, Modelle, Animationen, Kampfregeln und Save-Schema bleiben unverändert.
 
 Die technische Tastenzuordnung folgt dem tatsächlich aktiven macOS-Backend und der bereits vom Nutzer bestätigten B-Kampfeingabe. Es gibt keine parallel entwickelte Eingabe-, Inventar- oder Kampflogik. Rohereignisdiagnose und simulierte Slate-Tests sind von der noch ausstehenden physischen Abnahme der neu belegten Tasten zu unterscheiden. Details und tatsächlicher Prüfumfang stehen im Controller-V1-Prüfbericht.
+
+
+## 22.10.2026 – Pokémon-Testgelände bei gewöhnlichem PIE verfügbar
+
+Die V4-Entscheidung „Vorführgelände ausschließlich durch explizites PIE-Werkzeug“
+wird für den vom Nutzer jederzeit manuell besuchbaren Bereich ersetzt. Statt
+einer weiteren Map oder einer gespeicherten Wildbegegnung entsteht beim normalen
+VisualV2-PIE-BeginPlay automatisch ein klar gekennzeichneter Entwicklungsbereich
+am freien westlichen Rand. Laufzeit-Transient bedeutet hier nicht mehr
+„ausschließlich in automatisierten Tests“: Kein Prüfskript muss ausgeführt werden.
+
+Zehn reine bestehende VisualActors verwenden unabhängige Wanderbereiche und
+vorhandene Animationsprofile. Keine Fangbarkeit, Begegnungsidentität,
+Spielstandeinträge oder Party-Manipulation. Zugang/Rückkehr über ausschließlich
+PIE-spezifische Konsolenbefehle statt einer weiteren Controllerbelegung. Andere
+Maps, ausgelieferte Spiele, Kamera, Licht und Wildhabitate bleiben unverändert.
+Das historische Showcase bleibt als separates gezieltes Aufnahmeinstrument erhalten.

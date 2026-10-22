@@ -1044,3 +1044,22 @@ L3 ist ein dauerhafter, nicht im Spielstand gespeicherter Sprintmodus: an-/absch
 UMG fängt Bestätigen/Abbrechen bereits im Preview-Pfad vor generischer Slate-Button-Aktivierung ab. Wiederholte Bestätigungs-/Abbruch-/Kategorie-/Menütasten lösen keine zusätzlichen Kontextwechsel aus. Der Fokus kehrt nach Schließen zur Spielansicht zurück. Ein nicht konsumierender Slate-Beobachter aktualisiert Eingabehinweise und zeigt auf `pm.Input.Trace 1` rohe UE-Tastenereignisse; `0` schaltet die Diagnose ab. `pm.Input.Key`/`pm.Input.Axis` sind ausdrücklich Entwicklungssimulationen und kein physischer Controller-Nachweis.
 
 Prüfwerkzeuge: `Tools/SwitchProControllerV1/README.md`. Tatsächliche Testergebnisse und offene Hardwaretasten: `Docs/NINTENDO_SWITCH_PRO_CONTROLLER_V1_PRUEFBERICHT.md`.
+
+
+### Dauerhaft erreichbares Pokémon-Testgelände (22.10.2026)
+
+`Development/PokeMonsterCreatureTestGround` erzeugt beim gewöhnlichen PIE-BeginPlay
+der bestehenden VisualV2 automatisch einen isolierten Entwicklungsbereich mit
+allen zehn vorhandenen Visuals. Die versionierte Funktion ersetzt für manuelles
+Besuchen die bisher erforderliche explizite Showcase-Erzeugung. Kein neuer
+Kartenstand, keine neue Gameplay-/KI-Architektur. Weitere Maps und Standalone
+bleiben ausgenommen. Mittelpunkt −7500/−4000/0 cm; Zugang `pm.TestGround.Go`,
+Stationen `pm.TestGround.Go 1..10`, Rückkehr `pm.TestGround.Return`. Die normale
+Steuerung bleibt frei, keine Tasten werden umbelegt.
+
+Vorhandene Präsentationen und Wanderkomponente liefern Idle/Walk/Run/Reaktionen
+und Gluraks begrenztes Schweben. Reine beschriftete Test-Visuals haben weder
+Encounter- noch Save-Identität. Die Laufzeitobjekte dürfen beim PIE-Ende
+verschwinden; ihre automatische Verfügbarkeit beim nächsten normalen Play ist
+durch die native Entwicklungsfunktion gesichert. Anleitung und Grenzen:
+`Tools/CreatureTestGroundV1/README.md`.
