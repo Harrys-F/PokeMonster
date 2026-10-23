@@ -219,8 +219,26 @@ fehlerfreie sämtliche historischen Zusatzprotokolle.
 
 ## GitHub-Sicherung
 
-Der technisch geprüfte Implementierungsstand ist zur gezielten Sicherung vorbereitet;
-Commit-/Remote-Ergebnisse werden nach der tatsächlichen Übertragung ergänzt.
+Implementierung: **`219bca53f770374c8036cc39d1d268027d7d3d7f`**
+(`feat: preserve learned moves and add memory master service`).
+28 gezielt geprüfte Commitpfade; tatsächlicher Index gegen den expliziten Plan
+und gegen die Arbeitsdatei-Bytes geprüft. `git diff --cached --check` erfolgreich.
+Normaler neuer Git-Pack: **450.737 Bytes**, deutlich unter 1 GiB.
+Regulärer Push `7a00f9b5 → 219bca53` erfolgreich, anschließend direkte
+`git ls-remote`-Übereinstimmung sowie `origin/main` geprüft.
+LFS-Prüfung: **0 neue Objekte, 0 Bytes**; deshalb kein LFS-Download oder neuer
+LFS-Kontingentverbrauch behauptet. `git lfs status` meldet keinen ausstehenden
+LFS-Upload. Keine Käufe, kein Force-Push und keine Backup-Refs übertragen.
+Der Abschluss dieses Berichts wird separat als reine Dokumentationsbestätigung
+gesichert; der endgültige main-Hash steht im Abschluss und im Git-Protokoll.
 Nur notwendige native Quellen, reproduzierbare Testwerkzeuge und Dokumentation
 werden gezielt aufgenommen. Keine Asset-, Save-, Kontrollbild-, Video- oder
 Cachedateien. Die Änderung erzeugt keine neuen LFS-Objekte.
+
+
+Lokale Nachweise zur Sicherung: `Saved/MoveManagementV2/CommitPlan.json`,
+`IndexVerification.json`, `PushPlan.json`, `PushImplementation.json`,
+`RemoteLFSImplementation.json` und `FinalGitVerification.json`.
+Core-Manifest: 4.695 Pflichtdateien erfolgreich geprüft; keine bisherigen Einträge
+entfernt. Nach dem Implementierungspush waren alle versionierten Dateien sauber;
+nur die ursprünglichen 25 geschützten Incoming-Dateien blieben unversioniert.
