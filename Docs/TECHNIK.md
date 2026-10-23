@@ -1149,3 +1149,8 @@ Normale `FPokeMonsterEncounterStartData` wählen ausdrücklich `FPokeMonsterBatt
 Mehrzügige Aktionen, Horrorblick/Feuerwirbel, Aussetzer, Groll, Wetter, Fluch und Abgangsbund gehören zum vorhandenen flüchtigen Kampfzustand. Primäre Statusprobleme und der Schlafzähler bleiben im bereits eingeführten Save-Schema 7; es ist keine weitere Save-Version notwendig. AP-Verbrauch läuft weiterhin durch die individuelle `ConsumeMovePP`-Funktion und damit durch dasselbe dauerhafte Repertoire. Menüs und Gegnerauswahl verwenden die Auswahl- und Wechselsperren der Session.
 
 `pm.CrystalMoves.Start` ist ein expliziter, nicht gespeicherter Entwicklungsprüfaufbau mit echten produktiven Attackenassets und kontrollierten Laufzeitwerten. Er ist kein neues Habitat und keine neue Map. Vergleichsaufnahmen und QA-Prozesslogs bleiben lokal unter `Saved/MoveEffectsV4`; sie werden nicht versioniert.
+
+
+## Glutexo-Integration V1 (23.10.2026)
+
+Eigene Spezies `Glutexo`, Dex 005, 110 cm, eigenes Meshy-Rig und sieben Clips im bestehenden Kreaturenpfad. Neue Quellen/Unreal-Assets unabhängig von Glumanda/Glurak; normales VisualV2-PIE-Testgelände umfasst elf Stationen. Bestehende IDs, Save-Schema und Maps unverändert. Prüffälle und externe QA-Warnung: `GLUTEXO_INTEGRATION_V1_PRUEFBERICHT.md`.

@@ -1,0 +1,73 @@
+{
+  "Glutexo": {
+    "dex": 5,
+    "height": 110,
+    "types": [
+      "FIRE",
+      "NONE"
+    ],
+    "stats": [
+      58,
+      64,
+      58,
+      80,
+      65,
+      80
+    ],
+    "growth": "MEDIUM_SLOW",
+    "capture": 45,
+    "female": 0.125,
+    "xp": 142,
+    "level": 16,
+    "moves": [
+      [
+        1,
+        "Scratch"
+      ],
+      [
+        1,
+        "Growl"
+      ],
+      [
+        1,
+        "Ember"
+      ],
+      [
+        7,
+        "Ember"
+      ],
+      [
+        13,
+        "Smokescreen"
+      ],
+      [
+        20,
+        "Rage"
+      ],
+      [
+        27,
+        "ScaryFace"
+      ],
+      [
+        34,
+        "Flamethrower"
+      ],
+      [
+        41,
+        "Slash"
+      ],
+      [
+        48,
+        "DragonRage"
+      ],
+      [
+        55,
+        "FireSpin"
+      ]
+    ],
+    "behavior": "TERRITORIAL",
+    "radius": 28,
+    "navigation_radius": 36,
+    "source": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/charmeleon.asm"
+  }
+}

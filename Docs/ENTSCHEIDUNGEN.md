@@ -1112,3 +1112,8 @@ Dies beschließt keine neuen finalen Kampfregeln: bisherige Kategorien und verei
 Harry legt Pokémon Kristall / Generation 2 als verbindliche Grundlage der Attackenmechanik fest. Damit ersetzt diese Entscheidung den vorläufigen Prototypstand mit Attackenkategorien je Attacke und ohne STAB, kritische Treffer oder Schadensstreuung. Historische reine Rechentests dürfen das ausdrücklich benannte Legacy-Profil weiterhin verwenden; normale Begegnungen verwenden das Kristall-Profil. Bestehende Spezies-, Attacken- und Speicheridentitäten bleiben erhalten.
 
 Weiterhin gelten ausdrückliche Projektregeln zu Erfahrungsteilung, Höchstlevel 100, persönlichem Repertoire, ortsgebundenem Attackenwechsel und besonderen Entwicklungen. Der bisher festgelegte Gleichstand bei Initiative zugunsten Seite A bleibt als Projektabweichung bestehen. Der Tageszeitkontext für zeitabhängige Heilattacken ist zunächst explizit Tag; dies verändert keine Weltbeleuchtung. Die unveränderte historische Gen-2-Datenextraktion wird um einen gesondert überprüften Kristall-Effektplan ergänzt. Nicht vorhandene Systeme wie getragene Gegenstände und Stachler werden nicht stillschweigend simuliert.
+
+
+## 23.10.2026 – Glutexo und Entwicklungskette, Meilenstein A
+
+Nutzerauftrag: ausschließlich geliefertes Glutexo-Meshy-Modell integrieren; Originaloptik und Originaldatei erhalten. Neue stabile Art-ID `Glutexo`/Dex 005, Größe 110 cm. Vorhandene Attacken-/Gameplay-/Save-Systeme weiterverwenden. Testgelände um ein elftes isoliertes Exemplar erweitern; keine neue Map und kein ungeplanter Habitatumbau. Entwicklungskette 16/36 ist für den anschließenden getrennten Meilenstein B freigegeben.

@@ -21,7 +21,7 @@ bool FPermanentGroundGateTest::RunTest(const FString& Parameters)
  TestFalse(TEXT("Other development maps untouched"),G::IsSupportedMap(TEXT("Dev_TestMap_VisualV2EnvironmentQualityV1"),EWorldType::PIE));
  TestFalse(TEXT("Packaged game excluded"),G::IsSupportedMap(TEXT("Dev_TestMap_VisualV2"),EWorldType::Game));
  TestFalse(TEXT("Editor authored level excluded"),G::IsSupportedMap(TEXT("Dev_TestMap_VisualV2"),EWorldType::Editor));
- for(int32 I=0;I<10;++I)for(int32 J=I+1;J<10;++J)
+ for(int32 I=0;I<UPokeMonsterCreatureTestGround::SpecimenCount;++I)for(int32 J=I+1;J<UPokeMonsterCreatureTestGround::SpecimenCount;++J)
   TestTrue(TEXT("Independent 8.6m movement regions never overlap"),FVector::Dist2D(G::Station(I),G::Station(J))>=1000.f);
  return true;
 }
@@ -36,9 +36,9 @@ bool FPermanentGroundIsolationTest::RunTest(const FString& Parameters)
  auto* G=W->GetSubsystem<UPokeMonsterCreatureTestGround>();
  if(!TestNotNull(TEXT("World owns initialized subsystem"),G))return false;
  G->OnWorldBeginPlay(*W);
- TestEqual(TEXT("All ten actual species available without a review fixture"),G->Specimens.Num(),10);
- if(G->Specimens.Num()!=10)return false;
- for(int32 I=0;I<10;++I)
+ TestEqual(TEXT("All eleven actual species available without a review fixture"),G->Specimens.Num(),UPokeMonsterCreatureTestGround::SpecimenCount);
+ if(G->Specimens.Num()!=UPokeMonsterCreatureTestGround::SpecimenCount)return false;
+ for(int32 I=0;I<UPokeMonsterCreatureTestGround::SpecimenCount;++I)
  {
   const auto* V=G->Specimens[I].Get();const auto* M=G->Movements[I].Get();FVector Ground;
   TestTrue(TEXT("Distinct development tag"),V->ActorHasTag(TEXT("PokemonDevelopmentSpecimen")));

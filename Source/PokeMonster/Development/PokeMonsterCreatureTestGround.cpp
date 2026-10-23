@@ -22,8 +22,8 @@
 
 namespace
 {
- const TCHAR* DevelopmentSpecimenNames[]={TEXT("Zunderlauf"),TEXT("Schiggy"),TEXT("Bisasam"),TEXT("Pikachu"),TEXT("Myrapla"),TEXT("Enton"),TEXT("Machomei"),TEXT("Nebulak"),TEXT("Gengar"),TEXT("Glurak")};
- const TCHAR* DisplayNames[]={TEXT("Glumanda"),TEXT("Schiggy"),TEXT("Bisasam"),TEXT("Pikachu"),TEXT("Myrapla"),TEXT("Enton"),TEXT("Machomei"),TEXT("Nebulak"),TEXT("Gengar"),TEXT("Glurak")};
+ const TCHAR* DevelopmentSpecimenNames[]={TEXT("Zunderlauf"),TEXT("Schiggy"),TEXT("Bisasam"),TEXT("Pikachu"),TEXT("Myrapla"),TEXT("Enton"),TEXT("Machomei"),TEXT("Nebulak"),TEXT("Gengar"),TEXT("Glurak"),TEXT("Glutexo")};
+ const TCHAR* DisplayNames[]={TEXT("Glumanda"),TEXT("Schiggy"),TEXT("Bisasam"),TEXT("Pikachu"),TEXT("Myrapla"),TEXT("Enton"),TEXT("Machomei"),TEXT("Nebulak"),TEXT("Gengar"),TEXT("Glurak"),TEXT("Glutexo")};
 }
 bool UPokeMonsterCreatureTestGround::IsSupportedMap(const FString& Name,EWorldType::Type Type)
 {
@@ -46,6 +46,7 @@ bool UPokeMonsterCreatureTestGround::DoesSupportWorldType(EWorldType::Type Type)
 }
 FVector UPokeMonsterCreatureTestGround::Station(int32 Index)
 {
+ if(Index==10)return Center()+FVector(3000,700,0);
  return Center()+FVector((Index%5-2)*1000.f,(Index/5==0?-700.f:700.f),0);
 }
 void UPokeMonsterCreatureTestGround::OnWorldBeginPlay(UWorld& World)
@@ -64,10 +65,10 @@ void UPokeMonsterCreatureTestGround::OnWorldBeginPlay(UWorld& World)
   C->SetCollisionProfileName(TEXT("BlockAll"));C->SetCastShadow(false);A->SetActorScale3D(Scale);
  };
  // Separate from all authored scenery; top surface Z=0, low perimeter stops accidental falls.
- Box(Center()+FVector(0,0,-20),FVector(56,36,.4));
- Box(Center()+FVector(-2790,0,35),FVector(.2,36,.7));Box(Center()+FVector(2790,0,35),FVector(.2,36,.7));
- Box(Center()+FVector(0,-1790,35),FVector(56,.2,.7));Box(Center()+FVector(0,1790,35),FVector(56,.2,.7));
- for(int32 I=0;I<10;++I)
+ Box(Center()+FVector(300,0,-20),FVector(62,36,.4));
+ Box(Center()+FVector(-2790,0,35),FVector(.2,36,.7));Box(Center()+FVector(3390,0,35),FVector(.2,36,.7));
+ Box(Center()+FVector(300,-1790,35),FVector(62,.2,.7));Box(Center()+FVector(300,1790,35),FVector(62,.2,.7));
+ for(int32 I=0;I<SpecimenCount;++I)
  {
   const FString Path=FString(TEXT("/Game/Data/Creatures/DA_"))+DevelopmentSpecimenNames[I]+TEXT(".DA_")+DevelopmentSpecimenNames[I];
   auto* S=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,*Path);
@@ -87,7 +88,7 @@ void UPokeMonsterCreatureTestGround::OnWorldBeginPlay(UWorld& World)
   auto* L=NewObject<UTextRenderComponent>(V);V->AddInstanceComponent(L);L->SetupAttachment(V->GetRootComponent());L->RegisterComponent();
   L->SetText(FText::FromString(FString::Printf(TEXT("TEST %02d | %s"),I+1,DisplayNames[I])));L->SetWorldSize(26);L->SetTextRenderColor(FColor(220,240,190));L->SetHorizontalAlignment(EHTA_Center);L->SetRelativeLocation(FVector(0,0,V->Presentation->ReferenceSizeCm+55));L->SetCollisionEnabled(ECollisionEnabled::NoCollision);L->SetCastShadow(false);Labels.Add(L);
  }
- UE_LOG(LogTemp,Display,TEXT("PM_TESTGROUND ordinary PIE ready: %d/10 visual-only specimens. pm.TestGround.Go [1..10], pm.TestGround.Return"),Specimens.Num());
+ UE_LOG(LogTemp,Display,TEXT("PM_TESTGROUND ordinary PIE ready: %d/11 visual-only specimens. pm.TestGround.Go [1..11], pm.TestGround.Return"),Specimens.Num());
 }
 void UPokeMonsterCreatureTestGround::Tick(float Delta)
 {
@@ -112,7 +113,7 @@ bool UPokeMonsterCreatureTestGround::CanTravel() const
  const auto* GI=GetWorld()?GetWorld()->GetGameInstance():nullptr;
  const auto* E=GI?GI->GetSubsystem<UPokeMonsterEncounterSubsystem>():nullptr;
  const auto* C=GI?GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>():nullptr;
- return Specimens.Num()==10&&P&&!P->IsOverworldInputLocked()&&!P->IsUsingInteriorMovementBasis()&&!(E&&E->IsEncounterActive())&&!(C&&C->IsReturningFromDefeat());
+ return Specimens.Num()==SpecimenCount&&P&&!P->IsOverworldInputLocked()&&!P->IsUsingInteriorMovementBasis()&&!(E&&E->IsEncounterActive())&&!(C&&C->IsReturningFromDefeat());
 }
 void UPokeMonsterCreatureTestGround::Message(const FString& Text) const
 {
@@ -127,7 +128,7 @@ bool UPokeMonsterCreatureTestGround::Travel(const FTransform& Destination)
 }
 bool UPokeMonsterCreatureTestGround::Visit(int32 Number)
 {
- if(!CanTravel()||Number<0||Number>10){Message(TEXT("Nicht verfuegbar: nur VisualV2 PIE, freie Aussenansicht; Ziel 0..10."));return false;}
+ if(!CanTravel()||Number<0||Number>SpecimenCount){Message(TEXT("Nicht verfuegbar: nur VisualV2 PIE, freie Aussenansicht; Ziel 0..11."));return false;}
  auto* P=UGameplayStatics::GetPlayerPawn(this,0);
  const FTransform Before=P->GetActorTransform();
  FVector Ground=Center();
@@ -140,7 +141,7 @@ bool UPokeMonsterCreatureTestGround::Visit(int32 Number)
  const float Height=Cast<APokeMonsterPlayerCharacter>(P)->GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
  if(!Travel(FTransform(Before.GetRotation(),Ground+FVector(0,0,Height+.5f))))return false;
  if(!bHaveReturn){ReturnPosition=Before;ReturnPawn=P;bHaveReturn=true;}
- Message(TEXT("Entwicklungs-Testgelaende: TEST 01..10, keine Begegnungen. Zurueck: pm.TestGround.Return"));return true;
+ Message(TEXT("Entwicklungs-Testgelaende: TEST 01..11, keine Begegnungen. Zurueck: pm.TestGround.Return"));return true;
 }
 bool UPokeMonsterCreatureTestGround::ReturnToWorld()
 {
@@ -158,7 +159,7 @@ bool UPokeMonsterCreatureTestGround::React(const FString& Role)
  EPokeMonsterCreatureClip Clip;
  if(Role==TEXT("attack"))Clip=EPokeMonsterCreatureClip::Attack;else if(Role==TEXT("hit"))Clip=EPokeMonsterCreatureClip::Hit;
  else if(Role==TEXT("faint"))Clip=EPokeMonsterCreatureClip::Faint;else if(Role==TEXT("happy"))Clip=EPokeMonsterCreatureClip::Happy;else return false;
- bool Result=Specimens.Num()==10;for(const auto& V:Specimens)Result=V->PlayReaction(Clip)&&Result;return Result;
+ bool Result=Specimens.Num()==SpecimenCount;for(const auto& V:Specimens)Result=V->PlayReaction(Clip)&&Result;return Result;
 }
 void UPokeMonsterCreatureTestGround::Deinitialize()
 {
@@ -168,7 +169,7 @@ void UPokeMonsterCreatureTestGround::Deinitialize()
 namespace
 {
  UPokeMonsterCreatureTestGround* Ground(UWorld* W){return W&&UPokeMonsterCreatureTestGround::IsSupportedMap(W->GetMapName(),W->WorldType)?W->GetSubsystem<UPokeMonsterCreatureTestGround>():nullptr;}
- FAutoConsoleCommandWithWorldAndArgs Go(TEXT("pm.TestGround.Go"),TEXT("Ordinary VisualV2 PIE: visit center or numbered specimen 1..10; preserves return anchor."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W)){if(A.Num()>1||(A.Num()==1&&!A[0].IsNumeric()))return;G->Visit(A.IsEmpty()?0:FCString::Atoi(*A[0]));}}));
+ FAutoConsoleCommandWithWorldAndArgs Go(TEXT("pm.TestGround.Go"),TEXT("Ordinary VisualV2 PIE: visit center or numbered specimen 1..11; preserves return anchor."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W)){if(A.Num()>1||(A.Num()==1&&!A[0].IsNumeric()))return;G->Visit(A.IsEmpty()?0:FCString::Atoi(*A[0]));}}));
  FAutoConsoleCommandWithWorldAndArgs Back(TEXT("pm.TestGround.Return"),TEXT("Return to the original position before visiting the test ground."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W))G->ReturnToWorld();}));
  FAutoConsoleCommandWithWorldAndArgs Mode(TEXT("pm.TestGround.Mode"),TEXT("auto | idle | walk | run. Test visuals only."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W);G&&A.Num()==1)G->SetMode(A[0]);}));
  FAutoConsoleCommandWithWorldAndArgs React(TEXT("pm.TestGround.React"),TEXT("attack | hit | faint | happy. Existing reactions, no combat."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W);G&&A.Num()==1)G->React(A[0]);}));

@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/charmeleon.asm",
+    "sha256": "9a7e68e02e2741eb586d100200e73b5092249bb052ed2fe4fc9c6872de30aa85"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/evos_attacks.asm",
+    "sha256": "ace4251417a9260c5b898e3fadcdb785cd994f0ac6966767cd8f09f1fecfbfe6"
+  }
+]

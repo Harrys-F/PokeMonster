@@ -13,6 +13,7 @@ class POKEMONSTER_API UPokeMonsterCreatureTestGround : public UTickableWorldSubs
  GENERATED_BODY()
 public:
  static bool IsSupportedMap(const FString& MapName, EWorldType::Type Type);
+ static constexpr int32 SpecimenCount=11;
  static FVector Center() { return FVector(-7500,-4000,0); }
  static FVector Station(int32 Index);
  virtual void OnWorldBeginPlay(UWorld& World) override;

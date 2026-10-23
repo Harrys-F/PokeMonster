@@ -83,7 +83,7 @@ bool FProgressionV1Save::RunTest(const FString&)
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FProgressionV1Evolution,"PokeMonster.ProgressionV1.EvolutionMissingTarget",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
 bool FProgressionV1Evolution::RunTest(const FString&)
 {
- using namespace ProgressionV1;auto C=FPokeMonsterCreatureInstance::CreateFromSpecies(Species(TEXT("Zunderlauf")),15);const auto Id=C.InstanceId;const auto SpeciesRef=C.Species;
+ using namespace ProgressionV1;auto C=FPokeMonsterCreatureInstance::CreateFromSpecies(Species(TEXT("Bisasam")),15);const auto Id=C.InstanceId;const auto SpeciesRef=C.Species;
  FPokeMonsterEvolutionContext Context;TestTrue(TEXT("No early level evolution"),UPokeMonsterCreatureProgression::GetEvolutionOptions(C,Context).IsEmpty());C.AddExperience(C.GetExperienceToNextLevel());
  auto Options=UPokeMonsterCreatureProgression::GetEvolutionOptions(C,Context);if(!TestEqual(TEXT("Prepared level route"),Options.Num(),1))return false;
  TestEqual(TEXT("Missing target fails closed"),Options[0].Readiness,EPokeMonsterEvolutionReadiness::MissingSpecies);TestEqual(TEXT("No placeholder substitution"),C.Species,SpeciesRef);TestEqual(TEXT("No new individual"),C.InstanceId,Id);

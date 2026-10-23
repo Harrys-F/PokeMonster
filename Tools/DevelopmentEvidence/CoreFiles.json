@@ -2,7 +2,7 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "move_effects_v4_crystal_49_effects_verified_local_upload_pending",
+  "snapshot_kind": "glutexo_integration_v1_milestone_a_verified_with_external_ios_warning",
   "generated_at": "2026-10-23",
   "files": {
     ".codex/config.toml": {
@@ -11406,8 +11406,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 157315,
-      "sha256": "529a1fd8b91cc1dfa71e162006cb65f56f2d72c19d9b8771f34403cf4d1c4ac4"
+      "bytes": 157815,
+      "sha256": "78a9314c911a86f965f2e3b88325f9b9a1e79215ed05e5615ec1988028e2a5fc"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
@@ -11566,8 +11566,8 @@
       "sha256": "1ede0acfca40e87ac09ffe5dbe8993e5cb6142cff2aebf509f4cb084ae6e53fc"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 180946,
-      "sha256": "48584f793ee028c369d70f32442b7cee37c069307ab85ad7d0238076cef2117d"
+      "bytes": 181343,
+      "sha256": "0527f1e273568c10a1a9410101b13879e5630baf490c0a54fdc9e17566d7f37e"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -11898,12 +11898,12 @@
       "sha256": "edc6ec9435c3695abb8ebad5ca16baec1685e2d3893ba99cf956f68083013b3a"
     },
     "Source/PokeMonster/Development/PokeMonsterCreatureTestGround.cpp": {
-      "bytes": 12008,
-      "sha256": "3baaa58ef63e9a7a3ca5baa833279a60f62b9d1cc7ec3533e5edc5447ffc64e2"
+      "bytes": 12141,
+      "sha256": "460c76f8b2a29a39bfe4c64901db16355a66c0c8591123b5251fe0b5468f881d"
     },
     "Source/PokeMonster/Development/PokeMonsterCreatureTestGround.h": {
-      "bytes": 2273,
-      "sha256": "d8dffc77e01971f1f38f83ece6b5a4485381e55ef7d57f42fadc2bc2237b31d2"
+      "bytes": 2315,
+      "sha256": "59b4294c4cbd6954e7c750d257fdf4130bad25c2a8c6bb0c12f6338d8fe3f5e5"
     },
     "Source/PokeMonster/Development/PokeMonsterEnvironmentPerformanceProbe.cpp": {
       "bytes": 17431,
@@ -11990,8 +11990,8 @@
       "sha256": "81e8ea7bd2921a2fe547560f74ec4eb72f5c6fc2c85d4ee5b1858ebf7071f623"
     },
     "Source/PokeMonster/Development/PokeMonsterStarterExpansionReview.cpp": {
-      "bytes": 3473,
-      "sha256": "b170e75271fec2cc052eae681f6f1dbafbb57588015b3f3861d72b6147ed3fe3"
+      "bytes": 3489,
+      "sha256": "3c1c72018216d0effc2542b4a64a1497ee40858df39798641fb8bc416500edfd"
     },
     "Source/PokeMonster/Development/PokeMonsterSwitchProInputReview.cpp": {
       "bytes": 1674,
@@ -12290,8 +12290,8 @@
       "sha256": "fa2b0e48e6197a36a42356acacf666de5d4754961711ff5ddbf6e574c9c23c5b"
     },
     "Source/PokeMonster/Tests/PokeMonsterCreatureTestGroundTest.cpp": {
-      "bytes": 4466,
-      "sha256": "ee0045b9b6546198743c48063a3a75cd7ecdbe38d685fc08113e3f00abca5917"
+      "bytes": 4684,
+      "sha256": "0dba1fc1867e4fda4eedde26cd1caf0c07414ac3ef5f5644377980b787d24404"
     },
     "Source/PokeMonster/Tests/PokeMonsterDialogueTest.cpp": {
       "bytes": 5403,
@@ -12386,8 +12386,8 @@
       "sha256": "73c1f4eabfbc2821f155d5d016044015b6ab6aa350209be7a236529116507fc5"
     },
     "Source/PokeMonster/Tests/PokeMonsterProgressionV1Test.cpp": {
-      "bytes": 10754,
-      "sha256": "aa5b1b19110cdbcfad30f454df3add96d14b27d186efdfb43ea446abfe1dacef"
+      "bytes": 10751,
+      "sha256": "728e7a990a69c22a032557596699e0fb08e79af2b2a86e2e4f7ca657221c61ae"
     },
     "Source/PokeMonster/Tests/PokeMonsterQuestTest.cpp": {
       "bytes": 9331,
@@ -19096,6 +19096,194 @@
     "Tools/MoveEffectsV4/ValidateCrystalData.py": {
       "bytes": 3427,
       "sha256": "4bfbdc7ec3c96c5bc9d6a4213c847033d8a0f6df53931dd52f03d16d997898e5"
+    },
+    "Art/Characters/Creatures/Glutexo/MeshyV1_AnimationAudit.json": {
+      "bytes": 16286,
+      "sha256": "acbea3108ca2d8e9de8dcfc608302e59f6de7dfae2887f1985d108fa0cc5f10e"
+    },
+    "Content/Data/Encounters/DA_Glutexo_Wild.uasset": {
+      "bytes": 2230,
+      "sha256": "5210f7c9b7cabec7a4d83664ad511a165579394d5f10822dd9af5329a6cef039"
+    },
+    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Attack.fbx": {
+      "bytes": 1361308,
+      "sha256": "820673ce7e91f8bf6c8c4a2b43955b63346f99b95615898239574b3ca14f8697"
+    },
+    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Hit.fbx": {
+      "bytes": 1341084,
+      "sha256": "b688b937d1120a7d1fcfcdc26149c0d7afd440fb638f3bc75753bb54155c55b5"
+    },
+    "Docs/GLUTEXO_INTEGRATION_V1_PRUEFBERICHT.md": {
+      "bytes": 6225,
+      "sha256": "34b0daf83ad958271d3eeee4ae1b5d31052aa20d714296b0b3d6a7ba596719ea"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Walk.uasset": {
+      "bytes": 53004,
+      "sha256": "8a499a1d5b82aa6013c5c40289ec47e4db86d47effe0c89c463dd52b0bc56ccf"
+    },
+    "Tools/GlutexoEvolutionV2/PrepareSource.py": {
+      "bytes": 7468,
+      "sha256": "e9aa77f077e70e065d205851724890e219ecd12fb5bcdb714a283fadfffddc22"
+    },
+    "Art/Characters/Creatures/Glutexo/Textures/MeshyV1/Glutexo_Normal.jpg": {
+      "bytes": 1439895,
+      "sha256": "78b18e2cc59e4f60bb855c9a346c821f5b76d56ea29560259724aceac17d4de5"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Materials/M_Glutexo.uasset": {
+      "bytes": 13459,
+      "sha256": "21b4f211b0d8e7cff439805fdb65e59c017de7acf24eebf9ebe018c4932c166d"
+    },
+    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Happy.fbx": {
+      "bytes": 1373036,
+      "sha256": "b21d368497fb511f98a1bd402504496703f4e39bd5946c389d8c47f46f518efa"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/DA_Glutexo_Presentation.uasset": {
+      "bytes": 3960,
+      "sha256": "009fb7bf241cefc7bcf170c0958d36a8981578506e11abf88a8c532d7917571d"
+    },
+    "Art/Characters/Creatures/Glutexo/Source/Glutexo_Meshy_V1.blend": {
+      "bytes": 7021502,
+      "sha256": "a9adf298325ae4f56d3da8a6ed401aec1b7383f79b12ea826f3d4109444accf2"
+    },
+    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Idle.fbx": {
+      "bytes": 1396188,
+      "sha256": "a737216bd07307ce29a5ecf11a52413bcd6a97b208b6cb4ae474dc0c178a38bd"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Hit.uasset": {
+      "bytes": 44323,
+      "sha256": "efb52368a58005073faf879ac9fe95a2aeee88692e81d228c0805c85a04ff637"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Meshes/SK_Glutexo_Meshy.uasset": {
+      "bytes": 4469434,
+      "sha256": "8f11deb8cac3f210b29f2b3696d8f617978c1fd75b31ea4d4e5de9827d95de4d"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_Normal.uasset": {
+      "bytes": 1451025,
+      "sha256": "50c0264ab4ae67c7d8f03061ae0dfc8914eaf364258dc53f7347034507fc722b"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Materials/M_Glutexo_OriginalTailFlame.uasset": {
+      "bytes": 12862,
+      "sha256": "4763c5a9b08b2030730b1030c7d422d38e3cd9ec26a6f89f900cd4052706b7a5"
+    },
+    "Tools/GlutexoEvolutionV2/ValidateSource.py": {
+      "bytes": 3325,
+      "sha256": "e4a7175796ba8edc3a2b9020d85752ecfa4f6aef12536697111d0bd80a1a7bef"
+    },
+    "Art/Characters/Creatures/Incoming/Glutexo.glb": {
+      "bytes": 5579952,
+      "sha256": "718f9eb037832228f25bdbce299671db0972a9c3c271d23724e39743476c6efe"
+    },
+    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Walk.fbx": {
+      "bytes": 1351868,
+      "sha256": "ca58a29f8548de8e1227398ad3c8dcccba26fe8dec8b49472189df51c6ae5fb2"
+    },
+    "Tools/GlutexoEvolutionV2/ReferenceSources.json": {
+      "bytes": 463,
+      "sha256": "7d6d54bb4f6c5338836c6f5ccc5028b762f78afffea8b264acb6ec18d4adf180"
+    },
+    "Tools/GlutexoEvolutionV2/ImportAssets.py": {
+      "bytes": 10499,
+      "sha256": "1c3410e0a6ebe139dc6c19c2a371c649b4714a9aa3c514d7800edd0ffb69cd5c"
+    },
+    "Art/Characters/Creatures/Glutexo/MeshyV1_ModelAudit.json": {
+      "bytes": 4721,
+      "sha256": "69627e9afb584ede883e5204be7de6dac634851417ad92edee7a97704721c77f"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Run.uasset": {
+      "bytes": 46259,
+      "sha256": "24b9a30ddce0e73e42497331118042d0a44a38b433847b9d7f8f1f8d8b6ba664"
+    },
+    "Tools/GlutexoEvolutionV2/MapChecks.py": {
+      "bytes": 1041,
+      "sha256": "9d53acd848664999266c36dc146c88e9de5706e5b66540400356c7a4c5519e99"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Faint.uasset": {
+      "bytes": 70419,
+      "sha256": "12a043b3f65a13062ce9da1723c561f775447e21c762b0d15d40cf459bd3bc36"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterGlutexoIntegrationTest.cpp": {
+      "bytes": 2100,
+      "sha256": "67e88bd51f4cc63f4715769e6717cea99985b05dac3f1e704149fa51457ab0c6"
+    },
+    "Tools/GlutexoEvolutionV2/AnimateSource.py": {
+      "bytes": 7857,
+      "sha256": "144542abd22109a13413a0072ccc310d1a1084a47f3bd6c777b52b9bbd09f940"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Happy.uasset": {
+      "bytes": 54742,
+      "sha256": "4c0ef2c1a5f38eebdff301ca15e27f421c4937c7b7ea19d6b3e7d2ec44c3a008"
+    },
+    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Run.fbx": {
+      "bytes": 1341084,
+      "sha256": "7ddeb8c3eb59faf72df5da4f7f41939b35efabd683384bad20a94e2a561ac38f"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Attack.uasset": {
+      "bytes": 54022,
+      "sha256": "70f894be4769d284b8d11a87e30a9d42fa69f6b9b5e7777f3bb96d0a54e250e1"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_BaseColor.uasset": {
+      "bytes": 2142864,
+      "sha256": "b9854dfc07643b968f55c2002693abef3b152d7f44432c03ce33ed271790f98d"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_MetallicRoughness.uasset": {
+      "bytes": 1217056,
+      "sha256": "ec42cca4f9aaa05ab07123aa32ebc1f896ccd283baa6e54928f82805e1e63a87"
+    },
+    "Tools/GlutexoEvolutionV2/README.md": {
+      "bytes": 2938,
+      "sha256": "7a6bbc938289d36109e201441d0e7432159fbfced2409dc3abfe7e7da8c3ac60"
+    },
+    "Tools/GlutexoEvolutionV2/ReviewCapture.py": {
+      "bytes": 6904,
+      "sha256": "bcc0edd56db0ea182f9b9904f4a3c7b963d2c74a9e712b8de656bce8d787d2c3"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Idle.uasset": {
+      "bytes": 74896,
+      "sha256": "156b3357a8c695a6866fe105ecce7270969fcee1a41b6d1de1c7ebda97ebc426"
+    },
+    "Tools/GlutexoEvolutionV2/Species.json": {
+      "bytes": 1039,
+      "sha256": "5169a6b5cf8825b6f23ec4c35cc6db30271b1550ee7698723966f8c8a3d25110"
+    },
+    "Tools/GlutexoEvolutionV2/InspectSource.py": {
+      "bytes": 3263,
+      "sha256": "7c87f49152778582af851bd6fc6bda32e7cece0e31187317ef2e574ba339e8d7"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Meshes/SK_Glutexo_Meshy_Skeleton.uasset": {
+      "bytes": 12466,
+      "sha256": "1c8e97d72b9f316a7a81c1e3de5930f27bfb82c2ccece38556c05497ac18f45b"
+    },
+    "Tools/GlutexoEvolutionV2/RunCapture.py": {
+      "bytes": 1416,
+      "sha256": "7b0e139203d86354d321fc37ac8b5171823ce8712193f34e3a1a85b03c918309"
+    },
+    "Tools/GlutexoEvolutionV2/Anatomy.py": {
+      "bytes": 915,
+      "sha256": "635f3a3353d16ca5b633b30bd88311aa59eb40a07ba7b6af4bff78af564006ce"
+    },
+    "Tools/GlutexoEvolutionV2/RunReview.py": {
+      "bytes": 1360,
+      "sha256": "9e4d80ee8ae19c59c5d1446873231eaba9c525d37013520695bb115347fea77b"
+    },
+    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Faint.fbx": {
+      "bytes": 1373436,
+      "sha256": "479dfae9106d613b0045251f1ad52966f4da8d6c323c1e95423e2dffe4ef0196"
+    },
+    "Art/Characters/Creatures/Glutexo/Textures/MeshyV1/Glutexo_MetallicRoughness.jpg": {
+      "bytes": 1205931,
+      "sha256": "876621beff7cf66a99f767c6a098d0b2c6274bc2aa9144605bff86d423cf4762"
+    },
+    "Art/Characters/Creatures/Glutexo/Textures/MeshyV1/Glutexo_BaseColor.jpg": {
+      "bytes": 2125401,
+      "sha256": "b876b3f4187e6f662c32d9906b3537b3fb600c56c2d2a6f3ddf0540debfc2173"
+    },
+    "Tools/GlutexoEvolutionV2/ReviewOne.py": {
+      "bytes": 7617,
+      "sha256": "59244bc94726251729aa6bbb9178ccc0bd7f9890c45897ea1b5cb9e8dd11f1f6"
+    },
+    "Content/Data/Creatures/DA_Glutexo.uasset": {
+      "bytes": 6138,
+      "sha256": "e42a5f63a47c84f8145d8b8b52094c3aa508dd7252fc6e955a36b4b5f4f1b6f8"
     }
   }
 }
