@@ -1,6 +1,7 @@
 #include "PokeMonsterNPC.h"
 
 #include "PokeMonsterDialogueData.h"
+#include "../UI/PokeMonsterOverworldPlayerController.h"
 #include "PokeMonsterDialogueSubsystem.h"
 #include "../Characters/PokeMonsterPlayerCharacter.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
@@ -68,15 +69,21 @@ bool APokeMonsterNPC::CanInteract_Implementation(APawn* Interactor) const
 	const UGameInstance* Instance = Player ? Player->GetGameInstance() : nullptr;
 	const auto* Encounter = Instance ? Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
 	const auto* Dialogues = Instance ? Instance->GetSubsystem<UPokeMonsterDialogueSubsystem>() : nullptr;
-	return Player && Encounter && Dialogues && !Dialogue.IsNull()
+	return Player && Encounter && Dialogues && (!Dialogue.IsNull() || Service == EPokeMonsterNPCService::RememberMoves)
 		&& !Player->IsOverworldInputLocked() && !Encounter->IsEncounterActive()
-		&& !Dialogues->IsDialogueActive();
+		&& !Dialogues->IsDialogueActive()
+  && (Service!=EPokeMonsterNPCService::RememberMoves || CanProvideMoveService(Player));
 }
 
 void APokeMonsterNPC::Interact_Implementation(APawn* Interactor)
 {
 	auto* Player = Cast<APokeMonsterPlayerCharacter>(Interactor);
 	if (!CanInteract_Implementation(Player)) return;
+	if (Service == EPokeMonsterNPCService::RememberMoves)
+	{
+		if (auto* Controller=Cast<APokeMonsterOverworldPlayerController>(Player->GetController())) Controller->OpenMoveMaster(this);
+		return;
+	}
 	auto* Instance = Player->GetGameInstance();
 	auto* Data = Dialogue.LoadSynchronous();
 	if (!IsValid(Data)) return;
@@ -87,4 +94,12 @@ void APokeMonsterNPC::Interact_Implementation(APawn* Interactor)
 void APokeMonsterNPC::HandleCustomAction(AActor* Source, const FName ActionId)
 {
 	if (Source == this) OnDialogueFollowUp(ActionId);
+}
+
+bool APokeMonsterNPC::CanProvideMoveService(const APawn* Interactor) const
+{
+ const auto* Player=Cast<APokeMonsterPlayerCharacter>(Interactor);
+ return Service==EPokeMonsterNPCService::RememberMoves && IsValid(Player)
+  && !IsActorBeingDestroyed() && GetWorld()==Player->GetWorld()
+  && FVector::DistSquared(GetActorLocation(),Player->GetActorLocation())<=FMath::Square(Player->GetInteractionRange());
 }

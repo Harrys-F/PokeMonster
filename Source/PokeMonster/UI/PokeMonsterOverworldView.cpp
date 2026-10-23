@@ -1,4 +1,5 @@
 #include "PokeMonsterOverworldView.h"
+#include "../Moves/PokeMonsterMoveData.h"
 
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
@@ -39,6 +40,22 @@ FPokeMonsterOverworldView FPokeMonsterOverworldViewBuilder::Build(
 			Row.CurrentHP = Creature.CurrentHP;
 			Row.MaxHP = Creature.GetMaxHP();
 			Row.bKnockedOut = Creature.CurrentHP <= 0;
+   Row.bPendingLearning=!Creature.PendingMoves.IsEmpty();
+   for(const auto& Slot:Creature.GetMoveSlots())Row.ActiveMoves.Add(Slot.GetMove());
+   static const TCHAR* Types[]={TEXT("—"),TEXT("Normal"),TEXT("Feuer"),TEXT("Wasser"),TEXT("Elektro"),TEXT("Pflanze"),TEXT("Eis"),TEXT("Kampf"),TEXT("Gift"),TEXT("Boden"),TEXT("Flug"),TEXT("Psycho"),TEXT("Käfer"),TEXT("Gestein"),TEXT("Geist"),TEXT("Drache"),TEXT("Unlicht"),TEXT("Stahl")};
+   for(const auto& Known:Creature.GetLearnedMoves())
+   {
+    const auto* Move=Known.GetMove().LoadSynchronous();if(!Move)continue;
+    auto& M=Row.Repertoire.AddDefaulted_GetRef();M.Move=Known.GetMove();M.Name=Move->GetPlayerFacingName();
+    M.Type=FText::FromString(uint8(Move->Type)<UE_ARRAY_COUNT(Types)?Types[uint8(Move->Type)]:TEXT("?"));
+    M.Power=Move->BasePower;M.Accuracy=Move->Accuracy;M.CurrentPP=Known.GetCurrentPP();M.MaxPP=Known.GetMaxPP();
+    M.ActiveSlot=Row.ActiveMoves.IndexOfByKey(M.Move);
+    const FName Effect=Move->Effect.EffectId;
+    const bool Supported=Effect==NAME_None || Effect==TEXT("AttackDown") || Effect==TEXT("DefenseDown") || Effect==TEXT("DefenseUp") || Effect==TEXT("LeechSeed") || Effect==TEXT("DrainHalf") || Effect==TEXT("Burn") || Effect==TEXT("SpeedDown");
+    M.Effect=FText::FromString(!Supported || (Move->Category==EPokeMonsterMoveCategory::Status && Effect==NAME_None)
+     ? TEXT("Wirkung noch unvollständig") : Move->Effect.Description.IsEmpty()
+      ? Move->Category==EPokeMonsterMoveCategory::Status?TEXT("Statuswirkung"):TEXT("Direkter Schaden") : *Move->Effect.Description.ToString());
+   }
 		}
 	}
 	if (IsValid(Inventory))

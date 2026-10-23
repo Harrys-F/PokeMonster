@@ -4,9 +4,25 @@
 #include "PokeMonsterOverworldView.generated.h"
 
 class UPokeMonsterItemData;
+class UPokeMonsterMoveData;
 class UPokeMonsterEncounterSubsystem;
 class UPokeMonsterInventorySubsystem;
 class UPokeMonsterQuestSubsystem;
+
+USTRUCT(BlueprintType)
+struct POKEMONSTER_API FPokeMonsterRepertoireRow
+{
+ GENERATED_BODY()
+ UPROPERTY(BlueprintReadOnly) TSoftObjectPtr<UPokeMonsterMoveData> Move;
+ UPROPERTY(BlueprintReadOnly) FText Name;
+ UPROPERTY(BlueprintReadOnly) FText Type;
+ UPROPERTY(BlueprintReadOnly) FText Effect;
+ UPROPERTY(BlueprintReadOnly) int32 Power=0;
+ UPROPERTY(BlueprintReadOnly) int32 Accuracy=0;
+ UPROPERTY(BlueprintReadOnly) int32 CurrentPP=0;
+ UPROPERTY(BlueprintReadOnly) int32 MaxPP=0;
+ UPROPERTY(BlueprintReadOnly) int32 ActiveSlot=INDEX_NONE;
+};
 
 USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterOverworldTeamRow
@@ -18,6 +34,9 @@ struct POKEMONSTER_API FPokeMonsterOverworldTeamRow
 	UPROPERTY(BlueprintReadOnly) int32 CurrentHP = 0;
 	UPROPERTY(BlueprintReadOnly) int32 MaxHP = 0;
 	UPROPERTY(BlueprintReadOnly) bool bKnockedOut = false;
+ UPROPERTY(BlueprintReadOnly) TArray<FPokeMonsterRepertoireRow> Repertoire;
+ UPROPERTY(BlueprintReadOnly) TArray<TSoftObjectPtr<UPokeMonsterMoveData>> ActiveMoves;
+ UPROPERTY(BlueprintReadOnly) bool bPendingLearning=false;
 };
 
 USTRUCT(BlueprintType)

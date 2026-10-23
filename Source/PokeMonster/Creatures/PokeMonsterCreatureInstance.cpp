@@ -65,6 +65,7 @@ bool FPokeMonsterCreatureInstance::RestoreIndividualState(const FGuid& InId, con
 	CalculatedStats = Stats;
 	CurrentHP = InCurrentHP;
 	MoveSlots = InSlots;
+	RememberActiveMoves();
  Status=InStatus;
 	return true;
 }
@@ -80,7 +81,11 @@ bool FPokeMonsterCreatureInstance::RestoreFully()
 	}
 	const int32 FullHP = UPokeMonsterCreatureProgression::CalculateStats(
 		Data->GetBaseStats(), Level).MaxHP;
-	return RestoreIndividualState(InstanceId, Level, Experience, FullHP, RestoredSlots);
+	auto Copy = *this;
+	if (!Copy.RestoreIndividualState(InstanceId, Level, Experience, FullHP, RestoredSlots)) return false;
+	for (auto& Known : Copy.LearnedMoves) if (!Known.RestoreCurrentPP(Known.GetMaxPP())) return false;
+	*this = MoveTemp(Copy);
+	return true;
 }
 
 int64 FPokeMonsterCreatureInstance::GetExperienceToNextLevel() const
@@ -128,9 +133,9 @@ FPokeMonsterExperienceResult FPokeMonsterCreatureInstance::AddExperience(const i
 			if (Entry.Level <= OldLevel || Entry.Level > Level) continue;
 			auto* Move = Entry.Move.LoadSynchronous();
 			if (!Move || !Move->IsConfigured() || PendingMoves.Contains(Entry.Move)) continue;
-			if (MoveSlots.ContainsByPredicate([Move](const auto& S) { return S.GetMove().LoadSynchronous() == Move; })) continue;
+			if (LearnedMoves.ContainsByPredicate([Move](const auto& S) { return S.GetMove().LoadSynchronous() == Move; })) continue;
 			const int32 Free = MoveSlots.IndexOfByPredicate([](const auto& S) { return S.GetMove().IsNull(); });
-			if (Free != INDEX_NONE) MoveSlots[Free].AssignMove(Move);
+			if (Free != INDEX_NONE) AssignMove(Free, Move);
 			else PendingMoves.Add(Entry.Move); // Never silently replace a player's move.
 		}
 	}
@@ -139,7 +144,7 @@ FPokeMonsterExperienceResult FPokeMonsterCreatureInstance::AddExperience(const i
 
 bool FPokeMonsterCreatureInstance::AssignSpeciesMoves()
 {
- const auto* D=Species.LoadSynchronous();if(!D)return false;const auto Moves=D->MovesForLevel(Level);if(Moves.IsEmpty())return false;TArray<FPokeMonsterMoveSlot> Slots;Slots.SetNum(4);for(int I=0;I<Moves.Num();++I)if(!Slots[I].AssignMove(Moves[I]))return false;MoveSlots=MoveTemp(Slots);return true;
+ const auto* D=Species.LoadSynchronous();if(!D)return false;const auto Moves=D->MovesForLevel(Level);if(Moves.IsEmpty())return false;TArray<FPokeMonsterMoveSlot> Slots;Slots.SetNum(4);for(int I=0;I<Moves.Num();++I)if(!Slots[I].AssignMove(Moves[I]))return false;MoveSlots=MoveTemp(Slots);RememberActiveMoves();return true;
 }
 bool FPokeMonsterCreatureInstance::UpgradeLegacyGlumandaMoves()
 {
@@ -153,7 +158,7 @@ bool FPokeMonsterCreatureInstance::UpgradeLegacyGlumandaMoves()
   const FName Legacy=M->InternalId==TEXT("Scratch")?TEXT("TestNormalPhysical"):M->InternalId==TEXT("Growl")?TEXT("TestStatus"):TEXT("TestFireSpecial");
   Slot.RestoreCurrentPP(FMath::Max(0,Slot.GetMaxPP()-Spent.FindRef(Legacy)));
  }
- MoveSlots=Copy.MoveSlots;return true;
+ MoveSlots=Copy.MoveSlots;LearnedMoves.Reset();RememberActiveMoves();return true;
 }
 
 
@@ -166,7 +171,7 @@ bool FPokeMonsterCreatureInstance::RestorePendingMoves(const TArray<TSoftObjectP
 	{
 		const auto* Move = Ref.LoadSynchronous();
 		if (!Move || !Move->IsConfigured() || Seen.Contains(Ref.ToSoftObjectPath())
-			|| MoveSlots.ContainsByPredicate([Move](const auto& S) { return S.GetMove().LoadSynchronous() == Move; })
+			|| LearnedMoves.ContainsByPredicate([Move](const auto& S) { return S.GetMove().LoadSynchronous() == Move; })
 			|| !Data->LevelUpMoves.ContainsByPredicate([&](const auto& E) { return E.Level >= 1 && E.Level <= Level && E.Move == Ref; })) return false;
 		Seen.Add(Ref.ToSoftObjectPath());
 	}
@@ -176,7 +181,8 @@ bool FPokeMonsterCreatureInstance::RestorePendingMoves(const TArray<TSoftObjectP
 
 bool FPokeMonsterCreatureInstance::ResolveMoveLearning(int32 SlotIndex)
 {
-	if (PendingMoves.IsEmpty() || SlotIndex < INDEX_NONE || SlotIndex >= MoveSlotCount) return false;
+	if (PendingMoves.IsEmpty() || SlotIndex < INDEX_NONE || SlotIndex >= MoveSlotCount
+  || !RestorePendingMoves(PendingMoves)) return false;
 	if (SlotIndex != INDEX_NONE)
 	{
 		auto* Move = PendingMoves[0].LoadSynchronous();
@@ -184,4 +190,70 @@ bool FPokeMonsterCreatureInstance::ResolveMoveLearning(int32 SlotIndex)
 	}
 	PendingMoves.RemoveAt(0);
 	return true;
+}
+
+void FPokeMonsterCreatureInstance::RememberActiveMoves()
+{
+ // Old technical saves may have duplicate active slots with independent PP. Keep them intact;
+ // a unique remembered entry conservatively retains the lowest remaining PP. Master sets are unique.
+ for (const auto& Slot : MoveSlots)
+ {
+  if (Slot.GetMove().IsNull()) continue;
+  auto* Known = LearnedMoves.FindByPredicate([&](const auto& K) { return K.GetMove() == Slot.GetMove(); });
+  if (!Known) LearnedMoves.Add(Slot);
+  else Known->RestoreCurrentPP(FMath::Min(Known->GetCurrentPP(), Slot.GetCurrentPP()));
+ }
+}
+
+bool FPokeMonsterCreatureInstance::AssignMove(int32 SlotIndex, UPokeMonsterMoveData* Move)
+{
+ if (!MoveSlots.IsValidIndex(SlotIndex) || !MoveSlots[SlotIndex].AssignMove(Move)) return false;
+ RememberActiveMoves();
+ return true;
+}
+
+bool FPokeMonsterCreatureInstance::ConsumeMovePP(int32 SlotIndex, int32 Amount)
+{
+ if (!MoveSlots.IsValidIndex(SlotIndex) || !MoveSlots[SlotIndex].ConsumePP(Amount)) return false;
+ RememberActiveMoves();
+ return true;
+}
+
+bool FPokeMonsterCreatureInstance::RestoreLearnedMoves(const TArray<FPokeMonsterMoveSlot>& Moves)
+{
+ TSet<FSoftObjectPath> Seen;
+ for (const auto& Slot : Moves)
+ {
+  const auto* Move = Slot.GetMove().LoadSynchronous();
+  if (!Move || !Move->IsConfigured() || Slot.GetMaxPP() != Move->MaxPP
+   || Slot.GetCurrentPP() < 0 || Slot.GetCurrentPP() > Move->MaxPP
+   || Seen.Contains(Slot.GetMove().ToSoftObjectPath())) return false;
+  Seen.Add(Slot.GetMove().ToSoftObjectPath());
+ }
+ for (const auto& Slot : MoveSlots)
+ {
+  if (Slot.GetMove().IsNull()) continue;
+  const auto* Known = Moves.FindByPredicate([&](const auto& K) { return K.GetMove() == Slot.GetMove(); });
+  if (!Known || Known->GetCurrentPP() > Slot.GetCurrentPP()) return false;
+ }
+ for (const auto& Pending : PendingMoves)
+  if (Seen.Contains(Pending.ToSoftObjectPath())) return false;
+ LearnedMoves = Moves;
+ return true;
+}
+
+bool FPokeMonsterCreatureInstance::SetActiveLearnedMoves(const TArray<TSoftObjectPtr<UPokeMonsterMoveData>>& Moves)
+{
+ if (!IsValid() || Moves.IsEmpty() || Moves.Num() > MoveSlotCount || !PendingMoves.IsEmpty()) return false;
+ TArray<FPokeMonsterMoveSlot> Next; Next.SetNum(MoveSlotCount);
+ TSet<FSoftObjectPath> Seen;
+ for (int32 I=0; I<Moves.Num(); ++I)
+ {
+  const auto* Known=LearnedMoves.FindByPredicate([&](const auto& K) { return K.GetMove()==Moves[I]; });
+  if (!Known || Moves[I].IsNull() || Seen.Contains(Moves[I].ToSoftObjectPath())) return false;
+  Seen.Add(Moves[I].ToSoftObjectPath());
+  Next[I]=*Known; // Never AssignMove here: reactivation must retain spent PP.
+ }
+ MoveSlots=MoveTemp(Next);
+ return true;
 }

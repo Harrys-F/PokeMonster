@@ -137,7 +137,7 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::InitializeTeams(
 			RetainedData.AddUnique(const_cast<UPokeMonsterCreatureSpeciesData*>(Species));
 			if(Species)for(const auto& Entry:Species->LevelUpMoves)
 				if(auto* Move=Entry.Move.LoadSynchronous())RetainedData.AddUnique(Move);
-			for (const auto& Slot : Creature.GetMoveSlots())
+			for (const auto& Slot : Creature.GetLearnedMoves())
 				if (auto* Move = Slot.GetMove().LoadSynchronous()) RetainedData.AddUnique(Move);
 		}
 	FPokeMonsterBattleResult Result;

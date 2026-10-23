@@ -13,7 +13,7 @@ class UTextBlock;
 class UVerticalBox;
 
 UENUM(BlueprintType)
-enum class EPokeMonsterOverworldMenuSection : uint8 { Team, Inventory, Main };
+enum class EPokeMonsterOverworldMenuSection : uint8 { Team, Inventory, Main, Moves };
 
 /** Native UMG fallback with named controls and a Blueprint view hook for later artwork. */
 UCLASS(Blueprintable)
@@ -23,7 +23,8 @@ class POKEMONSTER_API UPokeMonsterOverworldWidget : public UUserWidget
  friend class FPokeMonsterSwitchProInputTest;
  friend class FPokeMonsterSwitchProWidgetTest;
 public:
-	void SetOwnerController(APokeMonsterOverworldPlayerController* InController);
+	void SetMoveMasterMode(bool bEnabled);
+ void SetOwnerController(APokeMonsterOverworldPlayerController* InController);
 	void SetMenuOpen(bool bOpen, EPokeMonsterOverworldMenuSection InitialSection = EPokeMonsterOverworldMenuSection::Team);
 	void SetBattleVisible(bool bBattleVisible);
 	void SetInteractionAvailable(bool bAvailable,const FString& Action=FString());
@@ -40,6 +41,21 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent, Category="PokeMonster|Overworld UI")
 	void OnOverworldViewUpdated(const FPokeMonsterOverworldView& NewView);
 private:
+ friend class FMoveManagementV2Widget;
+ void RenderMoves();
+ UFUNCTION() void ConfirmMoves();
+ void CancelMoves();
+ UFUNCTION() void ShowMoves();
+ bool bMoveMasterMode=false;
+ bool bChoosingMovePokemon=true;
+ bool bMoveReview=false;
+ int32 MovePokemon=0;
+ int32 MoveCursor=0;
+ int32 ReplaceCursor=INDEX_NONE;
+ UPROPERTY(Transient) TArray<TSoftObjectPtr<UPokeMonsterMoveData>> DraftMoves;
+ UPROPERTY(Transient) TObjectPtr<UButton> MovesTab;
+ UPROPERTY(Transient) TObjectPtr<UButton> MoveActionButton;
+ FString MoveMessage;
 	void BuildDefaultTree();
 	void RefreshTeamFocus();
  void NavigateMenu(int32 Delta);

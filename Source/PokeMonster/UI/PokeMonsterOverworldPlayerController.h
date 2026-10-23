@@ -3,9 +3,11 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "PokeMonsterOverworldWidget.h"
+#include "../Creatures/PokeMonsterCreatureInstance.h"
 #include "PokeMonsterOverworldPlayerController.generated.h"
 
 class IInputProcessor;
+class APokeMonsterNPC;
 class UPokeMonsterItemData;
 class APokeMonsterPlayerCharacter;
 class APokeMonsterVisibleWildCreatureActor;
@@ -31,6 +33,9 @@ public:
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Dialogue") UPokeMonsterDialogueWidget* GetDialogueWidget() const { return DialogueWidget; }
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Team") bool ReorderParty(FGuid SourceInstanceId, int32 TargetIndex);
  UFUNCTION(BlueprintCallable, Category="PokeMonster|Inventory") bool UseMenuHealingItem(UPokeMonsterItemData* Item, int32 TeamIndex);
+ bool OpenMoveMaster(APokeMonsterNPC* Master);
+ bool IsMoveMasterActive() const;
+ bool CommitMoveMaster(FGuid CreatureId, const TArray<TSoftObjectPtr<UPokeMonsterMoveData>>& Moves);
 	static bool CanOpenMenu(const APokeMonsterPlayerCharacter* Player,
 		const UPokeMonsterEncounterSubsystem* Encounter, bool bAlreadyOpen);
 	static bool TryLockMenu(APokeMonsterPlayerCharacter* Player,
@@ -48,6 +53,8 @@ private:
 	UPROPERTY(Transient) TObjectPtr<UPokeMonsterDialogueWidget> DialogueWidget;
 	FTimerHandle RefreshTimer;
  TWeakObjectPtr<APokeMonsterVisibleWildCreatureActor> FocusedWild;
+ UPROPERTY(Transient) TWeakObjectPtr<APokeMonsterNPC> MoveMaster;
+ UPROPERTY(Transient) TArray<FPokeMonsterCreatureInstance> MasterPartySnapshot;
 	bool bMenuOpen = false;
  TSharedPtr<IInputProcessor> InputObserver;
 };

@@ -8,7 +8,13 @@ def tick(dt):
   if active and not s['in_battle']:
    assert enc.get_battle_widget().is_classic_presentation();s['encounters'].append({'start_player':p.get_actor_location().to_tuple(),'view_target':pc.get_view_target().get_path_name(),'classic':True,'shots':0,'rounds':[]});s['last_round']=-1
   if active:
-   entry=s['encounters'][-1];assert math.dist(entry['start_player'],p.get_actor_location().to_tuple())<.01;assert entry['view_target']==pc.get_view_target().get_path_name();scene=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.PokeMonsterClassicBattleScene));assert scene.target
+   entry=s['encounters'][-1]
+   observed=p.get_actor_location().to_tuple();delta=math.dist(entry['start_player'],observed)
+   entry['max_player_delta_cm']=max(entry.get('max_player_delta_cm',0.),delta)
+   if delta>=.01:entry['movement_failure']={'observed':observed,'delta_cm':delta,'velocity':p.get_velocity().to_tuple(),'locked':p.is_overworld_input_locked(),'round':enc.get_presenter().get_view().round}
+   assert delta<.01,entry.get('movement_failure')
+   assert entry['view_target']==pc.get_view_target().get_path_name()
+   scene=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.PokeMonsterClassicBattleScene));assert scene.target
    for v in [scene.player_visual,scene.opponent_visual]:
     if v:s['reactions'].add(str(v.reaction));assert v.mesh.get_collision_enabled()==unreal.CollisionEnabled.NO_COLLISION
    view=enc.get_presenter().get_view()

@@ -57,6 +57,18 @@ namespace
 			if (!Data || !Slots[Index].AssignMove(Data) || !Slots[Index].RestoreCurrentPP(Move.CurrentPP)) return false;
 		}
 		if(!Out.RestoreIndividualState(Saved.InstanceId, Saved.Level, Saved.Experience, Saved.CurrentHP, Slots, Version>=4?Saved.Status:EPokeMonsterCreatureStatus::None))return false;
+  if (Version >= 6)
+  {
+   TArray<FPokeMonsterMoveSlot> Known;
+   for (const auto& SavedMove : Saved.LearnedMoves)
+   {
+    auto* Move=ResolveAsset<UPokeMonsterMoveData>(SavedMove.MoveId,TEXT("CreatureMove"));
+    FPokeMonsterMoveSlot Slot;
+    if (!Move || !Slot.AssignMove(Move) || !Slot.RestoreCurrentPP(SavedMove.CurrentPP)) return false;
+    Known.Add(Slot);
+   }
+   if (!Out.RestoreLearnedMoves(Known)) return false;
+  } // Versions 1..5 seed only actual active moves, never the species learnlist.
   if (Version >= 5)
   {
    TArray<TSoftObjectPtr<UPokeMonsterMoveData>> Pending;
@@ -87,6 +99,7 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 		if (!Creature.IsValid() || !IsValid(Species)
 			|| !Validated.RestoreIndividualState(Creature.InstanceId, Creature.Level, Creature.Experience,
 				Creature.CurrentHP, Creature.GetMoveSlots(), Creature.Status)
+            || !Validated.RestoreLearnedMoves(Creature.GetLearnedMoves())
             || !Validated.RestorePendingMoves(Creature.PendingMoves)) return nullptr;
 		FPokeMonsterSavedCreature& Entry = Save->PlayerTeam.AddDefaulted_GetRef();
 		Entry.InstanceId = Creature.InstanceId;
@@ -100,6 +113,13 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
    const auto* Move = Ref.LoadSynchronous();
    if (!Move) return nullptr;
    Entry.PendingMoves.Add(Move->GetPrimaryAssetId());
+  }
+  for (const auto& Known : Creature.GetLearnedMoves())
+  {
+   const auto* Move=Known.GetMove().LoadSynchronous();
+   if (!Move) return nullptr;
+   FPokeMonsterSavedMove EntryMove; EntryMove.MoveId=Move->GetPrimaryAssetId(); EntryMove.CurrentPP=Known.GetCurrentPP();
+   Entry.LearnedMoves.Add(EntryMove);
   }
 		for (const FPokeMonsterMoveSlot& Slot : Creature.GetMoveSlots())
 		{

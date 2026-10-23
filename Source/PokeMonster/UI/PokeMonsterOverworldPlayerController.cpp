@@ -1,5 +1,6 @@
 #include "PokeMonsterOverworldPlayerController.h"
 #include "PokeMonsterControllerInput.h"
+#include "../Dialogue/PokeMonsterNPC.h"
 #include "Framework/Application/SlateApplication.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
 
@@ -132,6 +133,7 @@ bool APokeMonsterOverworldPlayerController::CloseMenu()
 {
 	if (!bMenuOpen) return false;
 	bMenuOpen = false;
+ MoveMaster.Reset(); MasterPartySnapshot.Reset();
 	if (OverworldWidget) OverworldWidget->SetMenuOpen(false);
 	UnlockMenu(Cast<APokeMonsterPlayerCharacter>(GetPawn()));
 	SetInputMode(FInputModeGameAndUI());
@@ -218,6 +220,7 @@ void APokeMonsterOverworldPlayerController::OnDialogueChanged()
 void APokeMonsterOverworldPlayerController::RefreshHUD()
 {
 	if (!OverworldWidget) return;
+ if (MoveMaster.IsStale() || (MoveMaster.IsValid() && !IsMoveMasterActive())) { CloseMenu(); return; }
 	UGameInstance* Instance = GetGameInstance();
 	auto* Encounter = Instance ? Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
 	const auto* Inventory = Instance ? Instance->GetSubsystem<UPokeMonsterInventorySubsystem>() : nullptr;
@@ -239,6 +242,7 @@ void APokeMonsterOverworldPlayerController::RefreshHUD()
 void APokeMonsterOverworldPlayerController::OnEncounterStarted()
 {
 	bMenuOpen = false;
+ MoveMaster.Reset(); MasterPartySnapshot.Reset();
 	if (OverworldWidget)
 	{
 		OverworldWidget->SetMenuOpen(false);
@@ -256,4 +260,31 @@ void APokeMonsterOverworldPlayerController::OnEncounterEnded(const FPokeMonsterE
 		bShowMouseCursor = true;
 	}
 	RefreshHUD();
+}
+
+bool APokeMonsterOverworldPlayerController::OpenMoveMaster(APokeMonsterNPC* Master)
+{
+ auto* Player=Cast<APokeMonsterPlayerCharacter>(GetPawn());
+ if(!IsValid(Master) || !Master->CanProvideMoveService(Player) || !Master->CanInteract_Implementation(Player))return false;
+ if(!OpenMenu(EPokeMonsterOverworldMenuSection::Moves))return false;
+ MoveMaster=Master;
+ MasterPartySnapshot=GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>()->GetPlayerParty();
+ OverworldWidget->SetMoveMasterMode(true);
+ return true;
+}
+
+bool APokeMonsterOverworldPlayerController::IsMoveMasterActive() const
+{
+ const auto* E=GetGameInstance()?GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>():nullptr;
+ return bMenuOpen && MoveMaster.IsValid() && MoveMaster->CanProvideMoveService(GetPawn()) && E && !E->IsEncounterActive();
+}
+
+bool APokeMonsterOverworldPlayerController::CommitMoveMaster(FGuid CreatureId,const TArray<TSoftObjectPtr<UPokeMonsterMoveData>>& Moves)
+{
+ if(!IsMoveMasterActive())return false;
+ const auto* Expected=MasterPartySnapshot.FindByPredicate([&](const auto& C){return C.InstanceId==CreatureId;});
+ auto* E=GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>();
+ if(!Expected || !E->CommitRememberedMoves(MoveMaster.Get(),Cast<APokeMonsterPlayerCharacter>(GetPawn()),*Expected,Moves))return false;
+ CloseMenu();
+ return true;
 }

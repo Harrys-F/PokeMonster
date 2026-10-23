@@ -115,7 +115,15 @@ Bevorzugte Richtung:
 - Reiseaktionen sollen nicht unnötig feste Attackenplätze belegen,
 - Attacken könnten über Training, Lehrer, Orte, Prüfungen oder freie Auswahl bereits erlernter Attacken verwaltet werden.
 
-Das endgültige Attackenlernsystem ist noch offen.
+Die frühere offene Regel zur freien Auswahl ist durch die Entscheidung
+„Attackenverwaltung V2“ ersetzt: Maximal vier aktive Kampfattacken; tatsächlich
+erlernte Attacken bleiben im individuellen Repertoire. Levelaufstiegsangebote
+können unmittelbar aktiviert oder abgelehnt werden. Nachträgliches Reaktivieren
+und Neuordnen ist ausschließlich bei freigegebenen Attackenmeistern möglich.
+Das normale Team-/Attackenmenü ist nur eine Ansicht. Verbrauchte AP bleiben auch
+bei inaktiven Attacken erhalten. Der erste „Meister der Erinnerungen“ ist für
+das versteckte optionale Wissenstal reserviert, nicht für Heilhaus oder Startdorf.
+Weitere Lehrer, TM/VM-Ersatz und spezielle Techniken bleiben offen.
 
 ## Reise und Weltfähigkeiten
 

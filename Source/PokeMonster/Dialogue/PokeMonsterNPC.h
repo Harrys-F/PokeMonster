@@ -10,6 +10,9 @@ class UPaperSpriteComponent;
 class UTextRenderComponent;
 class UPokeMonsterDialogueData;
 
+UENUM(BlueprintType)
+enum class EPokeMonsterNPCService : uint8 { None, RememberMoves };
+
 /** Placed, reusable conversation actor; visuals and dialogue content are configurable per instance. */
 UCLASS(Blueprintable)
 class POKEMONSTER_API APokeMonsterNPC : public AActor, public IPokeMonsterInteractable
@@ -17,6 +20,10 @@ class POKEMONSTER_API APokeMonsterNPC : public AActor, public IPokeMonsterIntera
 	GENERATED_BODY()
 public:
 	APokeMonsterNPC();
+	/** Location authorization belongs to the placed NPC, never to a normal team menu. */
+	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Service")
+	EPokeMonsterNPCService Service = EPokeMonsterNPCService::None;
+	bool CanProvideMoveService(const APawn* Interactor) const;
 	virtual bool CanInteract_Implementation(APawn* Interactor) const override;
 	virtual void Interact_Implementation(APawn* Interactor) override;
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Dialogue")

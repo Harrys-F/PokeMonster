@@ -1098,3 +1098,36 @@ Save-Schema **5** ergänzt `PendingMoves` als `CreatureMove`-PrimaryAssetIDs. Al
 `CreatureProgression::GetEvolutionOptions` ergänzt die bestehende Bedingungsprüfung um die Zustände MissingSpecies/MissingVisuals/Ready. Selbst Ready bedeutet nur verfügbare Zieldefinition und gültige Darstellung, keine ausgeführte Entwicklung. Level-, Item-, Freundschafts-, Orts- und Prüfkontexte verbrauchen nichts und ändern keine Kreatur. Fehlende Zielmodelle werden explizit gemeldet. Die historischen Zunderlauf-IDs/Basiswerte/Wachstumskurve bleiben aus Save-Kompatibilitätsgründen unverändert; ihre Originaldatenmigration ist eine getrennte offene Aufgabe.
 
 Werkzeuge, ausdrückliche PIE-Fixtures und Grenzen: `Tools/CreatureProgressionV1/README.md`. Prüfbericht: `POKEMON_FORTSCHRITTSSYSTEM_V1_PRUEFBERICHT.md`.
+
+
+## Attackenverwaltung V2 – persönliche Erinnerungen und NPC-Dienst
+
+`FPokeMonsterCreatureInstance` erweitert die vorhandenen vier aktiven Slots um
+`LearnedMoves`: eindeutige tatsächlich erlernte Attacken mit persönlichem AP-Stand.
+Ersetzen bewahrt die alte Attacke; Ablehnen und offene Angebote ergänzen keine
+Kenntnisse. Beim Levelaufstieg bleibt die bestehende V1-Entscheidung erhalten.
+`RestoreFully` heilt auch inaktive AP. Normale Reaktivierung initialisiert AP
+niemals über `AssignMove`, sondern kopiert den gespeicherten Zustand.
+
+Save-Schema 6 ergänzt stabile Move-IDs/AP für das Repertoire. Alte Versionen 1–5
+migrieren ausschließlich aktive Kenntnisse; vor V2 nicht gespeicherte vergessene
+Attacken können nicht erfunden werden. Historische technische doppelte aktive
+Slots bleiben lesbar; ihre eindeutige Erinnerung verwendet konservativ den
+niedrigsten AP-Stand. Neu zusammengestellte Sets sind eindeutig, enthalten ein
+bis vier erlernte Attacken und weiterhin genau vier physische Slots.
+
+`APokeMonsterNPC::Service = RememberMoves` nutzt den vorhandenen Interactable-
+Vertrag und `APokeMonsterOverworldPlayerController`. Das bestehende Reisebuch
+stellt Repertoireansicht und Meisterentwurf dar. Nur eine bestätigte private
+EncounterSubsystem-Transaktion darf das aktive Set neu zusammenstellen:
+nahegelegener lebender Meister, gleiche Welt, kein Kampf, keine offenen Lernangebote,
+seit Öffnen unveränderte individuelle Daten. Der bestehende atomare Speicherpfad
+schreibt erst nach Prüfung; bei Schreibfehler wird die Laufzeitänderung zurückgenommen.
+Alle übrigen Menüs bieten keinen solchen Schreibpfad. Der gewöhnliche technische
+Erstellungs-/Lernhook bleibt für bestehende Factory-, Trainer- und Lernsysteme erhalten.
+
+Die spätere Weltplatzierung ist für das versteckte optionale Wissenstal reserviert.
+Mangels identifizierten spielbaren Wissensgebiets wird nur ein expliziter transienter
+PIE-Test-NPC verwendet. Keine neue Map und kein dauerhafter Ersatz-NPC. Weitere
+Meister und Entwicklungsprüfungen werden dadurch weder freigeschaltet noch umgesetzt.
+Bedienung und Prüfanleitung: `Tools/MoveManagementV2/README.md`.

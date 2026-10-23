@@ -1073,3 +1073,26 @@ Gluraks äußere Wurzelflächen hatten teilweise keinen Flügel-Bone-Einfluss un
 - Für die zehn integrierten Arten sind die Gold-/Silber-Lernlisten anhand der PokeAPI-Revision `2bf639e5572812a67d2b94903fdcb9d095f5aeb2` festgehalten. Fehlende Spezialwirkungen bleiben explizit nicht spielbar und werden nicht als korrekt implementiert ausgegeben. Nur vorhandene unterstützte Mechaniken sowie Flammenwurf, Slam und Hydropumpe mit belegten Gen-2-Daten werden verwendet.
 - Entwicklungsbedingungen und Modellverfügbarkeit werden getrennt geprüft. Kein Spezieswechsel, Gegenstandsverbrauch oder provisorisches Zielmodell. Levelziele und Pikachus Donnersteinweg sind vorbereitet; ihre fehlenden Zielarten/Darstellungen bleiben offen. Die Beispiele für frühere Tauschentwicklungen behalten ihren vorläufigen Status und die UND-Bedingungen Level/Ort/Prüfung. Freundschaft bleibt ein vom Aufrufer gelieferter Prüfkontext, keine ungeprüfte automatische Freundschaftsökonomie.
 - Kein Import weiterer Pokémon, keine Modell-/Animationsänderung und keine Änderung von Maps, Kampfpräsentation, Kamera oder Weltgestaltung. Prüfstand und tatsächliche Grenzen: `POKEMON_FORTSCHRITTSSYSTEM_V1_PRUEFBERICHT.md`.
+
+
+## 2026-10-23 – Attackenverwaltung V2 und Meister der Erinnerungen
+
+**Status: Beschlossen durch Harrys Auftrag**
+
+- Die frühere offene Richtung „freie Auswahl bereits erlernter Attacken“ ist ersetzt:
+  persönlich tatsächlich erlernte Attacken bleiben dauerhaft erhalten, aber maximal
+  vier sind aktiv. Nachträglicher Austausch und Neuordnung erfolgen ausschließlich
+  bei dafür freigegebenen Meistern/Orten. Das normale Reisebuch bleibt lesend.
+- V1-Levelaufstiegslernen bleibt erhalten: freie Slots unmittelbar aktivieren;
+  bei vollem Set Ersetzen oder Ablehnen. Die ersetzte Attacke bleibt erhalten,
+  abgelehnte und offene Angebote zählen nicht als erlernt.
+- AP gehören zur individuellen Attackenerinnerung. Deaktivieren, Reaktivieren,
+  Neuordnen und Save/Load regenerieren keine AP. Reguläre Heilung bleibt möglich.
+- Der erste Dienst „Meister der Erinnerungen“ ist kostenlos und ausschließlich
+  für das versteckte optionale Bruchtal-inspirierte Wissenstal vorgesehen.
+  Kein dauerhafter Ersatz im Startdorf oder Heilhaus. Bis zur Weltintegration
+  ist nur ein klar gekennzeichneter transienter Testaufbau zulässig.
+- Wiederverwendung von CreatureInstance, MoveSlot, EncounterSubsystem, NPC-
+  Interactable, Reisebuch, Nintendo-Eingang und SaveSubsystem. Kein zweites
+  Attacken-/NPC-/Speichersystem. Weitere Lehrer und frühere Tauschentwicklungs-
+  Prüfungen bleiben spätere, gesondert zu gestaltende Funktionen.

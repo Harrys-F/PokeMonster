@@ -1,4 +1,6 @@
 #include "PokeMonsterEncounterSubsystem.h"
+#include "../Dialogue/PokeMonsterNPC.h"
+#include "../Save/PokeMonsterSaveSubsystem.h"
 #include "PokeMonsterClassicBattleScene.h"
 #include "PokeMonsterEncounterProfile.h"
 #include "PokeMonsterVisibleWildCreatureActor.h"
@@ -425,4 +427,32 @@ void UPokeMonsterEncounterSubsystem::HandleWorldPresentationStep(const FPokeMons
  if(Step==TEXT("KO")&&A.bKnockedOut&&Target)Target->PlayReaction(EPokeMonsterCreatureClip::Faint);
  if(Step==TEXT("KO")&&A.bCaptureSucceeded&&OpponentVisual)OpponentVisual->SetActorHiddenInGame(true);
  if(Step==TEXT("Complete")&&A.bBattleEnded&&Source&&!A.bCapture&&!A.bFlee)Source->PlayReaction(EPokeMonsterCreatureClip::Happy);
+}
+
+bool UPokeMonsterEncounterSubsystem::CommitRememberedMoves(APokeMonsterNPC* Master,
+ APokeMonsterPlayerCharacter* Player, const FPokeMonsterCreatureInstance& Expected,
+ const TArray<TSoftObjectPtr<UPokeMonsterMoveData>>& Moves)
+{
+ if (bActive || !IsValid(Master) || !Master->CanProvideMoveService(Player)
+  || !Player->IsOverworldInputLocked() || Player->GetGameInstance()!=GetGameInstance()) return false;
+ const int32 Index=PlayerParty.IndexOfByPredicate([&](const auto& C) { return C.InstanceId==Expected.InstanceId; });
+ if (Index==INDEX_NONE) return false;
+ const auto& Current=PlayerParty[Index];
+ auto SameSlots=[](const auto& A,const auto& B)
+ {
+  if(A.Num()!=B.Num())return false;
+  for(int32 I=0;I<A.Num();++I)if(A[I].GetMove()!=B[I].GetMove() || A[I].GetCurrentPP()!=B[I].GetCurrentPP() || A[I].GetMaxPP()!=B[I].GetMaxPP())return false;
+  return true;
+ };
+ if(Current.Species!=Expected.Species || Current.Level!=Expected.Level || Current.Experience!=Expected.Experience
+  || Current.CurrentHP!=Expected.CurrentHP || Current.Status!=Expected.Status || !Current.PendingMoves.IsEmpty()
+  || !SameSlots(Current.GetMoveSlots(),Expected.GetMoveSlots()) || !SameSlots(Current.GetLearnedMoves(),Expected.GetLearnedMoves()))return false;
+ auto Next=Current;
+ if(!Next.SetActiveLearnedMoves(Moves))return false;
+ auto* Save=GetGameInstance()?GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>():nullptr;
+ if(!Save)return false;
+ const auto Previous=Current;
+ PlayerParty[Index]=Next;
+ if(!Save->SaveCurrentGame()) { PlayerParty[Index]=Previous; return false; }
+ return true;
 }

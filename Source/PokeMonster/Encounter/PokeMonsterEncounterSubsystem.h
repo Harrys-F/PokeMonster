@@ -8,6 +8,7 @@
 #include "PokeMonsterEncounterSubsystem.generated.h"
 
 class AActor;
+class APokeMonsterNPC;
 class APlayerController;
 class APokeMonsterPlayerCharacter;
 class UPokeMonsterBattlePresenter;
@@ -138,6 +139,10 @@ public:
 	virtual void Deinitialize() override;
 
 private:
+ friend class APokeMonsterOverworldPlayerController;
+ /** Transaction authorized by a live, nearby master and the controller's original snapshot. */
+ bool CommitRememberedMoves(APokeMonsterNPC* Master, APokeMonsterPlayerCharacter* Player,
+  const FPokeMonsterCreatureInstance& Expected, const TArray<TSoftObjectPtr<UPokeMonsterMoveData>>& Moves);
 #if WITH_DEV_AUTOMATION_TESTS
 	friend class FPokeMonsterEncounterIntegrationTest;
 	friend class FPokeMonsterCaptureTest;

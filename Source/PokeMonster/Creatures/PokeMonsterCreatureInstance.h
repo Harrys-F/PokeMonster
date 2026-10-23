@@ -20,14 +20,12 @@ public:
 	FPokeMonsterCreatureInstance() { MoveSlots.SetNum(MoveSlotCount); }
 
 	const TArray<FPokeMonsterMoveSlot>& GetMoveSlots() const { return MoveSlots; }
-	bool AssignMove(int32 SlotIndex, UPokeMonsterMoveData* Move)
-	{
-		return SlotIndex < MoveSlotCount && MoveSlots.IsValidIndex(SlotIndex) && MoveSlots[SlotIndex].AssignMove(Move);
-	}
-	bool ConsumeMovePP(int32 SlotIndex, int32 Amount = 1)
-	{
-		return SlotIndex < MoveSlotCount && MoveSlots.IsValidIndex(SlotIndex) && MoveSlots[SlotIndex].ConsumePP(Amount);
-	}
+	/** Technical creation/learning hook, never a player-facing loadout editor. */
+	bool AssignMove(int32 SlotIndex, UPokeMonsterMoveData* Move);
+	bool ConsumeMovePP(int32 SlotIndex, int32 Amount = 1);
+	const TArray<FPokeMonsterMoveSlot>& GetLearnedMoves() const { return LearnedMoves; }
+	/** Save transport: validates uniqueness, PP bounds and active membership atomically. */
+	bool RestoreLearnedMoves(const TArray<FPokeMonsterMoveSlot>& Moves);
 	/** Restore only mutable data; species stats are recalculated from the asset. */
 	bool RestoreIndividualState(const FGuid& InId, int32 InLevel, int64 InExperience,
 		int32 InCurrentHP, const TArray<FPokeMonsterMoveSlot>& InSlots, EPokeMonsterCreatureStatus InStatus = EPokeMonsterCreatureStatus::None);
@@ -74,6 +72,13 @@ public:
 	FPokeMonsterCreatureStats CalculatedStats;
 
 private:
+	friend class UPokeMonsterEncounterSubsystem;
+	friend class FMoveManagementV2Repertoire;
+	/** Only the encounter subsystem's authorized NPC transaction may call this. */
+	bool SetActiveLearnedMoves(const TArray<TSoftObjectPtr<UPokeMonsterMoveData>>& Moves);
+	void RememberActiveMoves();
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Progression", meta=(AllowPrivateAccess="true"))
+	TArray<FPokeMonsterMoveSlot> LearnedMoves;
 	/** Exactly four individually owned slots. Explicit species learnsets may fill empty slots. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Creature", meta = (AllowPrivateAccess = "true"))
 	TArray<FPokeMonsterMoveSlot> MoveSlots;

@@ -2,7 +2,7 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "creature_progression_v1_verified",
+  "snapshot_kind": "move_management_v2_verified",
   "generated_at": "2026-10-23",
   "files": {
     ".codex/config.toml": {
@@ -369,6 +369,10 @@
       "bytes": 1371160,
       "sha256": "9adc510de145abed42a65aeeaf94495b4ed33f2b78950b3f60676b356a02d58f"
     },
+    "Art/Characters/Creatures/Glurak/AnimationCorrectionsV61_Audit.json": {
+      "bytes": 516271,
+      "sha256": "ff0c8d9747c1f9cc1207a4da942d1d28de4981032e9ec28d7de4c0722e1f82a1"
+    },
     "Art/Characters/Creatures/Glurak/AnimationCorrectionsV6_Audit.json": {
       "bytes": 4734,
       "sha256": "0008d9f98a2465648818f302167ae03bcc51ba81198b7d46099dd0c6fba31c86"
@@ -412,6 +416,10 @@
     "Art/Characters/Creatures/Glurak/Exports/AnimationV6/Glurak_Walk.fbx": {
       "bytes": 197804,
       "sha256": "957dff8936cf3a9f064af9191d55b81357a6998f70ff93ffc7291a05ade96f02"
+    },
+    "Art/Characters/Creatures/Glurak/Exports/AnimationV61/Glurak_Idle.fbx": {
+      "bytes": 11334028,
+      "sha256": "5667f2c2aebec69f654112cff740357a7b08b7a76f15fdf5b7cb6799a6ddf68f"
     },
     "Art/Characters/Creatures/Glurak/Exports/MeshyV1/Glurak_Attack.fbx": {
       "bytes": 11476940,
@@ -504,6 +512,10 @@
     "Art/Characters/Creatures/Glurak/Source/Glurak_AnimationCorrections_V6.blend": {
       "bytes": 31033298,
       "sha256": "2d97c8cf84038642f5dbd51e45ea9a133cbbadce0ecfd04c2624380f4a04f9c8"
+    },
+    "Art/Characters/Creatures/Glurak/Source/Glurak_AnimationCorrections_V61.blend": {
+      "bytes": 31042710,
+      "sha256": "33ef643760472a0119cd8b281530eb30b48b9160f70527c8ccf561f73837447e"
     },
     "Art/Characters/Creatures/Glurak/Source/Glurak_Meshy_V1.blend": {
       "bytes": 30443952,
@@ -3917,6 +3929,10 @@
       "bytes": 2971686,
       "sha256": "6c130878f33ee9c0268bc28dafa9ee292fcecce8b1e3237a3e12a99bbc91b391"
     },
+    "Art/Characters/YoungTrainer/AnimationCorrectionsV61_Audit.json": {
+      "bytes": 591780,
+      "sha256": "be4f2f48583eb9a23a37f14a6348f6feafe8c7ef846ad703ed4bb7b2ffec21c3"
+    },
     "Art/Characters/YoungTrainer/AnimationCorrectionsV6_Audit.json": {
       "bytes": 1792,
       "sha256": "02c7860259dd0b99a5c6fea4daf6301f50482c0cc590bfd3a442e06199bf64ed"
@@ -4088,6 +4104,10 @@
     "Art/Characters/YoungTrainer/Exports/AnimationV6/Player_Walk.fbx": {
       "bytes": 224700,
       "sha256": "7dfceaf00c64c45c7e876e3fc51c437ebb4652a07bb49fee93490617d08c070c"
+    },
+    "Art/Characters/YoungTrainer/Exports/AnimationV61/Player_Idle.fbx": {
+      "bytes": 3545820,
+      "sha256": "e68c7b5a3a46d0a234142c8f130916ec50cf2086380491c4eb7f385c74e9d214"
     },
     "Art/Characters/YoungTrainer/Exports/MeshyV1/A_Player_Meshy_Idle.fbx": {
       "bytes": 3329180,
@@ -4276,6 +4296,10 @@
     "Art/Characters/YoungTrainer/Source/Player_Meshy_AnimationCorrections_V6.blend": {
       "bytes": 12193720,
       "sha256": "3d1b1c72eacdfbd09168699624833c638ccc1e8b8fcc4358950019803f5a3d9b"
+    },
+    "Art/Characters/YoungTrainer/Source/Player_Meshy_AnimationCorrections_V61.blend": {
+      "bytes": 12190726,
+      "sha256": "8683d6233f8ca30e7547f07cea5ac96fa6a3c21f2678800647bf8ec232906541"
     },
     "Art/Characters/YoungTrainer/Source/Player_Meshy_AnimationQuality_V2.blend": {
       "bytes": 11726170,
@@ -6693,6 +6717,14 @@
       "bytes": 11922,
       "sha256": "65250cfe8bb8885450cdfd56a885060ae3951aa010870a9d23532d4d0e4971d1"
     },
+    "Content/Characters/Creatures/Glurak/AnimationV61/DA_Glurak_Presentation_V61.uasset": {
+      "bytes": 4667,
+      "sha256": "45d64a49ed57044935022778f9d9ba2399524ae29a41a14d845c2717bbeb4b82"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV61/SK_Glurak_V61.uasset": {
+      "bytes": 35962934,
+      "sha256": "a98d7e0b4773b3f80ff710b6b10fe051bd097fcac9a2d1cd99e1d0284c148218"
+    },
     "Content/Characters/Creatures/Glurak/MeshyV1/Animations/A_Glurak_Attack.uasset": {
       "bytes": 79404,
       "sha256": "0b2e0dee5292778b62b42289cd82f7c44e420fc5021270e3783215830d74c4ce"
@@ -8217,6 +8249,10 @@
       "bytes": 101766,
       "sha256": "3220b11992d270299c54fd67d2529d08bbe8b488fb5cd3cb9a7e7377701b1449"
     },
+    "Content/Characters/YoungTrainer/AnimationV61/SK_Player_V61.uasset": {
+      "bytes": 11456440,
+      "sha256": "ceb24ce11d81628529d62352f58cb038cb4d8478a0a12cbccb1047460227ead3"
+    },
     "Content/Characters/YoungTrainer/MeshyV1/Animations/A_Player_Meshy_Idle.uasset": {
       "bytes": 62838,
       "sha256": "25691caf476e7498d7f88df64ea72f6fa80c8877c5885026f19c95dcdc4297ef"
@@ -8496,6 +8532,18 @@
     "Content/Data/Moves/DA_Withdraw.uasset": {
       "bytes": 2206,
       "sha256": "f03144b5610cad936657b4d61852fd92f96e9b05898c65275d2035775ee2c043"
+    },
+    "Content/Data/Moves/ProgressionV1/DA_Flamethrower.uasset": {
+      "bytes": 2290,
+      "sha256": "3f4add5143b55b0b3e40942b31d863d69ea92cb24e46fbacf7b8ff1cad614fd2"
+    },
+    "Content/Data/Moves/ProgressionV1/DA_HydroPump.uasset": {
+      "bytes": 1993,
+      "sha256": "f9059d426a865e8d77286d827396cc33015a3e66d5ea58fc7afb8355be260f5a"
+    },
+    "Content/Data/Moves/ProgressionV1/DA_Slam.uasset": {
+      "bytes": 1594,
+      "sha256": "0beaff87d14e90ae52a28fa65459f8e1361d6ceb82cee0dfb9ec1f902a43aeb3"
     },
     "Content/Data/Quests/DA_SliceArchiveQuest.uasset": {
       "bytes": 2688,
@@ -11309,6 +11357,10 @@
       "bytes": 3361996,
       "sha256": "a7be259798a14347cfb3d1cb1a180619b8fe22c88c3e7004a77454a8692a73c1"
     },
+    "Docs/ANIMATIONSFEINSCHLIFF_V6_1_PRUEFBERICHT.md": {
+      "bytes": 18350,
+      "sha256": "52f931cc03fd6fdd1e3824e15462497d33b6a28ce933d2613bbfbb0e877eb21f"
+    },
     "Docs/ANIMATIONS_UND_MODELLKORREKTUREN_V6_PRUEFBERICHT.md": {
       "bytes": 21532,
       "sha256": "9e51877906a07c0b59e76d6eed2da3acb9b7478d1ff7af9aec2062415f80864d"
@@ -11316,6 +11368,10 @@
     "Docs/ART_PASS_V3_HEILHAUS_LANDSCHAFT_PRUEFBERICHT.md": {
       "bytes": 17820,
       "sha256": "b5ab9c3260395542d8c53cedb7ae6c64d1f70ee642c9200b30521622fbf3b70b"
+    },
+    "Docs/ATTACKENVERWALTUNG_V2_PRUEFBERICHT.md": {
+      "bytes": 14856,
+      "sha256": "9966886945a6e7322140d2351feeaf5914e9ec13806579de580fd5ab1e33210f"
     },
     "Docs/BAUMFAMILIEN_SICHTFREISTELLUNG_PRUEFBERICHT.md": {
       "bytes": 11314,
@@ -11350,8 +11406,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 153433,
-      "sha256": "27e4fb147e2c35f12217013957d4ffbaf2b4dfd3cc6a453290efc301a926e588"
+      "bytes": 154884,
+      "sha256": "5c839de58b0c2ab4ef435eaee401d18935220ae400089d00cf1b1ff87c0d430a"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
@@ -11473,6 +11529,10 @@
       "bytes": 16736,
       "sha256": "861a6828c1be2476f795db50ea20acc99108acacfdd088824fb0bed1ae0ef4a2"
     },
+    "Docs/POKEMON_FORTSCHRITTSSYSTEM_V1_PRUEFBERICHT.md": {
+      "bytes": 18923,
+      "sha256": "a03e27e1c313867dac5f5ae4dda58ec0ef295d5b415fc22b75e261012d3d6d99"
+    },
     "Docs/PROJEKTBEREINIGUNG_GRAFIKVERBESSERUNG_V2_PRUEFBERICHT.md": {
       "bytes": 17379,
       "sha256": "bbb9e0d2516b3d626be2585f6b1017526471298c040fba92b0c5e75507fdeda0"
@@ -11490,8 +11550,8 @@
       "sha256": "eb99d45a2b1c1cf67a1020fd88b431cf92d6d8ca2c1180b41a83bb679eae0f49"
     },
     "Docs/SPIELREGELN.md": {
-      "bytes": 10983,
-      "sha256": "71f279f8a2331eeefe357ba1f196a4ade2e65c54e5fc975f8a3e7294ed536850"
+      "bytes": 11645,
+      "sha256": "c0927178b37f480875ce55b4ebe0edccc84639ad7873b4476bc1cd5f7493868b"
     },
     "Docs/STARTER_ERWEITERUNG_V1_PRUEFBERICHT.md": {
       "bytes": 22349,
@@ -11506,8 +11566,8 @@
       "sha256": "1ede0acfca40e87ac09ffe5dbe8993e5cb6142cff2aebf509f4cb084ae6e53fc"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 175803,
-      "sha256": "ba7c9dc3c8224e3c98bd90410963af7775617e2abeff76e80fce146fe4d82b75"
+      "bytes": 177967,
+      "sha256": "4b0ab7caa23947cbf057c0aeee405f3f87ec3ad317836fafef0c827aa26f5176"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -11630,8 +11690,8 @@
       "sha256": "6cdca3eed3c29a6d603a828f5737f9dfc004534c662ed9be2e5a5ea2857672b4"
     },
     "Source/PokeMonster/Battle/PokeMonsterBattleSession.cpp": {
-      "bytes": 27096,
-      "sha256": "45350e20b049d32ff9a2714d26353c11c1adca09a3413c7d5a1307110cce8b68"
+      "bytes": 27099,
+      "sha256": "3f15fa86e3aa351f41e2eaaf9a108dc290fed3fed2a152df068e9409e22f2a3a"
     },
     "Source/PokeMonster/Battle/PokeMonsterBattleSession.h": {
       "bytes": 10841,
@@ -11676,6 +11736,10 @@
     "Source/PokeMonster/Characters/PokeMonsterCharacterFillComponent.h": {
       "bytes": 1278,
       "sha256": "9275b1876c034f9f867dcb4318896dea2cad40c1482a6ea4ff28f753fee48d32"
+    },
+    "Source/PokeMonster/Characters/PokeMonsterFootContact.h": {
+      "bytes": 1233,
+      "sha256": "e82a7e73f1c4d4e42a599a7b02ebed38e68131d9d923adf136c7893dff4b9219"
     },
     "Source/PokeMonster/Characters/PokeMonsterMeshyAnimInstance.cpp": {
       "bytes": 13149,
@@ -11782,12 +11846,12 @@
       "sha256": "0a139add7f8263fc16b72a2856ee87618efe4ead9f06063167d5f3defd72394a"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureInstance.cpp": {
-      "bytes": 8891,
-      "sha256": "4cdaae7d14b71fb0213301185f462b712d4229fcc6230247559fd7a09193f634"
+      "bytes": 11832,
+      "sha256": "5b045df2bedf1678b6ef92ac1ed0fdd423c72bf3ee7c7a226af1ae0da5293828"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureInstance.h": {
-      "bytes": 3513,
-      "sha256": "554781fedc8b4a9d0b5b383a15368885f44d54d05c80dc2f5489ec557ed1993c"
+      "bytes": 4036,
+      "sha256": "187069a315a106c29d0b845ffd6a60e37fc3787c63f50d96ac610f80262a5921"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreaturePresentation.cpp": {
       "bytes": 11524,
@@ -11877,6 +11941,10 @@
       "bytes": 1026,
       "sha256": "81afb5f28802a33c55359ca3961f14adef64ad68644146ee15bbf99d7a79313b"
     },
+    "Source/PokeMonster/Development/PokeMonsterMoveManagementV2Review.cpp": {
+      "bytes": 2812,
+      "sha256": "bab16e3abb415bc659a2ced1a11d9105035cb8f148cf74a3e6da63e203beded3"
+    },
     "Source/PokeMonster/Development/PokeMonsterNPCMotionPerformanceProbe.cpp": {
       "bytes": 17737,
       "sha256": "299991c0586efffd9fec54d7dee4b03928a9b6e98528368ad80b0f5f29f89cb2"
@@ -11908,6 +11976,10 @@
     "Source/PokeMonster/Development/PokeMonsterPerformanceProbe.cpp": {
       "bytes": 13378,
       "sha256": "518582062b1d83111dc7d3e11ad3eddb2a4b303d32b9ef08f31776545dcda110"
+    },
+    "Source/PokeMonster/Development/PokeMonsterProgressionV1Review.cpp": {
+      "bytes": 2561,
+      "sha256": "ac11a3474dba691e2eead24af0176c9a7a2b8b2eeaec2895d0d73747aea7e0c6"
     },
     "Source/PokeMonster/Development/PokeMonsterSoftShadowTest.cpp": {
       "bytes": 11028,
@@ -11946,12 +12018,12 @@
       "sha256": "82495d36f14d74fe490db5eb273aeab25e755eaffa86456ffaab9c1b3fb34106"
     },
     "Source/PokeMonster/Dialogue/PokeMonsterNPC.cpp": {
-      "bytes": 4114,
-      "sha256": "9c9ef326b06160918cd656aee91070f00bf181b29f9bc1d68364a566511843ac"
+      "bytes": 4914,
+      "sha256": "f5e8726fae5af7aa8d3b5e6dd8f6736aa0a083a11a2490aff93006ef7b74270f"
     },
     "Source/PokeMonster/Dialogue/PokeMonsterNPC.h": {
-      "bytes": 1536,
-      "sha256": "4247dc3cdd9fa4a03802ae1b7398a8e7b070f58609b37840fbfdd6aed650ec08"
+      "bytes": 1904,
+      "sha256": "d618cb13add55f839dfda7a7d4fc1f08b48caa18a7c632990dc16779962d74c4"
     },
     "Source/PokeMonster/Encounter/PokeMonsterBattleEncounterActor.cpp": {
       "bytes": 2616,
@@ -11986,12 +12058,12 @@
       "sha256": "7b04278d2e5e3bcd1477ba0f49f8eda966000f978a0ccdf0d84055c41c12bae3"
     },
     "Source/PokeMonster/Encounter/PokeMonsterEncounterSubsystem.cpp": {
-      "bytes": 22571,
-      "sha256": "962dc197edca2951adc0fb19f7d9c41e089072c4f4b7b915a6efe61a0a5da0af"
+      "bytes": 24244,
+      "sha256": "1bd5d71d980c7b8681933cf3247fbe83baf47c6bb6ab1cb0eb03e019d843ce13"
     },
     "Source/PokeMonster/Encounter/PokeMonsterEncounterSubsystem.h": {
-      "bytes": 10788,
-      "sha256": "0e3dce2c154e473123d57c9af369a3fed36d891b1803aa248efebd774d8d1baa"
+      "bytes": 11158,
+      "sha256": "2a624797a8fb8fee0ce95696d27726c531b68df06f3e05ff7cf4f7b7cb061671"
     },
     "Source/PokeMonster/Encounter/PokeMonsterTrainerNPC.cpp": {
       "bytes": 6771,
@@ -12122,12 +12194,12 @@
       "sha256": "1209a97021f57f195344075c823547ccdca1a7990b198f8e0e8f7f35b96dc086"
     },
     "Source/PokeMonster/Save/PokeMonsterSaveGame.h": {
-      "bytes": 1743,
-      "sha256": "71ebe307a63127c276895a0dc36d12609373d76d319553257d4078e800f94d94"
+      "bytes": 1800,
+      "sha256": "5d361645c7b7e2b4931b22d78dd731ca45eb596f3ba2b3e457d83fd7902987fd"
     },
     "Source/PokeMonster/Save/PokeMonsterSaveSubsystem.cpp": {
-      "bytes": 15887,
-      "sha256": "a5dcf23095337df7afbb40ec5cef15c4235413cfebb1f5dc0cc379fcd4113b67"
+      "bytes": 16773,
+      "sha256": "191f30e2be47dab2c47989cfd1341e62effb9a393895ea42c8c41808e921a636"
     },
     "Source/PokeMonster/Save/PokeMonsterSaveSubsystem.h": {
       "bytes": 1928,
@@ -12140,6 +12212,10 @@
     "Source/PokeMonster/Story/PokeMonsterStoryGoal.h": {
       "bytes": 2359,
       "sha256": "a461ac0df2b12743cb85ca6ad289dde8f5fc1a2170e399d4e78b57d28618e9d7"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterAnimationCorrectionsV61Test.cpp": {
+      "bytes": 3860,
+      "sha256": "fb14de5a2b6e3ec801eee4f69b59ef802183974b73809129587ff062e89887f7"
     },
     "Source/PokeMonster/Tests/PokeMonsterAnimationCorrectionsV6Test.cpp": {
       "bytes": 3011,
@@ -12273,6 +12349,10 @@
       "bytes": 3172,
       "sha256": "55fca90a6b641c572028a908c4a72128745b839861066886d2b9cdea7f59c06f"
     },
+    "Source/PokeMonster/Tests/PokeMonsterMoveManagementV2Test.cpp": {
+      "bytes": 10641,
+      "sha256": "f3a906c9dbce77e26640288f52bab9a124415ab1b1c3158d321360c97360332a"
+    },
     "Source/PokeMonster/Tests/PokeMonsterNPCMotionV2Test.cpp": {
       "bytes": 3196,
       "sha256": "fc324011cbd5298c6ec3da025fde1528f55a02862329fe6b2362123fb92c4a91"
@@ -12304,6 +12384,10 @@
     "Source/PokeMonster/Tests/PokeMonsterPlayerSprintTest.cpp": {
       "bytes": 4903,
       "sha256": "73c1f4eabfbc2821f155d5d016044015b6ab6aa350209be7a236529116507fc5"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterProgressionV1Test.cpp": {
+      "bytes": 10330,
+      "sha256": "9d587e3e6d36a8a0ee2a112af2ddfdbe5a6c21df2cbc4487c3b97fe2ec7fa59d"
     },
     "Source/PokeMonster/Tests/PokeMonsterQuestTest.cpp": {
       "bytes": 9331,
@@ -12422,28 +12506,28 @@
       "sha256": "3a2c18e3987d50a67cf15dd29c36e11784dcd2fa83c10efd0b44403f82006224"
     },
     "Source/PokeMonster/UI/PokeMonsterOverworldPlayerController.cpp": {
-      "bytes": 10117,
-      "sha256": "fafbbf12e597432e93fd3c424f491aaa83f7f54ec5ac6c3a296f5dd36629a5a8"
+      "bytes": 11727,
+      "sha256": "2390d03d7368cdde87e67db40e60dc381e0158bd6f2ed5b90410ff4d2b2442b6"
     },
     "Source/PokeMonster/UI/PokeMonsterOverworldPlayerController.h": {
-      "bytes": 2868,
-      "sha256": "74e5605addc48a420f8a01315c91426e121e4523c2a29974b74ec4f8a1596639"
+      "bytes": 3273,
+      "sha256": "5d87212e4f62d7a91a7aeeace6f78fe557266bcbfd09251bdd28f49c97055e6c"
     },
     "Source/PokeMonster/UI/PokeMonsterOverworldView.cpp": {
-      "bytes": 2511,
-      "sha256": "63481ba04e48d94059f05151970688db69762d4aac563605dd6d23a317a865b6"
+      "bytes": 4141,
+      "sha256": "5cc7c45d0fe2f0f3c636c312a58cabb6fe111e43c223598e0448a12c2b7d0493"
     },
     "Source/PokeMonster/UI/PokeMonsterOverworldView.h": {
-      "bytes": 1651,
-      "sha256": "6e538b0bff43318fbc94fe6e7875400d8ac484f6cc29d027ca7b4d12be976153"
+      "bytes": 2445,
+      "sha256": "2e63e373a02822326680b0a939a86ea5cc26fbfc6d5a8f4f93a2647e20125295"
     },
     "Source/PokeMonster/UI/PokeMonsterOverworldWidget.cpp": {
-      "bytes": 24313,
-      "sha256": "186c01e51543a54f69ed9eebb83179e06b4aedcf733dd38e3c5422bb614915d0"
+      "bytes": 33006,
+      "sha256": "d307835d54b98d8f406c1c8e6d43787252f18c778db192ec8f849215c46772fc"
     },
     "Source/PokeMonster/UI/PokeMonsterOverworldWidget.h": {
-      "bytes": 3945,
-      "sha256": "3c37e02e5a75a37ca4fba5f6c5623f43b76b75bf740baa69f9748771ae9d77ec"
+      "bytes": 4514,
+      "sha256": "7d6638900ca6082254a3ae49c914a069ebe5ffe843f5e357f66f5c597c723e58"
     },
     "Source/PokeMonster/World/PokeMonsterBuildingCutaway.cpp": {
       "bytes": 15198,
@@ -12544,6 +12628,94 @@
     "Tools/AnimationCorrectionsV6/ValidateSources.py": {
       "bytes": 1538,
       "sha256": "bcbe0a2fca28dbbfec5b933151d499f1fad78e43e5b62723810a695813448d27"
+    },
+    "Tools/AnimationCorrectionsV61/AcceptGlurak.py": {
+      "bytes": 1712,
+      "sha256": "3084367e7ef050767814aa12448256a171d0b812d3e99017ea6a2f89645cfb1a"
+    },
+    "Tools/AnimationCorrectionsV61/Acceptance.json": {
+      "bytes": 48585,
+      "sha256": "78b0c215983ca7dec877e58c9d3ae2886886fed3501802db562ea4c62fe54d2c"
+    },
+    "Tools/AnimationCorrectionsV61/AlignedComparison.py": {
+      "bytes": 4187,
+      "sha256": "9b876fb0c7aee4db2882b083891ee9e49c516cc83d2985b4fa58daeb640679c8"
+    },
+    "Tools/AnimationCorrectionsV61/AnalyzeFootProbe.py": {
+      "bytes": 1610,
+      "sha256": "92158ddfd57b0cfb1f0ddf495aa1392c29fdc9c25ac8edb9e9c84e00a2dc5a8c"
+    },
+    "Tools/AnimationCorrectionsV61/AssessAutomation.py": {
+      "bytes": 1332,
+      "sha256": "32f753c41ca1d9d73672578fb50c61f38c744d2fdf62f847e30182a0f3a9c666"
+    },
+    "Tools/AnimationCorrectionsV61/AuditHandoff.py": {
+      "bytes": 2276,
+      "sha256": "138661177390207af90cde50a16acc9accd9a412ad0ace0a94c736396c07fc76"
+    },
+    "Tools/AnimationCorrectionsV61/BuildSources.py": {
+      "bytes": 8099,
+      "sha256": "1a6a4ebbde5086a612b55975972deef594d27a7769de96d14440b5e29ab97cd2"
+    },
+    "Tools/AnimationCorrectionsV61/EncodeReviews.py": {
+      "bytes": 2298,
+      "sha256": "6b440d114f46e7f20a9f55c4a4dcb9aa7a8ac0ab496c572649eb031dcc8b59c4"
+    },
+    "Tools/AnimationCorrectionsV61/FootProbe.py": {
+      "bytes": 3442,
+      "sha256": "5e7840eb171f8a7ede58fe3fb23208725f0ab7c647e86e1aff73a422a86698c7"
+    },
+    "Tools/AnimationCorrectionsV61/GatherEvidence.py": {
+      "bytes": 3869,
+      "sha256": "e8ae472d5d540caa12a9d54ac465562acbea59893fa77cb2964ae5e319130009"
+    },
+    "Tools/AnimationCorrectionsV61/ImportCandidates.py": {
+      "bytes": 3891,
+      "sha256": "6576e721bc23951075058cb1550fb3a2106fac7835a28f5d90671eee667a5710"
+    },
+    "Tools/AnimationCorrectionsV61/InspectOriginalWeights.py": {
+      "bytes": 650,
+      "sha256": "51a75c87f59cef5184559ceac94b15a8ccfe9f986e0d7a522daa7fbe84e3003f"
+    },
+    "Tools/AnimationCorrectionsV61/InspectPlayerDeformation.py": {
+      "bytes": 2184,
+      "sha256": "1c912fee6d3559a690d70418d12fe2c52faf3c8f2c846d52186dc8a79d6d58ac"
+    },
+    "Tools/AnimationCorrectionsV61/InspectSources.py": {
+      "bytes": 4557,
+      "sha256": "0e2cd280b69910ac721ad2a973545ca83b1d2821cfda2afec8281678f04f62b7"
+    },
+    "Tools/AnimationCorrectionsV61/InspectWingRootResidual.py": {
+      "bytes": 1749,
+      "sha256": "c0b273e5683a9cc05fa114b0de529fb64e208c08cc1ff0955ea8e39b456178e5"
+    },
+    "Tools/AnimationCorrectionsV61/MakeDetails.py": {
+      "bytes": 1320,
+      "sha256": "c3870dfc3bc515dd88e70b227fdf17331adf5c70219e0ee90c8021bd8a26992d"
+    },
+    "Tools/AnimationCorrectionsV61/MapChecks.py": {
+      "bytes": 1067,
+      "sha256": "4d29cdfcd4b08b833250c3ef7db6d6a7baeafc282ea0bd7ee5e24ecfa1a3306a"
+    },
+    "Tools/AnimationCorrectionsV61/README.md": {
+      "bytes": 5075,
+      "sha256": "f165c595c997f46941e04693b2426bb7bfa5638c02d4f54f3c94ac30dac5bb27"
+    },
+    "Tools/AnimationCorrectionsV61/RefreshOwnGlurak.py": {
+      "bytes": 2340,
+      "sha256": "1eb0508a3c41e54653878f771fa7b50e7aa0d942ef443852fbd4a59a595d42ca"
+    },
+    "Tools/AnimationCorrectionsV61/RefreshOwnPlayer.py": {
+      "bytes": 2328,
+      "sha256": "d04f9f3f27e53992ee449e22d0f6283dc3140962fe606ca9b430e9d16dc414a1"
+    },
+    "Tools/AnimationCorrectionsV61/Review.py": {
+      "bytes": 7149,
+      "sha256": "4ebc2ccddafd7f0c628c8149e856688de78774afa74f11b6b655d1d0f75a3272"
+    },
+    "Tools/AnimationCorrectionsV61/ValidateSources.py": {
+      "bytes": 2787,
+      "sha256": "409ac4008ef966176c94811c260bbcccd503ed2e452fe81c786803c7137d9a16"
     },
     "Tools/BattleSystemV3/CheckMaps.py": {
       "bytes": 1037,
@@ -13148,6 +13320,42 @@
     "Tools/CreaturePolishV4/VerifyAccepted.py": {
       "bytes": 2266,
       "sha256": "2dc4e7cd5282ce5642f4c51e6fe09da7178759e2bf20669bc645dbb4e43929b6"
+    },
+    "Tools/CreatureProgressionV1/FetchReference.py": {
+      "bytes": 3619,
+      "sha256": "1ef79e3446df6a42429e7d3b29a2b40845775129fb5e5adb5150848e99349f4b"
+    },
+    "Tools/CreatureProgressionV1/Gen2Reference.json": {
+      "bytes": 72288,
+      "sha256": "359009e7cd649e3c716a8916cdaf84790319679847f9a845284e0037b3aa8650"
+    },
+    "Tools/CreatureProgressionV1/InspectEditor.py": {
+      "bytes": 1433,
+      "sha256": "c9305f693ecc45d5a28f8cf8653c2a1b893414aab2adc00a052690de2d5ebe72"
+    },
+    "Tools/CreatureProgressionV1/MapChecks.py": {
+      "bytes": 1062,
+      "sha256": "c65efb9672b0c2f4f0a1ab2a3bb9ad928e9daf2b4a738f08a15a43313c98827a"
+    },
+    "Tools/CreatureProgressionV1/PrepareData.py": {
+      "bytes": 5388,
+      "sha256": "09a71af4e39678a8d20a74d41a4805364f65e9b6da9e92feb0c4209cc199dd8b"
+    },
+    "Tools/CreatureProgressionV1/README.md": {
+      "bytes": 5218,
+      "sha256": "fa52eed61ef474202f487c14e26463d2ae4bf5b6e99cbe99a416fe419b0e11d2"
+    },
+    "Tools/CreatureProgressionV1/Review.py": {
+      "bytes": 6530,
+      "sha256": "5f29080eff8f39e57cd172015e41d7cc205ffe6c23d8c7399aec7e0a7b7a1629"
+    },
+    "Tools/CreatureProgressionV1/RunPIE.py": {
+      "bytes": 1253,
+      "sha256": "0d37fdd5732d6a250dd0adbd6dacb56869a7f62ce1a054b5aca053e80d63eaea"
+    },
+    "Tools/CreatureProgressionV1/ValidateData.py": {
+      "bytes": 2399,
+      "sha256": "31f3559aba0c000b9bfb66a9aecd089ec2b74275656d76c1b486490e79ce2f54"
     },
     "Tools/CreatureTestGroundV1/Acceptance.json": {
       "bytes": 7332,
@@ -13998,8 +14206,8 @@
       "sha256": "6f4272afb226129fa8f063204331211f67b88dc57b2914b3c2eeae61f170195a"
     },
     "Tools/GlumandaV11/ObserveGameplay.py": {
-      "bytes": 3693,
-      "sha256": "f6e2fcb91e854536a36a81bdac28ee381b09a96a0e85acdfb75a578fb00fed42"
+      "bytes": 4049,
+      "sha256": "6e2ea2424651137593f82751da89b403f71534cf3db0066be734c953f33609fc"
     },
     "Tools/GlumandaV11/PrepareEvidence.py": {
       "bytes": 2820,
@@ -14444,6 +14652,26 @@
     "Tools/MotionRefinementV5/VerifyProtection.py": {
       "bytes": 1826,
       "sha256": "389fd2e2cc63ede5e041ca4d1a92f1e745c6ecd558cda95d3fbc0371f9ed30e9"
+    },
+    "Tools/MoveManagementV2/MapChecks.py": {
+      "bytes": 1855,
+      "sha256": "d9760212bec871bc55828237f4b757ace3b23c5f1127e148788f79afdd88c86e"
+    },
+    "Tools/MoveManagementV2/README.md": {
+      "bytes": 6560,
+      "sha256": "23d7bf4434ead344b6cfab3bddfd3d31b2d37171d81640b3b8a21567c3be35cc"
+    },
+    "Tools/MoveManagementV2/Review.py": {
+      "bytes": 8738,
+      "sha256": "4311eb914902bfbc8dc0b5918bccdf9013233a1cc6e37c38e9454a59ae8dc956"
+    },
+    "Tools/MoveManagementV2/RunReview.py": {
+      "bytes": 2171,
+      "sha256": "4541a9cd0fa141735bb6b77df37ebf303734aa0e002ab44aefd9ad2c9cd24d33"
+    },
+    "Tools/MoveManagementV2/ValidateGameplay.py": {
+      "bytes": 1106,
+      "sha256": "91ef89796cf4722d73a60b2c03b2c27a05ba9340f25370de4ea5fde288fe0d4f"
     },
     "Tools/OptimizeDevTestMapVisualV2.py": {
       "bytes": 3691,
@@ -18556,202 +18784,6 @@
     "Tools/ZunderlaufV1/ValidateWorld.py": {
       "bytes": 2456,
       "sha256": "f11ca90fee28b17b3fc13e83519f74c2db634c72a8e296a58fed0074f4a28600"
-    },
-    "Art/Characters/Creatures/Glurak/AnimationCorrectionsV61_Audit.json": {
-      "bytes": 516271,
-      "sha256": "ff0c8d9747c1f9cc1207a4da942d1d28de4981032e9ec28d7de4c0722e1f82a1"
-    },
-    "Art/Characters/Creatures/Glurak/Exports/AnimationV61/Glurak_Idle.fbx": {
-      "bytes": 11334028,
-      "sha256": "5667f2c2aebec69f654112cff740357a7b08b7a76f15fdf5b7cb6799a6ddf68f"
-    },
-    "Art/Characters/Creatures/Glurak/Source/Glurak_AnimationCorrections_V61.blend": {
-      "bytes": 31042710,
-      "sha256": "33ef643760472a0119cd8b281530eb30b48b9160f70527c8ccf561f73837447e"
-    },
-    "Art/Characters/YoungTrainer/AnimationCorrectionsV61_Audit.json": {
-      "bytes": 591780,
-      "sha256": "be4f2f48583eb9a23a37f14a6348f6feafe8c7ef846ad703ed4bb7b2ffec21c3"
-    },
-    "Art/Characters/YoungTrainer/Exports/AnimationV61/Player_Idle.fbx": {
-      "bytes": 3545820,
-      "sha256": "e68c7b5a3a46d0a234142c8f130916ec50cf2086380491c4eb7f385c74e9d214"
-    },
-    "Art/Characters/YoungTrainer/Source/Player_Meshy_AnimationCorrections_V61.blend": {
-      "bytes": 12190726,
-      "sha256": "8683d6233f8ca30e7547f07cea5ac96fa6a3c21f2678800647bf8ec232906541"
-    },
-    "Content/Characters/Creatures/Glurak/AnimationV61/DA_Glurak_Presentation_V61.uasset": {
-      "bytes": 4667,
-      "sha256": "45d64a49ed57044935022778f9d9ba2399524ae29a41a14d845c2717bbeb4b82"
-    },
-    "Content/Characters/Creatures/Glurak/AnimationV61/SK_Glurak_V61.uasset": {
-      "bytes": 35962934,
-      "sha256": "a98d7e0b4773b3f80ff710b6b10fe051bd097fcac9a2d1cd99e1d0284c148218"
-    },
-    "Content/Characters/YoungTrainer/AnimationV61/SK_Player_V61.uasset": {
-      "bytes": 11456440,
-      "sha256": "ceb24ce11d81628529d62352f58cb038cb4d8478a0a12cbccb1047460227ead3"
-    },
-    "Source/PokeMonster/Characters/PokeMonsterFootContact.h": {
-      "bytes": 1233,
-      "sha256": "e82a7e73f1c4d4e42a599a7b02ebed38e68131d9d923adf136c7893dff4b9219"
-    },
-    "Source/PokeMonster/Tests/PokeMonsterAnimationCorrectionsV61Test.cpp": {
-      "bytes": 3860,
-      "sha256": "fb14de5a2b6e3ec801eee4f69b59ef802183974b73809129587ff062e89887f7"
-    },
-    "Tools/AnimationCorrectionsV61/AcceptGlurak.py": {
-      "bytes": 1712,
-      "sha256": "3084367e7ef050767814aa12448256a171d0b812d3e99017ea6a2f89645cfb1a"
-    },
-    "Tools/AnimationCorrectionsV61/Acceptance.json": {
-      "bytes": 48585,
-      "sha256": "78b0c215983ca7dec877e58c9d3ae2886886fed3501802db562ea4c62fe54d2c"
-    },
-    "Tools/AnimationCorrectionsV61/AlignedComparison.py": {
-      "bytes": 4187,
-      "sha256": "9b876fb0c7aee4db2882b083891ee9e49c516cc83d2985b4fa58daeb640679c8"
-    },
-    "Tools/AnimationCorrectionsV61/AnalyzeFootProbe.py": {
-      "bytes": 1610,
-      "sha256": "92158ddfd57b0cfb1f0ddf495aa1392c29fdc9c25ac8edb9e9c84e00a2dc5a8c"
-    },
-    "Tools/AnimationCorrectionsV61/AssessAutomation.py": {
-      "bytes": 1332,
-      "sha256": "32f753c41ca1d9d73672578fb50c61f38c744d2fdf62f847e30182a0f3a9c666"
-    },
-    "Tools/AnimationCorrectionsV61/BuildSources.py": {
-      "bytes": 8099,
-      "sha256": "1a6a4ebbde5086a612b55975972deef594d27a7769de96d14440b5e29ab97cd2"
-    },
-    "Tools/AnimationCorrectionsV61/EncodeReviews.py": {
-      "bytes": 2298,
-      "sha256": "6b440d114f46e7f20a9f55c4a4dcb9aa7a8ac0ab496c572649eb031dcc8b59c4"
-    },
-    "Tools/AnimationCorrectionsV61/FootProbe.py": {
-      "bytes": 3442,
-      "sha256": "5e7840eb171f8a7ede58fe3fb23208725f0ab7c647e86e1aff73a422a86698c7"
-    },
-    "Tools/AnimationCorrectionsV61/GatherEvidence.py": {
-      "bytes": 3869,
-      "sha256": "e8ae472d5d540caa12a9d54ac465562acbea59893fa77cb2964ae5e319130009"
-    },
-    "Tools/AnimationCorrectionsV61/ImportCandidates.py": {
-      "bytes": 3891,
-      "sha256": "6576e721bc23951075058cb1550fb3a2106fac7835a28f5d90671eee667a5710"
-    },
-    "Tools/AnimationCorrectionsV61/InspectOriginalWeights.py": {
-      "bytes": 650,
-      "sha256": "51a75c87f59cef5184559ceac94b15a8ccfe9f986e0d7a522daa7fbe84e3003f"
-    },
-    "Tools/AnimationCorrectionsV61/InspectPlayerDeformation.py": {
-      "bytes": 2184,
-      "sha256": "1c912fee6d3559a690d70418d12fe2c52faf3c8f2c846d52186dc8a79d6d58ac"
-    },
-    "Tools/AnimationCorrectionsV61/InspectSources.py": {
-      "bytes": 4557,
-      "sha256": "0e2cd280b69910ac721ad2a973545ca83b1d2821cfda2afec8281678f04f62b7"
-    },
-    "Tools/AnimationCorrectionsV61/InspectWingRootResidual.py": {
-      "bytes": 1749,
-      "sha256": "c0b273e5683a9cc05fa114b0de529fb64e208c08cc1ff0955ea8e39b456178e5"
-    },
-    "Tools/AnimationCorrectionsV61/MakeDetails.py": {
-      "bytes": 1320,
-      "sha256": "c3870dfc3bc515dd88e70b227fdf17331adf5c70219e0ee90c8021bd8a26992d"
-    },
-    "Tools/AnimationCorrectionsV61/MapChecks.py": {
-      "bytes": 1067,
-      "sha256": "4d29cdfcd4b08b833250c3ef7db6d6a7baeafc282ea0bd7ee5e24ecfa1a3306a"
-    },
-    "Tools/AnimationCorrectionsV61/README.md": {
-      "bytes": 5075,
-      "sha256": "f165c595c997f46941e04693b2426bb7bfa5638c02d4f54f3c94ac30dac5bb27"
-    },
-    "Tools/AnimationCorrectionsV61/RefreshOwnGlurak.py": {
-      "bytes": 2340,
-      "sha256": "1eb0508a3c41e54653878f771fa7b50e7aa0d942ef443852fbd4a59a595d42ca"
-    },
-    "Tools/AnimationCorrectionsV61/RefreshOwnPlayer.py": {
-      "bytes": 2328,
-      "sha256": "d04f9f3f27e53992ee449e22d0f6283dc3140962fe606ca9b430e9d16dc414a1"
-    },
-    "Tools/AnimationCorrectionsV61/Review.py": {
-      "bytes": 7149,
-      "sha256": "4ebc2ccddafd7f0c628c8149e856688de78774afa74f11b6b655d1d0f75a3272"
-    },
-    "Tools/AnimationCorrectionsV61/ValidateSources.py": {
-      "bytes": 2787,
-      "sha256": "409ac4008ef966176c94811c260bbcccd503ed2e452fe81c786803c7137d9a16"
-    },
-    "Tools/AnimationCorrectionsV61/AuditHandoff.py": {
-      "bytes": 2276,
-      "sha256": "138661177390207af90cde50a16acc9accd9a412ad0ace0a94c736396c07fc76"
-    },
-    "Docs/ANIMATIONSFEINSCHLIFF_V6_1_PRUEFBERICHT.md": {
-      "bytes": 18350,
-      "sha256": "52f931cc03fd6fdd1e3824e15462497d33b6a28ce933d2613bbfbb0e877eb21f"
-    },
-    "Content/Data/Moves/ProgressionV1/DA_Slam.uasset": {
-      "bytes": 1594,
-      "sha256": "0beaff87d14e90ae52a28fa65459f8e1361d6ceb82cee0dfb9ec1f902a43aeb3"
-    },
-    "Tools/CreatureProgressionV1/RunPIE.py": {
-      "bytes": 1253,
-      "sha256": "0d37fdd5732d6a250dd0adbd6dacb56869a7f62ce1a054b5aca053e80d63eaea"
-    },
-    "Tools/CreatureProgressionV1/PrepareData.py": {
-      "bytes": 5388,
-      "sha256": "09a71af4e39678a8d20a74d41a4805364f65e9b6da9e92feb0c4209cc199dd8b"
-    },
-    "Tools/CreatureProgressionV1/README.md": {
-      "bytes": 5218,
-      "sha256": "fa52eed61ef474202f487c14e26463d2ae4bf5b6e99cbe99a416fe419b0e11d2"
-    },
-    "Content/Data/Moves/ProgressionV1/DA_HydroPump.uasset": {
-      "bytes": 1993,
-      "sha256": "f9059d426a865e8d77286d827396cc33015a3e66d5ea58fc7afb8355be260f5a"
-    },
-    "Source/PokeMonster/Tests/PokeMonsterProgressionV1Test.cpp": {
-      "bytes": 10330,
-      "sha256": "9d587e3e6d36a8a0ee2a112af2ddfdbe5a6c21df2cbc4487c3b97fe2ec7fa59d"
-    },
-    "Tools/CreatureProgressionV1/InspectEditor.py": {
-      "bytes": 1433,
-      "sha256": "c9305f693ecc45d5a28f8cf8653c2a1b893414aab2adc00a052690de2d5ebe72"
-    },
-    "Source/PokeMonster/Development/PokeMonsterProgressionV1Review.cpp": {
-      "bytes": 2561,
-      "sha256": "ac11a3474dba691e2eead24af0176c9a7a2b8b2eeaec2895d0d73747aea7e0c6"
-    },
-    "Tools/CreatureProgressionV1/FetchReference.py": {
-      "bytes": 3619,
-      "sha256": "1ef79e3446df6a42429e7d3b29a2b40845775129fb5e5adb5150848e99349f4b"
-    },
-    "Content/Data/Moves/ProgressionV1/DA_Flamethrower.uasset": {
-      "bytes": 2290,
-      "sha256": "3f4add5143b55b0b3e40942b31d863d69ea92cb24e46fbacf7b8ff1cad614fd2"
-    },
-    "Tools/CreatureProgressionV1/MapChecks.py": {
-      "bytes": 1062,
-      "sha256": "c65efb9672b0c2f4f0a1ab2a3bb9ad928e9daf2b4a738f08a15a43313c98827a"
-    },
-    "Tools/CreatureProgressionV1/Gen2Reference.json": {
-      "bytes": 72288,
-      "sha256": "359009e7cd649e3c716a8916cdaf84790319679847f9a845284e0037b3aa8650"
-    },
-    "Tools/CreatureProgressionV1/ValidateData.py": {
-      "bytes": 2399,
-      "sha256": "31f3559aba0c000b9bfb66a9aecd089ec2b74275656d76c1b486490e79ce2f54"
-    },
-    "Docs/POKEMON_FORTSCHRITTSSYSTEM_V1_PRUEFBERICHT.md": {
-      "bytes": 18923,
-      "sha256": "a03e27e1c313867dac5f5ae4dda58ec0ef295d5b415fc22b75e261012d3d6d99"
-    },
-    "Tools/CreatureProgressionV1/Review.py": {
-      "bytes": 6530,
-      "sha256": "5f29080eff8f39e57cd172015e41d7cc205ffe6c23d8c7399aec7e0a7b7a1629"
     }
   }
 }
