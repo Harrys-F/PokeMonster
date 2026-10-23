@@ -2,6 +2,8 @@
 
 **Stand: 23.10.2026. Technische Grundlage geprüft; vollständiger V4-Auftrag noch offen.**
 
+**Historischer Upload-Stopp (inzwischen aufgehoben, siehe Fortsetzung unten):** `22764fd8` ist auf GitHub bestätigt. Der geprüfte Kompatibilitätsnachtrag `2950a5ea` ist nur lokal vorhanden: sein Push endete mit SSH-Zeitüberschreitung / Broken pipe (Exit 128). Eine anschließende direkte Remote-Abfrage bestätigt weiterhin `22764fd8`. Kein Wiederholungsversuch. main liegt einen Commit vor origin/main; dieser Fehlernachtrag im Bericht/Ergebnis-JSON/Manifest bleibt zunächst uncommittet.
+
 ## Ergebnis und tatsächlicher Umfang
 
 Der Bestand bestätigt 49 gesperrte kanonische Lernattacken. Es fehlen jedoch nicht 49 unabhängige Systeme: Sie teilen sich Effektbausteine und verwenden 40 unterschiedliche Metadaten-Effektkennungen. Der Gesamtbestand umfasst 68 kanonische Lernattacken, davon weiterhin 19 produktiv unterstützt; tatsächlich existieren 22 Move-Assets einschließlich drei historischer Testattacken.
@@ -100,8 +102,15 @@ Implementierungs- und Prüfcommit: [`22764fd8c8e40718d97a976be0569a738adcebe2`](
 
 Der erste Push enthält 53 neue normale Git-Objekte mit zusammen 1.614.410 unkomprimierten Bytes, deutlich unter der eigenen 1-GiB-Grenze. Aktuelle [GitHub-Einzeldateigrenze 100 MiB](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github) und [Push-Grenze 2 GiB](https://github.com/github/docs/blob/main/content/get-started/using-git/troubleshooting-the-2-gb-push-limit.md) wurden unmittelbar vor dem Push überprüft; alle Dateien halten sie ein. [LFS-Abrechnung](https://docs.github.com/en/billing/concepts/product-billing/git-lfs) separat geprüft: dieses Paket enthält 0 neue/geänderte LFS-Dateien, daher 0 zusätzliche LFS-Uploadbytes. Remote-LFS-Prüfer bestätigt 0 Objekte und führt dafür bewusst keinen leeren Batch oder Objekt-Download aus. Kein vollständiger erneuter Remote-LFS-Download behauptet. Lokaler bestehender LFS-Bestand wurde mit fsck erfolgreich geprüft.
 
-Keine Behauptung, dass damit der vollständige V4-Funktionsumfang abgeschlossen wäre. Der endgültige Dokumentationscommit wird nach dem Push erneut direkt geprüft und in der Abschlussmeldung genannt.
+Keine Behauptung, dass damit der vollständige V4-Funktionsumfang abgeschlossen wäre. Der lokale Kompatibilitätscommit `2950a5ea3a0e371fc147a97802390f19d94afed8` wurde geprüft und committed, aber **nicht erfolgreich gepusht**. Die SSH-Verbindung zu github.com brach mit `Operation timed out` / `Broken pipe` ab; Git-Push Exit 128. Eine anschließende ausschließlich lesende `git ls-remote --heads origin main`-Abfrage bestätigt weiterhin `22764fd8c8e40718d97a976be0569a738adcebe2`. Der zweite Push hätte nur 958.703 neue unkomprimierte normale Git-Objektbytes und 0 neue LFS-Objekte enthalten. Kein Quota- oder Größenfehler wurde gemeldet; die genaue Netzursache jenseits des SSH-Abbruchs ist nicht nachgewiesen.
+
+Keine weiteren Uploadversuche oder Commits nach diesem Fehler. Der lokale Fix bleibt erhalten. Der aktuelle Fehlernachtrag umfasst ausschließlich diesen Bericht, das Testergebnis-JSON und das aktualisierte Core-Manifest und ist noch nicht committed. Die 25 geschützten Incoming-Dateien bleiben unverändert unversioniert. Vor einer späteren Fortsetzung zuerst Remote neu prüfen; keinen Force-Push, keine Historienänderung und keinen erneuten LFS-Upload bereits vorhandener Objekte durchführen.
 
 ## Fortsetzung
 
 Nach verbindlicher Regelentscheidung: fehlende Lebenszyklen in derselben BattleSession vervollständigen, Originalattacken gruppenweise korrekt binden und die Produktionsdaten-/Gameplaytests erneut ausführen. Bis dahin bleiben die 49 nicht fertigen Lernattacken sichtbar gesperrt statt nur zum Schein vollständig.
+
+
+## Freigegebene Fortsetzung – Remote-Wiederherstellung
+
+Der vom Nutzer ausdrücklich genehmigte einzelne normale Wiederholungsversuch für `2950a5ea3a0e371fc147a97802390f19d94afed8` war erfolgreich. Eine direkte Remote-Abfrage bestätigt denselben Hash auf origin/main; kein Force-Push, kein History-Rewrite und keine neuen LFS-Objekte. Der frühere Fehlernachtrag wird nach erneuter Manifest-/Diffprüfung separat gesichert. Die neue Anweisung legt Kristall/Generation 2 als Regelgrundlage fest; die nachfolgende Implementierung und ihr endgültiger Funktionsumfang werden getrennt dokumentiert.

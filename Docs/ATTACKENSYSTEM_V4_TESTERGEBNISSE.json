@@ -249,5 +249,29 @@
     "followup_build": "MoveEffectsV4Build09",
     "followup_full_automation": "MoveEffectsV4Automation06",
     "production_move_assets_unchanged": true
+  },
+  "git_compatibility_push_failure": {
+    "local_commit": "2950a5ea3a0e371fc147a97802390f19d94afed8",
+    "remote_main_directly_verified": "22764fd8c8e40718d97a976be0569a738adcebe2",
+    "origin_tracking_ref": "22764fd8c8e40718d97a976be0569a738adcebe2",
+    "push_exit": 128,
+    "error": [
+      "Read from remote host github.com: Operation timed out",
+      "client_loop: send disconnect: Broken pipe",
+      "send-pack: unexpected disconnect while reading sideband packet",
+      "fatal: the remote end hung up unexpectedly"
+    ],
+    "retry_performed": false,
+    "local_ahead": 1,
+    "new_lfs_objects": 0,
+    "normal_new_object_bytes": 958703,
+    "report_left_uncommitted_after_network_stop": true
+  },
+  "complete_v4_release": false,
+  "authorized_retry": {
+    "commit": "2950a5ea3a0e371fc147a97802390f19d94afed8",
+    "remote": "2950a5ea3a0e371fc147a97802390f19d94afed8",
+    "retry_success": true,
+    "new_lfs_objects": 0
   }
 }

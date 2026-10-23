@@ -18802,12 +18802,12 @@
       "sha256": "1320aa3cdc161c756626303409fa16eb891995308f50cf8edda67d821738ea38"
     },
     "Docs/ATTACKENSYSTEM_V4_TESTERGEBNISSE.json": {
-      "bytes": 6981,
-      "sha256": "4a44021a65cae67b13fc85da023a9735e56d4dd4528ffda9f39affad266391fe"
+      "bytes": 7922,
+      "sha256": "3b13f51c97c5e08383b845f8f811a307278718cfe3734ac5fb9b6e3cefce08e4"
     },
     "Docs/ATTACKENSYSTEM_V4_PRUEFBERICHT.md": {
-      "bytes": 14005,
-      "sha256": "ed4984bbadf6aecc66cf08341cf428521730cf132492f888d4f5c89cb4ab332a"
+      "bytes": 16120,
+      "sha256": "d6b74b240d56fb3be6d52417199bb532768220fcec7d5937a6b0ff2b87f6cb8e"
     },
     "Source/PokeMonster/Development/PokeMonsterMoveEffectsV4Review.cpp": {
       "bytes": 4228,
