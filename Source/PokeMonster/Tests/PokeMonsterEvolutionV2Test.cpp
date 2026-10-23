@@ -76,3 +76,24 @@ bool FEvolutionV2Rollback::RunTest(const FString&)
  return true;
 }
 #endif
+
+#if WITH_DEV_AUTOMATION_TESTS && WITH_EDITOR
+#include "../Development/PokeMonsterEvolutionTest.h"
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FEvolutionPIEConditions,"PokeMonster.EvolutionV2.ManualPIETestConditions",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FEvolutionPIEConditions::RunTest(const FString&)
+{
+ using namespace EvolutionV2Tests;
+ auto C=Creature(TEXT("Zunderlauf"),10);C.ConsumeMovePP(0,3);const auto Id=C.InstanceId;const auto PP=C.GetMoveSlots()[0].GetCurrentPP();FPrimaryAssetId Target;
+ TestTrue(TEXT("Prepare existing Glumanda without replacing instance"),PokeMonsterEvolutionTest::PrepareConditions(C,Target));
+ TestEqual(TEXT("Only real first threshold"),C.Level,16);TestEqual(TEXT("Glutexo target"),Target,EvolutionV2Tests::Target(TEXT("Glutexo")));
+ TestEqual(TEXT("Same identity"),C.InstanceId,Id);TestEqual(TEXT("Spent AP retained"),C.GetMoveSlots()[0].GetCurrentPP(),PP);
+ C=Creature(TEXT("Glutexo"),10);C.CurrentHP=0;
+ TestTrue(TEXT("Second stage test prepares real route"),PokeMonsterEvolutionTest::PrepareConditions(C,Target));TestEqual(TEXT("Glurak threshold"),C.Level,36);TestEqual(TEXT("Glurak target"),Target,EvolutionV2Tests::Target(TEXT("Glurak")));TestTrue(TEXT("Explicit preview revives selected fainted creature only"),C.CurrentHP>0);
+ C=Creature(TEXT("Glutexo"),100);C.LastEvolutionOfferedLevel=100;TestTrue(TEXT("Same-level cancelled preview can be repeated"),PokeMonsterEvolutionTest::PrepareConditions(C,Target));TestEqual(TEXT("No level reduction"),C.Level,100);TestEqual(TEXT("Only test offer suppression cleared"),C.LastEvolutionOfferedLevel,0);
+ C=Creature(TEXT("Bisasam"),10);const auto Before=C;
+ TestFalse(TEXT("Missing target not forced"),PokeMonsterEvolutionTest::PrepareConditions(C,Target));TestEqual(TEXT("Failed preparation leaves original XP"),C.Experience,Before.Experience);TestEqual(TEXT("Failed preparation leaves original species"),C.Species,Before.Species);
+ C=Creature(TEXT("Glurak"),36);TestFalse(TEXT("No invented route beyond Glurak"),PokeMonsterEvolutionTest::PrepareConditions(C,Target));
+ auto* GI=NewObject<UGameInstance>();auto* Save=NewObject<UPokeMonsterSaveSubsystem>(GI);TestFalse(TEXT("Save isolation refuses non-PIE callers"),Save->BeginPIEMemoryPreview());TestFalse(TEXT("No isolation leaked"),Save->IsPIEMemoryPreviewActive());
+ return true;
+}
+#endif

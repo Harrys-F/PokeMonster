@@ -11,6 +11,8 @@
 #include "HAL/PlatformFileManager.h"
 #include "Misc/FileHelper.h"
 #include "Misc/Paths.h"
+#include "Engine/World.h"
+#include "UObject/UObjectIterator.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogPokeMonsterSave, Log, All);
 
@@ -244,6 +246,13 @@ bool UPokeMonsterSaveSubsystem::RestoreSnapshot(const UPokeMonsterSaveGame* Save
 
 bool UPokeMonsterSaveSubsystem::SaveSnapshotToSlot(UPokeMonsterSaveGame* Save, const FString& SlotName)
 {
+#if WITH_EDITOR
+    // A low-level caller must not bypass an active manual PIE preview's disk protection.
+    if (SlotName == DevSlotName)
+        for (TObjectIterator<UPokeMonsterSaveSubsystem> It; It; ++It)
+            if (It->IsPIEMemoryPreviewActive() && It->GetWorld()
+                && It->GetWorld()->WorldType == EWorldType::PIE) return false;
+#endif
 	// This project targets macOS. Its physical MoveFile uses same-filesystem rename(2),
 	// replacing the old destination atomically, without deleting it first.
 #if PLATFORM_MAC
@@ -277,6 +286,16 @@ bool UPokeMonsterSaveSubsystem::SaveCurrentGame()
 		Instance->GetSubsystem<UPokeMonsterCheckpointSubsystem>(),
 		Instance->GetSubsystem<UPokeMonsterQuestSubsystem>());
 	if (!Save) return false;
+#if WITH_EDITOR
+    if (IsPIEMemoryPreviewActive())
+    {
+        TArray<uint8> Bytes;
+        if (!UGameplayStatics::SaveGameToMemory(Save, Bytes) || Bytes.IsEmpty()) return false;
+        PIEMemorySave = MoveTemp(Bytes);
+        UE_LOG(LogPokeMonsterSave, Display, TEXT("PIE preview saved IN MEMORY; normal slot untouched."));
+        return true;
+    }
+#endif
 	const bool bSaved = SaveSnapshotToSlot(Save, DevSlotName);
 	if (bSaved) { UE_LOG(LogPokeMonsterSave, Display, TEXT("Save written: %s"), *DevSlotName); }
 	else { UE_LOG(LogPokeMonsterSave, Error, TEXT("Save failed: %s"), *DevSlotName); }
@@ -291,7 +310,13 @@ bool UPokeMonsterSaveSubsystem::LoadGame()
 		return false;
 	}
 	UGameInstance* Instance = GetGameInstance();
-	auto* Save = Cast<UPokeMonsterSaveGame>(UGameplayStatics::LoadGameFromSlot(DevSlotName, 0));
+#if WITH_EDITOR
+    auto* Save = Cast<UPokeMonsterSaveGame>(IsPIEMemoryPreviewActive()
+        ? UGameplayStatics::LoadGameFromMemory(PIEMemorySave)
+        : UGameplayStatics::LoadGameFromSlot(DevSlotName, 0));
+#else
+    auto* Save = Cast<UPokeMonsterSaveGame>(UGameplayStatics::LoadGameFromSlot(DevSlotName, 0));
+#endif
 	if (!Instance || !Save)
 	{
 		UE_LOG(LogPokeMonsterSave, Error, TEXT("Save slot %s is unreadable or has the wrong class."), *DevSlotName);
@@ -308,11 +333,17 @@ bool UPokeMonsterSaveSubsystem::LoadGame()
 
 bool UPokeMonsterSaveSubsystem::HasSaveGame() const
 {
+#if WITH_EDITOR
+    if (IsPIEMemoryPreviewActive()) return !PIEMemorySave.IsEmpty();
+#endif
 	return UGameplayStatics::DoesSaveGameExist(DevSlotName, 0);
 }
 
 bool UPokeMonsterSaveSubsystem::DeleteDevSave()
 {
+#if WITH_EDITOR
+    if (IsPIEMemoryPreviewActive()) return false;
+#endif
 	return !HasSaveGame() || UGameplayStatics::DeleteGameInSlot(DevSlotName, 0);
 }
 
@@ -367,3 +398,39 @@ bool UPokeMonsterSaveSubsystem::RunDevRoundTripTest()
 		Encounter->IsEncounterCompleted(TEXT("Dev_VisibleWild")) ? TEXT("yes") : TEXT("no"));
 	return bPassed;
 }
+
+#if WITH_EDITOR
+void UPokeMonsterSaveSubsystem::Deinitialize()
+{
+    PIEOriginalSnapshot.Reset();
+    PIEMemorySave.Reset();
+    Super::Deinitialize();
+}
+bool UPokeMonsterSaveSubsystem::BeginPIEMemoryPreview()
+{
+    if (IsPIEMemoryPreviewActive()) return false;
+    auto* GI = GetGameInstance();
+    if (!GI || !GetWorld() || GetWorld()->WorldType != EWorldType::PIE) return false;
+    auto* Snapshot = CaptureSnapshot(GI->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
+        GI->GetSubsystem<UPokeMonsterInventorySubsystem>(), this,
+        GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>(), GI->GetSubsystem<UPokeMonsterQuestSubsystem>());
+    TArray<uint8> Bytes;
+    if (!Snapshot || !UGameplayStatics::SaveGameToMemory(Snapshot, Bytes) || Bytes.IsEmpty()) return false;
+    PIEOriginalSnapshot = Bytes;
+    PIEMemorySave = MoveTemp(Bytes);
+    return true;
+}
+bool UPokeMonsterSaveSubsystem::EndPIEMemoryPreview()
+{
+    if (!IsPIEMemoryPreviewActive() || !GetWorld() || GetWorld()->WorldType != EWorldType::PIE) return false;
+    auto* GI = GetGameInstance();
+    auto* Snapshot = Cast<UPokeMonsterSaveGame>(UGameplayStatics::LoadGameFromMemory(PIEOriginalSnapshot));
+    if (!GI || !Snapshot || !RestoreSnapshot(Snapshot, GI->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
+        GI->GetSubsystem<UPokeMonsterInventorySubsystem>(), GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>(),
+        GI->GetSubsystem<UPokeMonsterQuestSubsystem>())) return false;
+    // Keep protection active until the entire original session has restored successfully.
+    PIEOriginalSnapshot.Reset();
+    PIEMemorySave.Reset();
+    return true;
+}
+#endif

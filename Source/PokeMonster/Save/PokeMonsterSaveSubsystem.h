@@ -22,6 +22,13 @@ public:
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Save") bool LoadGame();
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Save") bool HasSaveGame() const;
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Save") bool DeleteDevSave();
+#if WITH_EDITOR
+    /** In-memory save transport for one explicit PIE test. No disk slot is created or changed. */
+    virtual void Deinitialize() override;
+    bool BeginPIEMemoryPreview();
+    bool EndPIEMemoryPreview();
+    bool IsPIEMemoryPreviewActive() const { return !PIEOriginalSnapshot.IsEmpty(); }
+#endif
 	/** Explicit PIE diagnostics: mutate, save, clear, load and verify session state. */
 	bool RunDevRoundTripTest();
 
@@ -38,4 +45,9 @@ public:
 		UPokeMonsterEncounterSubsystem* Encounter, UPokeMonsterInventorySubsystem* Inventory,
 		UPokeMonsterCheckpointSubsystem* Checkpoint = nullptr,
 		UPokeMonsterQuestSubsystem* Quests = nullptr);
+#if WITH_EDITOR
+private:
+    TArray<uint8> PIEOriginalSnapshot;
+    TArray<uint8> PIEMemorySave;
+#endif
 };

@@ -29,3 +29,7 @@ Normaler Ablauf: XP/Kampfsieg → offene Lernangebote entscheiden → Entwicklun
 `pm.EvolutionReview.Capture NAME` rendert den tatsächlichen laufenden UMG-/3D-Zustand nativ in QHD unter Saved. Das ist ein separat ausgewiesenes Renderlayout, kein Screenshot des unter macOS tatsächlich kleineren Slate-Viewports. `CaptureLiveUI` liefert zusätzlich dessen unveränderte Pixel. Rohframes und Videos nur unter Saved. `RunFullGameplay.py LABEL` verwendet den vorhandenen vollständigen Fußlauf; `MapChecksEvolution.py` prüft alle elf Maps. Keine physische Controllerprüfung behaupten.
 
 Save 8 enthält Angebote und optional individuelle XP-Kurve; 1–7 bleiben lesbar. Die bestehenden Restore-/Repertoire-/AP-Funktionen bleiben zuständig. Keine neuen Freundschafts-, Inventar-, Quest- oder Kampfsysteme. Externe iOS-Warnungen und ein dadurch fehlgeschlagener strenger Wrapper müssen im jeweiligen Ergebnis getrennt stehen.
+
+## Manueller Editor-Test ohne Save-Dateiänderung
+
+`pm.EvolutionTest.List`, `pm.EvolutionTest.Start <1–6>` und `pm.EvolutionTest.End` sind der sichere Benutzereinstieg. Der vorhandene Save-Service serialisiert währenddessen ausschließlich im RAM. Alte Review-Fixtures allein sind nicht isoliert. Vollständige Bedienung, Testergebnisse und Grenzen: `Docs/ENTWICKLUNG_MANUELL_IM_PIE.md`. `RunManualEvolution.py LABEL` nutzt normalen Editor-PIE-Start/Stop, prüft beide Stufen, Abbruch, Teamplatz 2, RAM-Save/Load und einen frischen PIE-Neustart; keine Savekopie/-restaurierung.

@@ -2,7 +2,7 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "glutexo_evolution_v2_functional_tests_verified_strict_external_ios_warning",
+  "snapshot_kind": "manual_pie_evolution_preview_tested_external_ios_qa_warnings",
   "generated_at": "2026-10-23",
   "files": {
     ".codex/config.toml": {
@@ -541,6 +541,58 @@
       "bytes": 1635281,
       "sha256": "d6af8bd5666f1f4b3fe8e114555e4e784321dcb912bb1dbbd5e6c1e209396925"
     },
+    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Attack.fbx": {
+      "bytes": 1361308,
+      "sha256": "820673ce7e91f8bf6c8c4a2b43955b63346f99b95615898239574b3ca14f8697"
+    },
+    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Faint.fbx": {
+      "bytes": 1373436,
+      "sha256": "479dfae9106d613b0045251f1ad52966f4da8d6c323c1e95423e2dffe4ef0196"
+    },
+    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Happy.fbx": {
+      "bytes": 1373036,
+      "sha256": "b21d368497fb511f98a1bd402504496703f4e39bd5946c389d8c47f46f518efa"
+    },
+    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Hit.fbx": {
+      "bytes": 1341084,
+      "sha256": "b688b937d1120a7d1fcfcdc26149c0d7afd440fb638f3bc75753bb54155c55b5"
+    },
+    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Idle.fbx": {
+      "bytes": 1396188,
+      "sha256": "a737216bd07307ce29a5ecf11a52413bcd6a97b208b6cb4ae474dc0c178a38bd"
+    },
+    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Run.fbx": {
+      "bytes": 1341084,
+      "sha256": "7ddeb8c3eb59faf72df5da4f7f41939b35efabd683384bad20a94e2a561ac38f"
+    },
+    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Walk.fbx": {
+      "bytes": 1351868,
+      "sha256": "ca58a29f8548de8e1227398ad3c8dcccba26fe8dec8b49472189df51c6ae5fb2"
+    },
+    "Art/Characters/Creatures/Glutexo/MeshyV1_AnimationAudit.json": {
+      "bytes": 16286,
+      "sha256": "acbea3108ca2d8e9de8dcfc608302e59f6de7dfae2887f1985d108fa0cc5f10e"
+    },
+    "Art/Characters/Creatures/Glutexo/MeshyV1_ModelAudit.json": {
+      "bytes": 4721,
+      "sha256": "69627e9afb584ede883e5204be7de6dac634851417ad92edee7a97704721c77f"
+    },
+    "Art/Characters/Creatures/Glutexo/Source/Glutexo_Meshy_V1.blend": {
+      "bytes": 7021502,
+      "sha256": "a9adf298325ae4f56d3da8a6ed401aec1b7383f79b12ea826f3d4109444accf2"
+    },
+    "Art/Characters/Creatures/Glutexo/Textures/MeshyV1/Glutexo_BaseColor.jpg": {
+      "bytes": 2125401,
+      "sha256": "b876b3f4187e6f662c32d9906b3537b3fb600c56c2d2a6f3ddf0540debfc2173"
+    },
+    "Art/Characters/Creatures/Glutexo/Textures/MeshyV1/Glutexo_MetallicRoughness.jpg": {
+      "bytes": 1205931,
+      "sha256": "876621beff7cf66a99f767c6a098d0b2c6274bc2aa9144605bff86d423cf4762"
+    },
+    "Art/Characters/Creatures/Glutexo/Textures/MeshyV1/Glutexo_Normal.jpg": {
+      "bytes": 1439895,
+      "sha256": "78b18e2cc59e4f60bb855c9a346c821f5b76d56ea29560259724aceac17d4de5"
+    },
     "Art/Characters/Creatures/Incoming/Bisasam.glb": {
       "bytes": 5989748,
       "sha256": "01ee8bc064635aeaaed2b356e1c87e0a9d0ab819fa6285d86cfbe0460466306d"
@@ -560,6 +612,10 @@
     "Art/Characters/Creatures/Incoming/Glurak.glb": {
       "bytes": 12752600,
       "sha256": "ff10e35e0cce21b4f1b65e4d9f17d7c07076062f9aea7dd6aaa1d2b4b605338a"
+    },
+    "Art/Characters/Creatures/Incoming/Glutexo.glb": {
+      "bytes": 5579952,
+      "sha256": "718f9eb037832228f25bdbce299671db0972a9c3c271d23724e39743476c6efe"
     },
     "Art/Characters/Creatures/Incoming/Machomei.glb": {
       "bytes": 7762100,
@@ -6849,6 +6905,66 @@
       "bytes": 34634392,
       "sha256": "15622076498c9d3c5d2f2a6cb160a601b48289c03c7f8d12b3f6649d55c8aac8"
     },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Attack.uasset": {
+      "bytes": 54022,
+      "sha256": "70f894be4769d284b8d11a87e30a9d42fa69f6b9b5e7777f3bb96d0a54e250e1"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Faint.uasset": {
+      "bytes": 70419,
+      "sha256": "12a043b3f65a13062ce9da1723c561f775447e21c762b0d15d40cf459bd3bc36"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Happy.uasset": {
+      "bytes": 54742,
+      "sha256": "4c0ef2c1a5f38eebdff301ca15e27f421c4937c7b7ea19d6b3e7d2ec44c3a008"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Hit.uasset": {
+      "bytes": 44323,
+      "sha256": "efb52368a58005073faf879ac9fe95a2aeee88692e81d228c0805c85a04ff637"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Idle.uasset": {
+      "bytes": 74896,
+      "sha256": "156b3357a8c695a6866fe105ecce7270969fcee1a41b6d1de1c7ebda97ebc426"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Run.uasset": {
+      "bytes": 46259,
+      "sha256": "24b9a30ddce0e73e42497331118042d0a44a38b433847b9d7f8f1f8d8b6ba664"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Walk.uasset": {
+      "bytes": 53004,
+      "sha256": "8a499a1d5b82aa6013c5c40289ec47e4db86d47effe0c89c463dd52b0bc56ccf"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/DA_Glutexo_Presentation.uasset": {
+      "bytes": 3960,
+      "sha256": "009fb7bf241cefc7bcf170c0958d36a8981578506e11abf88a8c532d7917571d"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Materials/M_Glutexo.uasset": {
+      "bytes": 13459,
+      "sha256": "21b4f211b0d8e7cff439805fdb65e59c017de7acf24eebf9ebe018c4932c166d"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Materials/M_Glutexo_OriginalTailFlame.uasset": {
+      "bytes": 12862,
+      "sha256": "4763c5a9b08b2030730b1030c7d422d38e3cd9ec26a6f89f900cd4052706b7a5"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Meshes/SK_Glutexo_Meshy.uasset": {
+      "bytes": 4469434,
+      "sha256": "8f11deb8cac3f210b29f2b3696d8f617978c1fd75b31ea4d4e5de9827d95de4d"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Meshes/SK_Glutexo_Meshy_Skeleton.uasset": {
+      "bytes": 12466,
+      "sha256": "1c8e97d72b9f316a7a81c1e3de5930f27bfb82c2ccece38556c05497ac18f45b"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_BaseColor.uasset": {
+      "bytes": 2142864,
+      "sha256": "b9854dfc07643b968f55c2002693abef3b152d7f44432c03ce33ed271790f98d"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_MetallicRoughness.uasset": {
+      "bytes": 1217056,
+      "sha256": "ec42cca4f9aaa05ab07123aa32ebc1f896ccd283baa6e54928f82805e1e63a87"
+    },
+    "Content/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_Normal.uasset": {
+      "bytes": 1451025,
+      "sha256": "50c0264ab4ae67c7d8f03061ae0dfc8914eaf364258dc53f7347034507fc722b"
+    },
     "Content/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Attack_V6.uasset": {
       "bytes": 100713,
       "sha256": "cbc3ae6c3d6bfa630e6f898f154189300065671d50af868790ba88ff131f76a6"
@@ -7372,6 +7488,10 @@
     "Content/Characters/Creatures/Schiggy/SurfaceV2/SK_Schiggy_Surface.uasset": {
       "bytes": 3656726,
       "sha256": "0971695af99d4695f64edbc94c4dcabb9960e781ff187bf9753a8317ab3d4e16"
+    },
+    "Content/Characters/Creatures/Shared/EvolutionV2/M_EvolutionGlow.uasset": {
+      "bytes": 9089,
+      "sha256": "371bdfacfd38ece563eeab2d493b9dcdbee07818a0a7f1c8f79ab3f1de587d9c"
     },
     "Content/Characters/Creatures/Zunderlauf/Animations/A_Zunderlauf_Attack.uasset": {
       "bytes": 41560,
@@ -8349,6 +8469,10 @@
       "bytes": 6629,
       "sha256": "c06a74bca6f77ac1202460fd56d44e45070ee3547e1e4aed902643190d45468f"
     },
+    "Content/Data/Creatures/DA_Glutexo.uasset": {
+      "bytes": 7090,
+      "sha256": "c0140ee529be955dba5c9f5f17127954a9fe4d23257b762826b47d103e2fd626"
+    },
     "Content/Data/Creatures/DA_Machomei.uasset": {
       "bytes": 6197,
       "sha256": "423f9eadd8e803e5369e55174199bdb5e3d6fc64849706ca9469d32916f8c8f8"
@@ -8420,6 +8544,10 @@
     "Content/Data/Encounters/DA_Glurak_Wild.uasset": {
       "bytes": 2222,
       "sha256": "d55d20cb3425266ac34922a3bd5d41962691c5f3a60d07c2377f77903db98f4e"
+    },
+    "Content/Data/Encounters/DA_Glutexo_Wild.uasset": {
+      "bytes": 2230,
+      "sha256": "5210f7c9b7cabec7a4d83664ad511a165579394d5f10822dd9af5329a6cef039"
     },
     "Content/Data/Encounters/DA_Machomei_Wild.uasset": {
       "bytes": 2238,
@@ -8532,6 +8660,202 @@
     "Content/Data/Moves/DA_Withdraw.uasset": {
       "bytes": 2206,
       "sha256": "f03144b5610cad936657b4d61852fd92f96e9b05898c65275d2035775ee2c043"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Acid.uasset": {
+      "bytes": 3234,
+      "sha256": "d68b703712b08662863d1eebb0bd078e14bea0f67d09568b736f78d625c40229"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Agility.uasset": {
+      "bytes": 3526,
+      "sha256": "afad658eece50d49a11c2e9aba96ddcb5a7611e8fd891677dc15378aa4a4a5c5"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Bite.uasset": {
+      "bytes": 3462,
+      "sha256": "1a2164c2e9af920bf0c592b2e20174604b7b521038774e8771d8f9eff84d6793"
+    },
+    "Content/Data/Moves/EffectsV4/DA_ConfuseRay.uasset": {
+      "bytes": 3444,
+      "sha256": "be3c34b83d39766bb780ac5856c4433887f25f484dd358f0331c25d72815b3d8"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Confusion.uasset": {
+      "bytes": 3450,
+      "sha256": "7310015641cc0b49735ad1bdb1b020aedd84a4dc36aa943a2b02d54e0db970d7"
+    },
+    "Content/Data/Moves/EffectsV4/DA_CrossChop.uasset": {
+      "bytes": 2119,
+      "sha256": "095d8ba0b6f359397b93f9632b7b3b1e4a00ab5d49e899954c3fe803e4e66a97"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Curse.uasset": {
+      "bytes": 3703,
+      "sha256": "ed4ac32ecbc3c16ecd733200eab66914dc007e19f122cba3bbd22c6eff112275"
+    },
+    "Content/Data/Moves/EffectsV4/DA_DestinyBond.uasset": {
+      "bytes": 3627,
+      "sha256": "0fb452e462e5f65d5484fd621d9c3d1fb9e8b71c19a7916d41f6451dec63514f"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Disable.uasset": {
+      "bytes": 3433,
+      "sha256": "ea71b0031b93fb42039b809d4f3a7830bb9613933d5683116d071a4f17e5d4b8"
+    },
+    "Content/Data/Moves/EffectsV4/DA_DoubleTeam.uasset": {
+      "bytes": 3420,
+      "sha256": "3141a0ca8be6738851a70531b3374d41acbeffb4bec6f6c7749067fed7f42cd2"
+    },
+    "Content/Data/Moves/EffectsV4/DA_DragonRage.uasset": {
+      "bytes": 3459,
+      "sha256": "a18e6b3ab47ca43937090e483c1dfa20becbfce6aca4a4379fb3a55dc40c2a68"
+    },
+    "Content/Data/Moves/EffectsV4/DA_DreamEater.uasset": {
+      "bytes": 3643,
+      "sha256": "4a359cb1a95c3af33c07f7bee01645ed38d998de9f312e0fff73df7861af9490"
+    },
+    "Content/Data/Moves/EffectsV4/DA_FireSpin.uasset": {
+      "bytes": 3633,
+      "sha256": "9480f9681bf6235447fc7637ce5c942cb15406940cab56614ce7410415b85ec4"
+    },
+    "Content/Data/Moves/EffectsV4/DA_FocusEnergy.uasset": {
+      "bytes": 3432,
+      "sha256": "a78ca2220ce57d1a7fbef2a718112582a4fb5440f5e3d00ad78419c89be0baff"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Foresight.uasset": {
+      "bytes": 3496,
+      "sha256": "ce8d7cad3ddf8f18e439b76f6f41e1a450212687f35d0ca7698e0158c50a89ea"
+    },
+    "Content/Data/Moves/EffectsV4/DA_FurySwipes.uasset": {
+      "bytes": 3316,
+      "sha256": "b65606d7a740a4ede7f93200bf9f9543a377e17474fb0115a3de58a4a25a2907"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Growth.uasset": {
+      "bytes": 3402,
+      "sha256": "06e467398d94e548985fec2523002b41d42f44275b934dffef7a9c3a663fb12a"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Hypnosis.uasset": {
+      "bytes": 3488,
+      "sha256": "f5bd5ea4c30a7f8112f33d60b49b87d9f2304fbbac3b1fc1c97152522a5ca332"
+    },
+    "Content/Data/Moves/EffectsV4/DA_KarateChop.uasset": {
+      "bytes": 2083,
+      "sha256": "d6d7ce1ce1d30cd2754a117d5fddbd752d300c7403671116231e4db7fdd7f2e1"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Lick.uasset": {
+      "bytes": 3264,
+      "sha256": "88d4b3e00e50b67e5fd3708264e469421c0b4e336545179cc69fd77aa32d8558"
+    },
+    "Content/Data/Moves/EffectsV4/DA_LightScreen.uasset": {
+      "bytes": 3578,
+      "sha256": "66ff39374aa19ee6a12ddebdd0b39fe0e87545d1174093ff87a85c05535267bf"
+    },
+    "Content/Data/Moves/EffectsV4/DA_LowKick.uasset": {
+      "bytes": 3447,
+      "sha256": "5a1ef3a7dbdbc00754ca68b6d7682195be31341a0d777d7e82a7b504688c997f"
+    },
+    "Content/Data/Moves/EffectsV4/DA_MeanLook.uasset": {
+      "bytes": 3453,
+      "sha256": "b74b69c906f2b0e7e2cb0d983155f4864b2010dbf36403cce6a543f353a22069"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Moonlight.uasset": {
+      "bytes": 3451,
+      "sha256": "6581123f7d7df11070af65998cb623006cb4f26f232ce2e5c30fdf3e34be49c4"
+    },
+    "Content/Data/Moves/EffectsV4/DA_PetalDance.uasset": {
+      "bytes": 3529,
+      "sha256": "2fe04fa3fe31745704b6b62874e54c0f0d838e9981c14b8ad9c1efa4db48ebed"
+    },
+    "Content/Data/Moves/EffectsV4/DA_PoisonPowder.uasset": {
+      "bytes": 3614,
+      "sha256": "22a630c52b4bbaca0ddc9b89858ff1879e80ec118cb3a629b66edf63a91ac9b9"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Protect.uasset": {
+      "bytes": 3510,
+      "sha256": "b0a355c6832230a44e6bda0b5afaca99aea1f3b92c48c41e10e0920d88821c08"
+    },
+    "Content/Data/Moves/EffectsV4/DA_PsychUp.uasset": {
+      "bytes": 3496,
+      "sha256": "1f4c2a628b70a8c5359832ca98d5efc177d5810671051e63a279199f2d884394"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Rage.uasset": {
+      "bytes": 3239,
+      "sha256": "8d90caac55b124714736e972b8f9f246fec669fdfa39a095e7b21f3aabc8e33e"
+    },
+    "Content/Data/Moves/EffectsV4/DA_RainDance.uasset": {
+      "bytes": 3640,
+      "sha256": "bde14ac24c2f1b820a66faecac5cf67afea07673b4ec8bfa8eea3a5c14253684"
+    },
+    "Content/Data/Moves/EffectsV4/DA_RapidSpin.uasset": {
+      "bytes": 3198,
+      "sha256": "280e7ac3f367bc2220763d65e7956cd79002fd272e11d789b65b6fe5f83c58de"
+    },
+    "Content/Data/Moves/EffectsV4/DA_RazorLeaf.uasset": {
+      "bytes": 2279,
+      "sha256": "130f88f4a0c7c46c729a2759a32fd4a851166571b1b2589680ea733d94cfd8c1"
+    },
+    "Content/Data/Moves/EffectsV4/DA_ScaryFace.uasset": {
+      "bytes": 3380,
+      "sha256": "b26ac1503a2b44c8fd871f8e3a8b6bd63d096af52357a58a3ec35e4ff7065ebe"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Screech.uasset": {
+      "bytes": 3374,
+      "sha256": "9ef7c10a2878d9a8cb29bf0a21dfa36c4f8d4bad6ce7046f89697ffa4377bbd2"
+    },
+    "Content/Data/Moves/EffectsV4/DA_SkullBash.uasset": {
+      "bytes": 3284,
+      "sha256": "326e54ed2f9f61739c2855d00844e7c42645fb337aef7a1f61f62aba694bf328"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Slash.uasset": {
+      "bytes": 1845,
+      "sha256": "85cac58354c404fe3d6026a0477be9cc6bc4e1871ac19cef81b314b57aad2582"
+    },
+    "Content/Data/Moves/EffectsV4/DA_SleepPowder.uasset": {
+      "bytes": 3511,
+      "sha256": "a5c2c72e0417070ae8c56c63d334961de088f62ef5a8fb881b9fc054422addbe"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Smokescreen.uasset": {
+      "bytes": 3353,
+      "sha256": "fa42a70d3d20073e8794cf5ce4246f5d5f02fbef1df919b4a905e7cd6ca9df85"
+    },
+    "Content/Data/Moves/EffectsV4/DA_SolarBeam.uasset": {
+      "bytes": 3625,
+      "sha256": "148a6b75cb70c88599a1a53562f96c1e3800c00abd092bd4ea12773b96bdbe97"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Spite.uasset": {
+      "bytes": 3497,
+      "sha256": "251cc38e7d1031693e92993229d2b4639d5208996d24cf1f0aa267ce3998c026"
+    },
+    "Content/Data/Moves/EffectsV4/DA_StunSpore.uasset": {
+      "bytes": 3495,
+      "sha256": "699b707c6a531c39c28488244591617bc9deb88de16967407c44db5ab9c47976"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Submission.uasset": {
+      "bytes": 3460,
+      "sha256": "2bd8d8a7340d9da24cd852b3c67a580c93fcc428c8a3d4ee85615b3c18146d30"
+    },
+    "Content/Data/Moves/EffectsV4/DA_SweetScent.uasset": {
+      "bytes": 3344,
+      "sha256": "33251baa50325ea65a07c8b5a6a57a89f8e851f21950485a83488042a39bdea1"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Synthesis.uasset": {
+      "bytes": 3571,
+      "sha256": "7fb2f694a2d8c6f90afe837fc0a46262da6b8f2a57047d834dc92d2605aa2ae2"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Thunder.uasset": {
+      "bytes": 3538,
+      "sha256": "dd575da8ae830483e5100551653d6d6b7c9d7385784ae3a8139dada3a8f1233d"
+    },
+    "Content/Data/Moves/EffectsV4/DA_ThunderShock.uasset": {
+      "bytes": 3440,
+      "sha256": "30d9e8920ffb2fb63e9cce3f895d7e699e344f74403a1895824f7e5c1a68bc39"
+    },
+    "Content/Data/Moves/EffectsV4/DA_ThunderWave.uasset": {
+      "bytes": 3553,
+      "sha256": "d33bf18335b0e225b7c203fa01a2b2b17481dadcb1bb84c73c188150a32bb076"
+    },
+    "Content/Data/Moves/EffectsV4/DA_Thunderbolt.uasset": {
+      "bytes": 3479,
+      "sha256": "2a030d7f8d9084643f4833ba497e6ee6a8fc674411dc2ca747476f302e48b1c3"
+    },
+    "Content/Data/Moves/EffectsV4/DA_VitalThrow.uasset": {
+      "bytes": 2227,
+      "sha256": "0e8b231457d3a77fde343e19ac48b0a945e184c6c4eefad49d9531f9f79dbfa0"
     },
     "Content/Data/Moves/ProgressionV1/DA_Flamethrower.uasset": {
       "bytes": 2290,
@@ -11369,6 +11693,58 @@
       "bytes": 17820,
       "sha256": "b5ab9c3260395542d8c53cedb7ae6c64d1f70ee642c9200b30521622fbf3b70b"
     },
+    "Docs/ATTACKENSYSTEM_V4_ABNAHME.json": {
+      "bytes": 66672,
+      "sha256": "a023da38b7079361572163dc0d759bdb1ea1c115b021d1023838c1d5e3465033"
+    },
+    "Docs/ATTACKENSYSTEM_V4_ABNAHMETABELLE.md": {
+      "bytes": 9279,
+      "sha256": "4e17f7080794c44554aab10fead25fa68b1da765d5e9329ca3429a1de988ca08"
+    },
+    "Docs/ATTACKENSYSTEM_V4_ABSCHLUSSPRUEFBERICHT.md": {
+      "bytes": 16525,
+      "sha256": "ed942e504d449dc14c0648a7ce1900cbc0ad2d8555e9a3f1e3ebd55cf3c3f00c"
+    },
+    "Docs/ATTACKENSYSTEM_V4_ABSCHLUSS_TESTERGEBNISSE.json": {
+      "bytes": 24825,
+      "sha256": "a7bd941f96da51015e9ed6bbbf5d41e92778f884a80d3d87d05c2ec6be94ba52"
+    },
+    "Docs/ATTACKENSYSTEM_V4_AKTUELLER_BESTAND.json": {
+      "bytes": 96286,
+      "sha256": "a0c84907f52b3bbe047e94b883d223dea44b8130f7432db22578940dbe8841d5"
+    },
+    "Docs/ATTACKENSYSTEM_V4_ARCHITEKTUR.md": {
+      "bytes": 6242,
+      "sha256": "75b2476248adf58f2241db783edca9fed9b0c0bcabbacd8ba8f674108d73ba5a"
+    },
+    "Docs/ATTACKENSYSTEM_V4_BESTAND.json": {
+      "bytes": 52481,
+      "sha256": "4724cf739d0dcac2afdb30280fdc24f7ccb5f6d2a7ed24bab9d556880137d9f2"
+    },
+    "Docs/ATTACKENSYSTEM_V4_BESTAND.md": {
+      "bytes": 10468,
+      "sha256": "8de919749ac9a8d89b356a982ed55b36dd0efdc137b71497895aa94a1dfe7bd1"
+    },
+    "Docs/ATTACKENSYSTEM_V4_DATENANBINDUNG.json": {
+      "bytes": 22105,
+      "sha256": "88b9991f0c5f69777cbf57c125520062c44db290494c109449a305202b1e4f6b"
+    },
+    "Docs/ATTACKENSYSTEM_V4_KRISTALL_QUELLEN.json": {
+      "bytes": 6268,
+      "sha256": "a1639103cd76c0ee71eefd776662df4a0158e9c62c0da83c31647256f293dcc9"
+    },
+    "Docs/ATTACKENSYSTEM_V4_PRUEFBERICHT.md": {
+      "bytes": 16482,
+      "sha256": "37d92ac32bf240c8e28203ce52b0cd964d293eabd40a0cf93741bd6fc3e91f62"
+    },
+    "Docs/ATTACKENSYSTEM_V4_TESTERGEBNISSE.json": {
+      "bytes": 7922,
+      "sha256": "3b13f51c97c5e08383b845f8f811a307278718cfe3734ac5fb9b6e3cefce08e4"
+    },
+    "Docs/ATTACKENSYSTEM_V4_WIRKUNGSPLAN.json": {
+      "bytes": 17482,
+      "sha256": "1320aa3cdc161c756626303409fa16eb891995308f50cf8edda67d821738ea38"
+    },
     "Docs/ATTACKENVERWALTUNG_V2_PRUEFBERICHT.md": {
       "bytes": 16036,
       "sha256": "e722a3ab7c0322796e4e087e59db342eedd1d3ed85b7c0527e37820b9112a454"
@@ -11406,12 +11782,20 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 158927,
-      "sha256": "e73ac7c6248c8b020c2a4c7f99ea32c309798ad194e6184dba3c0c0aa37def09"
+      "bytes": 159532,
+      "sha256": "fe9084a773a84fa513c88a412ce9f7c094c038eacc389ee539a9aacb9af4392c"
+    },
+    "Docs/ENTWICKLUNG_MANUELL_IM_PIE.md": {
+      "bytes": 10017,
+      "sha256": "dacc3fab6c704339ccd81f169cb6b10b4218d22ab7d459391d265e8ee43c6ca6"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
       "sha256": "c7ec748dd1d2cbb5ba774ec29a8f2d8ecf227155b108396a0d90b8dae8c71a94"
+    },
+    "Docs/GLUTEXO_INTEGRATION_V1_PRUEFBERICHT.md": {
+      "bytes": 6225,
+      "sha256": "34b0daf83ad958271d3eeee4ae1b5d31052aa20d714296b0b3d6a7ba596719ea"
     },
     "Docs/GRAFIKPASS_V4_PRUEFBERICHT.md": {
       "bytes": 25232,
@@ -11529,6 +11913,14 @@
       "bytes": 16736,
       "sha256": "861a6828c1be2476f795db50ea20acc99108acacfdd088824fb0bed1ae0ef4a2"
     },
+    "Docs/POKEMON_ENTWICKLUNGEN_V2_PRUEFBERICHT.md": {
+      "bytes": 14683,
+      "sha256": "e42e784d0157a0ceb6ff8c01efffb83a26f7350b3baf736ea5e0eefe370d5f60"
+    },
+    "Docs/POKEMON_ENTWICKLUNGEN_V2_TESTERGEBNISSE.json": {
+      "bytes": 8166,
+      "sha256": "4a96402d6a7f6cb1a308eb1f3502bb5c0217f36c4946cd7a86774365e101e6e9"
+    },
     "Docs/POKEMON_FORTSCHRITTSSYSTEM_V1_PRUEFBERICHT.md": {
       "bytes": 18923,
       "sha256": "a03e27e1c313867dac5f5ae4dda58ec0ef295d5b415fc22b75e261012d3d6d99"
@@ -11566,8 +11958,8 @@
       "sha256": "1ede0acfca40e87ac09ffe5dbe8993e5cb6142cff2aebf509f4cb084ae6e53fc"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 182883,
-      "sha256": "d7fd5097a3d59d300dd4d790e1fb20fe0a690e26b5aca08323c8dc861c7fc629"
+      "bytes": 183625,
+      "sha256": "c91078252b4cdc7e73cfeda71285967d78eb5dd7fe079cd3b2a2317ed21ed564"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -11941,6 +12333,22 @@
       "bytes": 1026,
       "sha256": "81afb5f28802a33c55359ca3961f14adef64ad68644146ee15bbf99d7a79313b"
     },
+    "Source/PokeMonster/Development/PokeMonsterEvolutionTest.cpp": {
+      "bytes": 9262,
+      "sha256": "1b15367dfbd8c7d977d84f8ad043b5578fd3482a803ce11313359a8a72e2a9c1"
+    },
+    "Source/PokeMonster/Development/PokeMonsterEvolutionTest.h": {
+      "bytes": 416,
+      "sha256": "cd1f11f60b9529f5a989deea3979b7f1796bbd7052932cd1d820b09f0f049540"
+    },
+    "Source/PokeMonster/Development/PokeMonsterEvolutionV2Review.cpp": {
+      "bytes": 5678,
+      "sha256": "2b0a503621a344a59dac62be72d9e57ca6420abecdf6caf8b442c87f182f6404"
+    },
+    "Source/PokeMonster/Development/PokeMonsterMoveEffectsV4Review.cpp": {
+      "bytes": 8639,
+      "sha256": "f3af869d3c6d5740005d64a75380df3d67f39a81569dfd1f238af7338b342cba"
+    },
     "Source/PokeMonster/Development/PokeMonsterMoveManagementV2Review.cpp": {
       "bytes": 2812,
       "sha256": "bab16e3abb415bc659a2ced1a11d9105035cb8f148cf74a3e6da63e203beded3"
@@ -12058,12 +12466,12 @@
       "sha256": "7b04278d2e5e3bcd1477ba0f49f8eda966000f978a0ccdf0d84055c41c12bae3"
     },
     "Source/PokeMonster/Encounter/PokeMonsterEncounterSubsystem.cpp": {
-      "bytes": 27908,
-      "sha256": "5c9ff24ea18ef11c334ef5fcda2dd784a73b354bc00aaa1e684f8d1e40665395"
+      "bytes": 27995,
+      "sha256": "dc43b99fc8c3500722fda9d47edc414987e55c2b336716612a8b47816afd1f40"
     },
     "Source/PokeMonster/Encounter/PokeMonsterEncounterSubsystem.h": {
-      "bytes": 11861,
-      "sha256": "2e3a9dfcd3137eebb6c602a0d046ec7ddc4e899952045ec4b1b6fa1d812361ee"
+      "bytes": 11891,
+      "sha256": "b82f7e7b15d149c7b196902b70b9b78316e8230be2f0c984d3341321e9de8586"
     },
     "Source/PokeMonster/Encounter/PokeMonsterTrainerNPC.cpp": {
       "bytes": 6771,
@@ -12149,6 +12557,10 @@
       "bytes": 3027,
       "sha256": "b26987e582d4d96467f2ae39fdb0ce9da3b90d9a1b8193ee8ca844d0889adee3"
     },
+    "Source/PokeMonster/Moves/PokeMonsterMoveEffectComponent.h": {
+      "bytes": 1976,
+      "sha256": "d41bfe1d1bd7145141896c381e543fafce9e343251e516bb12fbf3a1b9b391c9"
+    },
     "Source/PokeMonster/Moves/PokeMonsterMoveSlot.cpp": {
       "bytes": 896,
       "sha256": "5c1710660cc1c793a4b6f52f809c6eb009f8c11505b65d41c4b0d8df08945d2e"
@@ -12198,12 +12610,12 @@
       "sha256": "47d0be38ff2704b1097c05574175a0cb940d58d91148530411d001af5e3c49d0"
     },
     "Source/PokeMonster/Save/PokeMonsterSaveSubsystem.cpp": {
-      "bytes": 17586,
-      "sha256": "560326d2cdb2342bf86a8487d795df0c96182c50af90071fa2f63710f3b6680b"
+      "bytes": 20411,
+      "sha256": "1b39ddc799d4c7f275370d2784e3e8e72896da94030459341ed2e9379d4601cd"
     },
     "Source/PokeMonster/Save/PokeMonsterSaveSubsystem.h": {
-      "bytes": 1928,
-      "sha256": "b500de59b8dbf4ddca7582cfbd59edab135f1f1b45ef52dfc00c2762abc41608"
+      "bytes": 2347,
+      "sha256": "610e5dc37759ced45017629924fd8cba4a1aabb0658d3cf7a2f46fea4bf6d7c5"
     },
     "Source/PokeMonster/Story/PokeMonsterStoryGoal.cpp": {
       "bytes": 7464,
@@ -12293,6 +12705,10 @@
       "bytes": 4684,
       "sha256": "0dba1fc1867e4fda4eedde26cd1caf0c07414ac3ef5f5644377980b787d24404"
     },
+    "Source/PokeMonster/Tests/PokeMonsterCrystalMovesTest.cpp": {
+      "bytes": 28959,
+      "sha256": "c91874d489787e980342bdcb88081eb4ca4adcce8f1e3297995a898833f0acaf"
+    },
     "Source/PokeMonster/Tests/PokeMonsterDialogueTest.cpp": {
       "bytes": 5403,
       "sha256": "7036551b443393f05bbfc22251d3149610dbd6561f01b41540cff7a6079a37ae"
@@ -12313,9 +12729,17 @@
       "bytes": 2501,
       "sha256": "68b1dec51b685611dfbd4c5046b141785b701bedde65ea4d471d73f68cf9f9f5"
     },
+    "Source/PokeMonster/Tests/PokeMonsterEvolutionV2Test.cpp": {
+      "bytes": 11368,
+      "sha256": "dcb75c92faa894c04a1d9a49e0ae5d913ba2cf882739317188502e5723c89329"
+    },
     "Source/PokeMonster/Tests/PokeMonsterGlumandaV11Test.cpp": {
       "bytes": 3131,
       "sha256": "4080f75273efd53a196c6a861602ede993519e05fbc3355b9eac7794c7ba1af1"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterGlutexoIntegrationTest.cpp": {
+      "bytes": 2100,
+      "sha256": "67e88bd51f4cc63f4715769e6717cea99985b05dac3f1e704149fa51457ab0c6"
     },
     "Source/PokeMonster/Tests/PokeMonsterHealingHouseTest.cpp": {
       "bytes": 29463,
@@ -12348,6 +12772,10 @@
     "Source/PokeMonster/Tests/PokeMonsterMotionRefinementTest.cpp": {
       "bytes": 3172,
       "sha256": "55fca90a6b641c572028a908c4a72128745b839861066886d2b9cdea7f59c06f"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterMoveEffectsV4Test.cpp": {
+      "bytes": 20368,
+      "sha256": "9b70ef992f62c27620004c4448f375434472ee9d516cfa97b182504921482620"
     },
     "Source/PokeMonster/Tests/PokeMonsterMoveManagementV2Test.cpp": {
       "bytes": 10676,
@@ -12505,9 +12933,17 @@
       "bytes": 1912,
       "sha256": "3a2c18e3987d50a67cf15dd29c36e11784dcd2fa83c10efd0b44403f82006224"
     },
+    "Source/PokeMonster/UI/PokeMonsterEvolutionWidget.cpp": {
+      "bytes": 13121,
+      "sha256": "1d618a58a1b6bdc5355778c092ab62351f854a6c56c5dbd47697e243c5fa61bc"
+    },
+    "Source/PokeMonster/UI/PokeMonsterEvolutionWidget.h": {
+      "bytes": 1809,
+      "sha256": "4a540a82f07d0deba55dfadae115f493aabce37b9cb8d976b8abb9f978294b5b"
+    },
     "Source/PokeMonster/UI/PokeMonsterOverworldPlayerController.cpp": {
-      "bytes": 13818,
-      "sha256": "9c553c0511a3abcba1be804f934f785209553641d60b0fde0037fdaf22d9b58c"
+      "bytes": 14106,
+      "sha256": "fd049d6b1864c2390ebfe56f2be3a0a781aa2e23e52e750f142658a75758df21"
     },
     "Source/PokeMonster/UI/PokeMonsterOverworldPlayerController.h": {
       "bytes": 3609,
@@ -14261,6 +14697,102 @@
       "bytes": 3328,
       "sha256": "74fc0c41130d694625a5d6c27fa017e661565732763badb14fb9ae127af9a8d4"
     },
+    "Tools/GlutexoEvolutionV2/Anatomy.py": {
+      "bytes": 915,
+      "sha256": "635f3a3353d16ca5b633b30bd88311aa59eb40a07ba7b6af4bff78af564006ce"
+    },
+    "Tools/GlutexoEvolutionV2/AnimateSource.py": {
+      "bytes": 7857,
+      "sha256": "144542abd22109a13413a0072ccc310d1a1084a47f3bd6c777b52b9bbd09f940"
+    },
+    "Tools/GlutexoEvolutionV2/ImportAssets.py": {
+      "bytes": 10499,
+      "sha256": "1c3410e0a6ebe139dc6c19c2a371c649b4714a9aa3c514d7800edd0ffb69cd5c"
+    },
+    "Tools/GlutexoEvolutionV2/InspectSource.py": {
+      "bytes": 3263,
+      "sha256": "7c87f49152778582af851bd6fc6bda32e7cece0e31187317ef2e574ba339e8d7"
+    },
+    "Tools/GlutexoEvolutionV2/MapChecks.py": {
+      "bytes": 1041,
+      "sha256": "9d53acd848664999266c36dc146c88e9de5706e5b66540400356c7a4c5519e99"
+    },
+    "Tools/GlutexoEvolutionV2/MapChecksEvolution.py": {
+      "bytes": 1047,
+      "sha256": "4931bae8665bf95b150b2677b95112dafdae61c2fbd1484244254b73ab9add5c"
+    },
+    "Tools/GlutexoEvolutionV2/PrepareEvolutionAssets.py": {
+      "bytes": 2625,
+      "sha256": "5f63e6f3b686ed4fec8b607fed147fcf9f018887fc25eca76e849b9190aaff80"
+    },
+    "Tools/GlutexoEvolutionV2/PrepareSource.py": {
+      "bytes": 7468,
+      "sha256": "e9aa77f077e70e065d205851724890e219ecd12fb5bcdb714a283fadfffddc22"
+    },
+    "Tools/GlutexoEvolutionV2/README.md": {
+      "bytes": 5745,
+      "sha256": "101fb58934adc70ad4f5b395d17185b5a7761df06e8ae20b820c9e5d9476bb92"
+    },
+    "Tools/GlutexoEvolutionV2/ReferenceSources.json": {
+      "bytes": 463,
+      "sha256": "7d6d54bb4f6c5338836c6f5ccc5028b762f78afffea8b264acb6ec18d4adf180"
+    },
+    "Tools/GlutexoEvolutionV2/ReviewCapture.py": {
+      "bytes": 6904,
+      "sha256": "bcc0edd56db0ea182f9b9904f4a3c7b963d2c74a9e712b8de656bce8d787d2c3"
+    },
+    "Tools/GlutexoEvolutionV2/ReviewEvolution.py": {
+      "bytes": 10196,
+      "sha256": "a9f7a0ae7c53c23e2ca4a04bf846658af6b6cbb70ebce82a3286c90d358a867a"
+    },
+    "Tools/GlutexoEvolutionV2/ReviewEvolutionEdges.py": {
+      "bytes": 5162,
+      "sha256": "c604803e92659555825d8d928b05454934e9d35af4b26daee4a18438bd5e9a15"
+    },
+    "Tools/GlutexoEvolutionV2/ReviewManualEvolution.py": {
+      "bytes": 9502,
+      "sha256": "853c8e066ae651bf0b445e7763b1359e28f56e1621095e12a81f3db10b2162b3"
+    },
+    "Tools/GlutexoEvolutionV2/ReviewManualRestart.py": {
+      "bytes": 895,
+      "sha256": "68633bb30411f4a5ec3ee62d6e3464cf52756fb7aaa93742c46d8382b943bea8"
+    },
+    "Tools/GlutexoEvolutionV2/ReviewOne.py": {
+      "bytes": 7617,
+      "sha256": "59244bc94726251729aa6bbb9178ccc0bd7f9890c45897ea1b5cb9e8dd11f1f6"
+    },
+    "Tools/GlutexoEvolutionV2/RunCapture.py": {
+      "bytes": 1416,
+      "sha256": "7b0e139203d86354d321fc37ac8b5171823ce8712193f34e3a1a85b03c918309"
+    },
+    "Tools/GlutexoEvolutionV2/RunEvolutionReview.py": {
+      "bytes": 1309,
+      "sha256": "112bdce002f8c05c3c9c3d77b8414141755c1e318f941a144f85c57b9bbbc132"
+    },
+    "Tools/GlutexoEvolutionV2/RunFullGameplay.py": {
+      "bytes": 2138,
+      "sha256": "8bfe793aba6342d264342fd9de0ddb73b9be91054f323fbbeb24877421f7d191"
+    },
+    "Tools/GlutexoEvolutionV2/RunManualEvolution.py": {
+      "bytes": 1794,
+      "sha256": "9a17a4db447113ce9bc674088e6b649231fabd2f634e76ce3cd3348d0e561f09"
+    },
+    "Tools/GlutexoEvolutionV2/RunReview.py": {
+      "bytes": 1360,
+      "sha256": "9e4d80ee8ae19c59c5d1446873231eaba9c525d37013520695bb115347fea77b"
+    },
+    "Tools/GlutexoEvolutionV2/Species.json": {
+      "bytes": 1039,
+      "sha256": "5169a6b5cf8825b6f23ec4c35cc6db30271b1550ee7698723966f8c8a3d25110"
+    },
+    "Tools/GlutexoEvolutionV2/StartFullGameplay.py": {
+      "bytes": 2363,
+      "sha256": "2917325cda886e226da9b1e2d509015120a2f81bee658850355c3b8d6773d6c0"
+    },
+    "Tools/GlutexoEvolutionV2/ValidateSource.py": {
+      "bytes": 3325,
+      "sha256": "e4a7175796ba8edc3a2b9020d85752ecfa4f6aef12536697111d0bd80a1a7bef"
+    },
     "Tools/ImportHealingHouseExpandedArtV1.py": {
       "bytes": 5561,
       "sha256": "184d4be7508f02c589214f806ab53ffbf684c5efaca8b424e84758027f3a3207"
@@ -14652,6 +15184,54 @@
     "Tools/MotionRefinementV5/VerifyProtection.py": {
       "bytes": 1826,
       "sha256": "389fd2e2cc63ede5e041ca4d1a92f1e745c6ecd558cda95d3fbc0371f9ed30e9"
+    },
+    "Tools/MoveEffectsV4/Audit.py": {
+      "bytes": 2274,
+      "sha256": "0299dc421067ae382583e3623bbae1e87499666904c5cf8efc4c92df301760b6"
+    },
+    "Tools/MoveEffectsV4/BindCrystalData.py": {
+      "bytes": 5208,
+      "sha256": "648454286f31621e2c13db040caa546892bc3fdb5a53abdbec57ad0732f919a9"
+    },
+    "Tools/MoveEffectsV4/CrystalMovePlan.json": {
+      "bytes": 52800,
+      "sha256": "0ceb3b6c60abb479e700a2372fd5c7cfb30369d2a10056cada1dc03b8a62deaa"
+    },
+    "Tools/MoveEffectsV4/Inventory.py": {
+      "bytes": 1480,
+      "sha256": "575a27b11a5d52b303818b3a1f986aa93b58dae33d37739748b1627c1123c745"
+    },
+    "Tools/MoveEffectsV4/MapChecks.py": {
+      "bytes": 1853,
+      "sha256": "7c7fbaa3d6f82365d7819550d285c44468411284fd09e4ae31eb0003393bda7c"
+    },
+    "Tools/MoveEffectsV4/ProductionReview.py": {
+      "bytes": 6234,
+      "sha256": "c045a49f638d3e12d2f3aee7cb214d1c2875b5cc2e3a65958269114519c11314"
+    },
+    "Tools/MoveEffectsV4/ProductionReviewPlan.json": {
+      "bytes": 5785,
+      "sha256": "01ccf37038060590f8cd822fbb25253e40036fc8b65785535a3472f44a7fda21"
+    },
+    "Tools/MoveEffectsV4/README.md": {
+      "bytes": 2552,
+      "sha256": "df2657641eee100c8ef84e7af1138751b398a33f052f65fe622d6cb48ee88edc"
+    },
+    "Tools/MoveEffectsV4/Review.py": {
+      "bytes": 5550,
+      "sha256": "75de3dc50a9ad78d21ae3d8d29b846251be58a90ca81a676955b3bcc68c71758"
+    },
+    "Tools/MoveEffectsV4/RunProductionReview.py": {
+      "bytes": 1144,
+      "sha256": "439ea7e1ec80d1563deeb40928e0e3e940306987eab7c8995fe799b93f4cf4a4"
+    },
+    "Tools/MoveEffectsV4/RunReview.py": {
+      "bytes": 1072,
+      "sha256": "a9e57104ea2be9c76788af5c0d47e84e9f0d65c656e07d65cf4fbbea8b5c4004"
+    },
+    "Tools/MoveEffectsV4/ValidateCrystalData.py": {
+      "bytes": 3427,
+      "sha256": "4bfbdc7ec3c96c5bc9d6a4213c847033d8a0f6df53931dd52f03d16d997898e5"
     },
     "Tools/MoveManagementV2/MapChecks.py": {
       "bytes": 1855,
@@ -18784,562 +19364,6 @@
     "Tools/ZunderlaufV1/ValidateWorld.py": {
       "bytes": 2456,
       "sha256": "f11ca90fee28b17b3fc13e83519f74c2db634c72a8e296a58fed0074f4a28600"
-    },
-    "Docs/ATTACKENSYSTEM_V4_ARCHITEKTUR.md": {
-      "bytes": 6242,
-      "sha256": "75b2476248adf58f2241db783edca9fed9b0c0bcabbacd8ba8f674108d73ba5a"
-    },
-    "Docs/ATTACKENSYSTEM_V4_BESTAND.json": {
-      "bytes": 52481,
-      "sha256": "4724cf739d0dcac2afdb30280fdc24f7ccb5f6d2a7ed24bab9d556880137d9f2"
-    },
-    "Docs/ATTACKENSYSTEM_V4_BESTAND.md": {
-      "bytes": 10468,
-      "sha256": "8de919749ac9a8d89b356a982ed55b36dd0efdc137b71497895aa94a1dfe7bd1"
-    },
-    "Docs/ATTACKENSYSTEM_V4_WIRKUNGSPLAN.json": {
-      "bytes": 17482,
-      "sha256": "1320aa3cdc161c756626303409fa16eb891995308f50cf8edda67d821738ea38"
-    },
-    "Docs/ATTACKENSYSTEM_V4_TESTERGEBNISSE.json": {
-      "bytes": 7922,
-      "sha256": "3b13f51c97c5e08383b845f8f811a307278718cfe3734ac5fb9b6e3cefce08e4"
-    },
-    "Docs/ATTACKENSYSTEM_V4_PRUEFBERICHT.md": {
-      "bytes": 16482,
-      "sha256": "37d92ac32bf240c8e28203ce52b0cd964d293eabd40a0cf93741bd6fc3e91f62"
-    },
-    "Source/PokeMonster/Development/PokeMonsterMoveEffectsV4Review.cpp": {
-      "bytes": 8639,
-      "sha256": "f3af869d3c6d5740005d64a75380df3d67f39a81569dfd1f238af7338b342cba"
-    },
-    "Source/PokeMonster/Moves/PokeMonsterMoveEffectComponent.h": {
-      "bytes": 1976,
-      "sha256": "d41bfe1d1bd7145141896c381e543fafce9e343251e516bb12fbf3a1b9b391c9"
-    },
-    "Source/PokeMonster/Tests/PokeMonsterMoveEffectsV4Test.cpp": {
-      "bytes": 20368,
-      "sha256": "9b70ef992f62c27620004c4448f375434472ee9d516cfa97b182504921482620"
-    },
-    "Tools/MoveEffectsV4/Audit.py": {
-      "bytes": 2274,
-      "sha256": "0299dc421067ae382583e3623bbae1e87499666904c5cf8efc4c92df301760b6"
-    },
-    "Tools/MoveEffectsV4/Inventory.py": {
-      "bytes": 1480,
-      "sha256": "575a27b11a5d52b303818b3a1f986aa93b58dae33d37739748b1627c1123c745"
-    },
-    "Tools/MoveEffectsV4/MapChecks.py": {
-      "bytes": 1853,
-      "sha256": "7c7fbaa3d6f82365d7819550d285c44468411284fd09e4ae31eb0003393bda7c"
-    },
-    "Tools/MoveEffectsV4/README.md": {
-      "bytes": 2552,
-      "sha256": "df2657641eee100c8ef84e7af1138751b398a33f052f65fe622d6cb48ee88edc"
-    },
-    "Tools/MoveEffectsV4/Review.py": {
-      "bytes": 5550,
-      "sha256": "75de3dc50a9ad78d21ae3d8d29b846251be58a90ca81a676955b3bcc68c71758"
-    },
-    "Tools/MoveEffectsV4/RunReview.py": {
-      "bytes": 1072,
-      "sha256": "a9e57104ea2be9c76788af5c0d47e84e9f0d65c656e07d65cf4fbbea8b5c4004"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Acid.uasset": {
-      "bytes": 3234,
-      "sha256": "d68b703712b08662863d1eebb0bd078e14bea0f67d09568b736f78d625c40229"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Agility.uasset": {
-      "bytes": 3526,
-      "sha256": "afad658eece50d49a11c2e9aba96ddcb5a7611e8fd891677dc15378aa4a4a5c5"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Bite.uasset": {
-      "bytes": 3462,
-      "sha256": "1a2164c2e9af920bf0c592b2e20174604b7b521038774e8771d8f9eff84d6793"
-    },
-    "Content/Data/Moves/EffectsV4/DA_ConfuseRay.uasset": {
-      "bytes": 3444,
-      "sha256": "be3c34b83d39766bb780ac5856c4433887f25f484dd358f0331c25d72815b3d8"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Confusion.uasset": {
-      "bytes": 3450,
-      "sha256": "7310015641cc0b49735ad1bdb1b020aedd84a4dc36aa943a2b02d54e0db970d7"
-    },
-    "Content/Data/Moves/EffectsV4/DA_CrossChop.uasset": {
-      "bytes": 2119,
-      "sha256": "095d8ba0b6f359397b93f9632b7b3b1e4a00ab5d49e899954c3fe803e4e66a97"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Curse.uasset": {
-      "bytes": 3703,
-      "sha256": "ed4ac32ecbc3c16ecd733200eab66914dc007e19f122cba3bbd22c6eff112275"
-    },
-    "Content/Data/Moves/EffectsV4/DA_DestinyBond.uasset": {
-      "bytes": 3627,
-      "sha256": "0fb452e462e5f65d5484fd621d9c3d1fb9e8b71c19a7916d41f6451dec63514f"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Disable.uasset": {
-      "bytes": 3433,
-      "sha256": "ea71b0031b93fb42039b809d4f3a7830bb9613933d5683116d071a4f17e5d4b8"
-    },
-    "Content/Data/Moves/EffectsV4/DA_DoubleTeam.uasset": {
-      "bytes": 3420,
-      "sha256": "3141a0ca8be6738851a70531b3374d41acbeffb4bec6f6c7749067fed7f42cd2"
-    },
-    "Content/Data/Moves/EffectsV4/DA_DragonRage.uasset": {
-      "bytes": 3459,
-      "sha256": "a18e6b3ab47ca43937090e483c1dfa20becbfce6aca4a4379fb3a55dc40c2a68"
-    },
-    "Content/Data/Moves/EffectsV4/DA_DreamEater.uasset": {
-      "bytes": 3643,
-      "sha256": "4a359cb1a95c3af33c07f7bee01645ed38d998de9f312e0fff73df7861af9490"
-    },
-    "Content/Data/Moves/EffectsV4/DA_FireSpin.uasset": {
-      "bytes": 3633,
-      "sha256": "9480f9681bf6235447fc7637ce5c942cb15406940cab56614ce7410415b85ec4"
-    },
-    "Content/Data/Moves/EffectsV4/DA_FocusEnergy.uasset": {
-      "bytes": 3432,
-      "sha256": "a78ca2220ce57d1a7fbef2a718112582a4fb5440f5e3d00ad78419c89be0baff"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Foresight.uasset": {
-      "bytes": 3496,
-      "sha256": "ce8d7cad3ddf8f18e439b76f6f41e1a450212687f35d0ca7698e0158c50a89ea"
-    },
-    "Content/Data/Moves/EffectsV4/DA_FurySwipes.uasset": {
-      "bytes": 3316,
-      "sha256": "b65606d7a740a4ede7f93200bf9f9543a377e17474fb0115a3de58a4a25a2907"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Growth.uasset": {
-      "bytes": 3402,
-      "sha256": "06e467398d94e548985fec2523002b41d42f44275b934dffef7a9c3a663fb12a"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Hypnosis.uasset": {
-      "bytes": 3488,
-      "sha256": "f5bd5ea4c30a7f8112f33d60b49b87d9f2304fbbac3b1fc1c97152522a5ca332"
-    },
-    "Content/Data/Moves/EffectsV4/DA_KarateChop.uasset": {
-      "bytes": 2083,
-      "sha256": "d6d7ce1ce1d30cd2754a117d5fddbd752d300c7403671116231e4db7fdd7f2e1"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Lick.uasset": {
-      "bytes": 3264,
-      "sha256": "88d4b3e00e50b67e5fd3708264e469421c0b4e336545179cc69fd77aa32d8558"
-    },
-    "Content/Data/Moves/EffectsV4/DA_LightScreen.uasset": {
-      "bytes": 3578,
-      "sha256": "66ff39374aa19ee6a12ddebdd0b39fe0e87545d1174093ff87a85c05535267bf"
-    },
-    "Content/Data/Moves/EffectsV4/DA_LowKick.uasset": {
-      "bytes": 3447,
-      "sha256": "5a1ef3a7dbdbc00754ca68b6d7682195be31341a0d777d7e82a7b504688c997f"
-    },
-    "Content/Data/Moves/EffectsV4/DA_MeanLook.uasset": {
-      "bytes": 3453,
-      "sha256": "b74b69c906f2b0e7e2cb0d983155f4864b2010dbf36403cce6a543f353a22069"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Moonlight.uasset": {
-      "bytes": 3451,
-      "sha256": "6581123f7d7df11070af65998cb623006cb4f26f232ce2e5c30fdf3e34be49c4"
-    },
-    "Content/Data/Moves/EffectsV4/DA_PetalDance.uasset": {
-      "bytes": 3529,
-      "sha256": "2fe04fa3fe31745704b6b62874e54c0f0d838e9981c14b8ad9c1efa4db48ebed"
-    },
-    "Content/Data/Moves/EffectsV4/DA_PoisonPowder.uasset": {
-      "bytes": 3614,
-      "sha256": "22a630c52b4bbaca0ddc9b89858ff1879e80ec118cb3a629b66edf63a91ac9b9"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Protect.uasset": {
-      "bytes": 3510,
-      "sha256": "b0a355c6832230a44e6bda0b5afaca99aea1f3b92c48c41e10e0920d88821c08"
-    },
-    "Content/Data/Moves/EffectsV4/DA_PsychUp.uasset": {
-      "bytes": 3496,
-      "sha256": "1f4c2a628b70a8c5359832ca98d5efc177d5810671051e63a279199f2d884394"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Rage.uasset": {
-      "bytes": 3239,
-      "sha256": "8d90caac55b124714736e972b8f9f246fec669fdfa39a095e7b21f3aabc8e33e"
-    },
-    "Content/Data/Moves/EffectsV4/DA_RainDance.uasset": {
-      "bytes": 3640,
-      "sha256": "bde14ac24c2f1b820a66faecac5cf67afea07673b4ec8bfa8eea3a5c14253684"
-    },
-    "Content/Data/Moves/EffectsV4/DA_RapidSpin.uasset": {
-      "bytes": 3198,
-      "sha256": "280e7ac3f367bc2220763d65e7956cd79002fd272e11d789b65b6fe5f83c58de"
-    },
-    "Content/Data/Moves/EffectsV4/DA_RazorLeaf.uasset": {
-      "bytes": 2279,
-      "sha256": "130f88f4a0c7c46c729a2759a32fd4a851166571b1b2589680ea733d94cfd8c1"
-    },
-    "Content/Data/Moves/EffectsV4/DA_ScaryFace.uasset": {
-      "bytes": 3380,
-      "sha256": "b26ac1503a2b44c8fd871f8e3a8b6bd63d096af52357a58a3ec35e4ff7065ebe"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Screech.uasset": {
-      "bytes": 3374,
-      "sha256": "9ef7c10a2878d9a8cb29bf0a21dfa36c4f8d4bad6ce7046f89697ffa4377bbd2"
-    },
-    "Content/Data/Moves/EffectsV4/DA_SkullBash.uasset": {
-      "bytes": 3284,
-      "sha256": "326e54ed2f9f61739c2855d00844e7c42645fb337aef7a1f61f62aba694bf328"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Slash.uasset": {
-      "bytes": 1845,
-      "sha256": "85cac58354c404fe3d6026a0477be9cc6bc4e1871ac19cef81b314b57aad2582"
-    },
-    "Content/Data/Moves/EffectsV4/DA_SleepPowder.uasset": {
-      "bytes": 3511,
-      "sha256": "a5c2c72e0417070ae8c56c63d334961de088f62ef5a8fb881b9fc054422addbe"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Smokescreen.uasset": {
-      "bytes": 3353,
-      "sha256": "fa42a70d3d20073e8794cf5ce4246f5d5f02fbef1df919b4a905e7cd6ca9df85"
-    },
-    "Content/Data/Moves/EffectsV4/DA_SolarBeam.uasset": {
-      "bytes": 3625,
-      "sha256": "148a6b75cb70c88599a1a53562f96c1e3800c00abd092bd4ea12773b96bdbe97"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Spite.uasset": {
-      "bytes": 3497,
-      "sha256": "251cc38e7d1031693e92993229d2b4639d5208996d24cf1f0aa267ce3998c026"
-    },
-    "Content/Data/Moves/EffectsV4/DA_StunSpore.uasset": {
-      "bytes": 3495,
-      "sha256": "699b707c6a531c39c28488244591617bc9deb88de16967407c44db5ab9c47976"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Submission.uasset": {
-      "bytes": 3460,
-      "sha256": "2bd8d8a7340d9da24cd852b3c67a580c93fcc428c8a3d4ee85615b3c18146d30"
-    },
-    "Content/Data/Moves/EffectsV4/DA_SweetScent.uasset": {
-      "bytes": 3344,
-      "sha256": "33251baa50325ea65a07c8b5a6a57a89f8e851f21950485a83488042a39bdea1"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Synthesis.uasset": {
-      "bytes": 3571,
-      "sha256": "7fb2f694a2d8c6f90afe837fc0a46262da6b8f2a57047d834dc92d2605aa2ae2"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Thunder.uasset": {
-      "bytes": 3538,
-      "sha256": "dd575da8ae830483e5100551653d6d6b7c9d7385784ae3a8139dada3a8f1233d"
-    },
-    "Content/Data/Moves/EffectsV4/DA_ThunderShock.uasset": {
-      "bytes": 3440,
-      "sha256": "30d9e8920ffb2fb63e9cce3f895d7e699e344f74403a1895824f7e5c1a68bc39"
-    },
-    "Content/Data/Moves/EffectsV4/DA_ThunderWave.uasset": {
-      "bytes": 3553,
-      "sha256": "d33bf18335b0e225b7c203fa01a2b2b17481dadcb1bb84c73c188150a32bb076"
-    },
-    "Content/Data/Moves/EffectsV4/DA_Thunderbolt.uasset": {
-      "bytes": 3479,
-      "sha256": "2a030d7f8d9084643f4833ba497e6ee6a8fc674411dc2ca747476f302e48b1c3"
-    },
-    "Content/Data/Moves/EffectsV4/DA_VitalThrow.uasset": {
-      "bytes": 2227,
-      "sha256": "0e8b231457d3a77fde343e19ac48b0a945e184c6c4eefad49d9531f9f79dbfa0"
-    },
-    "Docs/ATTACKENSYSTEM_V4_ABNAHME.json": {
-      "bytes": 66672,
-      "sha256": "a023da38b7079361572163dc0d759bdb1ea1c115b021d1023838c1d5e3465033"
-    },
-    "Docs/ATTACKENSYSTEM_V4_ABNAHMETABELLE.md": {
-      "bytes": 9279,
-      "sha256": "4e17f7080794c44554aab10fead25fa68b1da765d5e9329ca3429a1de988ca08"
-    },
-    "Docs/ATTACKENSYSTEM_V4_ABSCHLUSSPRUEFBERICHT.md": {
-      "bytes": 16525,
-      "sha256": "ed942e504d449dc14c0648a7ce1900cbc0ad2d8555e9a3f1e3ebd55cf3c3f00c"
-    },
-    "Docs/ATTACKENSYSTEM_V4_ABSCHLUSS_TESTERGEBNISSE.json": {
-      "bytes": 24825,
-      "sha256": "a7bd941f96da51015e9ed6bbbf5d41e92778f884a80d3d87d05c2ec6be94ba52"
-    },
-    "Docs/ATTACKENSYSTEM_V4_AKTUELLER_BESTAND.json": {
-      "bytes": 96286,
-      "sha256": "a0c84907f52b3bbe047e94b883d223dea44b8130f7432db22578940dbe8841d5"
-    },
-    "Docs/ATTACKENSYSTEM_V4_DATENANBINDUNG.json": {
-      "bytes": 22105,
-      "sha256": "88b9991f0c5f69777cbf57c125520062c44db290494c109449a305202b1e4f6b"
-    },
-    "Docs/ATTACKENSYSTEM_V4_KRISTALL_QUELLEN.json": {
-      "bytes": 6268,
-      "sha256": "a1639103cd76c0ee71eefd776662df4a0158e9c62c0da83c31647256f293dcc9"
-    },
-    "Source/PokeMonster/Tests/PokeMonsterCrystalMovesTest.cpp": {
-      "bytes": 28959,
-      "sha256": "c91874d489787e980342bdcb88081eb4ca4adcce8f1e3297995a898833f0acaf"
-    },
-    "Tools/MoveEffectsV4/BindCrystalData.py": {
-      "bytes": 5208,
-      "sha256": "648454286f31621e2c13db040caa546892bc3fdb5a53abdbec57ad0732f919a9"
-    },
-    "Tools/MoveEffectsV4/CrystalMovePlan.json": {
-      "bytes": 52800,
-      "sha256": "0ceb3b6c60abb479e700a2372fd5c7cfb30369d2a10056cada1dc03b8a62deaa"
-    },
-    "Tools/MoveEffectsV4/ProductionReview.py": {
-      "bytes": 6234,
-      "sha256": "c045a49f638d3e12d2f3aee7cb214d1c2875b5cc2e3a65958269114519c11314"
-    },
-    "Tools/MoveEffectsV4/ProductionReviewPlan.json": {
-      "bytes": 5785,
-      "sha256": "01ccf37038060590f8cd822fbb25253e40036fc8b65785535a3472f44a7fda21"
-    },
-    "Tools/MoveEffectsV4/RunProductionReview.py": {
-      "bytes": 1144,
-      "sha256": "439ea7e1ec80d1563deeb40928e0e3e940306987eab7c8995fe799b93f4cf4a4"
-    },
-    "Tools/MoveEffectsV4/ValidateCrystalData.py": {
-      "bytes": 3427,
-      "sha256": "4bfbdc7ec3c96c5bc9d6a4213c847033d8a0f6df53931dd52f03d16d997898e5"
-    },
-    "Art/Characters/Creatures/Glutexo/MeshyV1_AnimationAudit.json": {
-      "bytes": 16286,
-      "sha256": "acbea3108ca2d8e9de8dcfc608302e59f6de7dfae2887f1985d108fa0cc5f10e"
-    },
-    "Content/Data/Encounters/DA_Glutexo_Wild.uasset": {
-      "bytes": 2230,
-      "sha256": "5210f7c9b7cabec7a4d83664ad511a165579394d5f10822dd9af5329a6cef039"
-    },
-    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Attack.fbx": {
-      "bytes": 1361308,
-      "sha256": "820673ce7e91f8bf6c8c4a2b43955b63346f99b95615898239574b3ca14f8697"
-    },
-    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Hit.fbx": {
-      "bytes": 1341084,
-      "sha256": "b688b937d1120a7d1fcfcdc26149c0d7afd440fb638f3bc75753bb54155c55b5"
-    },
-    "Docs/GLUTEXO_INTEGRATION_V1_PRUEFBERICHT.md": {
-      "bytes": 6225,
-      "sha256": "34b0daf83ad958271d3eeee4ae1b5d31052aa20d714296b0b3d6a7ba596719ea"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Walk.uasset": {
-      "bytes": 53004,
-      "sha256": "8a499a1d5b82aa6013c5c40289ec47e4db86d47effe0c89c463dd52b0bc56ccf"
-    },
-    "Tools/GlutexoEvolutionV2/PrepareSource.py": {
-      "bytes": 7468,
-      "sha256": "e9aa77f077e70e065d205851724890e219ecd12fb5bcdb714a283fadfffddc22"
-    },
-    "Art/Characters/Creatures/Glutexo/Textures/MeshyV1/Glutexo_Normal.jpg": {
-      "bytes": 1439895,
-      "sha256": "78b18e2cc59e4f60bb855c9a346c821f5b76d56ea29560259724aceac17d4de5"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/Materials/M_Glutexo.uasset": {
-      "bytes": 13459,
-      "sha256": "21b4f211b0d8e7cff439805fdb65e59c017de7acf24eebf9ebe018c4932c166d"
-    },
-    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Happy.fbx": {
-      "bytes": 1373036,
-      "sha256": "b21d368497fb511f98a1bd402504496703f4e39bd5946c389d8c47f46f518efa"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/DA_Glutexo_Presentation.uasset": {
-      "bytes": 3960,
-      "sha256": "009fb7bf241cefc7bcf170c0958d36a8981578506e11abf88a8c532d7917571d"
-    },
-    "Art/Characters/Creatures/Glutexo/Source/Glutexo_Meshy_V1.blend": {
-      "bytes": 7021502,
-      "sha256": "a9adf298325ae4f56d3da8a6ed401aec1b7383f79b12ea826f3d4109444accf2"
-    },
-    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Idle.fbx": {
-      "bytes": 1396188,
-      "sha256": "a737216bd07307ce29a5ecf11a52413bcd6a97b208b6cb4ae474dc0c178a38bd"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Hit.uasset": {
-      "bytes": 44323,
-      "sha256": "efb52368a58005073faf879ac9fe95a2aeee88692e81d228c0805c85a04ff637"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/Meshes/SK_Glutexo_Meshy.uasset": {
-      "bytes": 4469434,
-      "sha256": "8f11deb8cac3f210b29f2b3696d8f617978c1fd75b31ea4d4e5de9827d95de4d"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_Normal.uasset": {
-      "bytes": 1451025,
-      "sha256": "50c0264ab4ae67c7d8f03061ae0dfc8914eaf364258dc53f7347034507fc722b"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/Materials/M_Glutexo_OriginalTailFlame.uasset": {
-      "bytes": 12862,
-      "sha256": "4763c5a9b08b2030730b1030c7d422d38e3cd9ec26a6f89f900cd4052706b7a5"
-    },
-    "Tools/GlutexoEvolutionV2/ValidateSource.py": {
-      "bytes": 3325,
-      "sha256": "e4a7175796ba8edc3a2b9020d85752ecfa4f6aef12536697111d0bd80a1a7bef"
-    },
-    "Art/Characters/Creatures/Incoming/Glutexo.glb": {
-      "bytes": 5579952,
-      "sha256": "718f9eb037832228f25bdbce299671db0972a9c3c271d23724e39743476c6efe"
-    },
-    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Walk.fbx": {
-      "bytes": 1351868,
-      "sha256": "ca58a29f8548de8e1227398ad3c8dcccba26fe8dec8b49472189df51c6ae5fb2"
-    },
-    "Tools/GlutexoEvolutionV2/ReferenceSources.json": {
-      "bytes": 463,
-      "sha256": "7d6d54bb4f6c5338836c6f5ccc5028b762f78afffea8b264acb6ec18d4adf180"
-    },
-    "Tools/GlutexoEvolutionV2/ImportAssets.py": {
-      "bytes": 10499,
-      "sha256": "1c3410e0a6ebe139dc6c19c2a371c649b4714a9aa3c514d7800edd0ffb69cd5c"
-    },
-    "Art/Characters/Creatures/Glutexo/MeshyV1_ModelAudit.json": {
-      "bytes": 4721,
-      "sha256": "69627e9afb584ede883e5204be7de6dac634851417ad92edee7a97704721c77f"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Run.uasset": {
-      "bytes": 46259,
-      "sha256": "24b9a30ddce0e73e42497331118042d0a44a38b433847b9d7f8f1f8d8b6ba664"
-    },
-    "Tools/GlutexoEvolutionV2/MapChecks.py": {
-      "bytes": 1041,
-      "sha256": "9d53acd848664999266c36dc146c88e9de5706e5b66540400356c7a4c5519e99"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Faint.uasset": {
-      "bytes": 70419,
-      "sha256": "12a043b3f65a13062ce9da1723c561f775447e21c762b0d15d40cf459bd3bc36"
-    },
-    "Source/PokeMonster/Tests/PokeMonsterGlutexoIntegrationTest.cpp": {
-      "bytes": 2100,
-      "sha256": "67e88bd51f4cc63f4715769e6717cea99985b05dac3f1e704149fa51457ab0c6"
-    },
-    "Tools/GlutexoEvolutionV2/AnimateSource.py": {
-      "bytes": 7857,
-      "sha256": "144542abd22109a13413a0072ccc310d1a1084a47f3bd6c777b52b9bbd09f940"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Happy.uasset": {
-      "bytes": 54742,
-      "sha256": "4c0ef2c1a5f38eebdff301ca15e27f421c4937c7b7ea19d6b3e7d2ec44c3a008"
-    },
-    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Run.fbx": {
-      "bytes": 1341084,
-      "sha256": "7ddeb8c3eb59faf72df5da4f7f41939b35efabd683384bad20a94e2a561ac38f"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Attack.uasset": {
-      "bytes": 54022,
-      "sha256": "70f894be4769d284b8d11a87e30a9d42fa69f6b9b5e7777f3bb96d0a54e250e1"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_BaseColor.uasset": {
-      "bytes": 2142864,
-      "sha256": "b9854dfc07643b968f55c2002693abef3b152d7f44432c03ce33ed271790f98d"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_MetallicRoughness.uasset": {
-      "bytes": 1217056,
-      "sha256": "ec42cca4f9aaa05ab07123aa32ebc1f896ccd283baa6e54928f82805e1e63a87"
-    },
-    "Tools/GlutexoEvolutionV2/README.md": {
-      "bytes": 5163,
-      "sha256": "7c0425dce0e3df9c35050f75ae863272d0876a27b8c466af31a192d1c454d668"
-    },
-    "Tools/GlutexoEvolutionV2/ReviewCapture.py": {
-      "bytes": 6904,
-      "sha256": "bcc0edd56db0ea182f9b9904f4a3c7b963d2c74a9e712b8de656bce8d787d2c3"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Idle.uasset": {
-      "bytes": 74896,
-      "sha256": "156b3357a8c695a6866fe105ecce7270969fcee1a41b6d1de1c7ebda97ebc426"
-    },
-    "Tools/GlutexoEvolutionV2/Species.json": {
-      "bytes": 1039,
-      "sha256": "5169a6b5cf8825b6f23ec4c35cc6db30271b1550ee7698723966f8c8a3d25110"
-    },
-    "Tools/GlutexoEvolutionV2/InspectSource.py": {
-      "bytes": 3263,
-      "sha256": "7c87f49152778582af851bd6fc6bda32e7cece0e31187317ef2e574ba339e8d7"
-    },
-    "Content/Characters/Creatures/Glutexo/MeshyV1/Meshes/SK_Glutexo_Meshy_Skeleton.uasset": {
-      "bytes": 12466,
-      "sha256": "1c8e97d72b9f316a7a81c1e3de5930f27bfb82c2ccece38556c05497ac18f45b"
-    },
-    "Tools/GlutexoEvolutionV2/RunCapture.py": {
-      "bytes": 1416,
-      "sha256": "7b0e139203d86354d321fc37ac8b5171823ce8712193f34e3a1a85b03c918309"
-    },
-    "Tools/GlutexoEvolutionV2/Anatomy.py": {
-      "bytes": 915,
-      "sha256": "635f3a3353d16ca5b633b30bd88311aa59eb40a07ba7b6af4bff78af564006ce"
-    },
-    "Tools/GlutexoEvolutionV2/RunReview.py": {
-      "bytes": 1360,
-      "sha256": "9e4d80ee8ae19c59c5d1446873231eaba9c525d37013520695bb115347fea77b"
-    },
-    "Art/Characters/Creatures/Glutexo/Exports/MeshyV1/Glutexo_Faint.fbx": {
-      "bytes": 1373436,
-      "sha256": "479dfae9106d613b0045251f1ad52966f4da8d6c323c1e95423e2dffe4ef0196"
-    },
-    "Art/Characters/Creatures/Glutexo/Textures/MeshyV1/Glutexo_MetallicRoughness.jpg": {
-      "bytes": 1205931,
-      "sha256": "876621beff7cf66a99f767c6a098d0b2c6274bc2aa9144605bff86d423cf4762"
-    },
-    "Art/Characters/Creatures/Glutexo/Textures/MeshyV1/Glutexo_BaseColor.jpg": {
-      "bytes": 2125401,
-      "sha256": "b876b3f4187e6f662c32d9906b3537b3fb600c56c2d2a6f3ddf0540debfc2173"
-    },
-    "Tools/GlutexoEvolutionV2/ReviewOne.py": {
-      "bytes": 7617,
-      "sha256": "59244bc94726251729aa6bbb9178ccc0bd7f9890c45897ea1b5cb9e8dd11f1f6"
-    },
-    "Content/Data/Creatures/DA_Glutexo.uasset": {
-      "bytes": 7090,
-      "sha256": "c0140ee529be955dba5c9f5f17127954a9fe4d23257b762826b47d103e2fd626"
-    },
-    "Tools/GlutexoEvolutionV2/MapChecksEvolution.py": {
-      "bytes": 1047,
-      "sha256": "4931bae8665bf95b150b2677b95112dafdae61c2fbd1484244254b73ab9add5c"
-    },
-    "Source/PokeMonster/UI/PokeMonsterEvolutionWidget.cpp": {
-      "bytes": 13121,
-      "sha256": "1d618a58a1b6bdc5355778c092ab62351f854a6c56c5dbd47697e243c5fa61bc"
-    },
-    "Tools/GlutexoEvolutionV2/StartFullGameplay.py": {
-      "bytes": 2363,
-      "sha256": "2917325cda886e226da9b1e2d509015120a2f81bee658850355c3b8d6773d6c0"
-    },
-    "Source/PokeMonster/Development/PokeMonsterEvolutionV2Review.cpp": {
-      "bytes": 5678,
-      "sha256": "2b0a503621a344a59dac62be72d9e57ca6420abecdf6caf8b442c87f182f6404"
-    },
-    "Tools/GlutexoEvolutionV2/RunFullGameplay.py": {
-      "bytes": 2138,
-      "sha256": "8bfe793aba6342d264342fd9de0ddb73b9be91054f323fbbeb24877421f7d191"
-    },
-    "Docs/POKEMON_ENTWICKLUNGEN_V2_TESTERGEBNISSE.json": {
-      "bytes": 8166,
-      "sha256": "4a96402d6a7f6cb1a308eb1f3502bb5c0217f36c4946cd7a86774365e101e6e9"
-    },
-    "Source/PokeMonster/UI/PokeMonsterEvolutionWidget.h": {
-      "bytes": 1809,
-      "sha256": "4a540a82f07d0deba55dfadae115f493aabce37b9cb8d976b8abb9f978294b5b"
-    },
-    "Tools/GlutexoEvolutionV2/ReviewEvolutionEdges.py": {
-      "bytes": 5162,
-      "sha256": "c604803e92659555825d8d928b05454934e9d35af4b26daee4a18438bd5e9a15"
-    },
-    "Tools/GlutexoEvolutionV2/RunEvolutionReview.py": {
-      "bytes": 1309,
-      "sha256": "112bdce002f8c05c3c9c3d77b8414141755c1e318f941a144f85c57b9bbbc132"
-    },
-    "Content/Characters/Creatures/Shared/EvolutionV2/M_EvolutionGlow.uasset": {
-      "bytes": 9089,
-      "sha256": "371bdfacfd38ece563eeab2d493b9dcdbee07818a0a7f1c8f79ab3f1de587d9c"
-    },
-    "Source/PokeMonster/Tests/PokeMonsterEvolutionV2Test.cpp": {
-      "bytes": 9012,
-      "sha256": "f855fadd71f3ccb80cc0200c95802c6b5e6c4fd27939e601de3d4140b695086f"
-    },
-    "Tools/GlutexoEvolutionV2/PrepareEvolutionAssets.py": {
-      "bytes": 2625,
-      "sha256": "5f63e6f3b686ed4fec8b607fed147fcf9f018887fc25eca76e849b9190aaff80"
-    },
-    "Docs/POKEMON_ENTWICKLUNGEN_V2_PRUEFBERICHT.md": {
-      "bytes": 14683,
-      "sha256": "e42e784d0157a0ceb6ff8c01efffb83a26f7350b3baf736ea5e0eefe370d5f60"
-    },
-    "Tools/GlutexoEvolutionV2/ReviewEvolution.py": {
-      "bytes": 10196,
-      "sha256": "a9f7a0ae7c53c23e2ca4a04bf846658af6b6cbb70ebce82a3286c90d358a867a"
     }
   }
 }

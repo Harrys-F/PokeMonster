@@ -465,13 +465,13 @@ bool UPokeMonsterEncounterSubsystem::CommitRememberedMoves(APokeMonsterNPC* Mast
 #include "../Quest/PokeMonsterQuestSubsystem.h"
 #include "../Checkpoint/PokeMonsterCheckpointSubsystem.h"
 
-int32 UPokeMonsterEncounterSubsystem::PrepareEvolutionOffer()
+int32 UPokeMonsterEncounterSubsystem::PrepareEvolutionOffer(FGuid OnlyCreatureId)
 {
  if(IsEncounterActive())return INDEX_NONE;
  if(auto* C=GetGameInstance()->GetSubsystem<UPokeMonsterCheckpointSubsystem>();C&&C->IsReturningFromDefeat())return INDEX_NONE;
  for(int32 I=0;I<PlayerParty.Num();++I)
  {
-  auto& C=PlayerParty[I];if(C.CurrentHP<=0||!C.PendingMoves.IsEmpty())continue;
+  auto& C=PlayerParty[I];if(OnlyCreatureId.IsValid()&&C.InstanceId!=OnlyCreatureId)continue;if(C.CurrentHP<=0||!C.PendingMoves.IsEmpty())continue;
   FPokeMonsterEvolutionContext Context;
   for(const auto& O:UPokeMonsterCreatureProgression::GetEvolutionOptions(C,Context))if(O.Readiness==EPokeMonsterEvolutionReadiness::Ready)
   {

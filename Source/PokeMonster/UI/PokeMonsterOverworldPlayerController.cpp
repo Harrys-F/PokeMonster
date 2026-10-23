@@ -1,6 +1,9 @@
 #include "PokeMonsterOverworldPlayerController.h"
 #include "PokeMonsterControllerInput.h"
 #include "PokeMonsterEvolutionWidget.h"
+#if WITH_EDITOR
+#include "../Development/PokeMonsterEvolutionTest.h"
+#endif
 #include "HAL/IConsoleManager.h"
 #include "../Dialogue/PokeMonsterNPC.h"
 #include "Framework/Application/SlateApplication.h"
@@ -302,9 +305,13 @@ void APokeMonsterOverworldPlayerController::TryOpenEvolutionPresentation()
  auto* D=GetGameInstance()?GetGameInstance()->GetSubsystem<UPokeMonsterDialogueSubsystem>():nullptr;
  auto* Player=Cast<APokeMonsterPlayerCharacter>(GetPawn());
  if(!CanOpenMenu(Player,E,false)||(D&&D->IsDialogueActive()))return;
+ FGuid OnlyCreatureId;
+#if WITH_EDITOR
+ OnlyCreatureId=PokeMonsterEvolutionTest::SelectedCreature(GetWorld());
+#endif
  int32 Index=INDEX_NONE;bool Learning=false;
- for(int32 I=0;I<E->GetPlayerParty().Num();++I)if(!E->GetPlayerParty()[I].PendingMoves.IsEmpty()){Index=I;Learning=true;break;}
- if(Index==INDEX_NONE)Index=E->PrepareEvolutionOffer();if(Index==INDEX_NONE)return;
+ for(int32 I=0;I<E->GetPlayerParty().Num();++I)if((!OnlyCreatureId.IsValid()||E->GetPlayerParty()[I].InstanceId==OnlyCreatureId)&&!E->GetPlayerParty()[I].PendingMoves.IsEmpty()){Index=I;Learning=true;break;}
+ if(Index==INDEX_NONE)Index=E->PrepareEvolutionOffer(OnlyCreatureId);if(Index==INDEX_NONE)return;
  if(!TryLockMenu(Player,E,false))return;bMenuOpen=true;
  EvolutionWidget=CreateWidget<UPokeMonsterEvolutionWidget>(this,UPokeMonsterEvolutionWidget::StaticClass());
  EvolutionWidget->AddToViewport(60);
