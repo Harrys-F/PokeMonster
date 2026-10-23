@@ -625,7 +625,17 @@
     "separate_error_followup": "0a26b6ed4a39ecf673a39464464b30b14b4064b9",
     "remote_before_feature": "0a26b6ed4a39ecf673a39464464b30b14b4064b9",
     "feature_push_attempted": false,
-    "reason": "Account billing not accessible in signed-out browser; user budget/capacity confirmation pending."
+    "reason": "No signed-in GitHub billing session; async user confirmation still unanswered.",
+    "feature_commit": "fdf6bea80018a91eb287e578f0b9c6865d4e3716",
+    "remote": "0a26b6ed4a39ecf673a39464464b30b14b4064b9",
+    "feature_commit_paths": 96,
+    "normal_git_new_object_raw_bytes": 1807072,
+    "lfs_files": 59,
+    "lfs_bytes": 229963,
+    "local_fsck_passed": true,
+    "lfs_dry_run_only": true,
+    "new_feature_upload_attempted": false,
+    "upload_status": "blocked_pending_current_zero_cost_confirmation"
   },
   "known_external_warning": "UE idevice_id: Bad CPU type in executable; observed in interactive Editor logs, separate from project errors. Final strict automation itself had zero warnings.",
   "prior_actual_failures": {
@@ -633,5 +643,14 @@
     "production01": "Harness waited indefinitely after legitimate failed escape; stopped and documented.",
     "production02": "Harness checked asynchronous escape teardown too early; corrected final-state gate.",
     "production03": "59/59 passed; final production run repeated after learning identity guard as production04."
+  },
+  "git_index_verified": {
+    "paths": 96,
+    "normal_git_new_object_raw_bytes": 1807072,
+    "lfs_files": 59,
+    "lfs_bytes": 229963,
+    "exact_whitelist": true,
+    "unexpected_paths": 0,
+    "media_uploaded": false
   }
 }

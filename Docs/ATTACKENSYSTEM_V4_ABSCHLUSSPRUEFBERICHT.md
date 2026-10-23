@@ -104,3 +104,15 @@ Der geprüfte neue Paketumfang: 49 Move-Assets + zehn bestehende Speziesdateien,
 Aktuelle offizielle Grenzen wurden geprüft: normale Git-Dateien dürfen höchstens 100 MiB groß sein; GitHub Free/Pro erlauben LFS-Dateien bis 2 GB. Das enthaltene Freikontingent beträgt 10 GiB; sein aktueller Rest und die Konto-Budgeteinstellung sind dadurch nicht bewiesen. Bei vorhandenem 0-USD-Budget blockiert GitHub Überschreitungen, bei entferntem Budget können Kosten entstehen. Quellen: [Git-Dateigrenzen](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github), [LFS-Dateigrenzen](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage), [LFS-Abrechnung und Budget](https://docs.github.com/en/billing/concepts/product-billing/git-lfs). Es wurden keine Käufe, Budget- oder Kontoeinstellungen vorgenommen.
 
 Verbleibend: kostenfreie GitHub-/LFS-Sicherung bestätigen und regulär ausführen; physische Controller-Hardwareprüfung weiterhin Nutzeraufgabe. Kein weiterer Pokémon-, Landschafts-, Kamera- oder Animationsauftrag wurde begonnen.
+
+
+## Abschließender lokaler Git-Nachweis
+
+- Geprüftes Funktionspaket: `fdf6bea80018a91eb287e578f0b9c6865d4e3716` (`feat: complete Crystal move effects and production bindings`).
+- Tatsächlich genau 96 Commitpfade; 59 LFS-Dateien mit 229.963 Bytes, 37 normale Git-Dateien.
+- Neue normale Git-Objekte einschließlich Metadaten: 1807072 rohe Bytes, deutlich unter 1 GiB. Indexbytes, LFS-Zeiger und lokale LFS-SHA-256 wurden vollständig gegen Arbeitsdateien und Whitelist geprüft. `git diff --cached --check` war fehlerfrei.
+- `git lfs fsck --objects HEAD`: bestanden. `git lfs push --dry-run origin main`: ausschließlich die erwarteten 59 Pfade; keine Übertragung.
+- Remote weiterhin `0a26b6ed4a39ecf673a39464464b30b14b4064b9`. Das neue Funktionspaket liegt **nur lokal**. Ein neuer regulärer Push wurde nicht versucht, weil aktuelles Freikontingent beziehungsweise vorhandenes 0-USD-LFS-Budget noch nicht bestätigt ist. Es gibt daher weder eine behauptete serverseitige LFS-Verifikation noch einen verschwiegenen Pushfehler.
+- Der folgende kleine Dokumentationscommit hält diesen abschließenden Nachweis fest. Sein Hash wird im Abschluss an Harry genannt; er ändert keine Runtime-Dateien oder LFS-Assets.
+
+Nach bestätigter Kostenabsicherung ist vorgesehen: `git push --no-follow-tags origin main`, direkte Remote-Hashprüfung, dann SHA-256-Downloadprüfung der 59 LFS-Objekte des Funktionscommits. Vorher erneut Remote und Arbeitsstatus prüfen. Keine Uploadschleife bei Fehlern.

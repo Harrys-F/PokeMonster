@@ -19050,12 +19050,12 @@
       "sha256": "4e17f7080794c44554aab10fead25fa68b1da765d5e9329ca3429a1de988ca08"
     },
     "Docs/ATTACKENSYSTEM_V4_ABSCHLUSSPRUEFBERICHT.md": {
-      "bytes": 15034,
-      "sha256": "2ccd26ea1113a3212117a4eaebc1a2153d5649e4d517a8251ded96af74ad24f1"
+      "bytes": 16525,
+      "sha256": "ed942e504d449dc14c0648a7ce1900cbc0ad2d8555e9a3f1e3ebd55cf3c3f00c"
     },
     "Docs/ATTACKENSYSTEM_V4_ABSCHLUSS_TESTERGEBNISSE.json": {
-      "bytes": 24192,
-      "sha256": "7831283128195ea24fffeadcbec9ec12bf102e04d6ffb5b0213154b2a6e923b5"
+      "bytes": 24825,
+      "sha256": "a7bd941f96da51015e9ed6bbbf5d41e92778f884a80d3d87d05c2ec6be94ba52"
     },
     "Docs/ATTACKENSYSTEM_V4_AKTUELLER_BESTAND.json": {
       "bytes": 96286,
