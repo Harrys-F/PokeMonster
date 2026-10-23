@@ -39,3 +39,10 @@ Flinch, Verwirrung, Schutz und Stufen bleiben kampflokal. Ein Pokémon-Wechsel s
 ## Darstellung
 
 Die ClassicBattle-Oberfläche und Kameras werden nicht neugestaltet. Der vorhandene Ereignispfad erhält Meldungen und allgemeine Statuskürzel. Mehrfachtreffer werden zu einer korrekten kumulierten KP-Animation zusammengeführt. Rückstoß, Vergiftung, Verwirrung und Heilung verwenden den vorhandenen KP-Darstellungspfad. Wirksame Statuskombinationen dürfen nicht mehr fälschlich den alten Hinweis „keine Wirkung“ anzeigen. Neue aufwendige VFX entstehen nicht; spezifische visuelle Spezialeffekte bleiben offen.
+
+
+## Fortsetzung: produktive Kristall-Anbindung
+
+Die vorherige Liste nicht freigegebener Lebenszyklen beschreibt den historischen Stand von 22764fd8/2950a5ea. Sie ist durch die nun ausdrücklich genehmigte Kristall-Regelgrundlage und die vorhandenen Handler für sämtliche bekannten Komponentenarten ersetzt. Die historische Gen2Reference wird nicht verändert; `Tools/MoveEffectsV4/CrystalMovePlan.json` enthält die geprüfte aktuelle Zuordnung.
+
+Die nachfolgende Abnahme unterscheidet Architektur, Assetbindung und tatsächlich beobachtete Gameplaywirkung: `ATTACKENSYSTEM_V4_ABNAHMETABELLE.md`. Die Session bleibt die einzige Rundenausführung für beide Darstellungsarten. Kritische Treffer, unabhängige Mehrfachtreffer, AP-Groll, Lebenszyklen bei Wechsel/KO und das Lernen in derselben Session sind durch gezielte Regressionen abgedeckt.

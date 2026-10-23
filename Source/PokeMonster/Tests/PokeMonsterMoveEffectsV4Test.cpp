@@ -43,7 +43,7 @@ V4_TEST(FMoveEffectsV4Configuration,"ConfigurationRejectsIncompleteEffects")
  using namespace MoveEffectsV4Tests;Fixture F;
  auto* M=F.Move(K::Heal,true);TestTrue(TEXT("Fractional heal configured"),M->IsConfigured());M->Effects[0].Denominator=0;TestFalse(TEXT("Zero denominator rejected"),M->IsConfigured());M->Effects[0].Denominator=2;M->Effects[0].Numerator=0;TestFalse(TEXT("Zero fraction does not secretly heal one"),M->IsConfigured());
  M=F.Move(K::MultiHit,false,true);TestFalse(TEXT("Missing weighted distribution rejected"),M->IsConfigured());M->Effects[0].HitWeights={3,3,1,1};TestTrue(TEXT("Explicit distribution accepted"),M->IsConfigured());const auto Duplicate=M->Effects[0];M->Effects.Add(Duplicate);TestFalse(TEXT("Duplicate hit controllers rejected instead of silently ignoring one"),M->IsConfigured());M->Effects.RemoveAt(1);M->Effects[0].HitWeights[0]=-1;TestFalse(TEXT("Negative weight rejected"),M->IsConfigured());
- M=F.Move(K::Charge);TestFalse(TEXT("Unimplemented lifecycle cannot become playable"),M->IsConfigured());M=F.Move(K::Stage);M->CriticalStageBonus=1;TestFalse(TEXT("Unimplemented critical bonus cannot become playable"),M->IsConfigured());
+ M=F.Move(K::Charge);M->Effects[0].bSecondary=true;TestFalse(TEXT("Charge cannot be a secondary controller"),M->IsConfigured());M=F.Move(K::Stage);M->CriticalStageBonus=3;TestFalse(TEXT("Unsupported critical bonus rejected"),M->IsConfigured());
  return true;
 }
 V4_TEST(FMoveEffectsV4Stages,"SevenStagesLimitsAndSpecialDamage")

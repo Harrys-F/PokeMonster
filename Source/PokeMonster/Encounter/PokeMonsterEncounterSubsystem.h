@@ -52,7 +52,7 @@ struct POKEMONSTER_API FPokeMonsterEncounterStartData
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") TArray<FPokeMonsterCreatureInstance> OpponentTeam;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") int32 RandomSeed = 2026;
  /** Explicit opt-in; existing encounters keep their established rules. */
- UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Encounter") FPokeMonsterBattleEffectRules EffectRules;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Encounter") FPokeMonsterBattleEffectRules EffectRules=FPokeMonsterBattleEffectRules::Crystal();
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Presentation") FName BattleRegion;
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Encounter") bool bAllowFlee=false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Encounter") TObjectPtr<AActor> SourceActor = nullptr;

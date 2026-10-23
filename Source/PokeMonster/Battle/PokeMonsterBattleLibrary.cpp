@@ -80,3 +80,62 @@ FText UPokeMonsterBattleLibrary::StatusLabel(EPokeMonsterCreatureStatus Status)
  static const TCHAR* Labels[]={TEXT(""),TEXT("BRN"),TEXT("PAR"),TEXT("SLP"),TEXT("PSN"),TEXT("FRZ")};
  return FText::FromString(uint8(Status)<UE_ARRAY_COUNT(Labels)?Labels[uint8(Status)]:TEXT("?"));
 }
+
+
+FPokeMonsterDamageResult UPokeMonsterBattleLibrary::CalculateCrystalDamage(const FPokeMonsterCreatureInstance& A,
+ const FPokeMonsterCreatureInstance& D,const UPokeMonsterMoveData* M,int32 AS,int32 DS,int32 SAS,int32 SDS,
+ bool Critical,int32 RandomFactor,bool Rain,bool Screen,bool Identified,bool Sunny,bool Sand,int32 DamageMultiplier)
+{
+ FPokeMonsterDamageResult R;
+ if(!M || !M->IsConfigured() || !A.IsValid() || !D.IsValid() || RandomFactor<217 || RandomFactor>255)return R;
+ const auto* SA=A.Species.LoadSynchronous();const auto* SD=D.Species.LoadSynchronous();if(!SA || !SD)return R;
+ if(M->Category==EPokeMonsterMoveCategory::Status){R.bValid=true;return R;}
+ const bool Struggle=M->Effect.EffectId==TEXT("Struggle");
+ auto Factor=[&](EPokeMonsterCreatureType T){if(Identified && T==EPokeMonsterCreatureType::Ghost && (M->Type==EPokeMonsterCreatureType::Normal || M->Type==EPokeMonsterCreatureType::Fighting))return 1.f;return GetTypeMultiplier(M->Type,T);};
+ R.TypeMultiplier=Struggle?1.f:Factor(SD->GetPrimaryType())*((SD->GetSecondaryType()==EPokeMonsterCreatureType::None || SD->GetSecondaryType()==SD->GetPrimaryType())?1.f:Factor(SD->GetSecondaryType()));
+ if(R.TypeMultiplier<0)return R;R.bValid=true;if(R.TypeMultiplier==0)return R;
+ if(M->HasEffect(EPokeMonsterEffectKind::FixedDamage))
+ {
+  const auto Effects=M->GetEffectComponents();const auto* Fixed=Effects.FindByPredicate([](const auto& E){return E.Kind==EPokeMonsterEffectKind::FixedDamage;});
+  R.Damage=Fixed->Amount>0?Fixed->Amount:A.Level;R.TypeMultiplier=1;return R;
+ }
+ // In Gen 2 the elemental type, not an individual move flag, selects offensive stats.
+ const auto Type=M->Type;const bool Special=Type==EPokeMonsterCreatureType::Fire || Type==EPokeMonsterCreatureType::Water || Type==EPokeMonsterCreatureType::Electric || Type==EPokeMonsterCreatureType::Grass || Type==EPokeMonsterCreatureType::Ice || Type==EPokeMonsterCreatureType::Psychic || Type==EPokeMonsterCreatureType::Dragon || Type==EPokeMonsterCreatureType::Dark;
+ const int OStage=Special?SAS:AS,DStage=Special?SDS:DS;
+ const bool Ignore=Critical && OStage<=DStage;
+ int64 Offense=Special?A.CalculatedStats.SpecialAttack:A.CalculatedStats.Attack,Defense=Special?D.CalculatedStats.SpecialDefense:D.CalculatedStats.Defense;
+ if(Offense<=0 || Defense<=0){R.bValid=false;return R;}
+ if(!Ignore){Offense=ApplyCrystalStage(int32(Offense),OStage);Defense=ApplyCrystalStage(int32(Defense),DStage);if(!Special && A.Status==EPokeMonsterCreatureStatus::Burn)Offense=FMath::Max<int64>(1,Offense/2);if(Special && Screen)Defense*=2;}
+ // Crystal truncates the two stats together when either exceeds 255; deliberately no overflow bugs.
+ while(Offense>255 || Defense>255){Offense=FMath::Max<int64>(1,Offense/4);Defense=FMath::Max<int64>(1,Defense/4);}
+ int64 Damage=(2*A.Level/5+2)*int64(M->BasePower)*Offense/Defense/50;
+ if(Critical)Damage*=2;Damage=FMath::Min<int64>(997,Damage)+2;
+ if(Rain){if(Type==EPokeMonsterCreatureType::Water)Damage=Damage*3/2;else if(Type==EPokeMonsterCreatureType::Fire)Damage/=2;}
+ if(Sunny){if(Type==EPokeMonsterCreatureType::Fire)Damage=Damage*3/2;else if(Type==EPokeMonsterCreatureType::Water)Damage/=2;}
+ if((Rain || Sand) && M->InternalId==TEXT("SolarBeam"))Damage/=2;
+ if(!Struggle && (SA->GetPrimaryType()==Type || SA->GetSecondaryType()==Type))Damage+=Damage/2;
+ Damage=int64(Damage*R.TypeMultiplier);Damage*=FMath::Clamp(DamageMultiplier,1,256);Damage=Damage*RandomFactor/255;
+ R.Damage=int32(FMath::Clamp<int64>(Damage,1,MAX_int32));return R;
+}
+
+int32 UPokeMonsterBattleLibrary::CrystalAccuracy(int32 Base,int32 Accuracy,int32 Evasion,bool Identified)
+{
+ if(Base<=0)return 0;
+ const int32 N[]={33,36,43,50,60,75,1,133,166,2,233,133,3};
+ const int32 D[]={100,100,100,100,100,100,1,100,100,1,100,50,1};
+ Accuracy=FMath::Clamp(Accuracy,-6,6);Evasion=FMath::Clamp(Evasion,-6,6);
+ int64 Threshold=FMath::Clamp(Base,0,100)*255/100;
+ if(Identified && Evasion>=Accuracy)return int32(Threshold);
+ Threshold=FMath::Max<int64>(1,Threshold*N[Accuracy+6]/D[Accuracy+6]);
+ Threshold=FMath::Max<int64>(1,Threshold*N[6-Evasion]/D[6-Evasion]);
+ return int32(FMath::Min<int64>(255,Threshold));
+}
+
+int32 UPokeMonsterBattleLibrary::ApplyCrystalStage(int32 Value,int32 Stage)
+{
+ if(Value<=0)return 0;
+ const int N[]={25,28,33,40,50,66,1,15,2,25,3,35,4};
+ const int D[]={100,100,100,100,100,100,1,10,1,10,1,10,1};
+ const int I=FMath::Clamp(Stage,-6,6)+6;
+ return int32(FMath::Clamp<int64>(int64(Value)*N[I]/D[I],1,999));
+}

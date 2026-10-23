@@ -22,7 +22,7 @@ namespace
 	{
 		static const TCHAR* Names[] = {TEXT("—"), TEXT("Normal"), TEXT("Feuer"), TEXT("Wasser"), TEXT("Elektro"),
 			TEXT("Pflanze"), TEXT("Eis"), TEXT("Kampf"), TEXT("Gift"), TEXT("Boden"), TEXT("Flug"), TEXT("Psycho"),
-			TEXT("Käfer"), TEXT("Gestein"), TEXT("Geist"), TEXT("Drache"), TEXT("Unlicht"), TEXT("Stahl")};
+			TEXT("Käfer"), TEXT("Gestein"), TEXT("Geist"), TEXT("Drache"), TEXT("Unlicht"), TEXT("Stahl"), TEXT("???")};
 		return FText::FromString(uint8(Type) < UE_ARRAY_COUNT(Names) ? Names[uint8(Type)] : TEXT("?"));
 	}
 }
@@ -140,7 +140,7 @@ bool UPokeMonsterBattlePresenter::CanUse(const FPokeMonsterCreatureInstance& Cre
 
 int32 UPokeMonsterBattlePresenter::ChooseOpponentMove() const
 {
-	if (Session) for (int32 Slot = 0; Slot < 4; ++Slot) if (CanUse(Session->GetState().SideB, Slot)) return Slot;
+	if (Session) for (int32 Slot = 0; Slot < 4; ++Slot) if (Session->CanSelectMove(EPokeMonsterBattleSide::B, Slot)) return Slot;
 	return INDEX_NONE;
 }
 
@@ -156,8 +156,8 @@ int32 UPokeMonsterBattlePresenter::NextOpponentSwitch() const
 bool UPokeMonsterBattlePresenter::TrySelectMove(const int32 Slot)
 {
 	if (bBusy || (Session && Session->HasPendingLearning()) || !Session || Session->GetState().Phase != EPokeMonsterBattlePhase::AwaitingChoices
-		|| !(CanUse(Session->GetState().SideA,Slot)||(Slot==0&&!UPokeMonsterBattleSession::HasUsableMove(Session->GetState().SideA)))) return false;
-	PendingSlot = UPokeMonsterBattleSession::HasUsableMove(Session->GetState().SideA)?Slot:INDEX_NONE;
+		|| !(Session->CanSelectMove(EPokeMonsterBattleSide::A,Slot)||(Slot==0&&!Session->HasSelectableMove(EPokeMonsterBattleSide::A)))) return false;
+	PendingSlot = Session->HasSelectableMove(EPokeMonsterBattleSide::A)?Slot:INDEX_NONE;
 	bPendingSwitch = false;
 	bPendingCapture = false;
  bPendingFlee=false;PendingItem=nullptr;
@@ -170,7 +170,7 @@ bool UPokeMonsterBattlePresenter::TrySelectMove(const int32 Slot)
 bool UPokeMonsterBattlePresenter::TrySelectCapture()
 {
 	if (bBusy || (Session && Session->HasPendingLearning()) || !Session || !TestCaptureDevice || !TestCaptureDevice->IsConfigured()
-		|| !Inventory || !CaptureItem || !Inventory->HasItem(CaptureItem)
+		|| Session->ForcedMoveSlot(EPokeMonsterBattleSide::A)!=INDEX_NONE || !Inventory || !CaptureItem || !Inventory->HasItem(CaptureItem)
 		|| !Session->GetState().bCaptureAllowed
 		|| Session->GetState().Phase != EPokeMonsterBattlePhase::AwaitingChoices) return false;
 	PendingSlot = 0;
@@ -191,7 +191,7 @@ bool UPokeMonsterBattlePresenter::TrySelectSwitch(const int32 TeamIndex)
 		|| State.TeamA[TeamIndex].CurrentHP <= 0 || State.Phase == EPokeMonsterBattlePhase::Finished)
 		return false;
 	const bool bForced = State.Phase == EPokeMonsterBattlePhase::AwaitingSwitch && State.SideA.CurrentHP == 0;
-	if (!bForced && (State.Phase != EPokeMonsterBattlePhase::AwaitingChoices))
+	if (!bForced && (State.Phase != EPokeMonsterBattlePhase::AwaitingChoices || !Session->CanLeave(EPokeMonsterBattleSide::A)))
 		return false;
 	PendingSlot = TeamIndex;
 	bPendingSwitch = true;
@@ -205,13 +205,13 @@ bool UPokeMonsterBattlePresenter::TrySelectSwitch(const int32 TeamIndex)
 
 bool UPokeMonsterBattlePresenter::TrySelectFlee()
 {
- if(bBusy||(Session&&Session->HasPendingLearning())||!Session||!Session->GetState().bFleeAllowed||Session->GetState().Phase!=EPokeMonsterBattlePhase::AwaitingChoices)return false;
+ if(bBusy||(Session&&Session->HasPendingLearning())||!Session||!Session->GetState().bFleeAllowed||!Session->CanLeave(EPokeMonsterBattleSide::A)||Session->GetState().Phase!=EPokeMonsterBattlePhase::AwaitingChoices)return false;
  PendingSlot=0;bPendingCapture=bPendingSwitch=false;PendingItem=nullptr;bPendingFlee=true;bBusy=true;bResolved=false;Refresh();return true;
 }
 bool UPokeMonsterBattlePresenter::TrySelectHealingItem(UPokeMonsterItemData* Item,int32 TeamIndex)
 {
  if(bBusy||(Session&&Session->HasPendingLearning())||!Session||!Inventory||!Inventory->HasItem(Item)||!Item||!Item->IsConfigured()||!Item->CanUseInBattle()||Item->GetCategory()!=EPokeMonsterItemCategory::Healing)return false;
- const auto& S=Session->GetState();if(S.Phase!=EPokeMonsterBattlePhase::AwaitingChoices||!S.TeamA.IsValidIndex(TeamIndex))return false;const auto& C=S.TeamA[TeamIndex];if(C.CurrentHP<=0||C.CurrentHP>=C.GetMaxHP())return false;
+ const auto& S=Session->GetState();if(Session->ForcedMoveSlot(EPokeMonsterBattleSide::A)!=INDEX_NONE||S.Phase!=EPokeMonsterBattlePhase::AwaitingChoices||!S.TeamA.IsValidIndex(TeamIndex))return false;const auto& C=S.TeamA[TeamIndex];if(C.CurrentHP<=0||C.CurrentHP>=C.GetMaxHP())return false;
  PendingSlot=TeamIndex;bPendingCapture=bPendingSwitch=bPendingFlee=false;PendingItem=Item;bBusy=true;bResolved=false;Refresh();return true;
 }
 
@@ -310,13 +310,13 @@ void UPokeMonsterBattlePresenter::Refresh()
 		View.Round = State.RoundNumber;
 		View.bFinished = State.Phase == EPokeMonsterBattlePhase::Finished && !Session->HasPendingLearning();
 		View.bCaptured = State.EndReason == EPokeMonsterBattleEndReason::Captured;
-		View.bCaptureEnabled = State.bCaptureAllowed && TestCaptureDevice && CaptureItem
+		View.bCaptureEnabled = State.bCaptureAllowed && Session->ForcedMoveSlot(EPokeMonsterBattleSide::A)==INDEX_NONE && TestCaptureDevice && CaptureItem
 			&& Inventory && Inventory->HasItem(CaptureItem) && !bBusy
 			&& !View.bFinished && State.Phase == EPokeMonsterBattlePhase::AwaitingChoices;
 		View.CaptureDeviceName = CaptureItem ? CaptureItem->GetDisplayName() : FText::GetEmpty();
-  View.bFleeEnabled=State.bFleeAllowed&&!bBusy&&!View.bFinished&&State.Phase==EPokeMonsterBattlePhase::AwaitingChoices;
+  View.bFleeEnabled=State.bFleeAllowed&&Session->CanLeave(EPokeMonsterBattleSide::A)&&!bBusy&&!View.bFinished&&State.Phase==EPokeMonsterBattlePhase::AwaitingChoices;
   if(Inventory){TSet<UPokeMonsterItemData*> Seen;for(const auto& Stack:Inventory->GetStacks())if(auto* Item=Stack.Item.LoadSynchronous())if(!Seen.Contains(Item)&&Item->CanUseInBattle()&&Item->GetCategory()==EPokeMonsterItemCategory::Healing&&Item->IsConfigured()){
-   Seen.Add(Item);auto& I=View.HealingItems.AddDefaulted_GetRef();I.Item=Item;I.Name=Item->GetDisplayName();I.Quantity=Inventory->GetQuantity(Item);bool Target=false;for(const auto& C:State.TeamA)Target|=C.CurrentHP>0&&C.CurrentHP<C.GetMaxHP();I.bEnabled=Target&&!bBusy&&!View.bFinished&&State.Phase==EPokeMonsterBattlePhase::AwaitingChoices;
+   Seen.Add(Item);auto& I=View.HealingItems.AddDefaulted_GetRef();I.Item=Item;I.Name=Item->GetDisplayName();I.Quantity=Inventory->GetQuantity(Item);bool Target=false;for(const auto& C:State.TeamA)Target|=C.CurrentHP>0&&C.CurrentHP<C.GetMaxHP();I.bEnabled=Target&&Session->ForcedMoveSlot(EPokeMonsterBattleSide::A)==INDEX_NONE&&!bBusy&&!View.bFinished&&State.Phase==EPokeMonsterBattlePhase::AwaitingChoices;
   }}
 		View.bMustSwitch = State.Phase == EPokeMonsterBattlePhase::AwaitingSwitch && State.SideA.CurrentHP == 0;
 		for (int32 SideIndex = 0; SideIndex < 2; ++SideIndex)
@@ -335,7 +335,7 @@ void UPokeMonsterBattlePresenter::Refresh()
 				Member.bKO = Creature.bKO;
 				Member.bActive = Index == Active;
 				Member.bCanSwitch = SideIndex == 0 && Index != Active && !Creature.bKO
-					&& !bBusy && !View.bFinished;
+					&& !bBusy && !View.bFinished && (View.bMustSwitch || Session->CanLeave(EPokeMonsterBattleSide::A));
 			}
 		}
 		const bool bEnemyReady = true;
@@ -348,7 +348,7 @@ void UPokeMonsterBattlePresenter::Refresh()
 			MoveView.Name = Move ? Move->GetPlayerFacingName() : FText::FromString(TEXT("Leerer Slot"));
 			MoveView.Type = Move ? TypeName(Move->Type) : FText::GetEmpty();
 			MoveView.CurrentPP = Data.GetCurrentPP(); MoveView.MaxPP = Data.GetMaxPP();
-			const bool bUsable = CanUse(State.SideA, Slot);
+			const bool bUsable = Session->CanSelectMove(EPokeMonsterBattleSide::A, Slot);
 			bAnyPlayerMove |= bUsable;
 			MoveView.bEnabled = bUsable && bEnemyReady && !bBusy && !View.bFinished && !View.bMustSwitch;
 		}

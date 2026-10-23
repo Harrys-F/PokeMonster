@@ -207,7 +207,7 @@ Medium ist das primäre effiziente Profil für das MacBook Air. Genaue Auflösun
 - Physical/Special/Status wird je Attacke konfiguriert. Effekte, Priorität und Beschreibungen wurden zunächst nur vorbereitet. Die Aussage zur fehlenden Rundensteuerung ist durch „Einfacher 1-gegen-1-Battle-Flow“ unten ersetzt; Statusveränderungen bleiben unimplementiert.
 - Trefferprüfung und Schadensberechnung sind getrennte C++-Funktionen ohne Veränderung der beteiligten Kreaturen. Der Aufrufer liefert einen Wurf von 0–99; PP-Verbrauch erfolgt ausdrücklich über eine separate Funktion.
 - Eine vorläufige Schadensformel verwendet Level, Basisstärke, passende aktuelle Statuswerte und Typmultiplikatoren. Die 17 Typen verwenden als technische Arbeitsgrundlage die zentral gepflegten Matchups der zweiten Generation. Dies konkretisiert das bisher offene Typensystem für den Prototyp; endgültige Anpassungen bleiben möglich.
-- Es gibt noch keine Status-Effektausführung, STAB-Boni, kritischen Treffer, Kampfmodifikatoren, Lernlogik oder Kampfanimationen. Die Aussagen zur fehlenden HP-Anwendung und Battle-UI sind durch die Battle-Session beziehungsweise „Erste funktionale Battle-Testoberfläche“ unten ersetzt. Die bestehenden Welt- und Playersysteme bleiben unverändert.
+- Es gibt noch keine Status-Effektausführung, STAB-Boni, kritischen Treffer, Kampfmodifikatoren, Lernlogik oder Kampfanimationen. Dieser damalige Prototypstand ist durch Fortschritt V1 und die Kristall-Anbindung von Attackensystem V4 ersetzt. Die Aussagen zur fehlenden HP-Anwendung und Battle-UI sind durch die Battle-Session beziehungsweise „Erste funktionale Battle-Testoberfläche“ unten ersetzt. Die bestehenden Welt- und Playersysteme bleiben unverändert.
 - Drei neue Platzhalter-Attacken unter `/Game/Data/Moves` dienen den automatisierten Tests. Die Details und Formeln sind in `Docs/TECHNIK.md` beschrieben.
 
 ## 2026-09-17 – Einfacher 1-gegen-1-Battle-Flow
@@ -1100,6 +1100,15 @@ Gluraks äußere Wurzelflächen hatten teilweise keinen Flügel-Bone-Einfluss un
 
 ## 23.10.2026 – Attackensystem V4: kompatible Effektbasis, Regelentscheidung offen
 
+> Historischer Zwischenstand: Der Regelvorbehalt ist durch die folgende verbindliche Kristall-Entscheidung ersetzt. Die ursprünglichen Testergebnisse bleiben als Verlauf erhalten.
+
 Die vorhandene BattleSession bleibt gemeinsame Rundenauswertung für ClassicBattle und WorldBattle. Explizite typisierte Effektlisten können vorhandene Effekte kombinieren; leere Listen übersetzen die bisherigen Kennungen kompatibel. Save-Version 7 ergänzt einen validierten individuellen Schlafzähler und liest weiterhin Versionen 1–6. Repertoire, vier aktive Slots und AP-Erhaltung beim Meister bleiben erhalten.
 
 Dies beschließt keine neuen finalen Kampfregeln: bisherige Kategorien und vereinfachter Schaden bleiben unverändert. Neue Primärstatusregeln sind standardmäßig nicht aktiviert. Noch ungeklärte Originalwirkungen werden nicht als fertig freigeschaltet. Die 49 gesperrten Lernattacken und ihre Restpunkte stehen in `ATTACKENSYSTEM_V4_WIRKUNGSPLAN.json`. Generationenfrage und vollständige Produktionsbindung bleiben ausdrücklich offen.
+
+
+## Attackensystem V4: verbindliches Kristall-Profil (Fortsetzung, 23.10.2026)
+
+Harry legt Pokémon Kristall / Generation 2 als verbindliche Grundlage der Attackenmechanik fest. Damit ersetzt diese Entscheidung den vorläufigen Prototypstand mit Attackenkategorien je Attacke und ohne STAB, kritische Treffer oder Schadensstreuung. Historische reine Rechentests dürfen das ausdrücklich benannte Legacy-Profil weiterhin verwenden; normale Begegnungen verwenden das Kristall-Profil. Bestehende Spezies-, Attacken- und Speicheridentitäten bleiben erhalten.
+
+Weiterhin gelten ausdrückliche Projektregeln zu Erfahrungsteilung, Höchstlevel 100, persönlichem Repertoire, ortsgebundenem Attackenwechsel und besonderen Entwicklungen. Der bisher festgelegte Gleichstand bei Initiative zugunsten Seite A bleibt als Projektabweichung bestehen. Der Tageszeitkontext für zeitabhängige Heilattacken ist zunächst explizit Tag; dies verändert keine Weltbeleuchtung. Die unveränderte historische Gen-2-Datenextraktion wird um einen gesondert überprüften Kristall-Effektplan ergänzt. Nicht vorhandene Systeme wie getragene Gegenstände und Stachler werden nicht stillschweigend simuliert.

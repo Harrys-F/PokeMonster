@@ -33,7 +33,9 @@ enum class EPokeMonsterCreatureType : uint8
 	Ghost,
 	Dragon,
 	Dark,
-	Steel
+	Steel,
+	/** Crystal Curse uses the non-elemental ??? type; not a species type. */
+	Mystery
 };
 
 UENUM(BlueprintType)

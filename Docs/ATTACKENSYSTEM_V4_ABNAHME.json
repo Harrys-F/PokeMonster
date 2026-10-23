@@ -1,0 +1,1557 @@
+{
+  "originally_missing": 49,
+  "implemented": 49,
+  "production_bound": 49,
+  "automated": 49,
+  "pie_executed": 49,
+  "open_gameplay_effects": 0,
+  "canonical_moves_now": 68,
+  "actual_move_assets": 71,
+  "learnlist_entries": 102,
+  "automation_run": "MoveEffectsV4CompleteAutomation05",
+  "production_pie_run": "CrystalProduction04",
+  "rows": [
+    {
+      "id": "KarateChop",
+      "original_move_id": 2,
+      "name": "Karateschlag",
+      "type": "FIGHTING",
+      "category": "PHYSICAL",
+      "power": 50,
+      "accuracy": 100,
+      "max_pp": 25,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_KarateChop",
+      "description": "Erhöhte Volltrefferchance.",
+      "mechanisms": [
+        "CRITICAL_RATE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.KarateChop",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Machomei",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction040Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction040After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Bite",
+      "original_move_id": 44,
+      "name": "Biss",
+      "type": "DARK",
+      "category": "SPECIAL",
+      "power": 60,
+      "accuracy": 100,
+      "max_pp": 25,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Bite",
+      "description": "Kann das Ziel zurückschrecken lassen (30 %).",
+      "mechanisms": [
+        "FLINCH"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Bite",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Schiggy",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction041Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction041After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Disable",
+      "original_move_id": 50,
+      "name": "Aussetzer",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 55,
+      "max_pp": 20,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Disable",
+      "description": "Blockiert die zuletzt verwendete Attacke für 2–8 Züge.",
+      "mechanisms": [
+        "DISABLE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Disable",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Enton",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [],
+      "pie_missed": true,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction042Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction042After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Acid",
+      "original_move_id": 51,
+      "name": "Säure",
+      "type": "POISON",
+      "category": "PHYSICAL",
+      "power": 40,
+      "accuracy": 100,
+      "max_pp": 30,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Acid",
+      "description": "Kann die Verteidigung des Ziels um eine Stufe senken (10 %).",
+      "mechanisms": [
+        "STAGE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Acid",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Myrapla",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction043Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction043After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Submission",
+      "original_move_id": 66,
+      "name": "Überroller",
+      "type": "FIGHTING",
+      "category": "PHYSICAL",
+      "power": 80,
+      "accuracy": 80,
+      "max_pp": 25,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Submission",
+      "description": "Verursacht Rückstoß in Höhe eines Viertels des verursachten Schadens.",
+      "mechanisms": [
+        "RECOIL"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Submission",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Machomei",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Rückstoß."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction044Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction044After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "LowKick",
+      "original_move_id": 67,
+      "name": "Fußkick",
+      "type": "FIGHTING",
+      "category": "PHYSICAL",
+      "power": 50,
+      "accuracy": 90,
+      "max_pp": 20,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_LowKick",
+      "description": "Kann das Ziel zurückschrecken lassen (30 %); Stärke 50 nach Kristall-Regeln.",
+      "mechanisms": [
+        "FLINCH"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.LowKick",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Machomei",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction045Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction045After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Growth",
+      "original_move_id": 74,
+      "name": "Wachstum",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 40,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Growth",
+      "description": "Erhöht den Spezial-Angriff um eine Stufe.",
+      "mechanisms": [
+        "STAGE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Growth",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Bisasam",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Spezial-Angriff steigt (+1)."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction046Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction046After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "RazorLeaf",
+      "original_move_id": 75,
+      "name": "Rasierblatt",
+      "type": "GRASS",
+      "category": "SPECIAL",
+      "power": 55,
+      "accuracy": 95,
+      "max_pp": 25,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_RazorLeaf",
+      "description": "Erhöhte Volltrefferchance.",
+      "mechanisms": [
+        "CRITICAL_RATE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.RazorLeaf",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Bisasam",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction047Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction047After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "SolarBeam",
+      "original_move_id": 76,
+      "name": "Solarstrahl",
+      "type": "GRASS",
+      "category": "SPECIAL",
+      "power": 120,
+      "accuracy": 100,
+      "max_pp": 10,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_SolarBeam",
+      "description": "Lädt einen Zug lang auf und greift dann an. Bei Sonne sofort; Regen und Sandsturm schwächen den Angriff.",
+      "mechanisms": [
+        "CHARGE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.SolarBeam",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Bisasam",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Bereitet den Angriff vor."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction048Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction048After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "PoisonPowder",
+      "original_move_id": 77,
+      "name": "Giftpuder",
+      "type": "POISON",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 75,
+      "max_pp": 35,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_PoisonPowder",
+      "description": "Vergiftet das Ziel. Gift- und Stahl-Pokémon sind immun.",
+      "mechanisms": [
+        "PRIMARY_STATUS"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.PoisonPowder",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Myrapla",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Statusproblem: PSN"
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction049Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction049After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "StunSpore",
+      "original_move_id": 78,
+      "name": "Stachelspore",
+      "type": "GRASS",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 75,
+      "max_pp": 30,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_StunSpore",
+      "description": "Paralysiert das Ziel.",
+      "mechanisms": [
+        "PRIMARY_STATUS"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.StunSpore",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Myrapla",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Statusproblem: PAR"
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0410Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0410After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "SleepPowder",
+      "original_move_id": 79,
+      "name": "Schlafpuder",
+      "type": "GRASS",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 75,
+      "max_pp": 15,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_SleepPowder",
+      "description": "Versetzt das Ziel in Schlaf.",
+      "mechanisms": [
+        "PRIMARY_STATUS"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.SleepPowder",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Bisasam",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Statusproblem: SLP"
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0411Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0411After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "PetalDance",
+      "original_move_id": 80,
+      "name": "Blättertanz",
+      "type": "GRASS",
+      "category": "SPECIAL",
+      "power": 70,
+      "accuracy": 100,
+      "max_pp": 20,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_PetalDance",
+      "description": "Greift 2–3 Züge lang an; danach kurz verwirrt.",
+      "mechanisms": [
+        "RAMPAGE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.PetalDance",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Myrapla",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Nach dem Angriff verwirrt."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0412Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0412After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "DragonRage",
+      "original_move_id": 82,
+      "name": "Drachenwut",
+      "type": "DRAGON",
+      "category": "SPECIAL",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 10,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_DragonRage",
+      "description": "Verursacht genau 40 KP Schaden.",
+      "mechanisms": [
+        "FIXED_DAMAGE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.DragonRage",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Zunderlauf",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0413Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0413After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "FireSpin",
+      "original_move_id": 83,
+      "name": "Feuerwirbel",
+      "type": "FIRE",
+      "category": "SPECIAL",
+      "power": 15,
+      "accuracy": 70,
+      "max_pp": 15,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_FireSpin",
+      "description": "Fesselt das Ziel für 2–5 Züge und entzieht wiederholt ein Sechzehntel seiner maximalen KP.",
+      "mechanisms": [
+        "TRAP"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.FireSpin",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Glurak",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Im Feuerwirbel gefangen."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0414Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0414After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "ThunderShock",
+      "original_move_id": 84,
+      "name": "Donnerschock",
+      "type": "ELECTRIC",
+      "category": "SPECIAL",
+      "power": 40,
+      "accuracy": 100,
+      "max_pp": 30,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_ThunderShock",
+      "description": "Kann das Ziel paralysieren (10 %).",
+      "mechanisms": [
+        "PRIMARY_STATUS"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.ThunderShock",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Pikachu",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0415Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0415After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Thunderbolt",
+      "original_move_id": 85,
+      "name": "Donnerblitz",
+      "type": "ELECTRIC",
+      "category": "SPECIAL",
+      "power": 95,
+      "accuracy": 100,
+      "max_pp": 15,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Thunderbolt",
+      "description": "Kann das Ziel paralysieren (10 %).",
+      "mechanisms": [
+        "PRIMARY_STATUS"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Thunderbolt",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Pikachu",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0416Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0416After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "ThunderWave",
+      "original_move_id": 86,
+      "name": "Donnerwelle",
+      "type": "ELECTRIC",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 20,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_ThunderWave",
+      "description": "Paralysiert das Ziel. Gegen Boden-Pokémon wirkungslos.",
+      "mechanisms": [
+        "PRIMARY_STATUS"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.ThunderWave",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Pikachu",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Statusproblem: PAR"
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0417Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0417After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Thunder",
+      "original_move_id": 87,
+      "name": "Donner",
+      "type": "ELECTRIC",
+      "category": "SPECIAL",
+      "power": 120,
+      "accuracy": 70,
+      "max_pp": 10,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Thunder",
+      "description": "Kann das Ziel paralysieren (30 %). Trifft bei Regen sicher; bei Sonne ungenauer.",
+      "mechanisms": [
+        "PRIMARY_STATUS"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Thunder",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Pikachu",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Statusproblem: PAR"
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0418Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0418After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Confusion",
+      "original_move_id": 93,
+      "name": "Konfusion",
+      "type": "PSYCHIC",
+      "category": "SPECIAL",
+      "power": 50,
+      "accuracy": 100,
+      "max_pp": 25,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Confusion",
+      "description": "Kann das Ziel verwirren (10 %).",
+      "mechanisms": [
+        "CONFUSION"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Confusion",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Enton",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0419Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0419After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Hypnosis",
+      "original_move_id": 95,
+      "name": "Hypnose",
+      "type": "PSYCHIC",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 60,
+      "max_pp": 20,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Hypnosis",
+      "description": "Versetzt das Ziel in Schlaf.",
+      "mechanisms": [
+        "PRIMARY_STATUS"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Hypnosis",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Nebulak",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Statusproblem: SLP"
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0420Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0420After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Agility",
+      "original_move_id": 97,
+      "name": "Agilität",
+      "type": "PSYCHIC",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 30,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Agility",
+      "description": "Erhöht die Initiative um zwei Stufen.",
+      "mechanisms": [
+        "STAGE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Agility",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Pikachu",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Initiative steigt (+2)."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0421Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0421After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Rage",
+      "original_move_id": 99,
+      "name": "Raserei",
+      "type": "NORMAL",
+      "category": "PHYSICAL",
+      "power": 20,
+      "accuracy": 100,
+      "max_pp": 20,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Rage",
+      "description": "Wird durch gegnerische Treffer stärker, solange Raserei fortgesetzt wird.",
+      "mechanisms": [
+        "RAGE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Rage",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Zunderlauf",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Rasereis Stärke steigt."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0422Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0422After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Screech",
+      "original_move_id": 103,
+      "name": "Kreideschrei",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 85,
+      "max_pp": 40,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Screech",
+      "description": "Senkt die Verteidigung des Ziels um zwei Stufen.",
+      "mechanisms": [
+        "STAGE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Screech",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Enton",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Verteidigung sinkt (-2)."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0423Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0423After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "DoubleTeam",
+      "original_move_id": 104,
+      "name": "Doppelteam",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 15,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_DoubleTeam",
+      "description": "Erhöht den Ausweichwert um eine Stufe.",
+      "mechanisms": [
+        "STAGE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.DoubleTeam",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Pikachu",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Ausweichwert steigt (+1)."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0424Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0424After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Smokescreen",
+      "original_move_id": 108,
+      "name": "Rauchwolke",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 20,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Smokescreen",
+      "description": "Senkt die Genauigkeit des Ziels um eine Stufe.",
+      "mechanisms": [
+        "STAGE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Smokescreen",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Glurak",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Genauigkeit sinkt (-1)."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0425Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0425After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "ConfuseRay",
+      "original_move_id": 109,
+      "name": "Konfusstrahl",
+      "type": "GHOST",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 10,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_ConfuseRay",
+      "description": "Verwirrt das Ziel.",
+      "mechanisms": [
+        "CONFUSION"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.ConfuseRay",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Gengar",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Verwirrung!"
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0426Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0426After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "LightScreen",
+      "original_move_id": 113,
+      "name": "Lichtschild",
+      "type": "PSYCHIC",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 30,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_LightScreen",
+      "description": "Schützt das Team fünf Züge lang vor Spezialschaden.",
+      "mechanisms": [
+        "SCREEN"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.LightScreen",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Pikachu",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Spezialschutz aufgebaut."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0427Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0427After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "FocusEnergy",
+      "original_move_id": 116,
+      "name": "Energiefokus",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 30,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_FocusEnergy",
+      "description": "Erhöht die Volltrefferstufe um eins.",
+      "mechanisms": [
+        "CRITICAL_FOCUS"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.FocusEnergy",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Machomei",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Konzentriert sich auf Volltreffer."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0428Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0428After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Lick",
+      "original_move_id": 122,
+      "name": "Schlecker",
+      "type": "GHOST",
+      "category": "PHYSICAL",
+      "power": 20,
+      "accuracy": 100,
+      "max_pp": 30,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Lick",
+      "description": "Kann das Ziel paralysieren (30 %).",
+      "mechanisms": [
+        "PRIMARY_STATUS"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Lick",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Nebulak",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Statusproblem: PAR"
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0429Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0429After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "SkullBash",
+      "original_move_id": 130,
+      "name": "Schädelwumme",
+      "type": "NORMAL",
+      "category": "PHYSICAL",
+      "power": 100,
+      "accuracy": 100,
+      "max_pp": 15,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_SkullBash",
+      "description": "Erhöht beim Aufladen die Verteidigung und greift im nächsten Zug an.",
+      "mechanisms": [
+        "CHARGE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.SkullBash",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Schiggy",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Bereitet den Angriff vor."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0430Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0430After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "DreamEater",
+      "original_move_id": 138,
+      "name": "Traumfresser",
+      "type": "PSYCHIC",
+      "category": "SPECIAL",
+      "power": 100,
+      "accuracy": 100,
+      "max_pp": 15,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_DreamEater",
+      "description": "Wirkt nur gegen schlafende Ziele und heilt die Hälfte des verursachten Schadens.",
+      "mechanisms": [
+        "DRAIN"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.DreamEater",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Gengar",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "KP wiederhergestellt."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0431Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0431After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "FurySwipes",
+      "original_move_id": 154,
+      "name": "Kratzfurie",
+      "type": "NORMAL",
+      "category": "PHYSICAL",
+      "power": 18,
+      "accuracy": 80,
+      "max_pp": 15,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_FurySwipes",
+      "description": "Trifft 2–5-mal; jeder Treffer kann ein Volltreffer sein.",
+      "mechanisms": [
+        "MULTI_HIT"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.FurySwipes",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Enton",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "2 Treffer."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0432Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0432After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Slash",
+      "original_move_id": 163,
+      "name": "Schlitzer",
+      "type": "NORMAL",
+      "category": "PHYSICAL",
+      "power": 70,
+      "accuracy": 100,
+      "max_pp": 20,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Slash",
+      "description": "Erhöhte Volltrefferchance.",
+      "mechanisms": [
+        "CRITICAL_RATE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Slash",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Zunderlauf",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0433Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0433After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Curse",
+      "original_move_id": 174,
+      "name": "Fluch",
+      "type": "MYSTERY",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 10,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Curse",
+      "description": "Geister opfern die Hälfte ihrer maximalen KP für einen Fluch. Andere Pokémon steigern Angriff und Verteidigung, verlieren aber Initiative.",
+      "mechanisms": [
+        "CURSE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Curse",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Nebulak",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Das Ziel wurde mit einem Fluch belegt."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0434Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0434After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Spite",
+      "original_move_id": 180,
+      "name": "Groll",
+      "type": "GHOST",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 10,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Spite",
+      "description": "Entzieht der zuletzt verwendeten Attacke des Ziels 2–5 AP.",
+      "mechanisms": [
+        "SPITE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Spite",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Gengar",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Die letzte Attacke verliert 5 AP."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0435Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0435After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Protect",
+      "original_move_id": 182,
+      "name": "Schutzschild",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 10,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Protect",
+      "description": "Schützt diesen Zug. Wiederholter Einsatz hat sinkende Erfolgschancen.",
+      "mechanisms": [
+        "PROTECT"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Protect",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Schiggy",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Schutz aufgebaut."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0436Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0436After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "ScaryFace",
+      "original_move_id": 184,
+      "name": "Grimasse",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 90,
+      "max_pp": 10,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_ScaryFace",
+      "description": "Senkt die Initiative des Ziels um zwei Stufen.",
+      "mechanisms": [
+        "STAGE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.ScaryFace",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Glurak",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Initiative sinkt (-2)."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0437Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0437After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Foresight",
+      "original_move_id": 193,
+      "name": "Scharfblick",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 40,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Foresight",
+      "description": "Durchschaut das Ziel: erleichtert Treffer und hebt seine Geist-Immunität gegen Normal und Kampf auf.",
+      "mechanisms": [
+        "IDENTIFY"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Foresight",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Machomei",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Das Ziel wurde durchschaut."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0438Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0438After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "DestinyBond",
+      "original_move_id": 194,
+      "name": "Abgangsbund",
+      "type": "GHOST",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 5,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_DestinyBond",
+      "description": "Wird der Anwender anschließend direkt besiegt, nimmt er den Angreifer mit.",
+      "mechanisms": [
+        "DESTINY_BOND"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.DestinyBond",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Nebulak",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Abgangsbund ist aktiv."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0439Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0439After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "MeanLook",
+      "original_move_id": 212,
+      "name": "Horrorblick",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 5,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_MeanLook",
+      "description": "Verhindert Wechsel und Flucht, solange der Anwender im Kampf bleibt.",
+      "mechanisms": [
+        "PREVENT_SWITCH"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.MeanLook",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Gengar",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Das Ziel kann nicht entkommen."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0440Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0440After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "RapidSpin",
+      "original_move_id": 229,
+      "name": "Turbodreher",
+      "type": "NORMAL",
+      "category": "PHYSICAL",
+      "power": 20,
+      "accuracy": 100,
+      "max_pp": 40,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_RapidSpin",
+      "description": "Befreit den Anwender von Egelsamen und fesselnden Wirbeln.",
+      "mechanisms": [
+        "CLEAR_BINDINGS"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.RapidSpin",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Schiggy",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Fesselnde Wirbel und Egelsamen entfernt."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0441Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0441After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "SweetScent",
+      "original_move_id": 230,
+      "name": "Lockduft",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 20,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_SweetScent",
+      "description": "Senkt den Ausweichwert des Ziels um eine Stufe.",
+      "mechanisms": [
+        "STAGE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.SweetScent",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Bisasam",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Ausweichwert sinkt (-1)."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0442Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0442After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "VitalThrow",
+      "original_move_id": 233,
+      "name": "Überwurf",
+      "type": "FIGHTING",
+      "category": "PHYSICAL",
+      "power": 70,
+      "accuracy": 100,
+      "max_pp": 10,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_VitalThrow",
+      "description": "Trifft sicher, wird aber später als gewöhnliche Attacken ausgeführt.",
+      "mechanisms": [
+        "ALWAYS_HIT_PRIORITY"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.VitalThrow",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Machomei",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0443Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0443After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Synthesis",
+      "original_move_id": 235,
+      "name": "Synthese",
+      "type": "GRASS",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 5,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Synthesis",
+      "description": "Heilt abhängig von Tageszeit und Wetter; am Tag wirksamer.",
+      "mechanisms": [
+        "HEAL"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Synthesis",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Bisasam",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "KP wiederhergestellt."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0444Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0444After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "Moonlight",
+      "original_move_id": 236,
+      "name": "Mondschein",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 5,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_Moonlight",
+      "description": "Heilt abhängig von Tageszeit und Wetter; nachts wirksamer.",
+      "mechanisms": [
+        "HEAL"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.Moonlight",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Myrapla",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "KP wiederhergestellt."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0445Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0445After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "CrossChop",
+      "original_move_id": 238,
+      "name": "Kreuzhieb",
+      "type": "FIGHTING",
+      "category": "PHYSICAL",
+      "power": 100,
+      "accuracy": 80,
+      "max_pp": 5,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_CrossChop",
+      "description": "Erhöhte Volltrefferchance.",
+      "mechanisms": [
+        "CRITICAL_RATE"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.CrossChop",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Machomei",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0446Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0446After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "RainDance",
+      "original_move_id": 240,
+      "name": "Regentanz",
+      "type": "WATER",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 90,
+      "max_pp": 5,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_RainDance",
+      "description": "Lässt es fünf Züge lang regnen. Wasser wird stärker, Feuer schwächer.",
+      "mechanisms": [
+        "RAIN"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.RainDance",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Schiggy",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Regen setzt ein."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0447Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0447After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    },
+    {
+      "id": "PsychUp",
+      "original_move_id": 244,
+      "name": "Psycho-Plus",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 10,
+      "asset": "/Game/Data/Moves/EffectsV4/DA_PsychUp",
+      "description": "Übernimmt die Statuswertstufen des Ziels. Schlägt bei unveränderten Zielwerten fehl.",
+      "mechanisms": [
+        "COPY_STAGES"
+      ],
+      "implemented": true,
+      "production_bound": true,
+      "automated_test": "PokeMonster.CrystalMoves.Production.PsychUp",
+      "automated_result": "Success",
+      "pie_executed": true,
+      "pie_species": "Enton",
+      "pie_context": "Controlled transient actual-asset fixture in existing VisualV2; not a natural wild-balancing demonstration",
+      "pie_observed_messages": [
+        "Die Statuswertstufen des Gegners wurden kopiert."
+      ],
+      "pie_missed": false,
+      "pie_shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0448Before/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0448After/ActualSlateViewport.png"
+      ],
+      "open_gameplay_effect": false,
+      "visual_limitation": "No individual new VFX; existing presentation reused. Chance/edge proof comes from the actual production automation, not inference from a screenshot."
+    }
+  ]
+}

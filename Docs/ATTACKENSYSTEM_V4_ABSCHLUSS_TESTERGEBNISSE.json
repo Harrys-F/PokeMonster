@@ -1,0 +1,637 @@
+{
+  "build": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 8.435938119888306
+  },
+  "automation": {
+    "succeeded": 182,
+    "succeededWithWarnings": 0,
+    "failed": 0,
+    "notRun": 0,
+    "inProcess": 0
+  },
+  "strict_wrapper_exit": 0,
+  "production_pie": {
+    "passed": true,
+    "cases": 59,
+    "classic_moves": 49,
+    "world_species": 10,
+    "screenshots": 118,
+    "technical_runtime_values": true,
+    "actual_production_assets": true,
+    "build": "MoveEffectsV4CompleteBuild10"
+  },
+  "subsequent_final_build": "MoveEffectsV4CompleteBuild11",
+  "combined_status_order_native_tests": true,
+  "learning_pie": {
+    "passed": true,
+    "cases": 6,
+    "screenshots": 20
+  },
+  "master_pie": {
+    "passed": true,
+    "checks": 18,
+    "screenshots": 6,
+    "unsaved_technical_NPC": true
+  },
+  "controller_software": {
+    "passed": true,
+    "checks": 46,
+    "physical_hardware_verified": false
+  },
+  "defeat_save": {
+    "passed": true,
+    "reload_equal": true,
+    "original_restored": true
+  },
+  "full_foot": {
+    "passed": true,
+    "steps": 103,
+    "distance_m": 311.1824228815382,
+    "no_test_teleports": true,
+    "classic_observer_passed": true,
+    "original_restored": true
+  },
+  "maps": [
+    {
+      "map": "/Game/Maps/Dev_BattleTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BuildingKitTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_HealingHouseTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_NPCMotionV3",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2EnvironmentQualityV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandAssetLibrary",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandRegion",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandVillage",
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "protection": {
+    "passed": true,
+    "protected_files": 2858,
+    "allowed_changed_species_files": [
+      "Content/Data/Creatures/DA_Bisasam.uasset",
+      "Content/Data/Creatures/DA_Enton.uasset",
+      "Content/Data/Creatures/DA_Gengar.uasset",
+      "Content/Data/Creatures/DA_Glurak.uasset",
+      "Content/Data/Creatures/DA_Machomei.uasset",
+      "Content/Data/Creatures/DA_Myrapla.uasset",
+      "Content/Data/Creatures/DA_Nebulak.uasset",
+      "Content/Data/Creatures/DA_Pikachu.uasset",
+      "Content/Data/Creatures/DA_Schiggy.uasset",
+      "Content/Data/Creatures/DA_Zunderlauf.uasset"
+    ],
+    "all_other_protected_unchanged": true,
+    "tested_runtime_files": 288,
+    "runtime_matches_final_182_test_run": true,
+    "developer_save_sha256": "eeab48f3c5652ef6d24b7f386ee7c26973336c929edf39aa7f6593d407a913df",
+    "untracked_incoming_unchanged": 25
+  },
+  "media": {
+    "native_sizes": {
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction040Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction040After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction041Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction041After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction042Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction042After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction043Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction043After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction044Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction044After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction045Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction045After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction046Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction046After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction047Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction047After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction048Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction048After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction049Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction049After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0410Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0410After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0411Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0411After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0412Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0412After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0413Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0413After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0414Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0414After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0415Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0415After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0416Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0416After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0417Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0417After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0418Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0418After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0419Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0419After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0420Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0420After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0421Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0421After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0422Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0422After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0423Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0423After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0424Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0424After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0425Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0425After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0426Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0426After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0427Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0427After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0428Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0428After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0429Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0429After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0430Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0430After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0431Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0431After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0432Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0432After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0433Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0433After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0434Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0434After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0435Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0435After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0436Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0436After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0437Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0437After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0438Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0438After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0439Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0439After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0440Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0440After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0441Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0441After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0442Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0442After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0443Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0443After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0444Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0444After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0445Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0445After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0446Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0446After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0447Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0447After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0448Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0448After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0449Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0449After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0450Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0450After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0451Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0451After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0452Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0452After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0453Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0453After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0454Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0454After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0455Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0455After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0456Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0456After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0457Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0457After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0458Before/ActualSlateViewport.png": [
+        2331,
+        1311
+      ],
+      "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/CrystalCrystalProduction0458After/ActualSlateViewport.png": [
+        2331,
+        1311
+      ]
+    },
+    "logical_viewport": [
+      2560,
+      1440
+    ],
+    "resized": false,
+    "uploaded": false
+  },
+  "lfs": {
+    "files": 59,
+    "bytes": 229963,
+    "uploaded": false,
+    "free_capacity_confirmed": false,
+    "zero_dollar_budget_confirmed": false
+  },
+  "github": {
+    "recovered_commit": "2950a5ea3a0e371fc147a97802390f19d94afed8",
+    "separate_error_followup": "0a26b6ed4a39ecf673a39464464b30b14b4064b9",
+    "remote_before_feature": "0a26b6ed4a39ecf673a39464464b30b14b4064b9",
+    "feature_push_attempted": false,
+    "reason": "Account billing not accessible in signed-out browser; user budget/capacity confirmation pending."
+  },
+  "known_external_warning": "UE idevice_id: Bad CPU type in executable; observed in interactive Editor logs, separate from project errors. Final strict automation itself had zero warnings.",
+  "prior_actual_failures": {
+    "automation02": "Two stale tests assumed only two supported late Schiggy moves and old slot ordering; corrected to seven real offers and explicit XP fixture moves. Final complete suite succeeds.",
+    "production01": "Harness waited indefinitely after legitimate failed escape; stopped and documented.",
+    "production02": "Harness checked asynchronous escape teardown too early; corrected final-state gate.",
+    "production03": "59/59 passed; final production run repeated after learning identity guard as production04."
+  }
+}

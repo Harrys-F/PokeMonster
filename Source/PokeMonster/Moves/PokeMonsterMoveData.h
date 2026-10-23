@@ -44,6 +44,8 @@ public:
  bool HasEffect(EPokeMonsterEffectKind Kind)const;
  UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Effects") TArray<FPokeMonsterMoveEffectComponent> Effects;
  UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Effects") bool bNeverMiss=false;
+ /** Crystal no-check-hit status effects such as Mean Look bypass Protect. */
+ UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Effects") bool bBypassProtect=false;
  UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Effects") bool bRequiresSleepingTarget=false;
  UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Effects") int32 CriticalStageBonus=0;
  FText GetPlayerFacingName()const;

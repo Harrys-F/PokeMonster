@@ -42,7 +42,7 @@ FPokeMonsterOverworldView FPokeMonsterOverworldViewBuilder::Build(
 			Row.bKnockedOut = Creature.CurrentHP <= 0;
    Row.bPendingLearning=!Creature.PendingMoves.IsEmpty();
    for(const auto& Slot:Creature.GetMoveSlots())Row.ActiveMoves.Add(Slot.GetMove());
-   static const TCHAR* Types[]={TEXT("—"),TEXT("Normal"),TEXT("Feuer"),TEXT("Wasser"),TEXT("Elektro"),TEXT("Pflanze"),TEXT("Eis"),TEXT("Kampf"),TEXT("Gift"),TEXT("Boden"),TEXT("Flug"),TEXT("Psycho"),TEXT("Käfer"),TEXT("Gestein"),TEXT("Geist"),TEXT("Drache"),TEXT("Unlicht"),TEXT("Stahl")};
+   static const TCHAR* Types[]={TEXT("—"),TEXT("Normal"),TEXT("Feuer"),TEXT("Wasser"),TEXT("Elektro"),TEXT("Pflanze"),TEXT("Eis"),TEXT("Kampf"),TEXT("Gift"),TEXT("Boden"),TEXT("Flug"),TEXT("Psycho"),TEXT("Käfer"),TEXT("Gestein"),TEXT("Geist"),TEXT("Drache"),TEXT("Unlicht"),TEXT("Stahl"),TEXT("???")};
    for(const auto& Known:Creature.GetLearnedMoves())
    {
     const auto* Move=Known.GetMove().LoadSynchronous();if(!Move)continue;

@@ -1,7 +1,7 @@
 """Read-only existing map checks and world-site inventory; never saves a level."""
 import unreal,json,re
 from pathlib import Path
-R=Path(unreal.Paths.project_dir()).resolve();O=R/'Saved/MoveEffectsV4';E=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem)
+R=Path(unreal.Paths.project_dir()).resolve();O=R/'Saved/MoveEffectsV4/Resume';E=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem)
 assert not E.get_game_world();rows=[]
 for p in sorted((R/'Content/Maps').glob('*.umap')):
  assert not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages() and not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()

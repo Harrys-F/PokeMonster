@@ -36,8 +36,13 @@ public:
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Battle")
 	static FPokeMonsterDamageResult CalculateDamage(const FPokeMonsterCreatureInstance& Attacker,
 		const FPokeMonsterCreatureInstance& Defender, const UPokeMonsterMoveData* Move, int32 AttackStage = 0, int32 DefenseStage = 0, int32 SpecialAttackStage = 0, int32 SpecialDefenseStage = 0);
-	static int32 ApplyStage(int32 Value, int32 Stage);
+ static FPokeMonsterDamageResult CalculateCrystalDamage(const FPokeMonsterCreatureInstance& Attacker,
+  const FPokeMonsterCreatureInstance& Defender,const UPokeMonsterMoveData* Move,int32 AttackStage,int32 DefenseStage,
+  int32 SpecialAttackStage,int32 SpecialDefenseStage,bool bCritical,int32 RandomFactor,bool bRain,bool bScreen,bool bIdentified,bool bSunny=false,bool bSand=false,int32 DamageMultiplier=1);
+ static int32 ApplyStage(int32 Value, int32 Stage);
+ static int32 ApplyCrystalStage(int32 Value,int32 Stage);
  static int32 AccuracyAtStages(int32 BaseAccuracy,int32 AccuracyStage,int32 EvasionStage);
+ static int32 CrystalAccuracy(int32 BaseAccuracy,int32 AccuracyStage,int32 EvasionStage,bool bIdentified);
  static FText StatusLabel(EPokeMonsterCreatureStatus Status);
 
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Battle")

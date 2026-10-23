@@ -7,7 +7,7 @@ FPrimaryAssetId UPokeMonsterMoveData::GetPrimaryAssetId() const
 
 bool UPokeMonsterMoveData::IsConfigured() const
 {
-	const bool bKnownType = Type >= EPokeMonsterCreatureType::Normal && Type <= EPokeMonsterCreatureType::Steel;
+	const bool bKnownType = Type >= EPokeMonsterCreatureType::Normal && Type <= EPokeMonsterCreatureType::Steel || (Type==EPokeMonsterCreatureType::Mystery && Category==EPokeMonsterMoveCategory::Status && HasEffect(EPokeMonsterEffectKind::Curse));
 	const bool bValidPower = Category == EPokeMonsterMoveCategory::Status ? BasePower == 0
 		: (Category == EPokeMonsterMoveCategory::Physical || Category == EPokeMonsterMoveCategory::Special) && (BasePower > 0 || (BasePower == 0 && HasEffect(EPokeMonsterEffectKind::FixedDamage)));
  int32 Fixed=0,Multi=0;
@@ -16,7 +16,7 @@ bool UPokeMonsterMoveData::IsConfigured() const
 	return !InternalId.IsNone() && !DisplayName.IsEmpty() && bKnownType && bValidPower
 		&& Accuracy >= 0 && Accuracy <= 100 && MaxPP > 0
 		&& Effect.ChancePercent >= 0 && Effect.ChancePercent <= 100
-  && CriticalStageBonus==0
+  && CriticalStageBonus>=0 && CriticalStageBonus<=2
   && !Effects.ContainsByPredicate([](const auto& E){return !E.IsConfigured();});
 }
 
@@ -41,8 +41,8 @@ bool FPokeMonsterMoveEffectComponent::IsConfigured()const
   if(MinHits<2 || MaxHits<MinHits || MaxHits>10 || HitWeights.Num()!=MaxHits-MinHits+1)return false;
   int64 Total=0;for(int32 W:HitWeights){if(W<0)return false;Total+=W;}if(Total<=0 || Total>MAX_int32)return false;
  }
- // Unimplemented component kinds fail validation instead of silently becoming playable placeholders.
- switch(Kind){case EPokeMonsterEffectKind::Stage:case EPokeMonsterEffectKind::PrimaryStatus:case EPokeMonsterEffectKind::Drain:case EPokeMonsterEffectKind::Recoil:case EPokeMonsterEffectKind::Heal:case EPokeMonsterEffectKind::FixedDamage:case EPokeMonsterEffectKind::MultiHit:case EPokeMonsterEffectKind::Flinch:case EPokeMonsterEffectKind::Confusion:case EPokeMonsterEffectKind::Protect:case EPokeMonsterEffectKind::Screen:break;default:return false;}
+ // Every accepted kind is dispatched by the shared battle session.
+ if((Kind==EPokeMonsterEffectKind::Charge || Kind==EPokeMonsterEffectKind::Rampage) && (bSelf || bSecondary || ChancePercent!=100))return false;
  return true;
 }
 

@@ -37,8 +37,8 @@ bool FProgressionV1Learning::RunTest(const FString&)
  TestTrue(TEXT("Accepted replacement"),C.ResolveMoveLearning(1));TestEqual(TEXT("Accepted move identity"),C.GetMoveSlots()[1].GetMove().LoadSynchronous()->InternalId,FName(TEXT("WaterGun")));
  TestEqual(TEXT("New move full AP"),C.GetMoveSlots()[1].GetCurrentPP(),25);TestEqual(TEXT("Other AP unchanged"),C.GetMoveSlots()[0].GetCurrentPP(),PP);TestEqual(TEXT("Same individual"),C.InstanceId,Id);
  TestFalse(TEXT("Cannot learn again after resolving"),C.ResolveMoveLearning(0));C.AddExperience(1);TestTrue(TEXT("No repeat at same level"),C.PendingMoves.IsEmpty());
- auto Many=NearWaterGun();Many.AddExperience(MAX_int64);TestEqual(TEXT("Level cap"),Many.Level,100);TestEqual(TEXT("Supported crossed levels retained in order"),Many.PendingMoves.Num(),2);
- TestTrue(TEXT("First offer survives large grant"),Many.PendingMoves[0].LoadSynchronous()->InternalId==TEXT("WaterGun"));TestTrue(TEXT("Later offer retained"),Many.PendingMoves[1].LoadSynchronous()->InternalId==TEXT("HydroPump"));
+ auto Many=NearWaterGun();Many.AddExperience(MAX_int64);TestEqual(TEXT("Level cap"),Many.Level,100);TestEqual(TEXT("All seven now-supported crossed levels retained"),Many.PendingMoves.Num(),7);
+ TestTrue(TEXT("First offer survives large grant"),Many.PendingMoves[0].LoadSynchronous()->InternalId==TEXT("WaterGun"));TestTrue(TEXT("Later offer retained"),Many.PendingMoves.Last().LoadSynchronous()->InternalId==TEXT("HydroPump"));
  TestFalse(TEXT("Queue rejects duplicates"),Many.RestorePendingMoves({Many.PendingMoves[0],Many.PendingMoves[0]}));
  return true;
 }
@@ -99,6 +99,10 @@ bool FProgressionV1Distribution::RunTest(const FString&)
  {
   auto A=FPokeMonsterCreatureInstance::CreateFromSpecies(SpeciesData,20);A.AssignSpeciesMoves();auto B=A;B.InstanceId=FGuid::NewGuid();auto Unused=A;Unused.InstanceId=FGuid::NewGuid();
   auto Enemy=FPokeMonsterCreatureInstance::CreateFromSpecies(SpeciesData,10);Enemy.AssignSpeciesMoves();Enemy.CurrentHP=1;
+  // Do not assume old incomplete learnlists determine slot order. This test isolates XP distribution.
+  auto* Scratch=LoadObject<UPokeMonsterMoveData>(nullptr,TEXT("/Game/Data/Moves/DA_Scratch.DA_Scratch"));
+  auto* Growl=LoadObject<UPokeMonsterMoveData>(nullptr,TEXT("/Game/Data/Moves/DA_Growl.DA_Growl"));
+  A.AssignMove(0,Scratch);B.AssignMove(0,Scratch);Unused.AssignMove(0,Scratch);Enemy.AssignMove(1,Growl);
   auto* Session=NewObject<UPokeMonsterBattleSession>();TestTrue(TEXT("Participant test starts"),Session->InitializeTeams({A,B,Unused},{Enemy},1,false,false,Trainer).bSucceeded);
   FPokeMonsterBattleChoice Switch,NoDamage;Switch.Type=EPokeMonsterBattleChoiceType::Switch;Switch.Index=1;NoDamage.Index=1;
   TestTrue(TEXT("Second member participates"),Session->ResolveTurn(Switch,NoDamage).bSucceeded);

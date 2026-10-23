@@ -1,0 +1,351 @@
+{
+  "cases": [
+    {
+      "id": "KarateChop",
+      "species": "Machomei",
+      "components": []
+    },
+    {
+      "id": "Bite",
+      "species": "Schiggy",
+      "components": [
+        "FLINCH"
+      ]
+    },
+    {
+      "id": "Disable",
+      "species": "Enton",
+      "components": [
+        "DISABLE"
+      ]
+    },
+    {
+      "id": "Acid",
+      "species": "Myrapla",
+      "components": [
+        "STAGE"
+      ]
+    },
+    {
+      "id": "Submission",
+      "species": "Machomei",
+      "components": [
+        "RECOIL"
+      ]
+    },
+    {
+      "id": "LowKick",
+      "species": "Machomei",
+      "components": [
+        "FLINCH"
+      ]
+    },
+    {
+      "id": "Growth",
+      "species": "Bisasam",
+      "components": [
+        "STAGE"
+      ]
+    },
+    {
+      "id": "RazorLeaf",
+      "species": "Bisasam",
+      "components": []
+    },
+    {
+      "id": "SolarBeam",
+      "species": "Bisasam",
+      "components": [
+        "CHARGE"
+      ]
+    },
+    {
+      "id": "PoisonPowder",
+      "species": "Myrapla",
+      "components": [
+        "PRIMARY_STATUS"
+      ]
+    },
+    {
+      "id": "StunSpore",
+      "species": "Myrapla",
+      "components": [
+        "PRIMARY_STATUS"
+      ]
+    },
+    {
+      "id": "SleepPowder",
+      "species": "Bisasam",
+      "components": [
+        "PRIMARY_STATUS"
+      ]
+    },
+    {
+      "id": "PetalDance",
+      "species": "Myrapla",
+      "components": [
+        "RAMPAGE"
+      ]
+    },
+    {
+      "id": "DragonRage",
+      "species": "Zunderlauf",
+      "components": [
+        "FIXED_DAMAGE"
+      ]
+    },
+    {
+      "id": "FireSpin",
+      "species": "Glurak",
+      "components": [
+        "TRAP"
+      ]
+    },
+    {
+      "id": "ThunderShock",
+      "species": "Pikachu",
+      "components": [
+        "PRIMARY_STATUS"
+      ]
+    },
+    {
+      "id": "Thunderbolt",
+      "species": "Pikachu",
+      "components": [
+        "PRIMARY_STATUS"
+      ]
+    },
+    {
+      "id": "ThunderWave",
+      "species": "Pikachu",
+      "components": [
+        "PRIMARY_STATUS"
+      ]
+    },
+    {
+      "id": "Thunder",
+      "species": "Pikachu",
+      "components": [
+        "PRIMARY_STATUS"
+      ]
+    },
+    {
+      "id": "Confusion",
+      "species": "Enton",
+      "components": [
+        "CONFUSION"
+      ]
+    },
+    {
+      "id": "Hypnosis",
+      "species": "Nebulak",
+      "components": [
+        "PRIMARY_STATUS"
+      ]
+    },
+    {
+      "id": "Agility",
+      "species": "Pikachu",
+      "components": [
+        "STAGE"
+      ]
+    },
+    {
+      "id": "Rage",
+      "species": "Zunderlauf",
+      "components": [
+        "RAGE"
+      ]
+    },
+    {
+      "id": "Screech",
+      "species": "Enton",
+      "components": [
+        "STAGE"
+      ]
+    },
+    {
+      "id": "DoubleTeam",
+      "species": "Pikachu",
+      "components": [
+        "STAGE"
+      ]
+    },
+    {
+      "id": "Smokescreen",
+      "species": "Glurak",
+      "components": [
+        "STAGE"
+      ]
+    },
+    {
+      "id": "ConfuseRay",
+      "species": "Gengar",
+      "components": [
+        "CONFUSION"
+      ]
+    },
+    {
+      "id": "LightScreen",
+      "species": "Pikachu",
+      "components": [
+        "SCREEN"
+      ]
+    },
+    {
+      "id": "FocusEnergy",
+      "species": "Machomei",
+      "components": [
+        "CRITICAL_FOCUS"
+      ]
+    },
+    {
+      "id": "Lick",
+      "species": "Nebulak",
+      "components": [
+        "PRIMARY_STATUS"
+      ]
+    },
+    {
+      "id": "SkullBash",
+      "species": "Schiggy",
+      "components": [
+        "CHARGE"
+      ]
+    },
+    {
+      "id": "DreamEater",
+      "species": "Gengar",
+      "components": [
+        "DRAIN"
+      ]
+    },
+    {
+      "id": "FurySwipes",
+      "species": "Enton",
+      "components": [
+        "MULTI_HIT"
+      ]
+    },
+    {
+      "id": "Slash",
+      "species": "Zunderlauf",
+      "components": []
+    },
+    {
+      "id": "Curse",
+      "species": "Nebulak",
+      "components": [
+        "CURSE"
+      ]
+    },
+    {
+      "id": "Spite",
+      "species": "Gengar",
+      "components": [
+        "SPITE"
+      ]
+    },
+    {
+      "id": "Protect",
+      "species": "Schiggy",
+      "components": [
+        "PROTECT"
+      ]
+    },
+    {
+      "id": "ScaryFace",
+      "species": "Glurak",
+      "components": [
+        "STAGE"
+      ]
+    },
+    {
+      "id": "Foresight",
+      "species": "Machomei",
+      "components": [
+        "IDENTIFY"
+      ]
+    },
+    {
+      "id": "DestinyBond",
+      "species": "Nebulak",
+      "components": [
+        "DESTINY_BOND"
+      ]
+    },
+    {
+      "id": "MeanLook",
+      "species": "Gengar",
+      "components": [
+        "PREVENT_SWITCH"
+      ]
+    },
+    {
+      "id": "RapidSpin",
+      "species": "Schiggy",
+      "components": [
+        "CLEAR_BINDINGS"
+      ]
+    },
+    {
+      "id": "SweetScent",
+      "species": "Bisasam",
+      "components": [
+        "STAGE"
+      ]
+    },
+    {
+      "id": "VitalThrow",
+      "species": "Machomei",
+      "components": []
+    },
+    {
+      "id": "Synthesis",
+      "species": "Bisasam",
+      "components": [
+        "HEAL"
+      ]
+    },
+    {
+      "id": "Moonlight",
+      "species": "Myrapla",
+      "components": [
+        "HEAL"
+      ]
+    },
+    {
+      "id": "CrossChop",
+      "species": "Machomei",
+      "components": []
+    },
+    {
+      "id": "RainDance",
+      "species": "Schiggy",
+      "components": [
+        "RAIN"
+      ]
+    },
+    {
+      "id": "PsychUp",
+      "species": "Enton",
+      "components": [
+        "COPY_STAGES"
+      ]
+    }
+  ],
+  "all_ten_species": {
+    "Bisasam": 6,
+    "Zunderlauf": 3,
+    "Glurak": 3,
+    "Schiggy": 5,
+    "Pikachu": 7,
+    "Myrapla": 5,
+    "Enton": 5,
+    "Machomei": 7,
+    "Nebulak": 4,
+    "Gengar": 4
+  },
+  "technical_fixture": true,
+  "production_assets": true
+}

@@ -1,0 +1,270 @@
+{
+  "created": [
+    "/Game/Data/Moves/EffectsV4/DA_KarateChop",
+    "/Game/Data/Moves/EffectsV4/DA_Bite",
+    "/Game/Data/Moves/EffectsV4/DA_Disable",
+    "/Game/Data/Moves/EffectsV4/DA_Acid",
+    "/Game/Data/Moves/EffectsV4/DA_Submission",
+    "/Game/Data/Moves/EffectsV4/DA_LowKick",
+    "/Game/Data/Moves/EffectsV4/DA_Growth",
+    "/Game/Data/Moves/EffectsV4/DA_RazorLeaf",
+    "/Game/Data/Moves/EffectsV4/DA_SolarBeam",
+    "/Game/Data/Moves/EffectsV4/DA_PoisonPowder",
+    "/Game/Data/Moves/EffectsV4/DA_StunSpore",
+    "/Game/Data/Moves/EffectsV4/DA_SleepPowder",
+    "/Game/Data/Moves/EffectsV4/DA_PetalDance",
+    "/Game/Data/Moves/EffectsV4/DA_DragonRage",
+    "/Game/Data/Moves/EffectsV4/DA_FireSpin",
+    "/Game/Data/Moves/EffectsV4/DA_ThunderShock",
+    "/Game/Data/Moves/EffectsV4/DA_Thunderbolt",
+    "/Game/Data/Moves/EffectsV4/DA_ThunderWave",
+    "/Game/Data/Moves/EffectsV4/DA_Thunder",
+    "/Game/Data/Moves/EffectsV4/DA_Confusion",
+    "/Game/Data/Moves/EffectsV4/DA_Hypnosis",
+    "/Game/Data/Moves/EffectsV4/DA_Agility",
+    "/Game/Data/Moves/EffectsV4/DA_Rage",
+    "/Game/Data/Moves/EffectsV4/DA_Screech",
+    "/Game/Data/Moves/EffectsV4/DA_DoubleTeam",
+    "/Game/Data/Moves/EffectsV4/DA_Smokescreen",
+    "/Game/Data/Moves/EffectsV4/DA_ConfuseRay",
+    "/Game/Data/Moves/EffectsV4/DA_LightScreen",
+    "/Game/Data/Moves/EffectsV4/DA_FocusEnergy",
+    "/Game/Data/Moves/EffectsV4/DA_Lick",
+    "/Game/Data/Moves/EffectsV4/DA_SkullBash",
+    "/Game/Data/Moves/EffectsV4/DA_DreamEater",
+    "/Game/Data/Moves/EffectsV4/DA_FurySwipes",
+    "/Game/Data/Moves/EffectsV4/DA_Slash",
+    "/Game/Data/Moves/EffectsV4/DA_Curse",
+    "/Game/Data/Moves/EffectsV4/DA_Spite",
+    "/Game/Data/Moves/EffectsV4/DA_Protect",
+    "/Game/Data/Moves/EffectsV4/DA_ScaryFace",
+    "/Game/Data/Moves/EffectsV4/DA_Foresight",
+    "/Game/Data/Moves/EffectsV4/DA_DestinyBond",
+    "/Game/Data/Moves/EffectsV4/DA_MeanLook",
+    "/Game/Data/Moves/EffectsV4/DA_RapidSpin",
+    "/Game/Data/Moves/EffectsV4/DA_SweetScent",
+    "/Game/Data/Moves/EffectsV4/DA_VitalThrow",
+    "/Game/Data/Moves/EffectsV4/DA_Synthesis",
+    "/Game/Data/Moves/EffectsV4/DA_Moonlight",
+    "/Game/Data/Moves/EffectsV4/DA_CrossChop",
+    "/Game/Data/Moves/EffectsV4/DA_RainDance",
+    "/Game/Data/Moves/EffectsV4/DA_PsychUp"
+  ],
+  "category_changes": [],
+  "species": [
+    {
+      "species": "Bisasam",
+      "entries": 11,
+      "protected_properties_unchanged": {
+        "internal_id": "Bisasam",
+        "display_name": "Bisasam",
+        "pokedex_number": "1",
+        "base_capture_rate": "45",
+        "primary_type": "<PokeMonsterCreatureType.GRASS: 5>",
+        "secondary_type": "<PokeMonsterCreatureType.POISON: 8>",
+        "base_stats": "(HP=45,Attack=49,Defense=49,SpecialAttack=65,SpecialDefense=65,Speed=45)",
+        "gender": "(System=Mixed,FemaleRatio=0.125000)",
+        "starting_level": "10",
+        "growth_rate": "<PokeMonsterGrowthRate.MEDIUM_SLOW: 2>",
+        "evolutions": [
+          "(TargetSpecies=\"CreatureSpecies:Bisaknosp\",Trigger=Level,MinimumLevel=16,RequirementId=\"\",RequiredItemId=\"\",RequiredLocationId=\"\",RequiredActionId=\"\",MinimumFriendship=0)"
+        ],
+        "visuals": "(Presentation=\"/Game/Characters/Creatures/Bisasam/PolishV2/DA_Bisasam_Presentation.DA_Bisasam_Presentation\",FrontFlipbook=None,BackFlipbook=None,OverworldFlipbook=None)",
+        "overworld": "(RoamRadius=650.000000,MinimumTravel=180.000000,WalkSpeedOverride=0.000000,RunSpeedOverride=0.000000,PauseMinimum=1.400000,PauseMaximum=3.800000,TurnDegreesPerSecond=110.000000,Acceleration=90.000000,BrakingDeceleration=180.000000,CompanionAcceleration=480.000000,CompanionBrakingDeceleration=600.000000,TurnAcceleration=260.000000,MaxStepHeight=25.000000,BodyRadius=38.000000,CompanionRoamRadius=260.000000,RecallDistance=420.000000,CompanionMaximumSpeed=400.000000,MaximumActiveDistance=1400.000000,SprintAnimation=\"/Game/Characters/Creatures/Bisasam/OverworldV1/Animations/A_Bisasam_Sprint.A_Bisasam_Sprint\",SprintReferenceSpeed=180.000000,bCanEnterWater=False,Behavior=(Temperament=Curious,Initiation=ByTemperament,NoticeRadius=550.000000,PersonalSpace=170.000000,DisengageRadius=750.000000,WarningSeconds=2.500000,EncounterRadius=160.000000,EncounterCooldown=30.000000,bCanInitiateEncounter=True,WalkMultiplier=0.850000,ReactionSpeedMultiplier=1.350000,RestMultiplier=1.800000))",
+        "base_experience_yield": "64"
+      }
+    },
+    {
+      "species": "Zunderlauf",
+      "entries": 10,
+      "protected_properties_unchanged": {
+        "internal_id": "Zunderlauf",
+        "display_name": "Glumanda",
+        "pokedex_number": "1002",
+        "base_capture_rate": "120",
+        "primary_type": "<PokeMonsterCreatureType.FIRE: 2>",
+        "secondary_type": "<PokeMonsterCreatureType.NONE: 0>",
+        "base_stats": "(HP=46,Attack=58,Defense=42,SpecialAttack=60,SpecialDefense=45,Speed=56)",
+        "gender": "(System=Mixed,FemaleRatio=0.500000)",
+        "starting_level": "5",
+        "growth_rate": "<PokeMonsterGrowthRate.MEDIUM_FAST: 1>",
+        "evolutions": [
+          "(TargetSpecies=\"CreatureSpecies:Glutexo\",Trigger=Level,MinimumLevel=16,RequirementId=\"\",RequiredItemId=\"\",RequiredLocationId=\"\",RequiredActionId=\"\",MinimumFriendship=0)"
+        ],
+        "visuals": "(Presentation=\"/Game/Characters/Creatures/Zunderlauf/PolishV2/DA_Zunderlauf_Presentation.DA_Zunderlauf_Presentation\",FrontFlipbook=None,BackFlipbook=None,OverworldFlipbook=None)",
+        "overworld": "(RoamRadius=650.000000,MinimumTravel=180.000000,WalkSpeedOverride=0.000000,RunSpeedOverride=0.000000,PauseMinimum=1.400000,PauseMaximum=3.800000,TurnDegreesPerSecond=110.000000,Acceleration=90.000000,BrakingDeceleration=180.000000,CompanionAcceleration=480.000000,CompanionBrakingDeceleration=600.000000,TurnAcceleration=260.000000,MaxStepHeight=25.000000,BodyRadius=30.000000,CompanionRoamRadius=260.000000,RecallDistance=420.000000,CompanionMaximumSpeed=400.000000,MaximumActiveDistance=1400.000000,SprintAnimation=\"/Game/Characters/Creatures/Zunderlauf/OverworldV1/Animations/A_Zunderlauf_Sprint.A_Zunderlauf_Sprint\",SprintReferenceSpeed=180.000000,bCanEnterWater=False,Behavior=(Temperament=Territorial,Initiation=ByTemperament,NoticeRadius=550.000000,PersonalSpace=170.000000,DisengageRadius=750.000000,WarningSeconds=2.500000,EncounterRadius=160.000000,EncounterCooldown=30.000000,bCanInitiateEncounter=True,WalkMultiplier=1.000000,ReactionSpeedMultiplier=1.350000,RestMultiplier=1.200000))",
+        "base_experience_yield": "65"
+      }
+    },
+    {
+      "species": "Glurak",
+      "entries": 13,
+      "protected_properties_unchanged": {
+        "internal_id": "Glurak",
+        "display_name": "Glurak",
+        "pokedex_number": "6",
+        "base_capture_rate": "45",
+        "primary_type": "<PokeMonsterCreatureType.FIRE: 2>",
+        "secondary_type": "<PokeMonsterCreatureType.FLYING: 10>",
+        "base_stats": "(HP=78,Attack=84,Defense=78,SpecialAttack=109,SpecialDefense=85,Speed=100)",
+        "gender": "(System=Mixed,FemaleRatio=0.125000)",
+        "starting_level": "36",
+        "growth_rate": "<PokeMonsterGrowthRate.MEDIUM_SLOW: 2>",
+        "evolutions": [],
+        "visuals": "(Presentation=\"/Game/Characters/Creatures/Glurak/AnimationV61/DA_Glurak_Presentation_V61.DA_Glurak_Presentation_V61\",FrontFlipbook=None,BackFlipbook=None,OverworldFlipbook=None)",
+        "overworld": "(RoamRadius=750.000000,MinimumTravel=180.000000,WalkSpeedOverride=0.000000,RunSpeedOverride=0.000000,PauseMinimum=1.400000,PauseMaximum=3.800000,TurnDegreesPerSecond=110.000000,Acceleration=90.000000,BrakingDeceleration=180.000000,CompanionAcceleration=480.000000,CompanionBrakingDeceleration=600.000000,TurnAcceleration=260.000000,MaxStepHeight=25.000000,BodyRadius=165.000000,CompanionRoamRadius=260.000000,RecallDistance=420.000000,CompanionMaximumSpeed=400.000000,MaximumActiveDistance=1400.000000,SprintAnimation=None,SprintReferenceSpeed=0.000000,bCanEnterWater=False,Behavior=(Temperament=Territorial,Initiation=ByTemperament,NoticeRadius=550.000000,PersonalSpace=170.000000,DisengageRadius=750.000000,WarningSeconds=2.500000,EncounterRadius=160.000000,EncounterCooldown=30.000000,bCanInitiateEncounter=True,WalkMultiplier=0.750000,ReactionSpeedMultiplier=1.350000,RestMultiplier=1.500000))",
+        "base_experience_yield": "209"
+      }
+    },
+    {
+      "species": "Schiggy",
+      "entries": 11,
+      "protected_properties_unchanged": {
+        "internal_id": "Schiggy",
+        "display_name": "Schiggy",
+        "pokedex_number": "7",
+        "base_capture_rate": "45",
+        "primary_type": "<PokeMonsterCreatureType.WATER: 3>",
+        "secondary_type": "<PokeMonsterCreatureType.NONE: 0>",
+        "base_stats": "(HP=44,Attack=48,Defense=65,SpecialAttack=50,SpecialDefense=64,Speed=43)",
+        "gender": "(System=Mixed,FemaleRatio=0.125000)",
+        "starting_level": "13",
+        "growth_rate": "<PokeMonsterGrowthRate.MEDIUM_SLOW: 2>",
+        "evolutions": [
+          "(TargetSpecies=\"CreatureSpecies:Schillok\",Trigger=Level,MinimumLevel=16,RequirementId=\"\",RequiredItemId=\"\",RequiredLocationId=\"\",RequiredActionId=\"\",MinimumFriendship=0)"
+        ],
+        "visuals": "(Presentation=\"/Game/Characters/Creatures/Schiggy/SurfaceV2/DA_Schiggy_Presentation.DA_Schiggy_Presentation\",FrontFlipbook=None,BackFlipbook=None,OverworldFlipbook=None)",
+        "overworld": "(RoamRadius=550.000000,MinimumTravel=180.000000,WalkSpeedOverride=29.900000,RunSpeedOverride=57.500000,PauseMinimum=1.400000,PauseMaximum=3.800000,TurnDegreesPerSecond=110.000000,Acceleration=90.000000,BrakingDeceleration=180.000000,CompanionAcceleration=480.000000,CompanionBrakingDeceleration=600.000000,TurnAcceleration=260.000000,MaxStepHeight=25.000000,BodyRadius=30.000000,CompanionRoamRadius=260.000000,RecallDistance=420.000000,CompanionMaximumSpeed=400.000000,MaximumActiveDistance=1400.000000,SprintAnimation=\"/Game/Characters/Creatures/Schiggy/OverworldV1/Animations/A_Schiggy_Sprint.A_Schiggy_Sprint\",SprintReferenceSpeed=160.000000,bCanEnterWater=False,Behavior=(Temperament=Shy,Initiation=ByTemperament,NoticeRadius=550.000000,PersonalSpace=170.000000,DisengageRadius=750.000000,WarningSeconds=2.500000,EncounterRadius=160.000000,EncounterCooldown=30.000000,bCanInitiateEncounter=True,WalkMultiplier=0.750000,ReactionSpeedMultiplier=1.350000,RestMultiplier=1.500000))",
+        "base_experience_yield": "66"
+      }
+    },
+    {
+      "species": "Pikachu",
+      "entries": 11,
+      "protected_properties_unchanged": {
+        "internal_id": "Pikachu",
+        "display_name": "Pikachu",
+        "pokedex_number": "25",
+        "base_capture_rate": "190",
+        "primary_type": "<PokeMonsterCreatureType.ELECTRIC: 4>",
+        "secondary_type": "<PokeMonsterCreatureType.NONE: 0>",
+        "base_stats": "(HP=35,Attack=55,Defense=30,SpecialAttack=50,SpecialDefense=40,Speed=90)",
+        "gender": "(System=Mixed,FemaleRatio=0.500000)",
+        "starting_level": "11",
+        "growth_rate": "<PokeMonsterGrowthRate.MEDIUM_FAST: 1>",
+        "evolutions": [
+          "(TargetSpecies=\"CreatureSpecies:Raichu\",Trigger=Item,MinimumLevel=1,RequirementId=\"\",RequiredItemId=\"ThunderStone\",RequiredLocationId=\"\",RequiredActionId=\"\",MinimumFriendship=0)"
+        ],
+        "visuals": "(Presentation=\"/Game/Characters/Creatures/Pikachu/MeshyV1/DA_Pikachu_Presentation.DA_Pikachu_Presentation\",FrontFlipbook=None,BackFlipbook=None,OverworldFlipbook=None)",
+        "overworld": "(RoamRadius=550.000000,MinimumTravel=180.000000,WalkSpeedOverride=14.950000,RunSpeedOverride=32.200001,PauseMinimum=1.400000,PauseMaximum=3.800000,TurnDegreesPerSecond=110.000000,Acceleration=90.000000,BrakingDeceleration=180.000000,CompanionAcceleration=480.000000,CompanionBrakingDeceleration=600.000000,TurnAcceleration=260.000000,MaxStepHeight=25.000000,BodyRadius=32.000000,CompanionRoamRadius=260.000000,RecallDistance=420.000000,CompanionMaximumSpeed=400.000000,MaximumActiveDistance=1400.000000,SprintAnimation=None,SprintReferenceSpeed=0.000000,bCanEnterWater=False,Behavior=(Temperament=Curious,Initiation=ByTemperament,NoticeRadius=550.000000,PersonalSpace=170.000000,DisengageRadius=750.000000,WarningSeconds=2.500000,EncounterRadius=160.000000,EncounterCooldown=30.000000,bCanInitiateEncounter=True,WalkMultiplier=0.750000,ReactionSpeedMultiplier=1.350000,RestMultiplier=1.500000))",
+        "base_experience_yield": "82"
+      }
+    },
+    {
+      "species": "Myrapla",
+      "entries": 8,
+      "protected_properties_unchanged": {
+        "internal_id": "Myrapla",
+        "display_name": "Myrapla",
+        "pokedex_number": "43",
+        "base_capture_rate": "255",
+        "primary_type": "<PokeMonsterCreatureType.GRASS: 5>",
+        "secondary_type": "<PokeMonsterCreatureType.POISON: 8>",
+        "base_stats": "(HP=45,Attack=50,Defense=55,SpecialAttack=75,SpecialDefense=65,Speed=30)",
+        "gender": "(System=Mixed,FemaleRatio=0.500000)",
+        "starting_level": "10",
+        "growth_rate": "<PokeMonsterGrowthRate.MEDIUM_SLOW: 2>",
+        "evolutions": [
+          "(TargetSpecies=\"CreatureSpecies:Duflor\",Trigger=Level,MinimumLevel=21,RequirementId=\"\",RequiredItemId=\"\",RequiredLocationId=\"\",RequiredActionId=\"\",MinimumFriendship=0)"
+        ],
+        "visuals": "(Presentation=\"/Game/Characters/Creatures/Myrapla/AnimationV6/DA_Myrapla_Presentation_V6.DA_Myrapla_Presentation_V6\",FrontFlipbook=None,BackFlipbook=None,OverworldFlipbook=None)",
+        "overworld": "(RoamRadius=550.000000,MinimumTravel=180.000000,WalkSpeedOverride=0.000000,RunSpeedOverride=0.000000,PauseMinimum=1.400000,PauseMaximum=3.800000,TurnDegreesPerSecond=110.000000,Acceleration=90.000000,BrakingDeceleration=180.000000,CompanionAcceleration=480.000000,CompanionBrakingDeceleration=600.000000,TurnAcceleration=260.000000,MaxStepHeight=25.000000,BodyRadius=30.000000,CompanionRoamRadius=260.000000,RecallDistance=420.000000,CompanionMaximumSpeed=400.000000,MaximumActiveDistance=1400.000000,SprintAnimation=None,SprintReferenceSpeed=0.000000,bCanEnterWater=False,Behavior=(Temperament=Calm,Initiation=ByTemperament,NoticeRadius=550.000000,PersonalSpace=170.000000,DisengageRadius=750.000000,WarningSeconds=2.500000,EncounterRadius=160.000000,EncounterCooldown=30.000000,bCanInitiateEncounter=True,WalkMultiplier=0.750000,ReactionSpeedMultiplier=1.350000,RestMultiplier=1.500000))",
+        "base_experience_yield": "78"
+      }
+    },
+    {
+      "species": "Enton",
+      "entries": 8,
+      "protected_properties_unchanged": {
+        "internal_id": "Enton",
+        "display_name": "Enton",
+        "pokedex_number": "54",
+        "base_capture_rate": "190",
+        "primary_type": "<PokeMonsterCreatureType.WATER: 3>",
+        "secondary_type": "<PokeMonsterCreatureType.NONE: 0>",
+        "base_stats": "(HP=50,Attack=52,Defense=48,SpecialAttack=65,SpecialDefense=50,Speed=55)",
+        "gender": "(System=Mixed,FemaleRatio=0.500000)",
+        "starting_level": "13",
+        "growth_rate": "<PokeMonsterGrowthRate.MEDIUM_FAST: 1>",
+        "evolutions": [
+          "(TargetSpecies=\"CreatureSpecies:Entoron\",Trigger=Level,MinimumLevel=33,RequirementId=\"\",RequiredItemId=\"\",RequiredLocationId=\"\",RequiredActionId=\"\",MinimumFriendship=0)"
+        ],
+        "visuals": "(Presentation=\"/Game/Characters/Creatures/Enton/PolishV4/DA_Enton_Presentation.DA_Enton_Presentation\",FrontFlipbook=None,BackFlipbook=None,OverworldFlipbook=None)",
+        "overworld": "(RoamRadius=550.000000,MinimumTravel=180.000000,WalkSpeedOverride=0.000000,RunSpeedOverride=0.000000,PauseMinimum=1.400000,PauseMaximum=3.800000,TurnDegreesPerSecond=110.000000,Acceleration=90.000000,BrakingDeceleration=180.000000,CompanionAcceleration=480.000000,CompanionBrakingDeceleration=600.000000,TurnAcceleration=260.000000,MaxStepHeight=25.000000,BodyRadius=50.000000,CompanionRoamRadius=260.000000,RecallDistance=420.000000,CompanionMaximumSpeed=400.000000,MaximumActiveDistance=1400.000000,SprintAnimation=None,SprintReferenceSpeed=0.000000,bCanEnterWater=False,Behavior=(Temperament=Shy,Initiation=ByTemperament,NoticeRadius=550.000000,PersonalSpace=170.000000,DisengageRadius=750.000000,WarningSeconds=2.500000,EncounterRadius=160.000000,EncounterCooldown=30.000000,bCanInitiateEncounter=True,WalkMultiplier=0.750000,ReactionSpeedMultiplier=1.350000,RestMultiplier=1.500000))",
+        "base_experience_yield": "80"
+      }
+    },
+    {
+      "species": "Machomei",
+      "entries": 11,
+      "protected_properties_unchanged": {
+        "internal_id": "Machomei",
+        "display_name": "Machomei",
+        "pokedex_number": "68",
+        "base_capture_rate": "45",
+        "primary_type": "<PokeMonsterCreatureType.FIGHTING: 7>",
+        "secondary_type": "<PokeMonsterCreatureType.NONE: 0>",
+        "base_stats": "(HP=90,Attack=130,Defense=80,SpecialAttack=65,SpecialDefense=85,Speed=55)",
+        "gender": "(System=Mixed,FemaleRatio=0.250000)",
+        "starting_level": "36",
+        "growth_rate": "<PokeMonsterGrowthRate.MEDIUM_SLOW: 2>",
+        "evolutions": [],
+        "visuals": "(Presentation=\"/Game/Characters/Creatures/Machomei/AnimationV6/DA_Machomei_Presentation_V6.DA_Machomei_Presentation_V6\",FrontFlipbook=None,BackFlipbook=None,OverworldFlipbook=None)",
+        "overworld": "(RoamRadius=750.000000,MinimumTravel=180.000000,WalkSpeedOverride=0.000000,RunSpeedOverride=0.000000,PauseMinimum=1.400000,PauseMaximum=3.800000,TurnDegreesPerSecond=110.000000,Acceleration=90.000000,BrakingDeceleration=180.000000,CompanionAcceleration=480.000000,CompanionBrakingDeceleration=600.000000,TurnAcceleration=260.000000,MaxStepHeight=25.000000,BodyRadius=98.000000,CompanionRoamRadius=260.000000,RecallDistance=420.000000,CompanionMaximumSpeed=400.000000,MaximumActiveDistance=1400.000000,SprintAnimation=None,SprintReferenceSpeed=0.000000,bCanEnterWater=False,Behavior=(Temperament=Territorial,Initiation=ByTemperament,NoticeRadius=550.000000,PersonalSpace=170.000000,DisengageRadius=750.000000,WarningSeconds=2.500000,EncounterRadius=160.000000,EncounterCooldown=30.000000,bCanInitiateEncounter=True,WalkMultiplier=0.750000,ReactionSpeedMultiplier=1.350000,RestMultiplier=1.500000))",
+        "base_experience_yield": "193"
+      }
+    },
+    {
+      "species": "Nebulak",
+      "entries": 9,
+      "protected_properties_unchanged": {
+        "internal_id": "Nebulak",
+        "display_name": "Nebulak",
+        "pokedex_number": "92",
+        "base_capture_rate": "190",
+        "primary_type": "<PokeMonsterCreatureType.GHOST: 14>",
+        "secondary_type": "<PokeMonsterCreatureType.POISON: 8>",
+        "base_stats": "(HP=30,Attack=35,Defense=30,SpecialAttack=100,SpecialDefense=35,Speed=80)",
+        "gender": "(System=Mixed,FemaleRatio=0.500000)",
+        "starting_level": "21",
+        "growth_rate": "<PokeMonsterGrowthRate.MEDIUM_SLOW: 2>",
+        "evolutions": [
+          "(TargetSpecies=\"CreatureSpecies:Alpollo\",Trigger=Level,MinimumLevel=25,RequirementId=\"\",RequiredItemId=\"\",RequiredLocationId=\"\",RequiredActionId=\"\",MinimumFriendship=0)"
+        ],
+        "visuals": "(Presentation=\"/Game/Characters/Creatures/Nebulak/AnimationV6/DA_Nebulak_Presentation_V6.DA_Nebulak_Presentation_V6\",FrontFlipbook=None,BackFlipbook=None,OverworldFlipbook=None)",
+        "overworld": "(RoamRadius=750.000000,MinimumTravel=180.000000,WalkSpeedOverride=0.000000,RunSpeedOverride=0.000000,PauseMinimum=1.400000,PauseMaximum=3.800000,TurnDegreesPerSecond=110.000000,Acceleration=90.000000,BrakingDeceleration=180.000000,CompanionAcceleration=480.000000,CompanionBrakingDeceleration=600.000000,TurnAcceleration=260.000000,MaxStepHeight=25.000000,BodyRadius=67.000000,CompanionRoamRadius=260.000000,RecallDistance=420.000000,CompanionMaximumSpeed=400.000000,MaximumActiveDistance=1400.000000,SprintAnimation=None,SprintReferenceSpeed=0.000000,bCanEnterWater=False,Behavior=(Temperament=Shy,Initiation=ByTemperament,NoticeRadius=550.000000,PersonalSpace=170.000000,DisengageRadius=750.000000,WarningSeconds=2.500000,EncounterRadius=160.000000,EncounterCooldown=30.000000,bCanInitiateEncounter=True,WalkMultiplier=0.750000,ReactionSpeedMultiplier=1.350000,RestMultiplier=1.500000))",
+        "base_experience_yield": "95"
+      }
+    },
+    {
+      "species": "Gengar",
+      "entries": 10,
+      "protected_properties_unchanged": {
+        "internal_id": "Gengar",
+        "display_name": "Gengar",
+        "pokedex_number": "94",
+        "base_capture_rate": "45",
+        "primary_type": "<PokeMonsterCreatureType.GHOST: 14>",
+        "secondary_type": "<PokeMonsterCreatureType.POISON: 8>",
+        "base_stats": "(HP=60,Attack=65,Defense=60,SpecialAttack=130,SpecialDefense=75,Speed=110)",
+        "gender": "(System=Mixed,FemaleRatio=0.500000)",
+        "starting_level": "25",
+        "growth_rate": "<PokeMonsterGrowthRate.MEDIUM_SLOW: 2>",
+        "evolutions": [],
+        "visuals": "(Presentation=\"/Game/Characters/Creatures/Gengar/MeshyV1/DA_Gengar_Presentation.DA_Gengar_Presentation\",FrontFlipbook=None,BackFlipbook=None,OverworldFlipbook=None)",
+        "overworld": "(RoamRadius=750.000000,MinimumTravel=180.000000,WalkSpeedOverride=0.000000,RunSpeedOverride=0.000000,PauseMinimum=1.400000,PauseMaximum=3.800000,TurnDegreesPerSecond=110.000000,Acceleration=90.000000,BrakingDeceleration=180.000000,CompanionAcceleration=480.000000,CompanionBrakingDeceleration=600.000000,TurnAcceleration=260.000000,MaxStepHeight=25.000000,BodyRadius=100.000000,CompanionRoamRadius=260.000000,RecallDistance=420.000000,CompanionMaximumSpeed=400.000000,MaximumActiveDistance=1400.000000,SprintAnimation=None,SprintReferenceSpeed=0.000000,bCanEnterWater=False,Behavior=(Temperament=Territorial,Initiation=ByTemperament,NoticeRadius=550.000000,PersonalSpace=170.000000,DisengageRadius=750.000000,WarningSeconds=2.500000,EncounterRadius=160.000000,EncounterCooldown=30.000000,bCanInitiateEncounter=True,WalkMultiplier=0.750000,ReactionSpeedMultiplier=1.350000,RestMultiplier=1.500000))",
+        "base_experience_yield": "190"
+      }
+    }
+  ]
+}

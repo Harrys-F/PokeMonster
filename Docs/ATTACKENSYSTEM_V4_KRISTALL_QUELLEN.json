@@ -1,0 +1,126 @@
+{
+  "commit": "5c877ef55197039c9676e8e3eec6d254b1c40fe8",
+  "files": [
+    {
+      "path": "engine/battle/move_effects/curse.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/engine/battle/move_effects/curse.asm",
+      "sha256": "364aba1c0f90e03588f6e6be44b88735f3d2534bdaf2938aff02366ef5bab162",
+      "bytes": 1508
+    },
+    {
+      "path": "data/battle/accuracy_multipliers.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/battle/accuracy_multipliers.asm",
+      "sha256": "f8e9ac644b398528d7b7ee266749d29e882f447599d102a1540d01fe6e0f71a2",
+      "bytes": 467
+    },
+    {
+      "path": "data/battle/critical_hit_chances.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/battle/critical_hit_chances.asm",
+      "sha256": "012a592b407127d1f7cdcf44e1e5b26f3e3c2239b05cdd5f7ee48187f6a8b85a",
+      "bytes": 167
+    },
+    {
+      "path": "data/battle/stat_multipliers.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/battle/stat_multipliers.asm",
+      "sha256": "9dabd277b8e09edebd6b3bbd581a863b7757b3c2e910c9d12483d193004b13ea",
+      "bytes": 640
+    },
+    {
+      "path": "data/moves/critical_hit_moves.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/moves/critical_hit_moves.asm",
+      "sha256": "29b52a44b7f4df48c08b4508064b271edfa986ea29f9dd15983527d172fdabf3",
+      "bytes": 125
+    },
+    {
+      "path": "data/moves/effects.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/moves/effects.asm",
+      "sha256": "1cb48da65b33db0c37a42d108a669acac8b6c665d32088ac1ff4a9e00eb3878b",
+      "bytes": 24494
+    },
+    {
+      "path": "data/moves/moves.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/moves/moves.asm",
+      "sha256": "50cd7c03a51a3228e96af6b61a1f77e9173fc2118017eb3752d5ce055d3be39d",
+      "bytes": 19936
+    },
+    {
+      "path": "engine/battle/move_effects/destiny_bond.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/engine/battle/move_effects/destiny_bond.asm",
+      "sha256": "22082925f9e3a43ce97748233a218d74691441dba0a2fdf5c9adba4939266014",
+      "bytes": 190
+    },
+    {
+      "path": "engine/battle/move_effects/disable.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/engine/battle/move_effects/disable.asm",
+      "sha256": "f830fb9842eab40a2608f0dbc4258acb5c8e6c9e6146a07e1f0091cf8774769c",
+      "bytes": 1011
+    },
+    {
+      "path": "engine/battle/core.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/engine/battle/core.asm",
+      "sha256": "6ff9645995603b84621e15f9ca49637f1e82ebdc38a0c1cffc193ef182a8054c",
+      "bytes": 148613
+    },
+    {
+      "path": "engine/battle/effect_commands.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/engine/battle/effect_commands.asm",
+      "sha256": "3f549ae0e7062e47f45a6794f1b580e089563c1b491395f760e9e087c8f61723",
+      "bytes": 107147
+    },
+    {
+      "path": "engine/battle/move_effects/focus_energy.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/engine/battle/move_effects/focus_energy.asm",
+      "sha256": "c3176f3381a1cc8d7a82d1e22240aef91d843b86d6194939db888be07d1863e4",
+      "bytes": 306
+    },
+    {
+      "path": "engine/battle/move_effects/foresight.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/engine/battle/move_effects/foresight.asm",
+      "sha256": "d88c9d56343d85aa23caaeaec43459a10437153b8344a6f2c11a85dbfec0af9d",
+      "bytes": 344
+    },
+    {
+      "path": "macros/data.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/macros/data.asm",
+      "sha256": "0788679135c4ed5002bdb0ac342f7bdbe54c8ac8c0cc5e94ba2f29b6acfb7ca2",
+      "bytes": 2326
+    },
+    {
+      "path": "engine/battle/move_effects/protect.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/engine/battle/move_effects/protect.asm",
+      "sha256": "721744853be8567210e79ed489b1f54f6253b6be5c98e6cd70237ccc36c2de66",
+      "bytes": 950
+    },
+    {
+      "path": "engine/battle/move_effects/psych_up.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/engine/battle/move_effects/psych_up.asm",
+      "sha256": "67b7acbb9cd36fd7ede730d2630d782dcc360ffb9314d2129c615cad7ab4f571",
+      "bytes": 800
+    },
+    {
+      "path": "engine/battle/move_effects/rain_dance.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/engine/battle/move_effects/rain_dance.asm",
+      "sha256": "ef00ada433393463306ef1a47310f5e0f3261dbfa2793ecbb52a5ce6f89881c5",
+      "bytes": 168
+    },
+    {
+      "path": "engine/battle/move_effects/rapid_spin.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/engine/battle/move_effects/rapid_spin.asm",
+      "sha256": "c1cf8dda4ee83c74b252e76624c44f3f4438389ba1c4f3e7aa3d216fabb6046d",
+      "bytes": 628
+    },
+    {
+      "path": "engine/battle/move_effects/spite.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/engine/battle/move_effects/spite.asm",
+      "sha256": "12ba79fe34d8bbf8bbb409a0b0b131271b9129e28ffa9fc9dfd6f796a564a572",
+      "bytes": 1252
+    },
+    {
+      "path": "engine/battle/move_effects/thunder.asm",
+      "url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/engine/battle/move_effects/thunder.asm",
+      "sha256": "25a96af3f5cdde6b256352febd2b527706f540c429d8db4c78b8fd536e28d579",
+      "bytes": 276
+    }
+  ],
+  "note": "Public source text inspected; no ROM, game executable, graphics or audio imported. Immutable PokeAPI learnlist extraction remains unchanged."
+}

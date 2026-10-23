@@ -75,6 +75,9 @@ namespace
  }
  void ResetVolatile(FPokeMonsterBattleState& S,ESide Side)
  {
+  const ESide Other=Side==ESide::A?ESide::B:ESide::A;
+  // Both escape restraints belong to the current opposing active combatant.
+  EffectsFor(S,Other).TrapTurns=0;EffectsFor(S,Other).TrapSource.Invalidate();EffectsFor(S,Other).SwitchBlockSource.Invalidate();
   EffectsFor(S,Side)=FPokeMonsterBattleVolatileEffects();
   StageFor(S,Side,EPokeMonsterBattleStat::Attack)=StageFor(S,Side,EPokeMonsterBattleStat::Defense)=StageFor(S,Side,EPokeMonsterBattleStat::Speed)=0;
   if(Side==ESide::A)S.bSeededA=false;else S.bSeededB=false;
@@ -146,6 +149,7 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::InitializeTeams(
 	State.SideB = TeamB[0];
 	State.Phase = EPhase::AwaitingChoices;
 	State.bCaptureAllowed = bAllowCapture;
+ State.Weather=EffectRules.InitialWeather;State.WeatherTurns=State.Weather==EPokeMonsterBattleWeather::Clear?0:EffectRules.InitialWeatherTurns;
  State.bFleeAllowed=bAllowFlee;State.bTrainerExperience=bTrainerExperience;State.ParticipantsA.Add(State.SideA.InstanceId);
 	Random.Initialize(RandomSeed);
 	for (const auto* Team : {&State.TeamA, &State.TeamB})
@@ -178,7 +182,9 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
 	if (State.Phase == EPhase::AwaitingSwitch) return Reject(EError::SwitchRequired);
 	if (HasPendingLearning()) return Reject(EError::LearningRequired);
 	if (State.RoundNumber == MAX_int32) return Reject(EError::RoundLimitReached);
-	const FPokeMonsterBattleChoice Choices[2] = {ChoiceA, ChoiceB};
+	FPokeMonsterBattleChoice Choices[2] = {ChoiceA, ChoiceB};
+ for(int32 I=0;I<2;++I){const ESide Side=I==0?ESide::A:ESide::B;const int32 Forced=ForcedMoveSlot(Side);
+  if(Forced!=INDEX_NONE){if(Choices[I].Type!=EPokeMonsterBattleChoiceType::Move)return Reject(Choices[I].Type==EPokeMonsterBattleChoiceType::Flee?EError::FleeNotAllowed:EError::InvalidMove,Side);Choices[I].Index=Forced;}}
 	UPokeMonsterMoveData* Moves[2] = {nullptr, nullptr};
 	UPokeMonsterCaptureDeviceData* Device = nullptr;
  UPokeMonsterItemData* Item=nullptr;
@@ -190,12 +196,17 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
 		if (Error != EError::None) return Reject(Error, Side);
 		if (Choices[Index].Type == EPokeMonsterBattleChoiceType::Move)
 			{
-    if(Choices[Index].Index==INDEX_NONE&&!HasUsableMove(Creature)){
+    if(Choices[Index].Index==INDEX_NONE&&!HasSelectableMove(Side)){
      auto* Fallback=NewObject<UPokeMonsterMoveData>(this);Fallback->InternalId=TEXT("Struggle");Fallback->DisplayName=FText::FromString(TEXT("Verzweifler"));Fallback->BasePower=50;Fallback->MaxPP=1;Fallback->Effect.EffectId=TEXT("Struggle");RetainedData.Add(Fallback);Moves[Index]=Fallback;
-    }else Error = ValidateSelection(Creature, Choices[Index].Index, Moves[Index]);
+    }else {
+     Error=ValidateSelection(Creature,Choices[Index].Index,Moves[Index]);
+     if(Error==EError::NoPP && ForcedMoveSlot(Side)==Choices[Index].Index)Error=EError::None;
+     if(Error==EError::None && !CanSelectMove(Side,Choices[Index].Index))Error=EError::InvalidMove;
+    }
    }
 		else if (Choices[Index].Type == EPokeMonsterBattleChoiceType::Switch)
 		{
+   if(!CanLeave(Side))return Reject(EError::InvalidSwitch,Side);
 			const auto& Team = Index == 0 ? State.TeamA : State.TeamB;
 			const int32 ActiveIndex = Index == 0 ? State.ActiveIndexA : State.ActiveIndexB;
 			Error = Team.IsValidIndex(Choices[Index].Index) && Choices[Index].Index != ActiveIndex
@@ -211,7 +222,7 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
 					? EError::None : EError::InvalidCaptureDevice;
 			}
 		}
-  else if(Choices[Index].Type==EPokeMonsterBattleChoiceType::Flee){if(Side!=ESide::A||!State.bFleeAllowed)Error=EError::FleeNotAllowed;}
+  else if(Choices[Index].Type==EPokeMonsterBattleChoiceType::Flee){if(Side!=ESide::A||!State.bFleeAllowed||!CanLeave(Side))Error=EError::FleeNotAllowed;}
   else if(Choices[Index].Type==EPokeMonsterBattleChoiceType::Item){
    Item=Choices[Index].Item.LoadSynchronous();const auto& T=State.TeamA;const int Target=Choices[Index].Index;
    if(Side!=ESide::A||!Item||!Item->IsConfigured()||!Item->CanUseInBattle()||Item->GetCategory()!=EPokeMonsterItemCategory::Healing)Error=EError::InvalidItem;
@@ -268,11 +279,12 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
   else{Next.DefenseStageB=Next.SpeedStageB=0;Next.bSeededB=false;}
  }
  const bool bBothMove = Moves[0] != nullptr && Moves[1] != nullptr;
-	auto TurnSpeed=[&](ESide Side){const auto& C=ActiveFor(Next,Side);const int32 Speed=B::ApplyStage(C.CalculatedStats.Speed,StageFor(Next,Side,EPokeMonsterBattleStat::Speed));return C.Status==EPokeMonsterCreatureStatus::Paralysis?FMath::Max(1,Speed/EffectRules.ParalysisSpeedDivisor):Speed;};
+	auto TurnSpeed=[&](ESide Side){const auto& C=ActiveFor(Next,Side);const int32 Speed=EffectRules.bCrystal?B::ApplyCrystalStage(C.CalculatedStats.Speed,StageFor(Next,Side,EPokeMonsterBattleStat::Speed)):B::ApplyStage(C.CalculatedStats.Speed,StageFor(Next,Side,EPokeMonsterBattleStat::Speed));return C.Status==EPokeMonsterCreatureStatus::Paralysis?FMath::Max(1,Speed/EffectRules.ParalysisSpeedDivisor):Speed;};
  const bool bAFirst = !bBothMove || (Moves[0]->Priority != Moves[1]->Priority
 		? Moves[0]->Priority > Moves[1]->Priority
 		: TurnSpeed(ESide::A) >= TurnSpeed(ESide::B));
 	const int32 Order[2] = {bAFirst ? 0 : 1, bAFirst ? 1 : 0};
+ bool HasActed[2]={Choices[0].Type!=EPokeMonsterBattleChoiceType::Move,Choices[1].Type!=EPokeMonsterBattleChoiceType::Move};
 	FRandomStream NextRandom = Random;
  // All mutations, including RNG, remain provisional until the turn commits.
  auto AwardExperience=[&](){
@@ -302,12 +314,23 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
  };
  auto Knockout=[&](ESide Fainted){
   for(ESide Side:{ESide::A,ESide::B})if(ActiveFor(Next,Side).CurrentHP==0){auto& K=AddEvent(Result,Next,EEvent::KnockedOut,Side==ESide::A?ESide::B:ESide::A);K.HPAfter=0;}
+  for(ESide Dead:{ESide::A,ESide::B})if(ActiveFor(Next,Dead).CurrentHP==0){auto& Other=EffectsFor(Next,Dead==ESide::A?ESide::B:ESide::A);Other.TrapTurns=0;Other.TrapSource.Invalidate();Other.SwitchBlockSource.Invalidate();}
   SyncActive(Next);if(Next.SideB.CurrentHP==0)AwardExperience();
   if(!HasLiving(Next.TeamA)||!HasLiving(Next.TeamB)){Next.Phase=EPhase::Finished;Next.Winner=!HasLiving(Next.TeamA)?ESide::B:ESide::A;Next.EndReason=EPokeMonsterBattleEndReason::Knockout;AddEvent(Result,Next,EEvent::BattleEnded,Next.Winner);}else Next.Phase=EPhase::AwaitingSwitch;
  };
  auto BurnTick=[&](ESide Side){
-  auto& C=ActiveFor(Next,Side);if(C.CurrentHP<=0||C.Status!=EPokeMonsterCreatureStatus::Burn||Next.Phase!=EPhase::AwaitingChoices)return;
-  const int Before=C.CurrentHP;C.CurrentHP=FMath::Max(0,C.CurrentHP-FMath::Max(1,C.GetMaxHP()/8));auto& E=AddEvent(Result,Next,EEvent::BurnDamage,Side);E.Target=Side;E.TargetInstanceId=C.InstanceId;E.HPBefore=Before;E.HPAfter=C.CurrentHP;E.Damage=Before-C.CurrentHP;if(C.CurrentHP==0)Knockout(Side);
+  if(EffectRules.bCrystal)EffectsFor(Next,Side==ESide::A?ESide::B:ESide::A).bDestinyBond=false;
+  auto& C=ActiveFor(Next,Side);if(C.CurrentHP<=0||Next.Phase!=EPhase::AwaitingChoices)return;
+  auto Tick=[&](int Divisor,EEvent Type){const int Before=C.CurrentHP;C.CurrentHP=FMath::Max(0,C.CurrentHP-FMath::Max(1,C.GetMaxHP()/Divisor));auto& E=AddEvent(Result,Next,Type,Side);E.Target=Side;E.TargetInstanceId=C.InstanceId;E.HPBefore=Before;E.HPAfter=C.CurrentHP;E.Damage=Before-C.CurrentHP;if(C.CurrentHP==0)Knockout(Side);return Before-C.CurrentHP;};
+  if(C.Status==EPokeMonsterCreatureStatus::Burn)Tick(8,EEvent::BurnDamage);
+  else if(EffectRules.bCrystal && C.Status==EPokeMonsterCreatureStatus::Poison)Tick(EffectRules.PoisonDenominator,EEvent::StatusDamage);
+  if(!EffectRules.bCrystal || Next.Phase!=EPhase::AwaitingChoices)return;
+  if(Side==ESide::A?Next.bSeededA:Next.bSeededB)
+  {
+   const int Removed=Tick(8,EEvent::SeedDamage);auto& Other=ActiveFor(Next,Side==ESide::A?ESide::B:ESide::A);
+   if(Other.CurrentHP>0){const int Before=Other.CurrentHP;Other.CurrentHP=FMath::Min(Other.GetMaxHP(),Before+Removed);auto& E=AddEvent(Result,Next,EEvent::SeedHeal,Side==ESide::A?ESide::B:ESide::A);E.Target=E.Source;E.TargetInstanceId=Other.InstanceId;E.HPBefore=Before;E.HPAfter=Other.CurrentHP;E.RestoredHP=Other.CurrentHP-Before;}
+  }
+  if(Next.Phase==EPhase::AwaitingChoices && EffectsFor(Next,Side).bCursed)Tick(4,EEvent::StatusDamage);
  };
 
  auto Notice=[&](EEvent Type,ESide Source,ESide Target,const FString& Text,int32 Slot,const UPokeMonsterMoveData* Move)->FPokeMonsterBattleEvent&
@@ -319,7 +342,7 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
   const ESide Other=Side==ESide::A?ESide::B:ESide::A;
   for(const auto& C:Move->GetEffectComponents())
   {
-   if(C.Kind==EPokeMonsterEffectKind::FixedDamage || C.Kind==EPokeMonsterEffectKind::MultiHit)continue;
+   if(C.Kind==EPokeMonsterEffectKind::FixedDamage || C.Kind==EPokeMonsterEffectKind::MultiHit || C.Kind==EPokeMonsterEffectKind::Charge || C.Kind==EPokeMonsterEffectKind::Rampage)continue;
    // Status moves resolve once before damage, damaging moves once after their hit sequence.
    if(bSecondary != (Move->Category!=EPokeMonsterMoveCategory::Status))continue;
    const ESide Target=C.bSelf?Side:Other;auto& T=ActiveFor(Next,Target);auto& V=EffectsFor(Next,Target);
@@ -329,16 +352,17 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
    {
     if(!bSecondary || ActualDamage<=0)continue;
    }
-   if(!C.bSelf && EffectsFor(Next,Other).bProtected){Notice(EEvent::Protected,Side,Target,TEXT("Das Ziel ist geschützt."),Slot,Move);continue;}
+   if(!C.bSelf && !Move->bBypassProtect && EffectsFor(Next,Other).bProtected){Notice(EEvent::Protected,Side,Target,TEXT("Das Ziel ist geschützt."),Slot,Move);continue;}
    // Eligibility precedes the legacy burn RNG draw, as in the original battle session.
    if(C.Kind==EPokeMonsterEffectKind::PrimaryStatus)
    {
+    if(C.Status==EPokeMonsterCreatureStatus::Freeze && Next.Weather==EPokeMonsterBattleWeather::Sun){if(!C.bSecondary)Failed();continue;}
     const auto* S=T.Species.LoadSynchronous();
     if(T.Status!=EPokeMonsterCreatureStatus::None || !S || C.ImmuneTypes.Contains(S->GetPrimaryType()) || C.ImmuneTypes.Contains(S->GetSecondaryType())){if(!C.bSecondary)Failed();continue;}
    }
    const bool LegacyDraw=Move->Effects.IsEmpty() && C.bSecondary;
    if(C.ChancePercent==0 && !LegacyDraw)continue;
-   if((LegacyDraw || C.ChancePercent<100) && NextRandom.RandRange(0,99)>=C.ChancePercent)continue;
+   if((LegacyDraw || C.ChancePercent<100) && (EffectRules.bCrystal?NextRandom.RandRange(0,255)>=C.ChancePercent*255/100:NextRandom.RandRange(0,99)>=C.ChancePercent))continue;
    if(C.Kind==EPokeMonsterEffectKind::Stage)
    {
     int32& Stage=StageFor(Next,Target,C.Stat);const int32 Was=Stage;Stage=FMath::Clamp(Stage+C.Stages,-6,6);
@@ -354,12 +378,15 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
     const auto* Species=T.Species.LoadSynchronous();
     if(T.Status!=EPokeMonsterCreatureStatus::None || !Species || C.ImmuneTypes.Contains(Species->GetPrimaryType()) || C.ImmuneTypes.Contains(Species->GetSecondaryType())){Failed();continue;}
     T.Status=C.Status;T.StatusTurns=C.Status==EPokeMonsterCreatureStatus::Sleep?NextRandom.RandRange(C.MinTurns,C.MaxTurns):0;
+    V.bJustFrozen=C.Status==EPokeMonsterCreatureStatus::Freeze;
     Notice(C.Status==EPokeMonsterCreatureStatus::Burn?EEvent::Burned:EEvent::StatusApplied,Side,Target,TEXT("Statusproblem: ")+B::StatusLabel(C.Status).ToString(),Slot,Move);
    }
    else if(C.Kind==EPokeMonsterEffectKind::Heal || C.Kind==EPokeMonsterEffectKind::Drain)
    {
     const int32 Base=C.Kind==EPokeMonsterEffectKind::Drain?ActualDamage:T.GetMaxHP();
-    const int32 Amount=int32(FMath::Min<int64>(MAX_int32,FMath::Max<int64>(1,int64(Base)*C.Numerator/C.Denominator)));
+    int32 Numerator=C.Numerator,Denominator=C.Denominator;
+    if(C.Kind==EPokeMonsterEffectKind::Heal && C.Amount>0){const bool Favored=C.Amount==EffectRules.TimeOfDay;Denominator=Favored?2:4;if(Next.Weather==EPokeMonsterBattleWeather::Rain || Next.Weather==EPokeMonsterBattleWeather::Sand)Denominator*=2;Numerator=Next.Weather==EPokeMonsterBattleWeather::Sun?2:1;}
+    const int32 Amount=int32(FMath::Min<int64>(MAX_int32,FMath::Max<int64>(1,int64(Base)*Numerator/Denominator)));
     const int32 Before=T.CurrentHP;T.CurrentHP=int32(FMath::Min<int64>(T.GetMaxHP(),int64(Before)+Amount));
     if(T.CurrentHP==Before){if(C.Kind==EPokeMonsterEffectKind::Heal)Failed();continue;}
     auto& E=Notice(EEvent::Healed,Side,Target,TEXT("KP wiederhergestellt."),Slot,Move);E.HPBefore=Before;E.HPAfter=T.CurrentHP;E.RestoredHP=T.CurrentHP-Before;
@@ -377,9 +404,82 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
    else if(C.Kind==EPokeMonsterEffectKind::Protect)
    {
     int64 Chance=100;for(int32 I=0;I<FMath::Min(V.ProtectStreak,20);++I)Chance=Chance*C.Numerator/C.Denominator;
-    if(NextRandom.RandRange(0,99)>=Chance){V.ProtectStreak=0;Failed();continue;}
+    const bool Success=EffectRules.bCrystal?(!HasActed[Side==ESide::A?1:0] && NextRandom.RandRange(0,254)<(255>>FMath::Min(V.ProtectStreak,8))):NextRandom.RandRange(0,99)<Chance;
+    if(!Success){V.ProtectStreak=0;Failed();continue;}
     V.bProtected=true;++V.ProtectStreak;Notice(EEvent::Protected,Side,Target,TEXT("Schutz aufgebaut."),Slot,Move);
    }
+   else if(C.Kind==EPokeMonsterEffectKind::Disable)
+   {
+    const int32 Last=V.LastMoveSlot;
+    if(V.DisableTurns>0 || !T.GetMoveSlots().IsValidIndex(Last) || T.GetMoveSlots()[Last].GetCurrentPP()<=0){Failed();continue;}
+    V.DisabledSlot=Last;V.DisableTurns=NextRandom.RandRange(C.MinTurns,C.MaxTurns);
+    Notice(EEvent::StatusApplied,Side,Target,TEXT("Die zuletzt verwendete Attacke ist blockiert."),Slot,Move);
+   }
+   else if(C.Kind==EPokeMonsterEffectKind::Spite)
+   {
+    const int32 Last=V.LastMoveSlot;if(!T.GetMoveSlots().IsValidIndex(Last) || T.GetMoveSlots()[Last].GetCurrentPP()<=0){Failed();continue;}
+    const int32 Before=T.GetMoveSlots()[Last].GetCurrentPP(),Removed=FMath::Min(Before,NextRandom.RandRange(C.MinTurns,C.MaxTurns));
+    if(!T.ConsumeMovePP(Last,Removed)){Failed();continue;}
+    auto& E=Notice(EEvent::StatusApplied,Side,Target,FString::Printf(TEXT("Die letzte Attacke verliert %d AP."),Removed),Slot,Move);E.PPBefore=Before;E.PPAfter=Before-Removed;
+   }
+   else if(C.Kind==EPokeMonsterEffectKind::CopyStages)
+   {
+    bool Any=false;for(int32 I=0;I<7;++I)Any|=StageFor(Next,Other,EPokeMonsterBattleStat(I))!=0;
+    if(!Any){Failed();continue;}
+    for(int32 I=0;I<7;++I)StageFor(Next,Side,EPokeMonsterBattleStat(I))=StageFor(Next,Other,EPokeMonsterBattleStat(I));
+    Notice(EEvent::StatChanged,Side,Side,TEXT("Die Statuswertstufen des Gegners wurden kopiert."),Slot,Move);
+   }
+   else if(C.Kind==EPokeMonsterEffectKind::Identify)
+   {
+    if(V.bIdentified){Failed();continue;}V.bIdentified=true;
+    Notice(EEvent::StatusApplied,Side,Target,TEXT("Das Ziel wurde durchschaut."),Slot,Move);
+   }
+   else if(C.Kind==EPokeMonsterEffectKind::ClearBindings)
+   {
+    auto& Own=EffectsFor(Next,Side);Own.TrapTurns=0;Own.TrapSource.Invalidate();
+    if(Side==ESide::A)Next.bSeededA=false;else Next.bSeededB=false;
+    Notice(EEvent::StatusRecovered,Side,Side,TEXT("Fesselnde Wirbel und Egelsamen entfernt."),Slot,Move);
+   }
+   else if(C.Kind==EPokeMonsterEffectKind::Rain)
+   {
+    Next.Weather=EPokeMonsterBattleWeather::Rain;Next.WeatherTurns=C.MaxTurns;Notice(EEvent::StatusApplied,Side,Side,TEXT("Regen setzt ein."),Slot,Move);
+   }
+   else if(C.Kind==EPokeMonsterEffectKind::PreventSwitch)
+   {
+    if(V.SwitchBlockSource.IsValid()){Failed();continue;}V.SwitchBlockSource=ActiveFor(Next,Side).InstanceId;
+    Notice(EEvent::StatusApplied,Side,Target,TEXT("Das Ziel kann nicht entkommen."),Slot,Move);
+   }
+   else if(C.Kind==EPokeMonsterEffectKind::Trap)
+   {
+    if(V.TrapTurns>0)continue;V.TrapTurns=NextRandom.RandRange(C.MinTurns,C.MaxTurns)+1;V.TrapSource=ActiveFor(Next,Side).InstanceId;
+    Notice(EEvent::StatusApplied,Side,Target,TEXT("Im Feuerwirbel gefangen."),Slot,Move);
+   }
+   else if(C.Kind==EPokeMonsterEffectKind::CriticalFocus)
+   {
+    auto& Own=EffectsFor(Next,Side);if(Own.FocusStage>0){Failed();continue;}Own.FocusStage=1;Notice(EEvent::StatusApplied,Side,Side,TEXT("Konzentriert sich auf Volltreffer."),Slot,Move);
+   }
+   else if(C.Kind==EPokeMonsterEffectKind::DestinyBond)
+   {
+    EffectsFor(Next,Side).bDestinyBond=true;Notice(EEvent::StatusApplied,Side,Side,TEXT("Abgangsbund ist aktiv."),Slot,Move);
+   }
+   else if(C.Kind==EPokeMonsterEffectKind::Curse)
+   {
+    const auto* Species=ActiveFor(Next,Side).Species.LoadSynchronous();
+    const bool Ghost=Species->GetPrimaryType()==EPokeMonsterCreatureType::Ghost || Species->GetSecondaryType()==EPokeMonsterCreatureType::Ghost;
+    if(Ghost)
+    {
+     if(EffectsFor(Next,Other).bCursed){Failed();continue;}
+     EffectsFor(Next,Other).bCursed=true;auto& User=ActiveFor(Next,Side);const int32 Before=User.CurrentHP;User.CurrentHP=FMath::Max(0,Before-FMath::Max(1,User.GetMaxHP()/2));
+     auto& E=Notice(EEvent::Recoil,Side,Side,TEXT("Das Ziel wurde mit einem Fluch belegt."),Slot,Move);E.HPBefore=Before;E.HPAfter=User.CurrentHP;E.Damage=Before-User.CurrentHP;
+    }
+    else
+    {
+     auto& Atk=StageFor(Next,Side,EPokeMonsterBattleStat::Attack);auto& Def=StageFor(Next,Side,EPokeMonsterBattleStat::Defense);
+     if(Atk==6 && Def==6){Failed();continue;}Atk=FMath::Min(6,Atk+1);Def=FMath::Min(6,Def+1);auto& Speed=StageFor(Next,Side,EPokeMonsterBattleStat::Speed);Speed=FMath::Max(-6,Speed-1);
+     Notice(EEvent::StatChanged,Side,Side,TEXT("Angriff und Verteidigung steigen, Initiative sinkt."),Slot,Move);
+    }
+   }
+   else if(C.Kind==EPokeMonsterEffectKind::Rage){EffectsFor(Next,Side).bRage=true;}
    else if(C.Kind==EPokeMonsterEffectKind::Screen)
    {
     int32& Turns=Target==ESide::A?Next.ScreenTurnsA:Next.ScreenTurnsB;
@@ -426,12 +526,17 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
 	for (const int32 Index : Order)
 	{
 		if (!Moves[Index]) continue;
+  HasActed[Index]=true;
 		auto& Attacker = Index == 0 ? Next.SideA : Next.SideB;
 		auto& Defender = Index == 0 ? Next.SideB : Next.SideA;
 		const ESide Side = Index == 0 ? ESide::A : ESide::B;
   auto& OwnEffects=EffectsFor(Next,Side);
-  bool CannotAct=false;
-  if(OwnEffects.bFlinched){Notice(EEvent::Flinched,Side,Side,TEXT("Zurückgeschreckt."),Choices[Index].Index,Moves[Index]);CannotAct=true;}
+  OwnEffects.bDestinyBond=false;
+  auto TickDisable=[&](){if(OwnEffects.DisableTurns>0 && --OwnEffects.DisableTurns==0){OwnEffects.DisabledSlot=INDEX_NONE;Notice(EEvent::StatusRecovered,Side,Side,TEXT("Die blockierte Attacke ist wieder verfügbar."),INDEX_NONE,nullptr);}};
+  if(!EffectRules.bCrystal)TickDisable();
+  bool LateDisabled=false;
+  bool CannotAct=!EffectRules.bCrystal && OwnEffects.DisableTurns>0 && OwnEffects.DisabledSlot==Choices[Index].Index;
+  if(!EffectRules.bCrystal && OwnEffects.bFlinched){Notice(EEvent::Flinched,Side,Side,TEXT("Zurückgeschreckt."),Choices[Index].Index,Moves[Index]);CannotAct=true;}
   else if(Attacker.Status==EPokeMonsterCreatureStatus::Sleep)
   {
    if(--Attacker.StatusTurns<=0){Attacker.Status=EPokeMonsterCreatureStatus::None;Attacker.StatusTurns=0;Notice(EEvent::StatusRecovered,Side,Side,TEXT("Aufgewacht."),Choices[Index].Index,Moves[Index]);}
@@ -439,34 +544,67 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
   }
   else if(Attacker.Status==EPokeMonsterCreatureStatus::Freeze)
   {
-   if(NextRandom.RandRange(0,99)<EffectRules.FreezeThawPercent){Attacker.Status=EPokeMonsterCreatureStatus::None;Notice(EEvent::StatusRecovered,Side,Side,TEXT("Aufgetaut."),Choices[Index].Index,Moves[Index]);}
+   if(!EffectRules.bCrystal && NextRandom.RandRange(0,99)<EffectRules.FreezeThawPercent){Attacker.Status=EPokeMonsterCreatureStatus::None;Notice(EEvent::StatusRecovered,Side,Side,TEXT("Aufgetaut."),Choices[Index].Index,Moves[Index]);}
    else CannotAct=true;
   }
-  else if(Attacker.Status==EPokeMonsterCreatureStatus::Paralysis && NextRandom.RandRange(0,99)<EffectRules.ParalysisSkipPercent)CannotAct=true;
-  if(CannotAct){Notice(EEvent::StatusPrevented,Side,Side,TEXT("Kann diese Runde nicht angreifen."),Choices[Index].Index,Moves[Index]);BurnTick(Side);if(Next.Phase!=EPhase::AwaitingChoices)break;continue;}
+  else if(!EffectRules.bCrystal && Attacker.Status==EPokeMonsterCreatureStatus::Paralysis && NextRandom.RandRange(0,99)<EffectRules.ParalysisSkipPercent)CannotAct=true;
+  // Crystal checks sleep/freeze, flinch, the Disable timer, confusion, paralysis, then the selected disabled move.
+  if(EffectRules.bCrystal && !CannotAct)
+  {
+   if(OwnEffects.bFlinched){Notice(EEvent::Flinched,Side,Side,TEXT("Zurückgeschreckt."),Choices[Index].Index,Moves[Index]);CannotAct=true;}
+   else{TickDisable();LateDisabled=OwnEffects.DisableTurns>0 && OwnEffects.DisabledSlot==Choices[Index].Index;}
+  }
+  if(CannotAct){OwnEffects.ChargeSlot=OwnEffects.RampageSlot=INDEX_NONE;OwnEffects.RampageTurns=0;Notice(EEvent::StatusPrevented,Side,Side,TEXT("Kann diese Runde nicht angreifen."),Choices[Index].Index,Moves[Index]);BurnTick(Side);if(Next.Phase!=EPhase::AwaitingChoices)break;continue;}
   if(OwnEffects.ConfusionTurns>0)
   {
    --OwnEffects.ConfusionTurns;
    if(OwnEffects.ConfusionTurns>0 && NextRandom.RandRange(0,99)<50)
    {
-    const int64 DamageSelf=FMath::FloorToDouble((2*Attacker.Level/5+2)*40.0*B::ApplyStage(Attacker.CalculatedStats.Attack,StageFor(Next,Side,EPokeMonsterBattleStat::Attack))/B::ApplyStage(Attacker.CalculatedStats.Defense,StageFor(Next,Side,EPokeMonsterBattleStat::Defense))/50)+2;
+    int32 ConfusionAttack=EffectRules.bCrystal?B::ApplyCrystalStage(Attacker.CalculatedStats.Attack,StageFor(Next,Side,EPokeMonsterBattleStat::Attack)):B::ApplyStage(Attacker.CalculatedStats.Attack,StageFor(Next,Side,EPokeMonsterBattleStat::Attack));
+    int32 ConfusionDefense=EffectRules.bCrystal?B::ApplyCrystalStage(Attacker.CalculatedStats.Defense,StageFor(Next,Side,EPokeMonsterBattleStat::Defense)):B::ApplyStage(Attacker.CalculatedStats.Defense,StageFor(Next,Side,EPokeMonsterBattleStat::Defense));
+    if(EffectRules.bCrystal){if(Attacker.Status==EPokeMonsterCreatureStatus::Burn)ConfusionAttack=FMath::Max(1,ConfusionAttack/2);while(ConfusionAttack>255 || ConfusionDefense>255){ConfusionAttack=FMath::Max(1,ConfusionAttack/4);ConfusionDefense=FMath::Max(1,ConfusionDefense/4);}}
+    const int64 DamageSelf=FMath::FloorToDouble((2*Attacker.Level/5+2)*40.0*ConfusionAttack/ConfusionDefense/50)+2;
     const int Before=Attacker.CurrentHP;Attacker.CurrentHP=int32(FMath::Max<int64>(0,int64(Before)-DamageSelf));auto& E=Notice(EEvent::ConfusionDamage,Side,Side,TEXT("Verletzt sich selbst."),Choices[Index].Index,Moves[Index]);E.HPBefore=Before;E.HPAfter=Attacker.CurrentHP;E.Damage=Before-Attacker.CurrentHP;
-    if(Attacker.CurrentHP==0){Knockout(Side);break;}BurnTick(Side);if(Next.Phase!=EPhase::AwaitingChoices)break;continue;
+    if(Attacker.CurrentHP==0){Knockout(Side);break;}OwnEffects.ChargeSlot=OwnEffects.RampageSlot=INDEX_NONE;OwnEffects.RampageTurns=0;BurnTick(Side);if(Next.Phase!=EPhase::AwaitingChoices)break;continue;
    }
   }
+  if(EffectRules.bCrystal && ((Attacker.Status==EPokeMonsterCreatureStatus::Paralysis && NextRandom.RandRange(0,99)<EffectRules.ParalysisSkipPercent) || LateDisabled))
+  {
+   OwnEffects.ChargeSlot=OwnEffects.RampageSlot=INDEX_NONE;OwnEffects.RampageTurns=0;
+   Notice(EEvent::StatusPrevented,Side,Side,TEXT("Kann diese Runde nicht angreifen."),Choices[Index].Index,Moves[Index]);BurnTick(Side);if(Next.Phase!=EPhase::AwaitingChoices)break;continue;
+  }
   if(!Moves[Index]->HasEffect(EPokeMonsterEffectKind::Protect))OwnEffects.ProtectStreak=0;
-  Damage[Index]=B::CalculateDamage(Attacker,Defender,Moves[Index],Index==0?Next.AttackStageA:Next.AttackStageB,Index==0?Next.DefenseStageB:Next.DefenseStageA,EffectsFor(Next,Side).SpecialAttack,EffectsFor(Next,Side==ESide::A?ESide::B:ESide::A).SpecialDefense);if(!Damage[Index].bValid)return Reject(EError::InvalidDamage,Side);
+  const bool Continuing=OwnEffects.ChargeSlot!=INDEX_NONE || OwnEffects.RampageSlot!=INDEX_NONE;
+  const bool Releasing=OwnEffects.ChargeSlot!=INDEX_NONE;
+  if(!Moves[Index]->HasEffect(EPokeMonsterEffectKind::Rage)){OwnEffects.bRage=false;OwnEffects.RageCounter=0;}
 		const bool Fallback=Choices[Index].Index==INDEX_NONE;
 		const int32 BeforePP = Fallback?0:Attacker.GetMoveSlots()[Choices[Index].Index].GetCurrentPP();
-		if (!Fallback&&!Attacker.ConsumeMovePP(Choices[Index].Index)) return Reject(EError::InvalidPP, Side);
-		const int32 Roll = NextRandom.RandRange(0, 99);
+		if (!Fallback&&!Continuing&&!Attacker.ConsumeMovePP(Choices[Index].Index)) return Reject(EError::InvalidPP, Side);
+		const int32 Roll = NextRandom.RandRange(0, EffectRules.bCrystal?255:99);
 		auto& Executed = AddEvent(Result, Next, EEvent::MoveExecuted, Side, Choices[Index].Index, Moves[Index]);
 		Executed.PPBefore = BeforePP;
-		Executed.PPAfter = Fallback?0:BeforePP - 1;
+		Executed.PPAfter = Fallback?0:BeforePP - (Continuing?0:1);
+  OwnEffects.LastMoveSlot=Choices[Index].Index;
 		Executed.HitRoll = Roll;
 		const ESide Opposite=Side==ESide::A?ESide::B:ESide::A;
-  const int32 Accuracy=B::AccuracyAtStages(Moves[Index]->Accuracy,OwnEffects.Accuracy,EffectsFor(Next,Opposite).Evasion);
-  if (!Moves[Index]->bNeverMiss && Roll>=Accuracy)
+  if(Moves[Index]->HasEffect(EPokeMonsterEffectKind::Charge) && !Releasing && !(Next.Weather==EPokeMonsterBattleWeather::Sun && Moves[Index]->InternalId==TEXT("SolarBeam")))
+  {
+   OwnEffects.ChargeSlot=Choices[Index].Index;
+   if(Moves[Index]->InternalId==TEXT("SkullBash")){auto& Def=StageFor(Next,Side,EPokeMonsterBattleStat::Defense);Def=FMath::Min(6,Def+1);}
+   Notice(EEvent::StatusApplied,Side,Side,TEXT("Bereitet den Angriff vor."),Choices[Index].Index,Moves[Index]);BurnTick(Side);if(Next.Phase!=EPhase::AwaitingChoices)break;continue;
+  }
+  if(Releasing)OwnEffects.ChargeSlot=INDEX_NONE;
+  const auto Components=Moves[Index]->GetEffectComponents();const auto* Rampage=Components.FindByPredicate([](const auto& E){return E.Kind==EPokeMonsterEffectKind::Rampage;});
+  if(Rampage)
+  {
+   if(OwnEffects.RampageSlot==INDEX_NONE){OwnEffects.RampageSlot=Choices[Index].Index;OwnEffects.RampageTurns=NextRandom.RandRange(Rampage->MinTurns,Rampage->MaxTurns);}
+   if(--OwnEffects.RampageTurns<=0){OwnEffects.RampageSlot=INDEX_NONE;OwnEffects.ConfusionTurns=NextRandom.RandRange(2,3);Notice(EEvent::Confused,Side,Side,TEXT("Nach dem Angriff verwirrt."),Choices[Index].Index,Moves[Index]);}
+  }
+  int32 Evasion=EffectsFor(Next,Opposite).Evasion;if(EffectsFor(Next,Opposite).bIdentified && Evasion>0)Evasion=0;
+  const int32 BaseAccuracy=Next.Weather==EPokeMonsterBattleWeather::Sun && Moves[Index]->InternalId==TEXT("Thunder")?50:Moves[Index]->Accuracy;
+  const int32 Accuracy=EffectRules.bCrystal?B::CrystalAccuracy(BaseAccuracy,OwnEffects.Accuracy,EffectsFor(Next,Opposite).Evasion,EffectsFor(Next,Opposite).bIdentified):B::AccuracyAtStages(Moves[Index]->Accuracy,OwnEffects.Accuracy,Evasion);
+  const bool RainThunder=Next.Weather==EPokeMonsterBattleWeather::Rain && Moves[Index]->InternalId==TEXT("Thunder");
+  if (!Moves[Index]->bNeverMiss && !RainThunder && !(EffectRules.bCrystal && Accuracy==255) && Roll>=Accuracy)
 		{
 			AddEvent(Result, Next, EEvent::Missed, Side, Choices[Index].Index, Moves[Index]).HitRoll = Roll;
    BurnTick(Side);if(Next.Phase!=EPhase::AwaitingChoices)break;continue;
@@ -477,7 +615,8 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
   }
   if(Moves[Index]->Category==EPokeMonsterMoveCategory::Status)
   {
-   if(EffectsFor(Next,Index==0?ESide::B:ESide::A).bProtected && !Moves[Index]->GetEffectComponents().ContainsByPredicate([](const auto& C){return C.bSelf;}))
+   if(Moves[Index]->InternalId==TEXT("ThunderWave") && B::GetTypeMultiplier(Moves[Index]->Type,Defender.Species.LoadSynchronous()->GetPrimaryType(),Defender.Species.LoadSynchronous()->GetSecondaryType())==0){Notice(EEvent::Immune,Side,Opposite,TEXT("Keine Wirkung."),Choices[Index].Index,Moves[Index]);BurnTick(Side);if(Next.Phase!=EPhase::AwaitingChoices)break;continue;}
+   if(EffectsFor(Next,Index==0?ESide::B:ESide::A).bProtected && !Moves[Index]->bBypassProtect && !Moves[Index]->GetEffectComponents().ContainsByPredicate([](const auto& C){return C.bSelf;}))
     Notice(EEvent::Protected,Side,Side==ESide::A?ESide::B:ESide::A,TEXT("Das Ziel ist geschützt."),Choices[Index].Index,Moves[Index]);
    else if(Moves[Index]->Effect.EffectId==TEXT("LeechSeed"))
    {
@@ -485,10 +624,17 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
     if(Can)Seed=true;AddEvent(Result,Next,Can?EEvent::Seeded:EEvent::EffectFailed,Side,Choices[Index].Index,Moves[Index]);
    }
    else ApplyComponents(Side,Moves[Index],Choices[Index].Index,0,false);
+   if(Attacker.CurrentHP==0){Knockout(Side);break;}
    BurnTick(Side);if(Next.Phase!=EPhase::AwaitingChoices)break;continue;
   }
   if(EffectsFor(Next,Index==0?ESide::B:ESide::A).bProtected){Notice(EEvent::Protected,Side,Side==ESide::A?ESide::B:ESide::A,TEXT("Das Ziel ist geschützt."),Choices[Index].Index,Moves[Index]);BurnTick(Side);if(Next.Phase!=EPhase::AwaitingChoices)break;continue;}
 
+  static const int32 CritChances[]={17,32,64,85,128,128,128};
+  auto DrawCritical=[&](){return EffectRules.bCrystal && !Moves[Index]->HasEffect(EPokeMonsterEffectKind::FixedDamage) && NextRandom.RandRange(0,255)<CritChances[FMath::Clamp(OwnEffects.FocusStage+Moves[Index]->CriticalStageBonus,0,6)];};
+  bool CrystalCritical=DrawCritical();
+  auto CalculateHit=[&](){return EffectRules.bCrystal?B::CalculateCrystalDamage(Attacker,Defender,Moves[Index],StageFor(Next,Side,EPokeMonsterBattleStat::Attack),StageFor(Next,Opposite,EPokeMonsterBattleStat::Defense),OwnEffects.SpecialAttack,EffectsFor(Next,Opposite).SpecialDefense,CrystalCritical,NextRandom.RandRange(217,255),Next.Weather==EPokeMonsterBattleWeather::Rain,(Opposite==ESide::A?Next.ScreenTurnsA:Next.ScreenTurnsB)>0,EffectsFor(Next,Opposite).bIdentified,Next.Weather==EPokeMonsterBattleWeather::Sun,Next.Weather==EPokeMonsterBattleWeather::Sand,Moves[Index]->HasEffect(EPokeMonsterEffectKind::Rage)?1+OwnEffects.RageCounter:1):B::CalculateDamage(Attacker,Defender,Moves[Index],StageFor(Next,Side,EPokeMonsterBattleStat::Attack),StageFor(Next,Opposite,EPokeMonsterBattleStat::Defense),OwnEffects.SpecialAttack,EffectsFor(Next,Opposite).SpecialDefense);};
+  Damage[Index]=CalculateHit();if(!Damage[Index].bValid)return Reject(EError::InvalidDamage,Side);
+  if(CrystalCritical)Notice(EEvent::StatChanged,Side,Opposite,TEXT("Ein Volltreffer!"),Choices[Index].Index,Moves[Index]);
 		const float Multiplier = Damage[Index].TypeMultiplier;
 		if (Multiplier != 1.0f)
 		{
@@ -504,13 +650,18 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
   for(int H=0;H<HitLimit && Defender.CurrentHP>0;++H)
   {
    const int32 BeforeHP=Defender.CurrentHP;
+   if(H>0 && EffectRules.bCrystal){CrystalCritical=DrawCritical();Damage[Index]=CalculateHit();if(CrystalCritical)Notice(EEvent::StatChanged,Side,Opposite,TEXT("Ein Volltreffer!"),Choices[Index].Index,Moves[Index]);}
    int32 ThisDamage=Damage[Index].Damage;
-   if(Moves[Index]->Category==EPokeMonsterMoveCategory::Special && (Opposite==ESide::A?Next.ScreenTurnsA:Next.ScreenTurnsB)>0 && !Moves[Index]->HasEffect(EPokeMonsterEffectKind::FixedDamage))ThisDamage=FMath::Max(1,ThisDamage/2);
+   if(!EffectRules.bCrystal && Moves[Index]->Category==EPokeMonsterMoveCategory::Special && (Opposite==ESide::A?Next.ScreenTurnsA:Next.ScreenTurnsB)>0 && !Moves[Index]->HasEffect(EPokeMonsterEffectKind::FixedDamage))ThisDamage=FMath::Max(1,ThisDamage/2);
    const int32 Removed=FMath::Min(BeforeHP,ThisDamage);Defender.CurrentHP-=Removed;AppliedDamage=int32(FMath::Min<int64>(MAX_int32,int64(AppliedDamage)+Removed));++Hits;
    auto& E=AddEvent(Result,Next,EEvent::Damage,Side,Choices[Index].Index,Moves[Index]);E.Damage=Removed;E.TypeMultiplier=Multiplier;E.HPBefore=BeforeHP;E.HPAfter=Defender.CurrentHP;
   }
   if(Multi)Notice(EEvent::HitCount,Side,Opposite,FString::Printf(TEXT("%d Treffer."),Hits),Choices[Index].Index,Moves[Index]);
+  if(Defender.CurrentHP==0 && EffectsFor(Next,Opposite).bDestinyBond){const int Before=Attacker.CurrentHP;Attacker.CurrentHP=0;auto& E=Notice(EEvent::Damage,Opposite,Side,TEXT("Abgangsbund nimmt den Angreifer mit."),INDEX_NONE,nullptr);E.HPBefore=Before;E.HPAfter=0;E.Damage=Before;}
+  if(Defender.CurrentHP>0 && EffectsFor(Next,Opposite).bRage && AppliedDamage>0){auto& Rage=EffectsFor(Next,Opposite).RageCounter;Rage=FMath::Min(255,Rage+Hits);Notice(EEvent::StatChanged,Opposite,Opposite,TEXT("Rasereis Stärke steigt."),INDEX_NONE,nullptr);}
+  const bool ThawByFire=Defender.CurrentHP>0 && Defender.Status==EPokeMonsterCreatureStatus::Freeze && Moves[Index]->Type==EPokeMonsterCreatureType::Fire;
   ApplyComponents(Side,Moves[Index],Choices[Index].Index,AppliedDamage,true);
+  if(ThawByFire){Defender.Status=EPokeMonsterCreatureStatus::None;EffectsFor(Next,Opposite).bJustFrozen=false;Notice(EEvent::StatusRecovered,Side,Opposite,TEXT("Durch Feuer aufgetaut."),INDEX_NONE,nullptr);}
   if(Fallback){const int Before=Attacker.CurrentHP;Attacker.CurrentHP=FMath::Max(0,Before-FMath::Max(1,AppliedDamage/4));auto& R=AddEvent(Result,Next,EEvent::Recoil,Side);R.Target=Side;R.TargetInstanceId=Attacker.InstanceId;R.HPBefore=Before;R.HPAfter=Attacker.CurrentHP;R.Damage=Before-Attacker.CurrentHP;}
   if(Defender.CurrentHP==0||Attacker.CurrentHP==0){Knockout(Defender.CurrentHP==0?(Index==0?ESide::B:ESide::A):Side);break;}
 
@@ -522,7 +673,7 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
  {
   if(Next.Phase!=EPhase::AwaitingChoices)break;
   const ESide Victim=I==0?ESide::A:ESide::B, Recipient=I==0?ESide::B:ESide::A;
-  if(!(I==0?Next.bSeededA:Next.bSeededB))continue;
+  if(EffectRules.bCrystal || !(I==0?Next.bSeededA:Next.bSeededB))continue;
   auto& V=ActiveFor(Next,Victim);auto& H=ActiveFor(Next,Recipient);
   if(V.CurrentHP<=0||H.CurrentHP<=0)continue;
   const int Before=V.CurrentHP,Removed=FMath::Min(Before,FMath::Max(1,V.GetMaxHP()/8));V.CurrentHP-=Removed;
@@ -535,10 +686,22 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
  {
   if(Next.Phase!=EPhase::AwaitingChoices)break;
   auto& C=ActiveFor(Next,Side);
-  if(C.CurrentHP>0 && C.Status==EPokeMonsterCreatureStatus::Poison)
+  if(!EffectRules.bCrystal && C.CurrentHP>0 && C.Status==EPokeMonsterCreatureStatus::Poison)
   {
    const int Before=C.CurrentHP;C.CurrentHP=FMath::Max(0,Before-FMath::Max(1,C.GetMaxHP()/EffectRules.PoisonDenominator));auto& E=Notice(EEvent::StatusDamage,Side,Side,TEXT("Vergiftung verursacht Schaden."),INDEX_NONE,nullptr);E.HPBefore=Before;E.HPAfter=C.CurrentHP;E.Damage=Before-C.CurrentHP;if(C.CurrentHP==0)Knockout(Side);
   }
+ }
+ if(Next.WeatherTurns>0 && --Next.WeatherTurns==0)Next.Weather=EPokeMonsterBattleWeather::Clear;
+ for(ESide Side:{ESide::A,ESide::B})
+ {
+  if(Next.Phase!=EPhase::AwaitingChoices)break;
+  auto& C=ActiveFor(Next,Side);auto& V=EffectsFor(Next,Side);
+  auto Residual=[&](int32 Divisor,const TCHAR* Text){const int Before=C.CurrentHP;C.CurrentHP=FMath::Max(0,Before-FMath::Max(1,C.GetMaxHP()/Divisor));auto& E=Notice(EEvent::StatusDamage,Side,Side,Text,INDEX_NONE,nullptr);E.HPBefore=Before;E.HPAfter=C.CurrentHP;E.Damage=Before-C.CurrentHP;if(C.CurrentHP==0)Knockout(Side);};
+  if(Next.Weather==EPokeMonsterBattleWeather::Sand){const auto* Species=C.Species.LoadSynchronous();auto Immune=[](EPokeMonsterCreatureType Type){return Type==EPokeMonsterCreatureType::Rock || Type==EPokeMonsterCreatureType::Ground || Type==EPokeMonsterCreatureType::Steel;};if(!Immune(Species->GetPrimaryType()) && !Immune(Species->GetSecondaryType()))Residual(8,TEXT("Sandsturm verursacht Schaden."));}
+  if(Next.Phase!=EPhase::AwaitingChoices)break;
+  if(V.TrapTurns>0){if(--V.TrapTurns>0)Residual(16,TEXT("Der Feuerwirbel verursacht Schaden."));else V.TrapSource.Invalidate();}
+  if(EffectRules.bCrystal && C.CurrentHP>0 && C.Status==EPokeMonsterCreatureStatus::Freeze && !V.bJustFrozen && NextRandom.RandRange(0,99)<EffectRules.FreezeThawPercent){C.Status=EPokeMonsterCreatureStatus::None;Notice(EEvent::StatusRecovered,Side,Side,TEXT("Aufgetaut."),INDEX_NONE,nullptr);}
+  V.bJustFrozen=false;
  }
  if(Next.ScreenTurnsA>0)--Next.ScreenTurnsA;
  if(Next.ScreenTurnsB>0)--Next.ScreenTurnsB;
@@ -594,8 +757,22 @@ bool UPokeMonsterBattleSession::HasPendingLearning() const
 
 bool UPokeMonsterBattleSession::ResolveMoveLearning(int32 TeamIndex, int32 SlotIndex)
 {
-	if (!State.TeamA.IsValidIndex(TeamIndex) || !State.TeamA[TeamIndex].ResolveMoveLearning(SlotIndex)) return false;
-	if (TeamIndex == State.ActiveIndexA) State.SideA = State.TeamA[TeamIndex];
+ if(!State.TeamA.IsValidIndex(TeamIndex))return false;
+ const auto OldMove=SlotIndex>=0 && State.TeamA[TeamIndex].GetMoveSlots().IsValidIndex(SlotIndex)?State.TeamA[TeamIndex].GetMoveSlots()[SlotIndex].GetMove():TSoftObjectPtr<UPokeMonsterMoveData>();
+ if(!State.TeamA[TeamIndex].ResolveMoveLearning(SlotIndex))return false;
+ if(TeamIndex==State.ActiveIndexA)
+ {
+  State.SideA=State.TeamA[TeamIndex];
+  // Volatile restraints identify an attack, not a storage position subsequently reused by learning.
+  if(SlotIndex>=0 && State.SideA.GetMoveSlots()[SlotIndex].GetMove()!=OldMove)
+  {
+   auto& V=State.EffectsA;
+   if(V.LastMoveSlot==SlotIndex)V.LastMoveSlot=INDEX_NONE;
+   if(V.DisabledSlot==SlotIndex){V.DisabledSlot=INDEX_NONE;V.DisableTurns=0;}
+   if(V.ChargeSlot==SlotIndex)V.ChargeSlot=INDEX_NONE;
+   if(V.RampageSlot==SlotIndex){V.RampageSlot=INDEX_NONE;V.RampageTurns=0;}
+  }
+ }
 	return true;
 }
 
@@ -603,4 +780,25 @@ bool UPokeMonsterBattleSession::ConfigureEffectRules(const FPokeMonsterBattleEff
 {
  if(State.Phase!=EPhase::Uninitialized || !InRules.IsConfigured())return false;
  EffectRules=InRules;return true;
+}
+
+int32 UPokeMonsterBattleSession::ForcedMoveSlot(ESide Side)const
+{
+ const auto& V=Side==ESide::A?State.EffectsA:State.EffectsB;return V.ChargeSlot!=INDEX_NONE?V.ChargeSlot:V.RampageSlot;
+}
+bool UPokeMonsterBattleSession::CanSelectMove(ESide Side,int32 Slot)const
+{
+ const auto& C=Side==ESide::A?State.SideA:State.SideB;const auto& V=Side==ESide::A?State.EffectsA:State.EffectsB;
+ const int Forced=ForcedMoveSlot(Side);if(Forced!=INDEX_NONE)return Slot==Forced;
+ if(V.DisableTurns>0 && Slot==V.DisabledSlot)return false;
+ UPokeMonsterMoveData* M=nullptr;return ValidateSelection(C,Slot,M)==EError::None;
+}
+bool UPokeMonsterBattleSession::HasSelectableMove(ESide Side)const
+{
+ for(int32 Slot=0;Slot<4;++Slot)if(CanSelectMove(Side,Slot))return true;return false;
+}
+bool UPokeMonsterBattleSession::CanLeave(ESide Side)const
+{
+ const auto& V=Side==ESide::A?State.EffectsA:State.EffectsB;
+ return V.TrapTurns<=0 && !V.SwitchBlockSource.IsValid() && ForcedMoveSlot(Side)==INDEX_NONE;
 }

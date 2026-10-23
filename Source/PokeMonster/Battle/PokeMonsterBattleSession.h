@@ -113,6 +113,9 @@ struct POKEMONSTER_API FPokeMonsterBattleEvent
 
 };
 
+UENUM(BlueprintType)
+enum class EPokeMonsterBattleWeather:uint8 { Clear, Rain, Sun, Sand };
+
 /** New battle-local modifiers; persistent primary ailments stay on the individual. */
 USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterBattleVolatileEffects
@@ -126,6 +129,22 @@ struct POKEMONSTER_API FPokeMonsterBattleVolatileEffects
  UPROPERTY(BlueprintReadOnly) bool bFlinched=false;
  UPROPERTY(BlueprintReadOnly) bool bProtected=false;
  UPROPERTY(BlueprintReadOnly) int32 ProtectStreak=0;
+ UPROPERTY(BlueprintReadOnly) int32 LastMoveSlot=INDEX_NONE;
+ UPROPERTY(BlueprintReadOnly) int32 DisabledSlot=INDEX_NONE;
+ UPROPERTY(BlueprintReadOnly) int32 DisableTurns=0;
+ UPROPERTY(BlueprintReadOnly) int32 ChargeSlot=INDEX_NONE;
+ UPROPERTY(BlueprintReadOnly) int32 RampageSlot=INDEX_NONE;
+ UPROPERTY(BlueprintReadOnly) int32 RampageTurns=0;
+ UPROPERTY(BlueprintReadOnly) int32 TrapTurns=0;
+ UPROPERTY(BlueprintReadOnly) FGuid TrapSource;
+ UPROPERTY(BlueprintReadOnly) FGuid SwitchBlockSource;
+ UPROPERTY(BlueprintReadOnly) int32 FocusStage=0;
+ UPROPERTY(BlueprintReadOnly) bool bIdentified=false;
+ UPROPERTY(BlueprintReadOnly) bool bCursed=false;
+ UPROPERTY(BlueprintReadOnly) bool bDestinyBond=false;
+ UPROPERTY(BlueprintReadOnly) bool bRage=false;
+ UPROPERTY(BlueprintReadOnly) int32 RageCounter=0;
+ UPROPERTY(BlueprintReadOnly) bool bJustFrozen=false;
 };
 
 USTRUCT(BlueprintType)
@@ -173,6 +192,8 @@ struct POKEMONSTER_API FPokeMonsterBattleState
  UPROPERTY(BlueprintReadOnly) FPokeMonsterBattleVolatileEffects EffectsB;
  UPROPERTY(BlueprintReadOnly) int32 ScreenTurnsA=0;
  UPROPERTY(BlueprintReadOnly) int32 ScreenTurnsB=0;
+ UPROPERTY(BlueprintReadOnly) EPokeMonsterBattleWeather Weather=EPokeMonsterBattleWeather::Clear;
+ UPROPERTY(BlueprintReadOnly) int32 WeatherTurns=0;
 
 	/** Preserves the exact wild individual at capture time, including HP, PP and level. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
@@ -204,11 +225,18 @@ struct POKEMONSTER_API FPokeMonsterBattleEffectRules
 {
  GENERATED_BODY()
  UPROPERTY(EditAnywhere,BlueprintReadOnly) bool bExtendedStatus=false;
+ /** Production encounters opt into the user-approved Crystal rules. Legacy arithmetic fixtures do not. */
+ UPROPERTY(EditAnywhere,BlueprintReadOnly) bool bCrystal=false;
+ /** 0 morning, 1 day, 2 night; an explicit battle context, not a world-light modification. */
+ UPROPERTY(EditAnywhere,BlueprintReadOnly) int32 TimeOfDay=1;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly) EPokeMonsterBattleWeather InitialWeather=EPokeMonsterBattleWeather::Clear;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly) int32 InitialWeatherTurns=5;
+ static FPokeMonsterBattleEffectRules Crystal(){FPokeMonsterBattleEffectRules R;R.bCrystal=R.bExtendedStatus=true;return R;}
  UPROPERTY(EditAnywhere,BlueprintReadOnly) int32 ParalysisSpeedDivisor=4;
  UPROPERTY(EditAnywhere,BlueprintReadOnly) int32 ParalysisSkipPercent=25;
  UPROPERTY(EditAnywhere,BlueprintReadOnly) int32 FreezeThawPercent=10;
  UPROPERTY(EditAnywhere,BlueprintReadOnly) int32 PoisonDenominator=8;
- bool IsConfigured()const{return ParalysisSpeedDivisor>=1 && ParalysisSpeedDivisor<=16 && ParalysisSkipPercent>=0 && ParalysisSkipPercent<=100 && FreezeThawPercent>=0 && FreezeThawPercent<=100 && PoisonDenominator>=1 && PoisonDenominator<=64;}
+ bool IsConfigured()const{return uint8(InitialWeather)<=uint8(EPokeMonsterBattleWeather::Sand) && InitialWeatherTurns>=1 && InitialWeatherTurns<=15 && TimeOfDay>=0 && TimeOfDay<=2 && ParalysisSpeedDivisor>=1 && ParalysisSpeedDivisor<=16 && ParalysisSkipPercent>=0 && ParalysisSkipPercent<=100 && FreezeThawPercent>=0 && FreezeThawPercent<=100 && PoisonDenominator>=1 && PoisonDenominator<=64;}
 };
 
 /** Up to six creatures per side, exactly one active. Owns battle copies. */
@@ -248,6 +276,10 @@ public:
 public:
  bool ResolveMoveLearning(int32 TeamIndex, int32 SlotIndex);
  bool HasPendingLearning() const;
+ int32 ForcedMoveSlot(EPokeMonsterBattleSide Side) const;
+ bool CanSelectMove(EPokeMonsterBattleSide Side,int32 Slot) const;
+ bool HasSelectableMove(EPokeMonsterBattleSide Side) const;
+ bool CanLeave(EPokeMonsterBattleSide Side) const;
  /** Gen-2-style threshold in [0,256], with checked arithmetic. Attempts includes current attempt. */
  static bool HasUsableMove(const FPokeMonsterCreatureInstance& Creature);
  static int32 EscapeThreshold(int32 PlayerSpeed,int32 EnemySpeed,int32 Attempts);

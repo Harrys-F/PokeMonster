@@ -1,3 +1,5 @@
+> Aktueller Fortschreibungsstand: Die 49 ursprünglich offenen Wirkungen sind lokal produktiv geprüft; siehe `ATTACKENSYSTEM_V4_ABSCHLUSSPRUEFBERICHT.md` und die vollständige Abnahmetabelle. Die folgende Dokumentation bleibt als historischer Zwischenstand erhalten. Die neue GitHub-Abgabe ist wegen noch ungeklärter LFS-Kostenabsicherung separat ausstehend.
+
 # Attackensystem V4 – Prüfbericht des gemeinsamen Effekt-Teilpakets
 
 **Stand: 23.10.2026. Technische Grundlage geprüft; vollständiger V4-Auftrag noch offen.**

@@ -217,3 +217,16 @@ ersetzt die früheren offenen Flucht-/Heilitem-Platzhalter, kein endgültiges Ge
 Territoriale/aggressive Wild-Pokémon beginnen normale Kämpfe nur bei tatsächlichem Kontakt mit der Spielfigur. Ruhige, neugierige und scheue Pokémon werden über die gemeinsame Interaktionsaktion gezielt herausgefordert. Warnung, Sichtkontakt und Annäherung allein starten keinen Kampf. Begleiter sind ausgeschlossen.
 
 Besiegte sichtbare Wild-Pokémon verlassen nach ClassicBattle sichtbar den Spielbereich; sie werden erst außerhalb des Kamerabildes entfernt. Gefangene werden direkt übertragen und entfernt. Nach erfolgreicher Spielerflucht bleiben Wild-Pokémon mit kurzer Wiederholungssperre erhalten. Besondere WorldBattle-Regeln bleiben gesondert.
+
+
+## Attacken: verbindliches Kristall-Profil (V4-Fortsetzung, 23.10.2026)
+
+Der frühere vereinfachte Prototypstand ist für normale Begegnungen durch das vom Nutzer festgelegte Kristall-/Generation-2-Profil ersetzt. Die Kategorie richtet sich bei Schadensattacken nach dem Typ: Feuer, Wasser, Pflanze, Elektro, Eis, Psycho, Drache und Unlicht sind speziell; die übrigen echten Elementtypen physisch. Fluch hat den nicht-elementaren Typ ???.
+
+STAB, Typentabelle der zweiten Generation, Volltreffer, Schadensstreuung, Status- und Genauigkeitsstufen werden gemeinsam verarbeitet. Attackenwerte und Effekte stammen aus dem gesondert geprüften Kristall-Plan. Groll erhält den verminderten AP-Zustand im individuellen Repertoire. Die Beschränkung auf vier aktive Attacken und die ortsgebundene Neuordnung beim Meister bleiben unverändert.
+
+Ausdrückliche Projektabweichungen bleiben: Seite A gewinnt einen Initiativegleichstand; Erfahrungsteilung und bisherige individuelle Werteberechnung bleiben erhalten. Historische reine Prototyp-Rechentests verwenden weiter das ausdrücklich getrennte Legacy-Profil, normale Begegnungen das Kristall-Profil. Zufall erfolgt mit der vorhandenen testbar gesetzten FRandomStream-Quelle, nicht mit einer ROM-Zufallsfolge. Integerüberläufe und technische Originalspiel-Bugs werden nicht absichtlich nachgebaut.
+
+Der normale Kampfkontext ist zunächst Tag ohne Wetter. Regen entsteht durch Regentanz; Sonne und Sand können für vorhandene wetterabhängige Attacken als begrenzter Kampfkontext vorgegeben und getestet werden. Dies verändert keine Weltbeleuchtung und erzeugt kein neues Weltwetter-System. Getragene Kampfitems, Ordenboni, Delegator und weitere bislang nicht vorhandene Attackensysteme werden hier nicht eingeführt.
+
+Nachweise und genaue Einschränkungen: `ATTACKENSYSTEM_V4_ABSCHLUSSPRUEFBERICHT.md`, `ATTACKENSYSTEM_V4_ABNAHMETABELLE.md`, Quellen mit festen Revisionen in `ATTACKENSYSTEM_V4_KRISTALL_QUELLEN.json`.
