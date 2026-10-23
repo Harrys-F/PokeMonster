@@ -22,7 +22,7 @@
 
 namespace
 {
- const TCHAR* Names[]={TEXT("Zunderlauf"),TEXT("Schiggy"),TEXT("Bisasam"),TEXT("Pikachu"),TEXT("Myrapla"),TEXT("Enton"),TEXT("Machomei"),TEXT("Nebulak"),TEXT("Gengar"),TEXT("Glurak")};
+ const TCHAR* DevelopmentSpecimenNames[]={TEXT("Zunderlauf"),TEXT("Schiggy"),TEXT("Bisasam"),TEXT("Pikachu"),TEXT("Myrapla"),TEXT("Enton"),TEXT("Machomei"),TEXT("Nebulak"),TEXT("Gengar"),TEXT("Glurak")};
  const TCHAR* DisplayNames[]={TEXT("Glumanda"),TEXT("Schiggy"),TEXT("Bisasam"),TEXT("Pikachu"),TEXT("Myrapla"),TEXT("Enton"),TEXT("Machomei"),TEXT("Nebulak"),TEXT("Gengar"),TEXT("Glurak")};
 }
 bool UPokeMonsterCreatureTestGround::IsSupportedMap(const FString& Name,EWorldType::Type Type)
@@ -69,11 +69,11 @@ void UPokeMonsterCreatureTestGround::OnWorldBeginPlay(UWorld& World)
  Box(Center()+FVector(0,-1790,35),FVector(56,.2,.7));Box(Center()+FVector(0,1790,35),FVector(56,.2,.7));
  for(int32 I=0;I<10;++I)
  {
-  const FString Path=FString(TEXT("/Game/Data/Creatures/DA_"))+Names[I]+TEXT(".DA_")+Names[I];
+  const FString Path=FString(TEXT("/Game/Data/Creatures/DA_"))+DevelopmentSpecimenNames[I]+TEXT(".DA_")+DevelopmentSpecimenNames[I];
   auto* S=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,*Path);
   auto* V=World.SpawnActor<APokeMonsterCreatureVisualActor>(Station(I),FRotator(0,135,0),Spawn);
   if(!V)continue;OwnedActors.Add(V);V->Tags.Add(TEXT("PokemonDevelopmentSpecimen"));
-  if(!S||!V->SetSpecies(S)){V->Destroy();UE_LOG(LogTemp,Error,TEXT("PM_TESTGROUND invalid species %s"),Names[I]);continue;}
+  if(!S||!V->SetSpecies(S)){V->Destroy();UE_LOG(LogTemp,Error,TEXT("PM_TESTGROUND invalid species %s"),DevelopmentSpecimenNames[I]);continue;}
   V->SetActorLocation(Station(I)-FVector(0,0,V->Presentation->GroundOffsetCm));V->IdlePhaseOffset=I*.173f;
   auto* M=NewObject<UPokeMonsterCreatureRoamingComponent>(V);V->AddInstanceComponent(M);M->RegisterComponent();
   M->HabitatRadiusOverride=430.f;M->HabitatHalfExtent=FVector2D(430,430);

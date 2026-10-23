@@ -14,6 +14,8 @@ public:
     UPROPERTY(BlueprintReadOnly, Category="Player Presentation") float WalkTime = 0.f;
     UPROPERTY(BlueprintReadOnly, Category="Player Presentation") float RunAlpha = 0.f;
     UPROPERTY(BlueprintReadOnly, Category="Player Presentation") float RunPlayRate = 0.f;
+    UPROPERTY(BlueprintReadOnly, Category="Player Presentation") float FootContactLeft = 0.f;
+    UPROPERTY(BlueprintReadOnly, Category="Player Presentation") float FootContactRight = 0.f;
     UPROPERTY(BlueprintReadOnly, Category="Player Presentation") float CapePitch = 0.f;
     UPROPERTY(BlueprintReadOnly, Category="Player Presentation") float CapeSwing = 0.f;
     UPROPERTY(BlueprintReadOnly, Category="Player Presentation") float BagSwing = 0.f;

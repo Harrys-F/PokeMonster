@@ -5,6 +5,11 @@
 #include "Animation/AnimationPoseData.h"
 #include "AnimationRuntime.h"
 #include "BoneContainer.h"
+#include "PokeMonsterFootContact.h"
+#include "TwoBoneIK.h"
+#include "GameFramework/Character.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "Engine/World.h"
 
 namespace
 {
@@ -38,6 +43,15 @@ struct FMeshyAnimationProxy : FAnimInstanceProxy
     float PreviousYaw = 0.f, PreviousSpeed = 0.f;
     bool bHavePrevious = false;
     FAccessorySpring CapePitch, CapeSwing, BagSwing;
+    FPokeMonsterFootContact Contacts[2];
+    FTransform MeshWorld = FTransform::Identity;
+    FHitResult FootGround[2];
+    float FrameDelta = 0.f;
+    uint64 Epoch = 0, ContactEpoch = MAX_uint64;
+    bool bGrounded = false;
+    FVector LastOrigin = FVector::ZeroVector;
+    bool bHaveOrigin = false;
+    float ContactWeights[2] = {0.f, 0.f};
 
     virtual void PreUpdate(UAnimInstance* Instance, float Delta) override
     {
@@ -62,9 +76,28 @@ struct FMeshyAnimationProxy : FAnimInstanceProxy
         CapeSwing.Step(-Turn * .022f, Delta, 12.f);
         BagSwing.Step(Turn * .012f + Acceleration * .004f, Delta, 9.f);
         PreviousYaw = Yaw; PreviousSpeed = Speed; bHavePrevious = true;
+        MeshWorld = Visual->GetComponentTransform();
+        const auto* Character = Cast<ACharacter>(Visual->GetOwner());
+        bGrounded = UPokeMonsterMeshyVisualComponent::IsFootCorrectionEnabled() && Character
+            && Character->GetCharacterMovement()->IsMovingOnGround()
+            && Character->GetCharacterMovement()->CurrentFloor.IsWalkableFloor();
+        if (!bGrounded || (bHaveOrigin && FVector::Dist(LastOrigin, MeshWorld.GetLocation()) > 100.f))
+            for (auto& Contact : Contacts) Contact.Reset();
+        LastOrigin = MeshWorld.GetLocation(); bHaveOrigin = true;
+        for (int32 Side = 0; Side < 2; ++Side)
+        {
+            FootGround[Side] = FHitResult();
+            if (!bGrounded) continue;
+            const FVector Foot = Visual->GetSocketLocation(Side == 0 ? TEXT("foot_l") : TEXT("foot_r"));
+            FCollisionQueryParams Query(SCENE_QUERY_STAT(PlayerFootContact), false, Character);
+            Visual->GetWorld()->LineTraceSingleByChannel(FootGround[Side], Foot + FVector(0,0,25),
+                Foot - FVector(0,0,45), ECC_Visibility, Query);
+            if (FootGround[Side].ImpactNormal.Z < .65f) FootGround[Side] = FHitResult();
+        }
     }
     virtual void Update(float Delta) override
     {
+        FrameDelta = Delta; ++Epoch;
         if (Idle) IdleTime = FMath::Fmod(IdleTime + Delta, FMath::Max(Idle->GetPlayLength(), .01f));
         // Retain cycle phase at stop; resume continuously rather than restarting one foot.
         if (Walk && Rate > 0.f)
@@ -120,6 +153,57 @@ struct FMeshyAnimationProxy : FAnimInstanceProxy
         Offset(TEXT("cape_left"), CapePitch.Angle * .35f, CapeSwing.Angle * .5f);
         Offset(TEXT("cape_right"), CapePitch.Angle * .35f, CapeSwing.Angle * .5f);
         Offset(TEXT("bag"), BagSwing.Angle, BagSwing.Angle * .3f);
+        // Existing three-clip pose, then one small two-bone correction per foot.
+        // World queries are collected on the game thread in PreUpdate, never in Evaluate.
+        TArray<FTransform> ComponentPose;
+        ComponentPose.SetNum(Output.Pose.GetNumBones());
+        for (int32 I = 0; I < ComponentPose.Num(); ++I)
+        {
+            const FCompactPoseBoneIndex Index(I), Parent = Bones.GetParentBoneIndex(Index);
+            ComponentPose[I] = Parent.GetInt() == INDEX_NONE ? Output.Pose[Index]
+                : Output.Pose[Index] * ComponentPose[Parent.GetInt()];
+        }
+        for (int32 Side = 0; Side < 2; ++Side)
+        {
+            const TCHAR* Suffix = Side == 0 ? TEXT("l") : TEXT("r");
+            auto Bone = [&](const TCHAR* Prefix)
+            {
+                const int32 I = Bones.GetReferenceSkeleton().FindBoneIndex(FName(FString(Prefix) + Suffix));
+                return I == INDEX_NONE ? FCompactPoseBoneIndex(INDEX_NONE) : Bones.MakeCompactPoseIndex(FMeshPoseBoneIndex(I));
+            };
+            const auto HipIndex = Bone(TEXT("thigh_")), KneeIndex = Bone(TEXT("shin_")), FootIndex = Bone(TEXT("foot_"));
+            if (HipIndex.GetInt() == INDEX_NONE || KneeIndex.GetInt() == INDEX_NONE || FootIndex.GetInt() == INDEX_NONE) continue;
+            FTransform Hip = ComponentPose[HipIndex.GetInt()], Knee = ComponentPose[KneeIndex.GetInt()], Foot = ComponentPose[FootIndex.GetInt()];
+            FVector WorldFoot = MeshWorld.TransformPosition(Foot.GetLocation());
+            const bool bValid = bGrounded && FootGround[Side].bBlockingHit;
+            if (bValid)
+            {
+                const auto& Hit = FootGround[Side]; const FVector N = Hit.ImpactNormal;
+                const double PlaneZ = Hit.ImpactPoint.Z - (N.X*(WorldFoot.X-Hit.ImpactPoint.X) + N.Y*(WorldFoot.Y-Hit.ImpactPoint.Y))/FMath::Max(N.Z,.65);
+                // Ground the candidate BEFORE capturing a world anchor. Adding this a second
+                // time after locking would push a foot into an ascending slope.
+                WorldFoot.Z += FMath::Clamp(PlaneZ - MeshWorld.GetLocation().Z, -8., 8.);
+            }
+            const FQuat WorldFacing = MeshWorld.TransformRotation(Foot.GetRotation());
+            const float Phase = FMath::Fmod(WalkTime / FMath::Max(Walk->GetPlayLength(), .01f) + Side * .5f, 1.f);
+            const float Duty = FMath::Lerp(.5f, .42f, RunAlpha);
+            const bool bStance = Phase < Duty && Alpha > .05f;
+            if (ContactEpoch != Epoch)
+                Contacts[Side].Update(WorldFoot, WorldFacing, bStance, bValid, FrameDelta);
+            ContactWeights[Side] = Contacts[Side].Weight;
+            if (!bValid) continue;
+            FVector Target = Contacts[Side].Target(WorldFoot);
+            const FVector Effector = MeshWorld.InverseTransformPosition(Target);
+            const FVector JointTarget = Knee.GetLocation() + (Knee.GetLocation() - (Hip.GetLocation()+Foot.GetLocation())*.5)*3.;
+            AnimationCore::SolveTwoBoneIK(Hip, Knee, Foot, JointTarget, Effector, false, 1., 1.);
+            if (Contacts[Side].Weight > 0.f)
+                Foot.SetRotation(FQuat::Slerp(Foot.GetRotation(), MeshWorld.InverseTransformRotation(Contacts[Side].Rotation), Contacts[Side].Weight).GetNormalized());
+            const auto HipParent = Bones.GetParentBoneIndex(HipIndex);
+            Output.Pose[HipIndex] = HipParent.GetInt() == INDEX_NONE ? Hip : Hip.GetRelativeTransform(ComponentPose[HipParent.GetInt()]);
+            Output.Pose[KneeIndex] = Knee.GetRelativeTransform(Hip);
+            Output.Pose[FootIndex] = Foot.GetRelativeTransform(Knee);
+        }
+        ContactEpoch = Epoch;
         Output.Pose.NormalizeRotations();
         return true;
     }
@@ -129,6 +213,7 @@ struct FMeshyAnimationProxy : FAnimInstanceProxy
         auto* View = CastChecked<UPokeMonsterMeshyAnimInstance>(Instance);
         View->WalkAlpha = Alpha; View->WalkPlayRate = Rate; View->WalkTime = WalkTime;
         View->RunAlpha = RunAlpha; View->RunPlayRate = RunRate;
+        View->FootContactLeft = ContactWeights[0]; View->FootContactRight = ContactWeights[1];
         View->CapePitch = CapePitch.Angle; View->CapeSwing = CapeSwing.Angle; View->BagSwing = BagSwing.Angle;
     }
 };

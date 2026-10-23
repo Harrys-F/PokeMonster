@@ -7,6 +7,14 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "PaperFlipbookComponent.h"
 #include "UObject/ConstructorHelpers.h"
+#include "HAL/IConsoleManager.h"
+
+namespace
+{
+TAutoConsoleVariable<int32> CVarPlayerFootIK(TEXT("pm.PlayerFootIK"), 1,
+    TEXT("Player-only bounded stance correction. 0 retains the previous visual ground offset for comparison."));
+}
+bool UPokeMonsterMeshyVisualComponent::IsFootCorrectionEnabled() { return CVarPlayerFootIK.GetValueOnGameThread() != 0; }
 
 UPokeMonsterMeshyVisualComponent::UPokeMonsterMeshyVisualComponent()
 {
@@ -16,7 +24,7 @@ UPokeMonsterMeshyVisualComponent::UPokeMonsterMeshyVisualComponent()
     SetCanEverAffectNavigation(false);
     SetAnimInstanceClass(UPokeMonsterMeshyAnimInstance::StaticClass());
     VisibilityBasedAnimTickOption = EVisibilityBasedAnimTickOption::OnlyTickPoseWhenRendered;
-    static ConstructorHelpers::FObjectFinder<USkeletalMesh> Mesh(TEXT("/Game/Characters/YoungTrainer/MeshyV2/Meshes/SK_Player_Meshy_V2.SK_Player_Meshy_V2"));
+    static ConstructorHelpers::FObjectFinder<USkeletalMesh> Mesh(TEXT("/Game/Characters/YoungTrainer/AnimationV61/SK_Player_V61.SK_Player_V61"));
     static ConstructorHelpers::FObjectFinder<UAnimSequence> Idle(TEXT("/Game/Characters/YoungTrainer/AnimationV6/A_Player_Idle_V6.A_Player_Idle_V6"));
     static ConstructorHelpers::FObjectFinder<UAnimSequence> Walk(TEXT("/Game/Characters/YoungTrainer/AnimationV6/A_Player_Walk_V6.A_Player_Walk_V6"));
     if (Mesh.Succeeded()) SetSkeletalMesh(Mesh.Object);
@@ -53,7 +61,13 @@ void UPokeMonsterMeshyVisualComponent::UpdatePresentation(float DeltaTime)
     SetVisibility(bActive, true);
     Player->GetCharacterFlipbookComponent()->SetVisibility(!bActive && Player->GetCharacterFlipbookComponent()->GetFlipbook() != nullptr, true);
     if (!bActive) return;
-    SetRelativeLocation(FVector(0, 0, -Player->GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight()));
+    // CharacterMovement intentionally floats the collision capsule above the floor.
+    // Remove only that measured gap from the visual, never from the physics or camera.
+    const auto* Movement = Player->GetCharacterMovement();
+    const float FloorGap = IsFootCorrectionEnabled() && Movement->IsMovingOnGround()
+        && Movement->CurrentFloor.IsWalkableFloor()
+        ? FMath::Clamp(Movement->CurrentFloor.GetDistanceToFloor(), 0.f, 6.f) : 0.f;
+    SetRelativeLocation(FVector(0, 0, -Player->GetCapsuleComponent()->GetUnscaledCapsuleHalfHeight() - FloorGap));
     // Rotate only the visual; interaction retains the player's existing world-facing direction.
     const float TargetYaw=Player->GetInteractionWorldDirection().Rotation().Yaw+ForwardYawOffset;
     float Yaw=GetComponentRotation().Yaw;

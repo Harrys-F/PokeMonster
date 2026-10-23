@@ -38,6 +38,7 @@ public:
     UFUNCTION(BlueprintCallable, Category="Player Presentation")
     void SetMeshyEnabled(bool bEnabled);
     void UpdatePresentation(float DeltaTime=0.f);
+    static bool IsFootCorrectionEnabled();
     static float AdvanceVisualYaw(float Current, float Target, float& Velocity, float Delta);
 private:
     bool bHaveVisualFacing=false;

@@ -2,8 +2,8 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "animation_model_corrections_v6",
-  "generated_at": "2026-10-22",
+  "snapshot_kind": "animation_polish_v61",
+  "generated_at": "2026-10-23",
   "files": {
     ".codex/config.toml": {
       "bytes": 59,
@@ -8310,8 +8310,8 @@
       "sha256": "15ca3118fb5fb686f5d3aa0bf4be27b4a5089d31c4c75b69a9c7e2aeb3186021"
     },
     "Content/Data/Creatures/DA_Glurak.uasset": {
-      "bytes": 4419,
-      "sha256": "083d67a9510b95bbb303797933faee04bf61f4cac717605134d72139b52eee5a"
+      "bytes": 4422,
+      "sha256": "7d15ea322fb7da71325761443792ab2c24606d018fefd68f5ce09eeebdcbd225"
     },
     "Content/Data/Creatures/DA_Machomei.uasset": {
       "bytes": 4019,
@@ -11350,8 +11350,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 149727,
-      "sha256": "39031b5c6e29cebe0091bf3a12da1c23ae8bc6c5b44d17312121e658c8c0dc57"
+      "bytes": 151360,
+      "sha256": "dd3c8c0ab3f38cd8c18916599287adf68d2e82254e43135043159e674b6b79f1"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
@@ -11506,8 +11506,8 @@
       "sha256": "1ede0acfca40e87ac09ffe5dbe8993e5cb6142cff2aebf509f4cb084ae6e53fc"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 171187,
-      "sha256": "d6a2efb992f12075b5162c6d173286a04a7713d2a7e58808b570d4879565f158"
+      "bytes": 172760,
+      "sha256": "28e5d26d7a5d6338467daa9d0fad671b42ca7b27279d23e4218abdb061915202"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -11678,20 +11678,20 @@
       "sha256": "9275b1876c034f9f867dcb4318896dea2cad40c1482a6ea4ff28f753fee48d32"
     },
     "Source/PokeMonster/Characters/PokeMonsterMeshyAnimInstance.cpp": {
-      "bytes": 7621,
-      "sha256": "8f74b8d3481c7d11d13dc4580228c47b33152a2d0e6ea4c09bc19db73a88b5b5"
+      "bytes": 13149,
+      "sha256": "7b5aa319eaf1dd7e6a1e239f3c876a9e72950f9ac3a523e577c2dd1f292e64c0"
     },
     "Source/PokeMonster/Characters/PokeMonsterMeshyAnimInstance.h": {
-      "bytes": 1223,
-      "sha256": "c4a7c14ae0f029de0e73e8d9bd15f78f79e402df1ff0469002f622fc348730d8"
+      "bytes": 1412,
+      "sha256": "e308fb722b93edf6f92cdc4f6f7450e7cb2183837725ca9be5098a377f3fc3f6"
     },
     "Source/PokeMonster/Characters/PokeMonsterMeshyVisualComponent.cpp": {
-      "bytes": 3952,
-      "sha256": "a4fb2c5c2d31f16c1512b09e20c67607c2b37d13ad8c1a31a14bd3ae53887263"
+      "bytes": 4761,
+      "sha256": "fbff64c58b801e301dc4581523d3b7a5586db4b14a76a42528e9618e180bc610"
     },
     "Source/PokeMonster/Characters/PokeMonsterMeshyVisualComponent.h": {
-      "bytes": 2103,
-      "sha256": "7d4af123e5c092dccaad84a60bd6563241edd145edf6c22b0d452e7d3c1c4fed"
+      "bytes": 2146,
+      "sha256": "05f18d3a16ec51749179557c95a337baaa3e18a626f10c56d32a2d47b46b5595"
     },
     "Source/PokeMonster/Characters/PokeMonsterNPCAnimInstance.cpp": {
       "bytes": 7007,
@@ -11834,8 +11834,8 @@
       "sha256": "edc6ec9435c3695abb8ebad5ca16baec1685e2d3893ba99cf956f68083013b3a"
     },
     "Source/PokeMonster/Development/PokeMonsterCreatureTestGround.cpp": {
-      "bytes": 11932,
-      "sha256": "01423da6e62660d415e5b97579ecde6efa99169d388462d66aa1833ce3e6efc0"
+      "bytes": 12008,
+      "sha256": "3baaa58ef63e9a7a3ca5baa833279a60f62b9d1cc7ec3533e5edc5447ffc64e2"
     },
     "Source/PokeMonster/Development/PokeMonsterCreatureTestGround.h": {
       "bytes": 2273,
@@ -12086,8 +12086,8 @@
       "sha256": "462c239d08a6f3bed5c009efe83dd3cc3057db51c2ca44c3d93ba6512a1a8508"
     },
     "Source/PokeMonster/PokeMonster.Build.cs": {
-      "bytes": 838,
-      "sha256": "84547d9343b381ea72b90bd8c2ad247998f8c9fe483821ca8dee1255f741f2db"
+      "bytes": 855,
+      "sha256": "8a2c1dd5b852ec0e2df657cdb3cc9224ff64e0dbc500fbe1f846497f3bb77af1"
     },
     "Source/PokeMonster/PokeMonster.cpp": {
       "bytes": 198,
@@ -18556,6 +18556,138 @@
     "Tools/ZunderlaufV1/ValidateWorld.py": {
       "bytes": 2456,
       "sha256": "f11ca90fee28b17b3fc13e83519f74c2db634c72a8e296a58fed0074f4a28600"
+    },
+    "Art/Characters/Creatures/Glurak/AnimationCorrectionsV61_Audit.json": {
+      "bytes": 516271,
+      "sha256": "ff0c8d9747c1f9cc1207a4da942d1d28de4981032e9ec28d7de4c0722e1f82a1"
+    },
+    "Art/Characters/Creatures/Glurak/Exports/AnimationV61/Glurak_Idle.fbx": {
+      "bytes": 11334028,
+      "sha256": "5667f2c2aebec69f654112cff740357a7b08b7a76f15fdf5b7cb6799a6ddf68f"
+    },
+    "Art/Characters/Creatures/Glurak/Source/Glurak_AnimationCorrections_V61.blend": {
+      "bytes": 31042710,
+      "sha256": "33ef643760472a0119cd8b281530eb30b48b9160f70527c8ccf561f73837447e"
+    },
+    "Art/Characters/YoungTrainer/AnimationCorrectionsV61_Audit.json": {
+      "bytes": 591780,
+      "sha256": "be4f2f48583eb9a23a37f14a6348f6feafe8c7ef846ad703ed4bb7b2ffec21c3"
+    },
+    "Art/Characters/YoungTrainer/Exports/AnimationV61/Player_Idle.fbx": {
+      "bytes": 3545820,
+      "sha256": "e68c7b5a3a46d0a234142c8f130916ec50cf2086380491c4eb7f385c74e9d214"
+    },
+    "Art/Characters/YoungTrainer/Source/Player_Meshy_AnimationCorrections_V61.blend": {
+      "bytes": 12190726,
+      "sha256": "8683d6233f8ca30e7547f07cea5ac96fa6a3c21f2678800647bf8ec232906541"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV61/DA_Glurak_Presentation_V61.uasset": {
+      "bytes": 4667,
+      "sha256": "45d64a49ed57044935022778f9d9ba2399524ae29a41a14d845c2717bbeb4b82"
+    },
+    "Content/Characters/Creatures/Glurak/AnimationV61/SK_Glurak_V61.uasset": {
+      "bytes": 35962934,
+      "sha256": "a98d7e0b4773b3f80ff710b6b10fe051bd097fcac9a2d1cd99e1d0284c148218"
+    },
+    "Content/Characters/YoungTrainer/AnimationV61/SK_Player_V61.uasset": {
+      "bytes": 11456440,
+      "sha256": "ceb24ce11d81628529d62352f58cb038cb4d8478a0a12cbccb1047460227ead3"
+    },
+    "Source/PokeMonster/Characters/PokeMonsterFootContact.h": {
+      "bytes": 1233,
+      "sha256": "e82a7e73f1c4d4e42a599a7b02ebed38e68131d9d923adf136c7893dff4b9219"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterAnimationCorrectionsV61Test.cpp": {
+      "bytes": 3860,
+      "sha256": "fb14de5a2b6e3ec801eee4f69b59ef802183974b73809129587ff062e89887f7"
+    },
+    "Tools/AnimationCorrectionsV61/AcceptGlurak.py": {
+      "bytes": 1712,
+      "sha256": "3084367e7ef050767814aa12448256a171d0b812d3e99017ea6a2f89645cfb1a"
+    },
+    "Tools/AnimationCorrectionsV61/Acceptance.json": {
+      "bytes": 48585,
+      "sha256": "78b0c215983ca7dec877e58c9d3ae2886886fed3501802db562ea4c62fe54d2c"
+    },
+    "Tools/AnimationCorrectionsV61/AlignedComparison.py": {
+      "bytes": 4187,
+      "sha256": "9b876fb0c7aee4db2882b083891ee9e49c516cc83d2985b4fa58daeb640679c8"
+    },
+    "Tools/AnimationCorrectionsV61/AnalyzeFootProbe.py": {
+      "bytes": 1610,
+      "sha256": "92158ddfd57b0cfb1f0ddf495aa1392c29fdc9c25ac8edb9e9c84e00a2dc5a8c"
+    },
+    "Tools/AnimationCorrectionsV61/AssessAutomation.py": {
+      "bytes": 1332,
+      "sha256": "32f753c41ca1d9d73672578fb50c61f38c744d2fdf62f847e30182a0f3a9c666"
+    },
+    "Tools/AnimationCorrectionsV61/BuildSources.py": {
+      "bytes": 8099,
+      "sha256": "1a6a4ebbde5086a612b55975972deef594d27a7769de96d14440b5e29ab97cd2"
+    },
+    "Tools/AnimationCorrectionsV61/EncodeReviews.py": {
+      "bytes": 2298,
+      "sha256": "6b440d114f46e7f20a9f55c4a4dcb9aa7a8ac0ab496c572649eb031dcc8b59c4"
+    },
+    "Tools/AnimationCorrectionsV61/FootProbe.py": {
+      "bytes": 3442,
+      "sha256": "5e7840eb171f8a7ede58fe3fb23208725f0ab7c647e86e1aff73a422a86698c7"
+    },
+    "Tools/AnimationCorrectionsV61/GatherEvidence.py": {
+      "bytes": 3869,
+      "sha256": "e8ae472d5d540caa12a9d54ac465562acbea59893fa77cb2964ae5e319130009"
+    },
+    "Tools/AnimationCorrectionsV61/ImportCandidates.py": {
+      "bytes": 3891,
+      "sha256": "6576e721bc23951075058cb1550fb3a2106fac7835a28f5d90671eee667a5710"
+    },
+    "Tools/AnimationCorrectionsV61/InspectOriginalWeights.py": {
+      "bytes": 650,
+      "sha256": "51a75c87f59cef5184559ceac94b15a8ccfe9f986e0d7a522daa7fbe84e3003f"
+    },
+    "Tools/AnimationCorrectionsV61/InspectPlayerDeformation.py": {
+      "bytes": 2184,
+      "sha256": "1c912fee6d3559a690d70418d12fe2c52faf3c8f2c846d52186dc8a79d6d58ac"
+    },
+    "Tools/AnimationCorrectionsV61/InspectSources.py": {
+      "bytes": 4557,
+      "sha256": "0e2cd280b69910ac721ad2a973545ca83b1d2821cfda2afec8281678f04f62b7"
+    },
+    "Tools/AnimationCorrectionsV61/InspectWingRootResidual.py": {
+      "bytes": 1749,
+      "sha256": "c0b273e5683a9cc05fa114b0de529fb64e208c08cc1ff0955ea8e39b456178e5"
+    },
+    "Tools/AnimationCorrectionsV61/MakeDetails.py": {
+      "bytes": 1320,
+      "sha256": "c3870dfc3bc515dd88e70b227fdf17331adf5c70219e0ee90c8021bd8a26992d"
+    },
+    "Tools/AnimationCorrectionsV61/MapChecks.py": {
+      "bytes": 1067,
+      "sha256": "4d29cdfcd4b08b833250c3ef7db6d6a7baeafc282ea0bd7ee5e24ecfa1a3306a"
+    },
+    "Tools/AnimationCorrectionsV61/README.md": {
+      "bytes": 5075,
+      "sha256": "f165c595c997f46941e04693b2426bb7bfa5638c02d4f54f3c94ac30dac5bb27"
+    },
+    "Tools/AnimationCorrectionsV61/RefreshOwnGlurak.py": {
+      "bytes": 2340,
+      "sha256": "1eb0508a3c41e54653878f771fa7b50e7aa0d942ef443852fbd4a59a595d42ca"
+    },
+    "Tools/AnimationCorrectionsV61/RefreshOwnPlayer.py": {
+      "bytes": 2328,
+      "sha256": "d04f9f3f27e53992ee449e22d0f6283dc3140962fe606ca9b430e9d16dc414a1"
+    },
+    "Tools/AnimationCorrectionsV61/Review.py": {
+      "bytes": 7149,
+      "sha256": "4ebc2ccddafd7f0c628c8149e856688de78774afa74f11b6b655d1d0f75a3272"
+    },
+    "Tools/AnimationCorrectionsV61/ValidateSources.py": {
+      "bytes": 2787,
+      "sha256": "409ac4008ef966176c94811c260bbcccd503ed2e452fe81c786803c7137d9a16"
+    },
+    "Tools/AnimationCorrectionsV61/AuditHandoff.py": {
+      "bytes": 2276,
+      "sha256": "138661177390207af90cde50a16acc9accd9a412ad0ace0a94c736396c07fc76"
     }
   }
 }
