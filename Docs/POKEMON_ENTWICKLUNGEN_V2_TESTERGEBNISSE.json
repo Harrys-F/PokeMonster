@@ -1,0 +1,159 @@
+{
+  "date": "2026-10-23",
+  "milestone_a_commit": "bbed74619423f0dad25942bcc8b815946b4e510b",
+  "source_original_sha256": "718f9eb037832228f25bdbce299671db0972a9c3c271d23724e39743476c6efe",
+  "no_physical_controller_test": true,
+  "no_new_maps": true,
+  "save_schema": 8,
+  "build": {
+    "result": {
+      "mode": "Build",
+      "exit": 0,
+      "seconds": 23.86467480659485
+    },
+    "local_source": "Saved/ProjectRefinement/EvolutionV2_Build07/Result.json"
+  },
+  "automation_summary": {
+    "result": {
+      "succeeded": 186,
+      "succeededWithWarnings": 1,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0
+    },
+    "local_source": "Saved/ProjectRefinement/EvolutionV2_Automation03/Report/index.json"
+  },
+  "pie": {
+    "result": {
+      "passed": true,
+      "checks": [
+        "No evolution below level 16",
+        "Level16 offers exactly Glutexo",
+        "Pending offer survives reload without duplicate individual",
+        "Presentation is running, species not yet committed",
+        "Cancelled evolution restores original data",
+        "No immediate duplicate offer at same level",
+        "Later level retries development",
+        "Glutexo committed once with same identity XP PP and reserve",
+        "Evolved historical growth save reload exact",
+        "Menu closes and player unlocks",
+        "Evolved individual and repertoire move with its team slot",
+        "No Glurak below level36",
+        "Glurak offered at level36",
+        "Glurak has same individual and unchanged other Glurak",
+        "Level36 WingAttack offered",
+        "Four moves, previous learned PP retained",
+        "Post evolution repertoire saves exactly",
+        "Original controller menu input remains functional"
+      ],
+      "shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/EvolutionEvolutionReview04Offer16/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/EvolutionEvolutionReview04BeforeCancel/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/EvolutionEvolutionReview04Cancelled/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/EvolutionEvolutionReview04GlutexoComplete/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/EvolutionEvolutionReview04GlurakComplete/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/EvolutionEvolutionReview04WingAttackOffer/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/EvolutionEvolutionReview04TeamAfter/ActualSlateViewport.png"
+      ],
+      "frames": 58,
+      "qhd_native_umg_renders": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlutexoEvolutionV2/QHDCaptures/EvolutionEvolutionReview04Offer16.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlutexoEvolutionV2/QHDCaptures/EvolutionEvolutionReview04BeforeCancel.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlutexoEvolutionV2/QHDCaptures/EvolutionEvolutionReview04Cancelled.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlutexoEvolutionV2/QHDCaptures/EvolutionEvolutionReview04GlutexoComplete.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlutexoEvolutionV2/QHDCaptures/EvolutionEvolutionReview04GlurakComplete.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlutexoEvolutionV2/QHDCaptures/EvolutionEvolutionReview04WingAttackOffer.png"
+      ],
+      "physical_controller_test": false
+    },
+    "local_source": "Saved/GlutexoEvolutionV2/EvolutionReview04/Result.json"
+  },
+  "edges": {
+    "result": {
+      "passed": true,
+      "checks": [
+        "Multiple level learning is handled first",
+        "Level40 offers middle species first",
+        "No direct Glumanda Glurak shortcut",
+        "Second eligible stage has separate offer",
+        "Multi-level final stage retains one individual",
+        "Development stays closed during battle",
+        "Normal victory offers level16 evolution after battle",
+        "Late eligible source can evolve at level100",
+        "No capped offer spam after cancellation",
+        "Later victory retries even at cap without changing identity",
+        "Missing target never substitutes a placeholder",
+        "Missing target save remains undamaged"
+      ],
+      "shots": [
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/EvolutionEvolutionEdges01MultiMiddle/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/EvolutionEvolutionEdges01BattleBeforeXP/ActualSlateViewport.png",
+        "/Users/harry/Developer/PokeMonster/Saved/GlumandaV11/LiveUI/EvolutionEvolutionEdges01AfterBattleVictory/ActualSlateViewport.png"
+      ],
+      "frames": 40,
+      "physical_controller_test": false
+    },
+    "local_source": "Saved/GlutexoEvolutionV2/EvolutionEdges01/Result.json"
+  },
+  "foot": {
+    "result": {
+      "passed": true,
+      "error": null,
+      "distance_m": 289.29818720689906,
+      "max_speed_cm_s": 315.0000000000127
+    },
+    "local_source": "Saved/GlumandaV11/Acceptance/EvolutionV2FullFoot01/FootTest.json"
+  },
+  "original_assets": {
+    "result": {
+      "baseline": "18c397d2628a4d0d7a78a4a093be5fb73e3cfff7",
+      "checked_files": 761,
+      "checked_bytes": 1665509661,
+      "mismatches": [],
+      "passed": true,
+      "scope": [
+        "Content/Maps",
+        "Content/Characters",
+        "Content/Data/Creatures",
+        "Art/Characters/Creatures",
+        "Config"
+      ]
+    },
+    "local_source": "Saved/GlutexoEvolutionV2/OriginalAssetProtection.json"
+  },
+  "strict_final_qa_wrapper_exit": 1,
+  "strict_final_qa_wrapper_passed": false,
+  "external_warning": {
+    "test": "PokeMonster.CrystalMoves.Edges.FrozenTurnEndThawAndFireCure",
+    "message": "Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id: posix_spawn failed (86, Bad CPU type in executable)",
+    "project_assertion_failures": 0
+  },
+  "videos": [
+    {
+      "path": "Saved/GlutexoEvolutionV2/Videos/Glumanda_Glutexo.mp4",
+      "source": "genuine unresized actual Slate viewport frames, original timestamps",
+      "width": 2331,
+      "height": 1311
+    },
+    {
+      "path": "Saved/GlutexoEvolutionV2/Videos/Glutexo_Glurak.mp4",
+      "source": "genuine unresized actual Slate viewport frames, original timestamps",
+      "width": 2331,
+      "height": 1311
+    },
+    {
+      "path": "Saved/GlutexoEvolutionV2/Videos/Abbruch.mp4",
+      "source": "genuine unresized actual Slate viewport frames, original timestamps",
+      "width": 2331,
+      "height": 1311
+    }
+  ],
+  "map_checks": {
+    "count": 11,
+    "errors": 0,
+    "warnings": 0,
+    "log": "Saved/GlutexoEvolutionV2/Editor06.log"
+  },
+  "all_original_incoming_and_save_hashes_unchanged": true,
+  "original_dev_save_sha256": "eeab48f3c5652ef6d24b7f386ee7c26973336c929edf39aa7f6593d407a913df"
+}

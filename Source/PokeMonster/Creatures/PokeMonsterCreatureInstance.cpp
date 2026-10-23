@@ -41,9 +41,9 @@ bool FPokeMonsterCreatureInstance::RestoreIndividualState(const FGuid& InId, con
 	const UPokeMonsterCreatureSpeciesData* Data = Species.LoadSynchronous();
 	if (!InId.IsValid() || !::IsValid(Data) || InLevel < UPokeMonsterCreatureProgression::MinLevel
 		|| InLevel > UPokeMonsterCreatureProgression::MaxLevel || InSlots.Num() != MoveSlotCount) return false;
-	const int64 Floor = UPokeMonsterCreatureProgression::ExperienceForLevel(Data->GetGrowthRate(), InLevel);
+	const int64 Floor = UPokeMonsterCreatureProgression::ExperienceForLevel(GetExperienceGrowthRate(), InLevel);
 	const int64 Ceiling = InLevel == UPokeMonsterCreatureProgression::MaxLevel
-		? Floor + 1 : UPokeMonsterCreatureProgression::ExperienceForLevel(Data->GetGrowthRate(), InLevel + 1);
+		? Floor + 1 : UPokeMonsterCreatureProgression::ExperienceForLevel(GetExperienceGrowthRate(), InLevel + 1);
 	const FPokeMonsterCreatureStats Stats = UPokeMonsterCreatureProgression::CalculateStats(Data->GetBaseStats(), InLevel);
 	if (Floor < 0 || InExperience < Floor || InExperience >= Ceiling
 		|| InCurrentHP < 0 || InCurrentHP > Stats.MaxHP || uint8(InStatus)>uint8(EPokeMonsterCreatureStatus::Freeze)
@@ -96,7 +96,7 @@ int64 FPokeMonsterCreatureInstance::GetExperienceToNextLevel() const
 	if (!IsValid() || Level == UPokeMonsterCreatureProgression::MaxLevel) return 0;
 	const UPokeMonsterCreatureSpeciesData* Data = Species.LoadSynchronous();
 	if (!::IsValid(Data)) return 0;
-	const int64 Next = UPokeMonsterCreatureProgression::ExperienceForLevel(Data->GetGrowthRate(), Level + 1);
+	const int64 Next = UPokeMonsterCreatureProgression::ExperienceForLevel(GetExperienceGrowthRate(), Level + 1);
 	return Next < 0 ? 0 : Next - FMath::Clamp<int64>(Experience, 0, Next);
 }
 
@@ -106,18 +106,18 @@ FPokeMonsterExperienceResult FPokeMonsterCreatureInstance::AddExperience(const i
 	if (Amount < 0 || !IsValid()) return Result;
 	const UPokeMonsterCreatureSpeciesData* Data = Species.LoadSynchronous();
 	if (!::IsValid(Data)) return Result;
-	const int64 Floor = UPokeMonsterCreatureProgression::ExperienceForLevel(Data->GetGrowthRate(), Level);
-	const int64 Cap = UPokeMonsterCreatureProgression::ExperienceForLevel(Data->GetGrowthRate(), UPokeMonsterCreatureProgression::MaxLevel);
+	const int64 Floor = UPokeMonsterCreatureProgression::ExperienceForLevel(GetExperienceGrowthRate(), Level);
+	const int64 Cap = UPokeMonsterCreatureProgression::ExperienceForLevel(GetExperienceGrowthRate(), UPokeMonsterCreatureProgression::MaxLevel);
 	if (Floor < 0 || Experience < Floor || Experience > Cap
 		|| (Level < UPokeMonsterCreatureProgression::MaxLevel
-			&& Experience >= UPokeMonsterCreatureProgression::ExperienceForLevel(Data->GetGrowthRate(), Level + 1))) return Result;
+			&& Experience >= UPokeMonsterCreatureProgression::ExperienceForLevel(GetExperienceGrowthRate(), Level + 1))) return Result;
 
 	Result.bSucceeded = true;
 	Result.ExperienceAdded = FMath::Min(Amount, Cap - Experience); // Subtract before adding to avoid overflow.
 	Experience += Result.ExperienceAdded;
 	const int32 OldLevel = Level;
 	while (Level < UPokeMonsterCreatureProgression::MaxLevel
-		&& Experience >= UPokeMonsterCreatureProgression::ExperienceForLevel(Data->GetGrowthRate(), Level + 1)) ++Level;
+		&& Experience >= UPokeMonsterCreatureProgression::ExperienceForLevel(GetExperienceGrowthRate(), Level + 1)) ++Level;
 	Result.LevelsGained = Level - OldLevel;
 	if (Result.LevelsGained > 0)
 	{
@@ -259,4 +259,19 @@ bool FPokeMonsterCreatureInstance::SetActiveLearnedMoves(const TArray<TSoftObjec
  }
  MoveSlots=MoveTemp(Next);
  return true;
+}
+
+EPokeMonsterGrowthRate FPokeMonsterCreatureInstance::GetExperienceGrowthRate() const
+{
+ const auto* Data=Species.LoadSynchronous();
+ return bHasExperienceGrowthOverride?ExperienceGrowthOverride:Data?Data->GetGrowthRate():EPokeMonsterGrowthRate::MediumFast;
+}
+bool FPokeMonsterCreatureInstance::ValidateEvolutionState() const
+{
+ if(LastEvolutionOfferedLevel<0||LastEvolutionOfferedLevel>Level)return false;
+ if(bHasExperienceGrowthOverride&&UPokeMonsterCreatureProgression::ExperienceForLevel(ExperienceGrowthOverride,Level)<0)return false;
+ if(!PendingEvolutionTarget.IsValid())return PendingEvolutionTarget==FPrimaryAssetId();
+ FPokeMonsterEvolutionContext C;
+ auto AtOffer=*this;AtOffer.Level=LastEvolutionOfferedLevel;
+ return LastEvolutionOfferedLevel>0&&UPokeMonsterCreatureProgression::GetEligibleEvolutions(AtOffer,C).Contains(PendingEvolutionTarget);
 }

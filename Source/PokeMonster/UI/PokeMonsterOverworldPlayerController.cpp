@@ -1,5 +1,7 @@
 #include "PokeMonsterOverworldPlayerController.h"
 #include "PokeMonsterControllerInput.h"
+#include "PokeMonsterEvolutionWidget.h"
+#include "HAL/IConsoleManager.h"
 #include "../Dialogue/PokeMonsterNPC.h"
 #include "Framework/Application/SlateApplication.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
@@ -106,7 +108,8 @@ void APokeMonsterOverworldPlayerController::EndPlay(const EEndPlayReason::Type E
 		}
 	}
 	if (bMenuOpen) UnlockMenu(Cast<APokeMonsterPlayerCharacter>(GetPawn()));
-	if (OverworldWidget) OverworldWidget->RemoveFromParent();
+	if(EvolutionWidget){EvolutionWidget->RemoveFromParent();EvolutionWidget=nullptr;}
+ if (OverworldWidget) OverworldWidget->RemoveFromParent();
 	if (DialogueWidget) DialogueWidget->RemoveFromParent();
 	Super::EndPlay(EndPlayReason);
 }
@@ -131,7 +134,7 @@ bool APokeMonsterOverworldPlayerController::OpenMenu(const EPokeMonsterOverworld
 
 bool APokeMonsterOverworldPlayerController::CloseMenu()
 {
-	if (!bMenuOpen) return false;
+	if (EvolutionWidget || !bMenuOpen) return false;
 	bMenuOpen = false;
  MoveMaster.Reset(); MasterPartySnapshot.Reset();
 	if (OverworldWidget) OverworldWidget->SetMenuOpen(false);
@@ -219,6 +222,7 @@ void APokeMonsterOverworldPlayerController::OnDialogueChanged()
 
 void APokeMonsterOverworldPlayerController::RefreshHUD()
 {
+ if(EvolutionWidget)return;
 	if (!OverworldWidget) return;
  if (MoveMaster.IsStale() || (MoveMaster.IsValid() && !IsMoveMasterActive())) { CloseMenu(); return; }
 	UGameInstance* Instance = GetGameInstance();
@@ -237,6 +241,7 @@ void APokeMonsterOverworldPlayerController::RefreshHUD()
  FocusedWild=Wild;if(Wild)Wild->SetChallengeFocused(true);
  OverworldWidget->SetInteractionAvailable(Target &&
 		IPokeMonsterInteractable::Execute_CanInteract(Target, Player),Wild?FString::Printf(TEXT("Interagieren · %s herausfordern"),*Wild->GetChallengeName()):FString());
+ TryOpenEvolutionPresentation();
 }
 
 void APokeMonsterOverworldPlayerController::OnEncounterStarted()
@@ -287,4 +292,27 @@ bool APokeMonsterOverworldPlayerController::CommitMoveMaster(FGuid CreatureId,co
  if(!Expected || !E->CommitRememberedMoves(MoveMaster.Get(),Cast<APokeMonsterPlayerCharacter>(GetPawn()),*Expected,Moves))return false;
  CloseMenu();
  return true;
+}
+
+namespace { TAutoConsoleVariable<int32> EvolutionAuto(TEXT("pm.Evolution.Auto"),1,TEXT("Development review gate only; normal safe-state evolution presentation defaults on."),ECVF_Cheat); }
+void APokeMonsterOverworldPlayerController::TryOpenEvolutionPresentation()
+{
+ if(!EvolutionAuto.GetValueOnGameThread()||EvolutionWidget||bMenuOpen||bEvolutionPresentationFailed)return;
+ auto* E=GetGameInstance()?GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>():nullptr;
+ auto* D=GetGameInstance()?GetGameInstance()->GetSubsystem<UPokeMonsterDialogueSubsystem>():nullptr;
+ auto* Player=Cast<APokeMonsterPlayerCharacter>(GetPawn());
+ if(!CanOpenMenu(Player,E,false)||(D&&D->IsDialogueActive()))return;
+ int32 Index=INDEX_NONE;bool Learning=false;
+ for(int32 I=0;I<E->GetPlayerParty().Num();++I)if(!E->GetPlayerParty()[I].PendingMoves.IsEmpty()){Index=I;Learning=true;break;}
+ if(Index==INDEX_NONE)Index=E->PrepareEvolutionOffer();if(Index==INDEX_NONE)return;
+ if(!TryLockMenu(Player,E,false))return;bMenuOpen=true;
+ EvolutionWidget=CreateWidget<UPokeMonsterEvolutionWidget>(this,UPokeMonsterEvolutionWidget::StaticClass());
+ EvolutionWidget->AddToViewport(60);
+ if(!EvolutionWidget->BeginEvolution(this,Index,Learning)){bEvolutionPresentationFailed=true;CloseEvolutionPresentation();return;}
+ FInputModeUIOnly Input;Input.SetWidgetToFocus(EvolutionWidget->TakeWidget());SetInputMode(Input);EvolutionWidget->SetKeyboardFocus();
+}
+void APokeMonsterOverworldPlayerController::CloseEvolutionPresentation()
+{
+ if(EvolutionWidget){if(EvolutionWidget->GetPhase()==TEXT("error"))bEvolutionPresentationFailed=true;auto* Old=EvolutionWidget.Get();EvolutionWidget=nullptr;Old->RemoveFromParent();}
+ bMenuOpen=false;UnlockMenu(Cast<APokeMonsterPlayerCharacter>(GetPawn()));SetInputMode(FInputModeGameAndUI());UWidgetBlueprintLibrary::SetFocusToGameViewport();
 }

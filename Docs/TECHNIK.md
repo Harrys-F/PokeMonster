@@ -1154,3 +1154,12 @@ Mehrzügige Aktionen, Horrorblick/Feuerwirbel, Aussetzer, Groll, Wetter, Fluch u
 ## Glutexo-Integration V1 (23.10.2026)
 
 Eigene Spezies `Glutexo`, Dex 005, 110 cm, eigenes Meshy-Rig und sieben Clips im bestehenden Kreaturenpfad. Neue Quellen/Unreal-Assets unabhängig von Glumanda/Glurak; normales VisualV2-PIE-Testgelände umfasst elf Stationen. Bestehende IDs, Save-Schema und Maps unverändert. Prüffälle und externe QA-Warnung: `GLUTEXO_INTEGRATION_V1_PRUEFBERICHT.md`.
+
+
+## Pokémon-Entwicklungen V2 (23.10.2026)
+
+Ersetzt die reine V1-Bereitschaftsanzeige für verfügbare Levelziele: `CreatureProgression::ApplyEvolution` wechselt atomar dieselbe Instanz auf eine vorhandene Route mit vollständig gültigem Zielprofil. `EncounterSubsystem` führt persistente Angebote, Abbruch, bestehendes Lernen und Save-Transaktionen am bisherigen Team aus. Glumanda/Zunderlauf ≥16 → Glutexo, Glutexo ≥36 → Glurak; kein Überspringen. Andere Trigger bleiben vorbereitete Bedingungsprüfungen.
+
+Save-Schema **8** liest weiterhin 1–7 und ergänzt `PendingEvolutionTarget`, `LastEvolutionOfferedLevel` und optionalen individuellen Wachstumskurven-Verweis. Dieser erhält die unveränderten numerischen XP/Level historischer Glumanda bei Zielarten mit anderer Kurve. Neue eigenständige Glutexo verwenden Medium Slow. Slots, Repertoire, verbrauchte AP, Status und bestehende IDs bleiben erhalten. KP verwenden die bisherige Regel „fehlende KP erhalten, K.O. nicht wiederbeleben“.
+
+`PokeMonsterEvolutionWidget` ist eine reversible same-world Capture-/UMG-Präsentation auf der vorhandenen Bühnenklasse, keine neue Map und keine parallele Kampflogik. Die Daten werden erst nach fünf Sekunden erfolgreich gespeichert; Vorschauwechsel und Abbruch davor sind nicht persistent. Neue Level-Lernangebote verwenden denselben individuellen Lernpfad. `pm.Evolution.Auto` ist ausschließlich ein Entwicklungsprüfgate, Standard 1. Details, tatsächliche Warnungen und Grenzen: `POKEMON_ENTWICKLUNGEN_V2_PRUEFBERICHT.md`.

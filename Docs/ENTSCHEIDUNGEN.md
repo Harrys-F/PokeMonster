@@ -1117,3 +1117,10 @@ Weiterhin gelten ausdrückliche Projektregeln zu Erfahrungsteilung, Höchstlevel
 ## 23.10.2026 – Glutexo und Entwicklungskette, Meilenstein A
 
 Nutzerauftrag: ausschließlich geliefertes Glutexo-Meshy-Modell integrieren; Originaloptik und Originaldatei erhalten. Neue stabile Art-ID `Glutexo`/Dex 005, Größe 110 cm. Vorhandene Attacken-/Gameplay-/Save-Systeme weiterverwenden. Testgelände um ein elftes isoliertes Exemplar erweitern; keine neue Map und kein ungeplanter Habitatumbau. Entwicklungskette 16/36 ist für den anschließenden getrennten Meilenstein B freigegeben.
+
+
+## 23.10.2026 – Pokémon-Entwicklungen V2
+
+Durch Nutzerauftrag ist die spielbare Kette Zunderlauf/Glumanda ab 16 → Glutexo ab 36 → Glurak freigegeben. Damit wird der V1-Stand „nur Bereitschaft, kein Spezieswechsel“ für gültige integrierte Levelziele ersetzt. Keine Änderung historischer IDs, Basiswerte oder Wachstumskurven vorhandener Artassets. Ein individueller Kurvenverweis erhält bei Entwicklung die tatsächlich verwendeten XP/Level; Save-Schema 8 bleibt abwärtskompatibel.
+
+Entwicklung erst im sicheren Zustand, nach offenen Lernentscheidungen; B bestätigt, A kann bis zur Datenübernahme abbrechen. Nach Abbruch keine sofortige Wiederholung im gleichen Zustand. Ein späterer Levelaufstieg oder ein weiterer gewonnener Kampf erlaubt ein neues Angebot; so bleibt auch ein abgebrochenes Level-100-Pokémon entwickelbar. Mehrere erreichte Schwellen verlangen mehrere getrennte Bestätigungen. Fehlende Modelle führen zu keiner Platzhalterentwicklung. Besondere frühere Tauschentwicklungen behalten Level/Ort/Prüfung als UND-Bedingungen und werden in diesem Auftrag nicht ausgestaltet.

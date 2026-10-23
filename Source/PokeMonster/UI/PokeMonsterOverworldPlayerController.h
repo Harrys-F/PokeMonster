@@ -7,6 +7,7 @@
 #include "PokeMonsterOverworldPlayerController.generated.h"
 
 class IInputProcessor;
+class UPokeMonsterEvolutionWidget;
 class APokeMonsterNPC;
 class UPokeMonsterItemData;
 class APokeMonsterPlayerCharacter;
@@ -36,6 +37,8 @@ public:
  bool OpenMoveMaster(APokeMonsterNPC* Master);
  bool IsMoveMasterActive() const;
  bool CommitMoveMaster(FGuid CreatureId, const TArray<TSoftObjectPtr<UPokeMonsterMoveData>>& Moves);
+ UFUNCTION(BlueprintPure) UPokeMonsterEvolutionWidget* GetEvolutionWidget()const{return EvolutionWidget;}
+ void CloseEvolutionPresentation();
 	static bool CanOpenMenu(const APokeMonsterPlayerCharacter* Player,
 		const UPokeMonsterEncounterSubsystem* Encounter, bool bAlreadyOpen);
 	static bool TryLockMenu(APokeMonsterPlayerCharacter* Player,
@@ -46,6 +49,8 @@ protected:
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 private:
 	void RefreshHUD();
+ void TryOpenEvolutionPresentation();
+ UPROPERTY(Transient) TObjectPtr<UPokeMonsterEvolutionWidget> EvolutionWidget;
 	UFUNCTION() void OnEncounterStarted();
 	UFUNCTION() void OnEncounterEnded(const FPokeMonsterEncounterEndData& Result);
 	UFUNCTION() void OnDialogueChanged();
@@ -56,5 +61,6 @@ private:
  UPROPERTY(Transient) TWeakObjectPtr<APokeMonsterNPC> MoveMaster;
  UPROPERTY(Transient) TArray<FPokeMonsterCreatureInstance> MasterPartySnapshot;
 	bool bMenuOpen = false;
+ bool bEvolutionPresentationFailed=false;
  TSharedPtr<IInputProcessor> InputObserver;
 };

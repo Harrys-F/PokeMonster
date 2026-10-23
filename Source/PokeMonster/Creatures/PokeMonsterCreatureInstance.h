@@ -41,6 +41,14 @@ public:
 	/** Adds cumulative XP, caps at level 100; negative input or inconsistent data fails without mutation. */
 	FPokeMonsterExperienceResult AddExperience(int64 Amount);
 	int64 GetExperienceToNextLevel() const;
+ /** Evolution preserves the individual's existing XP curve, including historical Glumanda saves. */
+ EPokeMonsterGrowthRate GetExperienceGrowthRate() const;
+ UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Progression") bool bHasExperienceGrowthOverride=false;
+ UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Progression") EPokeMonsterGrowthRate ExperienceGrowthOverride=EPokeMonsterGrowthRate::MediumFast;
+ UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Evolution") FPrimaryAssetId PendingEvolutionTarget;
+ UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Evolution") int32 LastEvolutionOfferedLevel=0;
+ /** Validate saved offer metadata against this species' routes without requiring the target model. */
+ bool ValidateEvolutionState() const;
 	int32 GetMaxHP() const { return CalculatedStats.MaxHP; }
 	/** Explicit species opt-in; does not alter the generic factory contract. */
 	bool AssignSpeciesMoves();
@@ -74,6 +82,7 @@ public:
 
 private:
 	friend class UPokeMonsterEncounterSubsystem;
+ friend class UPokeMonsterCreatureProgression;
 	friend class FMoveManagementV2Repertoire;
 	/** Only the encounter subsystem's authorized NPC transaction may call this. */
 	bool SetActiveLearnedMoves(const TArray<TSoftObjectPtr<UPokeMonsterMoveData>>& Moves);

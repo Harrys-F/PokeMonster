@@ -44,6 +44,9 @@ namespace
 		if(Version<7 && uint8(Saved.Status)>uint8(EPokeMonsterCreatureStatus::Burn))return false;
 		if (!Species || Saved.Moves.Num() != FPokeMonsterCreatureInstance::MoveSlotCount) return false;
 		Out = FPokeMonsterCreatureInstance::CreateFromSpecies(Species, Saved.Level);
+  if(Version>=8){Out.bHasExperienceGrowthOverride=Saved.bHasExperienceGrowthOverride;Out.ExperienceGrowthOverride=Saved.ExperienceGrowthOverride;
+   Out.PendingEvolutionTarget=Saved.PendingEvolutionTarget;Out.LastEvolutionOfferedLevel=Saved.LastEvolutionOfferedLevel;}
+  if(!Out.ValidateEvolutionState())return false;
 		TArray<FPokeMonsterMoveSlot> Slots;
 		Slots.SetNum(FPokeMonsterCreatureInstance::MoveSlotCount);
 		for (int32 Index = 0; Index < Slots.Num(); ++Index)
@@ -97,7 +100,7 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 	{
 		const auto* Species = Creature.Species.LoadSynchronous();
 		FPokeMonsterCreatureInstance Validated = Creature;
-		if (!Creature.IsValid() || !IsValid(Species)
+		if (!Creature.IsValid() || !Creature.ValidateEvolutionState() || !IsValid(Species)
 			|| !Validated.RestoreIndividualState(Creature.InstanceId, Creature.Level, Creature.Experience,
 				Creature.CurrentHP, Creature.GetMoveSlots(), Creature.Status, Creature.StatusTurns)
             || !Validated.RestoreLearnedMoves(Creature.GetLearnedMoves())
@@ -108,6 +111,8 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 		Entry.Level = Creature.Level;
 		Entry.Experience = Creature.Experience;
 		Entry.CurrentHP = Creature.CurrentHP;
+  Entry.bHasExperienceGrowthOverride=Creature.bHasExperienceGrowthOverride;Entry.ExperienceGrowthOverride=Creature.ExperienceGrowthOverride;
+  Entry.PendingEvolutionTarget=Creature.PendingEvolutionTarget;Entry.LastEvolutionOfferedLevel=Creature.LastEvolutionOfferedLevel;
   Entry.Status=Creature.Status; Entry.StatusTurns=Creature.StatusTurns;
   for (const auto& Ref : Creature.PendingMoves)
   {

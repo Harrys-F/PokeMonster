@@ -42,6 +42,10 @@ public:
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Creature")
 	static int64 ExperienceToNextLevel(const FPokeMonsterCreatureInstance& Creature);
 
+ /** Atomic data transaction only. Must match an eligible route and a valid exact target presentation.
+  * Never creates a second individual, consumes items, changes active PP or learns past-level moves. */
+ static bool ApplyEvolution(FPokeMonsterCreatureInstance& Creature, const FPrimaryAssetId& Target, const FPokeMonsterEvolutionContext& Context);
+
 	/** Evaluates a rule, not an evolution execution. Unsupported/malformed rules fail closed. */
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Creature")
 	static bool IsEvolutionEligible(const FPokeMonsterEvolutionData& Rule, int32 Level, const FPokeMonsterEvolutionContext& Context);

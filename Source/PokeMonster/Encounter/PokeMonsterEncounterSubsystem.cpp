@@ -267,6 +267,8 @@ void UPokeMonsterEncounterSubsystem::CompleteEncounter()
 	if (!State || State->Phase != EPokeMonsterBattlePhase::Finished) return;
 	LastResult = BuildEndData(ActiveStart, *State);
 	PlayerParty = LastResult.PlayerTeam;
+ // A distinct later victory is another safe retry event, including at level 100.
+ if(LastResult.Outcome==EPokeMonsterEncounterOutcome::Victory)for(auto& C:PlayerParty)if(!C.PendingEvolutionTarget.IsValid())C.LastEvolutionOfferedLevel=0;
 	RecordTrainerOutcome(LastResult);
 	if (LastResult.Kind == EPokeMonsterEncounterKind::Wild
 		&& LastResult.Source == EPokeMonsterEncounterSource::VisibleCreature
@@ -455,4 +457,59 @@ bool UPokeMonsterEncounterSubsystem::CommitRememberedMoves(APokeMonsterNPC* Mast
  PlayerParty[Index]=Next;
  if(!Save->SaveCurrentGame()) { PlayerParty[Index]=Previous; return false; }
  return true;
+}
+
+// Evolution is a transaction on the existing party, never a second creature roster.
+#include "../Creatures/PokeMonsterCreatureProgression.h"
+#include "../Save/PokeMonsterSaveSubsystem.h"
+#include "../Quest/PokeMonsterQuestSubsystem.h"
+#include "../Checkpoint/PokeMonsterCheckpointSubsystem.h"
+
+int32 UPokeMonsterEncounterSubsystem::PrepareEvolutionOffer()
+{
+ if(IsEncounterActive())return INDEX_NONE;
+ if(auto* C=GetGameInstance()->GetSubsystem<UPokeMonsterCheckpointSubsystem>();C&&C->IsReturningFromDefeat())return INDEX_NONE;
+ for(int32 I=0;I<PlayerParty.Num();++I)
+ {
+  auto& C=PlayerParty[I];if(C.CurrentHP<=0||!C.PendingMoves.IsEmpty())continue;
+  FPokeMonsterEvolutionContext Context;
+  for(const auto& O:UPokeMonsterCreatureProgression::GetEvolutionOptions(C,Context))if(O.Readiness==EPokeMonsterEvolutionReadiness::Ready)
+  {
+   if(C.PendingEvolutionTarget.IsValid()) {if(C.PendingEvolutionTarget==O.TargetSpecies)return I;continue;}
+   if(C.LastEvolutionOfferedLevel>=C.Level)continue;
+   const auto Old=C;C.PendingEvolutionTarget=O.TargetSpecies;C.LastEvolutionOfferedLevel=C.Level;
+   auto* Save=GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>();
+   if(!Save||!Save->SaveCurrentGame()){C=Old;return INDEX_NONE;}
+   return I;
+  }
+ }
+ return INDEX_NONE;
+}
+bool UPokeMonsterEncounterSubsystem::ResolveEvolution(FGuid Id,FPrimaryAssetId Target,bool Accept)
+{
+ if(IsEncounterActive())return false;
+ if(auto* Recovery=GetGameInstance()->GetSubsystem<UPokeMonsterCheckpointSubsystem>();Recovery&&Recovery->IsReturningFromDefeat())return false;
+ auto* C=PlayerParty.FindByPredicate([Id](const auto& X){return X.InstanceId==Id;});
+ if(!C||C->PendingEvolutionTarget!=Target||!Target.IsValid()||!C->ValidateEvolutionState()||!C->PendingMoves.IsEmpty())return false;
+ const auto Old=*C;auto Candidate=Old;
+ if(Accept){FPokeMonsterEvolutionContext Context;if(!UPokeMonsterCreatureProgression::ApplyEvolution(Candidate,Target,Context))return false;}
+ else Candidate.PendingEvolutionTarget=FPrimaryAssetId();
+ *C=Candidate;
+ auto* Q=GetGameInstance()->GetSubsystem<UPokeMonsterQuestSubsystem>();const auto OldDex=Q?Q->GetCapturedSpeciesIds():TArray<FName>();
+ const auto OldProgress=Q?Q->GetProgress():TArray<FPokeMonsterQuestProgress>();const auto OldFlags=CompletedEncounterIds;
+ if(Accept&&Q)if(auto* S=C->Species.LoadSynchronous())Q->RecordCapturedSpecies(S->GetInternalId());
+ auto* Save=GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>();
+ if(!Save||!Save->SaveCurrentGame()){*C=Old;CompletedEncounterIds=OldFlags;if(Q){Q->RestoreCapturedSpeciesIds(OldDex);Q->RestoreProgress(OldProgress);}return false;}
+ OnPersistentStateRestored.Broadcast();return true;
+}
+bool UPokeMonsterEncounterSubsystem::ResolveEvolutionLearning(FGuid Id,int32 Slot)
+{
+ if(IsEncounterActive())return false;
+ if(auto* Recovery=GetGameInstance()->GetSubsystem<UPokeMonsterCheckpointSubsystem>();Recovery&&Recovery->IsReturningFromDefeat())return false;
+ auto* C=PlayerParty.FindByPredicate([Id](const auto& X){return X.InstanceId==Id;});
+ if(!C||C->PendingMoves.IsEmpty())return false;
+ const auto Old=*C;auto Copy=Old;if(!Copy.ResolveMoveLearning(Slot))return false;*C=Copy;
+ auto* Save=GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>();
+ if(!Save||!Save->SaveCurrentGame()){*C=Old;return false;}
+ OnPersistentStateRestored.Broadcast();return true;
 }

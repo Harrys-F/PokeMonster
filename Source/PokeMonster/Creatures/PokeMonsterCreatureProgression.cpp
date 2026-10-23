@@ -108,6 +108,7 @@ TArray<FPrimaryAssetId> UPokeMonsterCreatureProgression::GetEligibleEvolutions(c
 
 #include "PokeMonsterCreaturePresentation.h"
 #include "Engine/AssetManager.h"
+#include "../Moves/PokeMonsterMoveData.h"
 
 TArray<FPokeMonsterEvolutionOption> UPokeMonsterCreatureProgression::GetEvolutionOptions(
 	const FPokeMonsterCreatureInstance& Creature, const FPokeMonsterEvolutionContext& Context)
@@ -124,11 +125,37 @@ TArray<FPokeMonsterEvolutionOption> UPokeMonsterCreatureProgression::GetEvolutio
 			continue;
 		}
 		const auto* Visual = Species->GetVisuals().Presentation.LoadSynchronous();
-		Option.Readiness = Visual && Visual->GetValidationErrors().IsEmpty()
+		Option.Readiness = Visual && Visual->Clips.Num()==7 && Visual->GetValidationErrors().IsEmpty()
 			? EPokeMonsterEvolutionReadiness::Ready : EPokeMonsterEvolutionReadiness::MissingVisuals;
 		Option.Reason = FText::FromString(Option.Readiness == EPokeMonsterEvolutionReadiness::Ready
-			? TEXT("Entwicklungsbedingungen und Zielmodell verfügbar; visuelle Entwicklungssequenz noch offen.")
+			? TEXT("Entwicklungsbedingungen und vollständige Zielpräsentation verfügbar.")
 			: TEXT("Entwicklung vorbereitet – gültiges Zielmodell fehlt."));
 	}
 	return Options;
+}
+
+bool UPokeMonsterCreatureProgression::ApplyEvolution(FPokeMonsterCreatureInstance& Creature,const FPrimaryAssetId& Target,const FPokeMonsterEvolutionContext& Context)
+{
+ if(!Creature.IsValid()||!Creature.PendingMoves.IsEmpty())return false;
+ bool Ready=false;for(const auto& O:GetEvolutionOptions(Creature,Context))if(O.TargetSpecies==Target&&O.Readiness==EPokeMonsterEvolutionReadiness::Ready)Ready=true;
+ if(!Ready)return false;
+ auto* Destination=Cast<UPokeMonsterCreatureSpeciesData>(UAssetManager::Get().GetPrimaryAssetPath(Target).TryLoad());
+ if(!Destination||Destination->GetPrimaryAssetId()!=Target)return false;
+ auto Copy=Creature;
+ Copy.ExperienceGrowthOverride=Creature.GetExperienceGrowthRate();Copy.bHasExperienceGrowthOverride=true;
+ Copy.Species=Destination;Copy.CalculatedStats=CalculateStats(Destination->GetBaseStats(),Copy.Level);
+ Copy.CurrentHP=Creature.CurrentHP==0?0:FMath::Clamp(Creature.CurrentHP+Copy.GetMaxHP()-Creature.GetMaxHP(),1,Copy.GetMaxHP());
+ Copy.PendingEvolutionTarget=FPrimaryAssetId();Copy.LastEvolutionOfferedLevel=0;
+ // Only the current level's evolution-time offer, not a retroactive species learnset grant.
+ for(const auto& Entry:Destination->LevelUpMoves)if(Entry.Level==Copy.Level)
+ {
+  auto* Move=Entry.Move.LoadSynchronous();if(!Move||!Move->IsConfigured())continue;
+  if(Copy.LearnedMoves.ContainsByPredicate([Move](const auto& M){return M.GetMove().LoadSynchronous()==Move;})||Copy.PendingMoves.Contains(Entry.Move))continue;
+  // Keep this a real player decision even with a free slot; no invented automatic replacement.
+  Copy.PendingMoves.Add(Entry.Move);
+ }
+ auto Validated=Copy;
+ if(!Validated.RestoreIndividualState(Copy.InstanceId,Copy.Level,Copy.Experience,Copy.CurrentHP,Copy.GetMoveSlots(),Copy.Status,Copy.StatusTurns)
+  ||!Validated.RestoreLearnedMoves(Copy.GetLearnedMoves())||!Validated.RestorePendingMoves(Copy.PendingMoves)||!Copy.ValidateEvolutionState())return false;
+ Creature=MoveTemp(Copy);return true;
 }

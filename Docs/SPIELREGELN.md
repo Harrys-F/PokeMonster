@@ -230,3 +230,10 @@ Ausdrückliche Projektabweichungen bleiben: Seite A gewinnt einen Initiativeglei
 Der normale Kampfkontext ist zunächst Tag ohne Wetter. Regen entsteht durch Regentanz; Sonne und Sand können für vorhandene wetterabhängige Attacken als begrenzter Kampfkontext vorgegeben und getestet werden. Dies verändert keine Weltbeleuchtung und erzeugt kein neues Weltwetter-System. Getragene Kampfitems, Ordenboni, Delegator und weitere bislang nicht vorhandene Attackensysteme werden hier nicht eingeführt.
 
 Nachweise und genaue Einschränkungen: `ATTACKENSYSTEM_V4_ABSCHLUSSPRUEFBERICHT.md`, `ATTACKENSYSTEM_V4_ABNAHMETABELLE.md`, Quellen mit festen Revisionen in `ATTACKENSYSTEM_V4_KRISTALL_QUELLEN.json`.
+
+
+### Spielbare Levelentwicklungen V2
+
+Glumanda/Zunderlauf entwickelt sich frühestens ab Level 16 zu Glutexo, Glutexo frühestens ab Level 36 zum vorhandenen Glurak. Angebote erfolgen im sicheren Zustand nach Kampf-/Lernabschluss. B bestätigt, A kann die laufende Präsentation vor ihrer endgültigen Übernahme abbrechen. Ein späterer Levelaufstieg oder ein anderer Kampfsieg bietet einen neuen Versuch; keine sofortige Wiederholung nach Abbruch. Eine Zwischenform wird niemals übersprungen.
+
+Dieselbe individuelle Kreatur behält Identität, Level, numerische XP, ihre verwendete Erfahrungskurve, Status, Attackenrepertoire und verbrauchte AP. Neue Artwerte werden berechnet; fehlende KP bleiben erhalten, K.O. wird nicht geheilt. Neue Attacken am Entwicklungslevel werden regulär angeboten. Fehlende Zielmodelle blockieren die Ausführung ohne Datenänderung. Die besonderen Regeln ehemaliger Tauschentwicklungen bleiben bestehen.
