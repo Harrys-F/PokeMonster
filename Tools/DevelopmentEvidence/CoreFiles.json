@@ -19306,8 +19306,8 @@
       "sha256": "8bfe793aba6342d264342fd9de0ddb73b9be91054f323fbbeb24877421f7d191"
     },
     "Docs/POKEMON_ENTWICKLUNGEN_V2_TESTERGEBNISSE.json": {
-      "bytes": 6954,
-      "sha256": "b93116d9679ec154ab10e39eb246df32ca790f2f9842fafd5e87fe7685a6fd4a"
+      "bytes": 8166,
+      "sha256": "4a96402d6a7f6cb1a308eb1f3502bb5c0217f36c4946cd7a86774365e101e6e9"
     },
     "Source/PokeMonster/UI/PokeMonsterEvolutionWidget.h": {
       "bytes": 1809,
@@ -19334,8 +19334,8 @@
       "sha256": "5f63e6f3b686ed4fec8b607fed147fcf9f018887fc25eca76e849b9190aaff80"
     },
     "Docs/POKEMON_ENTWICKLUNGEN_V2_PRUEFBERICHT.md": {
-      "bytes": 14140,
-      "sha256": "d4c1b01903b31643154c18c475b50850d381903051e8c733c6b6974ba86ba6bc"
+      "bytes": 14683,
+      "sha256": "e42e784d0157a0ceb6ff8c01efffb83a26f7350b3baf736ea5e0eefe370d5f60"
     },
     "Tools/GlutexoEvolutionV2/ReviewEvolution.py": {
       "bytes": 10196,

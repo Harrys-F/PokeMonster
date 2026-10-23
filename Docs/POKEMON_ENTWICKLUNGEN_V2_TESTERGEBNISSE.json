@@ -155,5 +155,32 @@
     "log": "Saved/GlutexoEvolutionV2/Editor06.log"
   },
   "all_original_incoming_and_save_hashes_unchanged": true,
-  "original_dev_save_sha256": "eeab48f3c5652ef6d24b7f386ee7c26973336c929edf39aa7f6593d407a913df"
+  "original_dev_save_sha256": "eeab48f3c5652ef6d24b7f386ee7c26973336c929edf39aa7f6593d407a913df",
+  "milestone_b_commit": "285ec475bec39548a2c8fc10d3a8ff86c46deef4",
+  "feature_backup_verification": {
+    "milestone_a": "bbed74619423f0dad25942bcc8b815946b4e510b",
+    "milestone_b": "285ec475bec39548a2c8fc10d3a8ff86c46deef4",
+    "origin_main": "285ec475bec39548a2c8fc10d3a8ff86c46deef4",
+    "main_and_origin_main_synchronized": true,
+    "remote_lfs_b_count": 2,
+    "remote_lfs_b_bytes": 16179,
+    "remote_lfs_b_full_sha256_verified": true,
+    "remote_lfs_a_count": 26,
+    "remote_lfs_a_bytes": 31868617,
+    "remote_lfs_a_full_sha256_verified": true,
+    "tracked_working_changes": [],
+    "protected_untracked_count": 24,
+    "all_original_input_and_save_hashes_unchanged": true,
+    "backup_refs": {
+      "backup/full-03492bd": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
+      "refs/archive/pokemonster/full-backup-03492bd": "03492bd96b4dba44692f675c19d5f11abfa86b4b"
+    },
+    "worktrees": [
+      "/Users/harry/Developer/PokeMonster 285ec475 [main]"
+    ],
+    "no_force_push_or_budget_changes": true,
+    "scope": "Verified immediately after both feature pushes; subsequent report-only commit adds no LFS objects"
+  },
+  "user_confirmed_lfs_budget_usd": 0,
+  "billing_settings_changed": false
 }
