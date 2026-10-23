@@ -29,12 +29,14 @@ FPokeMonsterCreatureInstance FPokeMonsterCreatureInstance::CreateFromSpecies(
 
 bool FPokeMonsterCreatureInstance::IsValid() const
 {
-	return InstanceId.IsValid() && !Species.IsNull()
+	return uint8(Status)<=uint8(EPokeMonsterCreatureStatus::Freeze)
+  && (Status==EPokeMonsterCreatureStatus::Sleep?StatusTurns>=1&&StatusTurns<=15:StatusTurns==0)
+  && InstanceId.IsValid() && !Species.IsNull()
 		&& Level >= UPokeMonsterCreatureProgression::MinLevel && Level <= UPokeMonsterCreatureProgression::MaxLevel;
 }
 
 bool FPokeMonsterCreatureInstance::RestoreIndividualState(const FGuid& InId, const int32 InLevel,
-	const int64 InExperience, const int32 InCurrentHP, const TArray<FPokeMonsterMoveSlot>& InSlots, EPokeMonsterCreatureStatus InStatus)
+	const int64 InExperience, const int32 InCurrentHP, const TArray<FPokeMonsterMoveSlot>& InSlots, EPokeMonsterCreatureStatus InStatus, int32 InStatusTurns)
 {
 	const UPokeMonsterCreatureSpeciesData* Data = Species.LoadSynchronous();
 	if (!InId.IsValid() || !::IsValid(Data) || InLevel < UPokeMonsterCreatureProgression::MinLevel
@@ -44,7 +46,8 @@ bool FPokeMonsterCreatureInstance::RestoreIndividualState(const FGuid& InId, con
 		? Floor + 1 : UPokeMonsterCreatureProgression::ExperienceForLevel(Data->GetGrowthRate(), InLevel + 1);
 	const FPokeMonsterCreatureStats Stats = UPokeMonsterCreatureProgression::CalculateStats(Data->GetBaseStats(), InLevel);
 	if (Floor < 0 || InExperience < Floor || InExperience >= Ceiling
-		|| InCurrentHP < 0 || InCurrentHP > Stats.MaxHP || uint8(InStatus)>uint8(EPokeMonsterCreatureStatus::Burn)) return false;
+		|| InCurrentHP < 0 || InCurrentHP > Stats.MaxHP || uint8(InStatus)>uint8(EPokeMonsterCreatureStatus::Freeze)
+  || (InStatus==EPokeMonsterCreatureStatus::Sleep ? InStatusTurns<1 || InStatusTurns>15 : InStatusTurns!=0)) return false;
 	for (const FPokeMonsterMoveSlot& Slot : InSlots)
 	{
 		if (Slot.GetMove().IsNull())
@@ -66,7 +69,7 @@ bool FPokeMonsterCreatureInstance::RestoreIndividualState(const FGuid& InId, con
 	CurrentHP = InCurrentHP;
 	MoveSlots = InSlots;
 	RememberActiveMoves();
- Status=InStatus;
+ Status=InStatus; StatusTurns=InStatusTurns;
 	return true;
 }
 

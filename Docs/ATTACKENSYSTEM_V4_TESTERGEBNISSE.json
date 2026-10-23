@@ -1,0 +1,197 @@
+{
+  "scope": "Verified effect groundwork only; 49 original learnset moves remain unbound, not a complete V4 release.",
+  "production_moves_before": 22,
+  "production_moves_after": 22,
+  "canonical_supported_before": 19,
+  "canonical_supported_after": 19,
+  "unavailable_original_moves_remaining": 49,
+  "shared_validated_component_kinds": 11,
+  "build": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 5.869476079940796
+  },
+  "automation": [
+    {
+      "label": "MoveEffectsV4Automation01",
+      "succeeded": 120,
+      "succeededWithWarnings": 0,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0,
+      "strict_wrapper_exit": 0,
+      "warning_details": []
+    },
+    {
+      "label": "MoveEffectsV4Automation02",
+      "succeeded": 119,
+      "succeededWithWarnings": 1,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0,
+      "strict_wrapper_exit": 1,
+      "warning_details": [
+        {
+          "test": "PokeMonster.MoveEffectsV4.TeamScreenDurationAndSpecialDamage",
+          "warnings": [
+            "LogHAL: FMacPlatformProcess::CreateProc: posix_spawn(\"/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id\") failed (86, Bad CPU type in executable)",
+            "LogHAL: Failed to launch Tool. (/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id)"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "MoveEffectsV4Automation03",
+      "succeeded": 119,
+      "succeededWithWarnings": 1,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0,
+      "strict_wrapper_exit": 1,
+      "warning_details": [
+        {
+          "test": "PokeMonster.MoveEffectsV4.PrimaryStatusSave7AndOldSchemaMigration",
+          "warnings": [
+            "LogHAL: FMacPlatformProcess::CreateProc: posix_spawn(\"/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id\") failed (86, Bad CPU type in executable)",
+            "LogHAL: Failed to launch Tool. (/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id)"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "MoveEffectsV4Automation04",
+      "succeeded": 120,
+      "succeededWithWarnings": 0,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0,
+      "strict_wrapper_exit": 0,
+      "warning_details": []
+    }
+  ],
+  "map_checks": [
+    {
+      "map": "/Game/Maps/Dev_BattleTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BuildingKitTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_HealingHouseTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_NPCMotionV3",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2EnvironmentQualityV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandAssetLibrary",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandRegion",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandVillage",
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "pie_effects": {
+    "passed": true,
+    "cases": 20,
+    "species": [
+      "Bisasam",
+      "Enton",
+      "Gengar",
+      "Glurak",
+      "Machomei",
+      "Myrapla",
+      "Nebulak",
+      "Pikachu",
+      "Schiggy",
+      "Zunderlauf"
+    ],
+    "modes": [
+      "classic",
+      "world"
+    ],
+    "explicit_technical_fixtures": true,
+    "native_captures": 40,
+    "native_dimensions": [
+      [
+        2331,
+        1311
+      ]
+    ],
+    "resized": false
+  },
+  "learning": {
+    "passed": true,
+    "cases": 6
+  },
+  "move_master": {
+    "passed": true,
+    "checks": 18,
+    "technical_unsaved_npc": true
+  },
+  "controller": {
+    "passed": true,
+    "checks": 46,
+    "simulated_not_hardware": true
+  },
+  "defeat": {
+    "passed": true,
+    "reload_equal": true
+  },
+  "full_foot": {
+    "passed": true,
+    "steps": 103,
+    "no_test_teleports": true,
+    "distance_m": 289.2022984158996,
+    "max_speed_cm_s": 315.00000000001245,
+    "supplementary_observer_passed": true,
+    "encounters": 3,
+    "companion_issues": [],
+    "companion_note": "Legacy save route is not positive 3D-companion visibility proof; separate controller fixture verifies sole real companion and switching."
+  },
+  "protection": {
+    "tracked_assets_config_unchanged": 2832,
+    "protected_untracked_unchanged": 25,
+    "tested_source_files": 217,
+    "original_save_sha256": "eeab48f3c5652ef6d24b7f386ee7c26973336c929edf39aa7f6593d407a913df",
+    "all_initial_refs_unchanged": true,
+    "backup_not_in_slim_history": true
+  },
+  "new_lfs_objects": 0,
+  "earlier_fixture_checker_failure": "EffectsReview01 compared Unreal enum string to an incorrect exact spelling. Corrected checker; EffectsReview02 and EffectsFinal01 passed all 20 cases."
+}

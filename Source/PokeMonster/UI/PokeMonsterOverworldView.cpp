@@ -51,8 +51,8 @@ FPokeMonsterOverworldView FPokeMonsterOverworldViewBuilder::Build(
     M.Power=Move->BasePower;M.Accuracy=Move->Accuracy;M.CurrentPP=Known.GetCurrentPP();M.MaxPP=Known.GetMaxPP();
     M.ActiveSlot=Row.ActiveMoves.IndexOfByKey(M.Move);
     const FName Effect=Move->Effect.EffectId;
-    const bool Supported=Effect==NAME_None || Effect==TEXT("AttackDown") || Effect==TEXT("DefenseDown") || Effect==TEXT("DefenseUp") || Effect==TEXT("LeechSeed") || Effect==TEXT("DrainHalf") || Effect==TEXT("Burn") || Effect==TEXT("SpeedDown");
-    M.Effect=FText::FromString(!Supported || (Move->Category==EPokeMonsterMoveCategory::Status && Effect==NAME_None)
+    const bool Supported=Move->IsConfigured() && (!Move->Effects.IsEmpty() || Effect==TEXT("UserLevelDamage") || Effect==NAME_None || Effect==TEXT("AttackDown") || Effect==TEXT("DefenseDown") || Effect==TEXT("DefenseUp") || Effect==TEXT("LeechSeed") || Effect==TEXT("DrainHalf") || Effect==TEXT("Burn") || Effect==TEXT("SpeedDown"));
+    M.Effect=FText::FromString(!Supported || (Move->Category==EPokeMonsterMoveCategory::Status && Effect==NAME_None && Move->Effects.IsEmpty())
      ? TEXT("Wirkung noch unvollständig") : Move->Effect.Description.IsEmpty()
       ? Move->Category==EPokeMonsterMoveCategory::Status?TEXT("Statuswirkung"):TEXT("Direkter Schaden") : *Move->Effect.Description.ToString());
    }

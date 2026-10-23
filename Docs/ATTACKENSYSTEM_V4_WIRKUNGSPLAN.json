@@ -1,0 +1,446 @@
+{
+  "note": "Arbeitsplan; keine Produktionsfreigabe und kein Nachweis von 49 implementierten Wirkungen.",
+  "rows": [
+    {
+      "id": "KarateChop",
+      "name": "Karateschlag",
+      "required_mechanism": "Critical",
+      "reviewed_target": "Erhöhte Volltrefferquote",
+      "remaining": "Regelentscheidung: bisherige Schadensformel hat keine Volltreffer.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Bite",
+      "name": "Biss",
+      "required_mechanism": "Flinch",
+      "reviewed_target": "Zurückschrecken als sekundärer Effekt",
+      "remaining": "Baustein getestet; Datenbindung noch nicht aktiviert.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Disable",
+      "name": "Aussetzer",
+      "required_mechanism": "Disable",
+      "reviewed_target": "Zuletzt eingesetzte Attacke zeitweise sperren",
+      "remaining": "Mehr­runden-Lebenszyklus noch offen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Acid",
+      "name": "Säure",
+      "required_mechanism": "Stage",
+      "reviewed_target": "Säure: Verteidigung -1, 10 % in Gen 2",
+      "remaining": "Nicht den modernen Spezial-Verteidigungs-Effekt übernehmen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Submission",
+      "name": "Überroller",
+      "required_mechanism": "Recoil",
+      "reviewed_target": "Rückstoß relativ zum tatsächlich verursachten Schaden",
+      "remaining": "Baustein getestet; konkrete GS-Fraktion separat bestätigen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "LowKick",
+      "name": "Fußkick",
+      "required_mechanism": "Flinch",
+      "reviewed_target": "Zurückschrecken als sekundärer Effekt",
+      "remaining": "Baustein getestet; Datenbindung noch nicht aktiviert.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Growth",
+      "name": "Wachstum",
+      "required_mechanism": "Stage",
+      "reviewed_target": "Wachstum: Spezial-Angriff +1 in Gen 2",
+      "remaining": "Nicht den modernen kombinierten Boost übernehmen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "RazorLeaf",
+      "name": "Rasierblatt",
+      "required_mechanism": "Critical",
+      "reviewed_target": "Erhöhte Volltrefferquote",
+      "remaining": "Regelentscheidung: bisherige Schadensformel hat keine Volltreffer.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "SolarBeam",
+      "name": "Solarstrahl",
+      "required_mechanism": "Charge",
+      "reviewed_target": "Aufladen und Angriff in Folgerunde",
+      "remaining": "Wetter- und Unterbrechungsregeln noch offen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "PoisonPowder",
+      "name": "Giftpuder",
+      "required_mechanism": "PrimaryStatus",
+      "reviewed_target": "Vergiftung",
+      "remaining": "Opt-in geprüft, Regelprofil nicht produktiv aktiviert.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "StunSpore",
+      "name": "Stachelspore",
+      "required_mechanism": "PrimaryStatus",
+      "reviewed_target": "Paralyse",
+      "remaining": "Opt-in geprüft, Immunitäten pro Attacke noch zu binden.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "SleepPowder",
+      "name": "Schlafpuder",
+      "required_mechanism": "PrimaryStatus",
+      "reviewed_target": "Schlaf",
+      "remaining": "Opt-in geprüft, GS-Dauer/Wechselregeln noch abzustimmen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "PetalDance",
+      "name": "Blättertanz",
+      "required_mechanism": "Rampage",
+      "reviewed_target": "Mehrere erzwungene Angriffsrunden, anschließend Verwirrung",
+      "remaining": "Zugbindung/Unterbrechungen noch offen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "DragonRage",
+      "name": "Drachenwut",
+      "required_mechanism": "FixedDamage",
+      "reviewed_target": "40 feste KP, Typimmunität bleibt erhalten",
+      "remaining": "Baustein getestet; Datenbindung noch nicht aktiviert.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "FireSpin",
+      "name": "Feuerwirbel",
+      "required_mechanism": "Trap",
+      "reviewed_target": "Bindung mit wiederkehrendem Schaden",
+      "remaining": "Wechsel-, Fang- und KO-Lebenszyklus noch offen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "ThunderShock",
+      "name": "Donnerschock",
+      "required_mechanism": "PrimaryStatus",
+      "reviewed_target": "Sekundäre Paralyse",
+      "remaining": "Opt-in geprüft; getrennte Chancen pro Attacke erforderlich.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Thunderbolt",
+      "name": "Donnerblitz",
+      "required_mechanism": "PrimaryStatus",
+      "reviewed_target": "Sekundäre Paralyse",
+      "remaining": "Opt-in geprüft; getrennte Chancen pro Attacke erforderlich.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "ThunderWave",
+      "name": "Donnerwelle",
+      "required_mechanism": "PrimaryStatus",
+      "reviewed_target": "Paralyse",
+      "remaining": "Opt-in geprüft, Immunitäten pro Attacke noch zu binden.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Thunder",
+      "name": "Donner",
+      "required_mechanism": "WeatherAndStatus",
+      "reviewed_target": "Donner: Wetter/Genauigkeit und Paralyse",
+      "remaining": "Wetterabhängige Genauigkeit noch offen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Confusion",
+      "name": "Konfusion",
+      "required_mechanism": "Confusion",
+      "reviewed_target": "Sekundäre Verwirrung",
+      "remaining": "Technischer Baustein geprüft; Dauer und Originalregeln nicht produktiv aktiviert.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Hypnosis",
+      "name": "Hypnose",
+      "required_mechanism": "PrimaryStatus",
+      "reviewed_target": "Schlaf",
+      "remaining": "Opt-in geprüft, GS-Dauer/Wechselregeln noch abzustimmen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Agility",
+      "name": "Agilität",
+      "required_mechanism": "Stage",
+      "reviewed_target": "Initiative +2",
+      "remaining": "Baustein getestet; Datenbindung noch nicht aktiviert.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Rage",
+      "name": "Raserei",
+      "required_mechanism": "Rage",
+      "reviewed_target": "Raserei: Steigerung bei eingehendem Schaden",
+      "remaining": "Trefferabhängiger Lebenszyklus noch offen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Screech",
+      "name": "Kreideschrei",
+      "required_mechanism": "Stage",
+      "reviewed_target": "Verteidigung -2",
+      "remaining": "Baustein getestet; Datenbindung noch nicht aktiviert.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "DoubleTeam",
+      "name": "Doppelteam",
+      "required_mechanism": "Stage",
+      "reviewed_target": "Ausweichwert +1",
+      "remaining": "Baustein getestet; Datenbindung noch nicht aktiviert.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Smokescreen",
+      "name": "Rauchwolke",
+      "required_mechanism": "Stage",
+      "reviewed_target": "Genauigkeit -1",
+      "remaining": "Baustein getestet; Datenbindung noch nicht aktiviert.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "ConfuseRay",
+      "name": "Konfusstrahl",
+      "required_mechanism": "Confusion",
+      "reviewed_target": "Verwirrung",
+      "remaining": "Technischer Baustein geprüft; Originaldauer noch abzustimmen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "LightScreen",
+      "name": "Lichtschild",
+      "required_mechanism": "Screen",
+      "reviewed_target": "Zeitweiser Spezialschutz des Teams",
+      "remaining": "Baustein getestet; Dauer und Volltreffer-Ausnahme noch abzustimmen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "FocusEnergy",
+      "name": "Energiefokus",
+      "required_mechanism": "CriticalFocus",
+      "reviewed_target": "Erhöhte Volltrefferstufe",
+      "remaining": "Volltrefferregel noch nicht festgelegt.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Lick",
+      "name": "Schlecker",
+      "required_mechanism": "PrimaryStatus",
+      "reviewed_target": "Sekundäre Paralyse",
+      "remaining": "Opt-in geprüft; getrennte Chancen pro Attacke erforderlich.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "SkullBash",
+      "name": "Schädelwumme",
+      "required_mechanism": "ChargeAndStage",
+      "reviewed_target": "Schädelwumme: Aufladen mit Verteidigungsanstieg",
+      "remaining": "Mehr­runden-Lebenszyklus noch offen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "DreamEater",
+      "name": "Traumfresser",
+      "required_mechanism": "DrainAndCondition",
+      "reviewed_target": "Absorption nur gegen schlafendes Ziel",
+      "remaining": "Komposition und Voraussetzung technisch getestet; Datenbindung offen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "FurySwipes",
+      "name": "Kratzfurie",
+      "required_mechanism": "MultiHit",
+      "reviewed_target": "2–5 Treffer mit kontrollierter Verteilung",
+      "remaining": "Baustein getestet; Originalverteilung vor Bindung bestätigen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Slash",
+      "name": "Schlitzer",
+      "required_mechanism": "Critical",
+      "reviewed_target": "Erhöhte Volltrefferquote",
+      "remaining": "Regelentscheidung: bisherige Schadensformel hat keine Volltreffer.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Curse",
+      "name": "Fluch",
+      "required_mechanism": "Curse",
+      "reviewed_target": "Typabhängige Fluchwirkung",
+      "remaining": "Gen-2-Fragezeichen-Typ passt nicht unmittelbar zur vorhandenen Typenumeration.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Spite",
+      "name": "Groll",
+      "required_mechanism": "Spite",
+      "reviewed_target": "AP der zuletzt eingesetzten Attacke reduzieren",
+      "remaining": "Repertoire-AP-Synchronisierung und Zufallsmenge noch offen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Protect",
+      "name": "Schutzschild",
+      "required_mechanism": "Protect",
+      "reviewed_target": "Rundenschutz mit sinkender Folgechance",
+      "remaining": "Technischer Baustein geprüft; exakte GS-Folgechance noch abzustimmen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "ScaryFace",
+      "name": "Grimasse",
+      "required_mechanism": "Stage",
+      "reviewed_target": "Initiative -2",
+      "remaining": "Baustein getestet; Datenbindung noch nicht aktiviert.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Foresight",
+      "name": "Scharfblick",
+      "required_mechanism": "Identify",
+      "reviewed_target": "Treffer/Geist-Immunität gezielt beeinflussen",
+      "remaining": "Gemeinsame Treffer-/Immunitätsmarkierung noch offen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "DestinyBond",
+      "name": "Abgangsbund",
+      "required_mechanism": "DestinyBond",
+      "reviewed_target": "Verknüpfte Ohnmacht unter Bedingungen",
+      "remaining": "KO-Reihenfolge, Wechsel und Fang noch offen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "MeanLook",
+      "name": "Horrorblick",
+      "required_mechanism": "PreventSwitch",
+      "reviewed_target": "Flucht/Wechsel des Gegners verhindern",
+      "remaining": "Flucht, Wechsel und Aufhebung noch offen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "RapidSpin",
+      "name": "Turbodreher",
+      "required_mechanism": "ClearBindings",
+      "reviewed_target": "Turbodreher: Schaden und Befreiung",
+      "remaining": "Nicht den modernen zusätzlichen Initiative-Boost übernehmen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "SweetScent",
+      "name": "Lockduft",
+      "required_mechanism": "Stage",
+      "reviewed_target": "Ausweichwert -1 in Gen 2",
+      "remaining": "Nicht den modernen -2-Effekt übernehmen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "VitalThrow",
+      "name": "Überwurf",
+      "required_mechanism": "NeverMissAndPriority",
+      "reviewed_target": "Überwurf: garantierter Treffer mit später Priorität",
+      "remaining": "Treffer-Flag vorhanden; Originalpriorität vor Datenbindung bestätigen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Synthesis",
+      "name": "Synthese",
+      "required_mechanism": "WeatherHeal",
+      "reviewed_target": "Wetter-/tageszeitabhängige Heilung",
+      "remaining": "Reine Halb-KP-Heilung wäre nicht die vollständige Originalwirkung.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "Moonlight",
+      "name": "Mondschein",
+      "required_mechanism": "WeatherHeal",
+      "reviewed_target": "Wetter-/tageszeitabhängige Heilung",
+      "remaining": "Reine Halb-KP-Heilung wäre nicht die vollständige Originalwirkung.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "CrossChop",
+      "name": "Kreuzhieb",
+      "required_mechanism": "Critical",
+      "reviewed_target": "Erhöhte Volltrefferquote",
+      "remaining": "Regelentscheidung: bisherige Schadensformel hat keine Volltreffer.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "RainDance",
+      "name": "Regentanz",
+      "required_mechanism": "Rain",
+      "reviewed_target": "Regen über mehrere Runden",
+      "remaining": "Gemeinsamer Wetterzustand und alle betroffenen Attacken noch offen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    },
+    {
+      "id": "PsychUp",
+      "name": "Psycho-Plus",
+      "required_mechanism": "CopyStages",
+      "reviewed_target": "Statuswertstufen des Gegners kopieren",
+      "remaining": "Gemeinsamer Kopierbaustein noch offen.",
+      "production_enabled": false,
+      "metadata_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2"
+    }
+  ]
+}

@@ -7,7 +7,7 @@
 #include "PokeMonsterCreatureTypes.generated.h"
 
 UENUM(BlueprintType)
-enum class EPokeMonsterCreatureStatus : uint8 { None, Burn };
+enum class EPokeMonsterCreatureStatus : uint8 { None, Burn, Paralysis, Sleep, Poison, Freeze };
 
 class UPaperFlipbook;
 class UPokeMonsterCreaturePresentationData;

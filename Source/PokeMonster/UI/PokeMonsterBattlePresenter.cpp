@@ -15,6 +15,7 @@ namespace
 		View.MaxHP = Creature.GetMaxHP();
 		View.bKO = Creature.CurrentHP <= 0;
  View.bBurned=Creature.Status==EPokeMonsterCreatureStatus::Burn;
+ View.StatusLabel=UPokeMonsterBattleLibrary::StatusLabel(Creature.Status);
 		return View;
 	}
 	FText TypeName(EPokeMonsterCreatureType Type)
@@ -93,7 +94,7 @@ bool UPokeMonsterBattlePresenter::InitializeBattle(const FPokeMonsterCreatureIns
 
 bool UPokeMonsterBattlePresenter::InitializeTeamBattle(const TArray<FPokeMonsterCreatureInstance>& Player,
 	const TArray<FPokeMonsterCreatureInstance>& Opponent, const int32 Seed, bool bAllowCapture,
-	UPokeMonsterInventorySubsystem* InInventory, bool bAllowFlee, bool bTrainerExperience)
+	UPokeMonsterInventorySubsystem* InInventory, bool bAllowFlee, bool bTrainerExperience, const FPokeMonsterBattleEffectRules& EffectRules)
 {
 	if (bBusy) return false;
 	Inventory = InInventory;
@@ -109,6 +110,7 @@ bool UPokeMonsterBattlePresenter::InitializeTeamBattle(const TArray<FPokeMonster
 		return false;
 	}
 	Session = NewObject<UPokeMonsterBattleSession>(this);
+ if(!Session->ConfigureEffectRules(EffectRules)){Session=nullptr;return false;}
 	LastResult = Session->InitializeTeams(Player, Opponent, Seed, bAllowCapture, bAllowFlee, bTrainerExperience);
 	PendingSlot = INDEX_NONE;
 	bPendingSwitch = false;
@@ -417,6 +419,7 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
   case EPokeMonsterBattleEventType::FleeSucceeded:LogLines.Add(TEXT("Du bist entkommen!"));break;
   case EPokeMonsterBattleEventType::FleeFailed:LogLines.Add(TEXT("Flucht fehlgeschlagen!"));break;
   case EPokeMonsterBattleEventType::SeedHeal:
+  case EPokeMonsterBattleEventType::StatusApplied:case EPokeMonsterBattleEventType::StatusPrevented:case EPokeMonsterBattleEventType::StatusDamage:case EPokeMonsterBattleEventType::StatusRecovered:case EPokeMonsterBattleEventType::StatChanged:case EPokeMonsterBattleEventType::Flinched:case EPokeMonsterBattleEventType::Confused:case EPokeMonsterBattleEventType::ConfusionDamage:case EPokeMonsterBattleEventType::Protected:case EPokeMonsterBattleEventType::HitCount:LogLines.Add(Other+TEXT(": ")+Event.Information.ToString());break;
   case EPokeMonsterBattleEventType::Healed:LogLines.Add(FString::Printf(TEXT("%s erhält %d KP zurück."),*Other,Event.RestoredHP));break;
   case EPokeMonsterBattleEventType::AttackLowered:LogLines.Add(Other+TEXT("s Angriff sinkt!"));break;
   case EPokeMonsterBattleEventType::EffectFailed:LogLines.Add(TEXT("Die Attacke hat keine weitere Wirkung."));break;
@@ -446,7 +449,7 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
 			if (Event.Category == EPokeMonsterMoveCategory::Status
 				&& !(Result.Events.IsValidIndex(EventIndex + 1)
 					&& Result.Events[EventIndex + 1].Type == EPokeMonsterBattleEventType::Missed))
-				if(const auto* M=Source.GetMoveSlots()[Event.SlotIndex].GetMove().Get();M&&M->Effect.EffectId!=TEXT("AttackDown")&&M->Effect.EffectId!=TEXT("DefenseDown")&&M->Effect.EffectId!=TEXT("DefenseUp")&&M->Effect.EffectId!=TEXT("LeechSeed"))LogLines.Add(TEXT("Für diese Testattacke ist noch keine Wirkung definiert."));
+				if(const auto* M=Source.GetMoveSlots()[Event.SlotIndex].GetMove().Get();M&&M->GetEffectComponents().IsEmpty()&&M->Effect.EffectId!=TEXT("LeechSeed"))LogLines.Add(TEXT("Für diese Testattacke ist noch keine Wirkung definiert."));
 			break;
 		case EPokeMonsterBattleEventType::Missed: LogLines.Add(TEXT("Die Attacke verfehlt ihr Ziel.")); break;
 		case EPokeMonsterBattleEventType::Damage: LogLines.Add(FString::Printf(TEXT("%s verliert %d HP."), *Other, Event.Damage)); break;

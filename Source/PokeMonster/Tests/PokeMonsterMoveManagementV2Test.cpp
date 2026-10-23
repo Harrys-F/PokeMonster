@@ -54,7 +54,7 @@ bool FMoveManagementV2Save::RunTest(const FString&)
  TStrongObjectPtr<UGameInstance> GI(NewObject<UGameInstance>());auto* E=NewObject<UPokeMonsterEncounterSubsystem>(GI.Get());auto* I=NewObject<UPokeMonsterInventorySubsystem>(GI.Get());
  auto C=MoveManagementV2Tests::Offered();auto D=C;D.InstanceId=FGuid::NewGuid();D.ResolveMoveLearning(INDEX_NONE);C.ResolveMoveLearning(0);C.ConsumeMovePP(0,5);
  TestTrue(TEXT("Two individuals"),E->RestorePersistentState({C,D},{},{}));auto* S=UPokeMonsterSaveSubsystem::CaptureSnapshot(E,I,GI.Get());if(!TestNotNull(TEXT("Version 6 capture"),S))return false;
- TestEqual(TEXT("New schema"),S->SaveVersion,6);TestEqual(TEXT("Accepted retains five"),S->PlayerTeam[0].LearnedMoves.Num(),5);TestEqual(TEXT("Declined retains four"),S->PlayerTeam[1].LearnedMoves.Num(),4);
+ TestEqual(TEXT("New schema"),S->SaveVersion,UPokeMonsterSaveGame::CurrentVersion);TestEqual(TEXT("Accepted retains five"),S->PlayerTeam[0].LearnedMoves.Num(),5);TestEqual(TEXT("Declined retains four"),S->PlayerTeam[1].LearnedMoves.Num(),4);
  TArray<uint8> Bytes;TestTrue(TEXT("Engine save serialization"),UGameplayStatics::SaveGameToMemory(S,Bytes));auto* Loaded=Cast<UPokeMonsterSaveGame>(UGameplayStatics::LoadGameFromMemory(Bytes));
  TestTrue(TEXT("Round trip"),UPokeMonsterSaveSubsystem::RestoreSnapshot(Loaded,E,I));TestEqual(TEXT("Inactive history saved"),E->GetPlayerParty()[0].GetLearnedMoves().Num(),5);TestEqual(TEXT("Spent AP saved"),E->GetPlayerParty()[0].GetMoveSlots()[0].GetCurrentPP(),20);
  const auto Id=C.InstanceId;TestTrue(TEXT("Team sort"),E->ReorderParty(Id,1));TestEqual(TEXT("History follows instance not slot"),E->GetPlayerParty()[1].GetLearnedMoves().Num(),5);

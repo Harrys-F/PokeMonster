@@ -28,6 +28,7 @@ struct POKEMONSTER_API FPokeMonsterBattleCreatureView
 	UPROPERTY(BlueprintReadOnly, Category="Battle") int32 MaxHP = 0;
 	UPROPERTY(BlueprintReadOnly, Category="Battle") bool bKO = false;
  UPROPERTY(BlueprintReadOnly) bool bBurned=false;
+ UPROPERTY(BlueprintReadOnly) FText StatusLabel;
 };
 
 USTRUCT(BlueprintType)
@@ -94,7 +95,7 @@ public:
 	bool InitializeBattle(const FPokeMonsterCreatureInstance& Player, const FPokeMonsterCreatureInstance& Opponent, int32 Seed);
 	bool InitializeTeamBattle(const TArray<FPokeMonsterCreatureInstance>& Player,
 		const TArray<FPokeMonsterCreatureInstance>& Opponent, int32 Seed, bool bAllowCapture = false,
-		UPokeMonsterInventorySubsystem* InInventory = nullptr, bool bAllowFlee = false, bool bTrainerExperience = false);
+		UPokeMonsterInventorySubsystem* InInventory = nullptr, bool bAllowFlee = false, bool bTrainerExperience = false, const FPokeMonsterBattleEffectRules& EffectRules = FPokeMonsterBattleEffectRules());
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectMove(int32 Slot);
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectCapture();
  UFUNCTION(BlueprintCallable) bool TrySelectFlee();

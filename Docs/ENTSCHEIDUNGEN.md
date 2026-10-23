@@ -1096,3 +1096,10 @@ Gluraks äußere Wurzelflächen hatten teilweise keinen Flügel-Bone-Einfluss un
   Interactable, Reisebuch, Nintendo-Eingang und SaveSubsystem. Kein zweites
   Attacken-/NPC-/Speichersystem. Weitere Lehrer und frühere Tauschentwicklungs-
   Prüfungen bleiben spätere, gesondert zu gestaltende Funktionen.
+
+
+## 23.10.2026 – Attackensystem V4: kompatible Effektbasis, Regelentscheidung offen
+
+Die vorhandene BattleSession bleibt gemeinsame Rundenauswertung für ClassicBattle und WorldBattle. Explizite typisierte Effektlisten können vorhandene Effekte kombinieren; leere Listen übersetzen die bisherigen Kennungen kompatibel. Save-Version 7 ergänzt einen validierten individuellen Schlafzähler und liest weiterhin Versionen 1–6. Repertoire, vier aktive Slots und AP-Erhaltung beim Meister bleiben erhalten.
+
+Dies beschließt keine neuen finalen Kampfregeln: bisherige Kategorien und vereinfachter Schaden bleiben unverändert. Neue Primärstatusregeln sind standardmäßig nicht aktiviert. Noch ungeklärte Originalwirkungen werden nicht als fertig freigeschaltet. Die 49 gesperrten Lernattacken und ihre Restpunkte stehen in `ATTACKENSYSTEM_V4_WIRKUNGSPLAN.json`. Generationenfrage und vollständige Produktionsbindung bleiben ausdrücklich offen.

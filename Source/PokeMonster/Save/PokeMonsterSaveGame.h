@@ -28,6 +28,7 @@ struct POKEMONSTER_API FPokeMonsterSavedCreature
 	UPROPERTY() TArray<FPokeMonsterSavedMove> Moves;
  UPROPERTY() TArray<FPrimaryAssetId> PendingMoves;
  UPROPERTY() TArray<FPokeMonsterSavedMove> LearnedMoves;
+ UPROPERTY() int32 StatusTurns=0;
  UPROPERTY() EPokeMonsterCreatureStatus Status=EPokeMonsterCreatureStatus::None;
 };
 
@@ -45,7 +46,7 @@ class POKEMONSTER_API UPokeMonsterSaveGame : public USaveGame
 {
 	GENERATED_BODY()
 public:
-	static constexpr int32 CurrentVersion = 6;
+	static constexpr int32 CurrentVersion = 7;
 	UPROPERTY() int32 SaveVersion = CurrentVersion;
 	UPROPERTY() TArray<FPokeMonsterSavedCreature> PlayerTeam;
 	UPROPERTY() TArray<FPokeMonsterSavedItemStack> InventoryStacks;

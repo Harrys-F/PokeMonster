@@ -28,7 +28,7 @@ public:
 	bool RestoreLearnedMoves(const TArray<FPokeMonsterMoveSlot>& Moves);
 	/** Restore only mutable data; species stats are recalculated from the asset. */
 	bool RestoreIndividualState(const FGuid& InId, int32 InLevel, int64 InExperience,
-		int32 InCurrentHP, const TArray<FPokeMonsterMoveSlot>& InSlots, EPokeMonsterCreatureStatus InStatus = EPokeMonsterCreatureStatus::None);
+		int32 InCurrentHP, const TArray<FPokeMonsterMoveSlot>& InSlots, EPokeMonsterCreatureStatus InStatus = EPokeMonsterCreatureStatus::None, int32 InStatusTurns = 0);
 	/** Fully restores HP and the PP of assigned moves, including a fainted creature. */
 	bool RestoreFully();
 
@@ -50,6 +50,7 @@ public:
 	bool RestorePendingMoves(const TArray<TSoftObjectPtr<UPokeMonsterMoveData>>& Moves);
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Progression")
 	TArray<TSoftObjectPtr<UPokeMonsterMoveData>> PendingMoves;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Creature") int32 StatusTurns = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Creature") EPokeMonsterCreatureStatus Status = EPokeMonsterCreatureStatus::None;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Creature")

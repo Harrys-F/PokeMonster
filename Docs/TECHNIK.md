@@ -1109,7 +1109,7 @@ Kenntnisse. Beim Levelaufstieg bleibt die bestehende V1-Entscheidung erhalten.
 `RestoreFully` heilt auch inaktive AP. Normale Reaktivierung initialisiert AP
 niemals über `AssignMove`, sondern kopiert den gespeicherten Zustand.
 
-Save-Schema 6 ergänzt stabile Move-IDs/AP für das Repertoire. Alte Versionen 1–5
+Save-Schema 6 ergänzte stabile Move-IDs/AP für das Repertoire. Das aktuelle Schema 7 ergänzt den validierten individuellen Schlafzähler, ohne diese Move-IDs/AP zu verändern. Alte Versionen 1–5
 migrieren ausschließlich aktive Kenntnisse; vor V2 nicht gespeicherte vergessene
 Attacken können nicht erfunden werden. Historische technische doppelte aktive
 Slots bleiben lesbar; ihre eindeutige Erinnerung verwendet konservativ den
@@ -1131,3 +1131,10 @@ Mangels identifizierten spielbaren Wissensgebiets wird nur ein expliziter transi
 PIE-Test-NPC verwendet. Keine neue Map und kein dauerhafter Ersatz-NPC. Weitere
 Meister und Entwicklungsprüfungen werden dadurch weder freigeschaltet noch umgesetzt.
 Bedienung und Prüfanleitung: `Tools/MoveManagementV2/README.md`.
+
+
+### Attackensystem V4 – gemeinsame Effektbasis (23.10.2026)
+
+Die bestehende BattleSession wertet weiterhin ClassicBattle und WorldBattle aus. Attacken können typisierte Effektlisten kombinieren; ohne explizite Liste bleiben bestehende Effektkennungen kompatibel. Technisch geprüft sind gemeinsame Stufen, primäre Statusgrundlagen, Heilung/Absorption/Rückstoß, Fixschaden/Mehrfachtreffer und kampflokale Schutz-/Verwirrungsgrundlagen. Neue Statusprofile sind nur ausdrücklich aktivierbar; die normale Schadensformel und bisherigen Kategorien bleiben unverändert. Unfertige Effektarten werden abgewiesen.
+
+Die 49 bisher gesperrten kanonischen Lernattacken werden durch dieses Teilpaket noch nicht produktiv freigeschaltet. Gen-2-Spezialregeln und Volltrefferfragen bleiben offen. Vollständige Architektur und Grenzen: `ATTACKENSYSTEM_V4_ARCHITEKTUR.md`; Bestand und Restpunkte: `ATTACKENSYSTEM_V4_BESTAND.md`, `ATTACKENSYSTEM_V4_WIRKUNGSPLAN.json`.

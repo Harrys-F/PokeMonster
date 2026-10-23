@@ -221,7 +221,7 @@ bool UPokeMonsterEncounterSubsystem::StartEncounter(const FPokeMonsterEncounterS
 	UPokeMonsterBattlePresenter* NewPresenter = NewObject<UPokeMonsterBattlePresenter>(this);
 	UPokeMonsterInventorySubsystem* Inventory = GetGameInstance()->GetSubsystem<UPokeMonsterInventorySubsystem>();
 	if (!NewPresenter->InitializeTeamBattle(Team, Start.OpponentTeam, Start.RandomSeed,
-		Start.Kind == EPokeMonsterEncounterKind::Wild, Inventory, Start.bAllowFlee&&Start.Kind==EPokeMonsterEncounterKind::Wild&&Start.Source!=EPokeMonsterEncounterSource::Scripted, Start.Kind==EPokeMonsterEncounterKind::Trainer)) return false;
+		Start.Kind == EPokeMonsterEncounterKind::Wild, Inventory, Start.bAllowFlee&&Start.Kind==EPokeMonsterEncounterKind::Wild&&Start.Source!=EPokeMonsterEncounterSource::Scripted, Start.Kind==EPokeMonsterEncounterKind::Trainer, Start.EffectRules)) return false;
 	UPokeMonsterBattleWidget* NewWidget = CreateWidget<UPokeMonsterBattleWidget>(Controller, UPokeMonsterBattleWidget::StaticClass());
 	if (!NewWidget) return false;
 
@@ -445,7 +445,7 @@ bool UPokeMonsterEncounterSubsystem::CommitRememberedMoves(APokeMonsterNPC* Mast
   return true;
  };
  if(Current.Species!=Expected.Species || Current.Level!=Expected.Level || Current.Experience!=Expected.Experience
-  || Current.CurrentHP!=Expected.CurrentHP || Current.Status!=Expected.Status || !Current.PendingMoves.IsEmpty()
+  || Current.CurrentHP!=Expected.CurrentHP || Current.Status!=Expected.Status || Current.StatusTurns!=Expected.StatusTurns || !Current.PendingMoves.IsEmpty()
   || !SameSlots(Current.GetMoveSlots(),Expected.GetMoveSlots()) || !SameSlots(Current.GetLearnedMoves(),Expected.GetLearnedMoves()))return false;
  auto Next=Current;
  if(!Next.SetActiveLearnedMoves(Moves))return false;

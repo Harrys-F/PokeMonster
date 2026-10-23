@@ -437,7 +437,7 @@ void UPokeMonsterBattleWidget::Refresh()
 	const bool bHoldVisuals = bPresenting || View.bPresentationPending;
 	const auto SetCreature=[](const FPokeMonsterBattleCreatureView& Data,UTextBlock* Name,UTextBlock* HP,UProgressBar* Bar,UTextBlock* KO,UWidget* Figure)
 	{
-		if(Name) Name->SetText(FText::FromString(FString::Printf(TEXT("%s   ·   Lv. %d%s"),*Data.Name.ToString(),Data.Level,Data.bBurned?TEXT(" · BRN"):TEXT(""))));
+		if(Name) Name->SetText(FText::FromString(FString::Printf(TEXT("%s   ·   Lv. %d%s"),*Data.Name.ToString(),Data.Level,Data.StatusLabel.IsEmpty()?TEXT(""):*(TEXT(" · ")+Data.StatusLabel.ToString()))));
 		if(HP) HP->SetText(FText::FromString(FString::Printf(TEXT("KP  %d / %d"),Data.CurrentHP,Data.MaxHP)));
 		if(Bar)
 		{

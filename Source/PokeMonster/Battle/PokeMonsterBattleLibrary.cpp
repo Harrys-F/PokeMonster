@@ -4,11 +4,11 @@
 
 bool UPokeMonsterBattleLibrary::CheckHit(const UPokeMonsterMoveData* Move, const int32 Roll)
 {
-	return IsValid(Move) && Move->IsConfigured() && Roll >= 0 && Roll < 100 && Roll < Move->Accuracy;
+	return IsValid(Move) && Move->IsConfigured() && Roll >= 0 && Roll < 100 && (Move->bNeverMiss || Roll < Move->Accuracy);
 }
 
 FPokeMonsterDamageResult UPokeMonsterBattleLibrary::CalculateDamage(const FPokeMonsterCreatureInstance& Attacker,
-	const FPokeMonsterCreatureInstance& Defender, const UPokeMonsterMoveData* Move, int32 AttackStage, int32 DefenseStage)
+	const FPokeMonsterCreatureInstance& Defender, const UPokeMonsterMoveData* Move, int32 AttackStage, int32 DefenseStage, int32 SpecialAttackStage, int32 SpecialDefenseStage)
 {
 	FPokeMonsterDamageResult Result;
 	if (!IsValid(Move) || !Move->IsConfigured() || !Attacker.IsValid() || !Defender.IsValid()) return Result;
@@ -23,18 +23,20 @@ FPokeMonsterDamageResult UPokeMonsterBattleLibrary::CalculateDamage(const FPokeM
 	const bool bPhysical = Move->Category == EPokeMonsterMoveCategory::Physical;
 	int32 Offense = bPhysical ? Attacker.CalculatedStats.Attack : Attacker.CalculatedStats.SpecialAttack;
  if(Offense<=0)return Result; // Stage clamping must not turn invalid source stats into a legal attack.
+ if(!bPhysical)Offense=ApplyStage(Offense,SpecialAttackStage);
  if(bPhysical){const int S=FMath::Clamp(AttackStage,-6,6);Offense=int32(FMath::Clamp<int64>(int64(Offense)*(S>=0?2+S:2)/(S>=0?2:2-S),1,MAX_int32));if(Attacker.Status==EPokeMonsterCreatureStatus::Burn)Offense=FMath::Max(1,Offense/2);}
-	const int32 Defense = bPhysical ? ApplyStage(Defender.CalculatedStats.Defense, DefenseStage) : Defender.CalculatedStats.SpecialDefense;
+	const int32 Defense = bPhysical ? ApplyStage(Defender.CalculatedStats.Defense, DefenseStage) : ApplyStage(Defender.CalculatedStats.SpecialDefense,SpecialDefenseStage);
 	if (Offense <= 0 || Defense <= 0) return Result;
 	Result.TypeMultiplier = Move->Effect.EffectId==TEXT("Struggle")?1.f:GetTypeMultiplier(Move->Type, DefenderSpecies->GetPrimaryType(), DefenderSpecies->GetSecondaryType());
 	if (Result.TypeMultiplier < 0.0f) return Result;
 	Result.bValid = true;
 	if (Result.TypeMultiplier == 0.0f) return Result;
-	if (Move->Effect.EffectId == TEXT("UserLevelDamage"))
+	if (Move->HasEffect(EPokeMonsterEffectKind::FixedDamage))
 	{
 		// Night Shade / Seismic Toss: immunity applies; resistance/weakness does not.
 		Result.TypeMultiplier = 1.f;
-		Result.Damage = Attacker.Level;
+		const auto Specs=Move->GetEffectComponents();const auto* Fixed=Specs.FindByPredicate([](const auto& E){return E.Kind==EPokeMonsterEffectKind::FixedDamage;});
+  Result.Damage=Fixed && Fixed->Amount>0?Fixed->Amount:Attacker.Level;
 		return Result;
 	}
 	// Working formula only: no STAB, critical hits, random damage, abilities or complete Generation-2 arithmetic.
@@ -66,4 +68,15 @@ int32 UPokeMonsterBattleLibrary::ApplyStage(int32 Value,int32 Stage)
  if(Value<=0)return 0;
  const int S=FMath::Clamp(Stage,-6,6);
  return int32(FMath::Clamp<int64>(int64(Value)*(S>=0?2+S:2)/(S>=0?2:2-S),1,MAX_int32));
+}
+
+int32 UPokeMonsterBattleLibrary::AccuracyAtStages(int32 BaseAccuracy,int32 AccuracyStage,int32 EvasionStage)
+{
+ const int32 S=FMath::Clamp(FMath::Clamp(AccuracyStage,-6,6)-FMath::Clamp(EvasionStage,-6,6),-6,6);
+ return int32(FMath::Clamp<int64>(int64(FMath::Clamp(BaseAccuracy,0,100))*(S>=0?3+S:3)/(S>=0?3:3-S),0,100));
+}
+FText UPokeMonsterBattleLibrary::StatusLabel(EPokeMonsterCreatureStatus Status)
+{
+ static const TCHAR* Labels[]={TEXT(""),TEXT("BRN"),TEXT("PAR"),TEXT("SLP"),TEXT("PSN"),TEXT("FRZ")};
+ return FText::FromString(uint8(Status)<UE_ARRAY_COUNT(Labels)?Labels[uint8(Status)]:TEXT("?"));
 }

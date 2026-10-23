@@ -41,6 +41,7 @@ namespace
 	bool DecodeCreature(const FPokeMonsterSavedCreature& Saved, FPokeMonsterCreatureInstance& Out, int32 Version)
 	{
 		auto* Species = ResolveAsset<UPokeMonsterCreatureSpeciesData>(Saved.SpeciesId, TEXT("CreatureSpecies"));
+		if(Version<7 && uint8(Saved.Status)>uint8(EPokeMonsterCreatureStatus::Burn))return false;
 		if (!Species || Saved.Moves.Num() != FPokeMonsterCreatureInstance::MoveSlotCount) return false;
 		Out = FPokeMonsterCreatureInstance::CreateFromSpecies(Species, Saved.Level);
 		TArray<FPokeMonsterMoveSlot> Slots;
@@ -56,7 +57,7 @@ namespace
 			auto* Data = ResolveAsset<UPokeMonsterMoveData>(Move.MoveId, TEXT("CreatureMove"));
 			if (!Data || !Slots[Index].AssignMove(Data) || !Slots[Index].RestoreCurrentPP(Move.CurrentPP)) return false;
 		}
-		if(!Out.RestoreIndividualState(Saved.InstanceId, Saved.Level, Saved.Experience, Saved.CurrentHP, Slots, Version>=4?Saved.Status:EPokeMonsterCreatureStatus::None))return false;
+		if(!Out.RestoreIndividualState(Saved.InstanceId, Saved.Level, Saved.Experience, Saved.CurrentHP, Slots, Version>=4?Saved.Status:EPokeMonsterCreatureStatus::None,Version>=7?Saved.StatusTurns:0))return false;
   if (Version >= 6)
   {
    TArray<FPokeMonsterMoveSlot> Known;
@@ -98,7 +99,7 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 		FPokeMonsterCreatureInstance Validated = Creature;
 		if (!Creature.IsValid() || !IsValid(Species)
 			|| !Validated.RestoreIndividualState(Creature.InstanceId, Creature.Level, Creature.Experience,
-				Creature.CurrentHP, Creature.GetMoveSlots(), Creature.Status)
+				Creature.CurrentHP, Creature.GetMoveSlots(), Creature.Status, Creature.StatusTurns)
             || !Validated.RestoreLearnedMoves(Creature.GetLearnedMoves())
             || !Validated.RestorePendingMoves(Creature.PendingMoves)) return nullptr;
 		FPokeMonsterSavedCreature& Entry = Save->PlayerTeam.AddDefaulted_GetRef();
@@ -107,7 +108,7 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 		Entry.Level = Creature.Level;
 		Entry.Experience = Creature.Experience;
 		Entry.CurrentHP = Creature.CurrentHP;
-  Entry.Status=Creature.Status;
+  Entry.Status=Creature.Status; Entry.StatusTurns=Creature.StatusTurns;
   for (const auto& Ref : Creature.PendingMoves)
   {
    const auto* Move = Ref.LoadSynchronous();

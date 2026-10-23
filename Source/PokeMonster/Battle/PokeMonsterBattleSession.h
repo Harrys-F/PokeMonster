@@ -28,7 +28,7 @@ enum class EPokeMonsterBattleEventType : uint8
 {
 	MoveChosen, MoveExecuted, Missed, Damage, SuperEffective, NotVeryEffective, Immune, KnockedOut, BattleEnded,
 	SwitchChosen, SwitchedIn, CaptureChosen, CaptureSucceeded, CaptureFailed,
- Recoil, FleeChosen, FleeSucceeded, FleeFailed, ItemChosen, Healed, AttackLowered, EffectFailed, Burned, BurnDamage, ExperienceGained, LevelUp, DefenseLowered, DefenseRaised, SpeedLowered, Seeded, SeedDamage, SeedHeal, EvolutionPending, MoveLearned, MoveUnavailable
+ Recoil, FleeChosen, FleeSucceeded, FleeFailed, ItemChosen, Healed, AttackLowered, EffectFailed, Burned, BurnDamage, ExperienceGained, LevelUp, DefenseLowered, DefenseRaised, SpeedLowered, Seeded, SeedDamage, SeedHeal, EvolutionPending, MoveLearned, MoveUnavailable, StatusApplied, StatusPrevented, StatusDamage, StatusRecovered, StatChanged, Flinched, Confused, ConfusionDamage, Protected, HitCount
 };
 
 UENUM(BlueprintType)
@@ -113,6 +113,21 @@ struct POKEMONSTER_API FPokeMonsterBattleEvent
 
 };
 
+/** New battle-local modifiers; persistent primary ailments stay on the individual. */
+USTRUCT(BlueprintType)
+struct POKEMONSTER_API FPokeMonsterBattleVolatileEffects
+{
+ GENERATED_BODY()
+ UPROPERTY(BlueprintReadOnly) int32 SpecialAttack=0;
+ UPROPERTY(BlueprintReadOnly) int32 SpecialDefense=0;
+ UPROPERTY(BlueprintReadOnly) int32 Accuracy=0;
+ UPROPERTY(BlueprintReadOnly) int32 Evasion=0;
+ UPROPERTY(BlueprintReadOnly) int32 ConfusionTurns=0;
+ UPROPERTY(BlueprintReadOnly) bool bFlinched=false;
+ UPROPERTY(BlueprintReadOnly) bool bProtected=false;
+ UPROPERTY(BlueprintReadOnly) int32 ProtectStreak=0;
+};
+
 USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterBattleState
 {
@@ -154,6 +169,10 @@ struct POKEMONSTER_API FPokeMonsterBattleState
  UPROPERTY(BlueprintReadOnly) bool bSeededA=false;
  UPROPERTY(BlueprintReadOnly) bool bSeededB=false;
  UPROPERTY() TSet<FGuid> ParticipantsA;
+ UPROPERTY(BlueprintReadOnly) FPokeMonsterBattleVolatileEffects EffectsA;
+ UPROPERTY(BlueprintReadOnly) FPokeMonsterBattleVolatileEffects EffectsB;
+ UPROPERTY(BlueprintReadOnly) int32 ScreenTurnsA=0;
+ UPROPERTY(BlueprintReadOnly) int32 ScreenTurnsB=0;
 
 	/** Preserves the exact wild individual at capture time, including HP, PP and level. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Battle")
@@ -179,6 +198,19 @@ struct POKEMONSTER_API FPokeMonsterBattleResult
 	TArray<FPokeMonsterBattleEvent> Events;
 };
 
+/** Explicit rules for new ailments. Legacy battle initialization does not opt in silently. */
+USTRUCT(BlueprintType)
+struct POKEMONSTER_API FPokeMonsterBattleEffectRules
+{
+ GENERATED_BODY()
+ UPROPERTY(EditAnywhere,BlueprintReadOnly) bool bExtendedStatus=false;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly) int32 ParalysisSpeedDivisor=4;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly) int32 ParalysisSkipPercent=25;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly) int32 FreezeThawPercent=10;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly) int32 PoisonDenominator=8;
+ bool IsConfigured()const{return ParalysisSpeedDivisor>=1 && ParalysisSpeedDivisor<=16 && ParalysisSkipPercent>=0 && ParalysisSkipPercent<=100 && FreezeThawPercent>=0 && FreezeThawPercent<=100 && PoisonDenominator>=1 && PoisonDenominator<=64;}
+};
+
 /** Up to six creatures per side, exactly one active. Owns battle copies. */
 UCLASS(BlueprintType)
 class POKEMONSTER_API UPokeMonsterBattleSession : public UObject
@@ -186,6 +218,7 @@ class POKEMONSTER_API UPokeMonsterBattleSession : public UObject
 	GENERATED_BODY()
 
 public:
+ bool ConfigureEffectRules(const FPokeMonsterBattleEffectRules& InRules);
 	/** Initialize once. Dead/invalid participants are rejected; create another session for a new battle. */
 	UFUNCTION(BlueprintCallable, Category = "PokeMonster|Battle")
 	FPokeMonsterBattleResult Initialize(const FPokeMonsterCreatureInstance& SideA,
@@ -228,5 +261,6 @@ private:
 	UPROPERTY(Transient)
 	TArray<TObjectPtr<UObject>> RetainedData;
 
+	UPROPERTY(Transient) FPokeMonsterBattleEffectRules EffectRules;
 	FRandomStream Random;
 };

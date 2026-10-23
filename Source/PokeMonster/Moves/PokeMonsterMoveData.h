@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
 #include "../Creatures/PokeMonsterCreatureTypes.h"
+#include "PokeMonsterMoveEffectComponent.h"
 #include "PokeMonsterMoveData.generated.h"
 
 UENUM(BlueprintType)
@@ -38,6 +39,13 @@ class POKEMONSTER_API UPokeMonsterMoveData : public UPrimaryDataAsset
 public:
 	virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 	bool IsConfigured() const;
+ /** Explicit composition wins; old serialized Effect IDs remain compatible. */
+ TArray<FPokeMonsterMoveEffectComponent> GetEffectComponents() const;
+ bool HasEffect(EPokeMonsterEffectKind Kind)const;
+ UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Effects") TArray<FPokeMonsterMoveEffectComponent> Effects;
+ UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Effects") bool bNeverMiss=false;
+ UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Effects") bool bRequiresSleepingTarget=false;
+ UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="Effects") int32 CriticalStageBonus=0;
  FText GetPlayerFacingName()const;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Identity")
