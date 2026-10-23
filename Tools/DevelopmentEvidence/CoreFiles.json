@@ -18688,6 +18688,10 @@
     "Tools/AnimationCorrectionsV61/AuditHandoff.py": {
       "bytes": 2276,
       "sha256": "138661177390207af90cde50a16acc9accd9a412ad0ace0a94c736396c07fc76"
+    },
+    "Docs/ANIMATIONSFEINSCHLIFF_V6_1_PRUEFBERICHT.md": {
+      "bytes": 18350,
+      "sha256": "52f931cc03fd6fdd1e3824e15462497d33b6a28ce933d2613bbfbb0e877eb21f"
     }
   }
 }
