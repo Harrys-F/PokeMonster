@@ -74,6 +74,9 @@ struct POKEMONSTER_API FPokeMonsterBattleView
 	UPROPERTY(BlueprintReadOnly, Category="Battle") FText CaptureDeviceName;
  UPROPERTY(BlueprintReadOnly) bool bFleeEnabled=false;
  UPROPERTY(BlueprintReadOnly) bool bStruggle=false;
+ UPROPERTY(BlueprintReadOnly) bool bLearningMove=false;
+ UPROPERTY(BlueprintReadOnly) FText LearningPrompt;
+ UPROPERTY(BlueprintReadOnly) int32 LearningTeamIndex=INDEX_NONE;
  UPROPERTY(BlueprintReadOnly) TArray<FPokeMonsterBattleItemView> HealingItems;
 };
 
@@ -99,6 +102,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectSwitch(int32 TeamIndex);
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool ResolveSelection();
 	UFUNCTION(BlueprintCallable, Category="Battle UI") void FinishPresentation();
+ UFUNCTION(BlueprintCallable, Category="Battle UI") bool ResolveMoveLearning(int32 SlotIndex);
 	UFUNCTION(BlueprintPure, Category="Battle UI") const FPokeMonsterBattleView& GetView() const { return View; }
 	UFUNCTION(BlueprintPure, Category="Battle UI") const FPokeMonsterBattleResult& GetLastResult() const { return LastResult; }
 	/** Read-only battle copies for returning each team member's HP and PP to the caller. */

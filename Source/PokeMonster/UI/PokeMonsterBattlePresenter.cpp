@@ -153,7 +153,7 @@ int32 UPokeMonsterBattlePresenter::NextOpponentSwitch() const
 
 bool UPokeMonsterBattlePresenter::TrySelectMove(const int32 Slot)
 {
-	if (bBusy || !Session || Session->GetState().Phase != EPokeMonsterBattlePhase::AwaitingChoices
+	if (bBusy || (Session && Session->HasPendingLearning()) || !Session || Session->GetState().Phase != EPokeMonsterBattlePhase::AwaitingChoices
 		|| !(CanUse(Session->GetState().SideA,Slot)||(Slot==0&&!UPokeMonsterBattleSession::HasUsableMove(Session->GetState().SideA)))) return false;
 	PendingSlot = UPokeMonsterBattleSession::HasUsableMove(Session->GetState().SideA)?Slot:INDEX_NONE;
 	bPendingSwitch = false;
@@ -167,7 +167,7 @@ bool UPokeMonsterBattlePresenter::TrySelectMove(const int32 Slot)
 
 bool UPokeMonsterBattlePresenter::TrySelectCapture()
 {
-	if (bBusy || !Session || !TestCaptureDevice || !TestCaptureDevice->IsConfigured()
+	if (bBusy || (Session && Session->HasPendingLearning()) || !Session || !TestCaptureDevice || !TestCaptureDevice->IsConfigured()
 		|| !Inventory || !CaptureItem || !Inventory->HasItem(CaptureItem)
 		|| !Session->GetState().bCaptureAllowed
 		|| Session->GetState().Phase != EPokeMonsterBattlePhase::AwaitingChoices) return false;
@@ -183,7 +183,7 @@ bool UPokeMonsterBattlePresenter::TrySelectCapture()
 
 bool UPokeMonsterBattlePresenter::TrySelectSwitch(const int32 TeamIndex)
 {
-	if (bBusy || !Session) return false;
+	if (bBusy || (Session && Session->HasPendingLearning()) || !Session) return false;
 	const auto& State = Session->GetState();
 	if (!State.TeamA.IsValidIndex(TeamIndex) || TeamIndex == State.ActiveIndexA
 		|| State.TeamA[TeamIndex].CurrentHP <= 0 || State.Phase == EPokeMonsterBattlePhase::Finished)
@@ -203,12 +203,12 @@ bool UPokeMonsterBattlePresenter::TrySelectSwitch(const int32 TeamIndex)
 
 bool UPokeMonsterBattlePresenter::TrySelectFlee()
 {
- if(bBusy||!Session||!Session->GetState().bFleeAllowed||Session->GetState().Phase!=EPokeMonsterBattlePhase::AwaitingChoices)return false;
+ if(bBusy||(Session&&Session->HasPendingLearning())||!Session||!Session->GetState().bFleeAllowed||Session->GetState().Phase!=EPokeMonsterBattlePhase::AwaitingChoices)return false;
  PendingSlot=0;bPendingCapture=bPendingSwitch=false;PendingItem=nullptr;bPendingFlee=true;bBusy=true;bResolved=false;Refresh();return true;
 }
 bool UPokeMonsterBattlePresenter::TrySelectHealingItem(UPokeMonsterItemData* Item,int32 TeamIndex)
 {
- if(bBusy||!Session||!Inventory||!Inventory->HasItem(Item)||!Item||!Item->IsConfigured()||!Item->CanUseInBattle()||Item->GetCategory()!=EPokeMonsterItemCategory::Healing)return false;
+ if(bBusy||(Session&&Session->HasPendingLearning())||!Session||!Inventory||!Inventory->HasItem(Item)||!Item||!Item->IsConfigured()||!Item->CanUseInBattle()||Item->GetCategory()!=EPokeMonsterItemCategory::Healing)return false;
  const auto& S=Session->GetState();if(S.Phase!=EPokeMonsterBattlePhase::AwaitingChoices||!S.TeamA.IsValidIndex(TeamIndex))return false;const auto& C=S.TeamA[TeamIndex];if(C.CurrentHP<=0||C.CurrentHP>=C.GetMaxHP())return false;
  PendingSlot=TeamIndex;bPendingCapture=bPendingSwitch=bPendingFlee=false;PendingItem=Item;bBusy=true;bResolved=false;Refresh();return true;
 }
@@ -269,7 +269,7 @@ bool UPokeMonsterBattlePresenter::ResolveSelection()
 void UPokeMonsterBattlePresenter::FinishPresentation()
 {
 	if (!bBusy || !bResolved) return;
-	if (Session && Session->GetState().Phase == EPokeMonsterBattlePhase::AwaitingSwitch
+	if (Session && !Session->HasPendingLearning() && Session->GetState().Phase == EPokeMonsterBattlePhase::AwaitingSwitch
 		&& Session->GetState().SideB.CurrentHP == 0)
 	{
 		const int32 Index = NextOpponentSwitch();
@@ -306,7 +306,7 @@ void UPokeMonsterBattlePresenter::Refresh()
 		View.Player = CreatureView(State.SideA);
 		View.Opponent = CreatureView(State.SideB);
 		View.Round = State.RoundNumber;
-		View.bFinished = State.Phase == EPokeMonsterBattlePhase::Finished;
+		View.bFinished = State.Phase == EPokeMonsterBattlePhase::Finished && !Session->HasPendingLearning();
 		View.bCaptured = State.EndReason == EPokeMonsterBattleEndReason::Captured;
 		View.bCaptureEnabled = State.bCaptureAllowed && TestCaptureDevice && CaptureItem
 			&& Inventory && Inventory->HasItem(CaptureItem) && !bBusy
@@ -360,6 +360,31 @@ void UPokeMonsterBattlePresenter::Refresh()
 		else if(View.bStruggle)View.Status=FText::FromString(TEXT("Keine AP mehr: Verzweifler ist verfügbar."));
 		else if (Problem.IsEmpty()) View.Status = FText::FromString(State.bCaptureAllowed
 			? TEXT("Wähle eine Aktion.") : TEXT("Wähle eine Attacke."));
+		if (!bBusy && Session->HasPendingLearning())
+		{
+			View.bLearningMove = true;
+			View.bCaptureEnabled = View.bFleeEnabled = false;
+			for (int32 I = 0; I < State.TeamA.Num(); ++I)
+			{
+				const auto& Learner = State.TeamA[I];
+				if (Learner.PendingMoves.IsEmpty()) continue;
+				const auto* Move = Learner.PendingMoves[0].LoadSynchronous();
+				View.LearningTeamIndex = I;
+				View.LearningPrompt = FText::FromString(FString::Printf(TEXT("%s möchte %s lernen.\n%s · AP %d · Stärke %d · %d%%\nErsetzen oder A/Esc: ablehnen."),
+					*CreatureView(Learner).Name.ToString(), Move ? *Move->GetPlayerFacingName().ToString() : TEXT("?"), Move ? *TypeName(Move->Type).ToString() : TEXT("?"), Move ? Move->MaxPP : 0, Move ? Move->BasePower : 0, Move ? Move->Accuracy : 0));
+				View.Status = View.LearningPrompt;
+				for (int32 Slot = 0; Slot < 4; ++Slot)
+				{
+					const auto& Existing = Learner.GetMoveSlots()[Slot];
+					const auto* OldMove = Existing.GetMove().LoadSynchronous();
+					auto& Out = View.Moves[Slot];
+					Out.Name = OldMove ? OldMove->GetPlayerFacingName() : FText::FromString(TEXT("Freier Platz"));
+					Out.Type = OldMove ? TypeName(OldMove->Type) : FText::GetEmpty();
+					Out.CurrentPP = Existing.GetCurrentPP(); Out.MaxPP = Existing.GetMaxPP(); Out.bEnabled = true;
+				}
+				break;
+			}
+		}
 	}
 	if (LogLines.Num() > 80) LogLines.RemoveAt(0, LogLines.Num() - 80);
 	View.Log = FText::FromString(FString::Join(LogLines, TEXT("\n")));
@@ -404,7 +429,9 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
   case EPokeMonsterBattleEventType::Recoil:LogLines.Add(Who+TEXT(" erleidet Rückstoßschaden."));break;
   case EPokeMonsterBattleEventType::BurnDamage:LogLines.Add(Who+TEXT(" leidet unter der Verbrennung."));break;
   case EPokeMonsterBattleEventType::ExperienceGained:LogLines.Add(FString::Printf(TEXT("%lld Erfahrungspunkte erhalten."),Event.ExperienceAdded));break;
-  case EPokeMonsterBattleEventType::LevelUp:LogLines.Add(TEXT("Levelaufstieg!"));break;
+  case EPokeMonsterBattleEventType::MoveLearned:case EPokeMonsterBattleEventType::MoveUnavailable:LogLines.Add(Event.Information.ToString());break;
+  case EPokeMonsterBattleEventType::EvolutionPending:LogLines.Add(TEXT("Entwicklung vorbereitet; Zielmodell/Entwicklungssequenz noch nicht verfügbar."));break;
+  case EPokeMonsterBattleEventType::LevelUp:LogLines.Add(FString::Printf(TEXT("Levelaufstieg: Lv. %d → %d!"),Event.LevelBefore,Event.LevelAfter));break;
   case EPokeMonsterBattleEventType::MoveChosen: break; // Execution describes the choice in the compact log.
 		case EPokeMonsterBattleEventType::SwitchChosen: break;
 		case EPokeMonsterBattleEventType::CaptureChosen: LogLines.Add(TEXT("Fangversuch gestartet.")); break;
@@ -419,7 +446,7 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
 			if (Event.Category == EPokeMonsterMoveCategory::Status
 				&& !(Result.Events.IsValidIndex(EventIndex + 1)
 					&& Result.Events[EventIndex + 1].Type == EPokeMonsterBattleEventType::Missed))
-				if(const auto* M=Source.GetMoveSlots()[Event.SlotIndex].GetMove().Get();M&&M->Effect.EffectId!=TEXT("AttackDown"))LogLines.Add(TEXT("Für diese Testattacke ist noch keine Wirkung definiert."));
+				if(const auto* M=Source.GetMoveSlots()[Event.SlotIndex].GetMove().Get();M&&M->Effect.EffectId!=TEXT("AttackDown")&&M->Effect.EffectId!=TEXT("DefenseDown")&&M->Effect.EffectId!=TEXT("DefenseUp")&&M->Effect.EffectId!=TEXT("LeechSeed"))LogLines.Add(TEXT("Für diese Testattacke ist noch keine Wirkung definiert."));
 			break;
 		case EPokeMonsterBattleEventType::Missed: LogLines.Add(TEXT("Die Attacke verfehlt ihr Ziel.")); break;
 		case EPokeMonsterBattleEventType::Damage: LogLines.Add(FString::Printf(TEXT("%s verliert %d HP."), *Other, Event.Damage)); break;
@@ -432,4 +459,25 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
 				? TEXT("Gewonnen! Kampf beendet.") : TEXT("Besiegt. Kampf beendet.")); break;
 		}
 	}
+}
+
+
+bool UPokeMonsterBattlePresenter::ResolveMoveLearning(int32 SlotIndex)
+{
+	if (bBusy || !Session || !View.bLearningMove) return false;
+	const int32 Index = View.LearningTeamIndex;
+	const auto& Learner = Session->GetState().TeamA[Index];
+	const auto* Move = Learner.PendingMoves[0].LoadSynchronous();
+	const FString Name = Move ? Move->GetPlayerFacingName().ToString() : TEXT("?");
+	if (!Session->ResolveMoveLearning(Index, SlotIndex)) return false;
+	LogLines.Add(SlotIndex == INDEX_NONE ? Name + TEXT(" nicht erlernt.") : Name + TEXT(" erlernt!"));
+	// If an opponent replacement was waiting, preserve the existing switch presentation.
+	if (!Session->HasPendingLearning() && Session->GetState().Phase == EPokeMonsterBattlePhase::AwaitingSwitch
+		&& Session->GetState().SideB.CurrentHP == 0)
+	{
+		bBusy = bResolved = true;
+		FinishPresentation();
+	}
+	else Refresh();
+	return true;
 }

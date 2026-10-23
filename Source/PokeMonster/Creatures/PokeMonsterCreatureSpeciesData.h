@@ -15,6 +15,9 @@ struct POKEMONSTER_API FPokeMonsterLevelMove
  GENERATED_BODY()
  UPROPERTY(EditAnywhere,BlueprintReadOnly) int32 Level=1;
  UPROPERTY(EditAnywhere,BlueprintReadOnly) TSoftObjectPtr<UPokeMonsterMoveData> Move;
+ /** A verified learnset entry may lack an implemented move. Keep its level/name explicit. */
+ UPROPERTY(EditAnywhere,BlueprintReadOnly) FText UnavailableMoveName;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly) FText UnavailableReason;
 };
 
 /** Shared, immutable design data for one creature species. */

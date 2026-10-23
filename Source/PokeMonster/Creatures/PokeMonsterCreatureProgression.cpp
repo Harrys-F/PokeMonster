@@ -104,3 +104,31 @@ TArray<FPrimaryAssetId> UPokeMonsterCreatureProgression::GetEligibleEvolutions(c
 	}
 	return Targets;
 }
+
+
+#include "PokeMonsterCreaturePresentation.h"
+#include "Engine/AssetManager.h"
+
+TArray<FPokeMonsterEvolutionOption> UPokeMonsterCreatureProgression::GetEvolutionOptions(
+	const FPokeMonsterCreatureInstance& Creature, const FPokeMonsterEvolutionContext& Context)
+{
+	TArray<FPokeMonsterEvolutionOption> Options;
+	for (const auto& Target : GetEligibleEvolutions(Creature, Context))
+	{
+		auto& Option = Options.AddDefaulted_GetRef(); Option.TargetSpecies = Target;
+		const auto Path = UAssetManager::Get().GetPrimaryAssetPath(Target);
+		const auto* Species = Path.IsValid() ? Cast<UPokeMonsterCreatureSpeciesData>(Path.TryLoad()) : nullptr;
+		if (!Species || Species->GetPrimaryAssetId() != Target)
+		{
+			Option.Reason = FText::FromString(TEXT("Entwicklung vorbereitet – Zielart und Zielmodell noch nicht integriert."));
+			continue;
+		}
+		const auto* Visual = Species->GetVisuals().Presentation.LoadSynchronous();
+		Option.Readiness = Visual && Visual->GetValidationErrors().IsEmpty()
+			? EPokeMonsterEvolutionReadiness::Ready : EPokeMonsterEvolutionReadiness::MissingVisuals;
+		Option.Reason = FText::FromString(Option.Readiness == EPokeMonsterEvolutionReadiness::Ready
+			? TEXT("Entwicklungsbedingungen und Zielmodell verfügbar; visuelle Entwicklungssequenz noch offen.")
+			: TEXT("Entwicklung vorbereitet – gültiges Zielmodell fehlt."));
+	}
+	return Options;
+}

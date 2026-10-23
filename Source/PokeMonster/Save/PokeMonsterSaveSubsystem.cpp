@@ -57,6 +57,17 @@ namespace
 			if (!Data || !Slots[Index].AssignMove(Data) || !Slots[Index].RestoreCurrentPP(Move.CurrentPP)) return false;
 		}
 		if(!Out.RestoreIndividualState(Saved.InstanceId, Saved.Level, Saved.Experience, Saved.CurrentHP, Slots, Version>=4?Saved.Status:EPokeMonsterCreatureStatus::None))return false;
+  if (Version >= 5)
+  {
+   TArray<TSoftObjectPtr<UPokeMonsterMoveData>> Pending;
+   for (const auto& Id : Saved.PendingMoves)
+   {
+    auto* Move = ResolveAsset<UPokeMonsterMoveData>(Id, TEXT("CreatureMove"));
+    if (!Move) return false;
+    Pending.Add(Move);
+   }
+   if (!Out.RestorePendingMoves(Pending)) return false;
+  }
   return Version>=4||Out.UpgradeLegacyGlumandaMoves();
 	}
 }
@@ -75,7 +86,8 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 		FPokeMonsterCreatureInstance Validated = Creature;
 		if (!Creature.IsValid() || !IsValid(Species)
 			|| !Validated.RestoreIndividualState(Creature.InstanceId, Creature.Level, Creature.Experience,
-				Creature.CurrentHP, Creature.GetMoveSlots(), Creature.Status)) return nullptr;
+				Creature.CurrentHP, Creature.GetMoveSlots(), Creature.Status)
+            || !Validated.RestorePendingMoves(Creature.PendingMoves)) return nullptr;
 		FPokeMonsterSavedCreature& Entry = Save->PlayerTeam.AddDefaulted_GetRef();
 		Entry.InstanceId = Creature.InstanceId;
 		Entry.SpeciesId = Species->GetPrimaryAssetId();
@@ -83,6 +95,12 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 		Entry.Experience = Creature.Experience;
 		Entry.CurrentHP = Creature.CurrentHP;
   Entry.Status=Creature.Status;
+  for (const auto& Ref : Creature.PendingMoves)
+  {
+   const auto* Move = Ref.LoadSynchronous();
+   if (!Move) return nullptr;
+   Entry.PendingMoves.Add(Move->GetPrimaryAssetId());
+  }
 		for (const FPokeMonsterMoveSlot& Slot : Creature.GetMoveSlots())
 		{
 			FPokeMonsterSavedMove& SavedMove = Entry.Moves.AddDefaulted_GetRef();

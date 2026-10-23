@@ -5,6 +5,19 @@
 #include "PokeMonsterCreatureInstance.h"
 #include "PokeMonsterCreatureProgression.generated.h"
 
+UENUM(BlueprintType)
+enum class EPokeMonsterEvolutionReadiness : uint8 { MissingSpecies, MissingVisuals, Ready };
+
+USTRUCT(BlueprintType)
+struct POKEMONSTER_API FPokeMonsterEvolutionOption
+{
+	GENERATED_BODY()
+	UPROPERTY(BlueprintReadOnly) FPrimaryAssetId TargetSpecies;
+	UPROPERTY(BlueprintReadOnly) EPokeMonsterEvolutionReadiness Readiness = EPokeMonsterEvolutionReadiness::MissingSpecies;
+	UPROPERTY(BlueprintReadOnly) FText Reason;
+
+};
+
 /** Pure progression rules; no dependency on a world, player, inventory or UI. */
 UCLASS()
 class POKEMONSTER_API UPokeMonsterCreatureProgression : public UBlueprintFunctionLibrary
@@ -36,4 +49,8 @@ public:
 	/** Checks the creature's species rules and returns unique eligible target IDs without loading targets. */
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Creature")
 	static TArray<FPrimaryAssetId> GetEligibleEvolutions(const FPokeMonsterCreatureInstance& Creature, const FPokeMonsterEvolutionContext& Context);
+	/** Eligible conditions are separate from a target that is actually integrated and renderable.
+	 * Never mutates species, consumes an item, or substitutes another model. */
+	UFUNCTION(BlueprintCallable, Category="PokeMonster|Creature")
+	static TArray<FPokeMonsterEvolutionOption> GetEvolutionOptions(const FPokeMonsterCreatureInstance& Creature, const FPokeMonsterEvolutionContext& Context);
 };

@@ -2,7 +2,7 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "animation_polish_v61",
+  "snapshot_kind": "creature_progression_v1_verified",
   "generated_at": "2026-10-23",
   "files": {
     ".codex/config.toml": {
@@ -8298,40 +8298,40 @@
       "sha256": "c7ecddb3c227422cb0c58e3edc89dc7c3417366ad5745fe33718ce72852af029"
     },
     "Content/Data/Creatures/DA_Bisasam.uasset": {
-      "bytes": 4672,
-      "sha256": "231f0620efe909c466be88468c0587228359024fa4187e1cd8eeb19edfdd70ec"
+      "bytes": 8146,
+      "sha256": "9e10c9f621b16ae22b7da22472052032d159861d75e8fd40b204c974466e8f39"
     },
     "Content/Data/Creatures/DA_Enton.uasset": {
-      "bytes": 3653,
-      "sha256": "f956f6caaa5f478e466e942b43c73ece711860825e044d27addf3224eb217509"
+      "bytes": 6607,
+      "sha256": "94a8452874b1f66b2c07f9ca4e8ae7c5fe20a59efda5fe578a2824fae9db8b47"
     },
     "Content/Data/Creatures/DA_Gengar.uasset": {
-      "bytes": 3820,
-      "sha256": "15ca3118fb5fb686f5d3aa0bf4be27b4a5089d31c4c75b69a9c7e2aeb3186021"
+      "bytes": 6748,
+      "sha256": "a6bdcd77a7ff25f69084183fe76e2badd853c5b4bd6d69305a263e86bc2e1de0"
     },
     "Content/Data/Creatures/DA_Glurak.uasset": {
-      "bytes": 4422,
-      "sha256": "7d15ea322fb7da71325761443792ab2c24606d018fefd68f5ce09eeebdcbd225"
+      "bytes": 7315,
+      "sha256": "adfca802dd57b691c797736e31e79a2a006230b591acac99d39aa6c1688f3208"
     },
     "Content/Data/Creatures/DA_Machomei.uasset": {
-      "bytes": 4019,
-      "sha256": "9368e8eb723eea1d0c95c0e5b061b6f6a1254ed4db786a73d21167978333d824"
+      "bytes": 7055,
+      "sha256": "ff282b0b00447bd33f3bc8526701bb3bca3e1a5edf5a2767016787e4148cb908"
     },
     "Content/Data/Creatures/DA_Myrapla.uasset": {
-      "bytes": 3532,
-      "sha256": "a41e234457a913b0b0700f817a1fedc18cfb21ec72fac153d48c1398a56c3cf5"
+      "bytes": 6817,
+      "sha256": "588d7f9595fc49e94c7368dac9aa894ef22bf1dea6a6f1c942c3d25c73d7be90"
     },
     "Content/Data/Creatures/DA_Nebulak.uasset": {
-      "bytes": 3833,
-      "sha256": "2dbf520bbb4ab909cd6f625a5715da662936919b600a7385991b409368f47686"
+      "bytes": 7408,
+      "sha256": "db8ecbdb1c7042391fb7f290e6b1a4f96c830c53840561d8cc199fc5860d45b1"
     },
     "Content/Data/Creatures/DA_Pikachu.uasset": {
-      "bytes": 3943,
-      "sha256": "4e9c49449d1b27d3acdb663a743ad96ee0387cfa8ac5ed9e555d1ff954a52191"
+      "bytes": 7603,
+      "sha256": "0833611aeba9e5eb0abf01ed2b3654e96914c47a81daf6c27639917d4dd6e8bf"
     },
     "Content/Data/Creatures/DA_Schiggy.uasset": {
-      "bytes": 4792,
-      "sha256": "603bde27e17bb5242e41c6735b6bea854976f04546dab1e292246a5e75b83066"
+      "bytes": 7961,
+      "sha256": "c0dd7201a01f0775d26a4cafe97862b74aad595077e2d27839647f8e7c838df3"
     },
     "Content/Data/Creatures/DA_TestFire.uasset": {
       "bytes": 2295,
@@ -8346,8 +8346,8 @@
       "sha256": "89bcb68d3b1be93bc3372f30ab395eb22837b31e7adc52ba9eab7a798c9b06ee"
     },
     "Content/Data/Creatures/DA_Zunderlauf.uasset": {
-      "bytes": 4111,
-      "sha256": "7439a5262d25f40a6534142fd486adcedf30f0a9353b354c893ea573b1cccced"
+      "bytes": 7444,
+      "sha256": "4852b6ab5224d33ddc0e6946332d553cf87d6284ee58ae7a36162dca90e97ca9"
     },
     "Content/Data/Dialogues/DA_DevArchivistDialogue.uasset": {
       "bytes": 3704,
@@ -11350,8 +11350,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 151360,
-      "sha256": "dd3c8c0ab3f38cd8c18916599287adf68d2e82254e43135043159e674b6b79f1"
+      "bytes": 153433,
+      "sha256": "27e4fb147e2c35f12217013957d4ffbaf2b4dfd3cc6a453290efc301a926e588"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
@@ -11506,8 +11506,8 @@
       "sha256": "1ede0acfca40e87ac09ffe5dbe8993e5cb6142cff2aebf509f4cb084ae6e53fc"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 172760,
-      "sha256": "28e5d26d7a5d6338467daa9d0fad671b42ca7b27279d23e4218abdb061915202"
+      "bytes": 175803,
+      "sha256": "ba7c9dc3c8224e3c98bd90410963af7775617e2abeff76e80fce146fe4d82b75"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -11630,12 +11630,12 @@
       "sha256": "6cdca3eed3c29a6d603a828f5737f9dfc004534c662ed9be2e5a5ea2857672b4"
     },
     "Source/PokeMonster/Battle/PokeMonsterBattleSession.cpp": {
-      "bytes": 24998,
-      "sha256": "622cec73b3ec70ff8cf64bc729dc48f18f2510b58bf8dcdd1bbe4f271ccc6462"
+      "bytes": 27096,
+      "sha256": "45350e20b049d32ff9a2714d26353c11c1adca09a3413c7d5a1307110cce8b68"
     },
     "Source/PokeMonster/Battle/PokeMonsterBattleSession.h": {
-      "bytes": 10530,
-      "sha256": "0c9ec278dfb39ea164b752ec3445027fcbac8c63ebfd6078d4e10e0ca5f172fe"
+      "bytes": 10841,
+      "sha256": "4ef92b9be034a5249bdf941dc6d9a1907fdbd7ad2d858343ac8be67a17b98b15"
     },
     "Source/PokeMonster/Battle/PokeMonsterTypeChart.cpp": {
       "bytes": 2858,
@@ -11782,12 +11782,12 @@
       "sha256": "0a139add7f8263fc16b72a2856ee87618efe4ead9f06063167d5f3defd72394a"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureInstance.cpp": {
-      "bytes": 7309,
-      "sha256": "e68255837651da3552ed05e5ca43e89c3cc70864e85cc179c3bcc402da3a8928"
+      "bytes": 8891,
+      "sha256": "4cdaae7d14b71fb0213301185f462b712d4229fcc6230247559fd7a09193f634"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureInstance.h": {
-      "bytes": 3169,
-      "sha256": "a702e9c283a0905dcc52ceba5b96e021ede346af8a7acb8b636e7d48e02967e1"
+      "bytes": 3513,
+      "sha256": "554781fedc8b4a9d0b5b383a15368885f44d54d05c80dc2f5489ec557ed1993c"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreaturePresentation.cpp": {
       "bytes": 11524,
@@ -11798,20 +11798,20 @@
       "sha256": "f0bf477574a51c0d7e0bc03fa96f593b6962b33487aabaf4d7f2b98119f5833a"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureProgression.cpp": {
-      "bytes": 4705,
-      "sha256": "1b1a364f311f9cf3c4f88935af7c5d6f83c0fe90c061b4169733d31151173717"
+      "bytes": 6076,
+      "sha256": "05a56efc86c963c8c3c4d4a299e7f1aca3e331deb56453cd907ae344d90e8cfe"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureProgression.h": {
-      "bytes": 1899,
-      "sha256": "498a110d1f5e5f2a3476b129cb0aff6b3ea128c41e651776a5a49528a13addb0"
+      "bytes": 2732,
+      "sha256": "2d1574c6c0164a6cbd6dee4a4180f0a216706027708c352a23d3ae522b847148"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureSpeciesData.cpp": {
       "bytes": 943,
       "sha256": "ae053598520b3f6be50c9bded32c5a3bf51bf497dccd2da44b2a9b09096a4df4"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureSpeciesData.h": {
-      "bytes": 4841,
-      "sha256": "3768ff81241a5ec644a6f46ce40078a98a4dda14a5e70dde7753dc64fa4f1b62"
+      "bytes": 5073,
+      "sha256": "6f0e0f87e2f1b5de409938f99751ea75af51fedfc200c57c281f0e50390692fc"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureTypes.h": {
       "bytes": 6367,
@@ -12122,12 +12122,12 @@
       "sha256": "1209a97021f57f195344075c823547ccdca1a7990b198f8e0e8f7f35b96dc086"
     },
     "Source/PokeMonster/Save/PokeMonsterSaveGame.h": {
-      "bytes": 1692,
-      "sha256": "78a1f4829a1c852bf9015c1eb2faadd4c25bffd43f01850320285c3f0c23d559"
+      "bytes": 1743,
+      "sha256": "71ebe307a63127c276895a0dc36d12609373d76d319553257d4078e800f94d94"
     },
     "Source/PokeMonster/Save/PokeMonsterSaveSubsystem.cpp": {
-      "bytes": 15306,
-      "sha256": "d8d959c4e24a68a79311897b57b00a586d7961ed931637f4126a4daf206e242e"
+      "bytes": 15887,
+      "sha256": "a5dcf23095337df7afbb40ec5cef15c4235413cfebb1f5dc0cc379fcd4113b67"
     },
     "Source/PokeMonster/Save/PokeMonsterSaveSubsystem.h": {
       "bytes": 1928,
@@ -12366,20 +12366,20 @@
       "sha256": "55d70f93abb849f16f01832d820ddcf111ec1c7114d0ee3126579c680fd7b5d8"
     },
     "Source/PokeMonster/UI/PokeMonsterBattlePresentationPlan.cpp": {
-      "bytes": 5848,
-      "sha256": "142ebf9980b8ef2ec13ea669faa45a5aabbdbeb4e94983b0fd21be49650572a5"
+      "bytes": 6524,
+      "sha256": "60c353ec199ad6297dc1e033ffa2ec1f3b1edb7dd393cc92d7cd829a1edd8c2b"
     },
     "Source/PokeMonster/UI/PokeMonsterBattlePresentationPlan.h": {
       "bytes": 3075,
       "sha256": "d51cb85507043f0a1cb55ace60211e32ad395e0accc5b03860986fed9f18066e"
     },
     "Source/PokeMonster/UI/PokeMonsterBattlePresenter.cpp": {
-      "bytes": 22776,
-      "sha256": "d495796742bac8ddb034bfb2e9d6ba4e9386cabf1854fe8e996a2f859f3aa4db"
+      "bytes": 25762,
+      "sha256": "dda97417cd5f621b2b217adc0490bb8bef34c7682cdd2d679c0368d940ba4d01"
     },
     "Source/PokeMonster/UI/PokeMonsterBattlePresenter.h": {
-      "bytes": 6555,
-      "sha256": "ddd7120ea024fe30ab49b25c932039553d64d737b66f993a641004dec5e2f157"
+      "bytes": 6824,
+      "sha256": "369000ad3a3105cdbf1f2c282e66f98288dfb63bf88f0a7b607f773536a72b2d"
     },
     "Source/PokeMonster/UI/PokeMonsterBattleTestController.cpp": {
       "bytes": 2138,
@@ -12390,8 +12390,8 @@
       "sha256": "398838de215b76232057fb187829317ff282032d0a4ff30fe798c82744c072d6"
     },
     "Source/PokeMonster/UI/PokeMonsterBattleWidget.cpp": {
-      "bytes": 58143,
-      "sha256": "4d5cc9f8c37efb883d50d8c00422d761f6a90aa6742ae3f23f269a08532d63a8"
+      "bytes": 58622,
+      "sha256": "fd14dc58c93779f82215c33b211fcf2e74fe59c5ad4b47b164361c50df4b9a4a"
     },
     "Source/PokeMonster/UI/PokeMonsterBattleWidget.h": {
       "bytes": 8360,
@@ -18692,6 +18692,66 @@
     "Docs/ANIMATIONSFEINSCHLIFF_V6_1_PRUEFBERICHT.md": {
       "bytes": 18350,
       "sha256": "52f931cc03fd6fdd1e3824e15462497d33b6a28ce933d2613bbfbb0e877eb21f"
+    },
+    "Content/Data/Moves/ProgressionV1/DA_Slam.uasset": {
+      "bytes": 1594,
+      "sha256": "0beaff87d14e90ae52a28fa65459f8e1361d6ceb82cee0dfb9ec1f902a43aeb3"
+    },
+    "Tools/CreatureProgressionV1/RunPIE.py": {
+      "bytes": 1253,
+      "sha256": "0d37fdd5732d6a250dd0adbd6dacb56869a7f62ce1a054b5aca053e80d63eaea"
+    },
+    "Tools/CreatureProgressionV1/PrepareData.py": {
+      "bytes": 5388,
+      "sha256": "09a71af4e39678a8d20a74d41a4805364f65e9b6da9e92feb0c4209cc199dd8b"
+    },
+    "Tools/CreatureProgressionV1/README.md": {
+      "bytes": 5218,
+      "sha256": "fa52eed61ef474202f487c14e26463d2ae4bf5b6e99cbe99a416fe419b0e11d2"
+    },
+    "Content/Data/Moves/ProgressionV1/DA_HydroPump.uasset": {
+      "bytes": 1993,
+      "sha256": "f9059d426a865e8d77286d827396cc33015a3e66d5ea58fc7afb8355be260f5a"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterProgressionV1Test.cpp": {
+      "bytes": 10330,
+      "sha256": "9d587e3e6d36a8a0ee2a112af2ddfdbe5a6c21df2cbc4487c3b97fe2ec7fa59d"
+    },
+    "Tools/CreatureProgressionV1/InspectEditor.py": {
+      "bytes": 1433,
+      "sha256": "c9305f693ecc45d5a28f8cf8653c2a1b893414aab2adc00a052690de2d5ebe72"
+    },
+    "Source/PokeMonster/Development/PokeMonsterProgressionV1Review.cpp": {
+      "bytes": 2561,
+      "sha256": "ac11a3474dba691e2eead24af0176c9a7a2b8b2eeaec2895d0d73747aea7e0c6"
+    },
+    "Tools/CreatureProgressionV1/FetchReference.py": {
+      "bytes": 3619,
+      "sha256": "1ef79e3446df6a42429e7d3b29a2b40845775129fb5e5adb5150848e99349f4b"
+    },
+    "Content/Data/Moves/ProgressionV1/DA_Flamethrower.uasset": {
+      "bytes": 2290,
+      "sha256": "3f4add5143b55b0b3e40942b31d863d69ea92cb24e46fbacf7b8ff1cad614fd2"
+    },
+    "Tools/CreatureProgressionV1/MapChecks.py": {
+      "bytes": 1062,
+      "sha256": "c65efb9672b0c2f4f0a1ab2a3bb9ad928e9daf2b4a738f08a15a43313c98827a"
+    },
+    "Tools/CreatureProgressionV1/Gen2Reference.json": {
+      "bytes": 72288,
+      "sha256": "359009e7cd649e3c716a8916cdaf84790319679847f9a845284e0037b3aa8650"
+    },
+    "Tools/CreatureProgressionV1/ValidateData.py": {
+      "bytes": 2399,
+      "sha256": "31f3559aba0c000b9bfb66a9aecd089ec2b74275656d76c1b486490e79ce2f54"
+    },
+    "Docs/POKEMON_FORTSCHRITTSSYSTEM_V1_PRUEFBERICHT.md": {
+      "bytes": 17301,
+      "sha256": "4b6cf29b7c3e2743bc6e79d5d7640439042b1b18eb0694819da7b3f3776c19b2"
+    },
+    "Tools/CreatureProgressionV1/Review.py": {
+      "bytes": 6530,
+      "sha256": "5f29080eff8f39e57cd172015e41d7cc205ffe6c23d8c7399aec7e0a7b7a1629"
     }
   }
 }

@@ -20,7 +20,7 @@ enum class EPokeMonsterBattleError : uint8
 	None, NotInitialized, AlreadyInitialized, BattleFinished, InvalidCreature, DuplicateCreature,
 	MissingSpecies, CreatureFainted, InvalidStats, InvalidSlot, MissingMove, InvalidMove,
 	NoPP, InvalidPP, InvalidDamage, RoundLimitReached, InvalidTeam, InvalidSwitch, SwitchRequired,
-	CaptureNotAllowed, InvalidCaptureDevice, FleeNotAllowed, InvalidItem, InvalidItemTarget
+	CaptureNotAllowed, InvalidCaptureDevice, FleeNotAllowed, InvalidItem, InvalidItemTarget, LearningRequired
 };
 
 UENUM(BlueprintType)
@@ -28,7 +28,7 @@ enum class EPokeMonsterBattleEventType : uint8
 {
 	MoveChosen, MoveExecuted, Missed, Damage, SuperEffective, NotVeryEffective, Immune, KnockedOut, BattleEnded,
 	SwitchChosen, SwitchedIn, CaptureChosen, CaptureSucceeded, CaptureFailed,
- Recoil, FleeChosen, FleeSucceeded, FleeFailed, ItemChosen, Healed, AttackLowered, EffectFailed, Burned, BurnDamage, ExperienceGained, LevelUp, DefenseLowered, DefenseRaised, SpeedLowered, Seeded, SeedDamage, SeedHeal
+ Recoil, FleeChosen, FleeSucceeded, FleeFailed, ItemChosen, Healed, AttackLowered, EffectFailed, Burned, BurnDamage, ExperienceGained, LevelUp, DefenseLowered, DefenseRaised, SpeedLowered, Seeded, SeedDamage, SeedHeal, EvolutionPending, MoveLearned, MoveUnavailable
 };
 
 UENUM(BlueprintType)
@@ -107,6 +107,9 @@ struct POKEMONSTER_API FPokeMonsterBattleEvent
  UPROPERTY(BlueprintReadOnly) int32 StageAfter=0;
  UPROPERTY(BlueprintReadOnly) int64 ExperienceAdded=0;
  UPROPERTY(BlueprintReadOnly) int32 LevelsGained=0;
+ UPROPERTY(BlueprintReadOnly) FText Information;
+ UPROPERTY(BlueprintReadOnly) int32 LevelBefore=0;
+ UPROPERTY(BlueprintReadOnly) int32 LevelAfter=0;
 
 };
 
@@ -210,6 +213,8 @@ public:
 	const FPokeMonsterBattleState& GetState() const { return State; }
 
 public:
+ bool ResolveMoveLearning(int32 TeamIndex, int32 SlotIndex);
+ bool HasPendingLearning() const;
  /** Gen-2-style threshold in [0,256], with checked arithmetic. Attempts includes current attempt. */
  static bool HasUsableMove(const FPokeMonsterCreatureInstance& Creature);
  static int32 EscapeThreshold(int32 PlayerSpeed,int32 EnemySpeed,int32 Attempts);

@@ -918,6 +918,7 @@ AP-Erschöpfung wird über einen ausdrücklich gekennzeichneten Verzweifler-Notf
 aufgelöst (Gen-2-Datenreferenz), ohne gelernte Slots zu verändern. Die frühere
 UI-Sackgasse mit gesperrter Bedienung ist damit ersetzt. Save-Schema 4 ergänzt den
 persistenten Verbrennungsstatus und behält lesende Migration für Schema 1–3.
+**Save-Schema und Lernablauf durch Pokémon-Fortschritt V1 (23.10.2026) unten erweitert; ältere Spielstände bleiben lesbar.**
 
 
 ## 21.10.2026 – Starter-Erweiterung: abgeschlossene Niederlagen speichern
@@ -1062,3 +1063,13 @@ Die V6-Aussage, die fraglichen Mantelrandgewichte seien nicht eindeutig zuordenb
 Eine begrenzte Standphasen-Korrektur im bestehenden Player-Animator und der gemessene rein visuelle CharacterMovement-Bodenspalt ersetzen die bisher fehlende Laufzeit-Fußkorrektur. Zwei vorhandene Beinketten, höchstens 12 cm Korrektur, Freigabe vor starker Drehung, bei fehlendem Boden, Teleport oder langem Hitch. Diagnose `pm.PlayerFootIK 0` behält den alten Zustand, `1` den neuen. Keine Bewegungsgeschwindigkeit, Physik, Kamera oder Controllerbelegung verändert.
 
 Gluraks äußere Wurzelflächen hatten teilweise keinen Flügel-Bone-Einfluss und wurden deshalb von der V6-Rückseitenmaske ausgelassen. Die V6.1-Maske ergänzt nach tatsächlicher UV-Farbe und BVH-Front-/Rücksicht ausschließlich die fehlenden äußeren Membranflächen. Material, dunkle Innenseiten, Körper, Schwanz und alle Boden-/Hover-/Kampfclips bleiben unverändert. Die technische und visuelle Abnahme ist im V6.1-Prüfbericht getrennt zu dokumentieren.
+
+
+## 2026-10-23 – Pokémon-Fortschritt V1: sichere Lernentscheidungen und vorbereitete Ziele
+
+- Die bisherige Lernregel „nur freie Slots, keine Entscheidung bei vollem Set“ ist ersetzt: freie Slots werden weiter automatisch gefüllt und gemeldet, bei vier Attacken bietet die vorhandene Kampfoberfläche Ersetzen oder Ablehnen an. Keine zweite Kampf-, Attacken- oder Eingabearchitektur.
+- Die bestehende XP-Verteilung an lebende Beteiligte pro Gegner, Trainerbonus, sechs Wachstumskurven, Levelgrenze 100 und HP-Regel bleiben erhalten. Kein stiller Wechsel bestehender individueller Werte oder der historischen Zunderlauf-Kurve.
+- Save-Schema 5 ergänzt offene Lernangebote als stabile Attacken-IDs. Versionen 1–4 bleiben lesbar. Bestehende Attackensets und verbrauchte AP werden nicht pauschal neu berechnet.
+- Für die zehn integrierten Arten sind die Gold-/Silber-Lernlisten anhand der PokeAPI-Revision `2bf639e5572812a67d2b94903fdcb9d095f5aeb2` festgehalten. Fehlende Spezialwirkungen bleiben explizit nicht spielbar und werden nicht als korrekt implementiert ausgegeben. Nur vorhandene unterstützte Mechaniken sowie Flammenwurf, Slam und Hydropumpe mit belegten Gen-2-Daten werden verwendet.
+- Entwicklungsbedingungen und Modellverfügbarkeit werden getrennt geprüft. Kein Spezieswechsel, Gegenstandsverbrauch oder provisorisches Zielmodell. Levelziele und Pikachus Donnersteinweg sind vorbereitet; ihre fehlenden Zielarten/Darstellungen bleiben offen. Die Beispiele für frühere Tauschentwicklungen behalten ihren vorläufigen Status und die UND-Bedingungen Level/Ort/Prüfung. Freundschaft bleibt ein vom Aufrufer gelieferter Prüfkontext, keine ungeprüfte automatische Freundschaftsökonomie.
+- Kein Import weiterer Pokémon, keine Modell-/Animationsänderung und keine Änderung von Maps, Kampfpräsentation, Kamera oder Weltgestaltung. Prüfstand und tatsächliche Grenzen: `POKEMON_FORTSCHRITTSSYSTEM_V1_PRUEFBERICHT.md`.

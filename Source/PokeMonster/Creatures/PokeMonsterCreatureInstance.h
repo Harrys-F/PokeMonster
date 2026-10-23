@@ -47,6 +47,11 @@ public:
 	/** Explicit species opt-in; does not alter the generic factory contract. */
 	bool AssignSpeciesMoves();
 	bool UpgradeLegacyGlumandaMoves();
+	/** INDEX_NONE declines only the first offer; 0..3 replaces exactly that slot. */
+	bool ResolveMoveLearning(int32 SlotIndex);
+	bool RestorePendingMoves(const TArray<TSoftObjectPtr<UPokeMonsterMoveData>>& Moves);
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Progression")
+	TArray<TSoftObjectPtr<UPokeMonsterMoveData>> PendingMoves;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Creature") EPokeMonsterCreatureStatus Status = EPokeMonsterCreatureStatus::None;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Creature")

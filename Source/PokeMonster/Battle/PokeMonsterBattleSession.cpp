@@ -1,4 +1,5 @@
 #include "PokeMonsterBattleSession.h"
+#include "../Creatures/PokeMonsterCreatureProgression.h"
 #include "PokeMonsterTypeChart.h"
 #include "../Items/PokeMonsterItemData.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
@@ -132,7 +133,10 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::InitializeTeams(
 	for (const auto* Team : {&State.TeamA, &State.TeamB})
 		for (const auto& Creature : *Team)
 		{
-			RetainedData.AddUnique(Creature.Species.LoadSynchronous());
+			const auto* Species=Creature.Species.LoadSynchronous();
+			RetainedData.AddUnique(const_cast<UPokeMonsterCreatureSpeciesData*>(Species));
+			if(Species)for(const auto& Entry:Species->LevelUpMoves)
+				if(auto* Move=Entry.Move.LoadSynchronous())RetainedData.AddUnique(Move);
 			for (const auto& Slot : Creature.GetMoveSlots())
 				if (auto* Move = Slot.GetMove().LoadSynchronous()) RetainedData.AddUnique(Move);
 		}
@@ -154,6 +158,7 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
 	if (State.Phase == EPhase::Uninitialized) return Reject(EError::NotInitialized);
 	if (State.Phase == EPhase::Finished) return Reject(EError::BattleFinished);
 	if (State.Phase == EPhase::AwaitingSwitch) return Reject(EError::SwitchRequired);
+	if (HasPendingLearning()) return Reject(EError::LearningRequired);
 	if (State.RoundNumber == MAX_int32) return Reject(EError::RoundLimitReached);
 	const FPokeMonsterBattleChoice Choices[2] = {ChoiceA, ChoiceB};
 	UPokeMonsterMoveData* Moves[2] = {nullptr, nullptr};
@@ -250,9 +255,25 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
   SyncActive(Next);const auto* Species=Next.SideB.Species.LoadSynchronous();const int Yield=Species?Species->GetBaseExperienceYield():0;if(Yield<=0)return;
   int Count=0;for(const auto& C:Next.TeamA)if(C.CurrentHP>0&&Next.ParticipantsA.Contains(C.InstanceId))++Count;if(!Count)return;
   int64 XP=int64(Yield)*Next.SideB.Level/7/Count;if(Next.bTrainerExperience)XP=XP*3/2;
-  for(int I=0;I<Next.TeamA.Num();++I){auto& C=Next.TeamA[I];if(C.CurrentHP<=0||!Next.ParticipantsA.Contains(C.InstanceId))continue;const auto G=C.AddExperience(XP);if(!G.bSucceeded||G.ExperienceAdded<=0)continue;
+  for(int I=0;I<Next.TeamA.Num();++I){auto& C=Next.TeamA[I];if(C.CurrentHP<=0||!Next.ParticipantsA.Contains(C.InstanceId))continue;const int32 OldLevel=C.Level;const auto OldSlots=C.GetMoveSlots();const auto G=C.AddExperience(XP);if(!G.bSucceeded||G.ExperienceAdded<=0)continue;
    auto& E=AddEvent(Result,Next,EEvent::ExperienceGained,ESide::A);E.TeamIndex=I;E.Target=ESide::A;E.TargetInstanceId=C.InstanceId;E.ExperienceAdded=G.ExperienceAdded;
-   if(G.LevelsGained>0){auto& L=AddEvent(Result,Next,EEvent::LevelUp,ESide::A);L.TeamIndex=I;L.Target=ESide::A;L.TargetInstanceId=C.InstanceId;L.LevelsGained=G.LevelsGained;}
+   if(G.LevelsGained>0){auto& L=AddEvent(Result,Next,EEvent::LevelUp,ESide::A);L.TeamIndex=I;L.Target=ESide::A;L.TargetInstanceId=C.InstanceId;L.LevelsGained=G.LevelsGained;L.LevelBefore=OldLevel;L.LevelAfter=C.Level;
+    for(const auto& Entry:C.Species.LoadSynchronous()->LevelUpMoves)
+    {
+     if(Entry.Level<=OldLevel||Entry.Level>C.Level)continue;
+     if(!Entry.UnavailableMoveName.IsEmpty())
+     {
+      auto& N=AddEvent(Result,Next,EEvent::MoveUnavailable,ESide::A);N.TargetInstanceId=C.InstanceId;N.Information=FText::Format(FText::FromString(TEXT("{0}: noch nicht spielbar ({1}).")),Entry.UnavailableMoveName,Entry.UnavailableReason);
+     }
+     else if(auto* Move=Entry.Move.LoadSynchronous())
+     {
+      if(!OldSlots.ContainsByPredicate([Move](const auto& S){return S.GetMove().LoadSynchronous()==Move;})&&C.GetMoveSlots().ContainsByPredicate([Move](const auto& S){return S.GetMove().LoadSynchronous()==Move;}))
+      {auto& N=AddEvent(Result,Next,EEvent::MoveLearned,ESide::A);N.TargetInstanceId=C.InstanceId;N.Information=FText::Format(FText::FromString(TEXT("{0} erlernt!")),Move->GetPlayerFacingName());}
+     }
+    }
+    const auto Options=UPokeMonsterCreatureProgression::GetEvolutionOptions(C,FPokeMonsterEvolutionContext());
+    if(!Options.IsEmpty()){auto& Notice=AddEvent(Result,Next,EEvent::EvolutionPending,ESide::A);Notice.TargetInstanceId=C.InstanceId;Notice.TeamIndex=I;}
+   }
   }Next.SideA=Next.TeamA[Next.ActiveIndexA];
  };
  auto Knockout=[&](ESide Fainted){
@@ -428,4 +449,17 @@ int32 UPokeMonsterBattleSession::EscapeThreshold(int32 A,int32 BSpeed,int32 Atte
 bool UPokeMonsterBattleSession::HasUsableMove(const FPokeMonsterCreatureInstance& Creature)
 {
  for(const auto& Slot:Creature.GetMoveSlots())if(const auto* M=Slot.GetMove().LoadSynchronous())if(M->IsConfigured()&&Slot.GetCurrentPP()>0&&Slot.GetMaxPP()==M->MaxPP)return true;return false;
+}
+
+
+bool UPokeMonsterBattleSession::HasPendingLearning() const
+{
+	return State.TeamA.ContainsByPredicate([](const auto& C) { return !C.PendingMoves.IsEmpty(); });
+}
+
+bool UPokeMonsterBattleSession::ResolveMoveLearning(int32 TeamIndex, int32 SlotIndex)
+{
+	if (!State.TeamA.IsValidIndex(TeamIndex) || !State.TeamA[TeamIndex].ResolveMoveLearning(SlotIndex)) return false;
+	if (TeamIndex == State.ActiveIndexA) State.SideA = State.TeamA[TeamIndex];
+	return true;
 }
