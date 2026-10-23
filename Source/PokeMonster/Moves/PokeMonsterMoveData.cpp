@@ -60,6 +60,8 @@ TArray<FPokeMonsterMoveEffectComponent> UPokeMonsterMoveData::GetEffectComponent
  else if(Id==TEXT("DrainHalf")){E.Kind=EPokeMonsterEffectKind::Drain;E.bSelf=true;}
  else if(Id==TEXT("UserLevelDamage")){E.Kind=EPokeMonsterEffectKind::FixedDamage;}
  else return Out; // Legacy Leech Seed/Struggle keep their existing lifecycle; no guessed conversion.
+ // Only legacy burn/speed effects used the old chance field. Preserve guaranteed legacy stages/drain/fixed damage.
+ if(!E.bSecondary)E.ChancePercent=100;
  Out.Add(E);return Out;
 }
 

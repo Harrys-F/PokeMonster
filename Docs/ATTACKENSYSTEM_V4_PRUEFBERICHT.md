@@ -40,10 +40,10 @@ Vor produktiver Datenbindung sind insbesondere genaue Schlaf-/Verwirrungsdauern,
 
 | Prüfung | Tatsächliches Ergebnis |
 |---|---|
-| Editor-Build `MoveEffectsV4Build07` | Exit 0 |
-| Vollständige Automation `MoveEffectsV4Automation04` | 120 erfolgreich, 0 Warnungsfälle, 0 Fehler, Wrapper Exit 0 |
+| Editor-Build `MoveEffectsV4Build09` | Exit 0 |
+| Vollständige Automation `MoveEffectsV4Automation06` | 120 erfolgreich, 0 Warnungsfälle, 0 Fehler, Wrapper Exit 0 |
 | Neue Effekt-Automation | 10 Tests; Konfiguration, sieben Stufen, Wahrscheinlichkeit/Immunität/Alt-Zufallsfolge, Statusaktionen, Heilung/Drain/Rückstoß, Mehrfachtreffer/Fixschaden/Voraussetzung, Schutz/Verwirrung/Wechsel, Screen, atomare Ablehnung, Save-Migration |
-| Elf Map Checks, finaler Build | Je 0 Fehler / 0 Warnungen; keine Karte gespeichert |
+| Elf Map Checks, Gameplay-Build 07 | Je 0 Fehler / 0 Warnungen; keine Karte gespeichert |
 | Echte Effekt-PIE-Fälle `EffectsFinal01` | 20 Fälle; alle zehn Modelle, beide Kampfmodi, neun technische Effektfälle, AP und Rückkehr |
 | Fortschritt/Lernen | 6 PIE-Fälle: Ersetzen, Ablehnen, freier Slot und blockierte Entwicklung ohne Zielmodell |
 | Meister der Erinnerungen | 18 PIE-Prüfungen; Repertoire/AP, Abbruch, Speichern, Sortieren, Kampf-Sperre; technischer ungespeicherter NPC |
@@ -58,9 +58,15 @@ Der Fußlauf verwendet einen historischen Test-Teamstand. Seine Begleiter-Messun
 
 - `EffectsReview01` scheiterte am falschen Enum-Textvergleich des neuen Prüfwerkzeugs. Der tatsächliche Statuseffekt war im Ereignisprotokoll bereits vorhanden. Vergleich korrigiert; `EffectsReview02` und `EffectsFinal01` bestehen jeweils alle 20 Fälle.
 - `MoveEffectsV4Automation02` und `03`: jeweils 119 warnungsfreie Tests plus 1 erfolgreicher Test mit externen Warnungen, 0 fachliche Fehler; **strenger Wrapper jeweils Exit 1, nicht als bestanden gewertet**.
-- Die Warnungen stammen von `Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id`: `Bad CPU type in executable` und fehlgeschlagener Toolstart. Keine Filterung, keine Wrapper-Abschwächung und keine Engine-Konfigurationsänderung. Der endgültige Lauf 04 ist vollständig grün; frühere Warnungen bleiben dokumentiert. Rohlogs können außerdem externe Startup-/Plattformwarnungen enthalten – kein pauschal warnungsfreies Unreal behauptet.
+- Die Warnungen stammen von `Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id`: `Bad CPU type in executable` und fehlgeschlagener Toolstart. Keine Filterung, keine Wrapper-Abschwächung und keine Engine-Konfigurationsänderung. Die Läufe 04, 05 und der endgültige Lauf 06 sind vollständig grün; frühere Warnungen bleiben dokumentiert. Rohlogs können außerdem externe Startup-/Plattformwarnungen enthalten – kein pauschal warnungsfreies Unreal behauptet.
 
 Maschinenlesbare Ergebnisse: [Prüfzusammenfassung](/Users/harry/Developer/PokeMonster/Docs/ATTACKENSYSTEM_V4_TESTERGEBNISSE.json). Vollständige lokale Logs und JSON-Nachweise liegen unter Saved/MoveEffectsV4, Saved/ProjectRefinement sowie den wiederverwendeten Prüfwerkzeug-Verzeichnissen.
+
+### Abschließender Kompatibilitätsnachtrag
+
+Nach dem vollständigen Gameplay-Durchlauf wurden zwei eng begrenzte Grenzfälle zusätzlich abgesichert: Alte garantierte Stufen-/Drain-/Fixschadeneffekte ignorieren ihr historisch ungenutztes Wahrscheinlichkeitsfeld weiterhin; nach einem Verwirrungs-Selbsttreffer mit anschließendem Verbrennungs-KO wird keine weitere gegnerische Aktion ausgeführt. Beides ist mit deterministischen Regressionstests abgedeckt. Build 09 und die vollständige Automation 06 bestehen, jeweils Exit 0, 120 erfolgreiche Tests ohne Warnungsfall.
+
+Die 20 Effekt-PIE-Fälle, Lern-/Meister-/Controller- und Fußlaufprüfungen sowie elf Map Checks wurden mit Build 07 durchgeführt. Der kleine Nachtrag verändert weder Assets noch aktuelle Produktionsparameter; deren 22 Move-Assets sind weiterhin identisch. Kein erneuter vollständiger Fußlauf auf Build 09 behauptet; die betroffenen zusätzlichen Daten-/Statuskombinationen sind im finalen automatisierten Lauf gezielt geprüft.
 
 ## Echte Unreal-Aufnahmen
 
@@ -90,7 +96,11 @@ Weitere Vorher-/Nachher-Dateien und Ereignisse je Pokémon: `Saved/MoveEffectsV4
 
 ## Git-Sicherung
 
-Der geprüfte technische Teilstand wird gezielt auf main gesichert. Commit- und Remote-Nachweis werden nach tatsächlichem Push ergänzt. Keine Behauptung, dass damit der vollständige V4-Funktionsumfang abgeschlossen wäre.
+Implementierungs- und Prüfcommit: [`22764fd8c8e40718d97a976be0569a738adcebe2`](https://github.com/Harrys-F/PokeMonster/commit/22764fd8c8e40718d97a976be0569a738adcebe2). Regulärer Push nach origin/main erfolgreich; direktes `git ls-remote` bestätigt exakt denselben Hash, lokales main und origin/main waren danach synchron. 37 gezielt kontrollierte Dateien, keine unerwarteten Indexpfade. Der anschließende, isoliert geprüfte Kompatibilitätsnachtrag erhält zusätzlich die historische Garantiewirkung alter Effekte und beendet nach Verwirrung plus Verbrennungs-KO die Runde vor einer weiteren gegnerischen Aktion.
+
+Der erste Push enthält 53 neue normale Git-Objekte mit zusammen 1.614.410 unkomprimierten Bytes, deutlich unter der eigenen 1-GiB-Grenze. Aktuelle [GitHub-Einzeldateigrenze 100 MiB](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github) und [Push-Grenze 2 GiB](https://github.com/github/docs/blob/main/content/get-started/using-git/troubleshooting-the-2-gb-push-limit.md) wurden unmittelbar vor dem Push überprüft; alle Dateien halten sie ein. [LFS-Abrechnung](https://docs.github.com/en/billing/concepts/product-billing/git-lfs) separat geprüft: dieses Paket enthält 0 neue/geänderte LFS-Dateien, daher 0 zusätzliche LFS-Uploadbytes. Remote-LFS-Prüfer bestätigt 0 Objekte und führt dafür bewusst keinen leeren Batch oder Objekt-Download aus. Kein vollständiger erneuter Remote-LFS-Download behauptet. Lokaler bestehender LFS-Bestand wurde mit fsck erfolgreich geprüft.
+
+Keine Behauptung, dass damit der vollständige V4-Funktionsumfang abgeschlossen wäre. Der endgültige Dokumentationscommit wird nach dem Push erneut direkt geprüft und in der Abschlussmeldung genannt.
 
 ## Fortsetzung
 

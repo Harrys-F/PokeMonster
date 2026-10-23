@@ -9,7 +9,7 @@
   "build": {
     "mode": "Build",
     "exit": 0,
-    "seconds": 5.869476079940796
+    "seconds": 9.941080093383789
   },
   "automation": [
     {
@@ -60,6 +60,26 @@
     },
     {
       "label": "MoveEffectsV4Automation04",
+      "succeeded": 120,
+      "succeededWithWarnings": 0,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0,
+      "strict_wrapper_exit": 0,
+      "warning_details": []
+    },
+    {
+      "label": "MoveEffectsV4Automation05",
+      "succeeded": 120,
+      "succeededWithWarnings": 0,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0,
+      "strict_wrapper_exit": 0,
+      "warning_details": []
+    },
+    {
+      "label": "MoveEffectsV4Automation06",
       "succeeded": 120,
       "succeededWithWarnings": 0,
       "failed": 0,
@@ -193,5 +213,41 @@
     "backup_not_in_slim_history": true
   },
   "new_lfs_objects": 0,
-  "earlier_fixture_checker_failure": "EffectsReview01 compared Unreal enum string to an incorrect exact spelling. Corrected checker; EffectsReview02 and EffectsFinal01 passed all 20 cases."
+  "earlier_fixture_checker_failure": "EffectsReview01 compared Unreal enum string to an incorrect exact spelling. Corrected checker; EffectsReview02 and EffectsFinal01 passed all 20 cases.",
+  "git_implementation_commit": {
+    "commit": "22764fd8c8e40718d97a976be0569a738adcebe2",
+    "remote_main": "22764fd8c8e40718d97a976be0569a738adcebe2",
+    "synchronized": true,
+    "changed_lfs_objects": 0,
+    "verification": {
+      "commit": "22764fd8c8e40718d97a976be0569a738adcebe2",
+      "objects": [],
+      "count": 0,
+      "bytes": 0,
+      "verified": true,
+      "network_requested": false,
+      "scope": "No LFS file changes in this commit; no object download claimed",
+      "no_credentials_or_download_urls_saved": true
+    }
+  },
+  "normal_git_preflight": {
+    "normal_git_new_object_bytes": 1614410,
+    "objects": 53,
+    "no_new_lfs": true,
+    "protected_untracked_count": 25
+  },
+  "initial_gameplay_build": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 5.869476079940796
+  },
+  "compatibility_followup": {
+    "legacy_guaranteed_effect_probability_preserved": true,
+    "confusion_plus_burn_ends_before_opponent_action": true,
+    "covered_by_existing_new_automation_tests": true,
+    "full_pie_and_map_checks_build": "MoveEffectsV4Build07",
+    "followup_build": "MoveEffectsV4Build09",
+    "followup_full_automation": "MoveEffectsV4Automation06",
+    "production_move_assets_unchanged": true
+  }
 }

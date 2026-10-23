@@ -443,7 +443,7 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
    else CannotAct=true;
   }
   else if(Attacker.Status==EPokeMonsterCreatureStatus::Paralysis && NextRandom.RandRange(0,99)<EffectRules.ParalysisSkipPercent)CannotAct=true;
-  if(CannotAct){Notice(EEvent::StatusPrevented,Side,Side,TEXT("Kann diese Runde nicht angreifen."),Choices[Index].Index,Moves[Index]);BurnTick(Side);continue;}
+  if(CannotAct){Notice(EEvent::StatusPrevented,Side,Side,TEXT("Kann diese Runde nicht angreifen."),Choices[Index].Index,Moves[Index]);BurnTick(Side);if(Next.Phase!=EPhase::AwaitingChoices)break;continue;}
   if(OwnEffects.ConfusionTurns>0)
   {
    --OwnEffects.ConfusionTurns;
@@ -451,7 +451,7 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
    {
     const int64 DamageSelf=FMath::FloorToDouble((2*Attacker.Level/5+2)*40.0*B::ApplyStage(Attacker.CalculatedStats.Attack,StageFor(Next,Side,EPokeMonsterBattleStat::Attack))/B::ApplyStage(Attacker.CalculatedStats.Defense,StageFor(Next,Side,EPokeMonsterBattleStat::Defense))/50)+2;
     const int Before=Attacker.CurrentHP;Attacker.CurrentHP=int32(FMath::Max<int64>(0,int64(Before)-DamageSelf));auto& E=Notice(EEvent::ConfusionDamage,Side,Side,TEXT("Verletzt sich selbst."),Choices[Index].Index,Moves[Index]);E.HPBefore=Before;E.HPAfter=Attacker.CurrentHP;E.Damage=Before-Attacker.CurrentHP;
-    if(Attacker.CurrentHP==0){Knockout(Side);break;}BurnTick(Side);continue;
+    if(Attacker.CurrentHP==0){Knockout(Side);break;}BurnTick(Side);if(Next.Phase!=EPhase::AwaitingChoices)break;continue;
    }
   }
   if(!Moves[Index]->HasEffect(EPokeMonsterEffectKind::Protect))OwnEffects.ProtectStreak=0;
