@@ -255,9 +255,32 @@ Physischer Switch-Pro-Hardwaretest wird durch die Simulationen nicht ersetzt.
 
 ## GitHub-Sicherung
 
-Nur die bereits vorbereiteten notwendigen Quell-, Daten-, Werkzeug- und
-Dokumentationsdateien werden nach Index-/Schutz-/LFS-Prüfung aufgenommen.
-Keine Kontrollbilder, Videos, Rohlogs, Testspielstände, Caches oder Incoming-Unikate.
-Regulärer Push auf bestehendes `origin/main`; keine Backup-Refs, kein Force-Push,
-keine Historienänderung und keine kostenpflichtige Aktion. Der bestätigte Commit
-und das tatsächliche Remote-/LFS-Ergebnis werden nach dem Push hier ergänzt.
+Die Indexprüfung bestätigte **exakt 41 freigegebene Pfade**: notwendige Quellen,
+zehn bestehende Speziesdefinitionen, drei neue Attackenassets, Prüfwerkzeuge und
+Dokumentation. Jeder Indexblob wurde mit der Arbeitsdatei verglichen; alle 13
+LFS-Zeiger und lokalen Objektdateien stimmen per SHA-256 überein. Keine
+Kontrollbilder, Videos, Rohlogs, Testspielstände, Caches oder Incoming-Unikate.
+Die 25 geschützten unversionierten Originalmodelle bleiben außerhalb der Commits.
+
+| Sicherung | Bestätigtes Ergebnis |
+|---|---|
+| Implementierung und geprüfter Bericht | `c1b57602187a9878702fd0bd8331442f4e56b500` – `feat: add persistent move learning and evolution readiness` |
+| Regulärer Push | Beim ersten Versuch erfolgreich: `1139280 → c1b5760` auf `origin/main` |
+| Direkte Remote-Prüfung | `git ls-remote origin refs/heads/main` bestätigt vollständigen Commit-Hash |
+| Normale Git-Daten | Lokaler Pack-Nachweis 456.793 Bytes, deutlich unter 1 GiB; größte normale Datei 850.681 Bytes |
+| LFS-Übertragung | 13 Objekte, **78.981 Bytes**; Push meldet 13/13 übertragen |
+| LFS-Verfügbarkeit | Alle 13 Objekte tatsächlich von GitHub heruntergeladen und SHA-256/Größe geprüft |
+| Nach Implementierungs-Push | Versionierter Arbeitsbaum sauber, `main...origin/main = 0/0` |
+
+Nachweise: `Saved/CreatureProgressionV1/IndexVerification.json`,
+`ImplementationCommit.json`, `ImplementationPush.json` und
+`RemoteLFSImplementation.json`. Der nachfolgende reine Dokumentationscommit ergänzt
+nur diese bestätigten Sicherungsresultate samt aktualisierter CoreFiles-Prüfsumme.
+Seine ID ist dem Git-Verlauf bzw. der Abschlussmeldung zu entnehmen; keine weiteren
+LFS-Dateiänderungen oder erneuten Modelluploads.
+
+Beide Vollbackup-Refs verbleiben unverändert auf `03492bd`; dieser Commit ist
+kein Vorfahr des schlanken `main`. Kein Force-Push, keine Historienänderung,
+keine Backup-Refs gepusht, keine Käufe und keine Budgetänderungen. Die 78.981 Bytes
+sind der gemessene Objektumfang dieses Arbeitspakets, keine Behauptung über den
+Gesamtverbrauch oder das verbleibende Kontokontingent.
