@@ -41,7 +41,7 @@ Alle Medien bleiben ausschließlich unter ignoriertem `Saved/`, nicht auf GitHub
 * `Saved/BiomeTestV11/WaterGameplay01/`: Funktionsprotokoll; einfache HighResShot-Dateien zeigen nur die Hintergrundwelt. Die tatsächlichen Kampf-/Fangmenü-Aufnahmen liegen als Slate-UI-Erfassung unter `Saved/GlumandaV11/LiveUI/`. RenderTarget-Bilder sind nicht automatisch QHD-Spielkameraaufnahmen.
 * `Saved/BiomeTestV11/WaterMotion01/`: eigenständiger echter Bewegungsnachweis; Aufzeichnung und Auswertung separat, keine generierten Zwischenbilder.
 
-## 4. Noch ausstehende Pakete
+## 4. Stand der Arbeitspakete
 
 Historischer Wasser-Zwischenstand inzwischen durch die Pakete 6–9 ergänzt. Alle fünf Pakete sind umgesetzt; die abschließenden Gesamttests stehen in Abschnitt 10.
 
@@ -49,7 +49,7 @@ Historischer Wasser-Zwischenstand inzwischen durch die Pakete 6–9 ergänzt. Al
 
 Die Baseline erfasst Hashes von 3190 Originaldateien und allen 38 vorgefundenen unversionierten Dateien. Bisher ausschließlich acht erlaubte Originaldateien (Biom-Terrainquellen, zwei Terrainassets und Biom-Map) geändert; alle 38 ursprünglichen unversionierten Dateien bytegleich. VisualV2, bestehende Pokémonquellen, Spielstände und Vollbackup-Verweise unverändert. Keine neuen Maps/Projektkopien/Worktrees/Backups. Keine Performance-Benchmarkreihe.
 
-Commit-, Remote- und LFS-Nachweise werden nach dem geprüften Sicherungsschritt ergänzt. Kostenbudget bleibt 0 USD, keine Budgetänderung.
+Commit-, Remote- und LFS-Nachweise stehen in Abschnitt13. Kostenbudget bleibt0 USD, keine Budgetänderung.
 
 Wasser-Nachprüfung: WaterMotion01 bestand erneut 173,21 m / 15 Ziele ohne Teleports. Drei reale lokale 1280×720-Bewegungssequenzen mit jeweils etwa sechs Sekunden, 28–29 tatsächlichen Frames und Originalzeitstempeln erzeugt (größtes Intervall 0,278 s; keine Behauptung kontinuierlicher 30/60-fps-Videos). Erneuter Abhängigkeitsaudit und zwölf Map Checks nach dem letzten Startpunktfix bestanden. Tatsächliche Slate-Kampfansicht visuell kontrolliert: Garados vollständig eingerahmt, Originalfarben sichtbar; große Größenunterschiede bleiben bewusst erhalten.
 
@@ -194,3 +194,20 @@ Tatsächliche Bewegungsdateien: [Habitak Abheben/Flug/Landen](../Saved/BiomeTest
 - Externer iOS-Helferfehler und bestehende Startwarnungen bleiben offen. Strenger Wrapper weiterhin Exit1. Keine Änderung der Engine-Helfer oder Warnungsunterdrückung in diesem Auftrag.
 
 Empfehlung: Den normalen PIE-Test der vorhandenen Biom-Map zur visuellen Abnahme verwenden, besonders Schwimmbewegung, Habitaks kleine Hindernisüberflüge, Höhlenrückweg und Waldkamerafenster. Keine automatische Übertragung auf VisualV2 und keine weiteren Kreaturen oder Landschaftspässe in diesem Auftrag.
+
+
+## 13. GitHub-Sicherung und Übergabe
+
+| Geprüftes Paket | Commit auf origin/main | Remote-LFS-Objekte | Verifizierte Bytes |
+|---|---|---:|---:|
+| Wasser | `6e7615a3b0fdc15c9bcb676f87b829295a411734` | 60 | 152714462 |
+| Plateau/Höhle | `bdd559d3ceaa9459e64ae5ade64311ecaa4b941e` | 7 | 7729955 |
+| Fünf Wiesenarten / begrenzter Flug | `a196c77647ca2dd7aa9e5b23e17357204e708e7a` | 136 | 198363016 |
+| Ruine | `26a88c66082c6e12fe5d8743f78e51161af7d9e6` | 3 | 2094353 |
+| Lokale Waldkamera / Gesamtabnahme | `7ac6c9f0eecde6a2c09cb75122797fbcca4dbfdc` | 8 | 2205561 |
+
+Jeder Sicherungspunkt wurde regulär gepusht. Die angegebenen LFS-Nutzdaten wurden tatsächlich vom Remote heruntergeladen und per SHA-256 gegen die Commit-Pointer geprüft. Keine nur behauptete Uploadbestätigung. Der abschließende Dokumentencommit enthält ausschließlich diesen Bericht und dessen Pflichtdatei-Prüfsumme; keine weiteren LFS-Inhalte.
+
+Alle sieben autorisierten Incoming-Originale sind jetzt unverändert versioniert. Die übrigen31 anfänglichen unversionierten Dateien bleiben lokal unverändert; sie werden nicht ungeprüft beigefügt. Alle38 anfänglichen Dateien sind weiterhin erhalten. Keine Kontrollbilder, Videos, Shader-Caches, Builds oder temporären Renderings committed. Keine GitHub-Aktionsdateien vorhanden oder ergänzt. Kein Force-Push, keine Historyänderung, keine Budget- oder Zahlungsänderung und keine zusätzliche Bereinigung.
+
+Die bestehende Biom-Map ist in der frisch gestarteten Editorsitzung gespeichert und bereit für normales Play. Nächster Schritt ist die visuelle Nutzerabnahme dieses Teststands; keine automatische weitere Map-/Kreaturenbearbeitung.
