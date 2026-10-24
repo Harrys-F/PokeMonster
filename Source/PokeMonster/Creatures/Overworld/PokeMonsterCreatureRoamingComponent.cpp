@@ -105,7 +105,13 @@ bool UPokeMonsterCreatureRoamingComponent::IsInsideHabitat(const FVector& Point)
 	{
 		const auto* Building = Weak.Get(); if (!Building) continue;
 		const bool PointInside = Building->IsViewerInside(BodyPoint);
-		if (!FollowTarget.IsValid()) { if (PointInside) return false; continue; }
+		if (!FollowTarget.IsValid())
+        {
+            if (BiomeHabitat && BiomeHabitat->InteriorOwner==Building)
+            { if (!Building->IsViewerInRelocatedRoom(BodyPoint)) return false; }
+            else if (PointInside) return false;
+            continue;
+        }
 		const FVector Viewer = FollowTarget->GetActorLocation();
 		if (Building->IsViewerInRelocatedRoom(Viewer))
 		{ if (!Building->IsViewerInRelocatedRoom(BodyPoint)) return false; }

@@ -4,6 +4,7 @@
 #include "../../Game/PokeMonsterGameMode.h"
 #include "PokeMonsterBiomeHabitat.generated.h"
 class UBoxComponent;
+class APokeMonsterBuildingCutaway;
 class UPokeMonsterCreatureSpeciesData;
 class APokeMonsterCreatureVisualActor;
 class UPokeMonsterCreaturePresentationData;
@@ -50,6 +51,8 @@ public:
  virtual void Tick(float Delta) override;
  UPROPERTY(VisibleAnywhere,BlueprintReadOnly) TObjectPtr<UBoxComponent> Bounds;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) FString HabitatName;
+ /** Optional same-map interior owner. Empty retains exclusion of all building interiors. */
+ UPROPERTY(EditInstanceOnly,BlueprintReadWrite) TObjectPtr<APokeMonsterBuildingCutaway> InteriorOwner;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) EPokeMonsterBiomeMedium Medium=EPokeMonsterBiomeMedium::Land;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) float WaterSurfaceZ=-20.f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) float WaterDraftCm=20.f;

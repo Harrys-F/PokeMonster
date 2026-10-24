@@ -14,6 +14,7 @@
 #include "../../Save/PokeMonsterSaveSubsystem.h"
 #include "../../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "Engine/World.h"
+#include "../../World/PokeMonsterBuildingCutaway.h"
 #include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
 #include "Kismet/GameplayStatics.h"
@@ -118,6 +119,11 @@ void APokeMonsterBiomeHabitat::BeginPlay()
    if(!Visual||!Visual->SetSpecies(Species)){if(Visual)Visual->Destroy();continue;}
    if(!S.PresentationOverride.IsNull() && !Visual->SetPresentation(S.PresentationOverride.LoadSynchronous())) {Visual->Destroy();continue;}
    Actor=Visual;Visual->IdlePhaseOffset=FRandomStream(S.Seed).FRand();
+   if(InteriorOwner)
+   {
+    TInlineComponentArray<UPrimitiveComponent*> Parts;Visual->GetComponents(Parts);
+    for(auto* Part:Parts){Part->SetLightingChannels(false,true,false);Part->SetCastShadow(false);}
+   }
   }
   else
   {

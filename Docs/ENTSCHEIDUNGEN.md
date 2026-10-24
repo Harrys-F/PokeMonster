@@ -1132,3 +1132,7 @@ Explizite Auswahl eines vorhandenen Team-Pokémon per `pm.EvolutionTest.Start 1�
 ## 24.10.2026 – Biom V1.1: Wasser und isolierte Gameplayprüfung
 
 Auf Nutzerauftrag werden die vorhandene Biom-Map und wiederverwendbare optionale Bewegung erweitert, VisualV2 bleibt unverändert. Karpador/Garados erhalten eigene Rigs aus unveränderten Meshy-Originalen. Garados' 6,5 m beziehen sich auf die Körpermittellinie, nicht auf die Höhe der vorhandenen S-Pose. Schiggys Schwimmen ist ein testmapseitiger Präsentationsoverride. Keine globale Änderung bestehender Starterclips. Der bestehende RAM-Spielstandtransport schützt ausdrücklich aktivierte PIE-Kampfprüfungen; normale Biom-Läufe speichern weiterhin nicht. Keine neue Map, kein Unterwassersystem. Restliche V1.1-Pakete und visuelle Freigabe stehen im Zwischenbericht ausdrücklich offen.
+
+### 24.10.2026 – Biom V1.1 Plateau/Höhle
+
+Der beauftragte 15-m-Felsen erhält einen langen begehbaren Kehrenweg. Die vorhandene gleichkartige Innenraumtechnik wird für die Höhle wiederverwendet, mit ausdrücklich lokalem InteriorOwner am Biom-Habitat. Kein pauschales Erlauben wilder Pokémon in Gebäuden. Der bestehende technische Höhlenschnitt wird in diesen Raum überführt; keine zusätzliche Map. Lokale Höhlenkamera und -lichter ändern keine Außenparameter. Details, Materialgrenzen und tatsächliche Laufprüfungen im V1.1-Bericht.
