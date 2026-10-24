@@ -1,9 +1,5 @@
 {
-  "schema": 1,
-  "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "biome_test_v1_functional_tests_verified_strict_external_ios_warning",
-  "generated_at": "2026-10-24",
   "files": {
     ".codex/config.toml": {
       "bytes": 59,
@@ -317,6 +313,58 @@
       "bytes": 1100610,
       "sha256": "3e6379a15e8e3e1eb48c58e14e3d475307bc292248088897a4c4e23299554a03"
     },
+    "Art/Characters/Creatures/Garados/Exports/MeshyV1/Garados_Attack.fbx": {
+      "bytes": 1498188,
+      "sha256": "03639a5a54b626977bb95c095cb526641c474c08d1740f818016179eb213034e"
+    },
+    "Art/Characters/Creatures/Garados/Exports/MeshyV1/Garados_Faint.fbx": {
+      "bytes": 1501900,
+      "sha256": "b8b5b4d362a47b0160de67a96821e713d352ca940a50f93d8745d0450ebdb0e4"
+    },
+    "Art/Characters/Creatures/Garados/Exports/MeshyV1/Garados_Happy.fbx": {
+      "bytes": 1512316,
+      "sha256": "b8cc80dba9b16626571aaedb61a15090e2505091d321fdbf47f7c9d501aa10e9"
+    },
+    "Art/Characters/Creatures/Garados/Exports/MeshyV1/Garados_Hit.fbx": {
+      "bytes": 1486140,
+      "sha256": "404af92429585c8b3bb5154bb6341aa6b32e093cd172619fbc08af2881769568"
+    },
+    "Art/Characters/Creatures/Garados/Exports/MeshyV1/Garados_Idle.fbx": {
+      "bytes": 1532828,
+      "sha256": "ba4a0288294b73f30d7de8856583cb25a9a64c1ba2a58cb2d8171746bf141b2d"
+    },
+    "Art/Characters/Creatures/Garados/Exports/MeshyV1/Garados_Run.fbx": {
+      "bytes": 1494444,
+      "sha256": "357e906faa4496a838ad46d076d2c2e69b4faa115e9853663a6a045255ab5f2a"
+    },
+    "Art/Characters/Creatures/Garados/Exports/MeshyV1/Garados_Walk.fbx": {
+      "bytes": 1501212,
+      "sha256": "60db850ad41c53aece353158ed38e868a92f9c5a543de094cb14ae50af2c9a9d"
+    },
+    "Art/Characters/Creatures/Garados/MeshyV1_AnimationAudit.json": {
+      "bytes": 753,
+      "sha256": "2a3809ec7ccdc3f447bf3b2a66fa2bbb39406af7726536b121600852b497d46e"
+    },
+    "Art/Characters/Creatures/Garados/MeshyV1_ModelAudit.json": {
+      "bytes": 3839,
+      "sha256": "0f31b9922c8209ffead8d2c621a241022fe3b8e6f3361247d8f1e7b7ccfa5f73"
+    },
+    "Art/Characters/Creatures/Garados/Source/Garados_Meshy_V1.blend": {
+      "bytes": 21016882,
+      "sha256": "634be2dec767ac422cb8ae406cb92892578c095e370dd3ec55ad731a52344836"
+    },
+    "Art/Characters/Creatures/Garados/Textures/MeshyV1/Garados_BaseColor.jpg": {
+      "bytes": 10048502,
+      "sha256": "48954b6ba517a4ae22a22ab8c9c185789ada232d77228f051cb44982a7957a5c"
+    },
+    "Art/Characters/Creatures/Garados/Textures/MeshyV1/Garados_MetallicRoughness.jpg": {
+      "bytes": 1597588,
+      "sha256": "59d9cdd38e89258f2fde05a70eed6b53accc94e0d7a6a93d5283686e51c021c7"
+    },
+    "Art/Characters/Creatures/Garados/Textures/MeshyV1/Garados_Normal.jpg": {
+      "bytes": 6511319,
+      "sha256": "3973c0759785cebc17e2e966f34f5b9352f737671f5bbd3507276d651a37cc5a"
+    },
     "Art/Characters/Creatures/Gengar/Exports/MeshyV1/Gengar_Attack.fbx": {
       "bytes": 1290284,
       "sha256": "af0e01a77d39fb4606b5e9b1c291a0096b2c28d3e25b3de38ab620a9d460910c"
@@ -601,6 +649,10 @@
       "bytes": 4261224,
       "sha256": "1dcc483860dd217c074d6aa79b0f4f113b7321b6894b57f181770022a9eb11d0"
     },
+    "Art/Characters/Creatures/Incoming/Garados.glb": {
+      "bytes": 19244792,
+      "sha256": "ce0661729d56dfa628a3232f4296bd5ae3bd51a914f417e8e82426e33133f5b9"
+    },
     "Art/Characters/Creatures/Incoming/Gengar.glb": {
       "bytes": 5728244,
       "sha256": "e7cf69260f12afada40e2962f28eedeabf6b022069078534315032645e8a2544"
@@ -616,6 +668,10 @@
     "Art/Characters/Creatures/Incoming/Glutexo.glb": {
       "bytes": 5579952,
       "sha256": "718f9eb037832228f25bdbce299671db0972a9c3c271d23724e39743476c6efe"
+    },
+    "Art/Characters/Creatures/Incoming/Karpador.glb": {
+      "bytes": 15234152,
+      "sha256": "eaafa7d88721182fd94786624be5358b49da259a238208e315f2788423c2cf77"
     },
     "Art/Characters/Creatures/Incoming/Machomei.glb": {
       "bytes": 7762100,
@@ -636,6 +692,58 @@
     "Art/Characters/Creatures/Incoming/Shiggy.glb": {
       "bytes": 5898576,
       "sha256": "8353b766fc36d90d3c7a8905e82ae9c407a974959dcab6cac629c5127446a127"
+    },
+    "Art/Characters/Creatures/Karpador/Exports/MeshyV1/Karpador_Attack.fbx": {
+      "bytes": 1323644,
+      "sha256": "d290294ba32a18aa50a53e6bcdf53a2837c8a9417a31cdff6491eb372c79adea"
+    },
+    "Art/Characters/Creatures/Karpador/Exports/MeshyV1/Karpador_Faint.fbx": {
+      "bytes": 1325580,
+      "sha256": "2328850c5344ad9f1bcc3e97a4757aabc9ea40e01fae5f53e7c11158121849e6"
+    },
+    "Art/Characters/Creatures/Karpador/Exports/MeshyV1/Karpador_Happy.fbx": {
+      "bytes": 1330988,
+      "sha256": "d3d70d55f619a7d4bdafa0dafdd4fbee642c1e8da72d309cc55350d2b238eedd"
+    },
+    "Art/Characters/Creatures/Karpador/Exports/MeshyV1/Karpador_Hit.fbx": {
+      "bytes": 1313436,
+      "sha256": "9688bca70964a68395e8a1a572c594feb8956ce3aacc494bf25921b794805ced"
+    },
+    "Art/Characters/Creatures/Karpador/Exports/MeshyV1/Karpador_Idle.fbx": {
+      "bytes": 1345708,
+      "sha256": "1300bba0d10fff85c8f7da4bcce453f48020eefa0d73e04e95917ef451229fd2"
+    },
+    "Art/Characters/Creatures/Karpador/Exports/MeshyV1/Karpador_Run.fbx": {
+      "bytes": 1320476,
+      "sha256": "96e91f422423c77e6c0fc5dadfff2ee5acf506665b7b1cd7b9c5a49fc9fe12a9"
+    },
+    "Art/Characters/Creatures/Karpador/Exports/MeshyV1/Karpador_Walk.fbx": {
+      "bytes": 1322268,
+      "sha256": "6f3709f30b843edb0527cddaf6efc787f818e0f3a0c3c2e90d9a0a27e108fbc6"
+    },
+    "Art/Characters/Creatures/Karpador/MeshyV1_AnimationAudit.json": {
+      "bytes": 765,
+      "sha256": "0935f9f4e493028bb93eb8eb757aa2353331fada12d145adfa3d7728958486db"
+    },
+    "Art/Characters/Creatures/Karpador/MeshyV1_ModelAudit.json": {
+      "bytes": 2899,
+      "sha256": "097ed61701b6a715bc027f1621a69329451e3c9113d4c2504e788d10a647d628"
+    },
+    "Art/Characters/Creatures/Karpador/Source/Karpador_Meshy_V1.blend": {
+      "bytes": 17071338,
+      "sha256": "852e4f1768ec4eee86cbdcb9dfec4d630483eb7c7dd00c19882cf0f1b6f27759"
+    },
+    "Art/Characters/Creatures/Karpador/Textures/MeshyV1/Karpador_BaseColor.jpg": {
+      "bytes": 8258711,
+      "sha256": "d0283fb95ffcf7463d476de27661cc3f63b62d58e4d762d8e47b7496e7bb684c"
+    },
+    "Art/Characters/Creatures/Karpador/Textures/MeshyV1/Karpador_MetallicRoughness.jpg": {
+      "bytes": 1278803,
+      "sha256": "7b84ca4c474766e40231d94ea2ad20e4bb715a5f0b2718b304089fb2ecc5afe2"
+    },
+    "Art/Characters/Creatures/Karpador/Textures/MeshyV1/Karpador_Normal.jpg": {
+      "bytes": 4808262,
+      "sha256": "269a39e6c927b102babebaf11e9f85c4e3fcef1277e42fb46b5d58a2adf55aa5"
     },
     "Art/Characters/Creatures/Machomei/AnimationCorrectionsV6_Audit.json": {
       "bytes": 3414,
@@ -1029,6 +1137,10 @@
       "bytes": 1216462,
       "sha256": "f65fb1df13cbda173f6fa78b5ad09e06e3434c08372168b802f520675104c103"
     },
+    "Art/Characters/Creatures/Schiggy/Exports/BiomeV11/Schiggy_Swim.fbx": {
+      "bytes": 1232492,
+      "sha256": "ab7528c3624c9096190898571e7cda5b4947078b3034b4ea6fa7d97c68937187"
+    },
     "Art/Characters/Creatures/Schiggy/Exports/MeshyV1/Schiggy_Attack.fbx": {
       "bytes": 1224860,
       "sha256": "92fd6f8085f1c059f4eb91944f9970251833ba1eb5b4025a93e6b7cb0a248e61"
@@ -1089,9 +1201,17 @@
       "bytes": 7459757,
       "sha256": "939ecb75f54201ba3e2a3f074467c9486bb04b31b21ea98025b5c509eaa0ac3f"
     },
+    "Art/Characters/Creatures/Schiggy/Source/Schiggy_Swim_V11.blend": {
+      "bytes": 7479718,
+      "sha256": "3e9a8bafe7e5c6f37276a3238b72546e31bfacb08633facedbca7625fa36e9b4"
+    },
     "Art/Characters/Creatures/Schiggy/SurfaceV2_Audit.json": {
       "bytes": 938,
       "sha256": "858ea8351fd06f0c34e20b8c5591f330fc5a71f1f40e1e0c3f6e188fc1eee89a"
+    },
+    "Art/Characters/Creatures/Schiggy/SwimV11_Audit.json": {
+      "bytes": 543,
+      "sha256": "bdd6accdfa7c707669191f0256b1ef2e6c3c9fba669f5997ca11356859b56594"
     },
     "Art/Characters/Creatures/Schiggy/Textures/MeshyV1/Schiggy_BaseColor.jpg": {
       "bytes": 2351219,
@@ -5494,20 +5614,20 @@
       "sha256": "7c6f3303482cafea85caf8939de4202178aaad314d4dd23f22e280b1d5d06595"
     },
     "Art/World/BiomeTestV1/BiomeTest_Terrain_V1.blend": {
-      "bytes": 2376066,
-      "sha256": "cf8df0755c55690a1057ff2afbf6611ff17dfbd5b78ecaae412a4079eb18b5c4"
+      "bytes": 2348702,
+      "sha256": "1ca50d96ca68a12c9560e8773d6913ab1e2d49eb9392adb129f5ef16867b410a"
     },
     "Art/World/BiomeTestV1/Exports/SM_BiomeTerrain.fbx": {
-      "bytes": 1909036,
-      "sha256": "0d9e0f5a1dbecfaf66666fb3d012b17c7885b9b2a28a8ef7f3e44b6ced63502e"
+      "bytes": 1884028,
+      "sha256": "f0b2472ca18a70e5a89060269b7abdac9882af540df4693b1c11c2478752420e"
     },
     "Art/World/BiomeTestV1/Exports/SM_BiomeWater.fbx": {
       "bytes": 100284,
-      "sha256": "a135adfeb7c662bf36e44bdf0ce0f61a512c47dd63b0b1c104bddf0aec4546bc"
+      "sha256": "b9fa3c97925ab81bf05f89f7718d0b89913fa8e3230452397258f3fd473833a5"
     },
     "Art/World/BiomeTestV1/Terrain.json": {
-      "bytes": 551,
-      "sha256": "06477947d6436e671e7f05643c145d8dd25d5a7131b3c29296249f92a6622c48"
+      "bytes": 550,
+      "sha256": "a7624191b44cd5ce58e1d5e54d6077b5dadfad2329723dfa739c060ce8239fc5"
     },
     "Art/World/EnvironmentPerfV1/Review/Data/AutomationIndex.json": {
       "bytes": 19255,
@@ -6677,6 +6797,62 @@
       "bytes": 11806,
       "sha256": "6a885a8d63518dcd15f9234a926994c8b528c4ea006a8d6c3feace0e55125305"
     },
+    "Content/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Attack.uasset": {
+      "bytes": 56534,
+      "sha256": "c17262f199914456918c54defc00213d7e69fd115f91495b7068e709d17c2b93"
+    },
+    "Content/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Faint.uasset": {
+      "bytes": 65870,
+      "sha256": "85cc0a80bef8cee63a1670db124872ce9f1c377e3cb6d5e679709100931d4834"
+    },
+    "Content/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Happy.uasset": {
+      "bytes": 77678,
+      "sha256": "82af12bf5d4bb30ff80b6d3fa0c57eece4e1f977bb2e0324e7fcc7d54572e00d"
+    },
+    "Content/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Hit.uasset": {
+      "bytes": 44409,
+      "sha256": "4b91b4ec167ee3f13559f95d09e3cfd219e62f29b424c2d52df3db979893e2a5"
+    },
+    "Content/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Idle.uasset": {
+      "bytes": 103037,
+      "sha256": "6186d0286e3c28d8140af61d1331f0c205dfbd98b51bf5cda7e734db5664502c"
+    },
+    "Content/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Run.uasset": {
+      "bytes": 52384,
+      "sha256": "cbd3830613dcd73bf69b76e3595b78cb47389849b334a89e0c1917b16d48ab77"
+    },
+    "Content/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Walk.uasset": {
+      "bytes": 65075,
+      "sha256": "b5dec37226c81ca902899c050f07fa4a7ee95eaf56c4c6bfa7dc6d7dc507036f"
+    },
+    "Content/Characters/Creatures/Garados/MeshyV1/DA_Garados_Presentation.uasset": {
+      "bytes": 4161,
+      "sha256": "535cf5cd91170159dacccff33067ba926f4bae19b0ee496c3e71c240407e3fee"
+    },
+    "Content/Characters/Creatures/Garados/MeshyV1/Materials/M_Garados.uasset": {
+      "bytes": 13476,
+      "sha256": "0a24c383dd467a0f18c59f52627546f5eb1a533f2f91efdd97412153c8546320"
+    },
+    "Content/Characters/Creatures/Garados/MeshyV1/Meshes/SK_Garados_Meshy.uasset": {
+      "bytes": 5945744,
+      "sha256": "34597772d8849447d48bc2f1652c07c2a54ad34dd26a7a4fc47d26be14d7f199"
+    },
+    "Content/Characters/Creatures/Garados/MeshyV1/Meshes/SK_Garados_Meshy_Skeleton.uasset": {
+      "bytes": 9746,
+      "sha256": "dd5d036da5f158c781b71d8395d6383224159e31dc83df2889024bf3e64302c5"
+    },
+    "Content/Characters/Creatures/Garados/MeshyV1/Textures/T_Garados_BaseColor.uasset": {
+      "bytes": 10067875,
+      "sha256": "f9bb804c414b17b48f5ed7bc5d8b0e8a145c05032defa04f822af76e457e6a23"
+    },
+    "Content/Characters/Creatures/Garados/MeshyV1/Textures/T_Garados_MetallicRoughness.uasset": {
+      "bytes": 1608714,
+      "sha256": "dd382724f88ea514d398ae74de44f9a2b804645f1a20e1698c4a57358f8cd254"
+    },
+    "Content/Characters/Creatures/Garados/MeshyV1/Textures/T_Garados_Normal.uasset": {
+      "bytes": 6522450,
+      "sha256": "a6b1c7e20278cd4fd392616ab05fc3c2367b11c7d89dc87250d07ef5513b598e"
+    },
     "Content/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Attack.uasset": {
       "bytes": 57598,
       "sha256": "6093afeb632161e8259fb7e44e52b9c0c09696dee274dc87b75a7535142ac6eb"
@@ -6980,6 +7156,62 @@
     "Content/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_Normal.uasset": {
       "bytes": 1451025,
       "sha256": "50c0264ab4ae67c7d8f03061ae0dfc8914eaf364258dc53f7347034507fc722b"
+    },
+    "Content/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Attack.uasset": {
+      "bytes": 40600,
+      "sha256": "8d3b007b71a7dba5f03f0ca2c9c993a189e1879dfba41b95d05975c6a7538972"
+    },
+    "Content/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Faint.uasset": {
+      "bytes": 46408,
+      "sha256": "d051750ae86613835fed0684167d3cfba13f2ced8e75f1560daeabe4dac7cd1c"
+    },
+    "Content/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Happy.uasset": {
+      "bytes": 52031,
+      "sha256": "afbffe54d019b29a3b490dd4cf2f083a2d5d7037105cafc04d0255435705faa7"
+    },
+    "Content/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Hit.uasset": {
+      "bytes": 35556,
+      "sha256": "c2bfb92b738e6a9b11686be20051e81a76187bd2ae3d3fbcd78ca578f493de6e"
+    },
+    "Content/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Idle.uasset": {
+      "bytes": 62686,
+      "sha256": "01ee2a7628591c5420e537e8d5e7874d1c76465e4eb48cd6c3b52c7ad294c637"
+    },
+    "Content/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Run.uasset": {
+      "bytes": 38106,
+      "sha256": "0e7f974d35386365d24dd67ed25e8c1ad074b7713d890c2f9bf942cef5fb281b"
+    },
+    "Content/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Walk.uasset": {
+      "bytes": 44254,
+      "sha256": "dc85660fef26bfd1adba538a6effc582e82b22a88e545b2ad10d2a656ae3ac38"
+    },
+    "Content/Characters/Creatures/Karpador/MeshyV1/DA_Karpador_Presentation.uasset": {
+      "bytes": 4086,
+      "sha256": "34efd38854cb7cf02cd1bf3744d3b71a7a23d3c1910aaddaa27243f2f5ddfb2a"
+    },
+    "Content/Characters/Creatures/Karpador/MeshyV1/Materials/M_Karpador.uasset": {
+      "bytes": 14753,
+      "sha256": "b0df5da3948ee8618ef81fcc851d53b945f3e406118bb6d244d65b438b3f8797"
+    },
+    "Content/Characters/Creatures/Karpador/MeshyV1/Meshes/SK_Karpador_Meshy.uasset": {
+      "bytes": 4642957,
+      "sha256": "490d8d66203113d17035b54926fc26bc81850c9d1cbf0a88e1a09f6204aec14f"
+    },
+    "Content/Characters/Creatures/Karpador/MeshyV1/Meshes/SK_Karpador_Meshy_Skeleton.uasset": {
+      "bytes": 10199,
+      "sha256": "e9fc0481fa5593eec73fd23c13ee80a5e860a4f4ddd79e29f1f741fb251fb0a0"
+    },
+    "Content/Characters/Creatures/Karpador/MeshyV1/Textures/T_Karpador_BaseColor.uasset": {
+      "bytes": 8280696,
+      "sha256": "b8b3df2a4999e81a9446945ceefd703046a3297fff2ffa5ece1359290aaf7f14"
+    },
+    "Content/Characters/Creatures/Karpador/MeshyV1/Textures/T_Karpador_MetallicRoughness.uasset": {
+      "bytes": 1289965,
+      "sha256": "e9ba5769169470e8ea69cc8b4040df3e7e2d260c53254c101fb248c40e2037e6"
+    },
+    "Content/Characters/Creatures/Karpador/MeshyV1/Textures/T_Karpador_Normal.uasset": {
+      "bytes": 4819433,
+      "sha256": "645ac98e131d08a75f14a02e86bd1c7f0d5c25b63efdc5952c0212f118ed2dd8"
     },
     "Content/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Attack_V6.uasset": {
       "bytes": 100713,
@@ -7432,6 +7664,14 @@
     "Content/Characters/Creatures/Pikachu/MeshyV1/Textures/T_Pikachu_Normal.uasset": {
       "bytes": 1227592,
       "sha256": "3ca4901857ff5ad1fbb5805f4f2964a5b7e7df2a90a70c6c3239fb42cf63b4c2"
+    },
+    "Content/Characters/Creatures/Schiggy/BiomeV11/A_Schiggy_Swim.uasset": {
+      "bytes": 62280,
+      "sha256": "8f25f8473ef210d835501393d8b7048843776ea82159ce4426965e6b438b4bd8"
+    },
+    "Content/Characters/Creatures/Schiggy/BiomeV11/DA_Schiggy_SwimPresentation.uasset": {
+      "bytes": 4273,
+      "sha256": "c96909358c4966f760adbf2686dc64098273fa27399d87b18ca210d8c6757527"
     },
     "Content/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Attack.uasset": {
       "bytes": 51026,
@@ -8477,6 +8717,10 @@
       "bytes": 6176,
       "sha256": "d98e3def5fe0dd0e83dad61c0d1adbf50870be284fb222bb3c6140d7ee3bba5e"
     },
+    "Content/Data/Creatures/DA_Garados.uasset": {
+      "bytes": 5644,
+      "sha256": "ca507a4931551e696ec5f8f031554ac765786f1874c7e77f1d416d53ac8ebf09"
+    },
     "Content/Data/Creatures/DA_Gengar.uasset": {
       "bytes": 5902,
       "sha256": "35a10dc702c69bce1c281ca343c40d8d50927721304c2661ab7090242f43b507"
@@ -8488,6 +8732,10 @@
     "Content/Data/Creatures/DA_Glutexo.uasset": {
       "bytes": 7090,
       "sha256": "c0140ee529be955dba5c9f5f17127954a9fe4d23257b762826b47d103e2fd626"
+    },
+    "Content/Data/Creatures/DA_Karpador.uasset": {
+      "bytes": 4021,
+      "sha256": "f2c71c05a7e710046e44a7a1c5277017604d799ea4c92ef2267d3f47ef2d831f"
     },
     "Content/Data/Creatures/DA_Machomei.uasset": {
       "bytes": 6197,
@@ -8553,6 +8801,10 @@
       "bytes": 2214,
       "sha256": "64957786c89d7161c537635f015feb78d9583f7ee77821cd5161fef781da02a2"
     },
+    "Content/Data/Encounters/DA_Garados_Wild.uasset": {
+      "bytes": 2230,
+      "sha256": "59bfbe442554734586b5a14b557e81156fbca46b91734217e3728d02745ea39f"
+    },
     "Content/Data/Encounters/DA_Gengar_Wild.uasset": {
       "bytes": 2222,
       "sha256": "73d8054881f47f1d027cfd7ac1e686030a372d018602766d25c6d750a681417c"
@@ -8564,6 +8816,10 @@
     "Content/Data/Encounters/DA_Glutexo_Wild.uasset": {
       "bytes": 2230,
       "sha256": "5210f7c9b7cabec7a4d83664ad511a165579394d5f10822dd9af5329a6cef039"
+    },
+    "Content/Data/Encounters/DA_Karpador_Wild.uasset": {
+      "bytes": 2238,
+      "sha256": "a266f066f146860a6050b13d97f35954e82ef9e4081d109b8990e81ddf28ad59"
     },
     "Content/Data/Encounters/DA_Machomei_Wild.uasset": {
       "bytes": 2238,
@@ -9174,12 +9430,12 @@
       "sha256": "7d7fe2af0cc8e68c999f2363ec0a43add7ec1e6457cb1999883ea9e50e196917"
     },
     "Content/Environment/BiomeTestV1/Meshes/SM_BiomeTerrain.uasset": {
-      "bytes": 1456208,
-      "sha256": "30873aba1a82b737e4b8737e645477d26b60480f79de0c4015804f6f2bd61a99"
+      "bytes": 1455298,
+      "sha256": "0848010658d14f7c606dfa078229e2795e31cd1e2dc5a3085bdcd5ff0c337a8e"
     },
     "Content/Environment/BiomeTestV1/Meshes/SM_BiomeWater.uasset": {
-      "bytes": 78183,
-      "sha256": "9b8be8d5bc84908221f1ccec368fe68f3c2c6aa777716d87eb27631d41f33ab5"
+      "bytes": 78195,
+      "sha256": "cfe7582e6af07a1bb77cfcae30518e4ef0880e95fde6cddfa4ccd10a791e5b15"
     },
     "Content/Environment/DevTestMapVisualV2/Materials/MI_V2_BarkReveal.uasset": {
       "bytes": 16912,
@@ -11742,8 +11998,8 @@
       "sha256": "1e83bf51c643eb1e22cbfbe069b726a017df2181bee72222d10b09cf7b0c3c14"
     },
     "Content/Maps/Dev_BiomeTestMap_V1.umap": {
-      "bytes": 1589172,
-      "sha256": "cf7f071f6699bd0b786ea9a55deeb8cfacf074179dbfdb409b059567f9e5569b"
+      "bytes": 1659884,
+      "sha256": "79456b407da05b48082d7639882b72689224d2ddcc8fb2b98f5dcf2ac5a53309"
     },
     "Content/Maps/Dev_BuildingKitTestMap.umap": {
       "bytes": 887279,
@@ -11853,6 +12109,10 @@
       "bytes": 11314,
       "sha256": "3be94f00ce2a2be6de0f64f4ecd2cabe3af4b4ce606f4230c197bba670f896bf"
     },
+    "Docs/BIOM_TESTMAP_V11_PRUEFBERICHT.md": {
+      "bytes": 7639,
+      "sha256": "a8430a5180eaac285fef119cd41ac2715546270c88cdb3a2fb7afe80c69154d7"
+    },
     "Docs/BIOM_TESTMAP_V1_PRUEFBERICHT.md": {
       "bytes": 10912,
       "sha256": "eff21a60486f357f3a23d8b089bc599944dc83faa98978c925b628e58a54cbb7"
@@ -11886,8 +12146,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 159532,
-      "sha256": "fe9084a773a84fa513c88a412ce9f7c094c038eacc389ee539a9aacb9af4392c"
+      "bytes": 160297,
+      "sha256": "4c67af52d9ba1738d5059c61747961a8b29ee0f2866b8c4bebca57156bf0a397"
     },
     "Docs/ENTWICKLUNG_MANUELL_IM_PIE.md": {
       "bytes": 10017,
@@ -12062,8 +12322,8 @@
       "sha256": "1ede0acfca40e87ac09ffe5dbe8993e5cb6142cff2aebf509f4cb084ae6e53fc"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 183625,
-      "sha256": "c91078252b4cdc7e73cfeda71285967d78eb5dd7fe079cd3b2a2317ed21ed564"
+      "bytes": 184742,
+      "sha256": "ef9779916499285e65eb094c1cd6da116f5d4ea666a641325b147e60085d46a2"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -12350,12 +12610,12 @@
       "sha256": "e857b3425ef486083bcd684e5ffdc3f970a454342403b09a871962f9d0cca40f"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreaturePresentation.cpp": {
-      "bytes": 11806,
-      "sha256": "46cd78b0d2be89349bded4269c8fcc443c61d411ec620df1e662cd46c1812344"
+      "bytes": 13051,
+      "sha256": "7f5526090ccbb5bb9135eae6fd52ecec0189e74163ea801beeebdd0eccc5d4b3"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreaturePresentation.h": {
-      "bytes": 7148,
-      "sha256": "c278546cc1083af120e73c86b1e6ef6bc5f3908836e14b9f2bf6d1eb98493f2a"
+      "bytes": 7582,
+      "sha256": "aba990aea77abeb9d68f175674f7ee379f101473485c1170ca5e3a8be5982020"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureProgression.cpp": {
       "bytes": 8104,
@@ -12378,12 +12638,12 @@
       "sha256": "62578c59387cb94d5734eb1b521b04906be5f688f3177203529ae2499b801866"
     },
     "Source/PokeMonster/Development/BiomeTestV1/PokeMonsterBiomeHabitat.cpp": {
-      "bytes": 8545,
-      "sha256": "25be646bdd032b8a86a9170818e5b6bd59ded82b4dd289a333aa411067a3e387"
+      "bytes": 10201,
+      "sha256": "6b3320181ca84aabc3b443b5ae766161123db5a4cc64dff556dad2f9a07b927e"
     },
     "Source/PokeMonster/Development/BiomeTestV1/PokeMonsterBiomeHabitat.h": {
-      "bytes": 3513,
-      "sha256": "99db775e2b9f15797b72601dffda2eff1d1f4e3327b362c3b01addc140c71fee"
+      "bytes": 4214,
+      "sha256": "e9927731c606513050893474c3680053ae2fb7185b72eb46bb5c818cd2778be7"
     },
     "Source/PokeMonster/Development/PokeMonsterBattleSystemV3Review.cpp": {
       "bytes": 4471,
@@ -12446,8 +12706,8 @@
       "sha256": "81afb5f28802a33c55359ca3961f14adef64ad68644146ee15bbf99d7a79313b"
     },
     "Source/PokeMonster/Development/PokeMonsterEvolutionTest.cpp": {
-      "bytes": 9262,
-      "sha256": "1b15367dfbd8c7d977d84f8ad043b5578fd3482a803ce11313359a8a72e2a9c1"
+      "bytes": 9308,
+      "sha256": "d65b19f1070ba287a05a8e456568ea277eff7b1e771dc95ae69275fd577e7f9f"
     },
     "Source/PokeMonster/Development/PokeMonsterEvolutionTest.h": {
       "bytes": 416,
@@ -12510,8 +12770,8 @@
       "sha256": "81e8ea7bd2921a2fe547560f74ec4eb72f5c6fc2c85d4ee5b1858ebf7071f623"
     },
     "Source/PokeMonster/Development/PokeMonsterStarterExpansionReview.cpp": {
-      "bytes": 3489,
-      "sha256": "3c1c72018216d0effc2542b4a64a1497ee40858df39798641fb8bc416500edfd"
+      "bytes": 3598,
+      "sha256": "18b1dc9fe4903a50854a518034781b8254ec5f89c991ebea8d16e3b1e5392abe"
     },
     "Source/PokeMonster/Development/PokeMonsterSwitchProInputReview.cpp": {
       "bytes": 1674,
@@ -12770,8 +13030,8 @@
       "sha256": "13b77b20c01903f1130174690984d9612e6936c21f9884082f255054ddc9e6c8"
     },
     "Source/PokeMonster/Tests/PokeMonsterBiomeTest.cpp": {
-      "bytes": 3190,
-      "sha256": "fd615dd0a9ec920d5b39d5e3a25a19adc67271bc88bbb07004fcac6c41f8a93e"
+      "bytes": 4793,
+      "sha256": "35274509392dbb75f21702133bf3118d3b96996b24b3e97ef2badeb1f0f8dd69"
     },
     "Source/PokeMonster/Tests/PokeMonsterBuildingCameraTest.cpp": {
       "bytes": 11181,
@@ -13341,6 +13601,10 @@
       "bytes": 3086,
       "sha256": "ca0f0b7b8a162d8a633f5aca439ef0e6faaab373c1961c43114b758ace56d9ad"
     },
+    "Tools/BiomeTestV1/CaptureCompareV11.py": {
+      "bytes": 3152,
+      "sha256": "ee261987a43926bbbb906c2b49c7b4dc99c11a2ad090da2d13a58cf2f129b2fa"
+    },
     "Tools/BiomeTestV1/CreateMap.py": {
       "bytes": 17480,
       "sha256": "e5b2cbbfac4ab9594226f3283e495b17a524734b2a95288483f68980fe75791d"
@@ -13348,6 +13612,34 @@
     "Tools/BiomeTestV1/EditorSession.py": {
       "bytes": 349,
       "sha256": "25044c5a4532f0d9d1ce31325a585a41da93cc6f57276397b057449af97b44a7"
+    },
+    "Tools/BiomeTestV1/EncodeMotionV11.py": {
+      "bytes": 1570,
+      "sha256": "a12a58c80e08092cdf3d4425a1c530cc3d833a250e7855e61c9706a8f3dff352"
+    },
+    "Tools/BiomeTestV1/FixGaradosColourImportV11.py": {
+      "bytes": 1446,
+      "sha256": "bddafe7d4a8aaf44f8c5b6230ad6cf54cee7e5da82ddb3cd828b51ea210f6bb8"
+    },
+    "Tools/BiomeTestV1/FixJettySpawnV11.py": {
+      "bytes": 1597,
+      "sha256": "9cbbdfa646e0992f9ed0826af5c2bf88ef184908e3082d06fd4e1479cf8d2bbd"
+    },
+    "Tools/BiomeTestV1/ImportSchiggySwimV11.py": {
+      "bytes": 3322,
+      "sha256": "7a30be880b1e5a69e74a9d5a2ab347ab0ab78d1193afaa197bf320d2a0e8c25f"
+    },
+    "Tools/BiomeTestV1/ImportSpeciesV11.py": {
+      "bytes": 4059,
+      "sha256": "b8264ddc649797c3d3da19629fadcd1bd4bc2791de610937dd70305435752014"
+    },
+    "Tools/BiomeTestV1/InspectWaterV11.py": {
+      "bytes": 726,
+      "sha256": "5bd96cb131726b0b343d0de4d6df00395e831a0bb0b95df4aa88345f3bd3b099"
+    },
+    "Tools/BiomeTestV1/IntakeV11.py": {
+      "bytes": 2806,
+      "sha256": "008b3995156d5d352e36377c5485b9bb12887dc3b688a0380f40305abd68d392"
     },
     "Tools/BiomeTestV1/Inventory.py": {
       "bytes": 2785,
@@ -13358,8 +13650,8 @@
       "sha256": "c7a81f6bd1c47369b692add39891e7097ff4ac37f8cba6797ea20303c22645df"
     },
     "Tools/BiomeTestV1/Layout.py": {
-      "bytes": 2142,
-      "sha256": "f2ce1405a1e6da403d07cd588d63e8ac2ed463a3887e277c063f11270b5bf1dc"
+      "bytes": 2258,
+      "sha256": "9c04df007028ab9c08a0aa2fadedc9241acdeaeb595cf6b3ec884c7b50992bb1"
     },
     "Tools/BiomeTestV1/MapChecks.py": {
       "bytes": 1039,
@@ -13369,9 +13661,17 @@
       "bytes": 2631,
       "sha256": "24152d62558ba13ef0223b44a19c591f8a91ede4a3edb185b4ede69036945715"
     },
+    "Tools/BiomeTestV1/PrepareAquaticV11.py": {
+      "bytes": 9902,
+      "sha256": "36f100a0895d8a91064fa13745e6c73ccd3bbb62ae993ee41cf4726cecc283b0"
+    },
     "Tools/BiomeTestV1/PrepareAssets.py": {
       "bytes": 7098,
       "sha256": "5eba70284e59d4884c06897c06917628a0acdfc71c252e228751aac7f9b4e602"
+    },
+    "Tools/BiomeTestV1/PrepareSchiggySwimV11.py": {
+      "bytes": 3104,
+      "sha256": "7c846db9f86569a4ff3e15c7567bf828af82012949a1af164e8521a8eb46a1aa"
     },
     "Tools/BiomeTestV1/ProbeTerrain.py": {
       "bytes": 1000,
@@ -13381,21 +13681,53 @@
       "bytes": 6272,
       "sha256": "4eb0a4c1e7a51faea7ed2d4d678a6af3e3d8454a6929726c7523405104c498c1"
     },
+    "Tools/BiomeTestV1/ReferenceSourcesV11.json": {
+      "bytes": 1858,
+      "sha256": "e8d90c25a173901a3793fe79e00f1a649cae3074236149e1f7c399d6b16f7983"
+    },
     "Tools/BiomeTestV1/RefineSightAndCave.py": {
       "bytes": 3293,
       "sha256": "8b86ffdb0662c0f0bd97773f42660c73c01f6b1df3929b45e9502b53a2a6fde4"
+    },
+    "Tools/BiomeTestV1/RefineWaterV11.py": {
+      "bytes": 3065,
+      "sha256": "b62231fc4e44865a1c2556b64339a83f10f5c185dfbd402020be22acb8d4624f"
     },
     "Tools/BiomeTestV1/ReimportTerrain.py": {
       "bytes": 2693,
       "sha256": "a2dbe2f3ade66d8a92f8e31ad85668d430cf32d7853d01568f148c70d0ede380"
     },
+    "Tools/BiomeTestV1/ReviewGameplayV11.py": {
+      "bytes": 8072,
+      "sha256": "5075ec77eb7e40cd1841bcabc9b914ff7f7fdb70d4c659ba0a9d1e4e701fdb1b"
+    },
+    "Tools/BiomeTestV1/ReviewWaterV11.py": {
+      "bytes": 6758,
+      "sha256": "436473787ad251aa53c6f3623c97917d1bd2fea50737ea0928c5ae8bf0c8f039"
+    },
     "Tools/BiomeTestV1/RunWalkReview.py": {
       "bytes": 1128,
       "sha256": "8dc341ebaea0a9bf6216a09c98d748b1585c073d7dc81804bbde75ed9bc8132c"
     },
+    "Tools/BiomeTestV1/SpeciesV11.json": {
+      "bytes": 5598,
+      "sha256": "8fc8ce91c43eb8ed2e61ec2a9af5adcb202adf1eccf8cfb6bce9a301d2832e3f"
+    },
+    "Tools/BiomeTestV1/UpgradeWaterV11.py": {
+      "bytes": 4978,
+      "sha256": "e239c75ccfba8e55ed61f72e3227ddef58f03441288672c98b7c560b8169575b"
+    },
+    "Tools/BiomeTestV1/ValidateAquaticV11.py": {
+      "bytes": 340,
+      "sha256": "1df0ccb879e746bb698e3bef82dfa21cc6359814f5a7797c488b679af60ec649"
+    },
     "Tools/BiomeTestV1/WalkReview.py": {
       "bytes": 13425,
       "sha256": "7836cd5528358a925da8e49aeb5cc2455e1516839d6e596acce5a2e5203f15ce"
+    },
+    "Tools/BiomeTestV1/WaterObservationDeckV11.py": {
+      "bytes": 2962,
+      "sha256": "59718607d91255d35e72828033c6213b961f31aa6181f5de5a8a65a11a383531"
     },
     "Tools/Blender/AnimateMeshyPlayerV2.py": {
       "bytes": 6624,
@@ -19545,5 +19877,9 @@
       "bytes": 2456,
       "sha256": "f11ca90fee28b17b3fc13e83519f74c2db634c72a8e296a58fed0074f4a28600"
     }
-  }
+  },
+  "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
+  "generated_at": "2026-10-24",
+  "schema": 1,
+  "snapshot_kind": "biome_v11_water_verified_other_packages_pending_external_ios_warning"
 }

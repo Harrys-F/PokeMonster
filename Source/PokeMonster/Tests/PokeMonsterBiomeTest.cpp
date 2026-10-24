@@ -31,3 +31,24 @@ bool FBiomeBoundedWaterPath::RunTest(const FString&)
  return true;
 }
 #endif
+
+#if WITH_DEV_AUTOMATION_TESTS
+#include "../Creatures/PokeMonsterCreaturePresentation.h"
+#include "Animation/AnimSequence.h"
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBiomeSwimContract,"PokeMonster.BiomeV11.OptionalSwimmingContract",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FBiomeSwimContract::RunTest(const FString&)
+{
+ auto* Original=LoadObject<UPokeMonsterCreaturePresentationData>(nullptr,TEXT("/Game/Characters/Creatures/Zunderlauf/DA_Zunderlauf_Presentation.DA_Zunderlauf_Presentation"));
+ if(!TestNotNull(TEXT("Existing independent fixture"),Original))return false;
+ TestTrue(TEXT("Existing profile remains valid without swim clips"),Original->GetValidationErrors().IsEmpty());
+ auto* Candidate=DuplicateObject<UPokeMonsterCreaturePresentationData>(Original,GetTransientPackage());
+ Candidate->SwimIdleClip=Candidate->Clips.FindRef(EPokeMonsterCreatureClip::Idle);
+ TestFalse(TEXT("Incomplete swim pair rejected atomically"),Candidate->GetValidationErrors().IsEmpty());
+ Candidate->SwimClip=Candidate->Clips.FindRef(EPokeMonsterCreatureClip::Walk);
+ TestTrue(TEXT("Exact skeleton pair is supported"),Candidate->GetValidationErrors().IsEmpty());
+ Candidate->SwimReferenceSpeed=0;TestFalse(TEXT("Zero swim reference rejected"),Candidate->GetValidationErrors().IsEmpty());Candidate->SwimReferenceSpeed=35;
+ Candidate->SwimClip=NewObject<UAnimSequence>();TestFalse(TEXT("Foreign skeleton/empty swim rejected"),Candidate->GetValidationErrors().IsEmpty());
+ TestTrue(TEXT("Original source still unchanged"),Original->GetValidationErrors().IsEmpty());
+ return true;
+}
+#endif

@@ -1167,3 +1167,9 @@ Save-Schema **8** liest weiterhin 1–7 und ergänzt `PendingEvolutionTarget`, `
 ## Sicherer manueller PIE-Entwicklungstest (23.10.2026)
 
 `pm.EvolutionTest.List`, `Start <Teamplatz 1–6>` und `End` kapseln vorhandene XP-, Lern- und Entwicklungsdienste in einen expliziten Editor-/PIE-Test. Speichern und Laden verwenden währenddessen ausschließlich serialisierte RAM-Snapshots im bestehenden Save-Subsystem; der normale Slot ist auch gegen direktes Schreiben/Löschen geschützt. End stellt die ursprünglichen Sitzungsdaten wieder her, PIE-Stopp verwirft den Test. Nur die gewählte Instanz erhält Angebote; normale Builds enthalten die Befehle nicht. Alte `EvolutionReview`-Fixtures bleiben unverändert und sind allein nicht speicherisoliert. Bedienung und tatsächliche Nachweise: `ENTWICKLUNG_MANUELL_IM_PIE.md`.
+
+## Biom-Testmap V1.1 – optionale Schwimmclips (24.10.2026)
+
+Die bestehende CreaturePresentation erlaubt ein optionales Paar SwimIdleClip/SwimClip auf exakt demselben Skeleton mit positiver Referenzgeschwindigkeit. Ohne Paar bleibt das bisherige Verhalten erhalten; unvollständige Paare werden abgewiesen. Nur das Biom-Habitat kann einen privaten Präsentationsoverride setzen (Schiggy), ohne Spezies-/Save-Identität umzuschreiben. Schwimmhöhe und Körperfreiheit bleiben im bestehenden Habitat-/Roamingpfad; steiler Boden wird nur unter Wasser akzeptiert. Serpentine Körperlänge ist Größenmetadatum, die Kollisionshalfhöhe stammt aus tatsächlichen Meshbounds.
+
+Der isolierte Biom-GameMode sperrt regulär Kampf-/Speicherzugriff. Seine ausdrücklich gestartete PIE-Prüffunktion schaltet zuerst den bestehenden Save-RAM-Prüftransport ein und aktiviert erst danach temporäres Gameplay. Ende restauriert den ursprünglichen RAM-Zustand und die Sperre; außerhalb Editor-PIE ist diese Funktion unwirksam. Kein zweites Speicher- oder Kampfsystem. Aktueller Zwischenbericht: BIOM_TESTMAP_V11_PRUEFBERICHT.md.

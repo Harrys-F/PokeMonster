@@ -6,6 +6,7 @@
 class UBoxComponent;
 class UPokeMonsterCreatureSpeciesData;
 class APokeMonsterCreatureVisualActor;
+class UPokeMonsterCreaturePresentationData;
 class UPokeMonsterCreatureRoamingComponent;
 class UMaterialInterface;
 struct FCollisionQueryParams;
@@ -16,6 +17,8 @@ struct FPokeMonsterBiomeSpecimen
 {
  GENERATED_BODY()
  UPROPERTY(EditAnywhere,BlueprintReadWrite) TSoftObjectPtr<UPokeMonsterCreatureSpeciesData> Species;
+ /** Optional test-only presentation override; species identity/save assets remain unchanged. */
+ UPROPERTY(EditAnywhere,BlueprintReadWrite) TSoftObjectPtr<UPokeMonsterCreaturePresentationData> PresentationOverride;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) FVector LocalPosition=FVector::ZeroVector;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) int32 Seed=101;
  /** Explicit generic water marker, never masquerades as a real species or save instance. */
@@ -29,6 +32,12 @@ class POKEMONSTER_API APokeMonsterBiomeTestGameMode : public APokeMonsterGameMod
 public:
  APokeMonsterBiomeTestGameMode();
  virtual void StartPlay() override;
+ /** Explicit PIE QA only, existing save transport switches to RAM before any gameplay is enabled. */
+ UFUNCTION(BlueprintCallable,Category="Development|Biome") bool BeginIsolatedGameplayReview();
+ UFUNCTION(BlueprintCallable,Category="Development|Biome") bool EndIsolatedGameplayReview();
+ UFUNCTION(BlueprintPure,Category="Development|Biome") bool IsIsolatedGameplayReview()const{return bReviewActive;}
+private:
+ bool bReviewActive=false;
 };
 /** Placed configuration; runtime visuals reuse the existing roaming/path and animation systems. */
 UCLASS()

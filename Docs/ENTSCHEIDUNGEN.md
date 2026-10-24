@@ -1128,3 +1128,7 @@ Entwicklung erst im sicheren Zustand, nach offenen Lernentscheidungen; B bestät
 ## 23.10.2026 – Manuelle Entwicklungstests ohne Save-Risiko
 
 Explizite Auswahl eines vorhandenen Team-Pokémon per `pm.EvolutionTest.Start 1–6`. Levelbedingungen werden ausschließlich in der PIE-Sitzung über vorhandene XP-Vergabe hergestellt; Bestätigen, Abbrechen und Lernen bleiben reguläre UI-/Subsystemaktionen. Währenddessen nur RAM-Speichern/Laden, kein zweiter dauerhafter Slot und kein Save-Backup. End verwirft alle Testfortschritte und restauriert die Sitzungsdaten vom ersten Start. Funktionen nur WITH_EDITOR und nur in genau einer PIE-Welt; normale Spielregeln/Builds unverändert.
+
+## 24.10.2026 – Biom V1.1: Wasser und isolierte Gameplayprüfung
+
+Auf Nutzerauftrag werden die vorhandene Biom-Map und wiederverwendbare optionale Bewegung erweitert, VisualV2 bleibt unverändert. Karpador/Garados erhalten eigene Rigs aus unveränderten Meshy-Originalen. Garados' 6,5 m beziehen sich auf die Körpermittellinie, nicht auf die Höhe der vorhandenen S-Pose. Schiggys Schwimmen ist ein testmapseitiger Präsentationsoverride. Keine globale Änderung bestehender Starterclips. Der bestehende RAM-Spielstandtransport schützt ausdrücklich aktivierte PIE-Kampfprüfungen; normale Biom-Läufe speichern weiterhin nicht. Keine neue Map, kein Unterwassersystem. Restliche V1.1-Pakete und visuelle Freigabe stehen im Zwischenbericht ausdrücklich offen.

@@ -52,6 +52,10 @@ public:
  UPROPERTY(EditAnywhere, BlueprintReadOnly, meta=(ClampMin="1")) float WalkSpeed=35.f;
  UPROPERTY(EditAnywhere, BlueprintReadOnly, meta=(ClampMin="1")) float RunSpeed=60.f;
  UPROPERTY(EditAnywhere, BlueprintReadOnly) float GroundOffsetCm=0.f;
+ /** Optional authored swim layer. Zero aquatic context leaves all land/battle clips unchanged. */
+ UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Swimming") TObjectPtr<UAnimSequence> SwimIdleClip;
+ UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Swimming") TObjectPtr<UAnimSequence> SwimClip;
+ UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Swimming", meta=(ClampMin="1")) float SwimReferenceSpeed=35.f;
  /** Optional low hover above the same walkable route, never a flight navigation mode. */
  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Ground Hover") bool bAllowGroundHover=false;
  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Ground Hover") TObjectPtr<UAnimSequence> TakeoffClip;
@@ -96,7 +100,7 @@ public:
  UPROPERTY(Transient, BlueprintReadOnly) EPokeMonsterCreatureClip Reaction=EPokeMonsterCreatureClip::Idle;
  /** Per-visual idle phase only; locomotion cadence remains speed-driven. */
  UPROPERTY(Transient,BlueprintReadWrite) float IdlePhaseOffset=0.f;
- /** Explicit biome-only buoyancy pose: idle/float prototype, NOT an authored swim clip. Zero elsewhere. */
+ /** Explicit aquatic context; optional authored swim layer, otherwise existing idle/float fallback. Zero elsewhere. */
  UPROPERTY(Transient,BlueprintReadOnly) float AquaticPoseAlpha=0.f;
  uint32 ReactionSerial=0;
 private:

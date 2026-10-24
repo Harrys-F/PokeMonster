@@ -9,6 +9,10 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "Engine/StaticMesh.h"
+#include "Engine/SkeletalMesh.h"
+#include "Engine/GameInstance.h"
+#include "../../Save/PokeMonsterSaveSubsystem.h"
+#include "../../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
@@ -23,6 +27,30 @@ void APokeMonsterBiomeTestGameMode::StartPlay()
 {
  if(auto* Companion=GetWorld()->GetSubsystem<UPokeMonsterCreatureCompanionSubsystem>())Companion->SetEnabled(false);
  Super::StartPlay();
+}
+bool APokeMonsterBiomeTestGameMode::BeginIsolatedGameplayReview()
+{
+#if WITH_EDITOR
+ if(!GetWorld()||GetWorld()->WorldType!=EWorldType::PIE||bReviewActive||bEnablePersistentGameplay||!GetGameInstance())return false;
+ auto* Save=GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>();
+ auto* Encounter=GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>();
+ if(!Save||!Encounter||Encounter->IsEncounterActive()||Save->IsPIEMemoryPreviewActive()||!Save->BeginPIEMemoryPreview())return false;
+ bReviewActive=true;bEnablePersistentGameplay=true;return true;
+#else
+ return false;
+#endif
+}
+bool APokeMonsterBiomeTestGameMode::EndIsolatedGameplayReview()
+{
+#if WITH_EDITOR
+ if(!GetWorld()||GetWorld()->WorldType!=EWorldType::PIE||!bReviewActive||!GetGameInstance())return false;
+ auto* Save=GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>();
+ auto* Encounter=GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>();
+ if(!Save||!Encounter||Encounter->IsEncounterActive()||!Save->EndPIEMemoryPreview())return false;
+ bEnablePersistentGameplay=false;bReviewActive=false;return true;
+#else
+ return false;
+#endif
 }
 APokeMonsterBiomeHabitat::APokeMonsterBiomeHabitat()
 {
@@ -61,8 +89,11 @@ bool APokeMonsterBiomeHabitat::ProjectFoot(const FVector& Point,float Radius,flo
  if(!GetWorld()||!ContainsFootprint(Point,Radius))return false;
  FHitResult Hit;auto Q=Input;IgnorePlayerWaterBarriers(Q);
  if(!GetWorld()->LineTraceSingleByChannel(Hit,FVector(Point.X,Point.Y,GetActorLocation().Z+1000.f),
-  FVector(Point.X,Point.Y,GetActorLocation().Z-1500.f),ECC_Visibility,Q)||Hit.ImpactNormal.Z<.75f||!Hit.GetComponent()
+  FVector(Point.X,Point.Y,GetActorLocation().Z-1500.f),ECC_Visibility,Q)||!Hit.GetComponent()
   ||Hit.GetComponent()->GetCollisionResponseToChannel(ECC_Pawn)!=ECR_Block)return false;
+ const bool Swimming=(Medium==EPokeMonsterBiomeMedium::Amphibious||Medium==EPokeMonsterBiomeMedium::WaterOnly)
+  && Hit.ImpactPoint.Z<WaterSurfaceZ-WaterDraftCm;
+ if(!Swimming&&Hit.ImpactNormal.Z<.75f)return false;
  if(Hit.GetActor()&&Hit.GetActor()->ActorHasTag(TEXT("CreatureNoWalk")))return false;
  float Z=0;if(!MediumFootHeight(Medium,Hit.ImpactPoint.Z,WaterSurfaceZ,WaterDraftCm,FloatClearanceCm,MinimumDepthCm,Z))return false;
  Foot=FVector(Point.X,Point.Y,Z);
@@ -85,6 +116,7 @@ void APokeMonsterBiomeHabitat::BeginPlay()
   {
    Visual=GetWorld()->SpawnActor<APokeMonsterCreatureVisualActor>(SpawnLocation,FRotator::ZeroRotator,Params);
    if(!Visual||!Visual->SetSpecies(Species)){if(Visual)Visual->Destroy();continue;}
+   if(!S.PresentationOverride.IsNull() && !Visual->SetPresentation(S.PresentationOverride.LoadSynchronous())) {Visual->Destroy();continue;}
    Actor=Visual;Visual->IdlePhaseOffset=FRandomStream(S.Seed).FRand();
   }
   else
@@ -101,7 +133,7 @@ void APokeMonsterBiomeHabitat::BeginPlay()
   Movement->BiomeHabitat=this;Movement->HabitatRadiusOverride=TravelPoints.IsEmpty()?FMath::Min(3500.f,FMath::Max(180.f,FMath::Max(Bounds->GetUnscaledBoxExtent().X,Bounds->GetUnscaledBoxExtent().Y)*1.1f)):3500.f;Movement->bOverrideBehavior=true;
   Movement->BehaviorOverride=Species->Overworld.Behavior;Movement->BehaviorOverride.Temperament=EPokeMonsterOverworldTemperament::Calm;
   Movement->BehaviorOverride.Initiation=EPokeMonsterEncounterInitiation::Disabled;Movement->BehaviorOverride.bCanInitiateEncounter=false;
-  const float Radius=FMath::Max(ClearanceRadiusCm,Species->Overworld.BodyRadius),HalfHeight=FMath::Max(Radius,S.bWaterDiagnostic?12.f:Visual->Presentation->ReferenceSizeCm*.5f);
+  const float Radius=FMath::Max(ClearanceRadiusCm,Species->Overworld.BodyRadius),HalfHeight=FMath::Max(Radius,S.bWaterDiagnostic?12.f:Visual->Presentation->Mesh->GetBounds().BoxExtent.Z);
   const float Offset=Visual?-Visual->Presentation->GroundOffsetCm:0;
   Movement->Configure(Species,Offset,Radius,HalfHeight,nullptr,S.Seed);
   Movement->Settings.PauseMinimum=1.1f;Movement->Settings.PauseMaximum=3.9f;

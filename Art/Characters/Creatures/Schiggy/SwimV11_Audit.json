@@ -1,0 +1,18 @@
+{
+  "original": "Art/Characters/Creatures/Schiggy/Source/Schiggy_Surface_V2.blend",
+  "original_sha256": "939ecb75f54201ba3e2a3f074467c9486bb04b31b21ea98025b5c509eaa0ac3f",
+  "source": "Art/Characters/Creatures/Schiggy/Source/Schiggy_Swim_V11.blend",
+  "original_actions_retained": [
+    "Schiggy_Attack",
+    "Schiggy_Faint",
+    "Schiggy_Happy",
+    "Schiggy_Hit",
+    "Schiggy_Idle",
+    "Schiggy_Run",
+    "Schiggy_Walk"
+  ],
+  "mesh_uv_weights_rest_rig_unchanged": true,
+  "new_clip": "Schiggy_Swim",
+  "frames": 37,
+  "duration_s": 1.2
+}

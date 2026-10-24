@@ -42,6 +42,13 @@ TArray<FString> UPokeMonsterCreaturePresentationData::GetValidationErrors() cons
   if(A.Offset.ContainsNaN()||Scale.GetMin()<=0.f||!A.Offset.GetRotation().IsNormalized())Errors.Add(TEXT("Effect offset must be finite with positive scale and normalized rotation"));
   if(TailFlame&&A.Mesh==TailFlame&&A.Socket==FlameBone)Errors.Add(TEXT("Duplicate legacy tail flame; use one effect binding"));
  }
+ if (SwimIdleClip || SwimClip)
+ {
+  if (!FMath::IsFinite(SwimReferenceSpeed)||SwimReferenceSpeed<=0.f) Errors.Add(TEXT("Swim reference speed must be finite and positive"));
+  for (const UAnimSequence* Clip:{SwimIdleClip.Get(),SwimClip.Get()})
+   if (!Clip || Clip->GetSkeleton()!=Mesh->GetSkeleton() || Clip->bEnableRootMotion || Clip->GetPlayLength()<=0.f)
+    Errors.Add(TEXT("Swimming requires idle and moving in-place clips on this mesh skeleton"));
+ }
  if (bAllowGroundHover)
  {
   if (!FMath::IsFinite(HoverHeightCm)||HoverHeightCm<50.f||HoverHeightCm>150.f) Errors.Add(TEXT("Ground hover height must be 50..150 cm"));
@@ -108,7 +115,7 @@ void APokeMonsterCreatureVisualActor::Tick(float Delta)
  PreviousLocation=P;bHavePrevious=true;UpdateGroundHover(Delta);
  if (AquaticPoseAlpha>0.f)
  {
-  MotionSpeed*=1.f-FMath::Clamp(AquaticPoseAlpha,0.f,1.f);
+  if (!Presentation || !Presentation->SwimClip) MotionSpeed*=1.f-FMath::Clamp(AquaticPoseAlpha,0.f,1.f);
   const FVector Location=Mesh->GetRelativeLocation();
   Mesh->SetRelativeLocation(Location+FVector(0,0,FMath::Sin(GetWorld()->GetTimeSeconds()*2.f+IdlePhaseOffset*6.28f)*AquaticPoseAlpha));
  }
@@ -123,9 +130,10 @@ namespace
 struct FCreatureProxy final:FAnimInstanceProxy
 {
  explicit FCreatureProxy(UAnimInstance* I):FAnimInstanceProxy(I){}
- UAnimSequence *Idle=nullptr,*Walk=nullptr,*Run=nullptr,*OneShot=nullptr,*Hover=nullptr,*PreviousHover=nullptr;
+ UAnimSequence *Idle=nullptr,*Walk=nullptr,*Run=nullptr,*OneShot=nullptr,*Hover=nullptr,*PreviousHover=nullptr,*SwimIdle=nullptr,*Swim=nullptr;
  float HoverTime=0,HoverAlpha=0,PreviousHoverTime=0,HoverTransition=1.f;
  float IdleTime=0,Phase=0,ShotTime=0,WalkAlpha=0,RunAlpha=0,ShotAlpha=0,Rate=0;
+ float SwimTime=0,SwimIdleTime=0,SwimAlpha=0,SwimMoving=0,SwimRate=1;
  bool bHold=false,bPhaseInitialized=false;uint32 Serial=0;
  virtual void PreUpdate(UAnimInstance* I,float Dt)override
  {
@@ -138,6 +146,12 @@ struct FCreatureProxy final:FAnimInstanceProxy
   HoverTime=A->HoverClipTime;HoverAlpha=A->HoverPoseAlpha;
   HoverTransition=FMath::Min(1.f,HoverTransition+Dt/.20f);
   const float Speed=A->MotionSpeed;
+  SwimIdle=D->SwimIdleClip;Swim=D->SwimClip;
+  const bool HasSwim=SwimIdle&&Swim;
+  SwimAlpha=FMath::FInterpConstantTo(SwimAlpha,HasSwim?FMath::Clamp(A->AquaticPoseAlpha,0.f,1.f):0.f,Dt,1.f/.22f);
+  SwimMoving=FMath::FInterpConstantTo(SwimMoving,Speed>2.f?1.f:0.f,Dt,1.f/.18f);
+  SwimRate=FMath::Clamp(Speed/FMath::Max(D->SwimReferenceSpeed,1.f),.45f,1.75f);
+
   WalkAlpha=FMath::FInterpConstantTo(WalkAlpha,Speed>2.f&&Walk?1.f:0.f,Dt,1.f/.14f);
   RunAlpha=FMath::FInterpConstantTo(RunAlpha,Run?FMath::Clamp((Speed-D->WalkSpeed)/(FMath::Max(D->RunSpeed-D->WalkSpeed,1.f)),0.f,1.f):0.f,Dt,1.f/.14f);
   // Use this frame's stride blend, especially when a companion blends into its longer sprint.
@@ -147,6 +161,8 @@ struct FCreatureProxy final:FAnimInstanceProxy
  virtual void Update(float Dt)override
  {
   if(Idle)IdleTime=FMath::Fmod(IdleTime+Dt,FMath::Max(Idle->GetPlayLength(),.01f));
+  if(SwimIdle)SwimIdleTime=FMath::Fmod(SwimIdleTime+Dt,FMath::Max(SwimIdle->GetPlayLength(),.01f));
+  if(Swim)SwimTime=FMath::Fmod(SwimTime+Dt*SwimRate,FMath::Max(Swim->GetPlayLength(),.01f));
   if(Walk&&WalkAlpha>0)Phase=FMath::Fmod(Phase+Dt*FMath::Max(Rate,.1f),1.f);
   if(OneShot){ShotTime+=Dt;const float End=OneShot->GetPlayLength();ShotAlpha=FMath::FInterpConstantTo(ShotAlpha,bHold||ShotTime<End-.12f?1.f:0.f,Dt,1.f/.12f);if(ShotTime>=End&&!bHold&&ShotAlpha<=0)OneShot=nullptr;}
  }
@@ -162,6 +178,8 @@ struct FCreatureProxy final:FAnimInstanceProxy
   auto Blend=[&](UAnimSequence* Clip,float Time,float Alpha){if(!Clip||Alpha<=0)return;FPoseContext Base(Out),Other(Out);Base.Pose=Out.Pose;Base.Curve=Out.Curve;Base.CustomAttributes=Out.CustomAttributes;Other.ResetToRefPose();FAnimationPoseData A(Base),B(Other);Clip->GetAnimationPose(B,FAnimExtractContext(Time,false));FAnimationRuntime::BlendTwoPosesTogether(A,B,1.f-Alpha,Result);};
   Blend(Walk,Walk?Phase*Walk->GetPlayLength():0,WalkAlpha);
   Blend(Run,Run?Phase*Run->GetPlayLength():0,RunAlpha*WalkAlpha);
+  Blend(SwimIdle,SwimIdleTime,SwimAlpha);
+  Blend(Swim,SwimTime,SwimAlpha*SwimMoving);
   if (Hover && HoverAlpha>0.f)
   {
    // Crossfade between takeoff/loop/landing poses before layering any combat reaction.

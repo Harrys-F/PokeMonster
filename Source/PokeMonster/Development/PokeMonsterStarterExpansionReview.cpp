@@ -13,7 +13,7 @@ namespace PMStarterReview
 {
 static bool Creature(const FString& Name, FPokeMonsterCreatureInstance& Out)
 {
-	const TSet<FString> Allowed = {TEXT("Schiggy"),TEXT("Bisasam"),TEXT("Zunderlauf"),TEXT("Pikachu"),TEXT("Myrapla"),TEXT("Enton"),TEXT("Machomei"),TEXT("Nebulak"),TEXT("Gengar"),TEXT("Glurak"),TEXT("Glutexo")};
+	const TSet<FString> Allowed = {TEXT("Schiggy"),TEXT("Bisasam"),TEXT("Zunderlauf"),TEXT("Pikachu"),TEXT("Myrapla"),TEXT("Enton"),TEXT("Machomei"),TEXT("Nebulak"),TEXT("Gengar"),TEXT("Glurak"),TEXT("Glutexo"),TEXT("Karpador"),TEXT("Garados"),TEXT("Raupy"),TEXT("Hornliu"),TEXT("Smettbo"),TEXT("Bibor"),TEXT("Habitak")};
 	if (!Allowed.Contains(Name)) return false;
 	const FString Path = TEXT("/Game/Data/Creatures/DA_") + Name + TEXT(".DA_") + Name;
 	auto* Species = LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr, *Path);

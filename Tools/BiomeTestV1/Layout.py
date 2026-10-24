@@ -16,7 +16,7 @@ def height(u,v):
  # Pond and stream have a real continuous lowered bed; water is at -20cm.
  if u>800 and v>700:
   q=math.hypot((u-3200)/1000,(v-2850)/760)
-  pond=-125*smooth((1.13-q)/.43)
+  pond=-125*smooth((1.13-q)/.43)-275*smooth((.78-q)/.25)
   channel=-100*smooth((245-abs(u-stream(u,v)))/180) if v>3000 else 0
   h=min(h,pond,channel)
  # Actual 3m rock table, steep edges and one generous approach slope.
@@ -36,5 +36,8 @@ def vertex_colour(u,v):
  path=max(path,1-smooth((math.hypot(u,v)-400)/120))
  forest=smooth((u-600)/750)*smooth((-v-600)/750)
  rock=smooth((-u-600)/750)*smooth((-v-600)/750)
- bank=1-smooth((abs(height(u,v)+20)-15)/60) if u>1000 and v>900 else 0
+ bank=0
+ if u>1000 and v>900:
+  q=math.hypot((u-3200)/1000,(v-2850)/760)
+  bank=max(1-smooth((q-1.07)/.18),1-smooth((abs(u-stream(u,v))-190)/120)if v>3000 else 0)
  return (path*(1-bank*.65),forest,rock*.80,bank*.72)

@@ -1,0 +1,355 @@
+{
+  "Karpador": {
+    "english": "magikarp",
+    "dex": 129,
+    "height": 90,
+    "types": [
+      "WATER",
+      "NONE"
+    ],
+    "stats": [
+      20,
+      10,
+      55,
+      15,
+      20,
+      80
+    ],
+    "growth": "SLOW",
+    "capture": 255,
+    "female": 0.5,
+    "xp": 20,
+    "level": 15,
+    "crystal_moves": [
+      [
+        1,
+        "SPLASH"
+      ],
+      [
+        15,
+        "TACKLE"
+      ],
+      [
+        30,
+        "FLAIL"
+      ]
+    ],
+    "behavior": "CALM",
+    "radius": 50,
+    "source": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/magikarp.asm"
+  },
+  "Garados": {
+    "english": "gyarados",
+    "dex": 130,
+    "height": 650,
+    "types": [
+      "WATER",
+      "FLYING"
+    ],
+    "stats": [
+      95,
+      125,
+      79,
+      60,
+      100,
+      81
+    ],
+    "growth": "SLOW",
+    "capture": 45,
+    "female": 0.5,
+    "xp": 214,
+    "level": 30,
+    "crystal_moves": [
+      [
+        1,
+        "THRASH"
+      ],
+      [
+        20,
+        "BITE"
+      ],
+      [
+        25,
+        "DRAGON_RAGE"
+      ],
+      [
+        30,
+        "LEER"
+      ],
+      [
+        35,
+        "TWISTER"
+      ],
+      [
+        40,
+        "HYDRO_PUMP"
+      ],
+      [
+        45,
+        "RAIN_DANCE"
+      ],
+      [
+        50,
+        "HYPER_BEAM"
+      ]
+    ],
+    "behavior": "TERRITORIAL",
+    "radius": 170,
+    "source": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/gyarados.asm"
+  },
+  "Raupy": {
+    "english": "caterpie",
+    "dex": 10,
+    "height": 30,
+    "types": [
+      "BUG",
+      "NONE"
+    ],
+    "stats": [
+      45,
+      30,
+      35,
+      20,
+      20,
+      45
+    ],
+    "growth": "MEDIUM_FAST",
+    "capture": 255,
+    "female": 0.5,
+    "xp": 53,
+    "level": 5,
+    "crystal_moves": [
+      [
+        1,
+        "TACKLE"
+      ],
+      [
+        1,
+        "STRING_SHOT"
+      ]
+    ],
+    "behavior": "CALM",
+    "radius": 16,
+    "source": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/caterpie.asm"
+  },
+  "Hornliu": {
+    "english": "weedle",
+    "dex": 13,
+    "height": 30,
+    "types": [
+      "BUG",
+      "POISON"
+    ],
+    "stats": [
+      40,
+      35,
+      30,
+      20,
+      20,
+      50
+    ],
+    "growth": "MEDIUM_FAST",
+    "capture": 255,
+    "female": 0.5,
+    "xp": 52,
+    "level": 5,
+    "crystal_moves": [
+      [
+        1,
+        "POISON_STING"
+      ],
+      [
+        1,
+        "STRING_SHOT"
+      ]
+    ],
+    "behavior": "SHY",
+    "radius": 16,
+    "source": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/weedle.asm"
+  },
+  "Smettbo": {
+    "english": "butterfree",
+    "dex": 12,
+    "height": 110,
+    "types": [
+      "BUG",
+      "FLYING"
+    ],
+    "stats": [
+      60,
+      45,
+      50,
+      80,
+      80,
+      70
+    ],
+    "growth": "MEDIUM_FAST",
+    "capture": 45,
+    "female": 0.5,
+    "xp": 160,
+    "level": 15,
+    "crystal_moves": [
+      [
+        1,
+        "CONFUSION"
+      ],
+      [
+        10,
+        "CONFUSION"
+      ],
+      [
+        13,
+        "POISONPOWDER"
+      ],
+      [
+        14,
+        "STUN_SPORE"
+      ],
+      [
+        15,
+        "SLEEP_POWDER"
+      ],
+      [
+        18,
+        "SUPERSONIC"
+      ],
+      [
+        23,
+        "WHIRLWIND"
+      ],
+      [
+        28,
+        "GUST"
+      ],
+      [
+        34,
+        "PSYBEAM"
+      ],
+      [
+        40,
+        "SAFEGUARD"
+      ]
+    ],
+    "behavior": "CURIOUS",
+    "radius": 48,
+    "source": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/butterfree.asm"
+  },
+  "Bibor": {
+    "english": "beedrill",
+    "dex": 15,
+    "height": 100,
+    "types": [
+      "BUG",
+      "POISON"
+    ],
+    "stats": [
+      65,
+      80,
+      40,
+      45,
+      80,
+      75
+    ],
+    "growth": "MEDIUM_FAST",
+    "capture": 45,
+    "female": 0.5,
+    "xp": 159,
+    "level": 15,
+    "crystal_moves": [
+      [
+        1,
+        "FURY_ATTACK"
+      ],
+      [
+        10,
+        "FURY_ATTACK"
+      ],
+      [
+        15,
+        "FOCUS_ENERGY"
+      ],
+      [
+        20,
+        "TWINEEDLE"
+      ],
+      [
+        25,
+        "RAGE"
+      ],
+      [
+        30,
+        "PURSUIT"
+      ],
+      [
+        35,
+        "PIN_MISSILE"
+      ],
+      [
+        40,
+        "AGILITY"
+      ]
+    ],
+    "behavior": "TERRITORIAL",
+    "radius": 52,
+    "source": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/beedrill.asm"
+  },
+  "Habitak": {
+    "english": "spearow",
+    "dex": 21,
+    "height": 30,
+    "types": [
+      "NORMAL",
+      "FLYING"
+    ],
+    "stats": [
+      40,
+      60,
+      30,
+      31,
+      31,
+      70
+    ],
+    "growth": "MEDIUM_FAST",
+    "capture": 255,
+    "female": 0.5,
+    "xp": 58,
+    "level": 10,
+    "crystal_moves": [
+      [
+        1,
+        "PECK"
+      ],
+      [
+        1,
+        "GROWL"
+      ],
+      [
+        7,
+        "LEER"
+      ],
+      [
+        13,
+        "FURY_ATTACK"
+      ],
+      [
+        25,
+        "PURSUIT"
+      ],
+      [
+        31,
+        "MIRROR_MOVE"
+      ],
+      [
+        37,
+        "DRILL_PECK"
+      ],
+      [
+        43,
+        "AGILITY"
+      ]
+    ],
+    "behavior": "TERRITORIAL",
+    "radius": 18,
+    "source": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/spearow.asm"
+  }
+}

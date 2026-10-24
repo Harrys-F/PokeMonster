@@ -1,0 +1,187 @@
+{
+  "species": "Karpador",
+  "source": "Art/Characters/Creatures/Incoming/Karpador.glb",
+  "source_sha256": "eaafa7d88721182fd94786624be5358b49da259a238208e315f2788423c2cf77",
+  "rig_family": "Aquatic",
+  "catalog_size_cm": 90,
+  "size_basis": "neutral_height",
+  "scale": 0.9486366064863284,
+  "actual_height_cm": 90.0,
+  "bones": {
+    "root": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0.04
+      ],
+      null
+    ],
+    "body": [
+      [
+        0,
+        0,
+        0.423
+      ],
+      [
+        0,
+        -0.07200000000000001,
+        0.432
+      ],
+      "root"
+    ],
+    "head": [
+      [
+        0,
+        -0.07200000000000001,
+        0.432
+      ],
+      [
+        0,
+        -0.29700000000000004,
+        0.432
+      ],
+      "body"
+    ],
+    "tail_base": [
+      [
+        0,
+        0.11,
+        0.43
+      ],
+      [
+        0,
+        0.24,
+        0.43
+      ],
+      "body"
+    ],
+    "tail_mid": [
+      [
+        0,
+        0.24,
+        0.43
+      ],
+      [
+        0,
+        0.34,
+        0.46
+      ],
+      "tail_base"
+    ],
+    "tail_tip": [
+      [
+        0,
+        0.34,
+        0.46
+      ],
+      [
+        0,
+        0.43,
+        0.49
+      ],
+      "tail_mid"
+    ],
+    "dorsal": [
+      [
+        0,
+        0,
+        0.63
+      ],
+      [
+        0,
+        0.03,
+        0.84
+      ],
+      "body"
+    ],
+    "ventral": [
+      [
+        0,
+        0.04,
+        0.28
+      ],
+      [
+        0,
+        0.1,
+        0.1
+      ],
+      "body"
+    ],
+    "fin_L": [
+      [
+        0.15,
+        -0.01,
+        0.41
+      ],
+      [
+        0.35,
+        0.07,
+        0.38
+      ],
+      "body"
+    ],
+    "fin_R": [
+      [
+        -0.15,
+        -0.01,
+        0.41
+      ],
+      [
+        -0.35,
+        0.07,
+        0.38
+      ],
+      "body"
+    ]
+  },
+  "walk_speed_m_s": 0.35,
+  "run_speed_m_s": 0.7,
+  "height_m": 0.9,
+  "triangles": 26214,
+  "vertices": 17861,
+  "geometry_unchanged": true,
+  "uv_original": true,
+  "unweighted_vertices": 0,
+  "clips": {
+    "Idle": {
+      "duration_s": 2.4,
+      "frames": 73,
+      "minimum_deformed_z_m": -3.229735412446644e-08
+    },
+    "Walk": {
+      "duration_s": 1.2,
+      "frames": 37,
+      "minimum_deformed_z_m": -3.229735412446644e-08
+    },
+    "Run": {
+      "duration_s": 0.8,
+      "frames": 25,
+      "minimum_deformed_z_m": -3.229735412446644e-08
+    },
+    "Attack": {
+      "duration_s": 0.9,
+      "frames": 28,
+      "minimum_deformed_z_m": -3.229735412446644e-08
+    },
+    "Hit": {
+      "duration_s": 0.5,
+      "frames": 16,
+      "minimum_deformed_z_m": -3.229735412446644e-08
+    },
+    "Faint": {
+      "duration_s": 1.2,
+      "frames": 37,
+      "minimum_deformed_z_m": -0.39281097054481506
+    },
+    "Happy": {
+      "duration_s": 1.6,
+      "frames": 49,
+      "minimum_deformed_z_m": -3.229735412446644e-08
+    }
+  }
+}

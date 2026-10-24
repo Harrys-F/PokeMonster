@@ -1,0 +1,34 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/magikarp.asm",
+    "sha256": "c0823bda58080f7c947850a62a1d00699622231485a56cb1aba6ccec49257e16"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/gyarados.asm",
+    "sha256": "f2462123ef104f2c9e48680eac73b3c4fc763526b13a27018fa557398301e8b9"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/caterpie.asm",
+    "sha256": "4f5f899e19f47794c1061d2175c00490e78755c44e6e5bca31e1f69c4066b8bb"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/weedle.asm",
+    "sha256": "6b496dac58481e47529c391c67a43a61713063932d5a852cb70a377fe8c3600d"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/butterfree.asm",
+    "sha256": "21be3e81069798d6839345b868d9ece49a6a92aebeb2fc79c4bc6ca011887336"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/beedrill.asm",
+    "sha256": "a9aa5644c53e83414fbea79fddec355421bcdf434c6d3dee2fed17299bd7ad8a"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/base_stats/spearow.asm",
+    "sha256": "939754a9ca7438185bd8f8f477e5b148e6cb46bd976eccbbe514aa3f79ae76c7"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/evos_attacks.asm",
+    "sha256": "ace4251417a9260c5b898e3fadcdb785cd994f0ac6966767cd8f09f1fecfbfe6"
+  }
+]

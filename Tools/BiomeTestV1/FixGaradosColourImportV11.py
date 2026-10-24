@@ -1,0 +1,7 @@
+"""Correct demonstrated blue-albedo normal-map autodetection; no redesign or original texture write."""
+import unreal,json
+from pathlib import Path
+R=Path(unreal.Paths.project_dir()).resolve();E=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);assert not E.get_game_world()and not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()and not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages()
+p='/Game/Characters/Creatures/Garados/MeshyV1';t=unreal.load_asset(p+'/Textures/T_Garados_BaseColor');m=unreal.load_asset(p+'/Materials/M_Garados');before=str(t.compression_settings);assert t.compression_settings==unreal.TextureCompressionSettings.TC_NORMALMAP,before
+t.set_editor_property('compression_settings',unreal.TextureCompressionSettings.TC_DEFAULT);t.set_editor_property('srgb',True);assert unreal.EditorAssetLibrary.save_loaded_asset(t,False);unreal.MaterialEditingLibrary.recompile_material(m);assert unreal.EditorAssetLibrary.save_loaded_asset(m,False)
+assert not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages();(R/'Saved/BiomeTestV11/GaradosColourCorrection.json').write_text(json.dumps({'confirmed_cause':'Engine SF_METAL_SM6 material compilation error: Color sampler should be Normal because blue albedo was autodetected as TC_NORMALMAP','before':before,'after':str(t.compression_settings),'srgb':t.srgb,'source_images_untouched':True,'scope':[t.get_path_name(),m.get_path_name()]},indent=2))

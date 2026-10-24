@@ -66,7 +66,7 @@ namespace
                     *Team[I].InstanceId.ToString(), Ready ? *FString::Printf(TEXT("Test ab Level %d -> %s"), Copy.Level, *Target.ToString()) : TEXT("keine eindeutig testbare Levelroute mit vorhandenem Zielmodell"));
             }
         }), ECVF_Cheat);
-    FAutoConsoleCommandWithWorldArgsAndOutputDevice Start(TEXT("pm.EvolutionTest.Start"),
+    FAutoConsoleCommandWithWorldArgsAndOutputDevice EvolutionPreviewStartCommand(TEXT("pm.EvolutionTest.Start"),
         TEXT("PIE only: Start <team slot 1-6>. Memory-only saves; reach regular level threshold, then use normal learning/evolution UI."),
         FConsoleCommandWithWorldArgsAndOutputDeviceDelegate::CreateLambda([](const TArray<FString>& Args, UWorld*, FOutputDevice& Out)
         {
@@ -88,7 +88,7 @@ namespace
             { Message(Out, TEXT("Testvorbereitung fehlgeschlagen. RAM-Schutz bleibt aktiv; pm.EvolutionTest.End oder PIE stoppen.")); return; }
             Message(Out, FString::Printf(TEXT("TEST NUR IM RAM: Teamplatz %d, Level %d -> %s. Lernangebote zuerst entscheiden; B/Enter starten, A/Esc abbrechen. End oder PIE-Stopp verwirft den Test."), Index+1, Team[Index].Level, *Target.PrimaryAssetName.ToString()));
         }), ECVF_Cheat);
-    FAutoConsoleCommandWithWorldArgsAndOutputDevice End(TEXT("pm.EvolutionTest.End"),
+    FAutoConsoleCommandWithWorldArgsAndOutputDevice EvolutionPreviewEndCommand(TEXT("pm.EvolutionTest.End"),
         TEXT("PIE only: discard the manual test, restore pre-test team/inventory/quest/checkpoint state; never writes a save."),
         FConsoleCommandWithWorldArgsAndOutputDeviceDelegate::CreateLambda([](const TArray<FString>& Args, UWorld*, FOutputDevice& Out)
         {
