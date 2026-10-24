@@ -5,7 +5,7 @@ R=Path(__file__).resolve().parents[2];sys.path.insert(0,str(R/'Tools/ProjectMain
 label=sys.argv[1];assert label.isalnum();D=R/'Saved/GlutexoEvolutionV2'/label;D.mkdir(exist_ok=False)
 (D.parent/'ManualReviewRequest.json').write_text(json.dumps({'label':label}))
 slot=R/'Saved/SaveGames/PokeMonster_Dev.sav';before=hashlib.sha256(slot.read_bytes()).hexdigest()
-job('start_pie');time.sleep(2);job('script','Tools/GlutexoEvolutionV2/ReviewManualEvolution.py');start=time.monotonic();last=None
+job('start_pie');job('script','Tools/GlutexoEvolutionV2/ReviewManualEvolution.py');start=time.monotonic();last=None
 while not(D/'Result.json').exists():
  time.sleep(2);assert time.monotonic()-start<300
  if (D/'Progress.json').exists():
@@ -15,7 +15,7 @@ r=json.loads((D/'Result.json').read_text());job('stop_pie');time.sleep(2)
 assert hashlib.sha256(slot.read_bytes()).hexdigest()==before,'Save changed: stop without overwrite'
 assert r['passed'],r['error']
 # Separate ordinary PIE restart; verify no memory save or selected fixture leaks to the next GameInstance.
-job('start_pie');time.sleep(2);job('script','Tools/GlutexoEvolutionV2/ReviewManualRestart.py');job('stop_pie');time.sleep(1)
+job('start_pie');job('script','Tools/GlutexoEvolutionV2/ReviewManualRestart.py');job('stop_pie');time.sleep(1)
 restarted=json.loads((D/'Restart.json').read_text());expected=[{k:x[k]for k in ['id','species','level','xp']}for x in r['original_party']];assert restarted==expected
 assert hashlib.sha256(slot.read_bytes()).hexdigest()==before
 (D/'SaveUnchanged.json').write_text(json.dumps({'sha256':before,'no_restore_or_copy_performed':True,'restart_original_party':True},indent=2))

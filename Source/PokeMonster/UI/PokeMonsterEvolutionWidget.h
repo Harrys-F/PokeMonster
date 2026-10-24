@@ -3,6 +3,7 @@
 #include "Blueprint/UserWidget.h"
 #include "PokeMonsterEvolutionWidget.generated.h"
 class UImage;class UTextBlock;class UButton;class UMaterialInstanceDynamic;
+class USceneCaptureComponent2D;class UTextureRenderTarget2D;class UGameViewportClient;
 class APokeMonsterClassicBattleScene;class APokeMonsterOverworldPlayerController;
 /** Same-world, capture-only presentation. Party mutation remains in the existing encounter subsystem. */
 UCLASS()
@@ -14,6 +15,7 @@ public:
  UFUNCTION(BlueprintCallable) void Confirm();
  UFUNCTION(BlueprintCallable) void Cancel();
  UFUNCTION(BlueprintPure) FString GetPhase() const{return Phase;}
+ UFUNCTION(BlueprintPure) bool CanCancelEvolution() const;
  UPROPERTY(Transient,BlueprintReadOnly) TObjectPtr<APokeMonsterClassicBattleScene> Stage;
  UPROPERTY(Transient,BlueprintReadOnly) FGuid CreatureId;
 protected:
@@ -21,15 +23,26 @@ protected:
  virtual void NativeTick(const FGeometry&,float Delta) override;
  virtual FReply NativeOnPreviewKeyDown(const FGeometry&,const FKeyEvent&) override;
  virtual void NativeDestruct() override;
+ virtual int32 NativePaint(const FPaintArgs&,const FGeometry&,const FSlateRect&,FSlateWindowElementList&,int32,const FWidgetStyle&,bool) const override;
 private:
- void RefreshText();void Finish();void StartLearning();
+ void RefreshText();void Finish();void StartLearning();void RestoreSourceView();void RestoreWorldRendering();
  UPROPERTY(Transient) TObjectPtr<APokeMonsterOverworldPlayerController> OwnerController;
  UPROPERTY(Transient) TObjectPtr<UImage> View;
+ UPROPERTY(Transient) TObjectPtr<UImage> DestinationView;
+ UPROPERTY(Transient) TObjectPtr<USceneCaptureComponent2D> DestinationCapture;
+ UPROPERTY(Transient) TObjectPtr<UTextureRenderTarget2D> DestinationTarget;
+ UPROPERTY(Transient) TObjectPtr<UButton> ConfirmButton;
+ UPROPERTY(Transient) TObjectPtr<UButton> CancelButton;
+ UPROPERTY(Transient) TObjectPtr<UTextBlock> ConfirmLabel;
+ UPROPERTY(Transient) TObjectPtr<UTextBlock> CancelLabel;
  UPROPERTY(Transient) TObjectPtr<UImage> Flash;
  UPROPERTY(Transient) TObjectPtr<UTextBlock> Title;
  UPROPERTY(Transient) TObjectPtr<UTextBlock> Details;
  UPROPERTY(Transient) TObjectPtr<UTextBlock> Hints;
  UPROPERTY(Transient) TArray<TObjectPtr<UImage>> Motes;
  UPROPERTY(Transient) TObjectPtr<UMaterialInstanceDynamic> Glow;
- FPrimaryAssetId Target;FString Phase=TEXT("offer");float Elapsed=0;int32 Selection=0;bool bPreviewChanged=false;
+ TWeakObjectPtr<UGameViewportClient> CoveredViewport;
+ bool bPreviousWorldRenderingDisabled=false;float LastCaptureTime=-1;
+ FPrimaryAssetId Target;FString SourceName,DestinationName,Phase=TEXT("offer");
+ float Elapsed=0,SequenceStart=0;int32 Selection=0;bool bHappyPlayed=false;
 };

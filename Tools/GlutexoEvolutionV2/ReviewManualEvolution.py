@@ -36,9 +36,13 @@ act('start selected actual team member',lambda:cmd('pm.EvolutionTest.Start '+str
 wait('actual member regular offer after explicit learning decisions',ready_offer)
 check('Only selected actual member reaches required level',lambda:snap()[index]['id']==baseline[index]['id'] and all(snap()[i]==x for i,x in enumerate(baseline)if i!=index))
 act('record before cancellation',lambda:state.update(cancel=snap()))
-act('start real sequence',lambda:key('Enter'),3.3)
-check('Late preview leaves data uncommitted',lambda:phase('transform')and snap()==state['cancel']);act('real mid sequence screenshot',lambda:shot('LatePreview'))
-act('cancel after visual swap',lambda:key('Escape'))
+act('start real sequence',lambda:(state.update(sequence_start=unreal.GameplayStatics.get_time_seconds(w)),key('Enter')))
+def late_cancel():
+ elapsed=unreal.GameplayStatics.get_time_seconds(w)-state['sequence_start']
+ assert 4.5<=elapsed<5 and phase('transform')and ui().can_cancel_evolution()and snap()==state['cancel']
+ result['checks'].append('Actual late cancellation at %.3f game seconds before unchanged five-second boundary'%elapsed)
+ shot('LatePreview');key('Escape')
+act('cancel immediately after actual late preview',late_cancel,4.6)
 check('Cancellation keeps species identity and AP',lambda:phase('cancelled')and same_individual(state['cancel'][index],snap()[index])and snap()[index]['species']==state['cancel'][index]['species'])
 act('discard whole test while cancellation UI open',lambda:cmd('pm.EvolutionTest.End'))
 check('End restores exact original team including pending metadata',lambda:not ui()and snap()==baseline and disk_unchanged())

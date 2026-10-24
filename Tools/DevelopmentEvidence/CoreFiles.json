@@ -12822,12 +12822,20 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 162671,
-      "sha256": "dc468817b82f660f5fce05a735dfecdeb3795f17d2c460e1ee3e22b0ca3eb579"
+      "bytes": 164022,
+      "sha256": "7d27425578eb0c5929cb493775866edb9b37acead4a788646e8014294d071b0c"
+    },
+    "Docs/ENTWICKLUNGSPRAESENTATION_V21_PRUEFBERICHT.md": {
+      "bytes": 9719,
+      "sha256": "d4d2c99c5c37760312e91b66c10c452b9e7f1bfd070e99d8f5e70812e758ded3"
+    },
+    "Docs/ENTWICKLUNGSPRAESENTATION_V21_TESTERGEBNISSE.json": {
+      "bytes": 4853,
+      "sha256": "51af6136c16ec27e779de54ae32e8b8ffd085190c2146870b2136e128e1f13a4"
     },
     "Docs/ENTWICKLUNG_MANUELL_IM_PIE.md": {
-      "bytes": 10017,
-      "sha256": "dacc3fab6c704339ccd81f169cb6b10b4218d22ab7d459391d265e8ee43c6ca6"
+      "bytes": 10317,
+      "sha256": "b3af07bc1d071ac4567782101fa6fa79b1fe2e9935fb2125482054ed100fd3cf"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
@@ -12998,8 +13006,8 @@
       "sha256": "1ede0acfca40e87ac09ffe5dbe8993e5cb6142cff2aebf509f4cb084ae6e53fc"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 187922,
-      "sha256": "e6fae748e261a37228ae136170bad271c0902d1e16e07fd10fbd9809a9e91a9f"
+      "bytes": 188579,
+      "sha256": "e4556675eb0a2ec2c4b2f1196c62775371b89b25c5237b255e4141fea469b021"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -13462,8 +13470,8 @@
       "sha256": "b2fe0725b4b87450e93db4a63882b1d3e9212b95dcda5140139676ee7dd03bc0"
     },
     "Source/PokeMonster/Development/PokeMonsterTAAReviewCapture.cpp": {
-      "bytes": 3734,
-      "sha256": "645ce7a37ec01f3e4d58f7f78fb640bd53d188b2cde381196837e52d0e8ffddc"
+      "bytes": 8511,
+      "sha256": "6231998474331cb0655d7589baf1d3a45a7214d3672889a9316ae5529fddff0b"
     },
     "Source/PokeMonster/Development/PokeMonsterWorldArtPerformanceStudy.cpp": {
       "bytes": 4949,
@@ -13626,8 +13634,8 @@
       "sha256": "462c239d08a6f3bed5c009efe83dd3cc3057db51c2ca44c3d93ba6512a1a8508"
     },
     "Source/PokeMonster/PokeMonster.Build.cs": {
-      "bytes": 855,
-      "sha256": "8a2c1dd5b852ec0e2df657cdb3cc9224ff64e0dbc500fbe1f846497f3bb77af1"
+      "bytes": 862,
+      "sha256": "527926ac1ad7c6ed83e72dff06350f78886e993728ea2ec1963e12a1abec45f6"
     },
     "Source/PokeMonster/PokeMonster.cpp": {
       "bytes": 198,
@@ -13792,6 +13800,10 @@
     "Source/PokeMonster/Tests/PokeMonsterEnvironmentRenderProfileTest.cpp": {
       "bytes": 2501,
       "sha256": "68b1dec51b685611dfbd4c5046b141785b701bedde65ea4d471d73f68cf9f9f5"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterEvolutionPresentationTest.cpp": {
+      "bytes": 3614,
+      "sha256": "d70f3ebec2fc30f7d66f0bbc8625ab262c86e8c4dc0b0a842328ee7cabb45b57"
     },
     "Source/PokeMonster/Tests/PokeMonsterEvolutionV2Test.cpp": {
       "bytes": 11368,
@@ -14001,13 +14013,17 @@
       "bytes": 1912,
       "sha256": "3a2c18e3987d50a67cf15dd29c36e11784dcd2fa83c10efd0b44403f82006224"
     },
+    "Source/PokeMonster/UI/PokeMonsterEvolutionPresentation.h": {
+      "bytes": 2363,
+      "sha256": "064f5d9413afefe673fc0972f8db24ec11cf20accd1a691e58b6b2684ac081af"
+    },
     "Source/PokeMonster/UI/PokeMonsterEvolutionWidget.cpp": {
-      "bytes": 13121,
-      "sha256": "1d618a58a1b6bdc5355778c092ab62351f854a6c56c5dbd47697e243c5fa61bc"
+      "bytes": 19696,
+      "sha256": "de83e9e1199830fc0f8d4751be661837b821fe62561e52f54ece4176cdbe2a0c"
     },
     "Source/PokeMonster/UI/PokeMonsterEvolutionWidget.h": {
-      "bytes": 1809,
-      "sha256": "4a540a82f07d0deba55dfadae115f493aabce37b9cb8d976b8abb9f978294b5b"
+      "bytes": 2771,
+      "sha256": "185c82630617bc769b2085bcb85d325f295e00ec16b4c1a8402d57d16ba1c41a"
     },
     "Source/PokeMonster/UI/PokeMonsterOverworldPlayerController.cpp": {
       "bytes": 14106,
@@ -16021,6 +16037,10 @@
       "bytes": 7857,
       "sha256": "144542abd22109a13413a0072ccc310d1a1084a47f3bd6c777b52b9bbd09f940"
     },
+    "Tools/GlutexoEvolutionV2/EncodePresentation.py": {
+      "bytes": 2320,
+      "sha256": "a79b8feceb6847d79c41cab81de023b0eaef55b9d2d6aaded1e3ca6b212a6485"
+    },
     "Tools/GlutexoEvolutionV2/ImportAssets.py": {
       "bytes": 10499,
       "sha256": "1c3410e0a6ebe139dc6c19c2a371c649b4714a9aa3c514d7800edd0ffb69cd5c"
@@ -16037,6 +16057,10 @@
       "bytes": 1047,
       "sha256": "4931bae8665bf95b150b2677b95112dafdae61c2fbd1484244254b73ab9add5c"
     },
+    "Tools/GlutexoEvolutionV2/MapChecksPresentation.py": {
+      "bytes": 1112,
+      "sha256": "1ccbddbdc9949e79102c18527f3d40dac2522dd706119c4dc7b6c57933ba977b"
+    },
     "Tools/GlutexoEvolutionV2/PrepareEvolutionAssets.py": {
       "bytes": 2625,
       "sha256": "5f63e6f3b686ed4fec8b607fed147fcf9f018887fc25eca76e849b9190aaff80"
@@ -16046,8 +16070,8 @@
       "sha256": "e9aa77f077e70e065d205851724890e219ecd12fb5bcdb714a283fadfffddc22"
     },
     "Tools/GlutexoEvolutionV2/README.md": {
-      "bytes": 5745,
-      "sha256": "101fb58934adc70ad4f5b395d17185b5a7761df06e8ae20b820c9e5d9476bb92"
+      "bytes": 7687,
+      "sha256": "2e6d95c864acf7e2291bfc0f5acda301d1404198b15bafc6c2469d04ecb5a3fa"
     },
     "Tools/GlutexoEvolutionV2/ReferenceSources.json": {
       "bytes": 463,
@@ -16066,8 +16090,8 @@
       "sha256": "c604803e92659555825d8d928b05454934e9d35af4b26daee4a18438bd5e9a15"
     },
     "Tools/GlutexoEvolutionV2/ReviewManualEvolution.py": {
-      "bytes": 9502,
-      "sha256": "853c8e066ae651bf0b445e7763b1359e28f56e1621095e12a81f3db10b2162b3"
+      "bytes": 9779,
+      "sha256": "495670ab3af4ceb3a7fb97d671c87a1396cd7fab2e4e9048a928f0ade32fd199"
     },
     "Tools/GlutexoEvolutionV2/ReviewManualRestart.py": {
       "bytes": 895,
@@ -16076,6 +16100,10 @@
     "Tools/GlutexoEvolutionV2/ReviewOne.py": {
       "bytes": 7617,
       "sha256": "59244bc94726251729aa6bbb9178ccc0bd7f9890c45897ea1b5cb9e8dd11f1f6"
+    },
+    "Tools/GlutexoEvolutionV2/ReviewPresentation.py": {
+      "bytes": 8255,
+      "sha256": "f4b649104854bf13d8ea5dc863ab1f780a7d4ed6eae55c4f73e231f710331169"
     },
     "Tools/GlutexoEvolutionV2/RunCapture.py": {
       "bytes": 1416,
@@ -16090,8 +16118,12 @@
       "sha256": "8bfe793aba6342d264342fd9de0ddb73b9be91054f323fbbeb24877421f7d191"
     },
     "Tools/GlutexoEvolutionV2/RunManualEvolution.py": {
-      "bytes": 1794,
-      "sha256": "9a17a4db447113ce9bc674088e6b649231fabd2f634e76ce3cd3348d0e561f09"
+      "bytes": 1766,
+      "sha256": "98d3c7fc5aa5ed5ed11c4d64702a34e6ebda84eb0f128dd37601d286933ada81"
+    },
+    "Tools/GlutexoEvolutionV2/RunPresentation.py": {
+      "bytes": 1211,
+      "sha256": "368f91d4e227b3cacd02070be5d2fb3bbbbf72b69b7c71205f7b30da259e008e"
     },
     "Tools/GlutexoEvolutionV2/RunReview.py": {
       "bytes": 1360,
@@ -20685,5 +20717,5 @@
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "generated_at": "2026-10-25",
   "schema": 1,
-  "snapshot_kind": "biome_v11_all_packages_functionally_verified_external_ios_warning_documented"
+  "snapshot_kind": "evolution_presentation_v21_functionally_verified_external_ios_warning_documented"
 }

@@ -1148,3 +1148,12 @@ Vorhandene Architektur und Botanik werden nur in der Biom-Map zu einer begehbare
 ### 24.10.2026 – Biom V1.1 dichte Waldzone
 
 Auf ausdrücklichen Nutzerauftrag wird nur der dichte Wald der Biom-Map näher eingerahmt. Gewählt ist die 1700-cm-Variante mit begrenztem oberem Kronenfenster nach echten QHD-Vergleichen; 1200 cm und die zu großflächig ausgeblendete erste Kronenfassung werden nicht übernommen. Standardkamera 2850 cm und Perspektive bleiben außerhalb unverändert. Sichtkegel-Grundradien, vorhandene Spieleraufhellung, Licht- und Schattenparameter bleiben erhalten. Private Shader erhalten den ursprünglichen Schatteneingang. Die finale visuelle Bewertung bleibt dem Nutzer vorbehalten; keine automatische Übertragung auf VisualV2.
+
+
+## 25.10.2026 – Entwicklungspräsentation V2.1
+
+Nur die visuelle Inszenierung der vorhandenen Kette Glumanda → Glutexo → Glurak ändern. Größere, zentrierte und unverzerrte Darstellung ausschließlich durch Einpassung der transienten Capture-Bühne; keine Änderung der tatsächlichen Weltgrößen, Modelldaten oder Weltkamera. Zwei vorhandene Bühnenformen werden über getrennte Bilder weich überblendet. Sparsame Lichtwellen/Lichtpunkte statt neuer Effektassets.
+
+Der bisherige Daten-/Abbruchpunkt bleibt **5 Spielsekunden nach Beginn**. Vorher A/Esc einschließlich später Silhouettenvorschau; danach keine Abbruchhinweise oder vorzeitige Bestätigung. Originalfarben vollständig ab 5,85 s, anschließend vorhandene Happy-Animation, Erfolgsmeldung mit altem und neuem Namen ab 7,8 s. Bestehende atomare Entwicklungs-, Lern-, AP- und Save-Dienste bleiben zuständig.
+
+Bewegungsnachweise dürfen den echten PIE-Lauf kontrolliert verlangsamen und ausschließlich tatsächlich präsentierte Frames mit ursprünglichen Spielzeitstempeln in Normalgeschwindigkeit codieren. Dies ist ausdrücklich kein Echtzeit-FPS-Nachweis und enthält keine interpolierten Bilder. Aufnahmen bleiben lokal unter Saved. Das engineinterne RHI-Modul dient nur dem asynchronen Auslesen des vorhandenen Slate-Backbuffers; kein neues Plugin oder externer Dienst.

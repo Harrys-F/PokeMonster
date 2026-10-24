@@ -1,0 +1,129 @@
+{
+  "base_commit": "a87b82639dd595c8c29976c029704ee4a28e2a9f",
+  "build": {
+    "label": "EvolutionV21_Build08",
+    "exit": 0
+  },
+  "automation": {
+    "label": "EvolutionV21_Automation04",
+    "engine_exit": 0,
+    "strict_wrapper_exit": 1,
+    "succeeded": 206,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0,
+    "inProcess": 0,
+    "warning": "External idevice_id posix_spawn 86 / Bad CPU type, during CrystalMoves.Production.Submission"
+  },
+  "map_checks": {
+    "/Game/Maps/Dev_BattleTestMap": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "/Game/Maps/Dev_BiomeTestMap_V1": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "/Game/Maps/Dev_BuildingKitTestMap": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "/Game/Maps/Dev_HealingHouseTestMap": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "/Game/Maps/Dev_TestMap": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "/Game/Maps/Dev_TestMap_NPCMotionV3": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "/Game/Maps/Dev_TestMap_VisualV2": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "/Game/Maps/Dev_TestMap_VisualV2EnvironmentQualityV1": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "/Game/Maps/Dev_WestlandAssetLibrary": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "/Game/Maps/Dev_WestlandRegion": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "/Game/Maps/Dev_WestlandVillage": {
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  "PIE": {
+    "full_sequences": true,
+    "manual_cases": true,
+    "steps": 47,
+    "checks": [
+      "Invalid slot changes no team or save",
+      "Only selected actual member reaches required level",
+      "Actual late cancellation at 4.660 game seconds before unchanged five-second boundary",
+      "Cancellation keeps species identity and AP",
+      "End restores exact original team including pending metadata",
+      "Confirmed evolution preserves selected instance XP and spent AP",
+      "Save Load reads evolved RAM state without touching disk",
+      "Delete normal save blocked during preview",
+      "End after success restores exact original team",
+      "Team slot2 selected without changing slot1",
+      "First stage uses original selected ID and regular model",
+      "Second stage reaches36 with no skipped individual",
+      "Second stage uses existing Glurak and retains independent reserve",
+      "Fixture and both evolutions fully discarded",
+      "Glutexo A after commit cannot cancel or skip reveal",
+      "Glutexo colored committed model, unchanged ID/XP/AP/repertoire/reserve",
+      "Glutexo return to unlocked game and RAM Save/Load",
+      "Glurak A after commit cannot cancel or skip reveal",
+      "Glurak colored committed model, unchanged ID/XP/AP/repertoire/reserve",
+      "Glurak return to unlocked game and RAM Save/Load",
+      "Original user team restored exactly, disk save unchanged"
+    ],
+    "normal_time_late_cancel_seconds": 4.66,
+    "disk_save_unchanged": true,
+    "fresh_PIE_restores_original_party": true,
+    "physical_controller_test": false
+  },
+  "videos": [
+    {
+      "file": "Saved/ProjectRefinement/EvolutionPresentationV21/Review03/Glutexo_FullPIE.mp4",
+      "actual_frames": 419,
+      "seconds": 13.81120097,
+      "actual_average_hz": 30.26528981136099,
+      "max_interval": 0.072246395,
+      "p95_interval": 0.04599831200000004,
+      "width": 2331,
+      "height": 1312,
+      "encoder": "Encoded 0 / 419\nEncoded 200 / 419\nEncoded 400 / 419\nVIDEO_OK /Users/harry/Developer/PokeMonster/Saved/ProjectRefinement/EvolutionPresentationV21/Review03/Glutexo_FullPIE.mp4 frames 419 duration 13.86 size 2331 1312\n",
+      "recording_time_dilation": 0.25,
+      "method": "Actual presented Slate frames, PIE deliberately slowed during recording, encoded at original game timestamps for normal-speed playback; no generated/interpolated frames"
+    },
+    {
+      "file": "Saved/ProjectRefinement/EvolutionPresentationV21/Review03/Glurak_FullPIE.mp4",
+      "actual_frames": 472,
+      "seconds": 13.816966408,
+      "actual_average_hz": 34.08852465091699,
+      "max_interval": 0.07935871900000002,
+      "p95_interval": 0.04617544900000059,
+      "width": 2331,
+      "height": 1312,
+      "encoder": "Encoded 0 / 472\nEncoded 200 / 472\nEncoded 400 / 472\nVIDEO_OK /Users/harry/Developer/PokeMonster/Saved/ProjectRefinement/EvolutionPresentationV21/Review03/Glurak_FullPIE.mp4 frames 472 duration 13.851666666666667 size 2331 1312\n",
+      "recording_time_dilation": 0.25,
+      "method": "Actual presented Slate frames, PIE deliberately slowed during recording, encoded at original game timestamps for normal-speed playback; no generated/interpolated frames"
+    }
+  ],
+  "original_assets_maps_rules_changed": false
+}

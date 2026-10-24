@@ -33,3 +33,19 @@ Save 8 enthält Angebote und optional individuelle XP-Kurve; 1–7 bleiben lesba
 ## Manueller Editor-Test ohne Save-Dateiänderung
 
 `pm.EvolutionTest.List`, `pm.EvolutionTest.Start <1–6>` und `pm.EvolutionTest.End` sind der sichere Benutzereinstieg. Der vorhandene Save-Service serialisiert währenddessen ausschließlich im RAM. Alte Review-Fixtures allein sind nicht isoliert. Vollständige Bedienung, Testergebnisse und Grenzen: `Docs/ENTWICKLUNG_MANUELL_IM_PIE.md`. `RunManualEvolution.py LABEL` nutzt normalen Editor-PIE-Start/Stop, prüft beide Stufen, Abbruch, Teamplatz 2, RAM-Save/Load und einen frischen PIE-Neustart; keine Savekopie/-restaurierung.
+
+
+### Vollständige Entwicklungspräsentation V2.1
+
+In einer regulären, über `Tools/ProjectMaintenance/ArtSession.py` geöffneten Editorsitzung mit VisualV2 (kein laufendes PIE):
+
+```sh
+python3 Tools/GlutexoEvolutionV2/RunPresentation.py EINDEUTIGERLABEL
+python3 Tools/GlutexoEvolutionV2/EncodePresentation.py EINDEUTIGERLABEL
+```
+
+Benötigt ein regulär gespeichertes Glumanda oder Glutexo im Team. Aktiviert zuerst den vorhandenen manuellen RAM-Schutz; erst danach bereitet die historische Fixture ein technisches Glumanda-Testteam vor. Beide regulären Entwicklungsrouten, softwareseitige B/A-Eingaben, die vollständige farbige Enthüllung/Happy-Phase, Rückkehr und RAM-Save/Load werden geprüft. End stellt das ursprüngliche Team wieder her; ein Save-Hash-Guard überschreibt oder restauriert niemals die Datei. Der normale Spielstand bleibt unverändert. Keine neue Map, keine dauerhafte Testplatzierung.
+
+Für dichte echte Bewegungsnachweise läuft nur dieser explizite Test mit Zeitfaktor 0,25. Der vorhandene Recorder erhält `pm.TAAReview.CaptureStart <eindeutiger absoluter Saved/VisualV2TAAIntegrationV1/Recordings/-Pfad> slate 60`. Er liest bereits präsentierte UI-Frames asynchron aus; kein erneutes Zeichnen und keine synthetischen Zwischenbilder. CSV-Dateien behalten Spiel- und reale Zeitstempel. Der Encoder verwendet Spielzeit für normale Videogeschwindigkeit, weist Abtastung, Maximalabstand und Aufnahmezeitfaktor aus. Das ist **kein Echtzeit-Performancebenchmark**. Die alte Einzelparameter-Framebuffer-Aufnahme bleibt kompatibel und enthält weiterhin keine Slate-UI.
+
+Dateien unter `Saved/ProjectRefinement/EvolutionPresentationV21/<LABEL>` bleiben lokal. `MapChecksPresentation.py` prüft alle bereits vorhandenen Maps ohne Speicherung. `RunManualEvolution.py` prüft zusätzlich Abbruch nahe 4,6 s und Wiederholung/Save-Restart in normaler PIE-Zeit. Physische Controllerhardware wird damit nicht nachgewiesen.
