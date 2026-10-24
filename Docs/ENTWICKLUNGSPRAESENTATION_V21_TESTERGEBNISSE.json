@@ -125,5 +125,14 @@
       "method": "Actual presented Slate frames, PIE deliberately slowed during recording, encoded at original game timestamps for normal-speed playback; no generated/interpolated frames"
     }
   ],
-  "original_assets_maps_rules_changed": false
+  "original_assets_maps_rules_changed": false,
+  "git": {
+    "feature_commit": "9b740ec064cd5c706b38519df8f8ba1d2011f29e",
+    "feature_remote_verified": true,
+    "new_LFS_objects": 0,
+    "LFS_upload_required": false,
+    "protected_untracked_unchanged": 31,
+    "full_backup_ref": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
+    "core_files_verified": 5178
+  }
 }
