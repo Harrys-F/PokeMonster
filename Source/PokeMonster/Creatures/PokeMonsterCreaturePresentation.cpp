@@ -106,6 +106,12 @@ void APokeMonsterCreatureVisualActor::Tick(float Delta)
  Super::Tick(Delta);const FVector P=GetActorLocation();
  MotionSpeed=SampleSpeed(P-PreviousLocation,Delta,bHavePrevious);
  PreviousLocation=P;bHavePrevious=true;UpdateGroundHover(Delta);
+ if (AquaticPoseAlpha>0.f)
+ {
+  MotionSpeed*=1.f-FMath::Clamp(AquaticPoseAlpha,0.f,1.f);
+  const FVector Location=Mesh->GetRelativeLocation();
+  Mesh->SetRelativeLocation(Location+FVector(0,0,FMath::Sin(GetWorld()->GetTimeSeconds()*2.f+IdlePhaseOffset*6.28f)*AquaticPoseAlpha));
+ }
 }
 bool APokeMonsterCreatureVisualActor::PlayReaction(EPokeMonsterCreatureClip Clip)
 {

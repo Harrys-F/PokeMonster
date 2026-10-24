@@ -96,6 +96,8 @@ public:
  UPROPERTY(Transient, BlueprintReadOnly) EPokeMonsterCreatureClip Reaction=EPokeMonsterCreatureClip::Idle;
  /** Per-visual idle phase only; locomotion cadence remains speed-driven. */
  UPROPERTY(Transient,BlueprintReadWrite) float IdlePhaseOffset=0.f;
+ /** Explicit biome-only buoyancy pose: idle/float prototype, NOT an authored swim clip. Zero elsewhere. */
+ UPROPERTY(Transient,BlueprintReadOnly) float AquaticPoseAlpha=0.f;
  uint32 ReactionSerial=0;
 private:
  void UpdateGroundHover(float Delta);

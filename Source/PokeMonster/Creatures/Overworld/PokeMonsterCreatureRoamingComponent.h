@@ -4,6 +4,7 @@
 #include "PokeMonsterCreatureOverworldSettings.h"
 #include "PokeMonsterCreatureRoamingComponent.generated.h"
 class APokeMonsterBuildingCutaway;
+class APokeMonsterBiomeHabitat;
 struct FCollisionQueryParams;
 class UPokeMonsterCreatureSpeciesData;
 class UPokeMonsterCreaturePresentationData;
@@ -15,6 +16,8 @@ class POKEMONSTER_API UPokeMonsterCreatureRoamingComponent : public UActorCompon
 	GENERATED_BODY()
 public:
 	UPokeMonsterCreatureRoamingComponent();
+    /** Null on all existing maps. Explicit sandbox surface/media contract only. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Development|Biome") TObjectPtr<APokeMonsterBiomeHabitat> BiomeHabitat;
 	UFUNCTION(BlueprintCallable, Category="Creature|Movement") void Configure(const UPokeMonsterCreatureSpeciesData* Species, float RootGroundOffset,
 		float Radius, float HalfHeight, AActor* Follow = nullptr, int32 Seed = 31);
 	virtual void TickComponent(float Delta, ELevelTick Tick, FActorComponentTickFunction* Function) override;

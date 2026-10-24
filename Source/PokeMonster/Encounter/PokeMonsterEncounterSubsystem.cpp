@@ -1,4 +1,5 @@
 #include "PokeMonsterEncounterSubsystem.h"
+#include "../Game/PokeMonsterGameMode.h"
 #include "../Dialogue/PokeMonsterNPC.h"
 #include "../Save/PokeMonsterSaveSubsystem.h"
 #include "PokeMonsterClassicBattleScene.h"
@@ -208,6 +209,7 @@ void UPokeMonsterEncounterSubsystem::RecordTrainerOutcome(const FPokeMonsterEnco
 bool UPokeMonsterEncounterSubsystem::StartEncounter(const FPokeMonsterEncounterStartData& Start,
 	APokeMonsterPlayerCharacter* Player)
 {
+    if (!APokeMonsterGameMode::AllowsPersistentGameplay(GetWorld())) return false;
 	if (bActive || !IsValid(Player) || Player->IsOverworldInputLocked()) return false;
  if(uint8(Start.BattleEnvironment)>uint8(EPokeMonsterBattleEnvironment::Ruins))return false;
 	if(Start.PresentationMode!=EPokeMonsterBattlePresentationMode::ClassicBattle && Start.PresentationMode!=EPokeMonsterBattlePresentationMode::WorldBattle)return false;

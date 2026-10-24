@@ -2,8 +2,8 @@
   "schema": 1,
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "base": "a966553e2e59e2cdb4a98e3830ad863d06365d7c",
-  "snapshot_kind": "manual_pie_evolution_preview_tested_external_ios_qa_warnings",
-  "generated_at": "2026-10-23",
+  "snapshot_kind": "biome_test_v1_functional_tests_verified_strict_external_ios_warning",
+  "generated_at": "2026-10-24",
   "files": {
     ".codex/config.toml": {
       "bytes": 59,
@@ -5493,6 +5493,22 @@
       "bytes": 630942,
       "sha256": "7c6f3303482cafea85caf8939de4202178aaad314d4dd23f22e280b1d5d06595"
     },
+    "Art/World/BiomeTestV1/BiomeTest_Terrain_V1.blend": {
+      "bytes": 2376066,
+      "sha256": "cf8df0755c55690a1057ff2afbf6611ff17dfbd5b78ecaae412a4079eb18b5c4"
+    },
+    "Art/World/BiomeTestV1/Exports/SM_BiomeTerrain.fbx": {
+      "bytes": 1909036,
+      "sha256": "0d9e0f5a1dbecfaf66666fb3d012b17c7885b9b2a28a8ef7f3e44b6ced63502e"
+    },
+    "Art/World/BiomeTestV1/Exports/SM_BiomeWater.fbx": {
+      "bytes": 100284,
+      "sha256": "a135adfeb7c662bf36e44bdf0ce0f61a512c47dd63b0b1c104bddf0aec4546bc"
+    },
+    "Art/World/BiomeTestV1/Terrain.json": {
+      "bytes": 551,
+      "sha256": "06477947d6436e671e7f05643c145d8dd25d5a7131b3c29296249f92a6622c48"
+    },
     "Art/World/EnvironmentPerfV1/Review/Data/AutomationIndex.json": {
       "bytes": 19255,
       "sha256": "b7215f53985dc1daaac19b3df137eda3e3ca3873a9de5f80a9e686d25421917e"
@@ -9085,6 +9101,86 @@
       "bytes": 53005,
       "sha256": "df172b5b19f012f0d797288723ac7ccc0885664e43ebeb79493b7948524d23bc"
     },
+    "Content/Environment/BiomeTestV1/Materials/MI_WLA_Bark_Biome.uasset": {
+      "bytes": 16593,
+      "sha256": "c73fb8873495b171b88bf2f1d87576834747b6ee810b5203a19a05c46e5b4473"
+    },
+    "Content/Environment/BiomeTestV1/Materials/MI_WLA_FlowerBlue_Biome.uasset": {
+      "bytes": 9250,
+      "sha256": "6bcb6ac9ad26407bfc381f03d7ce92eb3d7fafcf705522699a6b02f88a7d69dc"
+    },
+    "Content/Environment/BiomeTestV1/Materials/MI_WLA_FlowerCream_Biome.uasset": {
+      "bytes": 9253,
+      "sha256": "13b22d73042db5fe8cc5b475cbb7750108489592546e49e702feac691729e817"
+    },
+    "Content/Environment/BiomeTestV1/Materials/MI_WLA_FoliageGroups_V3_Biome.uasset": {
+      "bytes": 15162,
+      "sha256": "2d3816b5d0f7feefc49d58cd6f4d0620eb9f18fe54077c3320889f18feeb245c"
+    },
+    "Content/Environment/BiomeTestV1/Materials/MI_WLA_LeafDark_Biome.uasset": {
+      "bytes": 14510,
+      "sha256": "60a53745ccd03b5fccd3f50c5466859462a42a8aa6de1f5837b7c97292243f36"
+    },
+    "Content/Environment/BiomeTestV1/Materials/MI_WLA_LeafLight_Biome.uasset": {
+      "bytes": 15161,
+      "sha256": "ce022c686dde6b7f20bb5d887b43fa90909335413c0b148e16c58959d9cc54dd"
+    },
+    "Content/Environment/BiomeTestV1/Materials/MI_WLA_Leaf_Biome.uasset": {
+      "bytes": 14945,
+      "sha256": "ca858b975948d7f2b734d60f0de8030859d71e434275d2783b40be31b17f128b"
+    },
+    "Content/Environment/BiomeTestV1/Materials/MI_WLA_Stone_Biome.uasset": {
+      "bytes": 11380,
+      "sha256": "baa1a176ca5bbfe0ba60f2f84b2a02a689948d5b81e356af92a51a17e181522d"
+    },
+    "Content/Environment/BiomeTestV1/Materials/M_BiomeGround.uasset": {
+      "bytes": 22034,
+      "sha256": "b6cf67ab4b62f0b57f17a226294cf1c04f649371e7c91715fbf81870ca615c37"
+    },
+    "Content/Environment/BiomeTestV1/Materials/M_BiomeWater.uasset": {
+      "bytes": 11335,
+      "sha256": "a183b012f453435089e0d03271b1c08b4463f7fadce84a1614caeeecfa1b4b49"
+    },
+    "Content/Environment/BiomeTestV1/Materials/M_HA4_Foliage_Biome.uasset": {
+      "bytes": 16234,
+      "sha256": "fc0a3635ee806b864218c34eb0d4ab6a68bfb3aeadaa731932849b98975b789c"
+    },
+    "Content/Environment/BiomeTestV1/Materials/M_WA5_Foliage_Biome.uasset": {
+      "bytes": 16234,
+      "sha256": "c1d1db6064bde64600ca77cdd8f3cedf927ad33034e1be1b3c8696322d9ed699"
+    },
+    "Content/Environment/BiomeTestV1/Materials/M_WA5_Seed_Biome.uasset": {
+      "bytes": 16046,
+      "sha256": "2f877a91ad4c622c7c5b409332d3038fc5d7ed6f015c15e3738cd29f05718c11"
+    },
+    "Content/Environment/BiomeTestV1/Materials/M_WAQ2_PlantVertexColour_Biome.uasset": {
+      "bytes": 10047,
+      "sha256": "eb6d7400b23549d68d28eedcbed973b488ac6960927ffea934afcc04b2f71903"
+    },
+    "Content/Environment/BiomeTestV1/Materials/M_WLA_FoliageGroups_V3_Biome.uasset": {
+      "bytes": 20990,
+      "sha256": "1af60cf41950152d391d071a5b3eb126a69a99c6bb7c69a8a3e3960135c367fd"
+    },
+    "Content/Environment/BiomeTestV1/Materials/M_WLA_PaintedLeaf_Biome.uasset": {
+      "bytes": 16999,
+      "sha256": "c454e4bec3f5719cdec63e488a015ce91e0aa63f77178794eb0c7803ae9623ac"
+    },
+    "Content/Environment/BiomeTestV1/Materials/M_WLA_Painted_Biome.uasset": {
+      "bytes": 16936,
+      "sha256": "55449e534308ec05c0257c8d902c72efccc74009a80dc6eb26fe6aa6bcbdcb4b"
+    },
+    "Content/Environment/BiomeTestV1/Materials/M_WaterDiagnostic.uasset": {
+      "bytes": 9787,
+      "sha256": "7d7fe2af0cc8e68c999f2363ec0a43add7ec1e6457cb1999883ea9e50e196917"
+    },
+    "Content/Environment/BiomeTestV1/Meshes/SM_BiomeTerrain.uasset": {
+      "bytes": 1456208,
+      "sha256": "30873aba1a82b737e4b8737e645477d26b60480f79de0c4015804f6f2bd61a99"
+    },
+    "Content/Environment/BiomeTestV1/Meshes/SM_BiomeWater.uasset": {
+      "bytes": 78183,
+      "sha256": "9b8be8d5bc84908221f1ccec368fe68f3c2c6aa777716d87eb27631d41f33ab5"
+    },
     "Content/Environment/DevTestMapVisualV2/Materials/MI_V2_BarkReveal.uasset": {
       "bytes": 16912,
       "sha256": "d91eb5aa2223e66b1766335391a081a468ef2a6669fbe5e2643ceafed61e0eef"
@@ -11645,6 +11741,10 @@
       "bytes": 8758,
       "sha256": "1e83bf51c643eb1e22cbfbe069b726a017df2181bee72222d10b09cf7b0c3c14"
     },
+    "Content/Maps/Dev_BiomeTestMap_V1.umap": {
+      "bytes": 1589172,
+      "sha256": "cf7f071f6699bd0b786ea9a55deeb8cfacf074179dbfdb409b059567f9e5569b"
+    },
     "Content/Maps/Dev_BuildingKitTestMap.umap": {
       "bytes": 887279,
       "sha256": "76209825bcfb74f088d96ae291603466a4f285ed73e1bc01814cb4b70ebf892e"
@@ -11752,6 +11852,10 @@
     "Docs/BAUMFAMILIEN_SICHTFREISTELLUNG_PRUEFBERICHT.md": {
       "bytes": 11314,
       "sha256": "3be94f00ce2a2be6de0f64f4ecd2cabe3af4b4ce606f4230c197bba670f896bf"
+    },
+    "Docs/BIOM_TESTMAP_V1_PRUEFBERICHT.md": {
+      "bytes": 10912,
+      "sha256": "eff21a60486f357f3a23d8b089bc599944dc83faa98978c925b628e58a54cbb7"
     },
     "Docs/DAUERHAFTES_POKEMON_TESTGELAENDE_V1_PRUEFBERICHT.md": {
       "bytes": 14673,
@@ -12226,12 +12330,12 @@
       "sha256": "787fac20759eeea73a0ba72965409becd65590f8a724a58801ac482f3d80a6b9"
     },
     "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureRoamingComponent.cpp": {
-      "bytes": 28908,
-      "sha256": "dfc14f997db6772e1cef0c2435ff2f97ff41e8a059e906be84cd4fb2c99ce846"
+      "bytes": 29689,
+      "sha256": "8151845c8b2a2fc1f45244b8a136d1545c3fe6c33192e103fde679772f684aa2"
     },
     "Source/PokeMonster/Creatures/Overworld/PokeMonsterCreatureRoamingComponent.h": {
-      "bytes": 6039,
-      "sha256": "4a77deb470f09063bf4971f96365a25c8acb11bc29b3d998c6af74c40b24a098"
+      "bytes": 6284,
+      "sha256": "d8ecb6f790b13658fefb588e05b70efe663263e6a1d84e90c172b75be5b5328d"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureGroundHover.cpp": {
       "bytes": 5331,
@@ -12246,12 +12350,12 @@
       "sha256": "e857b3425ef486083bcd684e5ffdc3f970a454342403b09a871962f9d0cca40f"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreaturePresentation.cpp": {
-      "bytes": 11524,
-      "sha256": "ec776bac350b1238097b0b7a7e5938077d69d8a80fd94ad8589a0859a7984939"
+      "bytes": 11806,
+      "sha256": "46cd78b0d2be89349bded4269c8fcc443c61d411ec620df1e662cd46c1812344"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreaturePresentation.h": {
-      "bytes": 6972,
-      "sha256": "f0bf477574a51c0d7e0bc03fa96f593b6962b33487aabaf4d7f2b98119f5833a"
+      "bytes": 7148,
+      "sha256": "c278546cc1083af120e73c86b1e6ef6bc5f3908836e14b9f2bf6d1eb98493f2a"
     },
     "Source/PokeMonster/Creatures/PokeMonsterCreatureProgression.cpp": {
       "bytes": 8104,
@@ -12272,6 +12376,14 @@
     "Source/PokeMonster/Creatures/PokeMonsterCreatureTypes.h": {
       "bytes": 6486,
       "sha256": "62578c59387cb94d5734eb1b521b04906be5f688f3177203529ae2499b801866"
+    },
+    "Source/PokeMonster/Development/BiomeTestV1/PokeMonsterBiomeHabitat.cpp": {
+      "bytes": 8545,
+      "sha256": "25be646bdd032b8a86a9170818e5b6bd59ded82b4dd289a333aa411067a3e387"
+    },
+    "Source/PokeMonster/Development/BiomeTestV1/PokeMonsterBiomeHabitat.h": {
+      "bytes": 3513,
+      "sha256": "99db775e2b9f15797b72601dffda2eff1d1f4e3327b362c3b01addc140c71fee"
     },
     "Source/PokeMonster/Development/PokeMonsterBattleSystemV3Review.cpp": {
       "bytes": 4471,
@@ -12466,8 +12578,8 @@
       "sha256": "7b04278d2e5e3bcd1477ba0f49f8eda966000f978a0ccdf0d84055c41c12bae3"
     },
     "Source/PokeMonster/Encounter/PokeMonsterEncounterSubsystem.cpp": {
-      "bytes": 27995,
-      "sha256": "dc43b99fc8c3500722fda9d47edc414987e55c2b336716612a8b47816afd1f40"
+      "bytes": 28119,
+      "sha256": "c360c54b0f1a8f2c8526d6ec9a0916a747b504aa97b3ffae5c421ff2df0e9cb9"
     },
     "Source/PokeMonster/Encounter/PokeMonsterEncounterSubsystem.h": {
       "bytes": 11891,
@@ -12506,12 +12618,12 @@
       "sha256": "348080e2b4cf45882d2890549ff60591e664c8a2568747921a26fc3dc5a599a3"
     },
     "Source/PokeMonster/Game/PokeMonsterGameMode.cpp": {
-      "bytes": 389,
-      "sha256": "992a92d44b7fbf6801f2259ff466dbee2114f5c4a28362eeff158bedf5cb2ce2"
+      "bytes": 641,
+      "sha256": "852ee7bbf4866d9b870c99b9a5dc21de8cda7265498c86f0b3462d23dccf6bf2"
     },
     "Source/PokeMonster/Game/PokeMonsterGameMode.h": {
-      "bytes": 368,
-      "sha256": "295f1493c4928c71cb209f133a124ccdd292fa5011557409f019e252bbfd887d"
+      "bytes": 634,
+      "sha256": "9f71eed54e912b9e81467e2d6116d42695d626cdaef0598b7b17ce2523fb05c2"
     },
     "Source/PokeMonster/Interaction/PokeMonsterInteractable.h": {
       "bytes": 907,
@@ -12610,8 +12722,8 @@
       "sha256": "47d0be38ff2704b1097c05574175a0cb940d58d91148530411d001af5e3c49d0"
     },
     "Source/PokeMonster/Save/PokeMonsterSaveSubsystem.cpp": {
-      "bytes": 20411,
-      "sha256": "1b39ddc799d4c7f275370d2784e3e8e72896da94030459341ed2e9379d4601cd"
+      "bytes": 20867,
+      "sha256": "432a3fed2ac128fad1cdadb6d08021fd9dee3ada5112ccfcca332ebf10be75fe"
     },
     "Source/PokeMonster/Save/PokeMonsterSaveSubsystem.h": {
       "bytes": 2347,
@@ -12656,6 +12768,10 @@
     "Source/PokeMonster/Tests/PokeMonsterBattleViewV2Test.cpp": {
       "bytes": 4680,
       "sha256": "13b77b20c01903f1130174690984d9612e6936c21f9884082f255054ddc9e6c8"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterBiomeTest.cpp": {
+      "bytes": 3190,
+      "sha256": "fd615dd0a9ec920d5b39d5e3a25a19adc67271bc88bbb07004fcac6c41f8a93e"
     },
     "Source/PokeMonster/Tests/PokeMonsterBuildingCameraTest.cpp": {
       "bytes": 11181,
@@ -13216,6 +13332,70 @@
     "Tools/BattleViewV2/RunPIE.py": {
       "bytes": 991,
       "sha256": "74a234278e12507a16792e5c2c99ae148fa95e991a48c137ec84ac9b0f69c7e6"
+    },
+    "Tools/BiomeTestV1/AssetAudit.py": {
+      "bytes": 2763,
+      "sha256": "586560ef499f7f613bbfdb06db7133f70b409e4f1adb6e316354a76eff04532b"
+    },
+    "Tools/BiomeTestV1/BuildTerrain.py": {
+      "bytes": 3086,
+      "sha256": "ca0f0b7b8a162d8a633f5aca439ef0e6faaab373c1961c43114b758ace56d9ad"
+    },
+    "Tools/BiomeTestV1/CreateMap.py": {
+      "bytes": 17480,
+      "sha256": "e5b2cbbfac4ab9594226f3283e495b17a524734b2a95288483f68980fe75791d"
+    },
+    "Tools/BiomeTestV1/EditorSession.py": {
+      "bytes": 349,
+      "sha256": "25044c5a4532f0d9d1ce31325a585a41da93cc6f57276397b057449af97b44a7"
+    },
+    "Tools/BiomeTestV1/Inventory.py": {
+      "bytes": 2785,
+      "sha256": "ec055a1aeef535055c65627fcf58d04016b1965be6d3fec6eb00f8ca1fd8af9d"
+    },
+    "Tools/BiomeTestV1/IsolateMaterials.py": {
+      "bytes": 3697,
+      "sha256": "c7a81f6bd1c47369b692add39891e7097ff4ac37f8cba6797ea20303c22645df"
+    },
+    "Tools/BiomeTestV1/Layout.py": {
+      "bytes": 2142,
+      "sha256": "f2ce1405a1e6da403d07cd588d63e8ac2ed463a3887e277c063f11270b5bf1dc"
+    },
+    "Tools/BiomeTestV1/MapChecks.py": {
+      "bytes": 1039,
+      "sha256": "79c88b8917c161eb3cc746fe0b8e92d74c6a124fe97b81abdba3371942bbb61e"
+    },
+    "Tools/BiomeTestV1/Overview.py": {
+      "bytes": 2631,
+      "sha256": "24152d62558ba13ef0223b44a19c591f8a91ede4a3edb185b4ede69036945715"
+    },
+    "Tools/BiomeTestV1/PrepareAssets.py": {
+      "bytes": 7098,
+      "sha256": "5eba70284e59d4884c06897c06917628a0acdfc71c252e228751aac7f9b4e602"
+    },
+    "Tools/BiomeTestV1/ProbeTerrain.py": {
+      "bytes": 1000,
+      "sha256": "ae5f88f466c16fdb3963809f1da63a831c88d89c04b539e1f3d62d1a1ca4b2c5"
+    },
+    "Tools/BiomeTestV1/README.md": {
+      "bytes": 6272,
+      "sha256": "4eb0a4c1e7a51faea7ed2d4d678a6af3e3d8454a6929726c7523405104c498c1"
+    },
+    "Tools/BiomeTestV1/RefineSightAndCave.py": {
+      "bytes": 3293,
+      "sha256": "8b86ffdb0662c0f0bd97773f42660c73c01f6b1df3929b45e9502b53a2a6fde4"
+    },
+    "Tools/BiomeTestV1/ReimportTerrain.py": {
+      "bytes": 2693,
+      "sha256": "a2dbe2f3ade66d8a92f8e31ad85668d430cf32d7853d01568f148c70d0ede380"
+    },
+    "Tools/BiomeTestV1/RunWalkReview.py": {
+      "bytes": 1128,
+      "sha256": "8dc341ebaea0a9bf6216a09c98d748b1585c073d7dc81804bbde75ed9bc8132c"
+    },
+    "Tools/BiomeTestV1/WalkReview.py": {
+      "bytes": 13425,
+      "sha256": "7836cd5528358a925da8e49aeb5cc2455e1516839d6e596acce5a2e5203f15ce"
     },
     "Tools/Blender/AnimateMeshyPlayerV2.py": {
       "bytes": 6624,

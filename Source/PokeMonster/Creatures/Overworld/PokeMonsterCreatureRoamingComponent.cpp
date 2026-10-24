@@ -1,4 +1,5 @@
 #include "PokeMonsterCreatureRoamingComponent.h"
+#include "../../Development/BiomeTestV1/PokeMonsterBiomeHabitat.h"
 #include "PokeMonsterCreaturePath.h"
 #include "../PokeMonsterCreatureSpeciesData.h"
 #include "../PokeMonsterCreaturePresentation.h"
@@ -86,6 +87,7 @@ FCollisionQueryParams UPokeMonsterCreatureRoamingComponent::Query() const
 {
 	FCollisionQueryParams Q(SCENE_QUERY_STAT(CreatureOverworldGround), false);
 	Q.AddIgnoredActor(GetOwner());
+    if (BiomeHabitat) BiomeHabitat->IgnorePlayerWaterBarriers(Q);
 	TArray<AActor*> Attached; GetOwner()->GetAttachedActors(Attached);
 	for (AActor* Actor : Attached) Q.AddIgnoredActor(Actor);
 	if (FollowTarget.IsValid()) Q.AddIgnoredActor(FollowTarget.Get());
@@ -97,6 +99,7 @@ FCollisionQueryParams UPokeMonsterCreatureRoamingComponent::Query() const
 bool UPokeMonsterCreatureRoamingComponent::IsInsideHabitat(const FVector& Point) const
 {
 	if (!bReady || Point.ContainsNaN()) return false;
+    if (BiomeHabitat && !BiomeHabitat->ContainsFootprint(Point, BodyRadius)) return false;
 	const FVector BodyPoint = Point + FVector(0,0,BodyHalfHeight);
 	for (const auto& Weak : Buildings)
 	{
@@ -123,6 +126,7 @@ bool UPokeMonsterCreatureRoamingComponent::IsInsideHabitat(const FVector& Point)
 bool UPokeMonsterCreatureRoamingComponent::ProjectWalkable(const FVector& Point, FVector& Ground) const
 {
 	UWorld* W = GetWorld(); if (!W || !IsInsideHabitat(Point)) return false;
+    if (BiomeHabitat) return BiomeHabitat->ProjectFoot(Point, BodyRadius, BodyHalfHeight, Query(), Ground);
 	const auto Q = Query(); FHitResult Hit;
 	if (!W->LineTraceSingleByChannel(Hit, Point + FVector(0, 0, Settings.MaxStepHeight + 55.f),
 		Point - FVector(0, 0, 100.f), ECC_Visibility, Q) || Hit.ImpactNormal.Z < .75f) return false;
@@ -279,6 +283,9 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 		{
 			const float Angle=Random.FRandRange(-PI,PI), Distance=Radius*FMath::Sqrt(Random.FRand());
 			FVector Goal=Center+FVector(FMath::Cos(Angle)*Distance,FMath::Sin(Angle)*Distance,0); Goal.Z=Current.Z;
+            if (BiomeHabitat && !BiomeHabitat->TravelPoints.IsEmpty())
+                Goal = BiomeHabitat->GetActorTransform().TransformPosition(BiomeHabitat->TravelPoints[Random.RandRange(0,BiomeHabitat->TravelPoints.Num()-1)])
+                    + FVector(Random.FRandRange(-35,35),Random.FRandRange(-35,35),0);
 			if(FVector::Dist2D(Current,Goal)<(FollowTarget.IsValid()?90.f:Settings.MinimumTravel)) continue;
 			if(FollowTarget.IsValid() && FVector::Dist2D(Goal,Center)<100.f) continue;
 			if(RecentGoals.ContainsByPredicate([&](const FVector& P){return FVector::Dist2D(P,Goal)<Settings.MinimumTravel*.65f;})) continue;
@@ -488,6 +495,7 @@ bool UPokeMonsterCreatureRoamingComponent::CanGroundHover(float Height, const FB
  if (!bReady || bPaused || bEscapingDefeat || !GetWorld() || !GetOwner() || !Bounds.IsValid
   || !FMath::IsFinite(Height) || Height < 0.f || Height > 150.f) return false;
  const FVector Ground=GetOwner()->GetActorLocation()-FVector(0,0,Offset);
+ if (BiomeHabitat && (!BiomeHabitat->bAllowGroundFlight || !BiomeHabitat->ContainsFlightColumn(Ground,Height,Bounds))) return false;
  for (const auto& Weak:Buildings) if (const auto* B=Weak.Get())
   if (B->IsViewerInside(Ground+FVector(0,0,50))) return false;
  FVector Projected;

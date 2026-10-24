@@ -10,3 +10,10 @@ APokeMonsterGameMode::APokeMonsterGameMode()
 	DefaultPawnClass = APokeMonsterPlayerCharacter::StaticClass();
 	PlayerControllerClass = APokeMonsterOverworldPlayerController::StaticClass();
 }
+
+#include "Engine/World.h"
+bool APokeMonsterGameMode::AllowsPersistentGameplay(const UWorld* World)
+{
+    const auto* Mode = World ? Cast<APokeMonsterGameMode>(World->GetAuthGameMode()) : nullptr;
+    return !Mode || Mode->bEnablePersistentGameplay;
+}

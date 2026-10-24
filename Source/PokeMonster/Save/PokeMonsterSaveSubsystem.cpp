@@ -1,4 +1,5 @@
 #include "PokeMonsterSaveSubsystem.h"
+#include "../Game/PokeMonsterGameMode.h"
 
 #include "../Creatures/PokeMonsterCreatureProgression.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
@@ -279,6 +280,7 @@ bool UPokeMonsterSaveSubsystem::SaveSnapshotToSlot(UPokeMonsterSaveGame* Save, c
 
 bool UPokeMonsterSaveSubsystem::SaveCurrentGame()
 {
+    if (!APokeMonsterGameMode::AllowsPersistentGameplay(GetWorld())) return false;
 	UGameInstance* Instance = GetGameInstance();
 	if (!Instance) return false;
 	UPokeMonsterSaveGame* Save = CaptureSnapshot(Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
@@ -304,6 +306,7 @@ bool UPokeMonsterSaveSubsystem::SaveCurrentGame()
 
 bool UPokeMonsterSaveSubsystem::LoadGame()
 {
+    if (!APokeMonsterGameMode::AllowsPersistentGameplay(GetWorld())) return false;
 	if (!HasSaveGame())
 	{
 		UE_LOG(LogPokeMonsterSave, Warning, TEXT("No save in slot %s."), *DevSlotName);
@@ -333,6 +336,7 @@ bool UPokeMonsterSaveSubsystem::LoadGame()
 
 bool UPokeMonsterSaveSubsystem::HasSaveGame() const
 {
+    if (!APokeMonsterGameMode::AllowsPersistentGameplay(GetWorld())) return false;
 #if WITH_EDITOR
     if (IsPIEMemoryPreviewActive()) return !PIEMemorySave.IsEmpty();
 #endif
@@ -341,6 +345,7 @@ bool UPokeMonsterSaveSubsystem::HasSaveGame() const
 
 bool UPokeMonsterSaveSubsystem::DeleteDevSave()
 {
+    if (!APokeMonsterGameMode::AllowsPersistentGameplay(GetWorld())) return false;
 #if WITH_EDITOR
     if (IsPIEMemoryPreviewActive()) return false;
 #endif
@@ -349,6 +354,7 @@ bool UPokeMonsterSaveSubsystem::DeleteDevSave()
 
 bool UPokeMonsterSaveSubsystem::RunDevRoundTripTest()
 {
+    if (!APokeMonsterGameMode::AllowsPersistentGameplay(GetWorld())) return false;
 	if (HasSaveGame())
 	{
 		UE_LOG(LogPokeMonsterSave, Warning, TEXT("Round trip refused: existing Dev save would be overwritten."));
