@@ -1,6 +1,6 @@
 # Biom-Testmap V1.1 – Prüfbericht
 
-Stand: 24.10.2026. Ausgangscommit `11a1b9ef`. Ziel ist ausschließlich die bestehende `/Game/Maps/Dev_BiomeTestMap_V1`. **Zwischenstand: Wasser, Plateau/Höhle und fünf Wiesen-/Flug-Pokémon geprüft; Waldkamera folgt. Keine Gesamtfreigabe V1.1.**
+Beginn: 24.10.2026; technischer Abschluss: 25.10.2026. Ausgangscommit `11a1b9ef`. Ziel ist ausschließlich die bestehende `/Game/Maps/Dev_BiomeTestMap_V1`. **Alle fünf Arbeitspakete umgesetzt und funktional geprüft, sieben neue Meshy-Arten integriert. Gesamtfußlauf, Build, zwölf Map Checks und frischer PIE-Start bestanden. Strenger QA-Wrapper Exit 1 wegen externer iOS-Helferwarnungen. Visuelle Nutzerabnahme bleibt ausstehend.**
 
 ## 1. Wasserbiom
 
@@ -43,7 +43,7 @@ Alle Medien bleiben ausschließlich unter ignoriertem `Saved/`, nicht auf GitHub
 
 ## 4. Noch ausstehende Pakete
 
-Ruine und dichte Waldkamera sind in diesem Zwischenstand noch nicht umgesetzt; Paket Wiese ist unten ergänzt. Der bestehende V1-Stand ist dort keine V1.1-Abnahme. Gesamttests und abschließende Vorher-/Nachherbewertung folgen erst nach Umsetzung.
+Historischer Wasser-Zwischenstand inzwischen durch die Pakete 6–9 ergänzt. Alle fünf Pakete sind umgesetzt; die abschließenden Gesamttests stehen in Abschnitt 10.
 
 ## 5. Integrität und Git
 
@@ -133,3 +133,64 @@ Echte identische Vergleichskamera: Before01/Ruine_QHD.png und RuinAfter02/Ruine_
 RuinAssetAudit ohne fehlende Abhängigkeiten, alle zwölf expliziten Map Checks erneut 0 Fehler/0 Warnungen. Das Assetpaket verändert keine seit AirBuild06/MeadowAutomation03 erfolgreich geprüfte native Spiellogik. Gesamter Build und Automation werden nach dem letzten Kamerapaket nochmals wiederholt.
 
 Wiesensicherung: a196c77647ca2dd7aa9e5b23e17357204e708e7a regulär auf origin/main, 136 tatsächliche Remote-LFS-Objekte / 198363016 Bytes vollständig mit SHA-256 bestätigt. Der Verifier kann jetzt auch ein bereits weiterbearbeitetes Map-File über sein unveränderliches lokales LFS-Objekt dem früheren Commit zuordnen, ohne die Arbeitsdatei zurückzuschreiben. Die zunächst zu große Metadatenanfrage wurde mit HTTP 413 zurückgewiesen; feste 32er-Anfragen verifizieren denselben Satz erfolgreich. Keine Upload-Wiederholung, Budgetänderung oder kostenpflichtige Aktivierung.
+
+
+## 9. Ausschließlich lokale Kamera im dichten Wald
+
+Gewählte Vergleichsvariante: 1700 cm Abstand nur im markierten dichten Wald, mit sanfter 0,8-s-Überblendung und 180 cm weichem Rand. Standard bleibt 2850 cm, Pitch −50°, Yaw −45°, FOV 35°. Gebiet UV-Mitte (3200,−1700) cm, Halbausdehnung (1050,650,600) cm. Actor `Biome_DenseForestCamera_V11`. Keine neue Taste, kein globaler Zoom und keine Änderung der Bewegungsrichtungen. Der Zone-Schalter bEnabled lässt sich für einen rücknehmbaren Vergleich deaktivieren.
+
+Die vorhandene CameraVisibility verarbeitet weiterhin dieselben Baumfamilien und denselben Grundsichtkegel (110/220 cm). Nur 40 ausdrücklich zugeordnete Bäume dieser Map besitzen private Materialvarianten. Zusätzliches weiches Fenster ausschließlich in oberer Kronengeometrie, Übergang ab Zielhöhe +240 bis +480 cm, endlicher Kamera→Figur-Korridor mit 220/380-cm-Softwindow. Untere Stämme und Unterholz bleiben; Originalmaterialien anderer Karten werden nicht verändert. ShadowPassSwitch verwendet im Schattenpass den ursprünglichen Maskeneingang. Außenlichtquellen, GI-/Bloom-/TAA-Einstellungen, Spieleraufhellung und Original-Schattenparameter bleiben erhalten.
+
+Drei tatsächlich verglichene reine Zoomstufen stehen unter ForestCandidates01: 2850/1700/1200 cm, identischer Spielerpunkt/Yaw/Pitch/FOV. 1200 cm ist für diesen Stil zu nah; reines 1700-cm-Zoom behält eine enge Sichtöffnung. Die erste komplette Kronenvariante ForestCompare01 nahm visuell zu viel Dach weg und wurde verworfen. ForestCompare02 erhält durch das endliche Fenster mehr seitlichen Blätterrahmen; sie zeigt Boden, Farne, Wurzeln und Stämme zusammen mit größerer Figur klarer. Es ist ein schräger Cutaway-Einblick, keine physisch unter allen Kronen befindliche frei drehbare Kamera. Sehr dunkle Waldschatten bleiben sichtbar; keine zusätzliche Aufhellung kaschiert das.
+
+Beim Ergänzen des vierten Materialeingangs erzeugte Unreal vor dessen Anschluss Zwischenkompilierungen mit „Custom missing input 4 (C)“. Gespeicherte Graphen wurden daraufhin ausdrücklich auf alle vier Verbindungen, getrennte originale Schatteneingänge und eigene erfolgreiche Shaderauswertung geprüft und abschließend neu kompiliert (ForestMaterialValidation). Keine aktive fehlerhafte Fassung als Erfolg ausgegeben; frische Editorprüfung steht zusätzlich im Abschlussabschnitt. Die anfängliche Diagnose wird damit präzisiert: Zwischenkompilierwarnung beim Graphumbau, vollständig verbundener Endgraph gültig.
+
+ForestPIE01 zeigte Ein-/Ausblendung korrekt, wurde aber nach bestätigtem Hinderniskonflikt im anschließenden automatisch gewählten Ruinen-Abzweig über seinen eigenen Cleanup abgebrochen. Keine Bäume oder Collider entfernt. Die Prüfrouten führen nun über den tatsächlich freien alten Waldabzweig. ForestPIE02: 139,34 m, 17/17 Ziele, normaler PIE mit Enhanced Input, kein Test-Teleport. 103 Zwischenframes der Übergänge; 1700 cm in der Zone, exakt 2850 cm und keine zusätzliche Kronenüberblendung an Lichtung, Ruine und Hub. Pitch/Yaw/FOV und SightRadiusScale 2 durchgehend geprüft. Lokale echte Bewegungssequenz ForestPIE02/ForestCamera_ActualPIE.mp4: 383 Originalframes, 25,097 s, maximal 0,203 s Abstand; keine interpolierten Frames und keine FPS-Messung.
+
+ForestBattle01: tatsächlicher Angriff und anschließende Flucht in ClassicBattle und WorldBattle bei aktiver lokaler Kamera. 106 beobachtete Kampfpausenframes, Abstandabweichung 0 cm. Danach korrekte Fortsetzung sowie Rückkehr zu 2850 cm außerhalb des Waldes. Individuelle AP/Identität über RAM-Save/Load unverändert. Rein technischer, ausdrücklich speicherisolierter Parteien-/Beobachtungsaufbau, keine natürliche Wildbegegnung. Reale Slate-Menübilder unter Saved/GlumandaV11/LiveUI/BiomeV11_ForestBattle01_*.
+
+Ruinensicherung: 26a88c66082c6e12fe5d8743f78e51161af7d9e6 auf origin/main, drei Remote-LFS-Objekte / 2094353 Bytes vollständig mit SHA-256 verifiziert.
+
+## 10. Abschließende Gesamtprüfung
+
+| Schlussprüfung | Tatsächliches Ergebnis |
+|---|---|
+| Ein normaler zusammenhängender PIE-Start | FinalLoop01: **904,74 m**, Wasser15/15, Wiese4/4, Plateau/Höhle35/35, Wald17/17, Ruine14/14. Dieselbe Welt/Spielersitzung, tatsächliches Enhanced Input und Kollisionen. Keine Fahrer-Teleports; genau der vorhandene maskierte Höhlenwechsel hin/zurück erlaubt. |
+| Editor-Build | BiomeV11_FinalBuild Exit0. |
+| Vollständige Automation | Engine Exit0: **204 erfolgreich +1 erfolgreich mit Warnungen**, 0 fehlgeschlagen, 0 übersprungen. Enthält alle bisherigen Gameplayprüfungen und neue Spezies-/Move-/Flug-/Kamerascope-Prüfungen. |
+| Strenger QA-Wrapper | **Exit1**, ausdrücklich kein warnungsfreier Pass. Beide Warnungen des erfolgreichen CurseBranchesCapsAndSwitchReset-Tests stammen aus `idevice_id / posix_spawn86 (Bad CPU type)` im externen Engine-iOS-Helfer. Keine Filteränderung am Wrapper. Bestehende Startmeldungen zur MCP-Lizenz und Python-Namensüberschneidung Information bleiben separat, nicht als neue Funktionsfehler ausgegeben. |
+| Map Checks / Referenzen | Alle zwölf vorhandenen Karten 0 Fehler/0 Warnungen; keine fehlenden Abhängigkeiten.103 Bäume und15 Habitate mit16 Exemplaren erhalten. |
+| Außenbeleuchtung | Lichtpositionen/-richtungen, Intensitäten, Farben, Temperaturen, Schattenparameter sowie Belichtung/Bloom/Lumen mit unveränderter VisualV2 verglichen. Identisch bis1e−6 numerischer Toleranz; ein zunächst beanstandeter Rollunterschied lag nur bei1e−14 Grad aus Quaternion-Rundung. Keine Lichtkorrektur vorgenommen. Lokale Höhlenlichter separat. |
+| Frischer Editor / gewöhnliches Play | FreshPIEValidation:15 gespeicherte Habitate erzeugen alle16 Exemplare automatisch, Skalierung1 und gültige Profile; normale Save-Zugriffe bleiben gesperrt. Final gespeicherte Kronenmasken vollständig verbunden und nach Neustart gültig, keine Materialkompilierfehler im frischen Editor10-Log. ForestCompare03 bestätigt echte QHD-A/B-Darstellung. |
+| Kampf, Fang, Team, Heilung und RAM-Save | WaterGameplay01/MeadowGameplay02 für alle sieben Arten; ForestBattle01 für Kamerakontexte und beide Präsentationen. Tests ausdrücklich technische Fixtures, keine natürlichen Wildkontaktbeweise. Individuelle Identität/AP erhalten. |
+| Quellen / Spielstand / Backup | Alle3190 Baseline-Dateien vorhanden; ausschließlich acht beauftragte Biom-Originaldateien geändert. Alle38 ursprünglichen unversionierten Dateien bytegleich. VisualV2, übrige Maps/Modelle/Quellen und Save-SHA unverändert. Beide Vollbackup-Refs unverändert auf03492bd96b4dba44692f675c19d5f11abfa86b4b. Keine neue Map, Projektkopie, Worktree oder Vollsicherung. |
+
+Physische Controller-Hardware wurde nicht erneut geprüft; funktionierende Grundbelegung bleibt unverändert. Keine FPS-Benchmark- oder umfangreiche GPU-Profilingreihe. Shaderstatistik wurde ausschließlich als erfolgreicher Kompilierungsnachweis verwendet.
+
+
+## 11. Lokale echte Vorher-/Nachher-Aufnahmen
+
+Die folgenden Links verweisen auf lokale, ignorierte Dateien. Nur dieser Textbericht wird versioniert; **keine Vergleichsbilder oder Videos auf GitHub**. Alle Vergleichsdateien sind tatsächliche2560×1440-Unreal-Ansichten bei100% Renderauflösung. Wiese/Ruine verwenden dieselben Kamerapunkte. Wasser/Felszugang verwenden denselben XY-Punkt/Yaw/Pitch/FOV; die physisch geänderte Steg-/Geländehöhe verändert die Kamerahöhe geringfügig, genaue Werte in den Result.json-Metadaten. Wald-A/B hält Spielerpunkt/Yaw/Pitch/FOV fest; der Abstand ist ausdrücklich die untersuchte Variable.
+
+| Bereich | Vorher | Geprüfter Nachherstand |
+|---|---|---|
+| Wiese | [QHD vorher](../Saved/BiomeTestV11/Before01/Wiese_QHD.png) | [QHD nachher](../Saved/BiomeTestV11/RuinAfter02/Wiese_QHD.png) |
+| Wasser / Steg | [QHD vorher](../Saved/BiomeTestV11/Before01/Wasser_QHD.png) | [QHD nachher](../Saved/BiomeTestV11/RuinAfter02/Wasser_QHD.png) |
+| Plateauzugang | [QHD vorher](../Saved/BiomeTestV11/Before01/Felszugang_QHD.png) | [QHD nachher](../Saved/BiomeTestV11/RuinAfter02/Felszugang_QHD.png) |
+| Ruine | [QHD vorher](../Saved/BiomeTestV11/Before01/Ruine_QHD.png) | [QHD nachher](../Saved/BiomeTestV11/RuinAfter02/Ruine_QHD.png) |
+| Dichte Waldkamera | [Originalsicht A](../Saved/BiomeTestV11/ForestCompare03/DensePath_A_OriginalSight_QHD.png) | [Gewählte lokale Variante B](../Saved/BiomeTestV11/ForestCompare03/DensePath_B_LocalCanopy_QHD.png) |
+| Waldrand | [Originalsicht A](../Saved/BiomeTestV11/ForestCompare03/CanopyEdge_A_OriginalSight_QHD.png) | [Lokale Variante B](../Saved/BiomeTestV11/ForestCompare03/CanopyEdge_B_LocalCanopy_QHD.png) |
+
+Weitere tatsächliche Detail-/Figurenaufnahmen: [Raupy](../Saved/BiomeTestV11/MeadowViews02/Raupy_GameCamera_QHD.png), [Hornliu](../Saved/BiomeTestV11/MeadowViews02/Hornliu_GameCamera_QHD.png), [Smettbo](../Saved/BiomeTestV11/MeadowViews02/Smettbo_GameCamera_QHD.png), [Bibor](../Saved/BiomeTestV11/MeadowViews02/Bibor_GameCamera_QHD.png), [Habitak](../Saved/BiomeTestV11/MeadowViews02/Habitak_GameCamera_QHD.png), [Höhle](../Saved/BiomeTestV11/CavePIE02/CaveCentre_QHD.png), [Plateau](../Saved/BiomeTestV11/CavePIE02/Ascent_8_QHD.png), [Schwimmbereich](../Saved/BiomeTestV11/WaterPIE09/JettyObservation_QHD.png).
+
+Tatsächliche Bewegungsdateien: [Habitak Abheben/Flug/Landen](../Saved/BiomeTestV11/MeadowPIE04/HabitakFlight_ActualPIE.mp4), [Smettbo/Bibor Flügel](../Saved/BiomeTestV11/MeadowViews02/InsectWings_ActualPIE.mp4), [Waldkamera hinein/hinaus](../Saved/BiomeTestV11/ForestPIE02/ForestCamera_ActualPIE.mp4). Wasserbewegungssequenzen und Originalzeitstempel unter Saved/BiomeTestV11/WaterMotion01. Keine synthetischen Zwischenbilder.
+
+## 12. Verbleibende Grenzen und Empfehlung
+
+- Begrenzte Schwimmflächen und Flugkorridore sind wiederverwendbare Erweiterungen der vorhandenen Biom-/Roaming-/Präsentationsklassen; keine universelle dreidimensionale Luftnavigation, kein Unterwasser-/Reitsystem. Außerhalb entsprechend vorbereiteter Habitate keine pauschale Umstellung bestehender Arten.
+- Die Biom-Map bleibt bewusst ein sicheres visuelles Testgelände. Normale Exemplare beeinflussen Fang-/Team-/Save-Daten nicht. Gameplaywirkung ist mit echten bestehenden Systemen in expliziten RAM-Fixtures geprüft; neue natürliche Begegnungsgebiete außerhalb dieser Map sind hier nicht automatisch angelegt.
+- Zusätzliche höhere Lernattacken aus Abschnitt7 bleiben unverfügbar; keine endgültigen Ersatzwerte. Die vorhandenen49 Attackenwirkungen wurden nicht zurückgebaut.
+- Prozedural erstellte Grundanimationen und Gewichte sind geprüft; feinste Fuß-/Flügelkontakte sind kein Anspruch auf vollständige Animationsperfektion. Höhle und Ruine behalten einfache alte Grundformen. Sehr dunkle Waldschatten und sichtbare temporale Fensterränder sind bei visueller Abnahme besonders zu beurteilen; vorhandene Lichtstimmung wurde dafür nicht verändert.
+- Externer iOS-Helferfehler und bestehende Startwarnungen bleiben offen. Strenger Wrapper weiterhin Exit1. Keine Änderung der Engine-Helfer oder Warnungsunterdrückung in diesem Auftrag.
+
+Empfehlung: Den normalen PIE-Test der vorhandenen Biom-Map zur visuellen Abnahme verwenden, besonders Schwimmbewegung, Habitaks kleine Hindernisüberflüge, Höhlenrückweg und Waldkamerafenster. Keine automatische Übertragung auf VisualV2 und keine weiteren Kreaturen oder Landschaftspässe in diesem Auftrag.

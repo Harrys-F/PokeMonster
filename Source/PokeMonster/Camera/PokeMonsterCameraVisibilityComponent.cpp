@@ -14,6 +14,18 @@
 #include "Materials/MaterialParameterCollection.h"
 #include "UObject/ConstructorHelpers.h"
 
+namespace
+{
+bool IsDenseCanopyMaterial(UMaterialInterface* M)
+{
+    return M && M->GetMaterial() && M->GetMaterial()->GetPathName().StartsWith(TEXT("/Game/Environment/BiomeTestV1/DenseForestV11/"));
+}
+}
+int32 UPokeMonsterCameraVisibilityComponent::GetDenseCanopyOptInTreeCount() const
+{ int32 Count=0;for(const FTree& Tree:Trees)if(Tree.bDenseOptIn&&Tree.Mesh.IsValid())++Count;return Count; }
+int32 UPokeMonsterCameraVisibilityComponent::GetDenseCanopyFadedTreeCount() const
+{ int32 Count=0;for(const FTree& Tree:Trees)if(Tree.bDenseOptIn&&Tree.Mesh.IsValid()&&Tree.DenseStrength>.05f)++Count;return Count; }
+
 UPokeMonsterCameraVisibilityComponent::UPokeMonsterCameraVisibilityComponent()
 {
     PrimaryComponentTick.bCanEverTick = true;
@@ -41,6 +53,7 @@ UPokeMonsterCameraVisibilityComponent::UPokeMonsterCameraVisibilityComponent()
 UMaterialInterface* UPokeMonsterCameraVisibilityComponent::FindRevealMaterial(const UStaticMesh* Mesh, UMaterialInterface* Original) const
 {
     if (!Mesh || !Original) return nullptr;
+    if ((Mesh==OakMesh || Mesh==BirchMesh) && IsDenseCanopyMaterial(Original)) return Original;
     if (Mesh == OakMesh && (Original->GetMaterial() == CrownMaterial || Original->GetMaterial() == BarkMaterial)) return Original;
     if (Mesh == BirchMesh)
         if (const TObjectPtr<UMaterialInterface>* Reveal = BirchMaterials.Find(Original)) return Reveal->Get();
@@ -75,6 +88,7 @@ void UPokeMonsterCameraVisibilityComponent::BeginPlay()
                 if (UMaterialInstanceDynamic* MID = Mesh->CreateDynamicMaterialInstance(Slot, Reveal))
                 {
                     MID->SetScalarParameterValue(TEXT("PlayerRevealStrength"), 0.f);
+                    if(IsDenseCanopyMaterial(Original)){Tree.bDenseOptIn=true;MID->SetScalarParameterValue(TEXT("DenseCanopyStrength"),0.f);}
                     Tree.Slots.Add({Slot, Original, MID});
                     Instances.Add(MID);
                 }
@@ -126,10 +140,18 @@ void UPokeMonsterCameraVisibilityComponent::TickComponent(float DeltaTime, ELeve
         if (!Mesh) continue;
         const bool bOccluding = bValidView && IsBetweenCameraAndTarget(Mesh->Bounds.GetBox(), PC->PlayerCameraManager->GetCameraLocation(), Target,GetTargetRadii().Y);
         const float Next = AdvanceFade(Tree.Strength, bOccluding, DeltaTime, FadeDuration);
-        if (Next == Tree.Strength) continue;
-        Tree.Strength = Next;
+        const bool bDenseOccluding=Tree.bDenseOptIn && bValidView && IsBetweenCameraAndTarget(Mesh->Bounds.GetBox(),PC->PlayerCameraManager->GetCameraLocation(),Target,500.f);
+        const float DesiredDense=bDenseOccluding?FMath::Clamp(DenseCanopyAmount,0.f,1.f):0.f;
+        const float NextDense=FMath::FInterpConstantTo(Tree.DenseStrength,DesiredDense,FMath::Max(0.f,DeltaTime),1.f/.45f);
+        const bool bSightChanged=Next!=Tree.Strength,bDenseChanged=NextDense!=Tree.DenseStrength;
+        if(!bSightChanged&&!bDenseChanged)continue;
+        Tree.Strength=Next;Tree.DenseStrength=NextDense;
         for (const FSlot& Slot : Tree.Slots)
-            if (UMaterialInstanceDynamic* MID = Slot.Instance.Get()) MID->SetScalarParameterValue(TEXT("PlayerRevealStrength"), Next);
+            if (UMaterialInstanceDynamic* MID = Slot.Instance.Get())
+            {
+                if(bSightChanged)MID->SetScalarParameterValue(TEXT("PlayerRevealStrength"),Next);
+                if(bDenseChanged&&Tree.bDenseOptIn)MID->SetScalarParameterValue(TEXT("DenseCanopyStrength"),NextDense);
+            }
     }
 }
 

@@ -29,6 +29,11 @@ public:
     float RevealRadiusScale = 2.f;
     FVector2D GetTargetRadii()const{return FVector2D(55.f,110.f)*RevealRadiusScale;}
 
+    /** Zero unless an explicitly placed local forest zone requests its private upper-canopy variant. */
+    UPROPERTY(Transient, BlueprintReadOnly, Category="Camera Visibility") float DenseCanopyAmount = 0.f;
+    UFUNCTION(BlueprintPure, Category="Camera Visibility") int32 GetDenseCanopyOptInTreeCount() const;
+    UFUNCTION(BlueprintPure, Category="Camera Visibility") int32 GetDenseCanopyFadedTreeCount() const;
+
     /** Broad phase only; the shader clips the exact finite perspective cone per fragment. */
     static bool IsBetweenCameraAndTarget(const FBox& Bounds, const FVector& Camera, const FVector& Target, float BroadPhaseRadius = 220.f);
     static float AdvanceFade(float Current, bool bOccluding, float DeltaTime, float Duration);
@@ -48,6 +53,8 @@ private:
         TWeakObjectPtr<UMeshComponent> Mesh;
         TArray<FSlot> Slots;
         float Strength = 0.f;
+        float DenseStrength = 0.f;
+        bool bDenseOptIn = false;
     };
     TArray<FTree> Trees;
     UPROPERTY(Transient) TArray<TObjectPtr<UMaterialInstanceDynamic>> Instances;

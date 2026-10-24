@@ -1144,3 +1144,7 @@ Auf ausdrücklichen Nutzerauftrag werden bestehende Roaming-/GroundHover-Funktio
 ### 24.10.2026 – Biom V1.1 Ruinenverfeinerung
 
 Vorhandene Architektur und Botanik werden nur in der Biom-Map zu einer begehbaren Ruine ergänzt. Keine neue Gebietskopie, kein Lichtwechsel. Private Steinmaterialvarianten verhindern Änderungen an geteilten Heilhaus-/VisualV2-Assets. Der alte Grundriss bleibt erhalten; neue Portalkollisionen dürfen bestehende Abzweige nicht blockieren. RuinPIE02 und identische QHD-Vergleiche dokumentieren den geprüften Stand.
+
+### 24.10.2026 – Biom V1.1 dichte Waldzone
+
+Auf ausdrücklichen Nutzerauftrag wird nur der dichte Wald der Biom-Map näher eingerahmt. Gewählt ist die 1700-cm-Variante mit begrenztem oberem Kronenfenster nach echten QHD-Vergleichen; 1200 cm und die zu großflächig ausgeblendete erste Kronenfassung werden nicht übernommen. Standardkamera 2850 cm und Perspektive bleiben außerhalb unverändert. Sichtkegel-Grundradien, vorhandene Spieleraufhellung, Licht- und Schattenparameter bleiben erhalten. Private Shader erhalten den ursprünglichen Schatteneingang. Die finale visuelle Bewertung bleibt dem Nutzer vorbehalten; keine automatische Übertragung auf VisualV2.

@@ -9997,6 +9997,34 @@
       "bytes": 53005,
       "sha256": "df172b5b19f012f0d797288723ac7ccc0885664e43ebeb79493b7948524d23bc"
     },
+    "Content/Environment/BiomeTestV1/DenseForestV11/MI_V2_BarkReveal_Dense.uasset": {
+      "bytes": 18322,
+      "sha256": "a3e490f11c090b849e8f0c22ddfddf2e41de729e854983c2ba16330f856671e5"
+    },
+    "Content/Environment/BiomeTestV1/DenseForestV11/MI_V2_BirchReveal_Dense.uasset": {
+      "bytes": 24259,
+      "sha256": "1b42c7c12409b5f74b87c3408b56914b6b0029a0ec8a50f5a14984fda4f012e5"
+    },
+    "Content/Environment/BiomeTestV1/DenseForestV11/MI_V2_LeafBirchReveal_Dense.uasset": {
+      "bytes": 6581,
+      "sha256": "edf0bb50be3a127cb2e07580d664f58c4f2a3c185a991e0b6ccdb5865e009a32"
+    },
+    "Content/Environment/BiomeTestV1/DenseForestV11/MI_V2_LeafDarkReveal_Dense.uasset": {
+      "bytes": 6571,
+      "sha256": "5f15acb91dd0b3e5d97beedbf39e3dbad037ef7beb94e567ed8a4caeca35c8c1"
+    },
+    "Content/Environment/BiomeTestV1/DenseForestV11/MI_V2_LeafLightReveal_Dense.uasset": {
+      "bytes": 6577,
+      "sha256": "f06a5319aef494045bf1fbe670546ab6a179063a940bcdd529bf172d70a17611"
+    },
+    "Content/Environment/BiomeTestV1/DenseForestV11/M_V2_BarkRevealBase_Dense.uasset": {
+      "bytes": 37080,
+      "sha256": "0888f05c88d6ffb132910453e46565b19dda176ecbb6f3b602e4133d561d6010"
+    },
+    "Content/Environment/BiomeTestV1/DenseForestV11/M_V2_CrownReveal_Dense.uasset": {
+      "bytes": 38471,
+      "sha256": "3dbae25b7c5c2ee707c314fe5626a1253c0b8158e970cb5963e3ebd2b86123bf"
+    },
     "Content/Environment/BiomeTestV1/Materials/MI_WLA_Bark_Biome.uasset": {
       "bytes": 16593,
       "sha256": "c73fb8873495b171b88bf2f1d87576834747b6ee810b5203a19a05c46e5b4473"
@@ -12646,8 +12674,8 @@
       "sha256": "1e83bf51c643eb1e22cbfbe069b726a017df2181bee72222d10b09cf7b0c3c14"
     },
     "Content/Maps/Dev_BiomeTestMap_V1.umap": {
-      "bytes": 2064293,
-      "sha256": "7d0e9025333b43af2f060636e8c432d0ac3423131e6ca0de6155d0228d4ca711"
+      "bytes": 2067700,
+      "sha256": "ad4847d2cceedb5f5da324f29bb861540b1040aa2bf9425b90929c90f30aeee8"
     },
     "Content/Maps/Dev_BuildingKitTestMap.umap": {
       "bytes": 887279,
@@ -12758,8 +12786,8 @@
       "sha256": "3be94f00ce2a2be6de0f64f4ecd2cabe3af4b4ce606f4230c197bba670f896bf"
     },
     "Docs/BIOM_TESTMAP_V11_PRUEFBERICHT.md": {
-      "bytes": 23649,
-      "sha256": "7d592d3893a80f3e907f1c5c9a45f272734527559147fe972a69ef0b40874f4b"
+      "bytes": 35160,
+      "sha256": "334c33cc49b3eceb4f18252dc0929dc7fe834bb5b2a9c354f9a6ab28afe36ff7"
     },
     "Docs/BIOM_TESTMAP_V1_PRUEFBERICHT.md": {
       "bytes": 10912,
@@ -12794,8 +12822,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 162000,
-      "sha256": "29089063ace80fed9fda1fd2a077b477709cfe9763398473f18aba479ae514a6"
+      "bytes": 162671,
+      "sha256": "dc468817b82f660f5fce05a735dfecdeb3795f17d2c460e1ee3e22b0ca3eb579"
     },
     "Docs/ENTWICKLUNG_MANUELL_IM_PIE.md": {
       "bytes": 10017,
@@ -12970,8 +12998,8 @@
       "sha256": "1ede0acfca40e87ac09ffe5dbe8993e5cb6142cff2aebf509f4cb084ae6e53fc"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 187124,
-      "sha256": "cd443d12bd56e4f72e4613231774d9a11f695fec8cace9e989dc19c5a44f86a8"
+      "bytes": 187922,
+      "sha256": "e6fae748e261a37228ae136170bad271c0902d1e16e07fd10fbd9809a9e91a9f"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -13110,12 +13138,12 @@
       "sha256": "c0af1d40d87d31d2051b87f6af9b91abad6ae5907af924ac394dda5a2621343a"
     },
     "Source/PokeMonster/Camera/PokeMonsterCameraVisibilityComponent.cpp": {
-      "bytes": 7893,
-      "sha256": "716819319d650f82e778137d4bb7942d278bc9809365968bd656a1cebcce1b54"
+      "bytes": 9448,
+      "sha256": "6800bfdc263a3996c8b2775ca694ed2a8d828a8293934c8dbecdfae1e2cea8b7"
     },
     "Source/PokeMonster/Camera/PokeMonsterCameraVisibilityComponent.h": {
-      "bytes": 2535,
-      "sha256": "3a56876b821a62462e10645f5a78ae88da3df852979b27ee26cb4b932e6e2d42"
+      "bytes": 3021,
+      "sha256": "4e64d075502f498e06b05e75aede2974747dbc1a991e6d0d5ab770fa6fa5705f"
     },
     "Source/PokeMonster/Capture/PokeMonsterCaptureDeviceData.cpp": {
       "bytes": 389,
@@ -13292,6 +13320,14 @@
     "Source/PokeMonster/Development/BiomeTestV1/PokeMonsterBiomeHabitat.h": {
       "bytes": 5090,
       "sha256": "dc725251515df10ec9ad245c914873e6269c621b3345b4efc3d44e4f5cbb97b4"
+    },
+    "Source/PokeMonster/Development/BiomeTestV1/PokeMonsterForestCameraZone.cpp": {
+      "bytes": 2896,
+      "sha256": "b353ca606a32e7f2a01be1520bb7cf844069e31154e2ca52fe2af3f09a850af5"
+    },
+    "Source/PokeMonster/Development/BiomeTestV1/PokeMonsterForestCameraZone.h": {
+      "bytes": 1720,
+      "sha256": "45f72aa2c0ff4b2d7bb689d134758138de88477a59994b4835d0df25c4a83154"
     },
     "Source/PokeMonster/Development/PokeMonsterBattleSystemV3Review.cpp": {
       "bytes": 4471,
@@ -13760,6 +13796,10 @@
     "Source/PokeMonster/Tests/PokeMonsterEvolutionV2Test.cpp": {
       "bytes": 11368,
       "sha256": "dcb75c92faa894c04a1d9a49e0ae5d913ba2cf882739317188502e5723c89329"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterForestCameraTest.cpp": {
+      "bytes": 3297,
+      "sha256": "b9b74f325aa5271521438979898b3fce3019cb270fcd81cfd311488f0f19dd2e"
     },
     "Source/PokeMonster/Tests/PokeMonsterGlumandaV11Test.cpp": {
       "bytes": 3131,
@@ -14257,9 +14297,17 @@
       "bytes": 3152,
       "sha256": "ee261987a43926bbbb906c2b49c7b4dc99c11a2ad090da2d13a58cf2f129b2fa"
     },
+    "Tools/BiomeTestV1/CaptureForestCandidatesV11.py": {
+      "bytes": 3512,
+      "sha256": "712710dd4de2e5777df6404948ffbb9cfbddb922ab433f4326a45b67544162ba"
+    },
     "Tools/BiomeTestV1/CaptureMeadowViewsV11.py": {
       "bytes": 3923,
       "sha256": "68840e9fba566422488c45ff656e601ad0f316fc2811b4659678c867e8606133"
+    },
+    "Tools/BiomeTestV1/CompareForestCameraV11.py": {
+      "bytes": 4188,
+      "sha256": "a9f4fd20990aaf4c1cdc73512a9d6dec7ab5fb989b57b7df32ea28b497365238"
     },
     "Tools/BiomeTestV1/ConfigureMeadowProfilesV11.py": {
       "bytes": 4167,
@@ -14349,13 +14397,17 @@
       "bytes": 3104,
       "sha256": "7c846db9f86569a4ff3e15c7567bf828af82012949a1af164e8521a8eb46a1aa"
     },
+    "Tools/BiomeTestV1/ProbeForestMaterialsV11.py": {
+      "bytes": 1103,
+      "sha256": "873fee9b802b4489594f65ce24459ea7a9b4c99c866b9833f7a42c7502de6bc2"
+    },
     "Tools/BiomeTestV1/ProbeTerrain.py": {
       "bytes": 1000,
       "sha256": "ae5f88f466c16fdb3963809f1da63a831c88d89c04b539e1f3d62d1a1ca4b2c5"
     },
     "Tools/BiomeTestV1/README.md": {
-      "bytes": 6272,
-      "sha256": "4eb0a4c1e7a51faea7ed2d4d678a6af3e3d8454a6929726c7523405104c498c1"
+      "bytes": 5750,
+      "sha256": "8f1c48a46fe6952b0e3716a4d4c5ed6f3eb80b54fd22e244ae3ca60631f217db"
     },
     "Tools/BiomeTestV1/ReferenceSourcesV11.json": {
       "bytes": 4651,
@@ -14364,6 +14416,10 @@
     "Tools/BiomeTestV1/RefineCavePresentationV11.py": {
       "bytes": 4315,
       "sha256": "6d73edc148242baa892024c06e71eab17f7cd70a0886e5e4569dc50f1e054135"
+    },
+    "Tools/BiomeTestV1/RefineForestMaskV11.py": {
+      "bytes": 2251,
+      "sha256": "01538f9516ad2e36f683b4e302ba0e6dc9ea45d3a3e82abb0eb12eb6f84ea23b"
     },
     "Tools/BiomeTestV1/RefineRuinAccessV11.py": {
       "bytes": 1369,
@@ -14393,6 +14449,14 @@
       "bytes": 5080,
       "sha256": "9dd1464d3172d27d7f9a572a9f508de0432bb61c2101a9961030f83c7ddd88fd"
     },
+    "Tools/BiomeTestV1/ReviewForestBattleV11.py": {
+      "bytes": 5214,
+      "sha256": "095f622699cb5ec4ce5bbb9332b04ee484b33c0b6abee5fd64165ea7f1b1e560"
+    },
+    "Tools/BiomeTestV1/ReviewForestCameraV11.py": {
+      "bytes": 6607,
+      "sha256": "87be4d9353ac75c264fd6ceea2ed917968e2452aee117227d7f656317513dc4f"
+    },
     "Tools/BiomeTestV1/ReviewGameplayV11.py": {
       "bytes": 8660,
       "sha256": "eea33c3a3162569f19e13f1ce69cb5de664c72740d6348ecb515980849a53df2"
@@ -14409,9 +14473,17 @@
       "bytes": 7430,
       "sha256": "158c31b78e29938dffa2002fa94647cf91970e27fb96f95df9ed9a18092960bc"
     },
+    "Tools/BiomeTestV1/RunFinalV11.py": {
+      "bytes": 2250,
+      "sha256": "6f1a251a0ebfbb808e7330009cc12911a19b0e29053b55b85487c191bc5835f0"
+    },
     "Tools/BiomeTestV1/RunWalkReview.py": {
       "bytes": 1128,
       "sha256": "8dc341ebaea0a9bf6216a09c98d748b1585c073d7dc81804bbde75ed9bc8132c"
+    },
+    "Tools/BiomeTestV1/SetupForestCameraV11.py": {
+      "bytes": 5855,
+      "sha256": "ab7bdc72b48f8a6c6434a3452b242cd96fb0966762fcd8e15206642d00fcf176"
     },
     "Tools/BiomeTestV1/SpeciesV11.json": {
       "bytes": 5598,
@@ -14436,6 +14508,18 @@
     "Tools/BiomeTestV1/ValidateAquaticV11.py": {
       "bytes": 340,
       "sha256": "1df0ccb879e746bb698e3bef82dfa21cc6359814f5a7797c488b679af60ec649"
+    },
+    "Tools/BiomeTestV1/ValidateForestMaterialsV11.py": {
+      "bytes": 2310,
+      "sha256": "d16e1cd8fb8f08405d845e9c5c240829278b6313db47789710323998c7d14cce"
+    },
+    "Tools/BiomeTestV1/ValidateFreshPIEV11.py": {
+      "bytes": 2882,
+      "sha256": "1e922967a222cfd68202aee30fe83e1dd86830e081ae3cc61b53803afba8f5c7"
+    },
+    "Tools/BiomeTestV1/ValidateLightingV11.py": {
+      "bytes": 3204,
+      "sha256": "5842fb67c071319baaf6139c447714b9ba1f642f0a81e1d80023b7a475bfd2ba"
     },
     "Tools/BiomeTestV1/ValidateMeadowSourceV11.py": {
       "bytes": 621,
@@ -20599,7 +20683,7 @@
     }
   },
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
-  "generated_at": "2026-10-24",
+  "generated_at": "2026-10-25",
   "schema": 1,
-  "snapshot_kind": "biome_v11_water_cave_meadow_ruin_verified_camera_pending"
+  "snapshot_kind": "biome_v11_all_packages_functionally_verified_external_ios_warning_documented"
 }

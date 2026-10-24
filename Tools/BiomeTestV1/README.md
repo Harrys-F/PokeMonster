@@ -1,60 +1,49 @@
-# Biome-Testmap V1 – Werkzeughinweise zur visuellen Prüfung
+# Biom-Testmap V1.1 – Zugang und Prüfwerkzeuge
 
-Nicht verbindliche Arbeitsbeschreibung; TECHNIK, ENTSCHEIDUNGEN und Grafikfreigaben bleiben unverändert.
+Projekt ausschließlich `/Users/harry/Developer/PokeMonster`, Unreal 5.8.2. Vorhandene Map `/Game/Maps/Dev_BiomeTestMap_V1`, keine zusätzliche Map. Der historische V1-Stand mit 3-m-Plattform und Wasserprüfkörper ist durch V1.1 ersetzt; historische Resultate bleiben in `Docs/BIOM_TESTMAP_V1_PRUEFBERICHT.md` erhalten.
 
-## Im Editor spielen
+## Normal im Editor spielen
 
-1. Das vorhandene `/Users/harry/Developer/PokeMonster/PokeMonster.uproject` mit UE 5.8.2 öffnen.
-2. Im Content Browser `/Game/Maps/Dev_BiomeTestMap_V1` öffnen.
-3. **Play / Selected Viewport** mit normalem PlayerStart verwenden. Keine Automation oder Konsolenaktivierung nötig.
-4. Mit den bisherigen Bewegungseingaben laufen; Shift halten oder die bestehende L3-Sprintumschaltung verwenden.
+1. `PokeMonster.uproject` öffnen.
+2. Im Content Browser `Dev_BiomeTestMap_V1` öffnen.
+3. Gewöhnlich **Play / Selected Viewport** verwenden. Keine Automation, Konsolenaktivierung oder Setup-Skripte notwendig.
+4. Vorhandene Bewegungs-/Sprintsteuerung verwenden. Keine neue Controllerbelegung.
 
-Die 1,40-m-Spielfigur, 2,5D-Kamera (FOV35, Arm2850cm, Pitch−50°, Yaw−45°), Geschwindigkeiten und Eingabebelegung stammen unverändert aus dem aktuellen Character.
+15 gespeicherte Habitat-Actors erzeugen 16 reine Testexemplare. Beim PIE-Ende verschwinden die Laufzeitexemplare; beim nächsten normalen Play entstehen sie aus den gespeicherten Definitionen erneut. Dies ist unabhängig vom Pokémon-Testgelände in VisualV2.
 
-Vom beschrifteten Zentrum aus, bezogen auf die Spielkamera:
+Vom beschrifteten Hub aus, bezogen auf die Spielkamera:
 
-- **Links oben:** Wiese / Waldrand mit Bisasam70cm, Pikachu40cm und separater freier Glurak170cm-Fluglichtung.
-- **Rechts oben:** Bach / Teich, westliches flaches Ufer mit Schiggy50cm und Enton80cm; weiter oben eine Holzbrücke.
-- **Links unten:** Felsbereich. Am Abzweig den nach links führenden Hang hinauf auf die tatsächliche 3-m-Plattform zu Machomei160cm. Der untere Weg führt in den offenen Höhlenschnitt zu Glutexo110cm.
-- **Rechts unten:** dichter Wald mit Nebulak130cm; der Weg führt weiter zur begehbaren offenen Ruine mit Gengar150cm.
+- **Links oben:** Wiese mit Bisasam/Pikachu, Glurak-Fluglichtung sowie Raupy/Hornliu am Boden, Smettbo/Bibor in begrenzten Flugbereichen und Habitak mit Abheben/Flug/Landen. Weitere 685 unregelmäßig gruppierte Botanikinstanzen.
+- **Rechts oben:** Schiggy/Enton am Ufer, Karpador und Garados im ausreichend tiefen Teich; Steg und Brücke begehbar. Schiggy verwendet hier ein eigenes Schwimmprofil. Kein Goldini-Ersatzmarker mehr.
+- **Links unten:** 15-m-Plateau zu Machomei über einen langen Kehrenweg ab UV ungefähr (−900,−1000). Höhlenzugang über die östliche Basis nach Süden um den Berg, UV (−2900,−3450). Bestehender maskierter BuildingCutaway-Übergang in denselben Map-Raum bei Welt (25000,0,150), mit Glutexo. Rückweg durch denselben Eingang.
+- **Rechts unten:** Nebulak im Wald, dichter Wald mit lokaler Kamera, begehbare alte Ruine mit Gengar, Steinbogen, Säulenresten, Pflaster, Schutt und Bewuchs.
 
-Neun echte Pokémon-Exemplare plus ein grüner, ausdrücklich beschrifteter Wasser-Prüfkörper. Keine künstliche Skalierung. Alle sind ausschließlich visuelle, nicht fangbare Testinstanzen. Goldini fehlt im Projekt; der Marker ist **kein** Goldini-Modell.
+Originalgrößen bleiben erhalten, etwa Raupy/Hornliu/Habitak je30 cm und Garados650 cm entlang der Körperachse statt650 cm vertikaler Höhe. Die Spielfigur bleibt140 cm groß.
 
-## Abgrenzung
+## Kamera und Wasser
 
-Nur diese Map verwendet `PokeMonsterBiomeTestGameMode`. Kämpfe und normaler Save/Load/Delete sind hier gesperrt, der Begleiter ist deaktiviert, und es werden keine Teaminstanzen angelegt. Keine NPCs, Dialoge, Fortschritts-UI oder regulären Begegnungsactoren werden platziert. Nach PIE-Ende existieren die Testinstanzen nicht mehr; beim nächsten normalen Play werden sie aus den **gespeicherten** Habitatdefinitionen neu erzeugt.
+Standard: FOV35°, Arm2850 cm, Pitch−50°, Yaw−45°. Nur der Actor `Biome_DenseForestCamera_V11` aktiviert1700 cm in einer dichten Waldzone, Mitte UV (3200,−1700), Halbausdehnung (1050,650,600) cm. Übergang0,8 s, weicher Rand180 cm. Sein `bEnabled`-Schalter deaktiviert die lokale Variante rücknehmbar. Die normalen Sichtkegelradien bleiben110/220 cm. Zusätzliche Freistellung betrifft nur obere Kronen vorbereiteter privater Baum-Materialvarianten; Stämme/Unterholz und ursprünglicher Schatteneingang bleiben.
 
-Bestehende Maps behalten ihren bisherigen GameMode und alle Systeme. Der neue Habitat-Verweis in der gemeinsamen Bewegungs-Komponente ist dort null. Medienparameter und Auftrieb werden nur für ausdrücklich zugewiesene Biome-Habitate aktiviert.
+Tieferes Wasser ist für die Spielfigur blockiert; Steg und Brücke erlauben Beobachtung/Überquerung. Kein Spieler-Unterwassersystem. Fische bleiben im Schwimmbereich; Schiggy wechselt zwischen Ufer und Wasser. Smettbo/Bibor fliegen auf begrenzten Höhenebenen; Habitak nutzt vorhandenes GroundHover und darf im ausdrücklich freigegebenen Flugsegment niedrige Hindernisse überqueren. Kein universelles freies3D-Flug- oder Reitsystem.
 
-## Medien und Grenzen
+## Gameplay- und Spielstandschutz
 
-- Land: Bodenprojektion, trockene Ziele, native Wegsuche und Kollisionsprüfungen.
-- Amphibisch: flache Ufer, kontinuierlicher Übergang zu artspezifischer Eintauchtiefe (Schiggy23cm, Enton35cm).
-- Rein Wasser: Prüfkörper bleibt innerhalb eines Wasserbereichs mit ausreichender Tiefe; keine Landziele.
-- **Wasseranimation ist ein Prototyp:** vorhandene Idle-Pose, unterdrückter Landgang und dezenter Auftrieb. Keine fertig erstellte Schwimmanimation, kein Unterwassersystem.
-- Glurak: vorhandene Takeoff-/Hover-/Land-Animationen; begrenztes bodennahes Schweben zwischen sicheren Punkten, 0,5–1,5m. Kein freier 3D-Flug und kein Reiten.
-- Nebulak: geländebezogener Schwebekörper45cm plus vorhandenes kleines organisches Schweben. Keine Flügelanimation erforderlich.
-- Kein geeigneter fliegender Höhlenbewohner vorhanden; Glutexo läuft im offenen Höhlenschnitt. Keine fertige Höhlenflug-Demonstration.
-- Entfernte Instanzen pausieren ab38m und laufen nach Wiederannäherung ohne Neuspawn oder Teleport weiter.
+Nur diese Testmap verwendet `PokeMonsterBiomeTestGameMode`. Normale Testtiere erzeugen keine unbeabsichtigten Fang-/Team-/Save-Ereignisse; Begleiter und normale Save/Load/Delete-Zugriffe sind hier deaktiviert. Bestehende Maps und persönliche Daten bleiben erhalten.
 
-Höhle und Ruine sind bewusst oben und zur Kamera hin offen. Bäume nutzen die bestehenden Kamera-Freistellungsmaterialien. Tieferes Wasser ist für die Spielfigur blockiert; das ist keine unsichtbare allgemeine Wegsperre, sondern die Grenze des ausdrücklich nicht implementierten Spieler-Schwimmsystems. Die Brücke verbindet beide Ufer.
+`ReviewGameplayV11.py` und `ReviewForestBattleV11.py` aktivieren ausschließlich über den vorhandenen expliziten RAM-Prüftransport kurzzeitig reale Kämpfe/Fang/Heilung und stellen danach die Sperre wieder her. Diese technischen Parteien sind keine natürlichen Wildkontakt-Nachweise. Neue Art-/Wildprofile und Präsentationen verwenden bestehende Gameplayklassen; fehlende Lernattacken bleiben ausdrücklich unverfügbar.
 
-## Werkzeuge / Wiederholbarkeit
+## Wiederholbare Prüfung
 
-`Layout.py`: Koordinaten in cm; u nach Bildschirmrechts, v nach Bildschirmoben. Welt `(x,y)=((u+v)/sqrt(2),(u−v)/sqrt(2))`. Je Biom ca44m, gesamtes Gelände104×104m.
+Eine autorisierte, sauber geladene `EditorSession.py`/ArtControl-Queue wird vorausgesetzt:
 
-`BuildTerrain.py`: neuer Blender-Höhenquellstand / FBX. Vor dem Export wird Blender-Y für die Unreal-FBX-Konvertierung kompensiert. Standardmäßig wird eine vorhandene Quelle nicht überschrieben; `--replace-owned-biome-v1` ist ausschließlich für diese neue eigene Quelle vorgesehen.
+```sh
+python3 Tools/BiomeTestV1/RunFinalV11.py EindeutigerLaufname
+```
 
-`PrepareAssets.py` und `CreateMap.py` sind **einmalige Autorenwerkzeuge**, keine bei jedem Start benötigten Skripte. `CreateMap.py` verweigert eine bereits vorhandene Zielmap. `IsolateMaterials.py` dokumentiert die einmalige Umstellung auf private Instancing-Materialkopien; nicht erneut blind ausführen. `ReimportTerrain.py` ist strikt auf die beiden neuen Gelände-/Wassermeshes begrenzt.
+Alle fünf vorhandenen Routen laufen in **einem gewöhnlichen PIE-Start**, mit tatsächlichen Enhanced-Input-Aktionen und Kollisionen. Keine Fahrer-Teleports; nur die echte Türfunktion versetzt in den Höhlenraum. Kein Disk-Save oder Benchmark. Ein fehlgeschlagener Schritt wird dokumentiert, nicht als Erfolg ausgegeben. Alte Ergebnisverzeichnisse werden nicht überschrieben. Dies ist keine Hardware-Controllerprüfung.
 
-`RunWalkReview.py LABEL [--no-sequence]` verwendet eine bereits laufende autorisierte ArtControl-Editorsitzung und einen **normalen PIE-Start**, danach echte Enhanced-Input-Aktionen und unveränderte Kollisionen. Es teleportiert die Spielfigur nicht. Neue Ergebnisverzeichnisse müssen eindeutig sein; alte Nachweise werden nicht überschrieben. Das ist eine softwaregesteuerte Begehung und kein Hardware-Controller-Test.
+Einzelne `Review*V11.py`-Werkzeuge verwenden benannte Requests unter `Saved/BiomeTestV11`. `CompareForestCameraV11.py` erstellt ausdrücklich positionierte echte A/B-Fotos; das ist kein Fußlauf. `CaptureForestCandidatesV11.py` prüft getrennte Kameraabstände. `ValidateForestMaterialsV11.py` prüft vollständige Verbindungen, getrennten Schatteneingang und endgültige Shaderkompilierung. `AssetAudit.py` und `MapChecks.py` lesen Referenzen beziehungsweise alle12 vorhandenen Maps ohne diese zu speichern.
 
-`RefineSightAndCave.py`: einmalige maplokale Korrektur von Höhlenkollision und Beobachtungslichtung. Alle103 Bäume bleiben erhalten.
+`Layout.py` definiert Zentimeterkoordinaten: u Bildschirmrechts, v Bildschirmoben, Welt `(x,y)=((u+v)/sqrt(2),(u−v)/sqrt(2))`. Die Upgrade-/Refine-/Importwerkzeuge dokumentieren **einmalige** geprüfte Autorenoperationen und dürfen auf dem fertigen Stand nicht blind erneut laufen. `CreateMap.py` verweigert eine vorhandene Map. Der historische `RunWalkReview.py` gehört zum alten V1-Aufbau und ist nicht der aktuelle Gesamttest.
 
-`MapChecks.py`: lesende Prüfung aller12 Maps, keine Saves.
-
-`Overview.py`: vorübergehende Unreal-SceneCapture-Übersicht, ausdrücklich **keine** Aufnahme der normalen Spielkamera. Die biomeweisen QHD-Aufnahmen im Prüfbericht stammen aus der unveränderten echten Spielkamera.
-
-Lokale Bild-/Videonachweise und der ursprüngliche Abnahmebericht liegen unter `Saved/BiomeTestV1/`. Keine Kontrollmedien versionieren. Der textbasierte dauerhafte Prüfbericht liegt unter `Docs/BIOM_TESTMAP_V1_PRUEFBERICHT.md`. Die ursprüngliche Erstellung vom 23.10.2026 umfasste keinen Commit/Push; der ausdrückliche Sicherungsauftrag vom 24.10.2026 erlaubt die gezielte Versionierung dieses geprüften Pakets. Die visuelle Abnahme bleibt davon unabhängig.
-
-Versioniert sind die 16 hier ausgewählten Autoren-, Audit-, Begehungs- und Anleitungsdateien. Einmalige lokale Diagnose-/Sitzungshelfer und der historische Berichtsgenerator sind kein Laufzeitbedarf; sie bleiben lokal erhalten. Insbesondere werden die vorhandenen Generatoren bei der Git-Sicherung nicht erneut ausgeführt und keine bestehenden Maps erneut gespeichert.
+Aktueller Bericht: `Docs/BIOM_TESTMAP_V11_PRUEFBERICHT.md`. Echte QHD-Bilder, Videos, Originalzeitstempel und Prüfresultate nur lokal unter `Saved/BiomeTestV11`; tatsächliche Kampfmenüaufnahmen unter `Saved/GlumandaV11/LiveUI`. Keine Kontrollmedien versionieren. Vorhandene lokale Diagnose-/Sitzungshelfer bleiben erhalten und sind kein Laufzeitbedarf.
