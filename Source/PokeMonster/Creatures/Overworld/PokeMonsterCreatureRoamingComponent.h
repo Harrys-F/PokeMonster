@@ -28,7 +28,7 @@ public:
 	bool IsInRelocatedInterior(const FVector& Point) const;
 	static bool CanSeparateFromContact(const FVector& Start,const FVector& End,const FVector& Player,float ContactRadius);
 	static bool IsDecorativeSegmentBlocked(const FBox& Bounds,const FVector& Start,const FVector& End,float Radius,float HalfHeight,float StepHeight);
-	bool CanGroundHover(float Height, const FBox& VisualBounds) const;
+	bool CanGroundHover(float Height, const FBox& VisualBounds,bool RequireLandingColumn=false) const;
  void SetPresentationHoverClearance(float Height,const FBox& Bounds) { PresentationHoverHeight=Height;PresentationHoverBounds=Bounds; }
  void SetPresentationHold(bool Held) { bPresentationHold=Held; }
  static float AdvanceSpeed(float Current, float Desired, float Distance, bool Companion,
@@ -61,7 +61,9 @@ public:
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") bool bEscapeBlocked=false;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") float EscapeElapsed=0.f;
 private:
- bool CanTraverseHoverColumn(const FVector& Start,const FVector& End,float Height,const FBox& Bounds) const;
+ bool bWasAerialTravel=false;
+ bool IsAerialTravelActive() const;
+ bool CanTraverseHoverColumn(const FVector& Start,const FVector& End,float Height,const FBox& Bounds,bool RequireGroundColumn=false) const;
  float PresentationHoverHeight=0.f;
  FBox PresentationHoverBounds{ForceInit};
  bool UpdateBehavior(float Delta,const FVector& Current,const APawn* Player,float& Speed);

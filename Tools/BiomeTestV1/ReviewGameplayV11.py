@@ -1,7 +1,7 @@
 """Existing battle/capture/party/heal/save flows in explicitly isolated PIE RAM preview. No disk save."""
 import unreal,json,time,traceback,hashlib
 from pathlib import Path
-R=Path(unreal.Paths.project_dir()).resolve();req=json.loads((R/'Saved/BiomeTestV11/GameplayRequest.json').read_text());O=R/'Saved/BiomeTestV11'/req['label'];assert req['label'].isalnum();O.mkdir(exist_ok=False)
+R=Path(unreal.Paths.project_dir()).resolve();req=json.loads((R/'Saved/BiomeTestV11/GameplayRequest.json').read_text());capture_seed=int(req.get('capture_seed',51));capture_limit=int(req.get('capture_limit',20));assert 1<=capture_limit<=60;O=R/'Saved/BiomeTestV11'/req['label'];assert req['label'].isalnum();O.mkdir(exist_ok=False)
 w=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_game_world();assert w and w.get_name().endswith('Dev_BiomeTestMap_V1');p=unreal.GameplayStatics.get_player_pawn(w,0);pc=unreal.GameplayStatics.get_player_controller(w,0);gi=unreal.GameplayStatics.get_game_instance(w);mode=unreal.GameplayStatics.get_game_mode(w)
 def sub(cls):return next(x for x in unreal.ObjectIterator(cls)if x.get_outer()==gi)
 e=sub(unreal.PokeMonsterEncounterSubsystem);inv=sub(unreal.PokeMonsterInventorySubsystem);save=sub(unreal.PokeMonsterSaveSubsystem);slot=R/'Saved/SaveGames/PokeMonster_Dev.sav';before=hashlib.sha256(slot.read_bytes()).hexdigest()
@@ -13,14 +13,14 @@ s={'i':0,'phase':'begin','time':0.,'last':unreal.GameplayStatics.get_time_second
 def cmd(x):unreal.SystemLibrary.execute_console_command(w,x,pc)
 def phase(x):s.update(phase=x,time=0.)
 def party():
- return [dict(id=c.instance_id.to_string(),species=c.species.get_path_name(),hp=c.current_hp,xp=c.experience,level=c.level,moves=[dict(move=x.get_editor_property('move').get_path_name()if x.get_editor_property('move')else None,pp=x.get_editor_property('current_pp'))for x in c.get_editor_property('move_slots')])for c in e.get_player_party()]
+ return [dict(id=c.instance_id.to_string(),species=c.species.get_path_name(),hp=c.current_hp,xp=c.experience,level=c.level,status=str(c.status),status_turns=c.status_turns,learned=[dict(move=x.get_editor_property('move').get_path_name()if x.get_editor_property('move')else None,pp=x.get_editor_property('current_pp'))for x in c.get_editor_property('learned_moves')],pending=[x.get_path_name()for x in c.pending_moves],moves=[dict(move=x.get_editor_property('move').get_path_name()if x.get_editor_property('move')else None,pp=x.get_editor_property('current_pp'))for x in c.get_editor_property('move_slots')])for c in e.get_player_party()]
 def shot(label):
  path=O/(label+'.png');assert not path.exists();cmd('HighResShot 2560x1440 filename="'+str(path)+'"');s['shots'].append(str(path.relative_to(R)));cmd('pm.CreatureReview.CaptureLiveUI BiomeV11_'+req['label']+'_'+label)
 def finish(error=None):
  unreal.unregister_slate_post_tick_callback(unreal._biome_gameplay_v11);settings.set_editor_property('bThrottleCPUWhenNotForeground',throttle)
  if not error:
   assert mode.end_isolated_gameplay_review()and not mode.is_isolated_gameplay_review();assert not save.save_current_game()and not save.load_game();assert hashlib.sha256(slot.read_bytes()).hexdigest()==before
- (O/'Result.json').write_text(json.dumps({'passed':error is None,'error':error,'fixture':'Explicit native review parties; original authored levels, one-HP capture target, seed 51. RAM-only existing save transport. Not natural wild encounters.','rows':s['rows'],'shots':s['shots'],'save_sha256_before':before,'save_sha256_after':hashlib.sha256(slot.read_bytes()).hexdigest(),'RAM_review_left_active_on_failure':mode.is_isolated_gameplay_review()},indent=2));unreal.log('BIOME_GAMEPLAY_V11_DONE '+str(error))
+ (O/'Result.json').write_text(json.dumps({'passed':error is None,'error':error,'fixture':'Explicit native review parties; authored levels, one-HP capture target; battle seed 51, capture seed '+str(capture_seed)+', bounded '+str(capture_limit)+' attempts; original capture probabilities unchanged. Existing RAM save transport, not natural wild encounters.','rows':s['rows'],'shots':s['shots'],'save_sha256_before':before,'save_sha256_after':hashlib.sha256(slot.read_bytes()).hexdigest(),'RAM_review_left_active_on_failure':mode.is_isolated_gameplay_review()},indent=2));unreal.log('BIOME_GAMEPLAY_V11_DONE '+str(error))
 def tick(dt):
  try:
   now=unreal.GameplayStatics.get_time_seconds(w);s['time']+=now-s['last'];s['last']=now;assert time.monotonic()-s['wall']<900;assert hashlib.sha256(slot.read_bytes()).hexdigest()==before
@@ -42,8 +42,8 @@ def tick(dt):
   elif s['phase']=='after_battle'and t>1 and not p.is_overworld_input_locked():
    s['rows'][-1]['first_battle_result']=str(e.get_last_result().outcome)
    if target not in req['species']:s['i']+=1;phase('begin');return
-   cmd('pm.StarterReview.Party Glurak Machomei '+target);a,reserve,b=e.get_player_party();b.current_hp=1;assert inv.add_item(balls,20);assert inv.add_item(heal,30);s['capture_before']=inv.get_quantity(balls);s['capture_tries']=0;s['captured_id']=b.instance_id.to_string()
-   start=unreal.PokeMonsterEncounterStartData(presentation_mode=unreal.PokeMonsterBattlePresentationMode.CLASSIC_BATTLE,encounter_id='ExplicitBiomeCapture_'+target,kind=unreal.PokeMonsterEncounterKind.WILD,source=unreal.PokeMonsterEncounterSource.VISIBLE_CREATURE,player_team=[a,reserve],opponent_team=[b],random_seed=51,allow_flee=True)
+   cmd('pm.StarterReview.Party Glurak Machomei '+target);a,reserve,b=e.get_player_party();b.current_hp=1;assert inv.add_item(balls,max(20,capture_limit));assert inv.add_item(heal,max(30,capture_limit*4));s['capture_before']=inv.get_quantity(balls);s['capture_tries']=0;s['captured_id']=b.instance_id.to_string()
+   start=unreal.PokeMonsterEncounterStartData(presentation_mode=unreal.PokeMonsterBattlePresentationMode.CLASSIC_BATTLE,encounter_id='ExplicitBiomeCapture_'+target,kind=unreal.PokeMonsterEncounterKind.WILD,source=unreal.PokeMonsterEncounterSource.VISIBLE_CREATURE,player_team=[a,reserve],opponent_team=[b],random_seed=capture_seed,allow_flee=True)
    assert e.start_encounter(start,p);phase('switch')
   elif s['phase']=='switch'and t>3:
    v=e.get_presenter().get_view()
@@ -57,7 +57,7 @@ def tick(dt):
      assert e.get_presenter().try_select_healing_item(heal,next(i for i,c in enumerate(v.player_team)if c.active));assert e.get_presenter().resolve_selection();return
     e.get_battle_widget().set_battle_menu(unreal.PokeMonsterBattleMenu.BAG)
     if not s['capture_tries']:shot(target+'_CaptureBag')
-    assert e.get_presenter().try_select_capture();assert e.get_presenter().resolve_selection();s['capture_tries']+=1;assert s['capture_tries']<=20
+    assert e.get_presenter().try_select_capture();assert e.get_presenter().resolve_selection();s['capture_tries']+=1;assert s['capture_tries']<=capture_limit
   elif s['phase']=='caught'and t>1 and not p.is_overworld_input_locked():
    assert e.get_last_result().outcome==unreal.PokeMonsterEncounterOutcome.CAPTURED;assert e.get_last_result().captured_creature.instance_id.to_string()==s['captured_id'];assert len(e.get_player_party())==3;assert inv.get_quantity(balls)==s['capture_before']-s['capture_tries']
    for i in range(3):

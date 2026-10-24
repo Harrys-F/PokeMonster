@@ -33,7 +33,7 @@ struct FRecording
   if(Pending.Load()>=2)return true;
   for(const auto& C:GEngine->GetWorldContexts())
   {
-   UWorld* W=C.World();if(!W||!W->IsGameWorld()||!(W->GetMapName().Contains(TEXT("Dev_TestMap_VisualV2GPUBottleneckV1"))||W->GetMapName()==TEXT("Dev_TestMap_VisualV2")||W->GetMapName().EndsWith(TEXT("_Dev_TestMap_VisualV2"))))continue;
+   UWorld* W=C.World();if(!W||!W->IsGameWorld()||!(W->GetMapName().Contains(TEXT("Dev_TestMap_VisualV2GPUBottleneckV1"))||W->GetMapName()==TEXT("Dev_TestMap_VisualV2")||W->GetMapName().EndsWith(TEXT("_Dev_TestMap_VisualV2"))||W->GetMapName()==TEXT("Dev_BiomeTestMap_V1")||W->GetMapName().EndsWith(TEXT("_Dev_BiomeTestMap_V1"))))continue;
    auto* GI=W->GetGameInstance();auto* Client=GI?GI->GetGameViewportClient():nullptr;auto* VP=Client?Client->GetGameViewport():nullptr;
    if(!VP)return true;const double Now=W->GetTimeSeconds();if(Now-Last<.05)return true;Last=Now;
    const FIntPoint Size=VP->GetSizeXY();if(!((Size.X==1280&&Size.Y==720)||(Size.X==2560&&Size.Y==1440)))return true;

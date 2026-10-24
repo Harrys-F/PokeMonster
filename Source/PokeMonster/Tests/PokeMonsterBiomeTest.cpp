@@ -52,3 +52,19 @@ bool FBiomeSwimContract::RunTest(const FString&)
  return true;
 }
 #endif
+
+#if WITH_DEV_AUTOMATION_TESTS
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FBiomeAirContract,"PokeMonster.BiomeV11.BoundedAirClearance",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FBiomeAirContract::RunTest(const FString&)
+{
+ float Foot=-999.f;
+ TestTrue(TEXT("Fixed air plane above ordinary ground"),APokeMonsterBiomeHabitat::AirFootHeight(130,0,0,20,350,Foot));TestEqual(TEXT("Air foot remains at its plane"),Foot,130.f);
+ TestTrue(TEXT("Low obstacle may be overflown"),APokeMonsterBiomeHabitat::AirFootHeight(130,100,0,20,350,Foot));
+ TestFalse(TEXT("Tall obstacle blocks flight"),APokeMonsterBiomeHabitat::AirFootHeight(130,150,0,20,350,Foot));
+ TestFalse(TEXT("Drop below bounded height blocks flight"),APokeMonsterBiomeHabitat::AirFootHeight(130,-400,0,20,350,Foot));
+ TestTrue(TEXT("Hover uses the same ground reference with an actual visual lift"),APokeMonsterBiomeHabitat::AirFootHeight(0,90,135,20,350,Foot));TestEqual(TEXT("Hover logical ground remains stable"),Foot,0.f);
+ TestFalse(TEXT("Unsafe landing column cannot be synthesized as ground"),APokeMonsterBiomeHabitat::AirFootHeight(0,90,0,20,350,Foot));
+ TestFalse(TEXT("Reversed bounds rejected"),APokeMonsterBiomeHabitat::AirFootHeight(130,0,0,50,20,Foot));
+ return true;
+}
+#endif

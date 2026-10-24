@@ -1,0 +1,148 @@
+{
+  "species": "Hornliu",
+  "source": "Art/Characters/Creatures/Incoming/Hornliu.glb",
+  "source_sha256": "bedce86a2961308f3fde091d78defaa0201dca55e273989ad0f5c041909fb8c3",
+  "rig_family": "Serpentine",
+  "catalog_size_cm": 30,
+  "size_basis": "original neutral mesh height including original appendages; uniform scale only",
+  "scale": 0.3155622652051924,
+  "actual_height_cm": 30.0,
+  "bones": {
+    "root": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0.04
+      ],
+      null
+    ],
+    "segment_0": [
+      [
+        0.0,
+        -0.03525114431977272,
+        0.1421109437942505
+      ],
+      [
+        0.0,
+        -0.01158397551625967,
+        0.09004317224025726
+      ],
+      "root"
+    ],
+    "segment_1": [
+      [
+        0.0,
+        -0.01158397551625967,
+        0.09004317224025726
+      ],
+      [
+        0.0,
+        0.02155006304383278,
+        0.042708829045295715
+      ],
+      "segment_0"
+    ],
+    "segment_2": [
+      [
+        0.0,
+        0.02155006304383278,
+        0.042708829045295715
+      ],
+      [
+        0.0,
+        0.06572878360748291,
+        0.0395532101392746
+      ],
+      "segment_1"
+    ],
+    "segment_3": [
+      [
+        0.0,
+        0.06572878360748291,
+        0.0395532101392746
+      ],
+      [
+        0.0,
+        0.10359625518321991,
+        0.0774206817150116
+      ],
+      "segment_2"
+    ],
+    "segment_4": [
+      [
+        0.0,
+        0.10359625518321991,
+        0.0774206817150116
+      ],
+      [
+        0.0,
+        0.11937437206506729,
+        0.1342218816280365
+      ],
+      "segment_3"
+    ],
+    "head": [
+      [
+        0.0,
+        -0.0320955254137516,
+        0.18155622482299805
+      ],
+      [
+        0.0,
+        -0.07627423852682114,
+        0.2509799301624298
+      ],
+      "root"
+    ]
+  },
+  "walk_speed_m_s": 0.08,
+  "run_speed_m_s": 0.14,
+  "height_m": 0.3,
+  "triangles": 21237,
+  "vertices": 14307,
+  "geometry_unchanged": true,
+  "uv_original": true,
+  "unweighted_vertices": 0,
+  "clips": {
+    "Idle": {
+      "duration_s": 2.4,
+      "frames": 73,
+      "minimum_deformed_z_m_before_clearance": -0.0016239755786955357
+    },
+    "Walk": {
+      "duration_s": 1.2,
+      "frames": 37,
+      "minimum_deformed_z_m_before_clearance": -0.007388918194919825
+    },
+    "Run": {
+      "duration_s": 0.8,
+      "frames": 25,
+      "minimum_deformed_z_m_before_clearance": -0.007368296850472689
+    },
+    "Attack": {
+      "duration_s": 0.9,
+      "frames": 28,
+      "minimum_deformed_z_m_before_clearance": -0.006389433518052101
+    },
+    "Hit": {
+      "duration_s": 0.5,
+      "frames": 16,
+      "minimum_deformed_z_m_before_clearance": -0.007387741934508085
+    },
+    "Faint": {
+      "duration_s": 1.2,
+      "frames": 37,
+      "minimum_deformed_z_m_before_clearance": -0.0026356750167906284
+    },
+    "Happy": {
+      "duration_s": 1.6,
+      "frames": 49,
+      "minimum_deformed_z_m_before_clearance": -0.004705552011728287
+    }
+  }
+}

@@ -111,6 +111,7 @@ private:
  float HoverStateTime=0.f, GroundWait=7.f, LandingHeight=0.f, HoverCheckRemaining=0.f;
  bool bHoverClear=false;
  bool bUsingAmbientFloat=false;
+ bool bBoundFlightBattlePause=false;
  FVector PreviousLocation=FVector::ZeroVector;
  bool bHavePrevious=false;
 };

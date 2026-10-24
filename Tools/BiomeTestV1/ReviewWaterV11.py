@@ -5,12 +5,12 @@ R=Path(unreal.Paths.project_dir()).resolve();sys.path.insert(0,str(R/'Tools/Biom
 request=json.loads((R/'Saved/BiomeTestV11/WaterReviewRequest.json').read_text());label=request['label'];clip=request.get('motion_sequence',False);O=R/'Saved/BiomeTestV11'/label;O.mkdir(exist_ok=False)
 w=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_game_world();assert w and w.get_name().endswith('Dev_BiomeTestMap_V1');p=unreal.GameplayStatics.get_player_pawn(w,0);pc=unreal.GameplayStatics.get_player_controller(w,0);gi=unreal.GameplayStatics.get_game_instance(w);save=next(a for a in unreal.ObjectIterator(unreal.PokeMonsterSaveSubsystem)if a.get_outer()==gi)
 inp=next(a for a in unreal.ObjectIterator(unreal.EnhancedInputLocalPlayerSubsystem)if a.get_world()==w);move=next(a for a in unreal.ObjectIterator(unreal.InputAction)if a.get_outer()==p and a.get_name()=='MoveAction');sprint=next(a for a in unreal.ObjectIterator(unreal.InputAction)if a.get_outer()==p and a.get_name()=='SprintHoldAction')
-habitats={a.habitat_name:a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.PokeMonsterBiomeHabitat)};assert len(habitats)==10;assert sum(len(h.runtime_specimens)for h in habitats.values())==11
+habitats={a.habitat_name:a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.PokeMonsterBiomeHabitat)};base={'Wiese','BodennaherFlug','SchiggyUfer','EntonUfer','Karpador','Felsoberseite','Hoehle','Waldschweben','Ruine','Garados'};extra={'RaupyWiese','HornliuWiese','SmettboFlug','BiborFlug','HabitakFlug'};assert set(habitats)in[base,base|extra];assert sum(len(h.runtime_specimens)for h in habitats.values())==len(habitats)+1
 slot=R/'Saved/SaveGames/PokeMonster_Dev.sav';before=hashlib.sha256(slot.read_bytes()).hexdigest();assert not save.save_current_game()and not save.load_game()and not save.delete_dev_save()
 settings=unreal.get_default_object(unreal.load_class(None,'/Script/UnrealEd.EditorPerformanceSettings'));old=settings.get_editor_property('bThrottleCPUWhenNotForeground');settings.set_editor_property('bThrottleCPUWhenNotForeground',False)
 route=[('WaterApproach',1600,1600,0),('JettyApproach',1900,2800,0),('JettyObservation',2500,2800,40),('JettyReturn',1750,2800,0),('WestBank',1750,2800,15),('NorthBank',1900,3650,0),('BridgeWest',2850,4100,0),('BridgeEast',3910,4100,0),('EastBank',4420,3000,25),('BridgeReturnEast',3910,4100,0),('BridgeReturnWest',2850,4100,0),('NorthReturn',1750,3650,0),('WestReturn',1750,2800,0),('JunctionReturn',1600,1600,0),('Hub',0,0,0)]
 if clip:route=[(n,u,v,min(wait,6))for n,u,v,wait in route]
-s={'i':0,'time':0.,'last':unreal.GameplayStatics.get_time_seconds(w),'wall':time.monotonic(),'previous':p.get_actor_location(),'distance':0.,'stuck':0.,'sample':-1.,'frame':-10.,'stage':'walk','rows':[],'shots':[],'frames':[]};bones={};first={};travel={};media={};departures=[]
+s={'i':0,'time':0.,'last':unreal.GameplayStatics.get_time_seconds(w),'wall':time.monotonic(),'previous':p.get_actor_location(),'distance':0.,'stuck':0.,'sample':-1.,'frame':-10.,'stage':'walk','rows':[],'shots':[],'frames':[],'late_motion':{}};bones={};first={};travel={};media={};departures=[]
 def cmd(c):unreal.SystemLibrary.execute_console_command(w,c,pc)
 def inject(x,y):inp.inject_input_vector_for_action(move,unreal.Vector(x,y,0),[],[]);inp.inject_input_vector_for_action(sprint,unreal.Vector(1,0,0),[],[])
 cmd('r.ScreenPercentage 100');cmd('DisableAllScreenMessages 1')
@@ -21,11 +21,11 @@ def sample(now):
   if v.aquatic_pose_alpha>.8:
    b=v.mesh.get_socket_transform(bone,unreal.RelativeTransformSpace.RTS_COMPONENT).translation.to_tuple();bones.setdefault(key,[]).append(b)
   media.setdefault(key,set()).add('water'if v.aquatic_pose_alpha>.8 else'land');travel[key]=m.distance_travelled
-  s['rows'].append({'t':now,'name':key,'position':q.to_tuple(),'speed':v.motion_speed,'aquatic':v.aquatic_pose_alpha,'travel_cm':m.distance_travelled,'blocked':m.blocked_steps,'rejected':m.rejected_targets,'goal':m.current_goal.to_tuple(),'state':str(m.behavior_state)})
+  s['rows'].append({'t':now,'name':key,'position':q.to_tuple(),'speed':v.motion_speed,'aquatic':v.aquatic_pose_alpha,'travel_cm':m.distance_travelled,'behavior':str(m.behavior_state),'blocked':m.blocked_steps,'rejected':m.rejected_targets,'goal':m.current_goal.to_tuple(),'state':str(m.behavior_state)})
 def finish(error=None):
  unreal.unregister_slate_post_tick_callback(unreal._biome_water_v11);inp.inject_input_vector_for_action(move,unreal.Vector(),[],[]);inp.inject_input_vector_for_action(sprint,unreal.Vector(),[],[]);settings.set_editor_property('bThrottleCPUWhenNotForeground',old)
  ranges={k:max(math.dist(a,b)for a in vs for b in [vs[0]])if vs else 0 for k,vs in bones.items()}
- result={'passed':error is None,'error':error,'normal_PIE':True,'no_teleports':True,'distance_m':s['distance']/100,'steps':s['i'],'total':len(route),'bone_motion_ranges_cm':ranges,'travel_cm':travel,'media':{k:sorted(v)for k,v in media.items()},'habitat_departures':departures,'shots':s['shots'],'frames':s['frames'],'original_save_sha256':before,'after_save_sha256':hashlib.sha256(slot.read_bytes()).hexdigest()};(O/'Result.json').write_text(json.dumps(result,indent=2));(O/'Telemetry.json').write_text(json.dumps(s['rows']));unreal.log('BIOME_WATER_REVIEW_DONE '+str(error))
+ result={'passed':error is None,'error':error,'normal_PIE':True,'no_teleports':True,'distance_m':s['distance']/100,'steps':s['i'],'total':len(route),'bone_motion_ranges_cm':ranges,'travel_cm':travel,'late_observation_motion_cm':s['late_motion'],'media':{k:sorted(v)for k,v in media.items()},'habitat_departures':departures,'shots':s['shots'],'frames':s['frames'],'original_save_sha256':before,'after_save_sha256':hashlib.sha256(slot.read_bytes()).hexdigest()};(O/'Result.json').write_text(json.dumps(result,indent=2));(O/'Telemetry.json').write_text(json.dumps(s['rows']));unreal.log('BIOME_WATER_REVIEW_DONE '+str(error))
 def tick(dt):
  try:
   now=unreal.GameplayStatics.get_time_seconds(w);delta=now-s['last'];s['last']=now;s['time']+=delta;assert time.monotonic()-s['wall']<420
@@ -48,6 +48,10 @@ def tick(dt):
   inject(0,0)
   if wait and now-s['frame']>(.14 if clip else 1.2):
    D=O/'Frames';D.mkdir(exist_ok=True);path=D/(str(len(s['frames'])).zfill(4)+'.png');cmd('HighResShot 1280x720 filename="'+str(path)+'"');s['frames'].append({'path':str(path.relative_to(R)),'game_time':now});s['frame']=now
-  if s['time']>=wait:s.update(i=s['i']+1,stage='walk',time=0)
+  if s['time']>=wait:
+   if name=='JettyObservation'and wait>=30:
+    for key in ['Karpador','Garados','SchiggyUfer']:
+     recent=[x for x in s['rows']if x['name']==key and x['t']>=now-15];assert len(recent)>10;s['late_motion'][key]=recent[-1]['travel_cm']-recent[0]['travel_cm'];assert s['late_motion'][key]>20,('Persistent finite-anchor movement stopped',key)
+   s.update(i=s['i']+1,stage='walk',time=0)
  except Exception:finish(traceback.format_exc())
 unreal._biome_water_v11=unreal.register_slate_post_tick_callback(tick)

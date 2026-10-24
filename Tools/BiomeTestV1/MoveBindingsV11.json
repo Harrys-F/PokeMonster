@@ -1,0 +1,122 @@
+{
+  "primary_source": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/moves/moves.asm",
+  "primary_sha256": "50cd7c03a51a3228e96af6b61a1f77e9173fc2118017eb3752d5ce055d3be39d",
+  "names_source_commit": "2bf639e5572812a67d2b94903fdcb9d095f5aeb2",
+  "names_source_sha256": "99e23ee38ea53d1473474d463b87651deac3cd4928750f8186feae66da45c147",
+  "scope": "Four necessary bindings only, existing V4 effect components unchanged; no additional effect engine",
+  "rows": [
+    {
+      "id": "FuryAttack",
+      "identifier": "fury-attack",
+      "original_id": "31",
+      "name": "Furienschlag",
+      "path": "/Game/Data/Moves/BiomeV11/DA_FuryAttack",
+      "type": "NORMAL",
+      "category": "PHYSICAL",
+      "power": 15,
+      "accuracy": 85,
+      "max_pp": 20,
+      "priority": 0,
+      "never_miss": false,
+      "bypass_protect": false,
+      "requires_sleeping_target": false,
+      "critical_stage_bonus": 0,
+      "components": [
+        {
+          "kind": "MULTI_HIT",
+          "min_hits": 2,
+          "max_hits": 5,
+          "hit_weights": [
+            3,
+            3,
+            1,
+            1
+          ]
+        }
+      ],
+      "description": "Trifft zwei- bis fünfmal.",
+      "crystal_effect": "EFFECT_MULTI_HIT",
+      "source_commit": "5c877ef55197039c9676e8e3eec6d254b1c40fe8"
+    },
+    {
+      "id": "PoisonSting",
+      "identifier": "poison-sting",
+      "original_id": "40",
+      "name": "Giftstachel",
+      "path": "/Game/Data/Moves/BiomeV11/DA_PoisonSting",
+      "type": "POISON",
+      "category": "PHYSICAL",
+      "power": 15,
+      "accuracy": 100,
+      "max_pp": 35,
+      "priority": 0,
+      "never_miss": false,
+      "bypass_protect": false,
+      "requires_sleeping_target": false,
+      "critical_stage_bonus": 0,
+      "components": [
+        {
+          "kind": "PRIMARY_STATUS",
+          "status": "POISON",
+          "secondary": true,
+          "chance_percent": 30,
+          "immune_types": [
+            "POISON",
+            "STEEL"
+          ]
+        }
+      ],
+      "description": "Kann das Ziel mit 30 % Wahrscheinlichkeit vergiften.",
+      "crystal_effect": "EFFECT_POISON_HIT",
+      "source_commit": "5c877ef55197039c9676e8e3eec6d254b1c40fe8"
+    },
+    {
+      "id": "Peck",
+      "identifier": "peck",
+      "original_id": "64",
+      "name": "Pikser",
+      "path": "/Game/Data/Moves/BiomeV11/DA_Peck",
+      "type": "FLYING",
+      "category": "PHYSICAL",
+      "power": 35,
+      "accuracy": 100,
+      "max_pp": 35,
+      "priority": 0,
+      "never_miss": false,
+      "bypass_protect": false,
+      "requires_sleeping_target": false,
+      "critical_stage_bonus": 0,
+      "components": [],
+      "description": "Direkter Flug-Schaden nach Kristall-Typenkategorie.",
+      "crystal_effect": "EFFECT_NORMAL_HIT",
+      "source_commit": "5c877ef55197039c9676e8e3eec6d254b1c40fe8"
+    },
+    {
+      "id": "StringShot",
+      "identifier": "string-shot",
+      "original_id": "81",
+      "name": "Fadenschuss",
+      "path": "/Game/Data/Moves/BiomeV11/DA_StringShot",
+      "type": "BUG",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 95,
+      "max_pp": 40,
+      "priority": 0,
+      "never_miss": false,
+      "bypass_protect": false,
+      "requires_sleeping_target": false,
+      "critical_stage_bonus": 0,
+      "components": [
+        {
+          "kind": "STAGE",
+          "stat": "SPEED",
+          "stages": -1
+        }
+      ],
+      "description": "Senkt die Initiative des Ziels um eine Stufe.",
+      "crystal_effect": "EFFECT_SPEED_DOWN",
+      "source_commit": "5c877ef55197039c9676e8e3eec6d254b1c40fe8"
+    }
+  ]
+}

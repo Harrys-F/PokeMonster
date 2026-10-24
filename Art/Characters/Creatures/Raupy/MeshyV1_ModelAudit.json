@@ -1,0 +1,148 @@
+{
+  "species": "Raupy",
+  "source": "Art/Characters/Creatures/Incoming/Raupy.glb",
+  "source_sha256": "3c61e041b40ef4db0fe0723babf97016426cb3735eb547b42fd9f9969b22387c",
+  "rig_family": "Serpentine",
+  "catalog_size_cm": 30,
+  "size_basis": "original neutral mesh height including original appendages; uniform scale only",
+  "scale": 0.3155622652051924,
+  "actual_height_cm": 30.0,
+  "bones": {
+    "root": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0.04
+      ],
+      null
+    ],
+    "segment_0": [
+      [
+        0.0,
+        -0.03486599773168564,
+        0.1421109437942505
+      ],
+      [
+        0.0,
+        -0.011198828928172588,
+        0.09004317224025726
+      ],
+      "root"
+    ],
+    "segment_1": [
+      [
+        0.0,
+        -0.011198828928172588,
+        0.09004317224025726
+      ],
+      [
+        0.0,
+        0.02193521149456501,
+        0.042708829045295715
+      ],
+      "segment_0"
+    ],
+    "segment_2": [
+      [
+        0.0,
+        0.02193521149456501,
+        0.042708829045295715
+      ],
+      [
+        0.0,
+        0.0661139264702797,
+        0.0395532101392746
+      ],
+      "segment_1"
+    ],
+    "segment_3": [
+      [
+        0.0,
+        0.0661139264702797,
+        0.0395532101392746
+      ],
+      [
+        0.0,
+        0.10398140549659729,
+        0.0774206817150116
+      ],
+      "segment_2"
+    ],
+    "segment_4": [
+      [
+        0.0,
+        0.10398140549659729,
+        0.0774206817150116
+      ],
+      [
+        0.0,
+        0.11975951492786407,
+        0.1342218816280365
+      ],
+      "segment_3"
+    ],
+    "head": [
+      [
+        0.0,
+        -0.03171037882566452,
+        0.18155622482299805
+      ],
+      [
+        0.0,
+        -0.07588909566402435,
+        0.2509799301624298
+      ],
+      "root"
+    ]
+  },
+  "walk_speed_m_s": 0.08,
+  "run_speed_m_s": 0.14,
+  "height_m": 0.3,
+  "triangles": 20990,
+  "vertices": 16357,
+  "geometry_unchanged": true,
+  "uv_original": true,
+  "unweighted_vertices": 0,
+  "clips": {
+    "Idle": {
+      "duration_s": 2.4,
+      "frames": 73,
+      "minimum_deformed_z_m_before_clearance": -0.002839908469468355
+    },
+    "Walk": {
+      "duration_s": 1.2,
+      "frames": 37,
+      "minimum_deformed_z_m_before_clearance": -0.012917311862111092
+    },
+    "Run": {
+      "duration_s": 0.8,
+      "frames": 25,
+      "minimum_deformed_z_m_before_clearance": -0.012890026904642582
+    },
+    "Attack": {
+      "duration_s": 0.9,
+      "frames": 28,
+      "minimum_deformed_z_m_before_clearance": -0.011615436524152756
+    },
+    "Hit": {
+      "duration_s": 0.5,
+      "frames": 16,
+      "minimum_deformed_z_m_before_clearance": -0.012875892221927643
+    },
+    "Faint": {
+      "duration_s": 1.2,
+      "frames": 37,
+      "minimum_deformed_z_m_before_clearance": -0.06945888698101044
+    },
+    "Happy": {
+      "duration_s": 1.6,
+      "frames": 49,
+      "minimum_deformed_z_m_before_clearance": -0.010607769712805748
+    }
+  }
+}

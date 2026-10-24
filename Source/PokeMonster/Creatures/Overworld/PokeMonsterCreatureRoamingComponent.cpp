@@ -27,7 +27,7 @@ UPokeMonsterCreatureRoamingComponent::UPokeMonsterCreatureRoamingComponent()
 void UPokeMonsterCreatureRoamingComponent::Configure(const UPokeMonsterCreatureSpeciesData* Species,
 	float RootGroundOffset, float Radius, float HalfHeight, AActor* Follow, int32 Seed)
 {
-	SetComponentTickEnabled(false); bReady = false; bPresentationHold = false; PresentationHoverHeight=0.f;
+	SetComponentTickEnabled(false); bReady = false; bPresentationHold = false; PresentationHoverHeight=0.f;bWasAerialTravel=false;
 	if (!Species || !Species->Overworld.IsValid() || !FMath::IsFinite(RootGroundOffset)
 		|| !FMath::IsFinite(Radius) || Radius <= 0 || !FMath::IsFinite(HalfHeight) || HalfHeight <= 0
 		|| !FMath::IsFinite(HabitatRadiusOverride) || HabitatRadiusOverride < 0
@@ -132,7 +132,7 @@ bool UPokeMonsterCreatureRoamingComponent::IsInsideHabitat(const FVector& Point)
 bool UPokeMonsterCreatureRoamingComponent::ProjectWalkable(const FVector& Point, FVector& Ground) const
 {
 	UWorld* W = GetWorld(); if (!W || !IsInsideHabitat(Point)) return false;
-    if (BiomeHabitat) return BiomeHabitat->ProjectFoot(Point, BodyRadius, BodyHalfHeight, Query(), Ground);
+    if (BiomeHabitat) return BiomeHabitat->ProjectFoot(Point, BodyRadius, BodyHalfHeight, Query(), Ground,IsAerialTravelActive()?PresentationHoverHeight:0.f);
 	const auto Q = Query(); FHitResult Hit;
 	if (!W->LineTraceSingleByChannel(Hit, Point + FVector(0, 0, Settings.MaxStepHeight + 55.f),
 		Point - FVector(0, 0, 100.f), ECC_Visibility, Q) || Hit.ImpactNormal.Z < .75f) return false;
@@ -160,11 +160,12 @@ bool UPokeMonsterCreatureRoamingComponent::CanTraverse(const FVector& Start, con
 	}
 	// Continuous clearance for local decoration cores. Sparse ground samples alone can
  // miss a very short crossing of an expanded rock/trunk corner, then reject each real step.
+ const FVector AirOffset(0,0,IsAerialTravelActive()?PresentationHoverHeight:0.f);
  for(const auto& Box:DecorativeObstacles)
-  if(IsDecorativeSegmentBlocked(Box,Start,End,BodyRadius,BodyHalfHeight,Settings.MaxStepHeight))return false;
+  if(IsDecorativeSegmentBlocked(Box,Start+AirOffset,End+AirOffset,BodyRadius,BodyHalfHeight,Settings.MaxStepHeight))return false;
  if(PresentationHoverHeight>0.f&&!CanTraverseHoverColumn(Start,End,PresentationHoverHeight,PresentationHoverBounds))return false;
 	const auto Q = Query(); FHitResult Obstacle;
-	const float Lift = BodyHalfHeight + Settings.MaxStepHeight + 2.f;
+	const float Lift = BodyHalfHeight + Settings.MaxStepHeight + 2.f + AirOffset.Z;
 	if (GetWorld()->SweepSingleByChannel(Obstacle, Start + FVector(0, 0, Lift),
 		End + FVector(0, 0, Lift), FQuat::Identity, ECC_Pawn,
 		FCollisionShape::MakeCapsule(BodyRadius, BodyHalfHeight), Q)) return false;
@@ -208,6 +209,9 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	const auto* C = GI ? GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>() : nullptr;
 	if ((E && E->IsEncounterActive()) || (C && C->IsReturningFromDefeat())) return;
 	const FVector Current = Owner->GetActorLocation() - FVector(0, 0, Offset);
+ const bool AirTravel=BiomeHabitat&&(BiomeHabitat->Medium==EPokeMonsterBiomeMedium::Aerial||IsAerialTravelActive());
+ if(AirTravel!=bWasAerialTravel){bWasAerialTravel=AirTravel;Path.Reset();RecentGoals.Reset();PauseRemaining=ReplanRemaining=0.f;}
+
 	auto* Player = Cast<APokeMonsterPlayerCharacter>(UGameplayStatics::GetPlayerPawn(this, 0));
 	if (!FollowTarget.IsValid() && Player && (Player->IsOverworldInputLocked()
 		))
@@ -235,6 +239,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	 Speed*=Settings.Behavior.WalkMultiplier;
 	 if(UpdateBehavior(Delta,Current,Player,Speed)) return;
 	}
+ if(AirTravel&&FMath::IsFinite(BiomeHabitat->AirCruiseSpeedCm))Speed=FMath::Clamp(BiomeHabitat->AirCruiseSpeedCm,10.f,200.f);
 	ReplanRemaining -= Delta;
 	if (FollowTarget.IsValid())
 	{
@@ -306,7 +311,11 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 			if(Plan(Candidate.Point))
 			{
 				if(!FollowTarget.IsValid()) ++SectorVisits[Candidate.Sector];
-				RecentGoals.Add(Candidate.Point); if(RecentGoals.Num()>4) RecentGoals.RemoveAt(0);
+				// Small authored anchor sets must leave alternatives; remembering all anchors
+                // permanently exhausted three-point swim/flight lanes. Unbounded habitats stay unchanged.
+                const int32 HistoryLimit=BiomeHabitat&&!BiomeHabitat->TravelPoints.IsEmpty()
+                    ?FMath::Min(4,FMath::Max(0,BiomeHabitat->TravelPoints.Num()-2)):4;
+                RecentGoals.Add(Candidate.Point);while(RecentGoals.Num()>HistoryLimit)RecentGoals.RemoveAt(0);
 				break;
 			}
 			++RejectedTargets;
@@ -496,7 +505,12 @@ bool UPokeMonsterCreatureRoamingComponent::IsInRelocatedInterior(const FVector& 
 }
 
 
-bool UPokeMonsterCreatureRoamingComponent::CanGroundHover(float Height, const FBox& Bounds) const
+bool UPokeMonsterCreatureRoamingComponent::IsAerialTravelActive() const
+{
+ return BiomeHabitat&&BiomeHabitat->bAllowGroundFlight&&BiomeHabitat->bAllowGroundFlightOverObstacles
+  &&PresentationHoverHeight>1.f&&!bPresentationHold;
+}
+bool UPokeMonsterCreatureRoamingComponent::CanGroundHover(float Height, const FBox& Bounds,bool RequireLandingColumn) const
 {
  if (!bReady || bPaused || bEscapingDefeat || !GetWorld() || !GetOwner() || !Bounds.IsValid
   || !FMath::IsFinite(Height) || Height < 0.f || Height > 150.f) return false;
@@ -505,19 +519,22 @@ bool UPokeMonsterCreatureRoamingComponent::CanGroundHover(float Height, const FB
  for (const auto& Weak:Buildings) if (const auto* B=Weak.Get())
   if (B->IsViewerInside(Ground+FVector(0,0,50))) return false;
  FVector Projected;
- if (!ProjectWalkable(Ground,Projected) || FMath::Abs(Projected.Z-Ground.Z)>Settings.MaxStepHeight) return false;
- return CanTraverseHoverColumn(Ground,Ground,Height,Bounds);
+ const bool Air=IsAerialTravelActive()&&!RequireLandingColumn;
+ const bool ProjectedOK=BiomeHabitat?BiomeHabitat->ProjectFoot(Ground,BodyRadius,BodyHalfHeight,Query(),Projected,Air?Height:0.f):ProjectWalkable(Ground,Projected);
+ if (!ProjectedOK || FMath::Abs(Projected.Z-Ground.Z)>Settings.MaxStepHeight) return false;
+ return CanTraverseHoverColumn(Ground,Ground,Height,Bounds,RequireLandingColumn);
 }
 
-bool UPokeMonsterCreatureRoamingComponent::CanTraverseHoverColumn(const FVector& Start,const FVector& End,float Height,const FBox& Bounds) const
+bool UPokeMonsterCreatureRoamingComponent::CanTraverseHoverColumn(const FVector& Start,const FVector& End,float Height,const FBox& Bounds,bool RequireGroundColumn) const
 {
  if(!Bounds.IsValid||!GetWorld()||!GetOwner())return false;
  // Rotation-independent footprint covers both wing tips through a turn. The whole column
- // remains clear, so hovering never permits passing above a ground obstruction or beneath
- // an overhang that the elevated head/wings would strike. Ordinary land paths are unchanged.
+ // remains clear for takeoff/landing and ordinary hover. Only the explicit bounded
+ // overflight option checks the elevated body corridor instead. Ordinary land paths are unchanged.
  const float Radius=FMath::Max(FMath::Max(FMath::Abs(Bounds.Min.X),FMath::Abs(Bounds.Max.X)),
   FMath::Max(FMath::Abs(Bounds.Min.Y),FMath::Abs(Bounds.Max.Y)))+5.f;
- const float Bottom=Bounds.Min.Z+2.f,Top=Bounds.Max.Z+Height+12.f;
+ const bool AirOnly=IsAerialTravelActive()&&!RequireGroundColumn;
+ const float Bottom=Bounds.Min.Z+(AirOnly?Height:0.f)+2.f,Top=Bounds.Max.Z+Height+12.f;
  const FVector Extent(Radius,Radius,(Top-Bottom)*.5f),Lift(0,0,(Top+Bottom)*.5f);
  const FVector A=Start+Lift,B=End+Lift;
  FBox Column(A-Extent,A+Extent);Column+=FBox(B-Extent,B+Extent);

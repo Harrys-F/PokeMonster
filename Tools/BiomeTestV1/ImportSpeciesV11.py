@@ -9,7 +9,7 @@ assert needle in code
 code=code.replace(needle,"  if name in ['Karpador','Garados']:\n   profile.set_editor_property('swim_idle_clip',clips[unreal.PokeMonsterCreatureClip.IDLE]);profile.set_editor_property('swim_clip',clips[unreal.PokeMonsterCreatureClip.WALK]);profile.set_editor_property('swim_reference_speed',walk)\n"+needle)
 code=code.replace("   if species=='Schiggy'and typ=='BaseColor':","   if typ=='BaseColor':a.set_editor_property('compression_settings',unreal.TextureCompressionSettings.TC_DEFAULT)\n   if species=='Schiggy'and typ=='BaseColor':")
 exec(compile(code,'ExistingSingleSpeciesVisualImporter','exec'))
-plan=json.loads((R/'Tools/MoveEffectsV4/CrystalMovePlan.json').read_text());by_symbol={r['identifier'].replace('-','_').upper():r for r in plan['rows']};by_symbol['POISONPOWDER']=by_symbol['POISON_POWDER']
+plan=json.loads((R/'Tools/MoveEffectsV4/CrystalMovePlan.json').read_text());extra=json.loads((R/'Tools/BiomeTestV1/MoveBindingsV11.json').read_text());by_symbol={r['identifier'].replace('-','_').upper():r for r in plan['rows']+extra['rows']};by_symbol['POISONPOWDER']=by_symbol['POISON_POWDER']
 entries=[];missing=[]
 for level,symbol in spec['crystal_moves']:
  row=by_symbol.get(symbol)

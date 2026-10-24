@@ -71,13 +71,21 @@ bool APokeMonsterBiomeHabitat::ContainsFlightColumn(const FVector& Point,float H
  const float Radius=FMath::Max(FMath::Abs(B.Min.X),FMath::Abs(B.Max.X));
  return ContainsFootprint(Point,Radius)&&ContainsFootprint(Point+FVector(0,0,Height+B.Max.Z+15.f),Radius);
 }
+bool APokeMonsterBiomeHabitat::AirFootHeight(float Plane,float Floor,float Lift,float MinClearance,float MaxClearance,float& Foot)
+{
+ for(float V:{Plane,Floor,Lift,MinClearance,MaxClearance})if(!FMath::IsFinite(V))return false;
+ if(Lift<0.f||MinClearance<5.f||MaxClearance<MinClearance)return false;
+ const float Clearance=Plane+Lift-Floor;
+ if(Clearance<MinClearance||Clearance>MaxClearance)return false;
+ Foot=Plane;return true;
+}
 bool APokeMonsterBiomeHabitat::MediumFootHeight(EPokeMonsterBiomeMedium Mode,float Floor,float Surface,float Draft,float FloatHeight,float MinDepth,float& Height)
 {
  for(float V:{Floor,Surface,Draft,FloatHeight,MinDepth})if(!FMath::IsFinite(V))return false;
  if(Draft<0||FloatHeight<0||MinDepth<0)return false;
  if(Mode==EPokeMonsterBiomeMedium::WaterOnly && Floor>Surface-FMath::Max(MinDepth,Draft+2.f))return false;
  if(Mode==EPokeMonsterBiomeMedium::Land && Floor<Surface-2.f)return false;
- Height=Mode==EPokeMonsterBiomeMedium::Floating?Floor+FloatHeight:
+ Height=(Mode==EPokeMonsterBiomeMedium::Floating||Mode==EPokeMonsterBiomeMedium::Aerial)?Floor+FloatHeight:
   (Mode==EPokeMonsterBiomeMedium::WaterOnly||Mode==EPokeMonsterBiomeMedium::Amphibious)?FMath::Max(Floor,Surface-Draft):Floor;
  return true;
 }
@@ -85,13 +93,21 @@ void APokeMonsterBiomeHabitat::IgnorePlayerWaterBarriers(FCollisionQueryParams& 
 {
  for(const auto& A:PlayerWaterBarriers)if(A.IsValid())Query.AddIgnoredActor(A.Get());
 }
-bool APokeMonsterBiomeHabitat::ProjectFoot(const FVector& Point,float Radius,float HalfHeight,const FCollisionQueryParams& Input,FVector& Foot) const
+bool APokeMonsterBiomeHabitat::ProjectFoot(const FVector& Point,float Radius,float HalfHeight,const FCollisionQueryParams& Input,FVector& Foot,float AirLiftCm) const
 {
  if(!GetWorld()||!ContainsFootprint(Point,Radius))return false;
  FHitResult Hit;auto Q=Input;IgnorePlayerWaterBarriers(Q);
  if(!GetWorld()->LineTraceSingleByChannel(Hit,FVector(Point.X,Point.Y,GetActorLocation().Z+1000.f),
   FVector(Point.X,Point.Y,GetActorLocation().Z-1500.f),ECC_Visibility,Q)||!Hit.GetComponent()
   ||Hit.GetComponent()->GetCollisionResponseToChannel(ECC_Pawn)!=ECR_Block)return false;
+ if(Medium==EPokeMonsterBiomeMedium::Aerial||AirLiftCm>0.f)
+ {
+  const float Plane=GetActorLocation().Z+(Medium==EPokeMonsterBiomeMedium::Aerial?FloatClearanceCm:0.f);
+  float Z=0;if(!AirFootHeight(Plane,Hit.ImpactPoint.Z,AirLiftCm,MinimumAirClearanceCm,MaximumAirClearanceCm,Z))return false;
+  Foot=FVector(Point.X,Point.Y,Z);
+  return ContainsFootprint(Foot,Radius)&&!GetWorld()->OverlapBlockingTestByChannel(Foot+FVector(0,0,AirLiftCm+HalfHeight+28.f),FQuat::Identity,
+   ECC_Pawn,FCollisionShape::MakeCapsule(Radius,FMath::Max(HalfHeight,Radius)),Q);
+ }
  const bool Swimming=(Medium==EPokeMonsterBiomeMedium::Amphibious||Medium==EPokeMonsterBiomeMedium::WaterOnly)
   && Hit.ImpactPoint.Z<WaterSurfaceZ-WaterDraftCm;
  if(!Swimming&&Hit.ImpactNormal.Z<.75f)return false;

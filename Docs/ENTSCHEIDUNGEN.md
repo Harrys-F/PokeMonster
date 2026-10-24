@@ -1136,3 +1136,7 @@ Auf Nutzerauftrag werden die vorhandene Biom-Map und wiederverwendbare optionale
 ### 24.10.2026 – Biom V1.1 Plateau/Höhle
 
 Der beauftragte 15-m-Felsen erhält einen langen begehbaren Kehrenweg. Die vorhandene gleichkartige Innenraumtechnik wird für die Höhle wiederverwendet, mit ausdrücklich lokalem InteriorOwner am Biom-Habitat. Kein pauschales Erlauben wilder Pokémon in Gebäuden. Der bestehende technische Höhlenschnitt wird in diesen Raum überführt; keine zusätzliche Map. Lokale Höhlenkamera und -lichter ändern keine Außenparameter. Details, Materialgrenzen und tatsächliche Laufprüfungen im V1.1-Bericht.
+
+### 24.10.2026 – begrenzter Biom-Flug V1.1
+
+Auf ausdrücklichen Nutzerauftrag werden bestehende Roaming-/GroundHover-Funktionen um eng begrenzte opt-in Luftwegprüfungen ergänzt. Zwei Insekten bewegen sich auf einer endlichen, durch Bodenabstand/Kollision begrenzten Flughöhe; Habitak darf nach kontrolliertem Abheben kleine Hindernisse überqueren und nur bei freier Bodensäule landen. Kein neues KI-, Navigations- oder Kampfsystem. Bestehendes Glurak-Hover und andere Maps werden nicht automatisch auf diese Regel umgestellt. Technische Nachweise: MeadowPIE04 und FlightPause02. Die visuelle Gesamtfreigabe der Biom-V1.1 bleibt nach Abschluss der übrigen Pakete erforderlich.

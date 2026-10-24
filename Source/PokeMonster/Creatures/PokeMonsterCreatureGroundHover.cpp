@@ -1,5 +1,6 @@
 #include "PokeMonsterCreaturePresentation.h"
 #include "Overworld/PokeMonsterCreatureRoamingComponent.h"
+#include "../Development/BiomeTestV1/PokeMonsterBiomeHabitat.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "Engine/GameInstance.h"
 #include "Engine/SkeletalMesh.h"
@@ -11,7 +12,7 @@ void APokeMonsterCreatureVisualActor::SetGroundHoverContext(UPokeMonsterCreature
 {
  if (HoverContext.Get()==Context) return;
  if (HoverContext.IsValid()) { HoverContext->SetPresentationHold(false);HoverContext->SetPresentationHoverClearance(0.f,FBox(ForceInit)); }
- HoverContext=Context;HoverState=EHoverState::Grounded;HoverStateTime=HoverHeight=HoverPoseAlpha=0.f;
+ HoverContext=Context;bBoundFlightBattlePause=false;HoverState=EHoverState::Grounded;HoverStateTime=HoverHeight=HoverPoseAlpha=0.f;
  GroundWait=6.f+FMath::Fmod(GetUniqueID()*.137f,7.f);HoverCheckRemaining=0.f;bHoverClear=false;
  ActiveHoverClip=nullptr;Mesh->SetRelativeLocation(FVector::ZeroVector);
 }
@@ -30,6 +31,20 @@ void APokeMonsterCreatureVisualActor::UpdateGroundHover(float Delta)
  auto* Context=HoverContext.Get();const auto* GI=GetGameInstance();
  const auto* E=GI?GI->GetSubsystem<UPokeMonsterEncounterSubsystem>():nullptr;
  const bool Battle=E&&E->IsEncounterActive();
+ // Explicit bounded overflight may be above a low obstacle: never descend through it on battle start.
+ const bool Bounded=Context&&Context->BiomeHabitat&&Context->BiomeHabitat->bAllowGroundFlightOverObstacles;
+ if(Battle&&Bounded&&HoverHeight>0.f)
+ {
+  bBoundFlightBattlePause=true;Context->SetPresentationHold(true);
+  if(ActiveHoverClip)HoverClipTime=FMath::Fmod(HoverClipTime+FMath::Max(0.f,Delta),FMath::Max(.01f,ActiveHoverClip->GetPlayLength()));
+  Mesh->SetRelativeLocation(FVector(0,0,HoverHeight));return;
+ }
+ if(bBoundFlightBattlePause)
+ {
+  bBoundFlightBattlePause=false;HoverCheckRemaining=0.f;
+  if(Context)Context->SetPresentationHold(HoverState==EHoverState::Takeoff||HoverState==EHoverState::Landing);
+ }
+
  // No effect on collision, logical ground height, or the separate ClassicBattle actors.
  if (Context&&Presentation&&Presentation->OverworldFloatAmplitudeCm>0.f&&!IsHidden()&&!Battle)
  {
@@ -77,7 +92,7 @@ void APokeMonsterCreatureVisualActor::UpdateGroundHover(float Delta)
  {
   ActiveHoverClip=Presentation->HoverClip;HoverPoseAlpha=1.f;HoverClipTime=FMath::Fmod(HoverStateTime,ActiveHoverClip->GetPlayLength());
   HoverHeight=FMath::Clamp(Presentation->HoverHeightCm+4.f*FMath::Sin(HoverStateTime*2.f),50.f,150.f);
-  if (HoverStateTime>=7.f) { LandingHeight=HoverHeight;Enter(EHoverState::Landing); }
+  if (HoverStateTime>=7.f && Context->CanGroundHover(FMath::Min(150.f,Presentation->HoverHeightCm+5.f),Presentation->Mesh->GetBounds().GetBox(),true)) { LandingHeight=HoverHeight;Enter(EHoverState::Landing); }
  }
  else if (HoverState==EHoverState::Landing)
  {

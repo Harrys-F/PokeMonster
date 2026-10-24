@@ -30,5 +30,44 @@
   {
     "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/evos_attacks.asm",
     "sha256": "ace4251417a9260c5b898e3fadcdb785cd994f0ac6966767cd8f09f1fecfbfe6"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/moves/moves.asm",
+    "sha256": "50cd7c03a51a3228e96af6b61a1f77e9173fc2118017eb3752d5ce055d3be39d"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/dex_entries/caterpie.asm",
+    "sha256": "b1471a9cb5aff19fd352f5fc68ab991022d783219b6f4c0735f7ac3d4fc9a8f4",
+    "height_units": "US localisation uses feet and inches, rounded; metric sizes in SpeciesV11 are standard metric catalogue values"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/dex_entries/weedle.asm",
+    "sha256": "8c898a00886affead2857c92fb241f106001c2f16fb04e2713d13f878e0310f0",
+    "height_units": "US localisation uses feet and inches, rounded; metric sizes in SpeciesV11 are standard metric catalogue values"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/dex_entries/butterfree.asm",
+    "sha256": "97c3c230b53da94a106a47433582e83421835e71ad94ced7f3b462091d9fba0a",
+    "height_units": "US localisation uses feet and inches, rounded; metric sizes in SpeciesV11 are standard metric catalogue values"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/dex_entries/beedrill.asm",
+    "sha256": "4e4a401428c807a09d594ca77ebd34ce049b6d95acc23c217f0bdd0c50884aa6",
+    "height_units": "US localisation uses feet and inches, rounded; metric sizes in SpeciesV11 are standard metric catalogue values"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/dex_entries/spearow.asm",
+    "sha256": "5eecccdec9bf32e6082d8e4762f0886884f4e7e5869ca1edc4b9636ca90b862c",
+    "height_units": "US localisation uses feet and inches, rounded; metric sizes in SpeciesV11 are standard metric catalogue values"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/dex_entries/magikarp.asm",
+    "sha256": "44ebdf67ec783c5cade09d642beb953306d7003a5e07aaed1077c220d2d5ad57",
+    "height_units": "US localisation uses feet and inches, rounded; metric sizes in SpeciesV11 are standard metric catalogue values"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pret/pokecrystal/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/pokemon/dex_entries/gyarados.asm",
+    "sha256": "abbee6ec07dd66d6afed18f66cd58060a00fbd979371380286453f61273bb536",
+    "height_units": "US localisation uses feet and inches, rounded; metric sizes in SpeciesV11 are standard metric catalogue values"
   }
 ]

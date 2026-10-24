@@ -1,0 +1,37 @@
+{
+  "Idle": {
+    "duration_s": 2.4,
+    "frames": 73,
+    "minimum_deformed_z_m_before_clearance": -0.007326871622353792
+  },
+  "Walk": {
+    "duration_s": 0.6,
+    "frames": 19,
+    "minimum_deformed_z_m_before_clearance": -0.0073183802887797356
+  },
+  "Run": {
+    "duration_s": 0.4,
+    "frames": 13,
+    "minimum_deformed_z_m_before_clearance": -0.00714018614962697
+  },
+  "Attack": {
+    "duration_s": 0.9,
+    "frames": 28,
+    "minimum_deformed_z_m_before_clearance": -0.0021310148295015097
+  },
+  "Hit": {
+    "duration_s": 0.5,
+    "frames": 16,
+    "minimum_deformed_z_m_before_clearance": -0.007272911258041859
+  },
+  "Faint": {
+    "duration_s": 1.2,
+    "frames": 37,
+    "minimum_deformed_z_m_before_clearance": -0.34817343950271606
+  },
+  "Happy": {
+    "duration_s": 1.6,
+    "frames": 49,
+    "minimum_deformed_z_m_before_clearance": -0.0016105526592582464
+  }
+}

@@ -12,7 +12,7 @@ class UPokeMonsterCreatureRoamingComponent;
 class UMaterialInterface;
 struct FCollisionQueryParams;
 UENUM(BlueprintType)
-enum class EPokeMonsterBiomeMedium : uint8 { Land, Amphibious, WaterOnly, Floating };
+enum class EPokeMonsterBiomeMedium : uint8 { Land, Amphibious, WaterOnly, Floating, Aerial };
 USTRUCT(BlueprintType)
 struct FPokeMonsterBiomeSpecimen
 {
@@ -61,6 +61,11 @@ public:
  UPROPERTY(EditAnywhere,BlueprintReadWrite) float ClearanceRadiusCm=20.f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) float ActiveDistanceCm=3800.f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) bool bAllowGroundFlight=false;
+ /** Opt-in only: existing GroundHover cruise may cross low obstacles; takeoff/landing stay ground-safe. */
+ UPROPERTY(EditAnywhere,BlueprintReadWrite) bool bAllowGroundFlightOverObstacles=false;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(ClampMin="10",ClampMax="200")) float AirCruiseSpeedCm=80.f;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(ClampMin="5")) float MinimumAirClearanceCm=20.f;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,meta=(ClampMin="50")) float MaximumAirClearanceCm=350.f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) TArray<FVector> TravelPoints;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) TArray<FPokeMonsterBiomeSpecimen> Specimens;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) TObjectPtr<UMaterialInterface> DiagnosticMaterial;
@@ -69,8 +74,9 @@ public:
  UPROPERTY(Transient,BlueprintReadOnly) int32 SuspendedCount=0;
  UFUNCTION(BlueprintPure) bool ContainsFootprint(FVector Point,float Radius) const;
  bool ContainsFlightColumn(const FVector& Point,float Height,const FBox& MeshBounds) const;
- bool ProjectFoot(const FVector& Point,float Radius,float HalfHeight,const FCollisionQueryParams& Query,FVector& Foot) const;
+ bool ProjectFoot(const FVector& Point,float Radius,float HalfHeight,const FCollisionQueryParams& Query,FVector& Foot,float AirLiftCm=0.f) const;
  void IgnorePlayerWaterBarriers(FCollisionQueryParams& Query) const;
+ static bool AirFootHeight(float Plane,float Floor,float Lift,float MinClearance,float MaxClearance,float& Foot);
  static bool MediumFootHeight(EPokeMonsterBiomeMedium Mode,float Floor,float Surface,float Draft,float FloatHeight,float MinDepth,float& Height);
 private:
  UPROPERTY(Transient) TArray<TObjectPtr<UPokeMonsterCreatureRoamingComponent>> Movements;

@@ -1,0 +1,52 @@
+{
+  "Idle": {
+    "duration_s": 2.4,
+    "frames": 73,
+    "minimum_deformed_z_m_before_clearance": -0.002564935013651848
+  },
+  "Walk": {
+    "duration_s": 0.6,
+    "frames": 19,
+    "minimum_deformed_z_m_before_clearance": -0.007378873880952597
+  },
+  "Run": {
+    "duration_s": 0.4,
+    "frames": 13,
+    "minimum_deformed_z_m_before_clearance": -0.007564930245280266
+  },
+  "Attack": {
+    "duration_s": 0.9,
+    "frames": 28,
+    "minimum_deformed_z_m_before_clearance": -0.0007232954958453774
+  },
+  "Hit": {
+    "duration_s": 0.5,
+    "frames": 16,
+    "minimum_deformed_z_m_before_clearance": -0.0025522462092339993
+  },
+  "Faint": {
+    "duration_s": 1.2,
+    "frames": 37,
+    "minimum_deformed_z_m_before_clearance": -0.10457219183444977
+  },
+  "Happy": {
+    "duration_s": 1.6,
+    "frames": 49,
+    "minimum_deformed_z_m_before_clearance": -0.0004042648943141103
+  },
+  "Takeoff": {
+    "duration_s": 1.6,
+    "frames": 49,
+    "minimum_deformed_z_m_before_clearance": -0.002564935013651848
+  },
+  "Hover": {
+    "duration_s": 0.8,
+    "frames": 25,
+    "minimum_deformed_z_m_before_clearance": -0.002564935013651848
+  },
+  "Land": {
+    "duration_s": 1.4,
+    "frames": 43,
+    "minimum_deformed_z_m_before_clearance": -0.0025584613904356956
+  }
+}
