@@ -10041,6 +10041,14 @@
       "bytes": 16234,
       "sha256": "fc0a3635ee806b864218c34eb0d4ab6a68bfb3aeadaa731932849b98975b789c"
     },
+    "Content/Environment/BiomeTestV1/Materials/M_RuinStone_V11.uasset": {
+      "bytes": 13948,
+      "sha256": "31619bd4f260a5afbda45a7d23dce7dd838bb78eb7cfd484fa55dcd724cb5b48"
+    },
+    "Content/Environment/BiomeTestV1/Materials/M_RuinWall_V11.uasset": {
+      "bytes": 16112,
+      "sha256": "e0f9d3dae6e79c5a27f969483a1d601b8b1de24e33a85d13ef01b4bc81e41a8a"
+    },
     "Content/Environment/BiomeTestV1/Materials/M_WA5_Foliage_Biome.uasset": {
       "bytes": 16234,
       "sha256": "c1d1db6064bde64600ca77cdd8f3cedf927ad33034e1be1b3c8696322d9ed699"
@@ -12638,8 +12646,8 @@
       "sha256": "1e83bf51c643eb1e22cbfbe069b726a017df2181bee72222d10b09cf7b0c3c14"
     },
     "Content/Maps/Dev_BiomeTestMap_V1.umap": {
-      "bytes": 1926622,
-      "sha256": "4bcd2da56895a725009fc5c9a4cb1623126591e0e01544f1fd36f09664e6f12b"
+      "bytes": 2064293,
+      "sha256": "7d0e9025333b43af2f060636e8c432d0ac3423131e6ca0de6155d0228d4ca711"
     },
     "Content/Maps/Dev_BuildingKitTestMap.umap": {
       "bytes": 887279,
@@ -12750,8 +12758,8 @@
       "sha256": "3be94f00ce2a2be6de0f64f4ecd2cabe3af4b4ce606f4230c197bba670f896bf"
     },
     "Docs/BIOM_TESTMAP_V11_PRUEFBERICHT.md": {
-      "bytes": 20506,
-      "sha256": "2cc564f7915d5bd6da83ac0f429de908625807582c266e6654f2e2f5a64b2e30"
+      "bytes": 23649,
+      "sha256": "7d592d3893a80f3e907f1c5c9a45f272734527559147fe972a69ef0b40874f4b"
     },
     "Docs/BIOM_TESTMAP_V1_PRUEFBERICHT.md": {
       "bytes": 10912,
@@ -12786,8 +12794,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 161533,
-      "sha256": "c0ce55ab51fa525b62ecddff68b04ec967f29d8223668089933b37a750624e79"
+      "bytes": 162000,
+      "sha256": "29089063ace80fed9fda1fd2a077b477709cfe9763398473f18aba479ae514a6"
     },
     "Docs/ENTWICKLUNG_MANUELL_IM_PIE.md": {
       "bytes": 10017,
@@ -14357,6 +14365,14 @@
       "bytes": 4315,
       "sha256": "6d73edc148242baa892024c06e71eab17f7cd70a0886e5e4569dc50f1e054135"
     },
+    "Tools/BiomeTestV1/RefineRuinAccessV11.py": {
+      "bytes": 1369,
+      "sha256": "e84a51d9a3e3f7f76cd44976eea3ce2b33aba71ee6a9e3113b30e67ed95cefd1"
+    },
+    "Tools/BiomeTestV1/RefineRuinWallsV11.py": {
+      "bytes": 4019,
+      "sha256": "059e4f8af2d1b6f3bfe661f78cb42cad6fba5e1166aa5e6ad2ca150101be3ac4"
+    },
     "Tools/BiomeTestV1/RefineSightAndCave.py": {
       "bytes": 3293,
       "sha256": "8b86ffdb0662c0f0bd97773f42660c73c01f6b1df3929b45e9502b53a2a6fde4"
@@ -14385,6 +14401,10 @@
       "bytes": 8347,
       "sha256": "280303caabcd78246269d67d401df9f46cc176a1efe46cff5a6a5f337faa7581"
     },
+    "Tools/BiomeTestV1/ReviewRuinV11.py": {
+      "bytes": 4932,
+      "sha256": "e7a063096d558b4704ab121a7170ea76efda987796e789e96aea1ee6242fc140"
+    },
     "Tools/BiomeTestV1/ReviewWaterV11.py": {
       "bytes": 7430,
       "sha256": "158c31b78e29938dffa2002fa94647cf91970e27fb96f95df9ed9a18092960bc"
@@ -14404,6 +14424,10 @@
     "Tools/BiomeTestV1/UpgradeMeadowV11.py": {
       "bytes": 5432,
       "sha256": "464ca229ebb314bf585de5e6e1df0fcb8ece024f88e059ca79be1606922e6875"
+    },
+    "Tools/BiomeTestV1/UpgradeRuinV11.py": {
+      "bytes": 8669,
+      "sha256": "d73759d89731281de5114188c6ded9a7d8fa868126fb2d169c62731df32181f5"
     },
     "Tools/BiomeTestV1/UpgradeWaterV11.py": {
       "bytes": 4978,
@@ -17174,8 +17198,8 @@
       "sha256": "cea8be56cb15255c0084b19443fc58eba75f9291c2c57b54a5d2be3293072a9e"
     },
     "Tools/ProjectMaintenance/VerifyRemoteLFS.py": {
-      "bytes": 3087,
-      "sha256": "dbc5e0d3f66db7a45d139583e4c76e84d8b0bcaaf7a4a3dc656ecbdbfddfb065"
+      "bytes": 4005,
+      "sha256": "373120b60c41cd5fba71857bf315c0739a6ea5bae74d243d47dad72706487a87"
     },
     "Tools/ProjectMaintenance/VerifySilverLadyV5.py": {
       "bytes": 2065,
@@ -20577,5 +20601,5 @@
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
   "generated_at": "2026-10-24",
   "schema": 1,
-  "snapshot_kind": "biome_v11_water_cave_meadow_verified_ruin_camera_pending"
+  "snapshot_kind": "biome_v11_water_cave_meadow_ruin_verified_camera_pending"
 }

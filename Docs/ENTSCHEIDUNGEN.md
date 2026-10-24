@@ -1140,3 +1140,7 @@ Der beauftragte 15-m-Felsen erhält einen langen begehbaren Kehrenweg. Die vorha
 ### 24.10.2026 – begrenzter Biom-Flug V1.1
 
 Auf ausdrücklichen Nutzerauftrag werden bestehende Roaming-/GroundHover-Funktionen um eng begrenzte opt-in Luftwegprüfungen ergänzt. Zwei Insekten bewegen sich auf einer endlichen, durch Bodenabstand/Kollision begrenzten Flughöhe; Habitak darf nach kontrolliertem Abheben kleine Hindernisse überqueren und nur bei freier Bodensäule landen. Kein neues KI-, Navigations- oder Kampfsystem. Bestehendes Glurak-Hover und andere Maps werden nicht automatisch auf diese Regel umgestellt. Technische Nachweise: MeadowPIE04 und FlightPause02. Die visuelle Gesamtfreigabe der Biom-V1.1 bleibt nach Abschluss der übrigen Pakete erforderlich.
+
+### 24.10.2026 – Biom V1.1 Ruinenverfeinerung
+
+Vorhandene Architektur und Botanik werden nur in der Biom-Map zu einer begehbaren Ruine ergänzt. Keine neue Gebietskopie, kein Lichtwechsel. Private Steinmaterialvarianten verhindern Änderungen an geteilten Heilhaus-/VisualV2-Assets. Der alte Grundriss bleibt erhalten; neue Portalkollisionen dürfen bestehende Abzweige nicht blockieren. RuinPIE02 und identische QHD-Vergleiche dokumentieren den geprüften Stand.

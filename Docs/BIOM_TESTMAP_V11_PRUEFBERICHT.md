@@ -1,6 +1,6 @@
 # Biom-Testmap V1.1 – Prüfbericht
 
-Stand: 24.10.2026. Ausgangscommit `11a1b9ef`. Ziel ist ausschließlich die bestehende `/Game/Maps/Dev_BiomeTestMap_V1`. **Zwischenstand: Wasser, Plateau/Höhle und fünf Wiesen-/Flug-Pokémon geprüft; Ruine und Waldkamera folgen. Keine Gesamtfreigabe V1.1.**
+Stand: 24.10.2026. Ausgangscommit `11a1b9ef`. Ziel ist ausschließlich die bestehende `/Game/Maps/Dev_BiomeTestMap_V1`. **Zwischenstand: Wasser, Plateau/Höhle und fünf Wiesen-/Flug-Pokémon geprüft; Waldkamera folgt. Keine Gesamtfreigabe V1.1.**
 
 ## 1. Wasserbiom
 
@@ -118,3 +118,18 @@ MeadowPIE04: normaler Enhanced-Input-Fußlauf 88,71 m, 4/4 Beobachtungsziele, ke
 Wasser-Regressionslauf WaterPIE09 nach der Historienkorrektur: 172,78 m, 15/15 Ziele, Knochenbewegung aller drei, Schiggy an Land/im Wasser, keine Habitatüberschreitung. Auch im letzten 15-s-Fenster noch Karpador 296,1 cm, Garados 454,8 cm, Schiggy 183,2 cm. Assetaudit ohne fehlende Referenzen, 103 erhaltene Bäume und 15 gültige Habitate. Zwölf explizite Map Checks jeweils 0 Fehler/0 Warnungen. Der Auswerter trennt die zusätzlichen automatischen Ladechecks von den expliziten BEGIN/END-Prüfungen. Save-SHA in sämtlichen genannten Endprüfungen unverändert. Alle 3190 Baseline-Originale vorhanden, nur acht genehmigte Biom-Dateien geändert; alle 38 ursprünglichen unversionierten Dateien bytegleich, Vollbackup-Refs unverändert.
 
 Plateau-/Höhlensicherung: Commit bdd559d3 regulär auf origin/main vorhanden; sieben LFS-Objekte (7729955 Bytes) durch tatsächlichen Remote-Download und SHA-256 bestätigt.
+
+
+## 8. Paket begehbare Ruine
+
+Die vorhandene Ruine erhielt einen echten 3D-Steinbogen, vier zusätzliche stehende Säulen, zwei umgestürzte Säulen, vier eingestürzte hintere Steinreste und fünf Wandranken. Dazu 131 eingebettete unregelmäßige Pflastersteine, 88 Moospolster, 23 Farne, 28 Kräuter, 20 Blütengruppen und 38 kleine Schuttgruppen. Zentrale Erinnerungssäule/Runenstein und der alte Grundriss bleiben erhalten. 103 Bäume, Gelände, Lichtquellen und Gengars Art-/Habitatdaten bleiben erhalten. Keine neue Map oder Architekturquelle erforderlich.
+
+Der erste reale Fußlauf RuinPIE01 traf einen neuen Torpfeiler am bisherigen Abzweig (2800,−2800). Nur das neue Portal und seine zwei präzisen Pfeilercollider wurden 250 cm tiefer versetzt; reale Kollision bleibt aktiv, mittlere Öffnung rund 230 cm. RuinPIE02 bestand danach 14/14 Ziele und 110,96 m ohne Teleports: Eingang, mittlerer Laufweg, beide Seitenwege, Runenstein und Rückkehr zum Hub. Gengar bewegte sich 979,4 cm, ohne sein Habitat zu verlassen. Save-SHA unverändert.
+
+Die QHD-Sichtprüfung zeigte zusätzlich die überdehnten UV-Strukturen der drei alten Wandmeshes. Nur diese Komponenten verwenden nun einen privaten Steinmaterialklon mit originalem Textursample in Weltprojektion und unregelmäßigen 112×58-cm-Fugen, ohne zusätzliche Textursamples oder Material-Layer. Andere neue Steine verwenden einen eigenen instancingfähigen Klon des vorhandenen Natursteinmaterials. Keine Originalmaterialien oder Originalmeshes geändert. Eine anfängliche UV-Verbindung wurde vom tatsächlichen UE-Eingangsnamen UVs statt Coordinates abhängig korrigiert; der Editor verhinderte bis zur sauberen Fertigstellung den PIE-Start. Tatsächliche Nachherbilder zeigen Steinstruktur statt der gestreckten früheren Maserung.
+
+Echte identische Vergleichskamera: Before01/Ruine_QHD.png und RuinAfter02/Ruine_QHD.png (beide QHD, Positions-/Kameradaten in Result.json). Zusätzlich freie Figurendarstellung und Wege im tatsächlichen Fußlauf unter RuinPIE02. Keine Licht- oder Kameravarianten für diese Ruinenbilder. Die einfachen hohen alten Wandformen bleiben eine gestalterische Grenze; keine Behauptung einer final ausgearbeiteten Ruinenstadt. Endgültige visuelle Abnahme durch den Nutzer.
+
+RuinAssetAudit ohne fehlende Abhängigkeiten, alle zwölf expliziten Map Checks erneut 0 Fehler/0 Warnungen. Das Assetpaket verändert keine seit AirBuild06/MeadowAutomation03 erfolgreich geprüfte native Spiellogik. Gesamter Build und Automation werden nach dem letzten Kamerapaket nochmals wiederholt.
+
+Wiesensicherung: a196c77647ca2dd7aa9e5b23e17357204e708e7a regulär auf origin/main, 136 tatsächliche Remote-LFS-Objekte / 198363016 Bytes vollständig mit SHA-256 bestätigt. Der Verifier kann jetzt auch ein bereits weiterbearbeitetes Map-File über sein unveränderliches lokales LFS-Objekt dem früheren Commit zuordnen, ohne die Arbeitsdatei zurückzuschreiben. Die zunächst zu große Metadatenanfrage wurde mit HTTP 413 zurückgewiesen; feste 32er-Anfragen verifizieren denselben Satz erfolgreich. Keine Upload-Wiederholung, Budgetänderung oder kostenpflichtige Aktivierung.

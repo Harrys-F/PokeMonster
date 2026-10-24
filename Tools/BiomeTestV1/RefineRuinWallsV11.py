@@ -1,0 +1,20 @@
+"""Correct confirmed stretched old-wall UV appearance using a private world-scaled stone variant."""
+import unreal,json
+from pathlib import Path
+R=Path(unreal.Paths.project_dir()).resolve();E=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);w=E.get_editor_world();assert not E.get_game_world()and w.get_name()=='Dev_BiomeTestMap_V1';assert not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages();assert all(p.get_path_name()=='/Game/Environment/BiomeTestV1/Materials/M_RuinWall_V11'for p in unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages());assert not(R/'Saved/BiomeTestV11/RuinWallCorrection.json').exists();M=unreal.MaterialEditingLibrary
+path='/Game/Environment/BiomeTestV1/Materials/M_RuinWall_V11';m=unreal.load_asset(path)if unreal.EditorAssetLibrary.does_asset_exist(path)else unreal.EditorAssetLibrary.duplicate_asset('/Game/Environment/BiomeTestV1/Materials/M_RuinStone_V11',path);assert m
+P=next((x for x in M.get_material_expressions(m)if isinstance(x,unreal.MaterialExpressionWorldPosition)),None)or M.create_material_expression(m,unreal.MaterialExpressionWorldPosition);N=next((x for x in M.get_material_expressions(m)if isinstance(x,unreal.MaterialExpressionVertexNormalWS)),None)or M.create_material_expression(m,unreal.MaterialExpressionVertexNormalWS)
+def custom(code,names,output):
+ c=next((x for x in M.get_material_expressions(m)if isinstance(x,unreal.MaterialExpressionCustom)and x.get_editor_property('code')==code),None)or M.create_material_expression(m,unreal.MaterialExpressionCustom);c.set_editor_property('output_type',output);c.set_editor_property('code',code);inputs=[]
+ for name in names:
+  i=unreal.CustomInput();i.set_editor_property('input_name',name);inputs.append(i)
+ c.set_editor_property('inputs',inputs);return c
+def link(a,out,b,inp):assert M.connect_material_expressions(a,out,b,inp)
+uv=custom('float3 n=abs(N);float2 q=n.z>.65?P.xy:(n.x>n.y?P.yz:P.xz);return q/160.;',['P','N'],unreal.CustomMaterialOutputType.CMOT_FLOAT2);link(P,'',uv,'P');link(N,'',uv,'N')
+for t in M.get_material_expressions(m):
+ if isinstance(t,unreal.MaterialExpressionTextureSample):link(uv,'',t,'UVs')
+old=M.get_material_property_input_node(m,unreal.MaterialProperty.MP_BASE_COLOR);out=M.get_material_property_input_node_output_name(m,unreal.MaterialProperty.MP_BASE_COLOR);assert old
+color=custom('float3 n=abs(N);float2 q=n.x>n.y?P.yz:P.xz;float row=floor(q.y/58.);q.x+=28*sin(row*1.71)+55*fmod(row,2.);float col=floor(q.x/112.);float2 c=frac(q/float2(112,58));float d=min(min(c.x,1-c.x)*112,min(c.y,1-c.y)*58);float grain=frac(sin(dot(float2(col,row),float2(127.1,311.7)))*43758.5453);float joint=1-smoothstep(1.,3.,d+sin(q.x*.09)*.7);float3 tint=float3(.27,.26,.22)*(.82+grain*.29);float3 stone=lerp(C*.68,tint,.54);float moss=(1-smoothstep(8.,48.,P.z))*(.35+.25*sin(q.x*.031));stone=lerp(stone,stone*float3(.69,.86,.53),moss);return lerp(stone,stone*.62,joint);',['C','P','N'],unreal.CustomMaterialOutputType.CMOT_FLOAT3);link(old,out,color,'C');link(P,'',color,'P');link(N,'',color,'N');assert M.connect_material_property(color,'',unreal.MaterialProperty.MP_BASE_COLOR);M.recompile_material(m);assert unreal.EditorAssetLibrary.save_loaded_asset(m,False)
+labels=['Biome_RuinWall_0','Biome_RuinWall_1','Biome_RuinWall_2'];actors={a.get_actor_label():a for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.StaticMeshActor)}
+for label in labels:actors[label].static_mesh_component.set_material(0,m)
+assert not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages();assert unreal.EditorLoadingAndSavingUtils.save_map(w,'/Game/Maps/Dev_BiomeTestMap_V1');(R/'Saved/BiomeTestV11/RuinWallCorrection.json').write_text(json.dumps({'reason':'Actual QHD showed long UV stretch on reused wall meshes; world-projected original stone texture and irregular 112x58cm joints only on three private biome wall components','new_asset':path,'actors':labels,'original_meshes_or_materials_edited':False,'additional_texture_samples':0,'new_material_layers':0},indent=2))
