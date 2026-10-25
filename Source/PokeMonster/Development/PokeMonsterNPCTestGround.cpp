@@ -178,7 +178,8 @@ void UPokeMonsterNPCTestGround::Deinitialize()
  for(const auto& A:Owned)if(IsValid(A))A->Destroy();Owned.Reset();Specimens.Reset();Visuals.Reset();Profiles.Reset();Super::Deinitialize();
 }
 #if WITH_EDITOR && !UE_BUILD_SHIPPING
-namespace
+// Keep console registrations distinct when UBT combines development sources into one unity TU.
+namespace PokeMonsterNPCGroundConsole
 {
  UPokeMonsterNPCTestGround* Ground(UWorld* W){return W&&UPokeMonsterNPCTestGround::IsSupportedMap(W->GetMapName(),W->WorldType)?W->GetSubsystem<UPokeMonsterNPCTestGround>():nullptr;}
  FAutoConsoleCommandWithWorldAndArgs Go(TEXT("pm.NPCGround.Go"),TEXT("Ordinary VisualV2 PIE only: visit 0=center, 1..11=NPC; RAM-only save transport during visit."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W);G&&A.Num()<=1){if(A.IsEmpty()||A[0].IsNumeric())G->Visit(A.IsEmpty()?0:FCString::Atoi(*A[0]));}}));

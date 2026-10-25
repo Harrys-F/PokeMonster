@@ -1213,3 +1213,29 @@ Questidentität. `pm.NPCGround.Go [0..11]`, `.Mode auto|idle|walk|run`, `.Greet`
 Beschleunigung und echte Kapselsweeps, Randbegrenzung schützt vor Absturz.
 Besuch nutzt den bestehenden PIE-RAM-Savetransport und eigenen Rückkehranker.
 Andere Karten, regulärer Game-Betrieb, Shipping und Controllerbelegung unverändert.
+
+## VisualV2 Environment Quality V3 (25.10.2026)
+
+Ausschließlich VisualV2 bindet `/Game/Environment/VisualV2EnvironmentV3`:
+private Ableitungen der bestehenden Boden-/Weg-/Fassadenmaterialien, bemalte
+Steinvarianten und gealtertes Brückenholz. Originalmaterialien, andere Maps,
+Gebäudemeshes, Weggeometrie und sämtliche bestehenden Kollisionen bleiben erhalten.
+Drei neue opaque, gebogene Grashalm-Meshes aus einer eigenen Blenderquelle
+verwenden Vertexfarben, höchstens 33 cm Ausgangshöhe und unter 1 cm Spitzenbewegung.
+3.548 Grasbüschel plus 305 vorhandene Farn-/Blüten-/Wurzel-/Moos-/Kieselinstanzen
+liegen in acht kollisions- und schattenfreien HISM-Gruppen mit freien Wegkorridoren.
+Keine neue Blattschatten- oder Kameramethode.
+
+Der Bach erhält beleuchtete Transluzenz mit weicher `TLM_SURFACE`-Volumenbeleuchtung,
+bewegten Normalen und aktivierter Unterstützung für Bildschirmreflexionen.
+Die tatsächliche Reflexionswirkung hängt von den bestehenden Qualitäts-/Renderwerten
+ab. Kein Planar-Capture, keine neue Wassergeometrie, keine Brechung und keine
+Übernahme der Biom-Schwimmtechnik. Die verworfene Per-Pixel-Lichtprobe zeigte
+zu harte Kronensilhouetten. Vorhandenes schattenloses Außenfülllicht: 1,0 → 1,12;
+Hauptlicht, Skylight, Belichtung, Innenlicht, TAA und Kameras unverändert.
+
+Autorenquelle und Reversibilität: `Art/World/VisualV2EnvironmentV3/Scope.json`.
+Prüfungen und echte lokale Bildvergleiche: `VISUALV2_ENVIRONMENT_QUALITY_V3_PRUEFBERICHT.md`.
+Eine nebenbei gefundene Unity-Build-Namenskollision der vorhandenen NPC-/Kreaturen-
+Testkonsolen wird durch einen eigenen C++-Namensraum der NPC-Registrierungen behoben;
+Befehlsnamen, Verhalten, Rigs und Animationen bleiben gleich.

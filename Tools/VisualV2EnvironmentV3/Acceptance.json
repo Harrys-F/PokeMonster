@@ -1,0 +1,171 @@
+{
+  "base_head": "ef1ba32749ae800e3093098e7a7b6d62410ff33a",
+  "scope": {
+    "passed": true,
+    "original_actors": 1458,
+    "new_groups": 8,
+    "new_instances": 3853,
+    "material_bindings": 120,
+    "lighting_changes": [
+      {
+        "actor": "DirectionalLight_0",
+        "field": "intensity",
+        "before": 1.0,
+        "after": 1.12
+      }
+    ],
+    "original_collisions_transforms_instances_pp_gameplay_unchanged": true,
+    "map_count": 12
+  },
+  "editor_build": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 13.457788944244385
+  },
+  "automation": {
+    "succeeded": 209,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0,
+    "inProcess": 0
+  },
+  "automation_engine_exit": 0,
+  "strict_qa_wrapper_exit": 1,
+  "warnings": [
+    {
+      "test": "PokeMonster.Creatures.Overworld.SmoothMovementAndFirstPartySlot",
+      "type": "Warning",
+      "message": "LogHAL: FMacPlatformProcess::CreateProc: posix_spawn(\"/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id\") failed (86, Bad CPU type in executable)",
+      "context": "log",
+      "artifact": "00000000000000000000000000000000"
+    },
+    {
+      "test": "PokeMonster.Creatures.Overworld.SmoothMovementAndFirstPartySlot",
+      "type": "Warning",
+      "message": "LogHAL: Failed to launch Tool. (/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id)",
+      "context": "log",
+      "artifact": "00000000000000000000000000000000"
+    }
+  ],
+  "map_checks": [
+    {
+      "map": "/Game/Maps/Dev_BattleTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BiomeTestMap_V1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BuildingKitTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_HealingHouseTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_NPCMotionV3",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2EnvironmentQualityV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandAssetLibrary",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandRegion",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandVillage",
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "footrun": {
+    "passed": true,
+    "error": null,
+    "distance_m": 254.8299506437796,
+    "battles": 1,
+    "save_unchanged": true,
+    "preview_restored": true,
+    "no_in_route_test_teleports": true,
+    "setup_position_cm": [
+      -760,
+      -1410,
+      48.15
+    ],
+    "input": "existing pm.Input software simulation, no hardware claim"
+  },
+  "footrun_steps": 67,
+  "qhd_pairs": 14,
+  "quality": {
+    "sg.ViewDistanceQuality": 3,
+    "sg.AntiAliasingQuality": 3,
+    "sg.ShadowQuality": 3,
+    "sg.PostProcessQuality": 3,
+    "sg.TextureQuality": 3,
+    "sg.EffectsQuality": 3,
+    "sg.FoliageQuality": 3,
+    "sg.ShadingQuality": 3
+  },
+  "motion": [
+    {
+      "name": "Grass",
+      "file": "Saved/ProjectRefinement/EnvironmentV3/MotionFinal/Grass.mp4",
+      "frames": 134,
+      "game_seconds": 4.947132938,
+      "game_time_sample_hz": 26.884258350609134,
+      "width": 2331,
+      "height": 1311,
+      "method": "native Slate presented frames, world time dilation .20; encode original game timestamps, no interpolation, not realtime FPS",
+      "encoder": "Encoded 0 / 134\nVIDEO_OK /Users/harry/Developer/PokeMonster/Saved/ProjectRefinement/EnvironmentV3/MotionFinal/Grass.mp4 frames 134 duration 4.986666666666666 size 2331 1311\n"
+    },
+    {
+      "name": "Water",
+      "file": "Saved/ProjectRefinement/EnvironmentV3/MotionFinal/Water.mp4",
+      "frames": 128,
+      "game_seconds": 4.996339133,
+      "game_time_sample_hz": 25.4186108307152,
+      "width": 2331,
+      "height": 1311,
+      "method": "native Slate presented frames, world time dilation .20; encode original game timestamps, no interpolation, not realtime FPS",
+      "encoder": "Encoded 0 / 128\nVIDEO_OK /Users/harry/Developer/PokeMonster/Saved/ProjectRefinement/EnvironmentV3/MotionFinal/Water.mp4 frames 128 duration 5.036666666666667 size 2331 1311\n"
+    }
+  ],
+  "fresh_editor_material_fallbacks": 0,
+  "hardware_controller_retested": false,
+  "performance_benchmark": false,
+  "remaining": [
+    "Dark character at some canopy edges; existing targeted character fill retained; 1.35 global fill trial not adopted.",
+    "Existing foliage/card shapes, fine texture repetition and screen-space reflection limits remain.",
+    "Art approval remains with user."
+  ]
+}

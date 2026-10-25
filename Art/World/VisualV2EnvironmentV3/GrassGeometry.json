@@ -1,0 +1,23 @@
+[
+  {
+    "mesh": "SM_EQ3_GrassShort",
+    "triangles": 448,
+    "vertices": 420,
+    "height_cm": 17.41264946910799,
+    "blade_count": 28
+  },
+  {
+    "mesh": "SM_EQ3_GrassMeadow",
+    "triangles": 592,
+    "vertices": 555,
+    "height_cm": 28.143584210809454,
+    "blade_count": 37
+  },
+  {
+    "mesh": "SM_EQ3_GrassWoodland",
+    "triangles": 496,
+    "vertices": 465,
+    "height_cm": 32.86190353305625,
+    "blade_count": 31
+  }
+]

@@ -1174,3 +1174,19 @@ Höhenmetadaten übernehmen frühere Quellenmaße, keine neue allgemeine Rasseng
 Die NPC-Vorführung ist ausschließlich in gewöhnlichem VisualV2-Editor-PIE aktivierbar,
 mit vorhandener Interaktion und RAM-Save-Schutz beim Besuch. Kein neues Dialog-/Quest-
 oder produktives Pfadplanungssystem. Details und Grenzen im NPC-Ausbau-Prüfbericht.
+
+## VisualV2 Environment Quality V3 – örtliche Umgebungsqualität (25.10.2026)
+
+Die bestehende VisualV2 erhält räumliche Grasbüschel, größere Bodenstrukturen,
+organische Pflanzentaschen, verfeinerte Bestandsoberflächen und weich beleuchtetes
+Wasser. Gemeinsame Originalmaterialien werden nicht umgebaut: neue Varianten
+sind nur in dieser Map gebunden. Bestehende Wege, Gebäudeformen, Innenraum,
+Kollisionen und Gameplay bleiben erhalten. Keine Biom-Waldkamera und keine
+Biom-Schwimmtechnik übernommen; keine neuen Maps oder Spielgebiete.
+
+Das vorhandene schattenlose Außenfülllicht wird behutsam von 1,0 auf 1,12 erhöht.
+Das ist eine technische Intensitätsänderung, keine behauptete prozentuale visuelle
+Schattenaufhellung. Hauptlicht und Schattenwerfer bleiben unverändert. Der Bach
+verwendet die weichere Oberflächen-Volumenbeleuchtung statt der visuell verworfenen
+Per-Pixel-Probe mit harten Kronensilhouetten. Kein globaler Rendererumbau.
+Die künstlerische Endabnahme bleibt anhand echter Spielkamera-Vergleiche bei Harry.

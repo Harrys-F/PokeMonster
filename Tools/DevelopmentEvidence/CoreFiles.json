@@ -6493,6 +6493,30 @@
       "bytes": 21362751,
       "sha256": "cd801a5120a24af8fb174713bc47b7356a315e34abd7a2ea22440f202bf3175e"
     },
+    "Art/World/VisualV2EnvironmentV3/Exports/SM_EQ3_GrassMeadow.fbx": {
+      "bytes": 39532,
+      "sha256": "498719e1bb1a4bf733ed105315a9c4673e279e0b9873792ac2324c6fa6a04510"
+    },
+    "Art/World/VisualV2EnvironmentV3/Exports/SM_EQ3_GrassShort.fbx": {
+      "bytes": 33820,
+      "sha256": "6cded55e05ef94ebf0fe494ba9d016d4dde92b70d8e8214f43fc2f01bd95a51c"
+    },
+    "Art/World/VisualV2EnvironmentV3/Exports/SM_EQ3_GrassWoodland.fbx": {
+      "bytes": 35692,
+      "sha256": "4d2155bbe3d076edbe5eb6931e428591c782343c34a34272e938ddf60421df02"
+    },
+    "Art/World/VisualV2EnvironmentV3/GrassGeometry.json": {
+      "bytes": 436,
+      "sha256": "b6ca555d3e4899aa8f3c36eca4a8ffa1a64229815cafa030366141e660156588"
+    },
+    "Art/World/VisualV2EnvironmentV3/Scope.json": {
+      "bytes": 985337,
+      "sha256": "4465b92c339d37d0558b50090d1d558fd1e5db897df7e7629cdf63e4b70ee19d"
+    },
+    "Art/World/VisualV2EnvironmentV3/VisualV2_Grass.blend": {
+      "bytes": 127078,
+      "sha256": "29df60f79c0cb80580fe97d0b5557848078f242df5885e2d02c0ddf3f8458b81"
+    },
     "Art/World/VisualV2HealingArtV3/AssetManifest.json": {
       "bytes": 2966,
       "sha256": "22c756fed91400d6eed8ddff21f3c311d74437ade93c1c3e7b1ec7f76597f5be"
@@ -12061,6 +12085,74 @@
       "bytes": 19038,
       "sha256": "99bd0a89682c21ed44109d721f42b2287765db46d56678c69efae87f040693da"
     },
+    "Content/Environment/VisualV2EnvironmentV3/Materials/MI_EQ3_MossStone.uasset": {
+      "bytes": 11449,
+      "sha256": "55911fb3559178f2944d7e63e0bfa0941b00f9db3dee92679ab578be207f5602"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Materials/MI_EQ3_MossStoneInstanced.uasset": {
+      "bytes": 11447,
+      "sha256": "965764951cab585d7e2e743dec690d769d6102b9dea1ed7806055ea7312be796"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_BridgeOak.uasset": {
+      "bytes": 16873,
+      "sha256": "45546ac80cacab24486be87680db9877bdb2c693434eda41e5e9e7740a6801c2"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_Grass.uasset": {
+      "bytes": 14130,
+      "sha256": "bdf5461b4bd015677bd55252d95819d52b8464c4874b2bda83efddc361824a44"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_Ground.uasset": {
+      "bytes": 45989,
+      "sha256": "2ad683b9e0d53fad3567fa41f434f1340dbac9e7c6dd144b7a8c2706a30487e9"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_HousePlaster.uasset": {
+      "bytes": 19821,
+      "sha256": "5d18ba58a9141f5e0ea4ee8798fa42baefd3d6fca75f561461caab2361e1c520"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_HouseRoof.uasset": {
+      "bytes": 19531,
+      "sha256": "bd92efc49369879aa48e41683440f3fee650dadd74add50ec265662c2b8f0608"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_HouseStone.uasset": {
+      "bytes": 20336,
+      "sha256": "1dc7257ed0e59c57ce036afa0fd52a32e8345c1e448f9ca05dce6c994364ae7a"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_HouseTimber.uasset": {
+      "bytes": 21998,
+      "sha256": "d365808d8dab022899ef18974d612b21fcf066a612ee5d04db3d2ea12af8152f"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_HouseWood.uasset": {
+      "bytes": 23546,
+      "sha256": "47a471fa658ed5baa6c84cfcc7eaf918a34adab30f2930064a43388b4a811a7e"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_MainPath.uasset": {
+      "bytes": 63953,
+      "sha256": "4256141a1195ce949a3d67fe1c3f64f9092f0672d7c65da9d093a12a68d8028b"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_MossRockBase.uasset": {
+      "bytes": 19529,
+      "sha256": "eaa1950a04c62904020603f1dd4d7d3ef37d3b0fbfe97cbadf73eac655f05698"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_NorthPath.uasset": {
+      "bytes": 66330,
+      "sha256": "181feffbd6fc3445ed731e5fc20201228d63a32709c148031130d2601446724b"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_Stream.uasset": {
+      "bytes": 15001,
+      "sha256": "b817807b0610160990bf0137d49af154ff3f264bab3eeeb42181f92022b72131"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Meshes/SM_EQ3_GrassMeadow.uasset": {
+      "bytes": 93739,
+      "sha256": "5df0cf4c12ff417d8d14a4a01cea8c7017406ed6e11adf619fa8e99e0325999f"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Meshes/SM_EQ3_GrassShort.uasset": {
+      "bytes": 88902,
+      "sha256": "2483503c9f48927b9d648126d3ce45425af0f27144352dc4bfca398fece7a57d"
+    },
+    "Content/Environment/VisualV2EnvironmentV3/Meshes/SM_EQ3_GrassWoodland.uasset": {
+      "bytes": 90118,
+      "sha256": "d387756e64921bc3596de67395c044b7f08be37b89e76032a63a2ff8e0ecaf7f"
+    },
     "Content/Environment/VisualV2HealingArtV3/Materials/M_HA3_Blossom.uasset": {
       "bytes": 16163,
       "sha256": "170e6c5e81bf1db705b772818f087922973cdcc37d6c1c816fb58205abd8aeff"
@@ -13442,8 +13534,8 @@
       "sha256": "d9855c7a10dee76c73ab260871e220abc2371ef61e91d269b145a498bd26176f"
     },
     "Content/Maps/Dev_TestMap_VisualV2.umap": {
-      "bytes": 4177685,
-      "sha256": "9a850bc4128fe50b5189644b17423ef59d71d2d8222c1c73f38184455034724b"
+      "bytes": 4773570,
+      "sha256": "4ed87fa872b0acd9b0adb8eafded9263650ff628c01d3b50e15dfe25f11c34a4"
     },
     "Content/Maps/Dev_TestMap_VisualV2GPUBottleneckV1.umap": {
       "bytes": 3300685,
@@ -13570,8 +13662,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 165125,
-      "sha256": "5f3722aa5630b4d5b87edea06c6dbf56bdf689dc9222e464f4ceb3b924d72fba"
+      "bytes": 166171,
+      "sha256": "20b5d40b53b25a31a42728f5678493fcec3a646d187b53ac44aa5dfa8e8126e4"
     },
     "Docs/ENTWICKLUNGSPRAESENTATION_V21_PRUEFBERICHT.md": {
       "bytes": 10382,
@@ -13758,12 +13850,16 @@
       "sha256": "1ede0acfca40e87ac09ffe5dbe8993e5cb6142cff2aebf509f4cb084ae6e53fc"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 190187,
-      "sha256": "87b1e0cd5de44d9c11ab33a86044e2d3f0fe599e2b466f7afb66134a6158b8cc"
+      "bytes": 191911,
+      "sha256": "79e97349ff4e065d0e9a64638524c13d636f92185ef16b51eb9ae9003ba509e4"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
       "sha256": "f6846ca82e7b787512df2be2e8e8f6aab4116d9fe613ebecc9bc232518c71342"
+    },
+    "Docs/VISUALV2_ENVIRONMENT_QUALITY_V3_PRUEFBERICHT.md": {
+      "bytes": 13936,
+      "sha256": "8ea99a7ecf7776530d36da18a802b2ba69ed3766a549ee12f092dcd8c8d28a0a"
     },
     "Docs/VISUALV2_GPU_BOTTLENECK_V1_PRUEFBERICHT.md": {
       "bytes": 41928,
@@ -14206,8 +14302,8 @@
       "sha256": "65ee0cd958c16f9878c6ba6bd9625b594c771aeeb0120be3eb6635419c18b217"
     },
     "Source/PokeMonster/Development/PokeMonsterNPCTestGround.cpp": {
-      "bytes": 12513,
-      "sha256": "cb2be985c2fc59d9dc9ef9da0dc4b065b41bfd6ef230d0df6d7d7bab6e82b39c"
+      "bytes": 12637,
+      "sha256": "e9932b76f7247d29a3e3804a97e7bd841375e63746f7a62f9e72a67535d89776"
     },
     "Source/PokeMonster/Development/PokeMonsterNPCTestGround.h": {
       "bytes": 2120,
@@ -19421,6 +19517,82 @@
       "bytes": 12177,
       "sha256": "737c07336d92c50de17288c6338ddd82bb9ebc91af7eed691d194a85e2aa09f7"
     },
+    "Tools/VisualV2EnvironmentV3/Acceptance.json": {
+      "bytes": 5046,
+      "sha256": "d596c834567e7388aeda6783b333d609cf3f38dfd56f83c9995c6597ab9eb5e6"
+    },
+    "Tools/VisualV2EnvironmentV3/Apply.py": {
+      "bytes": 13411,
+      "sha256": "701d08addff7dd1107d0dea50f8f312a84e215d45ee539c52670d953a3296ae9"
+    },
+    "Tools/VisualV2EnvironmentV3/Baseline.py": {
+      "bytes": 1280,
+      "sha256": "4fc435e00c3b062bc581794ae14d628513fc3c05783b17cde3e701d380b1d6a5"
+    },
+    "Tools/VisualV2EnvironmentV3/BuildGrass.py": {
+      "bytes": 2739,
+      "sha256": "5c217e95412a03ca9e2f055200633216f12b2f9c03a70b318eaf3e07c2d248b3"
+    },
+    "Tools/VisualV2EnvironmentV3/Compose.py": {
+      "bytes": 1566,
+      "sha256": "8ac88ba218a970505f79b20a48434b49352d794f797f82d221eb0c37f9ad888a"
+    },
+    "Tools/VisualV2EnvironmentV3/DetailAudit.py": {
+      "bytes": 1113,
+      "sha256": "66fb828aa3396d269835587120aa933e09b2efd12f56de2c289be36a5e805307"
+    },
+    "Tools/VisualV2EnvironmentV3/EncodeMotion.py": {
+      "bytes": 1746,
+      "sha256": "31b2c3508fa0b0ef4ca073b12ffd5053ea4507c92ce894b3e1c4135e4c9809b3"
+    },
+    "Tools/VisualV2EnvironmentV3/Footrun.py": {
+      "bytes": 8698,
+      "sha256": "20bf94062b0f07f8689160f374713ad55e21816fb6ca9fb254c3a6186e16ef9b"
+    },
+    "Tools/VisualV2EnvironmentV3/Inspect.py": {
+      "bytes": 2278,
+      "sha256": "0187fbece540bee77bd7ce9c178a09b2b6309c83ae293f04dcc6e4c5c4439203"
+    },
+    "Tools/VisualV2EnvironmentV3/MapChecks.py": {
+      "bytes": 1070,
+      "sha256": "c70be37f4c779a2dbc160a349985cb49ff93408b25b9438ce132315ac8802449"
+    },
+    "Tools/VisualV2EnvironmentV3/Motion.py": {
+      "bytes": 3114,
+      "sha256": "2f368d5c1928ce58ea8f4fe9609fbbfe9d68061588043d76cce88a7b01be318e"
+    },
+    "Tools/VisualV2EnvironmentV3/Package.py": {
+      "bytes": 3185,
+      "sha256": "4f726dd25514ca5d7e1d20112556826e2fbf7dcb341a35c733b5188181ebec3b"
+    },
+    "Tools/VisualV2EnvironmentV3/Photos.py": {
+      "bytes": 5609,
+      "sha256": "f6b5edfb1f7670fd819c6e14eca21eb52583cad18faf8e7c13269b159b318b40"
+    },
+    "Tools/VisualV2EnvironmentV3/Polish.py": {
+      "bytes": 5810,
+      "sha256": "bde9f17d4e4b8e488f3084bdf72a99d2f8b174e769fe06c270bc41a112caf6af"
+    },
+    "Tools/VisualV2EnvironmentV3/README.md": {
+      "bytes": 2551,
+      "sha256": "95d3bd8d6d61b343a620cde901184fa302a3094386fd452be5fb9ffc3a4a4c38"
+    },
+    "Tools/VisualV2EnvironmentV3/Summarize.py": {
+      "bytes": 2199,
+      "sha256": "588157c1090afeeaae83eea83467797efc8f0130757a74cf4f679be9769182ad"
+    },
+    "Tools/VisualV2EnvironmentV3/SurfaceAudit.py": {
+      "bytes": 1033,
+      "sha256": "e4df981af526a18e43a4c72879a6d4b5d518a7090091c2a0b7528816ac71863a"
+    },
+    "Tools/VisualV2EnvironmentV3/Validate.py": {
+      "bytes": 2493,
+      "sha256": "8569b5a19166791ec6ea0662717cd2aba6386b06f245f8aae37382d571afcd42"
+    },
+    "Tools/VisualV2EnvironmentV3/WaterFinish.py": {
+      "bytes": 844,
+      "sha256": "9ef3fafecce58ed4ef0d26558597d495f723c12bbe291758afecad39e2b70b34"
+    },
     "Tools/VisualV2GPUBottleneckV1/AllMeshInventory.py": {
       "bytes": 1298,
       "sha256": "e5fe3d0bdc2d3335d87aa15fc99f15298eeeb657858c00df445b3007071e70c3"
@@ -21631,7 +21803,7 @@
     }
   },
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
-  "generated_at": "2026-10-25T12:24:32.770660+00:00",
+  "generated_at": "2026-10-25T19:35:45.151380+00:00",
   "schema": 1,
-  "snapshot_kind": "npc_expansion_final_verification"
+  "snapshot_kind": "visualv2_environment_quality_v3_verified"
 }

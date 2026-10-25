@@ -1,0 +1,4 @@
+"""Soft surface-volume lighting for the small stream; no detailed per-pixel leaf-shadow pass."""
+import unreal,json
+from pathlib import Path
+R=Path(unreal.Paths.project_dir()).resolve();E=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);assert not E.get_game_world();m=unreal.load_asset('/Game/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_Stream');m.set_editor_property('translucency_lighting_mode',unreal.TranslucencyLightingMode.TLM_SURFACE);m.set_editor_property('screen_space_reflections',True);unreal.MaterialEditingLibrary.recompile_material(m);assert unreal.EditorAssetLibrary.save_loaded_asset(m,False);(R/'Saved/ProjectRefinement/EnvironmentV3/WaterFinish.json').write_text(json.dumps({'lighting':'TLM_SURFACE volume','screen_space_reflections':True,'no_planar_capture':True,'no_geometry_or_mask_change':True},indent=2))
