@@ -167,5 +167,33 @@
     "Dark character at some canopy edges; existing targeted character fill retained; 1.35 global fill trial not adopted.",
     "Existing foliage/card shapes, fine texture repetition and screen-space reflection limits remain.",
     "Art approval remains with user."
-  ]
+  ],
+  "editor_build_committed_unity": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 26.24910306930542
+  },
+  "console_isolation_committed_pie": {
+    "passed": true,
+    "unity_build": true,
+    "ordinary_pie": true,
+    "npc_ground_position": [
+      -7500.0,
+      3350.0,
+      48.5
+    ],
+    "creature_ground_position": [
+      -7500.0,
+      -4000.0,
+      48.5
+    ],
+    "both_return_correctly": true,
+    "save_unchanged": true
+  },
+  "github_feature_commit": "747707507ec35951139048aaaaea9616ce28e7bc",
+  "remote_lfs": {
+    "count": 22,
+    "bytes": 5652384,
+    "sha256_verified": true
+  }
 }

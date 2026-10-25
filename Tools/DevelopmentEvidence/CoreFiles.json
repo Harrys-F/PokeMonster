@@ -13858,8 +13858,8 @@
       "sha256": "f6846ca82e7b787512df2be2e8e8f6aab4116d9fe613ebecc9bc232518c71342"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V3_PRUEFBERICHT.md": {
-      "bytes": 13936,
-      "sha256": "8ea99a7ecf7776530d36da18a802b2ba69ed3766a549ee12f092dcd8c8d28a0a"
+      "bytes": 14776,
+      "sha256": "42dc1805a47a7cd17e7cd56c5699025a3b339e5fc28a669d0309f108f562135a"
     },
     "Docs/VISUALV2_GPU_BOTTLENECK_V1_PRUEFBERICHT.md": {
       "bytes": 41928,
@@ -19518,8 +19518,8 @@
       "sha256": "737c07336d92c50de17288c6338ddd82bb9ebc91af7eed691d194a85e2aa09f7"
     },
     "Tools/VisualV2EnvironmentV3/Acceptance.json": {
-      "bytes": 5046,
-      "sha256": "d596c834567e7388aeda6783b333d609cf3f38dfd56f83c9995c6597ab9eb5e6"
+      "bytes": 5652,
+      "sha256": "9a3638898ed8cbc00465bb174632dbbaf19ebbe9bcbb4502fe88248e151e0da4"
     },
     "Tools/VisualV2EnvironmentV3/Apply.py": {
       "bytes": 13411,
@@ -21803,7 +21803,7 @@
     }
   },
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
-  "generated_at": "2026-10-25T19:35:45.151380+00:00",
+  "generated_at": "2026-10-25T19:43:24.529211+00:00",
   "schema": 1,
   "snapshot_kind": "visualv2_environment_quality_v3_verified"
 }

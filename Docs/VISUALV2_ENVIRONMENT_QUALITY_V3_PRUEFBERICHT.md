@@ -160,11 +160,21 @@ wurden verworfen. Die verwendete weichere Wasserfassung ist im Fußlauf und Endv
 
 Empfehlung: Diesen geprüften Umgebungsstand anhand der 14 Bildpaare visuell abnehmen.
 Eine weitere automatische Ausweitung oder ein zusätzlicher Landschaftspass ist nicht Teil
- dieses Abschlusses. Präzise Resultate: `Tools/VisualV2EnvironmentV3/Acceptance.json`.
+dieses Abschlusses. Präzise Resultate: `Tools/VisualV2EnvironmentV3/Acceptance.json`.
 
 ## GitHub
 
 Nur geprüfte neue Quellen/Assets/Werkzeuge, VisualV2, die minimale Buildkorrektur und
 Dokumentation werden gezielt gesichert. Keine History-Änderung, kein Force-Push, keine
 Budgetänderung. Das bestätigte Git-LFS-Budget von 0 USD bleibt unangetastet.
-Konkrete Commit- und Remote-/LFS-Ergebnisse werden nach der Sicherung ergänzt.
+Umsetzungscommit: [`747707507ec35951139048aaaaea9616ce28e7bc`](https://github.com/Harrys-F/PokeMonster/commit/747707507ec35951139048aaaaea9616ce28e7bc).
+Regulärer Push erfolgreich. **22 LFS-Objekte, 5.652.384 Bytes**, anschließend sämtliche
+Objekte unabhängig vom Remote heruntergeladen und per SHA-256 verifiziert.
+Keine Quoten-/Abrechnungsfehlermeldung und keine Budgetänderung.
+
+Der zusätzliche Build nach dem Commit hat auch `Module.PokeMonster.2.cpp` tatsächlich
+als Unity-Einheit neu kompiliert und erfolgreich gelinkt. Anschließend in einem gewöhnlichen
+PIE beide bestehenden Konsolen geprüft: `pm.NPCGround.Go 0` erreicht das NPC-Gelände,
+`pm.TestGround.Go 0` das Pokémon-Gelände; beide Return-Befehle bringen die Figur korrekt
+zurück. Save-Datei bytegleich. Dieser Nachweis ist keine weitere Landschaftsänderung.
+Der abschließende Dokumentationscommit hält diese tatsächlichen Ergebnisse fest.
