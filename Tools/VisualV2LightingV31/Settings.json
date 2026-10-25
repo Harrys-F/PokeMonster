@@ -1,0 +1,11 @@
+{
+  "map": "/Game/Maps/Dev_TestMap_VisualV2",
+  "actor_label": "VS_SoftSkyFill",
+  "before": {"intensity": 1.12, "pitch": -40.0, "yaw": 140.0, "roll": 0.0},
+  "after": {"intensity": 1.8, "pitch": -40.0, "yaw": -45.0, "roll": 0.0},
+  "cast_shadows": false,
+  "lighting_channels": [true, false, false],
+  "new_lights": 0,
+  "new_assets": 0,
+  "preserve_sun_skylight_exposure_ao_lumen_taa_camera_materials_gameplay": true
+}

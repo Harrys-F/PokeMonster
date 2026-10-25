@@ -1,0 +1,278 @@
+{
+  "base_head": "464f18957a6cf6e9cd7661d1a50e5807d0fdc07c",
+  "map": "/Game/Maps/Dev_TestMap_VisualV2",
+  "settings": {
+    "map": "/Game/Maps/Dev_TestMap_VisualV2",
+    "actor_label": "VS_SoftSkyFill",
+    "before": {
+      "intensity": 1.12,
+      "pitch": -40.0,
+      "yaw": 140.0,
+      "roll": 0.0
+    },
+    "after": {
+      "intensity": 1.8,
+      "pitch": -40.0,
+      "yaw": -45.0,
+      "roll": 0.0
+    },
+    "cast_shadows": false,
+    "lighting_channels": [
+      true,
+      false,
+      false
+    ],
+    "new_lights": 0,
+    "new_assets": 0,
+    "preserve_sun_skylight_exposure_ao_lumen_taa_camera_materials_gameplay": true
+  },
+  "scope": {
+    "passed": true,
+    "original_actors": 1466,
+    "actors_added_removed": 0,
+    "allowed_actor": "DirectionalLight_0",
+    "only_fill_yaw_and_intensity": true,
+    "sun_sky_ao_exposure_pp_materials_instances_collisions_gameplay_unchanged": true
+  },
+  "editor_build": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 12.302901029586792
+  },
+  "automation": {
+    "mode": "Automation",
+    "exit": 0,
+    "seconds": 29.052026987075806,
+    "summary": {
+      "succeeded": 210,
+      "succeededWithWarnings": 0,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0
+    }
+  },
+  "strict_qa_wrapper_exit": 0,
+  "raw_engine_log_warning_free": false,
+  "observed_external_or_startup_messages": [
+    "idevice_id Bad CPU type in executable (86)",
+    "UE::UnifiedErrorTest startup Condition failed",
+    "MCP HttpListener unable to bind 127.0.0.1:8000",
+    "Existing Python exposure Information/bInformation name collision"
+  ],
+  "map_checks": [
+    {
+      "map": "/Game/Maps/Dev_BattleTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BiomeTestMap_V1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BuildingKitTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_HealingHouseTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_NPCMotionV3",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2EnvironmentQualityV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandAssetLibrary",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandRegion",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandVillage",
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "footrun": {
+    "passed": true,
+    "error": null,
+    "distance_m": 254.57181368754829,
+    "battles": 1,
+    "save_unchanged": true,
+    "preview_restored": true,
+    "no_in_route_test_teleports": true,
+    "setup_position_cm": [
+      -760,
+      -1410,
+      48.15
+    ],
+    "input": "existing pm.Input software simulation, no hardware claim"
+  },
+  "footrun_steps": 67,
+  "qhd_pairs": 10,
+  "image_controls": [
+    {
+      "control": "sunny_meadow",
+      "view": "SonnigeWiese",
+      "rectangle_xyxy": [
+        140,
+        80,
+        450,
+        240
+      ],
+      "before": {
+        "mean_code_luma": 0.39070870581910183,
+        "p20_code_luma": 0.35303827450980396,
+        "p95_code_luma": 0.465792156862745
+      },
+      "after": {
+        "mean_code_luma": 0.4115252677103099,
+        "p20_code_luma": 0.3721529411764705,
+        "p95_code_luma": 0.48850274509803926
+      },
+      "mean_relative_change_percent": 5.3278981453886765,
+      "interpretation": "image code values, not physical light or universal perceptual percentages; animated subjects can vary"
+    },
+    {
+      "control": "canopy_edge_ground",
+      "view": "Kronenrand",
+      "rectangle_xyxy": [
+        1630,
+        870,
+        1740,
+        965
+      ],
+      "before": {
+        "mean_code_luma": 0.0927531965850455,
+        "p20_code_luma": 0.07504941176470588,
+        "p95_code_luma": 0.12783031372549
+      },
+      "after": {
+        "mean_code_luma": 0.14247280322731962,
+        "p20_code_luma": 0.11593725490196077,
+        "p95_code_luma": 0.19259521568627447
+      },
+      "mean_relative_change_percent": 53.604197453924044,
+      "interpretation": "image code values, not physical light or universal perceptual percentages; animated subjects can vary"
+    },
+    {
+      "control": "player_torso",
+      "view": "Kronenrand",
+      "rectangle_xyxy": [
+        1245,
+        700,
+        1315,
+        780
+      ],
+      "before": {
+        "mean_code_luma": 0.05622416274509804,
+        "p20_code_luma": 0.03440862745098039,
+        "p95_code_luma": 0.13273098039215686
+      },
+      "after": {
+        "mean_code_luma": 0.13004433515406164,
+        "p20_code_luma": 0.07168941176470588,
+        "p95_code_luma": 0.28925411764705883
+      },
+      "mean_relative_change_percent": 131.29617019579305,
+      "interpretation": "image code values, not physical light or universal perceptual percentages; animated subjects can vary"
+    },
+    {
+      "control": "interior_floor",
+      "view": "Innenraum",
+      "rectangle_xyxy": [
+        900,
+        750,
+        1100,
+        900
+      ],
+      "before": {
+        "mean_code_luma": 0.4175307557385621,
+        "p20_code_luma": 0.3728290196078431,
+        "p95_code_luma": 0.5363858823529412
+      },
+      "after": {
+        "mean_code_luma": 0.417487678248366,
+        "p20_code_luma": 0.3733796078431373,
+        "p95_code_luma": 0.5360684705882353
+      },
+      "mean_relative_change_percent": -0.010317201692089384,
+      "interpretation": "image code values, not physical light or universal perceptual percentages; animated subjects can vary"
+    }
+  ],
+  "motion": [
+    {
+      "name": "CanopyEdge",
+      "file": "Saved/ProjectRefinement/LightingV31/Motion/CanopyEdge.mp4",
+      "frames": 139,
+      "game_seconds": 4.954411715,
+      "game_time_sample_hz": 27.853962879627172,
+      "width": 2331,
+      "height": 1311,
+      "method": "native Slate presented frames, world time dilation .20; encode original game timestamps, no interpolation, not realtime FPS",
+      "encoder": "Encoded 0 / 139\nVIDEO_OK /Users/harry/Developer/PokeMonster/Saved/ProjectRefinement/LightingV31/Motion/CanopyEdge.mp4 frames 139 duration 5.005 size 2331 1311\n"
+    },
+    {
+      "name": "DenseForest",
+      "file": "Saved/ProjectRefinement/LightingV31/Motion/DenseForest.mp4",
+      "frames": 139,
+      "game_seconds": 4.983925038,
+      "game_time_sample_hz": 27.68901998882753,
+      "width": 2331,
+      "height": 1311,
+      "method": "native Slate presented frames, world time dilation .20; encode original game timestamps, no interpolation, not realtime FPS",
+      "encoder": "Encoded 0 / 139\nVIDEO_OK /Users/harry/Developer/PokeMonster/Saved/ProjectRefinement/LightingV31/Motion/DenseForest.mp4 frames 139 duration 5.031666666666666 size 2331 1311\n"
+    }
+  ],
+  "fresh_editor_reload": {
+    "passed": true,
+    "pid": 61206,
+    "saved_scene_reloaded": true,
+    "full_scope_revalidated": true,
+    "no_unsaved_changes": true
+  },
+  "initial_native_crash": {
+    "all_44_protected_files_unchanged": true,
+    "map_saved": false,
+    "native_error": "pthread_rwlock_init failed with error 16",
+    "reason_unconfirmed": true
+  },
+  "visual_limits": [
+    "Reduced apparent shadow contrast; native shadow penumbra and VSM filters unchanged",
+    "Existing directional fill is an artistic sky approximation, not isotropic physical ambient light",
+    "Some deep contact occlusion and dark clothing remain naturally dark",
+    "Animated actors/poses vary between matching camera captures"
+  ],
+  "media_local_only": true,
+  "physical_controller_test_claimed": false,
+  "performance_benchmark_claimed": false,
+  "github_verification": "pending normal commit/push; no success claimed yet"
+}

@@ -13535,7 +13535,7 @@
     },
     "Content/Maps/Dev_TestMap_VisualV2.umap": {
       "bytes": 4773570,
-      "sha256": "4ed87fa872b0acd9b0adb8eafded9263650ff628c01d3b50e15dfe25f11c34a4"
+      "sha256": "928afffc4ee62e5336524ff3a493cf9e00fa8bb7981c6401727ac4c969075ed1"
     },
     "Content/Maps/Dev_TestMap_VisualV2GPUBottleneckV1.umap": {
       "bytes": 3300685,
@@ -13662,8 +13662,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 166171,
-      "sha256": "20b5d40b53b25a31a42728f5678493fcec3a646d187b53ac44aa5dfa8e8126e4"
+      "bytes": 167353,
+      "sha256": "797ccc87cfd19abceb1d8f7e6e6f96c33901f2aef837b1d4c3009961c6184369"
     },
     "Docs/ENTWICKLUNGSPRAESENTATION_V21_PRUEFBERICHT.md": {
       "bytes": 10382,
@@ -13850,8 +13850,12 @@
       "sha256": "1ede0acfca40e87ac09ffe5dbe8993e5cb6142cff2aebf509f4cb084ae6e53fc"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 191911,
-      "sha256": "79e97349ff4e065d0e9a64638524c13d636f92185ef16b51eb9ae9003ba509e4"
+      "bytes": 193063,
+      "sha256": "a45f61d3ac9148bec8bbfe2a8df387baedc14957c8e4b38d2e4518ef645c15a2"
+    },
+    "Docs/VISUALV2_BELEUCHTUNG_SCHATTEN_V3_1_PRUEFBERICHT.md": {
+      "bytes": 13550,
+      "sha256": "02bc2da46b03b5f34ccd96271629f8c4d477728c5526a4d470f39d036b63365f"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -20061,6 +20065,62 @@
       "bytes": 997,
       "sha256": "cf8fcf9737467263273c201f8fe6cd26559d06b306c0bc9f32878ee36fbcc1fe"
     },
+    "Tools/VisualV2LightingV31/Acceptance.json": {
+      "bytes": 8106,
+      "sha256": "672d604765eb5f649093c9fe944ae17bfd01d50dec2a2528c2234b2ab0699c99"
+    },
+    "Tools/VisualV2LightingV31/Apply.py": {
+      "bytes": 1769,
+      "sha256": "85ce2f1a3925fee4bce4d53a25a8a5041eb67f02c0744971431bbb5e6448e2a2"
+    },
+    "Tools/VisualV2LightingV31/Baseline.py": {
+      "bytes": 1276,
+      "sha256": "837148641752ee59d7e1e350786e6c8f8a15a99ce773ac3c1ef266d2fbc7a1ea"
+    },
+    "Tools/VisualV2LightingV31/Compare.py": {
+      "bytes": 2585,
+      "sha256": "be9b59e473683ee9260d886f0c331ab33bcdc97d439e959b0574b534b803ac0b"
+    },
+    "Tools/VisualV2LightingV31/EncodeMotion.py": {
+      "bytes": 385,
+      "sha256": "a74a1ed032b7626e9bdef6272390ec3d1375c2706f7d2d1c35e8abceb9e698c5"
+    },
+    "Tools/VisualV2LightingV31/Footrun.py": {
+      "bytes": 422,
+      "sha256": "28f3610342e10e0880f3f657d2d50e5e3d9c7f971a727ec90c562d64ec1d2d0f"
+    },
+    "Tools/VisualV2LightingV31/Inspect.py": {
+      "bytes": 3048,
+      "sha256": "646816eeb7e49172d213e8b71653cff4afb69c8b5f5ba32772cd5ac049df028f"
+    },
+    "Tools/VisualV2LightingV31/MapChecks.py": {
+      "bytes": 1074,
+      "sha256": "319d06be7ccb39cd23d73ce6cf8f7778603429fe7df0cffb0406df00841310d8"
+    },
+    "Tools/VisualV2LightingV31/Motion.py": {
+      "bytes": 578,
+      "sha256": "ba2aa4430418ba90399ac92c20b796eaf92789d591d52e92766f5ff95826d929"
+    },
+    "Tools/VisualV2LightingV31/Package.py": {
+      "bytes": 2693,
+      "sha256": "08291b0f947429920c63e78d3bab5dfc302a06edee17dfe75e7b0263a8bbee41"
+    },
+    "Tools/VisualV2LightingV31/README.md": {
+      "bytes": 3024,
+      "sha256": "d5d2535888bfdf9951d7ad1d03ec14c54d70a13929b8236a193e9d4be922b47c"
+    },
+    "Tools/VisualV2LightingV31/Settings.json": {
+      "bytes": 421,
+      "sha256": "c6c760c4934c2743e3fed225f91101c6a05df42868160f8b557d8712db64f65e"
+    },
+    "Tools/VisualV2LightingV31/Study.py": {
+      "bytes": 6314,
+      "sha256": "6f7bb617915d2253355af4920807fcd97dc6648501091ca91bc9c09e63e0df57"
+    },
+    "Tools/VisualV2LightingV31/Validate.py": {
+      "bytes": 3306,
+      "sha256": "ab96738a8465a8aab6659d3249fd2c7d4ae2a831c8faa2487049297fa15566a6"
+    },
     "Tools/VisualV2MaterialFixV1/Analyze.py": {
       "bytes": 5736,
       "sha256": "f1f02eeb296b6786900cfbef295494804f3f9ddc8aabc927f133e08ca192affe"
@@ -21803,7 +21863,7 @@
     }
   },
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
-  "generated_at": "2026-10-25T19:43:24.529211+00:00",
+  "generated_at": "2026-10-25T20:46:48.196895+00:00",
   "schema": 1,
-  "snapshot_kind": "visualv2_environment_quality_v3_verified"
+  "snapshot_kind": "visualv2_lighting_shadows_v31_verified"
 }

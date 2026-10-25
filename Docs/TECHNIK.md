@@ -1239,3 +1239,21 @@ Prüfungen und echte lokale Bildvergleiche: `VISUALV2_ENVIRONMENT_QUALITY_V3_PRU
 Eine nebenbei gefundene Unity-Build-Namenskollision der vorhandenen NPC-/Kreaturen-
 Testkonsolen wird durch einen eigenen C++-Namensraum der NPC-Registrierungen behoben;
 Befehlsnamen, Verhalten, Rigs und Animationen bleiben gleich.
+
+## VisualV2 Beleuchtung und Schatten V3.1 (25.10.2026)
+
+Die V3-Außenfülllicht-Einstellung (1,12 bei Yaw 140°) ist für VisualV2 durch
+V3.1 ersetzt: vorhandener Actor `VS_SoftSkyFill` / `DirectionalLight_0`, Intensität
+1,8 und Yaw −45°. Pitch −40°, Temperatur 8000 K, Lichtfarbe, Kanäle, schattenloser
+Betrieb und alle übrigen Eigenschaften bleiben erhalten. Keine neue Lichtquelle.
+Die Ausrichtung füllt zuvor schlecht beleuchtete, kameraseitige Oberflächen;
+die Hauptsonne, SkyLight, Belichtung, AO, Lumen, TAA und Kameras ändern sich nicht.
+Das reduziert den wahrgenommenen Schattenkontrast; die eigentliche Schatten-
+Penumbra und VSM-Filter bleiben gleich. Vorhandene Kontaktverschattung bleibt.
+
+Die Änderung liegt nur auf einer bestehenden Lichtinstanz dieser Map, nicht in
+geteilten Assets oder Projektdefaults. Andere Maps und Innenraumbeleuchtung
+werden nicht umgestellt. Exakte reversible Werte: `Tools/VisualV2LightingV31/Settings.json`.
+Vollständige Szene bis auf diese zwei Einstellungen, elf andere Maps und der
+Save werden per Hash/Editorinventur geprüft. Bericht:
+`VISUALV2_BELEUCHTUNG_SCHATTEN_V3_1_PRUEFBERICHT.md`.

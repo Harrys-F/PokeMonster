@@ -1,0 +1,8 @@
+"""Two reversible instance settings on one pre-existing shadowless map fill light."""
+import unreal,json,sys
+from pathlib import Path
+R=Path(unreal.Paths.project_dir()).resolve();D=R/'Saved/ProjectRefinement/LightingV31';cfg=json.loads((R/'Tools/VisualV2LightingV31/Settings.json').read_text());E=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);W=E.get_editor_world();assert W.get_name()=='Dev_TestMap_VisualV2'and not E.get_game_world();assert not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()and not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages();assert not(D/'Applied.json').exists();sys.path.insert(0,str(R/'Tools/VisualV2QualityV2'));from AuditScene import scene
+assert scene(W)==json.loads((D/'BeforeScene.json').read_text()),'Unexpected intervening editor change'
+a=next(a for a in unreal.GameplayStatics.get_all_actors_of_class(W,unreal.Actor)if a.get_actor_label()==cfg['actor_label']);c=a.get_component_by_class(unreal.DirectionalLightComponent);rot=a.get_actor_rotation();old=cfg['before'];new=cfg['after'];assert abs(c.intensity-old['intensity'])<1e-6 and abs(rot.yaw-old['yaw'])<.001 and abs(rot.pitch-old['pitch'])<.001;assert not c.cast_shadows
+assert c.get_editor_property('lighting_channels').channel0 and not c.get_editor_property('lighting_channels').channel1 and not c.get_editor_property('lighting_channels').channel2
+c.set_intensity(new['intensity']);a.set_actor_rotation(unreal.Rotator(pitch=new['pitch'],yaw=new['yaw'],roll=new['roll']),False);assert unreal.EditorLoadingAndSavingUtils.save_map(W,cfg['map']);assert not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages();(D/'Applied.json').write_text(json.dumps({'actor':a.get_name(),'settings':cfg},indent=2));unreal.log('LIGHT31_APPLIED')

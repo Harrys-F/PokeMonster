@@ -1190,3 +1190,22 @@ Schattenaufhellung. Hauptlicht und Schattenwerfer bleiben unverändert. Der Bach
 verwendet die weichere Oberflächen-Volumenbeleuchtung statt der visuell verworfenen
 Per-Pixel-Probe mit harten Kronensilhouetten. Kein globaler Rendererumbau.
 Die künstlerische Endabnahme bleibt anhand echter Spielkamera-Vergleiche bei Harry.
+
+## 25.10.2026 – VisualV2 Schattenbeleuchtung V3.1
+
+Die frühere V3-Fülllichteinstellung 1,12 bei Yaw 140° ist ausdrücklich ersetzt.
+Nach echten QHD-Varianten wird das bereits vorhandene schattenlose Außenfülllicht
+auf Yaw −45° und Intensität 1,8 eingestellt. Zwei Instanzwerte, keine neue Lampe
+und kein Rendererumbau. Die Hauptsonne und ihre Schatten bleiben erhalten.
+
+Eine temporäre vorhandene Engine-Tageslicht-Cubemap am SkyLight verbessert die
+problematischen Kronenränder weniger überzeugend und wird nicht übernommen.
+Eine kombinierte Sky-/Fülllichtvariante benötigt mehr Änderungen und hebt auch
+Sonnenflächen breiter an. Belichtung und AO bleiben zur Erhaltung von Kontrast
+und Kontaktwirkung unverändert; keine selbstleuchtenden Charaktermaterialien.
+
+Gewählt ist die sichtbar freundlichere, gerichtet ergänzte Umgebungswirkung.
+Sie ist keine physikalisch isotrope Himmelsbeleuchtung und keine Veränderung der
+eigentlichen Schattenfilter. Tiefe Kontaktstellen dürfen weiterhin dunkel sein.
+Keine Übertragung auf Westland, Biom-Testmap oder andere Gebiete. Die endgültige
+ästhetische Bewertung erfolgt anhand der realen Vergleiche beim Nutzer.
