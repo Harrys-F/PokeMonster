@@ -274,5 +274,46 @@
   "media_local_only": true,
   "physical_controller_test_claimed": false,
   "performance_benchmark_claimed": false,
-  "github_verification": "pending normal commit/push; no success claimed yet"
+  "github_verification": {
+    "feature_commit": "1a293f50cc8a0362a19577b923f844f402c71fc9",
+    "branch": "main",
+    "origin_main_live_verified": "1a293f50cc8a0362a19577b923f844f402c71fc9",
+    "lfs": {
+      "commit": "1a293f50cc8a0362a19577b923f844f402c71fc9",
+      "objects": [
+        {
+          "oid": "928afffc4ee62e5336524ff3a493cf9e00fa8bb7981c6401727ac4c969075ed1",
+          "bytes": 4773570,
+          "path": "Content/Maps/Dev_TestMap_VisualV2.umap",
+          "remote_download_sha256_verified": true,
+          "local_validation_basis": "working_file"
+        }
+      ],
+      "count": 1,
+      "bytes": 4773570,
+      "verified": true,
+      "no_credentials_or_download_urls_saved": true
+    },
+    "normal_push": true,
+    "budgets_changed": false,
+    "media_committed": false
+  },
+  "integrity": {
+    "passed": true,
+    "prior_core_files": 5450,
+    "unchanged_prior_core_files": 5447,
+    "approved_existing_changes": [
+      "Content/Maps/Dev_TestMap_VisualV2.umap",
+      "Docs/ENTSCHEIDUNGEN.md",
+      "Docs/TECHNIK.md"
+    ],
+    "protected_files_verified": 43,
+    "protected_untracked": 31,
+    "other_maps_and_saves": true,
+    "backup_refs": {
+      "backup/full-03492bd": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
+      "refs/archive/pokemonster/full-backup-03492bd": "03492bd96b4dba44692f675c19d5f11abfa86b4b"
+    },
+    "package_files": 19
+  }
 }

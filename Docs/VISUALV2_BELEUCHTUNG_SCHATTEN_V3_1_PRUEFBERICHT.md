@@ -166,9 +166,22 @@ einen bestehenden Actor: Intensität 1,12, Yaw 140°. Keine ganze Map zurückset
 keine fremden Änderungen überschreiben. `Apply.py` erlaubt nur den exakt geprüften
 Ausgangsstand; `Validate.py` prüft anschließend die komplette Szene.
 
-GitHub-Sicherung wird nach Kontrolle der exakten Paketliste regulär auf `main`
-vorgenommen. Commit-/Remote-/LFS-Nachweis wird nach der tatsächlichen Übertragung
-hier ergänzt. Keine Kontrollbilder, Videos, Caches oder Saves werden committed.
+GitHub-Sicherung abgeschlossen: Commit **`1a293f50cc8a0362a19577b923f844f402c71fc9`**
+(`feat: soften VisualV2 shadow contrast with existing fill light`), regulär auf
+`origin/main` gepusht. Lokales HEAD, Tracking-Ref und live abgefragter Remote waren
+anschließend identisch. **Ein LFS-Objekt mit 4.773.570 Bytes** wurde von GitHub
+zurückgelesen und per SHA-256 verifiziert:
+`928afffc4ee62e5336524ff3a493cf9e00fa8bb7981c6401727ac4c969075ed1`.
+Keine Budgetänderung, kein Force-Push. Der ergänzende Dokumentationscommit
+protokolliert ausschließlich diesen tatsächlichen Nachweis.
+
+19 gezielt kontrollierte Paketdateien; keine Kontrollbilder, Videos, Caches oder
+Saves committed. Alle 5450 bisherigen Kerndateien geprüft: 5447 unverändert;
+nur Zielmap, Technik und Entscheidungen sind beabsichtigte Bestandsänderungen.
+43 geschützte Dateien außerhalb der Zielmap (einschließlich der 31 ursprünglichen
+unversionierten Dateien) sind bytegleich. Erweitertes Kernmanifest: 5465 Dateien,
+keine fehlend oder unerwartet geändert. Der versionierte Arbeitsbaum ist sauber;
+die 31 ursprünglichen unversionierten Dateien bleiben bewusst lokal erhalten.
 
 Die technische Prüfung ist abgeschlossen. Empfehlung: Die freundlichere Variante
 an den echten Vergleichen visuell abnehmen; keine automatische Übertragung auf

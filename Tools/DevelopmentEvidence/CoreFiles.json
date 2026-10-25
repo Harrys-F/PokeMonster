@@ -13854,8 +13854,8 @@
       "sha256": "a45f61d3ac9148bec8bbfe2a8df387baedc14957c8e4b38d2e4518ef645c15a2"
     },
     "Docs/VISUALV2_BELEUCHTUNG_SCHATTEN_V3_1_PRUEFBERICHT.md": {
-      "bytes": 13550,
-      "sha256": "02bc2da46b03b5f34ccd96271629f8c4d477728c5526a4d470f39d036b63365f"
+      "bytes": 14458,
+      "sha256": "e1bf50f91805926146c4f56315709ca69353fe143b88611c9bab0462dd507558"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -20066,8 +20066,8 @@
       "sha256": "cf8fcf9737467263273c201f8fe6cd26559d06b306c0bc9f32878ee36fbcc1fe"
     },
     "Tools/VisualV2LightingV31/Acceptance.json": {
-      "bytes": 8106,
-      "sha256": "672d604765eb5f649093c9fe944ae17bfd01d50dec2a2528c2234b2ab0699c99"
+      "bytes": 9410,
+      "sha256": "6b6f18738d65b39ed6e322fc82a13208bc6528db0723dfe04316532908cf29fb"
     },
     "Tools/VisualV2LightingV31/Apply.py": {
       "bytes": 1769,
@@ -21863,7 +21863,7 @@
     }
   },
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
-  "generated_at": "2026-10-25T20:46:48.196895+00:00",
+  "generated_at": "2026-10-25T20:48:46.194265+00:00",
   "schema": 1,
   "snapshot_kind": "visualv2_lighting_shadows_v31_verified"
 }
