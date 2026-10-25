@@ -31,7 +31,7 @@ for i,a in enumerate(configs):
 def finish(error=None):
  if recording:stop()
  G.set_mode('idle');G.return_to_world();unreal.GameplayStatics.set_global_time_dilation(W,dilation);cmd('pm.EnvPerf2.Viewport 0 0');S.set_editor_property('bThrottleCPUWhenNotForeground',throttle);unreal.unregister_slate_post_tick_callback(unreal._npc_motion)
- (O/'Result.json').write_text(json.dumps({'passed':error is None,'error':error,'samples':rows,'ordinary_pie':True,'save_unchanged':hashlib.sha256(slot.read_bytes()).hexdigest()==sha,'video_method':'Actual presented Slate frames. Native QHD game render, actual viewport crop dimensions recorded. PIE slowed to 0.25 during capture, encoded at original game timestamps; no synthetic/interpolated frames and no performance benchmark.'},indent=2));unreal.log('PM_NPC_MOTION_DONE '+str(error))
+ (O/'Result.json').write_text(json.dumps({'passed':error is None,'error':error,'samples':rows,'ordinary_pie':True,'save_unchanged':hashlib.sha256(slot.read_bytes()).hexdigest()==sha,'video_method':'Actual presented Slate frames. QHD game viewport (2560x1440), existing renderer settings, actual viewport crop dimensions recorded. PIE slowed to 0.25 during capture, encoded at original game timestamps; no synthetic/interpolated frames and no performance benchmark.'},indent=2));unreal.log('PM_NPC_MOTION_DONE '+str(error))
 def tick(dt):
  global index,due,stage,sample
  try:

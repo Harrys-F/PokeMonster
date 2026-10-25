@@ -13694,8 +13694,8 @@
       "sha256": "0cd4734e8ed069d1738492f2902e44c98d481b3e3862fe31bf0df1afda4983ad"
     },
     "Docs/NPC_AUSBAU_MESHY_PRUEFBERICHT.md": {
-      "bytes": 20005,
-      "sha256": "0ccc0e4d2bf3ac32065f885bb5923d1968212c4347fc5025d4ed3c4f4ecf9c29"
+      "bytes": 20357,
+      "sha256": "aa6283d439c6ba34ab7560cadf0d43b18129facb64d817f3aa2590398bc2e840"
     },
     "Docs/OBERWELT_KI_V2_PRUEFBERICHT.md": {
       "bytes": 23688,
@@ -17494,8 +17494,8 @@
       "sha256": "30a28f6dd89312449fae43c995a8756e4e9737b0ee79bdeb5708bbf8fee519d7"
     },
     "Tools/NPCExpansion/ReviewMotionPIE.py": {
-      "bytes": 4082,
-      "sha256": "4d9226eb0dd9c2b1cd28a8764df7dd1c485fdac080673239fa564b15d5a330f5"
+      "bytes": 4117,
+      "sha256": "470279007a259bc1e651571e11e302c62f8848a7aa705941666c54d749b0bc5c"
     },
     "Tools/NPCExpansion/ReviewPIE.py": {
       "bytes": 7385,
@@ -17514,8 +17514,8 @@
       "sha256": "406839be2577f24e065139dd48cd6c7e0e1fa9ce8c9adc5f580a7acd7665e763"
     },
     "Tools/NPCExpansion/WriteReport.py": {
-      "bytes": 14754,
-      "sha256": "e9414ca9a83b9ba02f26dd06c99c08b2366ff2dde5a9ddd1c5c1da6c4579ed51"
+      "bytes": 15430,
+      "sha256": "144a254659127245534820528f53003efd2471cb5f15e2f2d9794fa88c533761"
     },
     "Tools/OptimizeDevTestMapVisualV2.py": {
       "bytes": 3691,
@@ -21631,7 +21631,7 @@
     }
   },
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
-  "generated_at": "2026-10-25T12:10:09.649961+00:00",
+  "generated_at": "2026-10-25T12:24:32.770660+00:00",
   "schema": 1,
   "snapshot_kind": "npc_expansion_final_verification"
 }

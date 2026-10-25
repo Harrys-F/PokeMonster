@@ -142,7 +142,7 @@ Boden-Settling-Abweichung in Z kleiner als 0,00001 cm. Keine geänderte Kamera.
 [Heilerin – tatsächliche Interaktion](/Users/harry/Developer/PokeMonster/Saved/ProjectRefinement/NPCExpansion/Heilerin_Interaction_QHD.png).
 
 Finale elf Videos: zusammen 106,96 Spielsekunden, **24,62–27,03 echte Bilder je
-Spielsekunde**. Keine erfundenen/interpolierten Zwischenbilder. Nativer QHD-Spielrender;
+Spielsekunde**. Keine erfundenen/interpolierten Zwischenbilder. QHD-Spielviewport (2560×1440), bestehende Render-Einstellungen;
 aufgezeichneter tatsächlicher Slate-Ausschnitt **2331×1311**, nicht als 2560er
 Videodatei ausgegeben. Für dichte Bewegungsprüfung wurde PIE bei der Aufnahme auf
 0,25-fache Spielzeit verlangsamt und mit echten Spielzeitstempeln normal schnell
@@ -220,5 +220,5 @@ Werkzeuge und Dokumentation. Keine Änderung der Biom-/Westland-Maps, Pokémon-
 Assets/Animationen, Incoming-Originale oder vorher vorhandenen 31 unversionierten
 Dateien. Lokales Vollbackup `03492bd` und Git-Historie bleiben erhalten.
 
-Commit-/Remote-/LFS-Abschluss wird nach finaler QA ergänzt. Normales `origin/main`,
+**Feature-Commit:** `d6deab703014cf139962f6700d2076637d57e4b1`, auf dem bestehenden GitHub-Repository nach origin/main gepusht. Alle 188 LFS-Objekte / 537925812 Bytes anschließend direkt vom Remote heruntergeladen und per SHA-256 bestätigt. Lokales main und origin/main nach Feature-Push synchron. Abschlussdokumentation folgt als separater kleiner Dokumentationscommit. Normales `origin/main`,
 kein Force-Push; bestätigtes Git-LFS-Budget 0 USD, keine Budget-/Zahlungsänderung.

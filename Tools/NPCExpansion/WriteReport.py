@@ -141,7 +141,7 @@ Boden-Settling-Abweichung in Z kleiner als 0,00001 cm. Keine geänderte Kamera.
 [Heilerin – tatsächliche Interaktion]({O}/Heilerin_Interaction_QHD.png).
 
 Finale elf Videos: zusammen 106,96 Spielsekunden, **24,62–27,03 echte Bilder je
-Spielsekunde**. Keine erfundenen/interpolierten Zwischenbilder. Nativer QHD-Spielrender;
+Spielsekunde**. Keine erfundenen/interpolierten Zwischenbilder. QHD-Spielviewport (2560×1440), bestehende Render-Einstellungen;
 aufgezeichneter tatsächlicher Slate-Ausschnitt **2331×1311**, nicht als 2560er
 Videodatei ausgegeben. Für dichte Bewegungsprüfung wurde PIE bei der Aufnahme auf
 0,25-fache Spielzeit verlangsamt und mit echten Spielzeitstempeln normal schnell
@@ -210,4 +210,8 @@ qa_path=O/'FinalQA.json'
 if qa_path.exists():
  qa=json.loads(qa_path.read_text());text=text.replace('Sechs NPC-Automationstests nach Korrektur erfolgreich; vollständige relevante\n  Automation und abschließende Rand-/Wiederverwendungsprüfung folgen im finalen QA-Lauf.', 'Vollständige relevante Automation: **210 Tests, 209 Success, 1 SuccessWithWarnings,\n  0 Fehler, 0 nicht ausgeführt**. Engine Exit 0; strenger Wrapper **Exit 1** wegen\n  zweier externer idevice_id-Warnungen in PokeMonster.BiomeV11.SpeciesPersistence.Garados.\n  Kein Projektfehler, keine Warnungsunterdrückung. Alle sechs NPC-Tests erfolgreich,\n  einschließlich echter Kapselkollision an der Randbegrenzung und Originalmesh-Wiederverwendung.')
  text=text.replace('- Normaler PIE: elf echte NPCs', '- Abschließender normaler PIE nach finalem Build: alle neun Gehfiguren tatsächlich\n  bewegt, zwei bewusst stationär, drei Originalmeshes kontrolliert, echter Spieler-\n  Eingabetest gegen Randkollision, Rückkehr und RAM-Save/Load bestanden.\n- Normaler PIE: elf echte NPCs')
+git_path=O/'GitVerification.json'
+if git_path.exists():
+ info=json.loads(git_path.read_text());assert info['remote_lfs_sha256_verified']
+ text=text.replace('Commit-/Remote-/LFS-Abschluss wird nach finaler QA ergänzt.', '**Feature-Commit:** `'+info['feature_commit']+'`, auf dem bestehenden GitHub-Repository nach origin/main gepusht. Alle '+str(info['remote_lfs_count'])+' LFS-Objekte / '+str(info['remote_lfs_bytes'])+' Bytes anschließend direkt vom Remote heruntergeladen und per SHA-256 bestätigt. Lokales main und origin/main nach Feature-Push synchron. Abschlussdokumentation folgt als separater kleiner Dokumentationscommit.')
 (R/'Docs/NPC_AUSBAU_MESHY_PRUEFBERICHT.md').write_text(text)
