@@ -10,6 +10,9 @@ class POKEMONSTER_API UPokeMonsterNPCAnimInstance : public UAnimInstance
 public:
  UPROPERTY(BlueprintReadOnly, Category="NPC Presentation") float ConversationAlpha = 0.f;
  UPROPERTY(BlueprintReadOnly, Category="NPC Presentation") float WalkAlpha = 0.f;
+ UPROPERTY(BlueprintReadOnly, Category="NPC Presentation") float RunAlpha = 0.f;
+ UPROPERTY(BlueprintReadOnly, Category="NPC Presentation") float GreetingAlpha = 0.f;
+ UPROPERTY(BlueprintReadOnly, Category="NPC Presentation") float FootCorrectionCm = 0.f;
  UPROPERTY(BlueprintReadOnly, Category="NPC Presentation") float WalkPlayRate = 0.f;
  UPROPERTY(BlueprintReadOnly, Category="NPC Presentation") float TurnAlpha = 0.f;
  UPROPERTY(BlueprintReadOnly, Category="NPC Presentation") float CapePitch = 0.f;

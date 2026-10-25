@@ -1,4 +1,5 @@
 #include "PokeMonsterNPCVisualActor.h"
+#include "PokeMonsterNPCPresentationData.h"
 #include "PokeMonsterNPCAnimInstance.h"
 #include "../Dialogue/PokeMonsterDialogueSubsystem.h"
 #include "Animation/AnimSequence.h"
@@ -21,6 +22,24 @@ APokeMonsterNPCVisualActor::APokeMonsterNPCVisualActor()
  Visual->bEnableUpdateRateOptimizations = true;
  Visual->SetAnimInstanceClass(UPokeMonsterNPCAnimInstance::StaticClass());
 
+}
+bool APokeMonsterNPCVisualActor::ApplyPresentation(UPokeMonsterNPCPresentationData* Profile)
+{
+ if(!Profile||!Profile->GetValidationErrors().IsEmpty())return false;
+ Visual->SetSkeletalMesh(Profile->Mesh);
+ Visual->EmptyOverrideMaterials();
+ for(int32 I=0;I<Profile->Materials.Num();++I)Visual->SetMaterial(I,Profile->Materials[I]);
+ IdleAnimation=Profile->Idle;ConversationAnimation=Profile->Talk;WalkAnimation=Profile->Walk;
+ RunAnimation=Profile->Run;GreetingAnimation=Profile->Greeting;TurnLeftAnimation=Profile->TurnLeft;TurnRightAnimation=Profile->TurnRight;
+ AuthoredWalkSpeed=FMath::Max(Profile->WalkSpeed,1.f);AuthoredRunSpeed=FMath::Max(Profile->RunSpeed,1.f);
+ bEnableMotionPresentation=Profile->Walk!=nullptr;bEnableAccessoryMotion=Profile->bAccessoryMotion;
+ bEnableFootContacts=Profile->bFootContacts;bUpperBodyConversation=true;
+ RefreshPresentation();return true;
+}
+bool APokeMonsterNPCVisualActor::PlayGreeting()
+{
+ if(!bUseVisual||!GreetingAnimation)return false;
+ ++GreetingSerial;return true;
 }
 void APokeMonsterNPCVisualActor::RefreshPresentation()
 {
@@ -74,7 +93,9 @@ void APokeMonsterNPCVisualActor::BeginPlay()
 void APokeMonsterNPCVisualActor::HandleDialogueChanged()
 {
  auto* GI = GetGameInstance(); auto* Dialogue = GI ? GI->GetSubsystem<UPokeMonsterDialogueSubsystem>() : nullptr;
+ const bool WasConversing=bConversing;
  bConversing = bUseVisual && Dialogue && Dialogue->IsDialogueActive() && Dialogue->GetActiveSource() == SourceActor;
+ if(bConversing&&!WasConversing)PlayGreeting();
  if (bConversing)
   if (const auto* Player = UGameplayStatics::GetPlayerPawn(this, 0))
   {

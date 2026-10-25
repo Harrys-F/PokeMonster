@@ -1189,3 +1189,27 @@ Bei wenigen festen Biom-Zielankern bleibt die Verlaufsliste auf maximal Anzahl m
 ### Biom V1.1 – lokale dichte Waldkamera
 
 Ein expliziter ForestCameraZone-Actor interpoliert ausschließlich den bestehenden SpringArm-Abstand. Fester Yaw/Pitch/FOV, Inputbasis und Grundsichtkegel bleiben erhalten. Die zusätzliche obere Kronenmaske verwendet vorhandene CameraVisibility-MIDs, bekannte Eichen-/Birkenmeshes und nur private Materialien unter BiomeTestV1/DenseForestV11 als doppelten Opt-in. Außerhalb der Zone ist die zusätzliche Stärke null, Originalabstand wird exakt restauriert. Keine zusätzliche Verdeckungs-/Eingabearchitektur. Schattenpass erhält die ursprüngliche Opacity-Maske. Aktive Begegnungen pausieren die Zoneninterpolation; Übergänge und beide Kampfpräsentationen sind im PIE geprüft. Ein Actor in der Biom-Map; keine überlappenden Zonen konfiguriert.
+
+## NPC-Präsentationsbibliothek (25.10.2026)
+
+`UPokeMonsterNPCPresentationData` prüft Mesh/Skeleton, Rollenclips, Materialslots,
+Dauer, In-place, Geschwindigkeiten und optionale Kontaktknochen. `ApplyPresentation`
+ändert nur die vorhandene VisualActor-Präsentation nach vollständiger Validierung;
+Gameplayquelle und Kollisionskörper bleiben zuständig. Originalmaterial kann am
+Component überschrieben werden, ohne ein geteiltes Mesh umzufärben. Gespräch und
+Begrüßung betreffen bei Bibliotheksprofilen den Oberkörper, Walk/Run teilen eine
+Gangphase. Optionale Fußpins sind für flachen Boden, keine universelle Gelände-IK.
+
+Profile unter `/Game/Characters/NPCs/Library/Profiles`. Drei vorhandene Humanoiden-
+Skeletons und das bestehende Heilerinnenmesh werden weiterverwendet. Sieben neue
+Skelettmeshes waren für die übrigen Rig-/Quellenstände nötig. Keine Doppelimporte
+von Originaltexturen für die zehn bestehenden NPC-Materialien. Workflow:
+`Tools/NPCExpansion/README.md`; geprüfte Quellen in `Source/*_NPCLibrary.blend`.
+
+`UPokeMonsterNPCTestGround` existiert nur in VisualV2-PIE. Elf normale NPC-Quellen
+mit rein technischem Dialog und vorhandener Präsentation, keine persistente
+Questidentität. `pm.NPCGround.Go [0..11]`, `.Mode auto|idle|walk|run`, `.Greet`,
+`.Return`; Mittelpunkt (-7500,3000,0) cm. Bewegung nutzt begrenzte Testziele,
+Beschleunigung und echte Kapselsweeps, Randbegrenzung schützt vor Absturz.
+Besuch nutzt den bestehenden PIE-RAM-Savetransport und eigenen Rückkehranker.
+Andere Karten, regulärer Game-Betrieb, Shipping und Controllerbelegung unverändert.

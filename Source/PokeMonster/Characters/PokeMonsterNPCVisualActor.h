@@ -6,6 +6,7 @@ class USkeletalMeshComponent;
 class UStaticMeshComponent;
 class UStaticMesh;
 class UAnimSequence;
+class UPokeMonsterNPCPresentationData;
 class UPaperSpriteComponent;
 /** Optional presentation attached to an existing NPC. Owns no interaction, collision or story state. */
 UCLASS(Blueprintable)
@@ -26,6 +27,14 @@ public:
  /** Opt-in motion presentation; never drives the gameplay source actor. */
  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC Motion") bool bEnableMotionPresentation = false;
  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC Motion") TObjectPtr<UAnimSequence> WalkAnimation;
+ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC Motion") TObjectPtr<UAnimSequence> RunAnimation;
+ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC Motion") TObjectPtr<UAnimSequence> GreetingAnimation;
+ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC Motion") float AuthoredRunSpeed=220.f;
+ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC Motion") bool bEnableFootContacts=false;
+ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC Motion") bool bUpperBodyConversation=false;
+ UPROPERTY(BlueprintReadOnly, Transient, Category="NPC Presentation") int32 GreetingSerial=0;
+ UFUNCTION(BlueprintCallable, Category="NPC Presentation") bool ApplyPresentation(UPokeMonsterNPCPresentationData* Profile);
+ UFUNCTION(BlueprintCallable, Category="NPC Presentation") bool PlayGreeting();
  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC Motion") TObjectPtr<UAnimSequence> TurnLeftAnimation;
  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC Motion") TObjectPtr<UAnimSequence> TurnRightAnimation;
  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="NPC Motion", meta=(ClampMin="1")) float AuthoredWalkSpeed = 150.f;

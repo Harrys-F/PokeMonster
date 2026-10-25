@@ -1697,9 +1697,45 @@
       "bytes": 424188,
       "sha256": "a017fc487f9e470cb475ed2e974212645afcd5fbff88d34dc3e46220cb96ad04"
     },
+    "Art/Characters/NPCs/CrouchedCreature/Exports/Library/A_CrouchedCreature_Greet_Library.fbx": {
+      "bytes": 258684,
+      "sha256": "796a230a923e4b3d3bf1ffe93e9654ec50ff9b59d5e25dbc86ce4b776f13e3f9"
+    },
+    "Art/Characters/NPCs/CrouchedCreature/Exports/Library/A_CrouchedCreature_Idle_Library.fbx": {
+      "bytes": 279740,
+      "sha256": "87fa2682bc345902ec42256368d0dfa6c8c9a7d4f660fea689dbe3f4a0fc446f"
+    },
+    "Art/Characters/NPCs/CrouchedCreature/Exports/Library/A_CrouchedCreature_Run_Library.fbx": {
+      "bytes": 192300,
+      "sha256": "68603f0a3241e24f387f8df4d63f61645b66bc8177a7d059dab3debacf5d9f91"
+    },
+    "Art/Characters/NPCs/CrouchedCreature/Exports/Library/A_CrouchedCreature_Talk_Library.fbx": {
+      "bytes": 280636,
+      "sha256": "591db98ea9031c363e2d8bf112976b6b8140aff57be8d888c96c1c03d9346129"
+    },
+    "Art/Characters/NPCs/CrouchedCreature/Exports/Library/A_CrouchedCreature_TurnLeft_Library.fbx": {
+      "bytes": 206764,
+      "sha256": "d9890b78c007251613188755aed7486c41f1a81925bee9e134b04118e3eab298"
+    },
+    "Art/Characters/NPCs/CrouchedCreature/Exports/Library/A_CrouchedCreature_TurnRight_Library.fbx": {
+      "bytes": 206764,
+      "sha256": "e9d14b6c0564aeacc5b54acc36d568592af2ce63a907ab2e8c653a6e97f610b7"
+    },
+    "Art/Characters/NPCs/CrouchedCreature/Exports/Library/A_CrouchedCreature_Walk_Library.fbx": {
+      "bytes": 208060,
+      "sha256": "c214f120b4d511cb7f4ec65b6dbcb1a9ba60d53377d8b5e5cfbdb51ce1c2ffe4"
+    },
+    "Art/Characters/NPCs/CrouchedCreature/Exports/Library/SK_CrouchedCreature_Library.fbx": {
+      "bytes": 7074972,
+      "sha256": "1a254cf27964a925ca3e163b59679ced1e7d0bff29c02e1ec3dba004be85252e"
+    },
     "Art/Characters/NPCs/CrouchedCreature/Exports/SM_CrouchedCreature_Reference_V1.fbx": {
       "bytes": 6827900,
       "sha256": "613cdae862e19eee3bb1800519d1e6654239a8f4b5f8e6083638e1928745a453"
+    },
+    "Art/Characters/NPCs/CrouchedCreature/Source/CrouchedCreature_NPCLibrary.blend": {
+      "bytes": 23417381,
+      "sha256": "9c62f2050218c4f4806e56cdbf64bb875569c348301a239718beade280939bd0"
     },
     "Art/Characters/NPCs/CrouchedCreature/Source/CrouchedCreature_NPC_Source_V1.blend": {
       "bytes": 46011622,
@@ -1717,9 +1753,41 @@
       "bytes": 2903741,
       "sha256": "ad13e4a50b676ac1cd2678d62123fd826a2d182263d90ed1736e55bfe9eb7bb0"
     },
+    "Art/Characters/NPCs/DarkArmored/Exports/Library/A_DarkArmored_Greet_Library.fbx": {
+      "bytes": 258668,
+      "sha256": "db17508e963fccd1241aaac61b10d84891938476eb6fb984061661da420cff09"
+    },
+    "Art/Characters/NPCs/DarkArmored/Exports/Library/A_DarkArmored_Idle_Library.fbx": {
+      "bytes": 279660,
+      "sha256": "5f2c3258c27eb01744e7eac27d793955fbe0b10642acb0a418b4adaa33af4b17"
+    },
+    "Art/Characters/NPCs/DarkArmored/Exports/Library/A_DarkArmored_Talk_Library.fbx": {
+      "bytes": 280556,
+      "sha256": "1a38528918a98b6e04ed4b2147863f44b2d26d806206f26fa559e76f9101e49f"
+    },
+    "Art/Characters/NPCs/DarkArmored/Exports/Library/A_DarkArmored_TurnLeft_Library.fbx": {
+      "bytes": 206588,
+      "sha256": "bb073160ca5414e7ef2ef2f1713d010c58a688e291337a1edff4f392179403c9"
+    },
+    "Art/Characters/NPCs/DarkArmored/Exports/Library/A_DarkArmored_TurnRight_Library.fbx": {
+      "bytes": 206588,
+      "sha256": "1b4f4a9ff3c873cc86f7e2e153cfd1d467d4778d3c293cdf04757b2cf2cf1a1a"
+    },
+    "Art/Characters/NPCs/DarkArmored/Exports/Library/A_DarkArmored_Walk_Library.fbx": {
+      "bytes": 214524,
+      "sha256": "79dc6409c82ea0738cbf44d66e6a65ad87f4cde4bfaff8ce41146a4d10d1718e"
+    },
+    "Art/Characters/NPCs/DarkArmored/Exports/Library/SK_DarkArmored_Library.fbx": {
+      "bytes": 8874508,
+      "sha256": "a4ff55764994bd28fc0938e42531f3eb54385ba26af8473e22ec370ce1eb9e07"
+    },
     "Art/Characters/NPCs/DarkArmored/Exports/SM_DarkArmored_Reference_V1.fbx": {
       "bytes": 8101756,
       "sha256": "1799281b9f93ea6c0efa01e438e38026dcac0a3429c98cb5cec5f72165ef3ee2"
+    },
+    "Art/Characters/NPCs/DarkArmored/Source/DarkArmored_NPCLibrary.blend": {
+      "bytes": 23609357,
+      "sha256": "0eb270139cb78abae30233e0adb8dc28f2d901b662f81cab722c10db4176220a"
     },
     "Art/Characters/NPCs/DarkArmored/Source/DarkArmored_NPC_Source_V1.blend": {
       "bytes": 176839639,
@@ -1745,6 +1813,34 @@
       "bytes": 4135500,
       "sha256": "2f59b708844d68ae8ff04a7cf9de5d37e08dfc732a009d3cc7d8454ee57afa8e"
     },
+    "Art/Characters/NPCs/DwarfWarrior/Exports/Library/A_DwarfWarrior_Greet_Library.fbx": {
+      "bytes": 278972,
+      "sha256": "c153d8073004c8255f55ebac8584fc9b8aa4c631d97396c71f2d6f144b5bc5b3"
+    },
+    "Art/Characters/NPCs/DwarfWarrior/Exports/Library/A_DwarfWarrior_Idle_Library.fbx": {
+      "bytes": 301260,
+      "sha256": "2822c0f23f99176257f290d372607e7946b77adcc47cf948f87f9f817f7b3ec5"
+    },
+    "Art/Characters/NPCs/DwarfWarrior/Exports/Library/A_DwarfWarrior_Run_Library.fbx": {
+      "bytes": 207436,
+      "sha256": "587ca57c92d2cc9642adfce1fb9d11b16da8ec64392968fd1a0c2ca192358186"
+    },
+    "Art/Characters/NPCs/DwarfWarrior/Exports/Library/A_DwarfWarrior_Talk_Library.fbx": {
+      "bytes": 302524,
+      "sha256": "a9cc836826ef299dbc8784e76b5823f9af4226e54a3bb85290bba936f1213242"
+    },
+    "Art/Characters/NPCs/DwarfWarrior/Exports/Library/A_DwarfWarrior_TurnLeft_Library.fbx": {
+      "bytes": 223612,
+      "sha256": "141cdbcd6f0debb8101b9f95d8d29415415168b78aa00b99482e7c5a4b0c70e0"
+    },
+    "Art/Characters/NPCs/DwarfWarrior/Exports/Library/A_DwarfWarrior_TurnRight_Library.fbx": {
+      "bytes": 223612,
+      "sha256": "f3109674932a2bb0e833f1587c16c2816f337f5b5b98b28f76900f142decf6e4"
+    },
+    "Art/Characters/NPCs/DwarfWarrior/Exports/Library/A_DwarfWarrior_Walk_Library.fbx": {
+      "bytes": 224508,
+      "sha256": "3d55011f5a15ae3ef293b23121ad66bc4bf230b3a43f2d87bf54602ed51de2db"
+    },
     "Art/Characters/NPCs/DwarfWarrior/Exports/SK_DwarfWarrior_NPC_V1.fbx": {
       "bytes": 3914380,
       "sha256": "55845558b3fa3c81cb0b123af8db08c2efb2552f89e4eaf884a0aeb0c5eb56ca"
@@ -1752,6 +1848,10 @@
     "Art/Characters/NPCs/DwarfWarrior/Exports/SM_DwarfWarrior_Reference_V1.fbx": {
       "bytes": 7949324,
       "sha256": "6c0221158215c47248292dd2808d0a5edcf924c1243eac74043dbe29a4e25ae3"
+    },
+    "Art/Characters/NPCs/DwarfWarrior/Source/DwarfWarrior_NPCLibrary.blend": {
+      "bytes": 14673573,
+      "sha256": "fb8844252e9a207ec69271c20764a83c76f7f81fba67feab1e28cb855c3e094a"
     },
     "Art/Characters/NPCs/DwarfWarrior/Source/DwarfWarrior_NPC_Source_V1.blend": {
       "bytes": 203716197,
@@ -1781,6 +1881,34 @@
       "bytes": 4156684,
       "sha256": "004ef7f5c89c19083e1f85d2f544fd5a92bf1e794f187d5222d056176aef5dc4"
     },
+    "Art/Characters/NPCs/ElvenArcher/Exports/Library/A_ElvenArcher_Greet_Library.fbx": {
+      "bytes": 268300,
+      "sha256": "e0439e92fd6771075e4a8ea332b135812f2ec3d14df7669f192e03d7d8d16485"
+    },
+    "Art/Characters/NPCs/ElvenArcher/Exports/Library/A_ElvenArcher_Idle_Library.fbx": {
+      "bytes": 289564,
+      "sha256": "c0c5e9412f88969a1a83a9188e7f26cf5c68df8517812e92f4f28c80138be3ff"
+    },
+    "Art/Characters/NPCs/ElvenArcher/Exports/Library/A_ElvenArcher_Run_Library.fbx": {
+      "bytes": 199900,
+      "sha256": "d51d68173c8fff1b7ae34a103a81485ae0ef896026e91370e09dd44651d9625f"
+    },
+    "Art/Characters/NPCs/ElvenArcher/Exports/Library/A_ElvenArcher_Talk_Library.fbx": {
+      "bytes": 290876,
+      "sha256": "f75e50d767f4360ec7c9c52391e60d62e66c7b9eb18507fcab761d14eb873e33"
+    },
+    "Art/Characters/NPCs/ElvenArcher/Exports/Library/A_ElvenArcher_TurnLeft_Library.fbx": {
+      "bytes": 215292,
+      "sha256": "c7054a1c907c88ef29468b3b43dc2605ef4a34f8ddf273afc74ac97011681ead"
+    },
+    "Art/Characters/NPCs/ElvenArcher/Exports/Library/A_ElvenArcher_TurnRight_Library.fbx": {
+      "bytes": 215292,
+      "sha256": "f8b8de3344a51adf4382f424cc463be92dbd941956f84c2722ef94e781e9b22a"
+    },
+    "Art/Characters/NPCs/ElvenArcher/Exports/Library/A_ElvenArcher_Walk_Library.fbx": {
+      "bytes": 216316,
+      "sha256": "8f794c56afdb0acce593c861ad4211e64863004a752d69ee7c4cec21755af930"
+    },
     "Art/Characters/NPCs/ElvenArcher/Exports/SK_ElvenArcher_NPC_V1.fbx": {
       "bytes": 3944300,
       "sha256": "e28cbe78c059336b41ef5f5102da00be15a79e88e09e4b8ab69c72b9ee4afb67"
@@ -1788,6 +1916,10 @@
     "Art/Characters/NPCs/ElvenArcher/Exports/SM_ElvenArcher_Reference_V1.fbx": {
       "bytes": 7956428,
       "sha256": "3ff56348ddc676ca682fb2de201e578033b81ab7bb13121181fdfcd417aaaeb0"
+    },
+    "Art/Characters/NPCs/ElvenArcher/Source/ElvenArcher_NPCLibrary.blend": {
+      "bytes": 13593945,
+      "sha256": "9b415162f218066922788374f2d8c7896300627ccb4a66a0107a8d74ce791880"
     },
     "Art/Characters/NPCs/ElvenArcher/Source/ElvenArcher_NPC_Source_V1.blend": {
       "bytes": 118802093,
@@ -1809,9 +1941,41 @@
       "bytes": 2747105,
       "sha256": "a22bcd41846018fcbfa0671c300fa5dd42d37e730ed1f8fd50dc764ffcc6b7fb"
     },
+    "Art/Characters/NPCs/ElvenScholar/Exports/Library/A_ElvenScholar_Greet_Library.fbx": {
+      "bytes": 302588,
+      "sha256": "ebf5f79394b59caab4dff6333240848931d097599f65f360c6132790973d8a6c"
+    },
+    "Art/Characters/NPCs/ElvenScholar/Exports/Library/A_ElvenScholar_Idle_Library.fbx": {
+      "bytes": 326988,
+      "sha256": "699c1a5a0ccaa0360f21d38f49dc70d977d6679cf6d407f473511c3fa74a31ec"
+    },
+    "Art/Characters/NPCs/ElvenScholar/Exports/Library/A_ElvenScholar_Talk_Library.fbx": {
+      "bytes": 328700,
+      "sha256": "595f762c551ea75a1505fbac99b21649512bc023c27fe36819045a684fa8aa27"
+    },
+    "Art/Characters/NPCs/ElvenScholar/Exports/Library/A_ElvenScholar_TurnLeft_Library.fbx": {
+      "bytes": 240460,
+      "sha256": "3b9c670c37dad8dfd9af3f59ef6d9b2def5003982d3de4616a7d750f8a552f44"
+    },
+    "Art/Characters/NPCs/ElvenScholar/Exports/Library/A_ElvenScholar_TurnRight_Library.fbx": {
+      "bytes": 240460,
+      "sha256": "a2d6280ebed76358d90324a492ce8181681ee1112f300d4a514c593808747a4f"
+    },
+    "Art/Characters/NPCs/ElvenScholar/Exports/Library/A_ElvenScholar_Walk_Library.fbx": {
+      "bytes": 248396,
+      "sha256": "cb4f909211502ea484db01b7df65df977773d25298bae62adad29a56cfb556fb"
+    },
+    "Art/Characters/NPCs/ElvenScholar/Exports/Library/SK_ElvenScholar_Library.fbx": {
+      "bytes": 10014844,
+      "sha256": "b4a66616994bd8b49005f7a90fd2df8312cb7d7294ea43caf7b9526197d991d1"
+    },
     "Art/Characters/NPCs/ElvenScholar/Exports/SM_ElvenScholar_Reference_V1.fbx": {
       "bytes": 8989148,
       "sha256": "bd958f184eb21665b769e3a7d63163ed341b325ee55191e9a1b85a705ccd03a2"
+    },
+    "Art/Characters/NPCs/ElvenScholar/Source/ElvenScholar_NPCLibrary.blend": {
+      "bytes": 26699616,
+      "sha256": "81e4545aa15884232d91ff1626b70df4f42af54192763a20235c4d09c3ca0482"
     },
     "Art/Characters/NPCs/ElvenScholar/Source/ElvenScholar_NPC_Source_V1.blend": {
       "bytes": 287641647,
@@ -2080,6 +2244,38 @@
     "Art/Characters/NPCs/Ranger/Exports/AnimationV3/SK_Ranger_AQV3_LOD1.fbx": {
       "bytes": 1109164,
       "sha256": "657fe83839c1b8d75340c251c4f9f19a6baefe9385de868cdd044a3dde0ed21e"
+    },
+    "Art/Characters/NPCs/Ranger/Exports/Library/A_Ranger_Greet_Library.fbx": {
+      "bytes": 289868,
+      "sha256": "e7656a6b88dbb794a9e9014602c106520c08df80afdda626ce9d6396800f8a69"
+    },
+    "Art/Characters/NPCs/Ranger/Exports/Library/A_Ranger_Idle_Library.fbx": {
+      "bytes": 313164,
+      "sha256": "f5d19317f92c0fd8f7e34a36e29f7bd4f728d8cde803c4291c1a4490236646e9"
+    },
+    "Art/Characters/NPCs/Ranger/Exports/Library/A_Ranger_Run_Library.fbx": {
+      "bytes": 214924,
+      "sha256": "a92d590f6dae96a3e274098f7e2c19aa36e422b26d904535448d5b81a8e70533"
+    },
+    "Art/Characters/NPCs/Ranger/Exports/Library/A_Ranger_Talk_Library.fbx": {
+      "bytes": 314444,
+      "sha256": "d1d3ae98fa7e1a1e3f2ea09cbe82ea866a1e5982dc000316d0ec357f806878f4"
+    },
+    "Art/Characters/NPCs/Ranger/Exports/Library/A_Ranger_TurnLeft_Library.fbx": {
+      "bytes": 232108,
+      "sha256": "922cd908f37691c00e7c1326bdacbf841684cc26536b074719a5b6a126745c7b"
+    },
+    "Art/Characters/NPCs/Ranger/Exports/Library/A_Ranger_TurnRight_Library.fbx": {
+      "bytes": 232108,
+      "sha256": "ae0e8a9e9cb02fe5c6398fae5f7f50166983b3c4664517eccf5f2ea5b6b01896"
+    },
+    "Art/Characters/NPCs/Ranger/Exports/Library/A_Ranger_Walk_Library.fbx": {
+      "bytes": 232652,
+      "sha256": "621834ede6a5dd684f83e5c0d317bb8cc2542182aa3404374bfaaed83604939f"
+    },
+    "Art/Characters/NPCs/Ranger/Exports/Library/SK_Ranger_Library.fbx": {
+      "bytes": 4073500,
+      "sha256": "fe485fd6125c11fc61fd298fe5a35ae1e9a303d37a9960cd17551771278f2b9c"
     },
     "Art/Characters/NPCs/Ranger/Exports/SK_Ranger_NPC_V1.fbx": {
       "bytes": 3897516,
@@ -2381,6 +2577,10 @@
       "bytes": 1411,
       "sha256": "e75ddaba5c74e8e8c48140ce858e54e27ea06c9c3144b1df5b9220e8cc7cd462"
     },
+    "Art/Characters/NPCs/Ranger/Source/Ranger_NPCLibrary.blend": {
+      "bytes": 21970717,
+      "sha256": "a34b0b8d982846a93dc0c105de5ad2224d63c6dbc1b0eb1bcc01c235d6d73575"
+    },
     "Art/Characters/NPCs/Ranger/Source/Ranger_NPC_AnimationQuality_V2.blend": {
       "bytes": 130834580,
       "sha256": "339856fe0b003ff85f4eb5c39f1ef3584f744b28b7cac665cffb2a4226ed1939"
@@ -2437,6 +2637,26 @@
       "bytes": 10890860,
       "sha256": "6e7b1762b3e6480dded04d1ba287df45c3490dd2eb419701b4973bc770d65e60"
     },
+    "Art/Characters/NPCs/SilverLady/Exports/Library/A_SilverLady_Greet_Library.fbx": {
+      "bytes": 51036,
+      "sha256": "aec6accaf471cfd1893c713e867f3d9d9f172b9f126ae824d79d6ad3ac9df22a"
+    },
+    "Art/Characters/NPCs/SilverLady/Exports/Library/A_SilverLady_Idle_Library.fbx": {
+      "bytes": 59500,
+      "sha256": "793d9e48acabcaa4615ccf111f51d0944e4123042f2bf953e77e0055f94f7e02"
+    },
+    "Art/Characters/NPCs/SilverLady/Exports/Library/A_SilverLady_Talk_Library.fbx": {
+      "bytes": 54540,
+      "sha256": "12c59537d620584fe3847a025dc2566db6e5117675107edb86270361c001ab5a"
+    },
+    "Art/Characters/NPCs/SilverLady/Exports/Library/A_SilverLady_TurnLeft_Library.fbx": {
+      "bytes": 42956,
+      "sha256": "9be39d9512b1ee25ff937b2b7610e7cc65475a0a3de8f91018cfb36486846cfa"
+    },
+    "Art/Characters/NPCs/SilverLady/Exports/Library/A_SilverLady_TurnRight_Library.fbx": {
+      "bytes": 42956,
+      "sha256": "f8df9d4a0484209250d44d991072c8ff563a8ad748f26a48fb4355709019c11e"
+    },
     "Art/Characters/NPCs/SilverLady/Exports/SK_WestlandHealer_ArtV4.fbx": {
       "bytes": 10839820,
       "sha256": "644420e82b04bfd8895d68952ef2e915800058e1d1857181b73879cfd6fa10ad"
@@ -2456,6 +2676,10 @@
     "Art/Characters/NPCs/SilverLady/Source/SilverLady_HealerPose.blend": {
       "bytes": 36527666,
       "sha256": "98d0e88facd2b49915eb88fcb8004f11459a3312e9b10b38a7d52b4d151efed8"
+    },
+    "Art/Characters/NPCs/SilverLady/Source/SilverLady_NPCLibrary.blend": {
+      "bytes": 49495227,
+      "sha256": "04fbcf989f6e86e045d3c307f7df46b4946e68971a278b007fbfd63ce760f185"
     },
     "Art/Characters/NPCs/SilverLady/Source/SilverLady_NPC_Source_V1.blend": {
       "bytes": 379281849,
@@ -2477,9 +2701,37 @@
       "bytes": 3353050,
       "sha256": "fe9836441ea8b6d5acce689fbed404d6411d9768ee80830bc28fd3c31d7d59d6"
     },
+    "Art/Characters/NPCs/TreeBeing/Exports/Library/A_TreeBeing_Greet_Library.fbx": {
+      "bytes": 258668,
+      "sha256": "fa3ee6e4efc975d2e37c429fa80ca7831b774dcf0c869d2fa4db36fd63bd8667"
+    },
+    "Art/Characters/NPCs/TreeBeing/Exports/Library/A_TreeBeing_Idle_Library.fbx": {
+      "bytes": 279596,
+      "sha256": "2a102f638356da1967c5c602929ca9c26f8ec555a4f498aaeb4f3686c11bdc02"
+    },
+    "Art/Characters/NPCs/TreeBeing/Exports/Library/A_TreeBeing_Talk_Library.fbx": {
+      "bytes": 280572,
+      "sha256": "4ef012ab65eb5b18145df5b496e9b7843161d5c1d320fb0d1fef27e984b86543"
+    },
+    "Art/Characters/NPCs/TreeBeing/Exports/Library/A_TreeBeing_TurnLeft_Library.fbx": {
+      "bytes": 205724,
+      "sha256": "c227cbeb8977a1f96f10bc726663e0cee305b36914ac07f6213d5ab9962a158e"
+    },
+    "Art/Characters/NPCs/TreeBeing/Exports/Library/A_TreeBeing_TurnRight_Library.fbx": {
+      "bytes": 205724,
+      "sha256": "5248272aab3c786cae000956ca6d791d215cb8f57d60654aa6a0906fd0478ecb"
+    },
+    "Art/Characters/NPCs/TreeBeing/Exports/Library/SK_TreeBeing_Library.fbx": {
+      "bytes": 8131212,
+      "sha256": "1e599718a53f7ab966a932ccb6be8969604fd694e220dc04e2ba41191d671b1c"
+    },
     "Art/Characters/NPCs/TreeBeing/Exports/SM_TreeBeing_Reference_V1.fbx": {
       "bytes": 7665532,
       "sha256": "d5f59aa5145bd80e6dd1f9fcde7c2e9086d6e58fcdb73e19e348547c2276de5a"
+    },
+    "Art/Characters/NPCs/TreeBeing/Source/TreeBeing_NPCLibrary.blend": {
+      "bytes": 26530130,
+      "sha256": "084533d134be79de3bcb18ce8a720969cd71ca670af97112e4b79b96a3d2954b"
     },
     "Art/Characters/NPCs/TreeBeing/Source/TreeBeing_NPC_Source_V1.blend": {
       "bytes": 124824741,
@@ -2500,6 +2752,38 @@
     "Art/Characters/NPCs/Westland/HobbitBase/.gitattributes": {
       "bytes": 133,
       "sha256": "95de9fa5f990dd0d5e2cb925606b8fa36810ef62292e6eaa9ccc331c48c53925"
+    },
+    "Art/Characters/NPCs/Westland/HobbitBase/Exports/Library/A_HobbitBase_Greet_Library.fbx": {
+      "bytes": 280396,
+      "sha256": "3bf69953014369c8d8e13348a8000ecfa2008c9d34cf7645f9ef0cbc1a167ec4"
+    },
+    "Art/Characters/NPCs/Westland/HobbitBase/Exports/Library/A_HobbitBase_Idle_Library.fbx": {
+      "bytes": 302476,
+      "sha256": "12607097a599f4f83c4219f76ba98ea076ff955a72de5426a378027a7a6544f0"
+    },
+    "Art/Characters/NPCs/Westland/HobbitBase/Exports/Library/A_HobbitBase_Run_Library.fbx": {
+      "bytes": 207516,
+      "sha256": "33e7197c20d7840b64f927001928e1b32df4e97c4d07794d728ad52b04522c9a"
+    },
+    "Art/Characters/NPCs/Westland/HobbitBase/Exports/Library/A_HobbitBase_Talk_Library.fbx": {
+      "bytes": 303660,
+      "sha256": "10e274b2125f2fb4806d5c7a8394a6f7e12212ae59279910199606ba2de86424"
+    },
+    "Art/Characters/NPCs/Westland/HobbitBase/Exports/Library/A_HobbitBase_TurnLeft_Library.fbx": {
+      "bytes": 224380,
+      "sha256": "3e06a4dcea6d9dc80b36a1bbc54e96d720c2f9f1858760ef8cc4383f25950ce4"
+    },
+    "Art/Characters/NPCs/Westland/HobbitBase/Exports/Library/A_HobbitBase_TurnRight_Library.fbx": {
+      "bytes": 224380,
+      "sha256": "6bd8f499d0ea39aff819f0df0ae2ee2ef0852effe805e0e8566bcca70cb7cce1"
+    },
+    "Art/Characters/NPCs/Westland/HobbitBase/Exports/Library/A_HobbitBase_Walk_Library.fbx": {
+      "bytes": 224588,
+      "sha256": "521b7716730c14ea769bcc3792cd0f663d9289bfcddbceff5385fd088d30feb3"
+    },
+    "Art/Characters/NPCs/Westland/HobbitBase/Exports/Library/SK_HobbitBase_Library.fbx": {
+      "bytes": 3104412,
+      "sha256": "8a228a07963627754fe3aded0b8c8b78444a2157eb62d8ce2cb810b79464496d"
     },
     "Art/Characters/NPCs/Westland/HobbitBase/Incoming/4K_Base_V1/Meshy_Hobbit.glb": {
       "bytes": 86784364,
@@ -3817,6 +4101,10 @@
       "bytes": 2534,
       "sha256": "a35d95a8f83bffd1db0ecbcbfa9f4ae63e8e547da54dd85f8f4a94c1ed6da33a"
     },
+    "Art/Characters/NPCs/Westland/HobbitBase/Source/HobbitBase_NPCLibrary.blend": {
+      "bytes": 19949352,
+      "sha256": "426522f14d8e4151e93560af3db1a62b77eabfa7c43580d8f28789387abb7f2a"
+    },
     "Art/Characters/NPCs/Westland/HobbitBase/Source/Hobbit_NPC_4K_Base_V1.blend": {
       "bytes": 250268798,
       "sha256": "c7004e4855afe6741a3ab17e1d4c4f5d3ff7dce427451dae4b3ff5d946094f8c"
@@ -4349,6 +4637,34 @@
       "bytes": 4001548,
       "sha256": "378d5546adcb4de23c99426ae2c1e3a20d8fe94a3c3a684a801490752dc55068"
     },
+    "Art/Characters/NPCs/WhiteHairedWarrior/Exports/Library/A_WhiteHairedWarrior_Greet_Library.fbx": {
+      "bytes": 268460,
+      "sha256": "9cf6b21b5036fdb839acacfbacbf697f49c0addf265e8070171580117c4fc26e"
+    },
+    "Art/Characters/NPCs/WhiteHairedWarrior/Exports/Library/A_WhiteHairedWarrior_Idle_Library.fbx": {
+      "bytes": 289772,
+      "sha256": "ff5a39b4f49eb061be94d0f540dfcdda8d1f8a497f0890f83dce75f2351b8115"
+    },
+    "Art/Characters/NPCs/WhiteHairedWarrior/Exports/Library/A_WhiteHairedWarrior_Run_Library.fbx": {
+      "bytes": 199964,
+      "sha256": "d0a4cb5199f9b353077d58f9dfd56e7bda86020fb9c71bd03efedf8239d5149b"
+    },
+    "Art/Characters/NPCs/WhiteHairedWarrior/Exports/Library/A_WhiteHairedWarrior_Talk_Library.fbx": {
+      "bytes": 290956,
+      "sha256": "1f743e29dbef913014fbd77bb8bfa91c52dfcdc2859c1b7a5ed04d823c4a36ed"
+    },
+    "Art/Characters/NPCs/WhiteHairedWarrior/Exports/Library/A_WhiteHairedWarrior_TurnLeft_Library.fbx": {
+      "bytes": 215548,
+      "sha256": "1192c65f991f6de87cab9975f7c739fdd9e5481ecf1b133b3780a2c925124295"
+    },
+    "Art/Characters/NPCs/WhiteHairedWarrior/Exports/Library/A_WhiteHairedWarrior_TurnRight_Library.fbx": {
+      "bytes": 215548,
+      "sha256": "84b86d3f2523c2e59170b04766a2b55f599def00cc68c90cac96087277cffdf2"
+    },
+    "Art/Characters/NPCs/WhiteHairedWarrior/Exports/Library/A_WhiteHairedWarrior_Walk_Library.fbx": {
+      "bytes": 216396,
+      "sha256": "41b0425cb3150c31caf0731ddf51c84a256edb756b1334f1910209a1af199619"
+    },
     "Art/Characters/NPCs/WhiteHairedWarrior/Exports/SK_WhiteHairedWarrior_NPC_V1.fbx": {
       "bytes": 3789004,
       "sha256": "9a921945ee0c0856e2d7302202dd3ce63f7a4cfb53a0c95b12848572323f4716"
@@ -4356,6 +4672,10 @@
     "Art/Characters/NPCs/WhiteHairedWarrior/Exports/SM_WhiteHairedWarrior_Reference_V1.fbx": {
       "bytes": 6890300,
       "sha256": "96a56a25224566eac5063d5684f391c69d14e55be8b185d81db0870f51011c70"
+    },
+    "Art/Characters/NPCs/WhiteHairedWarrior/Source/WhiteHairedWarrior_NPCLibrary.blend": {
+      "bytes": 14429561,
+      "sha256": "657ff0202c4c3e293060e818da37469c50e8410acda8520c5332ee922384c9f5"
     },
     "Art/Characters/NPCs/WhiteHairedWarrior/Source/WhiteHairedWarrior_NPC_Source_V1.blend": {
       "bytes": 94836821,
@@ -4377,9 +4697,41 @@
       "bytes": 3257534,
       "sha256": "4d95ba61c646c9a26daa6fc00970193017820d18d741ed3caf9677b3da45661f"
     },
+    "Art/Characters/NPCs/Wizard/Exports/Library/A_Wizard_Greet_Library.fbx": {
+      "bytes": 269708,
+      "sha256": "16888b4d6f00cffba4bac483539d6cf74bd01ba82064b2867bf4345020034e04"
+    },
+    "Art/Characters/NPCs/Wizard/Exports/Library/A_Wizard_Idle_Library.fbx": {
+      "bytes": 291932,
+      "sha256": "11d22319b8b6b58318b9d886480e5f088c801c9c6c83e47a5abe40e2b9d0540b"
+    },
+    "Art/Characters/NPCs/Wizard/Exports/Library/A_Wizard_Talk_Library.fbx": {
+      "bytes": 292748,
+      "sha256": "80f8b3bd42219b2d98fd577d016bdba5b3081de43c799772a1b2489cde9a7cf7"
+    },
+    "Art/Characters/NPCs/Wizard/Exports/Library/A_Wizard_TurnLeft_Library.fbx": {
+      "bytes": 215196,
+      "sha256": "1eb04ceed9dc95f81a114b7363b9b0ce319a448799e3260c993445ad2ea68cc3"
+    },
+    "Art/Characters/NPCs/Wizard/Exports/Library/A_Wizard_TurnRight_Library.fbx": {
+      "bytes": 215196,
+      "sha256": "7256039cc48028619989db0c3c223964fd98fe43d006a0d43475bdbb35949c4d"
+    },
+    "Art/Characters/NPCs/Wizard/Exports/Library/A_Wizard_Walk_Library.fbx": {
+      "bytes": 222956,
+      "sha256": "e87459d92cd69a5dc053c432887e4af50395e4447d95b35bd5c08048470976dc"
+    },
+    "Art/Characters/NPCs/Wizard/Exports/Library/SK_Wizard_Library.fbx": {
+      "bytes": 8018188,
+      "sha256": "53354865c9ca927a7be4110b617d68faa1f0a16695051eee7054295c76876c21"
+    },
     "Art/Characters/NPCs/Wizard/Exports/SM_Wizard_Reference_V1.fbx": {
       "bytes": 7480860,
       "sha256": "e0d4e2e17e03177cf85fca01cf772575bfa02fbdce29dc38e12f0f6d78fe6468"
+    },
+    "Art/Characters/NPCs/Wizard/Source/Wizard_NPCLibrary.blend": {
+      "bytes": 25120817,
+      "sha256": "17fd43b3a44715b829fa40bd7b08d5eb662f9ccd48b03018faebf760a484a215"
     },
     "Art/Characters/NPCs/Wizard/Source/Wizard_NPC_Source_V1.blend": {
       "bytes": 120054708,
@@ -8605,6 +8957,402 @@
       "bytes": 2988327,
       "sha256": "19aed0682623b1c6b5b044c52b735b3e769507e5c78811d263829ee8423b865a"
     },
+    "Content/Characters/NPCs/Library/CrouchedCreature/Animations/A_CrouchedCreature_Greet_Library.uasset": {
+      "bytes": 67030,
+      "sha256": "e9612856c329fd35df580c4409680b5b2b903924fada7ad2bb8c4f02032323a3"
+    },
+    "Content/Characters/NPCs/Library/CrouchedCreature/Animations/A_CrouchedCreature_Idle_Library.uasset": {
+      "bytes": 62839,
+      "sha256": "a0e000b376179017f13de2f113af247e125d3560b1bab85ec1ffd1fc5bc5a1a9"
+    },
+    "Content/Characters/NPCs/Library/CrouchedCreature/Animations/A_CrouchedCreature_Run_Library.uasset": {
+      "bytes": 57642,
+      "sha256": "c3aebd7fca6278eca8f3a637958e145f16adc99ffab104b517b7af09fe2b35d0"
+    },
+    "Content/Characters/NPCs/Library/CrouchedCreature/Animations/A_CrouchedCreature_Talk_Library.uasset": {
+      "bytes": 71607,
+      "sha256": "31d347fd56c25ad31367680f3ffcd8b2fdf219f573b5064487663e2c464f4897"
+    },
+    "Content/Characters/NPCs/Library/CrouchedCreature/Animations/A_CrouchedCreature_TurnLeft_Library.uasset": {
+      "bytes": 54419,
+      "sha256": "9b68dc41690282670b35578183c04fe47a42bc742c48f1175cd72a832eb32a8c"
+    },
+    "Content/Characters/NPCs/Library/CrouchedCreature/Animations/A_CrouchedCreature_TurnRight_Library.uasset": {
+      "bytes": 54426,
+      "sha256": "d8c514947672af33a14c21b858997e3ad4266619e4cd666f975f94c0a9a7f68e"
+    },
+    "Content/Characters/NPCs/Library/CrouchedCreature/Animations/A_CrouchedCreature_Walk_Library.uasset": {
+      "bytes": 64460,
+      "sha256": "dbec2f0e5402b5f99fd336c708c52712aef43924783be8f2f7e35d3bd605b59b"
+    },
+    "Content/Characters/NPCs/Library/CrouchedCreature/Meshes/SK_CrouchedCreature_Library.uasset": {
+      "bytes": 26612056,
+      "sha256": "243a5878f6616a447508ae927518a8c5caecf0a5f8e648b957fe761c8901c6ae"
+    },
+    "Content/Characters/NPCs/Library/CrouchedCreature/Meshes/SK_CrouchedCreature_Library_Skeleton.uasset": {
+      "bytes": 12024,
+      "sha256": "afbee92b0c1c1a144a39382ab2c4b297c1141bf28374d25fa644b4740e624918"
+    },
+    "Content/Characters/NPCs/Library/DarkArmored/Animations/A_DarkArmored_Greet_Library.uasset": {
+      "bytes": 67717,
+      "sha256": "3180e477827acf0fa5b6bd7efd8134cf5394df9196b8c88120b517e7ffe26738"
+    },
+    "Content/Characters/NPCs/Library/DarkArmored/Animations/A_DarkArmored_Idle_Library.uasset": {
+      "bytes": 63545,
+      "sha256": "7ebfcb3a22a8abbdd76a4a9d304b669ee78b69c901b3f53a13c8b8d34afef7c6"
+    },
+    "Content/Characters/NPCs/Library/DarkArmored/Animations/A_DarkArmored_Talk_Library.uasset": {
+      "bytes": 72304,
+      "sha256": "96c2e20591134e753abea59625f20cc2a966350f4687051809003f6692f09957"
+    },
+    "Content/Characters/NPCs/Library/DarkArmored/Animations/A_DarkArmored_TurnLeft_Library.uasset": {
+      "bytes": 55119,
+      "sha256": "45c1d4f360d16913e837facd390e5a2e7a4d37010b895ce15cefe58e578672f7"
+    },
+    "Content/Characters/NPCs/Library/DarkArmored/Animations/A_DarkArmored_TurnRight_Library.uasset": {
+      "bytes": 55126,
+      "sha256": "0424202f0d5c81c89ed4699d6c076e7690088d380f1de25700ff161fcf5bd479"
+    },
+    "Content/Characters/NPCs/Library/DarkArmored/Animations/A_DarkArmored_Walk_Library.uasset": {
+      "bytes": 68160,
+      "sha256": "d59c8355ecb207abe7ed8b5624cec8d12981ba764dd2fd4e492a84a358ebc040"
+    },
+    "Content/Characters/NPCs/Library/DarkArmored/Meshes/SK_DarkArmored_Library.uasset": {
+      "bytes": 33345870,
+      "sha256": "ac44d9a937093666f906433c5a9f05cfdf4b5ad10f06ef96c5d961577f7a9420"
+    },
+    "Content/Characters/NPCs/Library/DarkArmored/Meshes/SK_DarkArmored_Library_Skeleton.uasset": {
+      "bytes": 12889,
+      "sha256": "763c6b011f2f208fba67b56be0fe58afeb940434aec69151645ea2e5c53c54ca"
+    },
+    "Content/Characters/NPCs/Library/DwarfWarrior/Animations/SharedSkeleton/A_DwarfWarrior_Greet_Library.uasset": {
+      "bytes": 79597,
+      "sha256": "fc09b49659c882992e66f594f97d3a0ad215a88543b2b7d25ed3f003b808ce78"
+    },
+    "Content/Characters/NPCs/Library/DwarfWarrior/Animations/SharedSkeleton/A_DwarfWarrior_Idle_Library.uasset": {
+      "bytes": 72484,
+      "sha256": "f87ae5964184aaf2391227f4b248d3ca00e89699a8fe2230b6c03a09f1192189"
+    },
+    "Content/Characters/NPCs/Library/DwarfWarrior/Animations/SharedSkeleton/A_DwarfWarrior_Run_Library.uasset": {
+      "bytes": 60385,
+      "sha256": "b4ec1b77501ffe94e12f7b924bbc7e39ea4ef2b8cdf856999cbeb3292594aab1"
+    },
+    "Content/Characters/NPCs/Library/DwarfWarrior/Animations/SharedSkeleton/A_DwarfWarrior_Talk_Library.uasset": {
+      "bytes": 81219,
+      "sha256": "43007692c6a8da00b7dcaadd2c084d5d11050f98d653ceabd97518ad75733660"
+    },
+    "Content/Characters/NPCs/Library/DwarfWarrior/Animations/SharedSkeleton/A_DwarfWarrior_TurnLeft_Library.uasset": {
+      "bytes": 73085,
+      "sha256": "db6d1423ae60912890b5f5cbf74c677c0de20c83d924361ef3a1daf53be5959d"
+    },
+    "Content/Characters/NPCs/Library/DwarfWarrior/Animations/SharedSkeleton/A_DwarfWarrior_TurnRight_Library.uasset": {
+      "bytes": 73092,
+      "sha256": "4275cf6a5afeb26647b38151ff8ee70f95d458d9ada19688cf58ac78a91eb2ca"
+    },
+    "Content/Characters/NPCs/Library/DwarfWarrior/Animations/SharedSkeleton/A_DwarfWarrior_Walk_Library.uasset": {
+      "bytes": 67980,
+      "sha256": "86a6275d9d56ae162631ea3dcf2ff81a62419e4ecebd0b6595a1125a4dd5b3cd"
+    },
+    "Content/Characters/NPCs/Library/ElvenArcher/Animations/SharedSkeleton/A_ElvenArcher_Greet_Library.uasset": {
+      "bytes": 71632,
+      "sha256": "d863d7e1f0f557a0975109b7db7370b0e93b23bbad262e2c76bccdda2d7766e1"
+    },
+    "Content/Characters/NPCs/Library/ElvenArcher/Animations/SharedSkeleton/A_ElvenArcher_Idle_Library.uasset": {
+      "bytes": 62757,
+      "sha256": "971595c1a3eaf1f7ecbcb2609033234896b312eead0fe54fbc9ad50eafb91303"
+    },
+    "Content/Characters/NPCs/Library/ElvenArcher/Animations/SharedSkeleton/A_ElvenArcher_Run_Library.uasset": {
+      "bytes": 57425,
+      "sha256": "4a1479c3f0e04a224a68d32aa35f4d64f52ed6011b96a69c1d15b082056f9484"
+    },
+    "Content/Characters/NPCs/Library/ElvenArcher/Animations/SharedSkeleton/A_ElvenArcher_Talk_Library.uasset": {
+      "bytes": 71497,
+      "sha256": "8bd532354cf89304d15dd749af4d0a0a3c97989e3103b5d93efcb6217d67dda1"
+    },
+    "Content/Characters/NPCs/Library/ElvenArcher/Animations/SharedSkeleton/A_ElvenArcher_TurnLeft_Library.uasset": {
+      "bytes": 68539,
+      "sha256": "7cdabdab18b75243da7c6d047f714046d0309fe1b69b724281b0cff56cebd35c"
+    },
+    "Content/Characters/NPCs/Library/ElvenArcher/Animations/SharedSkeleton/A_ElvenArcher_TurnRight_Library.uasset": {
+      "bytes": 68546,
+      "sha256": "8f4a8e10d13ef653f9a26dd866845008a780100c5ddb4eeac20c2a64bdff3ee5"
+    },
+    "Content/Characters/NPCs/Library/ElvenArcher/Animations/SharedSkeleton/A_ElvenArcher_Walk_Library.uasset": {
+      "bytes": 64325,
+      "sha256": "8c8af4f1ce1f47773f2c14ee02150292769c19cb162dd5c83ae7c2e57423c310"
+    },
+    "Content/Characters/NPCs/Library/ElvenScholar/Animations/A_ElvenScholar_Greet_Library.uasset": {
+      "bytes": 98135,
+      "sha256": "6ccd73a7f0ab736402cd13987bcf973c1235384c7ac8f1309d8dcb01e1221162"
+    },
+    "Content/Characters/NPCs/Library/ElvenScholar/Animations/A_ElvenScholar_Idle_Library.uasset": {
+      "bytes": 100792,
+      "sha256": "76e44910b0b7111bfcdb96178c1b24b8140dd0eae0ce64d2088a5133bb45a841"
+    },
+    "Content/Characters/NPCs/Library/ElvenScholar/Animations/A_ElvenScholar_Talk_Library.uasset": {
+      "bytes": 109559,
+      "sha256": "eb0079a03f32547c48fc2a6059b5a2f866e9224b0d65fb8707d5f62c5d843a02"
+    },
+    "Content/Characters/NPCs/Library/ElvenScholar/Animations/A_ElvenScholar_TurnLeft_Library.uasset": {
+      "bytes": 71630,
+      "sha256": "dbf9c32734c51976ed5412d351a68fedc70593c9940a7fb0a97cd6484434ba9d"
+    },
+    "Content/Characters/NPCs/Library/ElvenScholar/Animations/A_ElvenScholar_TurnRight_Library.uasset": {
+      "bytes": 71637,
+      "sha256": "0188e9e27c68bba32588b5e47ebbe7942ae8c572ccb63c20d6689ee20062f8d3"
+    },
+    "Content/Characters/NPCs/Library/ElvenScholar/Animations/A_ElvenScholar_Walk_Library.uasset": {
+      "bytes": 82411,
+      "sha256": "73d24ca593f4ade39cc45f7477661d7dbf971c18a6723c6fec20b40cbd20ae56"
+    },
+    "Content/Characters/NPCs/Library/ElvenScholar/Meshes/SK_ElvenScholar_Library.uasset": {
+      "bytes": 36745611,
+      "sha256": "6d44b358d156cde7c751cb0191d25821195c6a0892cb17149bd2ecef4e11cd62"
+    },
+    "Content/Characters/NPCs/Library/ElvenScholar/Meshes/SK_ElvenScholar_Library_Skeleton.uasset": {
+      "bytes": 13993,
+      "sha256": "336089e45f1ca61045288f1ecde7dc9a05f99b665ec3732c5cc15d06835affd5"
+    },
+    "Content/Characters/NPCs/Library/HobbitBase/Animations/A_HobbitBase_Greet_Library.uasset": {
+      "bytes": 94859,
+      "sha256": "8aefdf3d3a34de4a30ab9f90ec312b9d589b6024c66de168b42501c0ec5745e8"
+    },
+    "Content/Characters/NPCs/Library/HobbitBase/Animations/A_HobbitBase_Idle_Library.uasset": {
+      "bytes": 88157,
+      "sha256": "4a7ad6141fbc50fca4015fc17687e7d0fdb95e980010b2e284ef466b0edfcff2"
+    },
+    "Content/Characters/NPCs/Library/HobbitBase/Animations/A_HobbitBase_Run_Library.uasset": {
+      "bytes": 67051,
+      "sha256": "9205904cd54a796f5100d343bda0db76e375f2622fad158429eaf269096ef55a"
+    },
+    "Content/Characters/NPCs/Library/HobbitBase/Animations/A_HobbitBase_Talk_Library.uasset": {
+      "bytes": 96925,
+      "sha256": "ce52c04d2ea8099899c9b125d96b3afb14267f32d36adb93d5b91d6cf5331e74"
+    },
+    "Content/Characters/NPCs/Library/HobbitBase/Animations/A_HobbitBase_TurnLeft_Library.uasset": {
+      "bytes": 80118,
+      "sha256": "e56432feb0e0c98d9e91591aeef13d8977d50c1a968ee785de93dd306923e3e9"
+    },
+    "Content/Characters/NPCs/Library/HobbitBase/Animations/A_HobbitBase_TurnRight_Library.uasset": {
+      "bytes": 80125,
+      "sha256": "d135441d1318cce162e823237dcf26a1cb181682fbb13f774fab20258bc01a15"
+    },
+    "Content/Characters/NPCs/Library/HobbitBase/Animations/A_HobbitBase_Walk_Library.uasset": {
+      "bytes": 75453,
+      "sha256": "27648a743236bc61bf507355c2594d793b87943ce79ca8f9ec38d6499efc7dbf"
+    },
+    "Content/Characters/NPCs/Library/HobbitBase/Materials/MI_HobbitBase_Original.uasset": {
+      "bytes": 10844,
+      "sha256": "01b06c139e59c7ebed0b2568f6a4d6cbd0bf7b926f1089a1ebce4d33697f7de7"
+    },
+    "Content/Characters/NPCs/Library/HobbitBase/Meshes/SK_HobbitBase_Library.uasset": {
+      "bytes": 11526171,
+      "sha256": "87226175ce1edee6842c9d1f4277f9a6dec315a0f6135f2c40a30a388fa88458"
+    },
+    "Content/Characters/NPCs/Library/HobbitBase/Meshes/SK_HobbitBase_Library_Skeleton.uasset": {
+      "bytes": 12462,
+      "sha256": "a629a72ceff686993a36261477766e1add6388af956f764cf9ba980da065715c"
+    },
+    "Content/Characters/NPCs/Library/HobbitBase/Textures/T_HobbitBase_BaseColor.uasset": {
+      "bytes": 6906032,
+      "sha256": "eb33c5c384a3be82a16e82ec66b717f279d436ae532d2a6fd9080210c592562e"
+    },
+    "Content/Characters/NPCs/Library/HobbitBase/Textures/T_HobbitBase_MetalRough.uasset": {
+      "bytes": 4338720,
+      "sha256": "023b13bc2f498f4f918c92f565d4548b9096970b27135022f2607d074e5cf3c2"
+    },
+    "Content/Characters/NPCs/Library/HobbitBase/Textures/T_HobbitBase_Normal.uasset": {
+      "bytes": 5949718,
+      "sha256": "9beb6accac9d30a1a5cfd40f86a6fa8b48807668006eea9857cd6f4b38a9b979"
+    },
+    "Content/Characters/NPCs/Library/Profiles/DA_NPC_CrouchedCreature.uasset": {
+      "bytes": 4386,
+      "sha256": "862287ea2eb184ea7c5f4fff353b2720fb0bc78f420f2b0103d3cbaa4a3a200d"
+    },
+    "Content/Characters/NPCs/Library/Profiles/DA_NPC_DarkArmored.uasset": {
+      "bytes": 4040,
+      "sha256": "a5e623f2b5785509ee89f5f73b23df2f413fe8ad0a5868b80b045bdba9f0026c"
+    },
+    "Content/Characters/NPCs/Library/Profiles/DA_NPC_DwarfWarrior.uasset": {
+      "bytes": 4333,
+      "sha256": "b79bd7d8c57b7612a07e981e06e1395801391b1a34aa00827f0a04538dc4ec8a"
+    },
+    "Content/Characters/NPCs/Library/Profiles/DA_NPC_ElvenArcher.uasset": {
+      "bytes": 4369,
+      "sha256": "935e92c246c9c2bc2186f5abb3478a175b720af174bd5ef771d474adad7e33e3"
+    },
+    "Content/Characters/NPCs/Library/Profiles/DA_NPC_ElvenScholar.uasset": {
+      "bytes": 4072,
+      "sha256": "9afdc7d13b1ca36b789407b8182c05e7771fa4c2e82ae1e5b194533959175fef"
+    },
+    "Content/Characters/NPCs/Library/Profiles/DA_NPC_HobbitBase.uasset": {
+      "bytes": 4282,
+      "sha256": "19ad9ca8726318a00a1205edd0f5dacf56522a54ffeb4c4684e3d3e2712ef99a"
+    },
+    "Content/Characters/NPCs/Library/Profiles/DA_NPC_Ranger.uasset": {
+      "bytes": 3946,
+      "sha256": "5c573c8f482e2d9fd5e686ba7fe81e858b62883cc40b922a1046b233a910ee0c"
+    },
+    "Content/Characters/NPCs/Library/Profiles/DA_NPC_SilverLady.uasset": {
+      "bytes": 3827,
+      "sha256": "dbbca83fb03d1c088b08a88c5a5937f558280f1cdc2014d9921b43f3f511dca4"
+    },
+    "Content/Characters/NPCs/Library/Profiles/DA_NPC_TreeBeing.uasset": {
+      "bytes": 3754,
+      "sha256": "0953373706841d30ebe090a06dc29ca15057d5c56d52d17db66a2b1157fd271f"
+    },
+    "Content/Characters/NPCs/Library/Profiles/DA_NPC_WhiteHairedWarrior.uasset": {
+      "bytes": 4450,
+      "sha256": "30e5828cd3a382c78bcae514e277d368fd404cb3de392e75ef16ba9ead565a41"
+    },
+    "Content/Characters/NPCs/Library/Profiles/DA_NPC_Wizard.uasset": {
+      "bytes": 3809,
+      "sha256": "d97db51ae88d0687a36d0d6102794a37961dfb695c61985692d57e5d7d9b34e0"
+    },
+    "Content/Characters/NPCs/Library/Ranger/Animations/A_Ranger_Greet_Library.uasset": {
+      "bytes": 86968,
+      "sha256": "093be5ce286589e89f7b8b7a56af7fedbd062e1436b470060b67e36e90ea04c5"
+    },
+    "Content/Characters/NPCs/Library/Ranger/Animations/A_Ranger_Idle_Library.uasset": {
+      "bytes": 81508,
+      "sha256": "1510d63cd10fb1c03ebbfd35d6d0ea54ec3eb7bbbaaa72cf04933d51bfa17f55"
+    },
+    "Content/Characters/NPCs/Library/Ranger/Animations/A_Ranger_Run_Library.uasset": {
+      "bytes": 63336,
+      "sha256": "157871cccc8ce4d37dd2408d6c1a0e9f6a2cc742e34a9c9bd27fc9532dabe142"
+    },
+    "Content/Characters/NPCs/Library/Ranger/Animations/A_Ranger_Talk_Library.uasset": {
+      "bytes": 90269,
+      "sha256": "b9433976c4d57c6bdd46dd078d9ce08000f464b70974362b661a581c8ab0bc53"
+    },
+    "Content/Characters/NPCs/Library/Ranger/Animations/A_Ranger_TurnLeft_Library.uasset": {
+      "bytes": 76927,
+      "sha256": "277c178abcf58c0d5b755bf01a0cf45ea44920f953ab60084d5f36e5dc32a666"
+    },
+    "Content/Characters/NPCs/Library/Ranger/Animations/A_Ranger_TurnRight_Library.uasset": {
+      "bytes": 76934,
+      "sha256": "fabeda4124f1218c30ae2f0f75a517707a04c8c8103f02a5654aa64a1f147314"
+    },
+    "Content/Characters/NPCs/Library/Ranger/Animations/A_Ranger_Walk_Library.uasset": {
+      "bytes": 71881,
+      "sha256": "ab43c7c36eadb61eb839316a3225d77f600eb97d85a26e0a6edc9b05d74a0ccd"
+    },
+    "Content/Characters/NPCs/Library/Ranger/Meshes/SK_Ranger_Library.uasset": {
+      "bytes": 17568334,
+      "sha256": "7362b622e08449d702fc33f2beccc41b2c5ffd319678ed78a4f9e428dae15091"
+    },
+    "Content/Characters/NPCs/Library/Ranger/Meshes/SK_Ranger_Library_Skeleton.uasset": {
+      "bytes": 14174,
+      "sha256": "65920a2c14a58445a92bfb8d2aaae28db57b2adf3489428d4d15686d91012b25"
+    },
+    "Content/Characters/NPCs/Library/SilverLady/Animations/A_SilverLady_Greet_Library.uasset": {
+      "bytes": 23537,
+      "sha256": "f3487221d193ae7908397148b9ab1a5cf4e4834d33259601dc60feffffb96422"
+    },
+    "Content/Characters/NPCs/Library/SilverLady/Animations/A_SilverLady_Idle_Library.uasset": {
+      "bytes": 22770,
+      "sha256": "060816bdba205083c13714ae8c202316c65bcac120dd675f77fa6dbe9e45c922"
+    },
+    "Content/Characters/NPCs/Library/SilverLady/Animations/A_SilverLady_Talk_Library.uasset": {
+      "bytes": 24702,
+      "sha256": "1078f960476b6320d608165bed0a369f1277d3c8357853d09f437c77c12298de"
+    },
+    "Content/Characters/NPCs/Library/SilverLady/Animations/A_SilverLady_TurnLeft_Library.uasset": {
+      "bytes": 20095,
+      "sha256": "e9b2d1290f1451efa88e7915cf4321dfb5816583175cbb72732eb26e93c3cde3"
+    },
+    "Content/Characters/NPCs/Library/SilverLady/Animations/A_SilverLady_TurnRight_Library.uasset": {
+      "bytes": 20102,
+      "sha256": "fae3fefbc1cd8c98c8f7b85320ce7252c44dd11f66f33b3e8e7730757e6811c3"
+    },
+    "Content/Characters/NPCs/Library/TreeBeing/Animations/A_TreeBeing_Greet_Library.uasset": {
+      "bytes": 66372,
+      "sha256": "663dcad7780bb31fb3661fc3d4a5d64fa2a3bd2e8725d1c88756cc62ed4a4b54"
+    },
+    "Content/Characters/NPCs/Library/TreeBeing/Animations/A_TreeBeing_Idle_Library.uasset": {
+      "bytes": 62163,
+      "sha256": "8908a3c7f918da84e28232eb7fb2b3d0f65d94057c96e5ddc95827c7d9541217"
+    },
+    "Content/Characters/NPCs/Library/TreeBeing/Animations/A_TreeBeing_Talk_Library.uasset": {
+      "bytes": 70886,
+      "sha256": "421bc4bf82a7ebb2bfbcb526a837db4d5bc6506170949958118ce0e9f85b6a4c"
+    },
+    "Content/Characters/NPCs/Library/TreeBeing/Animations/A_TreeBeing_TurnLeft_Library.uasset": {
+      "bytes": 46642,
+      "sha256": "6c60eec54288c4175aaaa83e55f629cd6398e979847b145d232ec18c78687b64"
+    },
+    "Content/Characters/NPCs/Library/TreeBeing/Animations/A_TreeBeing_TurnRight_Library.uasset": {
+      "bytes": 46649,
+      "sha256": "f37700c767a0d53eb29651d088739f4af9a8d927e62d8b7d0e84e770252e65ff"
+    },
+    "Content/Characters/NPCs/Library/TreeBeing/Meshes/SK_TreeBeing_Library.uasset": {
+      "bytes": 30706494,
+      "sha256": "951a9ff1239e3afa82392d303817d8de796edb698b70744571c51da6eca4954f"
+    },
+    "Content/Characters/NPCs/Library/TreeBeing/Meshes/SK_TreeBeing_Library_Skeleton.uasset": {
+      "bytes": 12451,
+      "sha256": "ade4b25f2696eb48eebdc3cf5f45777e477d26205e295477cb440157a7b44979"
+    },
+    "Content/Characters/NPCs/Library/WhiteHairedWarrior/Animations/SharedSkeleton/A_WhiteHairedWarrior_Greet_Library.uasset": {
+      "bytes": 71529,
+      "sha256": "a39c562b944538b4e0461db0e0c97c242c1463c808074b16b3ebfa551cfad873"
+    },
+    "Content/Characters/NPCs/Library/WhiteHairedWarrior/Animations/SharedSkeleton/A_WhiteHairedWarrior_Idle_Library.uasset": {
+      "bytes": 62660,
+      "sha256": "721d7725f29c68066a4f983714e248327f3a4662113d262aa5d75695c1772990"
+    },
+    "Content/Characters/NPCs/Library/WhiteHairedWarrior/Animations/SharedSkeleton/A_WhiteHairedWarrior_Run_Library.uasset": {
+      "bytes": 57390,
+      "sha256": "cf48536759c631ae6be50d74b00ae95aafbe4edb59cbe1e8131415e5e8d85b3c"
+    },
+    "Content/Characters/NPCs/Library/WhiteHairedWarrior/Animations/SharedSkeleton/A_WhiteHairedWarrior_Talk_Library.uasset": {
+      "bytes": 71406,
+      "sha256": "26a96c7b27a379ce102d5dc4638055ff618fb4f0b29e7b21c660da4592b463e3"
+    },
+    "Content/Characters/NPCs/Library/WhiteHairedWarrior/Animations/SharedSkeleton/A_WhiteHairedWarrior_TurnLeft_Library.uasset": {
+      "bytes": 68454,
+      "sha256": "bd1feb3c52612cc1af5a1fe6b1a8c2e6ba1f7c59e25628748d2c1919cf1f4a00"
+    },
+    "Content/Characters/NPCs/Library/WhiteHairedWarrior/Animations/SharedSkeleton/A_WhiteHairedWarrior_TurnRight_Library.uasset": {
+      "bytes": 68461,
+      "sha256": "2cb67348cff24611f2f8b4804c876cd26fa9fc6f3e8b0c4c4954d12236ac5f98"
+    },
+    "Content/Characters/NPCs/Library/WhiteHairedWarrior/Animations/SharedSkeleton/A_WhiteHairedWarrior_Walk_Library.uasset": {
+      "bytes": 64234,
+      "sha256": "9db673126ff99243093c6a7c2a0c94e5d7226246fa4915aa7faa182e5fb0b861"
+    },
+    "Content/Characters/NPCs/Library/Wizard/Animations/A_Wizard_Greet_Library.uasset": {
+      "bytes": 74278,
+      "sha256": "c5bc56cd46fe6a596aa553f220d6ce426fe22cee1178e51f01bfe6dfb2f48a25"
+    },
+    "Content/Characters/NPCs/Library/Wizard/Animations/A_Wizard_Idle_Library.uasset": {
+      "bytes": 71819,
+      "sha256": "c4c7985876a214573437c7d762c3c4760063eee0a6c5b0e1926354f175fbd5a3"
+    },
+    "Content/Characters/NPCs/Library/Wizard/Animations/A_Wizard_Talk_Library.uasset": {
+      "bytes": 80573,
+      "sha256": "854b6c2c18c24af8b0d1e8d6b7651b4dac35b8c5e811a4195c3bb955fc91cae9"
+    },
+    "Content/Characters/NPCs/Library/Wizard/Animations/A_Wizard_TurnLeft_Library.uasset": {
+      "bytes": 58217,
+      "sha256": "fab238245d0856be7ead6f60e8ad2181ee40dd1e8ac22a3fb891af077f4bd0f1"
+    },
+    "Content/Characters/NPCs/Library/Wizard/Animations/A_Wizard_TurnRight_Library.uasset": {
+      "bytes": 58224,
+      "sha256": "36760933c31373f33cf572030208757c5b59916a01e3f0b096fdc17e6a921188"
+    },
+    "Content/Characters/NPCs/Library/Wizard/Animations/A_Wizard_Walk_Library.uasset": {
+      "bytes": 70717,
+      "sha256": "9cbce99711c6c43738fab36c5b3435fe1dd810a2cbb8bf6297cef62ce6842097"
+    },
+    "Content/Characters/NPCs/Library/Wizard/Meshes/SK_Wizard_Library.uasset": {
+      "bytes": 29880231,
+      "sha256": "315eeb8c6c305edf4ba5ccb374a603b24d10e4358afae7e3655b6718391b3aba"
+    },
+    "Content/Characters/NPCs/Library/Wizard/Meshes/SK_Wizard_Library_Skeleton.uasset": {
+      "bytes": 13057,
+      "sha256": "be6ec8091209397f1ec83651e2067c4db1b483e130110ee889a179d9709e7c11"
+    },
     "Content/Characters/NPCs/Ranger/Animations/A_Ranger_Idle_V1.uasset": {
       "bytes": 47958,
       "sha256": "e5bad0c8a37f65cfbc2e10fcd181621ee665b82fdd91cb82d9bb7df75307ca3f"
@@ -12694,8 +13442,8 @@
       "sha256": "d9855c7a10dee76c73ab260871e220abc2371ef61e91d269b145a498bd26176f"
     },
     "Content/Maps/Dev_TestMap_VisualV2.umap": {
-      "bytes": 4174877,
-      "sha256": "e89f49c960f67c3e4a111607f1cb2641cb4096b8d816e493307784895692dab5"
+      "bytes": 4177685,
+      "sha256": "9a850bc4128fe50b5189644b17423ef59d71d2d8222c1c73f38184455034724b"
     },
     "Content/Maps/Dev_TestMap_VisualV2GPUBottleneckV1.umap": {
       "bytes": 3300685,
@@ -12822,8 +13570,8 @@
       "sha256": "9022508ecfd27303eb73b4ac620f6dd2df4f8b5e0812c24df895ce58a13febaf"
     },
     "Docs/ENTSCHEIDUNGEN.md": {
-      "bytes": 164022,
-      "sha256": "7d27425578eb0c5929cb493775866edb9b37acead4a788646e8014294d071b0c"
+      "bytes": 165125,
+      "sha256": "5f3722aa5630b4d5b87edea06c6dbf56bdf689dc9222e464f4ceb3b924d72fba"
     },
     "Docs/ENTWICKLUNGSPRAESENTATION_V21_PRUEFBERICHT.md": {
       "bytes": 10382,
@@ -12945,6 +13693,10 @@
       "bytes": 9454,
       "sha256": "0cd4734e8ed069d1738492f2902e44c98d481b3e3862fe31bf0df1afda4983ad"
     },
+    "Docs/NPC_AUSBAU_MESHY_PRUEFBERICHT.md": {
+      "bytes": 20005,
+      "sha256": "0ccc0e4d2bf3ac32065f885bb5923d1968212c4347fc5025d4ed3c4f4ecf9c29"
+    },
     "Docs/OBERWELT_KI_V2_PRUEFBERICHT.md": {
       "bytes": 23688,
       "sha256": "f68771a7de0d9abe0db4653fe69d76c27cc5e14d167249786dd3157204cd72b7"
@@ -13006,8 +13758,8 @@
       "sha256": "1ede0acfca40e87ac09ffe5dbe8993e5cb6142cff2aebf509f4cb084ae6e53fc"
     },
     "Docs/TECHNIK.md": {
-      "bytes": 188579,
-      "sha256": "e4556675eb0a2ec2c4b2f1196c62775371b89b25c5237b255e4141fea469b021"
+      "bytes": 190187,
+      "sha256": "87b1e0cd5de44d9c11ab33a86044e2d3f0fe599e2b466f7afb66134a6158b8cc"
     },
     "Docs/VISUALV2_ENVIRONMENT_QUALITY_V1_PRUEFBERICHT.md": {
       "bytes": 58217,
@@ -13198,12 +13950,12 @@
       "sha256": "05f18d3a16ec51749179557c95a337baaa3e18a626f10c56d32a2d47b46b5595"
     },
     "Source/PokeMonster/Characters/PokeMonsterNPCAnimInstance.cpp": {
-      "bytes": 7007,
-      "sha256": "3789c9d22b1a1deacd7ab6b69e6803fe31cfe24780a1d7b0b1cabdfa9aea14a1"
+      "bytes": 12671,
+      "sha256": "bf53acfa6e532ffe8bdb4d73e23fa96c2c08497490d436919ceeed3346977c84"
     },
     "Source/PokeMonster/Characters/PokeMonsterNPCAnimInstance.h": {
-      "bytes": 1083,
-      "sha256": "509be5d6770542a23fb8c5e15d356752f7871df095decf3a9cb9f332ac2b0757"
+      "bytes": 1339,
+      "sha256": "10141a1111463c279a1387412ed82c6cf0436d4c43ebc1bfb67000fa79ffd23e"
     },
     "Source/PokeMonster/Characters/PokeMonsterNPCMotionV3AnimInstance.cpp": {
       "bytes": 10831,
@@ -13221,13 +13973,21 @@
       "bytes": 370,
       "sha256": "bfec32896f5b95199b6c3b69101a2424c2689626e0e778323007f653cf5879c4"
     },
+    "Source/PokeMonster/Characters/PokeMonsterNPCPresentationData.cpp": {
+      "bytes": 1743,
+      "sha256": "f461f5ed9c9895f7731032d817efb157d45b5b8199dab2b3755da76f8668d9fd"
+    },
+    "Source/PokeMonster/Characters/PokeMonsterNPCPresentationData.h": {
+      "bytes": 2079,
+      "sha256": "a1ff2c3804bf6f89beff1dec1e339a985d29df42c4cff34d1871b28282d3890a"
+    },
     "Source/PokeMonster/Characters/PokeMonsterNPCVisualActor.cpp": {
-      "bytes": 5946,
-      "sha256": "eda19f9109ccaf07aafed852d4457741be8661cc76d2dcc1eb24a49ab37aa746"
+      "bytes": 7092,
+      "sha256": "d2e3e88223745dd521da8af725bd9dcc2730d189d984c4bbb5deadfdc8b4b79c"
     },
     "Source/PokeMonster/Characters/PokeMonsterNPCVisualActor.h": {
-      "bytes": 4114,
-      "sha256": "33cb598d49ac3830f0cb1d2ef1db3e83d51c8d7211a5849357683d481a2530c7"
+      "bytes": 4974,
+      "sha256": "dc25e2f19d4c541699c1b6bdf08647d956eac3f4eeea0a0cc20e1e8d26194fc5"
     },
     "Source/PokeMonster/Characters/PokeMonsterPlayerCharacter.cpp": {
       "bytes": 31771,
@@ -13444,6 +14204,14 @@
     "Source/PokeMonster/Development/PokeMonsterNPCMotionV3PreviewSource.h": {
       "bytes": 758,
       "sha256": "65ee0cd958c16f9878c6ba6bd9625b594c771aeeb0120be3eb6635419c18b217"
+    },
+    "Source/PokeMonster/Development/PokeMonsterNPCTestGround.cpp": {
+      "bytes": 12513,
+      "sha256": "cb2be985c2fc59d9dc9ef9da0dc4b065b41bfd6ef230d0df6d7d7bab6e82b39c"
+    },
+    "Source/PokeMonster/Development/PokeMonsterNPCTestGround.h": {
+      "bytes": 2120,
+      "sha256": "29dbab906ded0c8c828c1b18fc36fa7a5219fe305b7c834f01617bff81a2230b"
     },
     "Source/PokeMonster/Development/PokeMonsterPerformanceProbe.cpp": {
       "bytes": 13378,
@@ -13860,6 +14628,10 @@
     "Source/PokeMonster/Tests/PokeMonsterMoveManagementV2Test.cpp": {
       "bytes": 10676,
       "sha256": "94f6a2c5f8bd49578bfff730279771bde217dce69c08e63fba7933ad22cb686c"
+    },
+    "Source/PokeMonster/Tests/PokeMonsterNPCLibraryTest.cpp": {
+      "bytes": 7766,
+      "sha256": "60a8a3f1fe05dd54b94798bb645c73706328f38bf97e3007b7ddb650ba436e29"
     },
     "Source/PokeMonster/Tests/PokeMonsterNPCMotionV2Test.cpp": {
       "bytes": 3196,
@@ -16600,6 +17372,150 @@
     "Tools/MoveManagementV2/ValidateGameplay.py": {
       "bytes": 1106,
       "sha256": "91ef89796cf4722d73a60b2c03b2c27a05ba9340f25370de4ea5fde288fe0d4f"
+    },
+    "Tools/NPCExpansion/AfterPIE.py": {
+      "bytes": 1915,
+      "sha256": "54e6dc32eda5aaeec7420aedab3166b128360774f70987fba9642b8360246d9c"
+    },
+    "Tools/NPCExpansion/AnimationPoseAudit.py": {
+      "bytes": 1232,
+      "sha256": "c7128cc506b0424d077c1dcd008d6f720af9d146db510bfef1ecfe375f759b67"
+    },
+    "Tools/NPCExpansion/AuditSupersededCandidates.py": {
+      "bytes": 1101,
+      "sha256": "7ca642c81498ac8f48de04a819a025224163345675ac3b8875af3a900bf8f088"
+    },
+    "Tools/NPCExpansion/BeforePIE.py": {
+      "bytes": 1917,
+      "sha256": "30b1ca938324fb56c8c551abf9a62af15e36ed403f16a3271aa5ace9bc9364ea"
+    },
+    "Tools/NPCExpansion/BindExisting.py": {
+      "bytes": 1451,
+      "sha256": "b255163a00e42b73f6669a01f57f0ed778843af654806aea041a058c4391890d"
+    },
+    "Tools/NPCExpansion/BuildHealerLibrary.py": {
+      "bytes": 4791,
+      "sha256": "899ee49639628634660d19809d3f681e9a3d18f6eba71acdeda41f06c8956f39"
+    },
+    "Tools/NPCExpansion/BuildLibrary.py": {
+      "bytes": 15911,
+      "sha256": "4b3d4788382f309df13f7d8d4cbddacf3aac3f60e8924951a615d692e7ffd4ea"
+    },
+    "Tools/NPCExpansion/CompareAnimationPoses.py": {
+      "bytes": 1746,
+      "sha256": "a0bf7773a5583fc844290e9aebea20bea3e6d50d816a07552f5412f23e554009"
+    },
+    "Tools/NPCExpansion/EncodeReview.py": {
+      "bytes": 1988,
+      "sha256": "c0e079735d00e9571005dec8e6a85d4d9172f60eb9ebdcfa438944f1ca77247a"
+    },
+    "Tools/NPCExpansion/ExistingInteractionsPIE.py": {
+      "bytes": 4402,
+      "sha256": "534dfc58daa61c8e937190536b57f3ee39321fab69b014ddb8c6e2de51b49adf"
+    },
+    "Tools/NPCExpansion/ExportAnimationOnly.py": {
+      "bytes": 1587,
+      "sha256": "75b7d1aed2186c6e147ccb0825cd3eea992c95343b3e7001680f79202c3894d8"
+    },
+    "Tools/NPCExpansion/FinalPIE.py": {
+      "bytes": 4332,
+      "sha256": "fe85e7d9b124788e6a4e11ec0c079b67a8f02392b59cdecc5a87ecbd261a4e4d"
+    },
+    "Tools/NPCExpansion/FixArmorHem.py": {
+      "bytes": 2366,
+      "sha256": "f6eadcbb45d261d07d715a20669a6b2937d9893dd89f83c8fac956f6761769b7"
+    },
+    "Tools/NPCExpansion/ImportLibrary.py": {
+      "bytes": 6768,
+      "sha256": "5163a51d97815229af7b2622d3e4bdf0463eb4d843239a65e4e7f08544a3dc86"
+    },
+    "Tools/NPCExpansion/InspectBlender.py": {
+      "bytes": 2599,
+      "sha256": "1c61fce847be4b786dfad1dac557efb753acb6cd6df5bb2bd2378a75840ce598"
+    },
+    "Tools/NPCExpansion/InspectEditor.py": {
+      "bytes": 1238,
+      "sha256": "d340325676e3685eadb10780160ffb5c51e64fd9effe46142a43b9ff4065304c"
+    },
+    "Tools/NPCExpansion/Inventory.py": {
+      "bytes": 2246,
+      "sha256": "483f971da220b2e9c818583f1c309b617d4bad38bf5a0423d1f7f0d874dee0e0"
+    },
+    "Tools/NPCExpansion/Library.json": {
+      "bytes": 5141,
+      "sha256": "16a5698c82ec258708f6967b9d92f7ac13903d809e2c91e9d3b973dcdaae3703"
+    },
+    "Tools/NPCExpansion/MapChecks.py": {
+      "bytes": 1087,
+      "sha256": "dc1f50950cce8c110954d5486679791c307bba021ba3edc2f88c9a7bea881698"
+    },
+    "Tools/NPCExpansion/Materials.py": {
+      "bytes": 1602,
+      "sha256": "44890f0dceb217e09734d68d4f32d4636ba73e1d628f13718bb2cfa8596515d5"
+    },
+    "Tools/NPCExpansion/PackageFiles.py": {
+      "bytes": 4206,
+      "sha256": "c7e3629f63d269baac40396708cd21924002e2f75674d02651d134ebdd5a4c06"
+    },
+    "Tools/NPCExpansion/README.md": {
+      "bytes": 5083,
+      "sha256": "632c67d593297bc15d0236cd95271f3c686915b6d537044df61b2e371f350161"
+    },
+    "Tools/NPCExpansion/RefreshInventory.py": {
+      "bytes": 870,
+      "sha256": "cbdeaf390bf322ded26005f3a7c69f25073978d4689a463dbf79504cba323508"
+    },
+    "Tools/NPCExpansion/RefreshRangerMesh.py": {
+      "bytes": 2027,
+      "sha256": "770702dd0971c8e429112287ff5887b8c71ec2ccf9db9f5f47b4f25330b280bf"
+    },
+    "Tools/NPCExpansion/ReimportAnimationOnly.py": {
+      "bytes": 2942,
+      "sha256": "81c698ab74acb572c39c62c738cc8439ec1c99cf05087a6d9b001cb697ab9338"
+    },
+    "Tools/NPCExpansion/ReopenSources.py": {
+      "bytes": 1712,
+      "sha256": "f591d88eff54a034c2a461e89c6b2789ee120889cda6eab4c99bd4c2e93d3d61"
+    },
+    "Tools/NPCExpansion/RepairSourceMaterials.py": {
+      "bytes": 1114,
+      "sha256": "534c69583cc8d47e9229d36703cd245faee15f29b97ad3d3f904379edd73f8e8"
+    },
+    "Tools/NPCExpansion/RetireOwnDuplicates.py": {
+      "bytes": 1245,
+      "sha256": "8c372cade64540525ccd4d5a23709c0bbb5db94bb4f6f10e27445630a43371fd"
+    },
+    "Tools/NPCExpansion/ReuseExistingRigs.py": {
+      "bytes": 931,
+      "sha256": "18fd9d94e657860f1adbe4eabccc4f3b9963404665ace154a3beddc07d6955ae"
+    },
+    "Tools/NPCExpansion/ReuseSharedSkeletons.py": {
+      "bytes": 3241,
+      "sha256": "30a28f6dd89312449fae43c995a8756e4e9737b0ee79bdeb5708bbf8fee519d7"
+    },
+    "Tools/NPCExpansion/ReviewMotionPIE.py": {
+      "bytes": 4082,
+      "sha256": "4d9226eb0dd9c2b1cd28a8764df7dd1c485fdac080673239fa564b15d5a330f5"
+    },
+    "Tools/NPCExpansion/ReviewPIE.py": {
+      "bytes": 7385,
+      "sha256": "4f9b5ff3795b7a2e05696b4e54075e1ca3e6454d6daea7c80051264792655d7d"
+    },
+    "Tools/NPCExpansion/RunNPCEditorTests.py": {
+      "bytes": 179,
+      "sha256": "8aea1899eeea257a04ba7c11a56fa867ffbb79de512ec00e69788b099f8285f2"
+    },
+    "Tools/NPCExpansion/StageVerifiedPackage.py": {
+      "bytes": 2434,
+      "sha256": "dc06b87382827a66191e996c64b7db7a92788588a8d5c90fa60760fa0cfa7a81"
+    },
+    "Tools/NPCExpansion/VerifyReusedGeometry.py": {
+      "bytes": 2062,
+      "sha256": "406839be2577f24e065139dd48cd6c7e0e1fa9ce8c9adc5f580a7acd7665e763"
+    },
+    "Tools/NPCExpansion/WriteReport.py": {
+      "bytes": 14754,
+      "sha256": "e9414ca9a83b9ba02f26dd06c99c08b2366ff2dde5a9ddd1c5c1da6c4579ed51"
     },
     "Tools/OptimizeDevTestMapVisualV2.py": {
       "bytes": 3691,
@@ -20715,7 +21631,7 @@
     }
   },
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
-  "generated_at": "2026-10-25",
+  "generated_at": "2026-10-25T12:10:09.649961+00:00",
   "schema": 1,
-  "snapshot_kind": "evolution_presentation_v21_functionally_verified_external_ios_warning_documented"
+  "snapshot_kind": "npc_expansion_final_verification"
 }

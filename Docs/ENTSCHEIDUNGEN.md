@@ -1157,3 +1157,20 @@ Nur die visuelle Inszenierung der vorhandenen Kette Glumanda → Glutexo → Glu
 Der bisherige Daten-/Abbruchpunkt bleibt **5 Spielsekunden nach Beginn**. Vorher A/Esc einschließlich später Silhouettenvorschau; danach keine Abbruchhinweise oder vorzeitige Bestätigung. Originalfarben vollständig ab 5,85 s, anschließend vorhandene Happy-Animation, Erfolgsmeldung mit altem und neuem Namen ab 7,8 s. Bestehende atomare Entwicklungs-, Lern-, AP- und Save-Dienste bleiben zuständig.
 
 Bewegungsnachweise dürfen den echten PIE-Lauf kontrolliert verlangsamen und ausschließlich tatsächlich präsentierte Frames mit ursprünglichen Spielzeitstempeln in Normalgeschwindigkeit codieren. Dies ist ausdrücklich kein Echtzeit-FPS-Nachweis und enthält keine interpolierten Bilder. Aufnahmen bleiben lokal unter Saved. Das engineinterne RHI-Modul dient nur dem asynchronen Auslesen des vorhandenen Slate-Backbuffers; kein neues Plugin oder externer Dienst.
+
+## 25.10.2026 – Vorhandene Meshy-NPCs als technische Bibliothek
+
+Elf vorhandene Quellen werden als Präsentationsprofile auf bestehenden NPC-/Dialog-
+und RestPoint-Systemen verwendet. Keine neuen endgültigen Figurenrollen oder
+Westland-Platzierungen. Drei geeignete humanoide Meshes/Skeletons und die Heilerin
+werden direkt wiederverwendet. Neue Skelettmeshes nur bei tatsächlich nötigem Rigwechsel.
+Wanderer und Heilerin behalten Source-Identität, Transform und Funktionen.
+
+SilverLady bleibt wegen unzureichender Ärmel-/Gewandsicherheit stationär auf ihrem
+geprüften Dreiknochen-Mesh; Begrüßung als Nicken. TreeBeing bleibt wegen verbundener
+Bodenwurzeln und Reiter stationär, mit Stamm-/Astbewegung. Kein ungeprüfter Laufersatz.
+Höhenmetadaten übernehmen frühere Quellenmaße, keine neue allgemeine Rassengrößenregel.
+
+Die NPC-Vorführung ist ausschließlich in gewöhnlichem VisualV2-Editor-PIE aktivierbar,
+mit vorhandener Interaktion und RAM-Save-Schutz beim Besuch. Kein neues Dialog-/Quest-
+oder produktives Pfadplanungssystem. Details und Grenzen im NPC-Ausbau-Prüfbericht.
