@@ -13894,8 +13894,8 @@
       "sha256": "96eaf60690c37b6f587c09ee49532e0cbd42d4f92fac8d190f0fefff8d7704af"
     },
     "Docs/SPEICHERSYSTEM_V2_LERNATTACKEN_V1_PRUEFBERICHT.md": {
-      "bytes": 19338,
-      "sha256": "f4c3eedd70c391f254770548932a46d78ba21e51ca7d8753f5f06ee705e9e0bc"
+      "bytes": 20151,
+      "sha256": "f024a46d0b2768150e5e55e476966f4b9dce45d145d8994afba148d355f7367e"
     },
     "Docs/SPIELIDEE.md": {
       "bytes": 5554,
@@ -22147,7 +22147,7 @@
     }
   },
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
-  "generated_at": "2026-10-26T11:15:36.854544+00:00",
+  "generated_at": "2026-10-26T11:20:40.046827+00:00",
   "schema": 1,
-  "snapshot_kind": "save_v2_learning_moves_v1_verified"
+  "snapshot_kind": "save_v2_learning_moves_v1_final_report"
 }
