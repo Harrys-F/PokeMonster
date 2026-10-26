@@ -147,4 +147,10 @@ Keine Map, kein Content-/Modell-/Animationsasset, keine Spezies- oder Attacken-I
 
 ## Git-Abschluss
 
-Arbeitspaket A: **`ff13b0c1`**, `feat: coordinate ambient Pokemon social visits`, fünf ausschließlich KI-bezogene Quelldateien. Normaler Push nach `origin/main` erfolgreich. EP-/Werkzeug-/Berichtssicherung und die abschließende Synchronitätsprüfung folgen nach den letzten Kontrollen.
+Arbeitspaket A: **`ff13b0c1`**, `feat: coordinate ambient Pokemon social visits`, fünf ausschließlich KI-bezogene Quelldateien. Normaler Push nach `origin/main` erfolgreich. Arbeitspaket B: **`8691f7748a7e7fe598ede09f5a26281991553eb7`**, `feat: show individual Pokemon experience progress`, 31 kontrollierte Textdateien einschließlich Dokumentation und reproduzierbarer Prüfwerkzeuge. Normaler Push erfolgreich.
+
+Serverprüfung per `git fetch`, `git ls-remote` und `rev-list`: `main == origin/main == 8691f7748a7e7fe598ede09f5a26281991553eb7`, Abstand **0/0** am Kontrollpunkt nach Paket B. LFS-Status und `git lfs push --dry-run origin main`: **keine ausstehenden Objekte**, keine neuen LFS-Assets oder -Uploads, keine Budget-/Abrechnungsänderung. Bestehende Asset-/LFS-Verweise unverändert; kein erneuter Download sämtlicher historischer LFS-Objekte behauptet.
+
+Versionierte Arbeitsdateien sauber. Exakt die 31 bereits vorher unversionierten Original-/Biome-Hilfsdateien bleiben unverändert unversioniert; keine Prüfmedien, generierten Builds, Caches oder Saves committed. Alle 75 Schutzprüfsummen und beide Vollbackup-Verweise erneut identisch bestätigt. Keine anderen Prozesse beendet, Editor regulär geschlossen.
+
+Dieser reine Berichtsnachtrag wird separat als `docs: record AI and experience validation status` gesichert. Der danach serverseitig geprüfte endgültige Commit-/Remote-Stand wird zusätzlich in [GitFinal.json](../Saved/ProjectRefinement/PokemonAIV21ExperienceV1/GitFinal.json) festgehalten und in der Abschlussantwort genannt; dadurch muss der Bericht seinen eigenen Commit-Hash nicht vorwegnehmen.
