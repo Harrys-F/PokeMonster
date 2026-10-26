@@ -975,7 +975,7 @@ Zwei zusätzliche Meshy-Spezies verwenden eigene Rigs: Schiggy 50 cm (Biped), Bi
 
 `Species.Overworld` und `Creatures/Overworld` steuern größere Landhabitate, kollisionsgeprüfte lokale Routen, Ruhephasen und einen rein visuellen Begleiter des vorhandenen Teams. Bewegung wird vor der Präsentation aktualisiert, damit deren Geschwindigkeitsmessung nicht zwischen zwei Tick-Zeitpunkten springt. Optionaler Begleiter-Sprint nutzt ein temporäres Profil; Kampfclips bleiben erhalten. Tatsächliche Playergeschwindigkeit wird berücksichtigt, nicht fest auf 210 cm/s gesetzt. Keine zusätzliche Spieler-Kollision, kein zweites Party-/Save-System und keine Schwimm-/Flugnavigation. Bestehende Wasserblocker und Gebäudegrenzen bleiben wirksam. Ausführlicher Konfigurations-/Import-/Prüfablauf: `KREATUREN_PIPELINE_V2.md`, Abschnitt 10.
 
-Nach Niederlage wird erst nach kollisionsgeprüfter Rückkehr und vollständiger Heilung automatisch gespeichert. Saveformat 4 bleibt kompatibel; macOS schreibt zunächst eine geprüfte temporäre Nachbardatei und ersetzt den Slot atomar. Ein Fehler darf den vorhandenen Slot nicht vorab löschen. QA verwendet den realen Dev-Slot nur mit SHA-kontrollierter Wiederherstellung.
+Nach Niederlage wird erst nach kollisionsgeprüfter Rückkehr und vollständiger Heilung automatisch gespeichert. Saveformat 4 bleibt kompatibel; macOS schreibt zunächst eine geprüfte temporäre Nachbardatei und ersetzt den Slot atomar. Ein Fehler darf den vorhandenen Slot nicht vorab löschen. Historische QA verwendete den realen Dev-Slot mit SHA-kontrollierter Wiederherstellung; für Speichersystem V2 ersetzt durch ausschließlich isolierte PIE-Testslots ohne Kopieren/Umbenennen des Nutzersaves.
 
 ## Starter-Feinschliff V2 (21.10.2026)
 
@@ -1257,3 +1257,18 @@ werden nicht umgestellt. Exakte reversible Werte: `Tools/VisualV2LightingV31/Set
 Vollständige Szene bis auf diese zwei Einstellungen, elf andere Maps und der
 Save werden per Hash/Editorinventur geprüft. Bericht:
 `VISUALV2_BELEUCHTUNG_SCHATTEN_V3_1_PRUEFBERICHT.md`.
+
+
+## Speichersystem V2 – unabhängige Weltposition und Kontrollpunkt (26.10.2026)
+
+Save-Schema **9** bleibt im vorhandenen nativen SaveGame-Transport und liest Versionen 1–8. `PlayerLocation` enthält Map-Package ohne PIE-Präfix, Position, Actorrotation, tatsächliche horizontale Blickrichtung und den bestehenden Innenraumkontext. `ActiveCheckpoint` bleibt unabhängig: nur ausdrückliches Aktivieren setzt ihn. Normales Speichern verändert ihn nicht; Niederlage verändert den manuellen Speicherstand nicht.
+
+Das bestehende Hauptmenü bietet Team, Beutel, Speichern, Laden, automatischen Stand laden und Fortsetzen. Speicher-/Ladeaktionen verlangen eine gesonderte Bestätigung; A bricht ab, gehaltene beziehungsweise doppelte B-Eingaben schreiben nicht mehrfach. Tastatur und physische Nintendo-Belegung bleiben unverändert. `PMSave`/`PMLoad` bleiben Entwicklungsbefehle, normale Bedienung benötigt sie nicht.
+
+`PokeMonster_Dev` bleibt der manuelle Slot. `PokeMonster_Recovery` enthält automatische Sicherungen nach Heilung, Niederlagenrückkehr und geprüften Lern-/Entwicklungs-/Meisterentscheidungen. Diese verwenden denselben atomaren Schreibpfad und überschreiben den manuellen Stand nicht. Beide Slots persistieren die jeweils aktuelle Position und den unabhängigen Kontrollpunkt. Automatisch laden ist eine ausdrückliche Menüentscheidung; ein normales Laden wählt immer den manuellen Slot.
+
+Runtime-Laden validiert erst sämtliche Team-/Fortschrittsdaten und anschließend den Zielort; bei Weltwechsel bleibt das vorhandene GI-Subsystem Träger des ausstehenden Snapshots. Neue Spielfiguren sind bis Abschluss von Laden/Rückkehr gesperrt. Nach Niederlagen wird vor der automatischen Sicherung begrenzt auf stabilen Bodenkontakt gewartet. Bestehende Innenraum-/Kameradienste werden am tatsächlichen Ziel synchronisiert, keine neuen Räume oder Kameraparameter.
+
+Alte Spielstände ohne brauchbare Position verwenden den gespeicherten, verfügbaren Kontrollpunkt oder einen kollisionsgeprüften PlayerStart. Blockierte neue Positionen werden zuerst im gleichen Innenraumkontext innerhalb 2 m gesucht, danach am gleichen Map-Kontrollpunkt beziehungsweise Start. Fehlende Maps, NaN, ungültige Blickrichtungen oder fehlender Boden führen nie zum Verlust von Teamdaten oder zu einem automatischen Überschreiben des Slots. Fehlt ein sicherer Ort vollständig, wird abgebrochen. Kampf, Dialog, aktive Entwicklungspräsentation, Türübergang und laufende Schreib-/Ladetransaktionen sperren reguläre Menüzugriffe. Vertrauenswürdige interne Entscheidungscommits sind getrennt von Menüzugriffen, bleiben aber während Kampf/Transition gesperrt.
+
+Neue Tests nutzen `UseIsolatedPIETestSlot` ausschließlich in Editor-PIE mit festem Testpräfix; normale Builds aktivieren ihn nicht. Der vorhandene Entwicklungs-RAM-Transport bleibt erhalten. Beide schützen die kanonischen Nutzer-Slots auch gegen direkte Low-Level-Schreibaufrufe. Werkzeuge: `Tools/SaveSystemV2/README.md`; tatsächliche Ergebnisse im `SPEICHERSYSTEM_V2_LERNATTACKEN_V1_PRUEFBERICHT.md`.

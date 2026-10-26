@@ -130,6 +130,8 @@ public:
 	/** World-space direction used for interaction, retaining the last actual world movement direction. */
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Interaction")
 	FVector GetInteractionWorldDirection() const;
+ /** Restore the existing visual/interaction direction without movement input or speed changes. */
+ bool RestoreSavedFacing(FVector WorldDirection);
 
 	/** Finds the first unobstructed interactable in the short area in front of the player. */
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Interaction")

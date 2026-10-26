@@ -199,7 +199,8 @@ FReply UPokeMonsterOverworldWidget::NativeOnPreviewKeyDown(const FGeometry& Geom
  {
   if (!Event.IsRepeat())
   {
-   if(Section==EPokeMonsterOverworldMenuSection::Moves) CancelMoves();
+   if (PendingStorageAction) CancelStorage();
+   else if(Section==EPokeMonsterOverworldMenuSection::Moves) CancelMoves();
    else if (PendingHealingItem) { PendingHealingItem=nullptr; ShowInventory(); }
    else if (SelectedInstanceId.IsValid()) { SelectedInstanceId.Invalidate(); LastRenderKey.Reset(); Render(); }
    else CloseMenu();
@@ -213,7 +214,7 @@ FReply UPokeMonsterOverworldWidget::NativeOnPreviewKeyDown(const FGeometry& Geom
   return FReply::Handled();
  if (Key == EKeys::Gamepad_LeftShoulder || Key == EKeys::Gamepad_RightShoulder)
  {
-  if (!Event.IsRepeat() && !bMoveMasterMode)
+  if (!Event.IsRepeat() && !bMoveMasterMode && !PendingStorageAction)
   {
    const bool Next=Key==EKeys::Gamepad_RightShoulder;
    if(Section==EPokeMonsterOverworldMenuSection::Team) {if(Next)ShowInventory();else ShowMoves();}
@@ -223,7 +224,7 @@ FReply UPokeMonsterOverworldWidget::NativeOnPreviewKeyDown(const FGeometry& Geom
   return FReply::Handled();
  }
  if (Key == EKeys::I || Key == EKeys::T)
- { if (!Event.IsRepeat() && !bMoveMasterMode) { if (Key == EKeys::I) ShowInventory(); else ShowTeam(); } return FReply::Handled(); }
+ { if (!Event.IsRepeat() && !bMoveMasterMode && !PendingStorageAction) { if (Key == EKeys::I) ShowInventory(); else ShowTeam(); } return FReply::Handled(); }
  if (Key == EKeys::Up || Key == EKeys::Left || Key == EKeys::Gamepad_DPad_Up || Key == EKeys::Gamepad_DPad_Left)
  { NavigateMenu(-1); return FReply::Handled(); }
  if (Key == EKeys::Down || Key == EKeys::Right || Key == EKeys::Gamepad_DPad_Down || Key == EKeys::Gamepad_DPad_Right)
@@ -246,7 +247,8 @@ void UPokeMonsterOverworldWidget::NavigateMenu(int32 Delta)
  { if (!View.Inventory.IsEmpty()) FocusedInventorySlot = (FocusedInventorySlot + Delta + View.Inventory.Num()) % View.Inventory.Num(); LastRenderKey.Reset(); Render(); }
  else
  {
-  FocusedMainSlot = (FocusedMainSlot + Delta + 4) % 4;
+  const int32 Count = FMath::Max(1, MainButtons.Num());
+  FocusedMainSlot = (FocusedMainSlot + Delta + Count) % Count;
   for (int32 I=0; I<MainButtons.Num(); ++I) if (MainButtons[I])
    MainButtons[I]->SetBackgroundColor(I==FocusedMainSlot?FLinearColor(.40f,.67f,.45f):FLinearColor(.78f,.79f,.65f));
  }
@@ -254,13 +256,20 @@ void UPokeMonsterOverworldWidget::NavigateMenu(int32 Delta)
 
 void UPokeMonsterOverworldWidget::ConfirmMenu()
 {
- if(Section==EPokeMonsterOverworldMenuSection::Moves)ConfirmMoves();
+ if (bStorageBusy) return;
+ if (PendingStorageAction)
+ {
+  if (FocusedMainSlot == 0) ConfirmStorage(); else CancelStorage();
+ }
+ else if(Section==EPokeMonsterOverworldMenuSection::Moves)ConfirmMoves();
  else if (Section == EPokeMonsterOverworldMenuSection::Team) SelectTeamSlot(FocusedTeamSlot);
  else if (Section == EPokeMonsterOverworldMenuSection::Main)
  {
   if (FocusedMainSlot==0) ShowTeam();
   else if (FocusedMainSlot==1) ShowInventory();
   else if (FocusedMainSlot==2) SaveGame();
+  else if (FocusedMainSlot==3) LoadGame();
+  else if (FocusedMainSlot==4) LoadRecoveryGame();
   else CloseMenu();
  }
  else if (View.Inventory.IsValidIndex(FocusedInventorySlot))
@@ -276,15 +285,63 @@ void UPokeMonsterOverworldWidget::ConfirmMenu()
 
 void UPokeMonsterOverworldWidget::SaveGame()
 {
- const auto* C = OwnerController.Get();
+ if (!bMenuOpen || Section != EPokeMonsterOverworldMenuSection::Main || bStorageBusy
+  || LastStorageInputFrame == GFrameCounter) return;
+ LastStorageInputFrame = GFrameCounter;
+ PendingStorageAction = 1; FocusedMainSlot = 0;
+ StorageMessage = TEXT("Speichern bestätigen");
+ LastRenderKey.Reset(); Render();
+}
+
+void UPokeMonsterOverworldWidget::LoadGame()
+{
+ if (!bMenuOpen || Section != EPokeMonsterOverworldMenuSection::Main || bStorageBusy
+  || LastStorageInputFrame == GFrameCounter) return;
+ LastStorageInputFrame = GFrameCounter;
+ auto* C = OwnerController.Get();
  auto* Save = C && C->GetGameInstance() ? C->GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>() : nullptr;
- if (SectionTitle) SectionTitle->SetText(FText::FromString(Save && Save->SaveCurrentGame()
-  ? TEXT("Spiel gespeichert") : TEXT("Speichern derzeit nicht möglich")));
+ if (!Save || !Save->HasSaveGame()) StorageMessage = TEXT("Kein manueller Spielstand vorhanden");
+ else { PendingStorageAction = 2; FocusedMainSlot = 0; StorageMessage = TEXT("Spielstand laden?"); }
+ LastRenderKey.Reset(); Render();
+}
+
+void UPokeMonsterOverworldWidget::LoadRecoveryGame()
+{
+ if (!bMenuOpen || Section != EPokeMonsterOverworldMenuSection::Main || bStorageBusy
+  || LastStorageInputFrame == GFrameCounter) return;
+ LastStorageInputFrame = GFrameCounter;
+ auto* C = OwnerController.Get();
+ auto* Save = C && C->GetGameInstance() ? C->GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>() : nullptr;
+ if (!Save || !Save->HasRecoveryGame()) StorageMessage = TEXT("Kein automatischer Stand vorhanden");
+ else { PendingStorageAction = 3; FocusedMainSlot = 0; StorageMessage = TEXT("Automatischen Stand laden?"); }
+ LastRenderKey.Reset(); Render();
+}
+
+void UPokeMonsterOverworldWidget::CancelStorage()
+{
+ if (bStorageBusy) return;
+ PendingStorageAction = 0; FocusedMainSlot = 0; StorageMessage = TEXT("Abgebrochen · Daten unverändert");
+ LastRenderKey.Reset(); Render();
+}
+
+void UPokeMonsterOverworldWidget::ConfirmStorage()
+{
+ if (!PendingStorageAction || bStorageBusy || LastStorageInputFrame == GFrameCounter) return;
+ LastStorageInputFrame = GFrameCounter;
+ TGuardValue<bool> Busy(bStorageBusy, true);
+ const int32 Action = PendingStorageAction; PendingStorageAction = 0;
+ auto* C = OwnerController.Get();
+ auto* Save = C && C->GetGameInstance() ? C->GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>() : nullptr;
+ const bool Success = Save && (Action == 1 ? Save->SaveCurrentGame() : Action == 2 ? Save->LoadGame() : Save->LoadRecoveryGame());
+ StorageMessage = Save ? Save->GetLastStorageMessage() : TEXT("Speicherdienst nicht verfügbar");
+ if (Success && Action != 1 && C) { C->CloseMenu(); return; }
+ FocusedMainSlot = 0; LastRenderKey.Reset(); Render();
 }
 
 void UPokeMonsterOverworldWidget::SetMenuOpen(const bool bOpen, const EPokeMonsterOverworldMenuSection InitialSection)
 {
 	bMenuOpen = bOpen;
+ PendingStorageAction = 0; StorageMessage.Reset(); LastStorageInputFrame = MAX_uint64;
  bMoveMasterMode=false; bChoosingMovePokemon=true;bMoveReview=false;MovePokemon=0;MoveCursor=0;ReplaceCursor=INDEX_NONE;DraftMoves.Reset();MoveMessage.Reset();
 	SelectedInstanceId.Invalidate(); PendingHealingItem=nullptr; FocusedTeamSlot = 0; FocusedMainSlot = 0; FocusedInventorySlot = 0;
 	Section = InitialSection;
@@ -315,7 +372,7 @@ void UPokeMonsterOverworldWidget::UpdateView(const FPokeMonsterOverworldView& Ne
 
 void UPokeMonsterOverworldWidget::Render()
 {
-	FString Key = RenderKey(View, Section) + SelectedInstanceId.ToString() + (PokeMonsterControllerInput::IsGamepadActive()?TEXT("Gamepad"):TEXT("Keyboard"));
+	FString Key = StorageMessage + FString::FromInt(PendingStorageAction) + RenderKey(View, Section) + SelectedInstanceId.ToString() + (PokeMonsterControllerInput::IsGamepadActive()?TEXT("Gamepad"):TEXT("Keyboard"));
 	Key+=FString::Printf(TEXT("|m%d:%d:%d:%d:%d:%d"),bMoveMasterMode,bChoosingMovePokemon,bMoveReview,MovePokemon,MoveCursor,ReplaceCursor)+MoveMessage;
  for(const auto& M:DraftMoves)Key+=M.ToSoftObjectPath().ToString();
  if (Key == LastRenderKey || !WidgetTree || !HudTeamRows || !MenuRows) return;
@@ -384,8 +441,25 @@ void UPokeMonsterOverworldWidget::Render()
 	}
  else if (Section == EPokeMonsterOverworldMenuSection::Main)
  {
-  if (SectionTitle) SectionTitle->SetText(FText::FromString(TEXT("Hauptmenü")));
-  for (const FString& Label : {FString(TEXT("Team")), FString(TEXT("Beutel")), FString(TEXT("Speichern")), FString(TEXT("Fortsetzen"))})
+  if (SectionTitle) SectionTitle->SetText(FText::FromString(StorageMessage.IsEmpty() ? TEXT("Hauptmenü") : StorageMessage));
+  if (PendingStorageAction)
+  {
+   auto* Note = MakeText(WidgetTree, NAME_None, PendingStorageAction == 1
+    ? TEXT("Der manuelle Slot wird ersetzt. Rückkehrpunkt und Rettungsstand bleiben erhalten.")
+    : (PendingStorageAction == 2 ? TEXT("Ungespeicherte Änderungen werden verworfen. Der manuelle Weltstand wird geladen.")
+    : TEXT("Letzten automatischen Stand laden. Der manuelle Spielstand bleibt erhalten.")), 17, OverworldDarkInk);
+   Note->SetWrapTextAt(720.f); MenuRows->AddChildToVerticalBox(Note);
+   for (const FString& Label : {FString(TEXT("Bestätigen")), FString(TEXT("Abbrechen"))})
+   {
+    auto* B = WidgetTree->ConstructWidget<UButton>();
+    B->AddChild(MakeText(WidgetTree, NAME_None, Label, 22, OverworldDarkInk));
+    MenuRows->AddChildToVerticalBox(B); MainButtons.Add(B);
+   }
+   MainButtons[0]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::ConfirmStorage);
+   MainButtons[1]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::CancelStorage);
+   NavigateMenu(0); return;
+  }
+  for (const FString& Label : {FString(TEXT("Team")), FString(TEXT("Beutel")), FString(TEXT("Speichern")), FString(TEXT("Laden")), FString(TEXT("Automatischen Stand laden")), FString(TEXT("Fortsetzen"))})
   {
    auto* B=WidgetTree->ConstructWidget<UButton>();
    B->AddChild(MakeText(WidgetTree, NAME_None, Label, 22, OverworldDarkInk));
@@ -394,7 +468,9 @@ void UPokeMonsterOverworldWidget::Render()
   MainButtons[0]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::ShowTeam);
   MainButtons[1]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::ShowInventory);
   MainButtons[2]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::SaveGame);
-  MainButtons[3]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::CloseMenu);
+  MainButtons[3]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::LoadGame);
+  MainButtons[4]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::LoadRecoveryGame);
+  MainButtons[5]->OnClicked.AddUniqueDynamic(this, &UPokeMonsterOverworldWidget::CloseMenu);
   NavigateMenu(0);
  }
  else
@@ -420,6 +496,7 @@ void UPokeMonsterOverworldWidget::OpenInventory()
 
 void UPokeMonsterOverworldWidget::ShowTeam()
 {
+ if (bStorageBusy || PendingStorageAction) return;
  if(bMoveMasterMode)return;
 	Section = EPokeMonsterOverworldMenuSection::Team;
 	LastRenderKey.Reset(); Render();
@@ -427,6 +504,7 @@ void UPokeMonsterOverworldWidget::ShowTeam()
 
 void UPokeMonsterOverworldWidget::ShowInventory()
 {
+ if (bStorageBusy || PendingStorageAction) return;
  if(bMoveMasterMode)return;
  PendingHealingItem=nullptr;
 	SelectedInstanceId.Invalidate();
@@ -493,6 +571,7 @@ void UPokeMonsterOverworldWidget::SetMoveMasterMode(bool bEnabled)
 
 void UPokeMonsterOverworldWidget::ShowMoves()
 {
+ if (bStorageBusy || PendingStorageAction) return;
  if(bMoveMasterMode)return;
  PendingHealingItem=nullptr;SelectedInstanceId.Invalidate();Section=EPokeMonsterOverworldMenuSection::Moves;
  bChoosingMovePokemon=true;MovePokemon=FMath::Clamp(FocusedTeamSlot,0,FMath::Max(0,View.Team.Num()-1));MoveCursor=0;

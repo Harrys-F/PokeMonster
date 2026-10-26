@@ -109,7 +109,7 @@ void APokeMonsterRestPoint::Interact_Implementation(APawn* Interactor)
 	auto* Player = Cast<APokeMonsterPlayerCharacter>(Interactor);
 	if (!CanInteract_Implementation(Player)) return;
 	const FText Prompt = bSaveAfterRest
-		? FText::Format(FText::FromString(TEXT("{0} Anschließend wird der Dev-Spielstand gespeichert.")), IntroText)
+		? FText::Format(FText::FromString(TEXT("{0} Anschließend wird ein automatischer Stand gespeichert.")), IntroText)
 		: IntroText;
 	if (ShowMessage(Player, Prompt, true)) ActivePlayer = Player;
 }
@@ -190,7 +190,7 @@ void APokeMonsterRestPoint::HandleDialogueAction(AActor* Source, const FName Act
 	auto* Save = Instance ? Instance->GetSubsystem<UPokeMonsterSaveSubsystem>() : nullptr;
 	auto* Checkpoints = Instance ? Instance->GetSubsystem<UPokeMonsterCheckpointSubsystem>() : nullptr;
 	const FPokeMonsterRestResult Result = PerformRest(Encounter, bSaveAfterRest,
-		[Save] { return IsValid(Save) && Save->SaveCurrentGame(); },
+		[Save] { return IsValid(Save) && Save->SaveProgressGame(); },
 		bActivateCheckpoint ? TFunction<bool()>([this, Player, Checkpoints]
 		{
 			return IsValid(Checkpoints) && Checkpoints->ActivateCheckpoint(

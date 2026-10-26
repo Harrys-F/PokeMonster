@@ -7,8 +7,10 @@
 #include "Blueprint/UserWidget.h"
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
+#include "Engine/Engine.h"
 #include "EngineUtils.h"
 #include "GameFramework/PlayerController.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/PlayerStart.h"
 #include "Kismet/GameplayStatics.h"
 #include "Misc/PackageName.h"
@@ -29,11 +31,13 @@ void UPokeMonsterCheckpointSubsystem::Initialize(FSubsystemCollectionBase& Colle
 	Super::Initialize(Collection);
 	PostLoadMapHandle = FCoreUObjectDelegates::PostLoadMapWithWorld.AddUObject(
 		this, &UPokeMonsterCheckpointSubsystem::HandlePostLoadMap);
+ if (GEngine) TravelFailureHandle = GEngine->OnTravelFailure().AddUObject(this, &UPokeMonsterCheckpointSubsystem::HandleTravelFailure);
 }
 
 void UPokeMonsterCheckpointSubsystem::Deinitialize()
 {
 	FCoreUObjectDelegates::PostLoadMapWithWorld.Remove(PostLoadMapHandle);
+ if (GEngine) GEngine->OnTravelFailure().Remove(TravelFailureHandle);
 	if (UWorld* World = GetGameInstance() ? GetGameInstance()->GetWorld() : nullptr)
 		World->GetTimerManager().ClearTimer(TransitionTimer);
 	ClearOverlay();
@@ -135,9 +139,10 @@ bool UPokeMonsterCheckpointSubsystem::BeginDefeatRecovery(
 {
 	UWorld* World = IsValid(Player) ? Player->GetWorld() : nullptr;
 	FTransform Fallback;
-	if (bReturning || PendingTarget.IsValid() || !World || !IsValid(Controller)
-		|| (!ActiveCheckpoint.IsValid() && !FindFallback(World, Fallback))
-		|| !ResolveReturnTarget(GetMapPackage(World), ActiveCheckpoint, Fallback, PendingTarget)) return false;
+ const bool bUsableCheckpoint = ActiveCheckpoint.IsValid() && FPackageName::DoesPackageExist(ActiveCheckpoint.MapPackage.ToString());
+ if (bReturning || PendingTarget.IsValid() || !World || !IsValid(Controller)
+		|| (!bUsableCheckpoint && !FindFallback(World, Fallback))
+		|| !ResolveReturnTarget(GetMapPackage(World), bUsableCheckpoint ? ActiveCheckpoint : FPokeMonsterCheckpointData{}, Fallback, PendingTarget)) return false;
 	bReturning = true;
 	bLastRecoverySaved = false;
 	ReturningPlayer = Player;
@@ -161,6 +166,17 @@ void UPokeMonsterCheckpointSubsystem::PerformReturn()
 		return;
 	}
 	FinishReturn(World);
+}
+
+void UPokeMonsterCheckpointSubsystem::HandleTravelFailure(UWorld* World, ETravelFailure::Type, const FString& Error)
+{
+ if (!bReturning || (World && World->GetGameInstance() != GetGameInstance())) return;
+ UWorld* Current = GetGameInstance() ? GetGameInstance()->GetWorld() : nullptr;
+ FTransform Fallback;
+ UE_LOG(LogPokeMonsterCheckpoint, Display, TEXT("Recovery travel failed; checking current-world fallback: %s"), *Error);
+ if (Current && FindFallback(Current, Fallback)
+  && ResolveReturnTarget(GetMapPackage(Current), {}, Fallback, PendingTarget)) FinishReturn(Current);
+ else UnlockAfterReturn();
 }
 
 void UPokeMonsterCheckpointSubsystem::HandlePostLoadMap(UWorld* World)
@@ -203,30 +219,55 @@ void UPokeMonsterCheckpointSubsystem::FinishReturn(UWorld* World)
 			UE_LOG(LogPokeMonsterCheckpoint, Warning, TEXT("Checkpoint blocked; checked fallback placement: %s."),
 				bPlaced ? TEXT("succeeded") : TEXT("failed"));
 		}
-		if (bPlaced && IsValid(Controller)) Controller->SetControlRotation(ActualTarget.Rotation);
+		if (bPlaced)
+  {
+   if (IsValid(Controller)) Controller->SetControlRotation(ActualTarget.Rotation);
+   UPokeMonsterSaveSubsystem::SynchronizeRestoredPlayer(Player);
+   Player->RestoreSavedFacing(ActualTarget.Rotation.Vector());
+  }
 	}
 	const bool bHealed = bPlaced && RestoreTeamAfterDefeat(GetGameInstance()
 		? GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr);
-	if (bPlaced && bHealed)
-	{
-		// The world, position and party are now authoritative. The overlay still locks
-		// input until UnlockAfterReturn, but this is no longer an unfinished return.
-		ActualTarget.Location = Player->GetActorLocation();
-		ActiveCheckpoint = ActualTarget;
-		bReturning = false;
-		auto* Saves = GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>();
-		bLastRecoverySaved = Saves && Saves->SaveCurrentGame();
-	}
+ if (bPlaced && bHealed)
+ {
+  ReturnAttempts=0;
+  // A newly possessed pawn still reports Falling for its first movement tick.
+  // Keep recovery/input locked until it has actually settled, then snapshot once.
+  World->GetTimerManager().SetTimer(TransitionTimer,this,
+   &UPokeMonsterCheckpointSubsystem::SaveSettledReturn,.1f,false);
+  return;
+ }
+
 	UE_LOG(LogPokeMonsterCheckpoint, Display,
 		TEXT("Defeat return '%s': placed=%d healed=%d autosaved=%d."),
 		*ActualTarget.CheckpointId.ToString(), bPlaced, bHealed, bLastRecoverySaved);
 	ShowOverlay(Controller, FText::FromString(!bPlaced
 		? TEXT("Rückkehr fehlgeschlagen. Dein bisheriger Spielstand wurde nicht verändert.")
 		: !bHealed ? TEXT("Teamheilung fehlgeschlagen. Es wurde nicht gespeichert.")
-		: bLastRecoverySaved ? TEXT("Dein Team ist wieder fit. Der Spielstand wurde gespeichert.")
+		: bLastRecoverySaved ? TEXT("Dein Team ist wieder fit. Rettungsstand gespeichert; manueller Spielstand bleibt erhalten.")
 		: TEXT("Dein Team ist wieder fit. Speichern fehlgeschlagen – bitte erneut speichern.")));
 	World->GetTimerManager().SetTimer(TransitionTimer, this,
 		&UPokeMonsterCheckpointSubsystem::UnlockAfterReturn, 1.0f, false);
+}
+
+void UPokeMonsterCheckpointSubsystem::SaveSettledReturn()
+{
+ UWorld* World=GetWorld();auto* PC=World?World->GetFirstPlayerController():nullptr;
+ auto* Player=PC?Cast<APokeMonsterPlayerCharacter>(PC->GetPawn()):nullptr;
+ if(!bReturning || !World)return;
+ if((!Player || Player->GetCharacterMovement()->IsFalling()) && ++ReturnAttempts<20)
+ {
+  World->GetTimerManager().SetTimer(TransitionTimer,this,&UPokeMonsterCheckpointSubsystem::SaveSettledReturn,.1f,false);
+  return;
+ }
+ bReturning=false;
+ auto* Saves=GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>();
+ bLastRecoverySaved=Player && !Player->GetCharacterMovement()->IsFalling() && Saves && Saves->SaveRecoveryGame();
+ UE_LOG(LogPokeMonsterCheckpoint,Display,TEXT("Settled defeat return: autosaved=%d."),bLastRecoverySaved);
+ ShowOverlay(PC,FText::FromString(bLastRecoverySaved
+  ? TEXT("Dein Team ist wieder fit. Automatischer Stand gespeichert; manueller Spielstand bleibt erhalten.")
+  : TEXT("Dein Team ist wieder fit. Automatisches Speichern fehlgeschlagen – bitte erneut speichern.")));
+ World->GetTimerManager().SetTimer(TransitionTimer,this,&UPokeMonsterCheckpointSubsystem::UnlockAfterReturn,1.f,false);
 }
 
 void UPokeMonsterCheckpointSubsystem::UnlockAfterReturn()

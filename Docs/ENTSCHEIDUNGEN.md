@@ -923,6 +923,8 @@ persistenten Verbrennungsstatus und behält lesende Migration für Schema 1–3.
 
 ## 21.10.2026 – Starter-Erweiterung: abgeschlossene Niederlagen speichern
 
+> Die frühere Übernahme in denselben manuellen Slot ist durch Speichersystem V2 (26.10.2026) ersetzt; automatische Rettung und manuelle Fortsetzposition werden getrennt.
+
 Nach vollständiger Niederlage wird erst nach bestätigter Platzierung am gültigen Rückkehrpunkt und vollständiger Teamheilung automatisch gespeichert. Ein blockierter Rückkehrpunkt darf nur durch einen ebenfalls kollisionsgeprüften PlayerStart ersetzt werden; die tatsächlich erreichte Position wird gespeichert. Kampf und laufende Rückkehr bleiben für Snapshots gesperrt. Auf macOS wird das bestehende SaveGame-Format zunächst in eine temporäre Nachbardatei geschrieben, byteweise geprüft und atomar umbenannt. Ein Fehler erhält den vorherigen Slot und wird im Rückkehrhinweis angezeigt. Kein neues Speicherformat, kein zusätzlicher dauerhafter Backupslot. ClassicBattle-Darstellung und Regeln bleiben unverändert.
 
 
@@ -1209,3 +1211,34 @@ Sie ist keine physikalisch isotrope Himmelsbeleuchtung und keine Veränderung de
 eigentlichen Schattenfilter. Tiefe Kontaktstellen dürfen weiterhin dunkel sein.
 Keine Übertragung auf Westland, Biom-Testmap oder andere Gebiete. Die endgültige
 ästhetische Bewertung erfolgt anhand der realen Vergleiche beim Nutzer.
+
+
+## 26.10.2026 – Speichersystem V2: Fortsetzposition und Ohnmachtsort unabhängig
+
+Verbindlicher Nutzerauftrag: Normales Speichern hält aktuelle Weltposition,
+Blickrichtung und Innenraumkontext fest. Normales Laden stellt diesen Ort wieder
+her; der aktive Heil-/Kontrollpunkt bleibt davon unabhängig. Niederlage führt
+weiterhin ausschließlich zum aktiven Kontrollpunkt (mit kollisionsgeprüftem
+Fallback), heilt das Team und schreibt einen **getrennten automatischen Slot**. Der
+vorherige manuelle Slot und dessen Pokémon-/Fortschrittszustand bleiben erhalten.
+Damit wird die frühere gemeinsame Slotbelegung ausdrücklich ersetzt.
+
+Save-Schema 9 erweitert das vorhandene Unreal-SaveGame additiv um die manuelle
+PlayerLocation. Versionen 1–8 bleiben lesbar: ohne Resume-Position sicherer
+Checkpoint beziehungsweise PlayerStart; keine automatische Neuschreibung alter
+Slots. Fehlende/ungültige Zielwelt und blockierte Positionen verlangen einen
+validierten Ersatzort oder Abbruch ohne Datenverlust. Welt-/Innenraumtechnik,
+Kameraeinstellungen, Controllerbelegung, Instanz-IDs, Repertoire und AP bleiben
+bestehende Systeme. Hauptmenü erhält Laden sowie bestätigtes Speichern/Laden.
+Automatisierte Prüfungen verwenden ausschließlich RAM oder ausdrücklich isolierte
+PIE-Testslots, niemals Nutzersaves. Technische Nachweise folgen im Prüfbericht.
+
+
+Interne atomare Lern-/Entwicklungs-/Meisterentscheidungen und konfigurierte
+Heilpunkt-Autosaves verwenden ebenfalls den bestehenden zweiten automatischen
+Slot, nicht den manuellen Stand. Diese geprüften Transaktionen dürfen innerhalb
+der eigenen Fortschrittspräsentation speichern; normale Menü-/Debugzugriffe bleiben
+während Dialog, Kampf und Entwicklungssequenz gesperrt. Bei mapübergreifender
+Rückkehr darf der fertige kollisionsgeprüfte Bodenort gespeichert werden, auch
+bevor CharacterMovement nach dem Spawn seinen Walking-Status aktualisiert hat.
+Der automatische Slot ist ausdrücklich separat im Hauptmenü ladbar.

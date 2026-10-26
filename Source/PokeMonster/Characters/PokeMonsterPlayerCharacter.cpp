@@ -231,7 +231,14 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 void APokeMonsterPlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	NormalWalkSpeed = GetCharacterMovement()->MaxWalkSpeed;
+ NormalWalkSpeed = GetCharacterMovement()->MaxWalkSpeed;
+ if (const auto* GI = GetGameInstance())
+ {
+  const auto* Saves = GI->GetSubsystem<UPokeMonsterSaveSubsystem>();
+  const auto* Checkpoints = GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>();
+  if ((Saves && Saves->IsLoadInProgress()) || (Checkpoints && Checkpoints->IsReturningFromDefeat()))
+   SetOverworldInputLocked(true);
+ }
 	for (TActorIterator<APokeMonsterBuildingCutaway> It(GetWorld()); It; ++It)
 		SprintInteriorAreas.Add(*It);
 	OnCharacterMovementUpdated.AddDynamic(this, &APokeMonsterPlayerCharacter::OnMovementUpdated);
@@ -514,6 +521,19 @@ FVector APokeMonsterPlayerCharacter::GetInteractionWorldDirection() const
 	}
 
 	return CalculateCameraRelativeMovement(FacingInput, GetMovementBasisYaw());
+}
+
+bool APokeMonsterPlayerCharacter::RestoreSavedFacing(FVector Direction)
+{
+ if (Direction.ContainsNaN() || Direction.GetSafeNormal2D().IsNearlyZero()) return false;
+ LastWorldFacing = Direction.GetSafeNormal2D(); bHasWorldFacing = true;
+ const float Yaw = FMath::DegreesToRadians(GetMovementBasisYaw());
+ const FVector2D Input(-FMath::Sin(Yaw)*LastWorldFacing.X + FMath::Cos(Yaw)*LastWorldFacing.Y,
+  FMath::Cos(Yaw)*LastWorldFacing.X + FMath::Sin(Yaw)*LastWorldFacing.Y);
+ FacingDirection = CalculateFacingDirection(Input, FacingDirection, FacingInputThreshold);
+ RefreshCharacterVisual();
+ if (MeshyVisual) MeshyVisual->UpdatePresentation(0.f);
+ return true;
 }
 
 float APokeMonsterPlayerCharacter::InteractionTargetScore(const FVector& Delta,const FVector& Facing,float Range)

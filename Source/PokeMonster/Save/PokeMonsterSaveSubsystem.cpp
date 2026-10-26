@@ -14,10 +14,57 @@
 #include "Misc/Paths.h"
 #include "Engine/World.h"
 #include "UObject/UObjectIterator.h"
+#include "../Characters/PokeMonsterPlayerCharacter.h"
+#include "../Dialogue/PokeMonsterDialogueSubsystem.h"
+#include "../UI/PokeMonsterOverworldPlayerController.h"
+#include "../World/PokeMonsterBuildingCutaway.h"
+#include "Components/CapsuleComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "GameFramework/PlayerStart.h"
+#include "EngineUtils.h"
+#include "Misc/PackageName.h"
+#include "Misc/ScopeLock.h"
+#include "TimerManager.h"
+#include "Camera/PlayerCameraManager.h"
+#include "Engine/GameInstance.h"
+#include "Engine/Engine.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogPokeMonsterSave, Log, All);
 
 const FString UPokeMonsterSaveSubsystem::DevSlotName = TEXT("PokeMonster_Dev");
+const FString UPokeMonsterSaveSubsystem::RecoverySlotName = TEXT("PokeMonster_Recovery");
+
+bool FPokeMonsterSavedPlayerLocation::IsValid() const
+{
+ return bHasPosition && MapPackage.ToString().StartsWith(TEXT("/Game/"))
+  && FPackageName::IsValidLongPackageName(MapPackage.ToString())
+  && !Location.ContainsNaN() && !Rotation.ContainsNaN()
+  && !FacingDirection.ContainsNaN() && FMath::IsNearlyEqual(FacingDirection.SizeSquared(), 1., .01)
+  && FMath::Abs(FacingDirection.Z) < .01
+  && Location.GetAbsMax() < HALF_WORLD_MAX
+  && FMath::Abs(Rotation.Pitch) < 36000. && FMath::Abs(Rotation.Yaw) < 36000.
+  && FMath::Abs(Rotation.Roll) < 36000. && (!bRelocatedInterior || !InteriorActor.IsNone());
+}
+
+FPokeMonsterSavedPlayerLocation UPokeMonsterSaveSubsystem::CapturePlayerLocation(const UWorld* World)
+{
+ FPokeMonsterSavedPlayerLocation Result;
+ const auto* Player = World ? Cast<APokeMonsterPlayerCharacter>(UGameplayStatics::GetPlayerPawn(World, 0)) : nullptr;
+ if (!Player) return Result;
+ Result.bHasPosition = true;
+ Result.MapPackage = UPokeMonsterCheckpointSubsystem::GetMapPackage(World);
+ Result.Location = Player->GetActorLocation();
+ Result.Rotation = Player->GetActorRotation();
+ Result.FacingDirection = Player->GetInteractionWorldDirection().GetSafeNormal2D();
+ for (TActorIterator<APokeMonsterBuildingCutaway> It(World); It; ++It)
+  if (It->IsViewerInside(Result.Location))
+  {
+   Result.InteriorActor = It->GetFName();
+   Result.bRelocatedInterior = It->IsViewerInRelocatedRoom(Result.Location);
+   break;
+  }
+ return Result;
+}
 
 namespace
 {
@@ -156,6 +203,7 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 	Save->DefeatedTrainerIds.Sort(FNameLexicalLess());
 	Save->CompletedEncounterIds.Sort(FNameLexicalLess());
 	if (IsValid(Checkpoint)) Save->ActiveCheckpoint = Checkpoint->GetActiveCheckpoint();
+ Save->PlayerLocation = CapturePlayerLocation(Encounter->GetWorld());
 	if (IsValid(Quests))
 	{
 		Save->QuestProgress = Quests->GetProgress();
@@ -167,7 +215,7 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 
 bool UPokeMonsterSaveSubsystem::RestoreSnapshot(const UPokeMonsterSaveGame* Save,
 	UPokeMonsterEncounterSubsystem* Encounter, UPokeMonsterInventorySubsystem* Inventory,
-	UPokeMonsterCheckpointSubsystem* Checkpoint, UPokeMonsterQuestSubsystem* Quests)
+	UPokeMonsterCheckpointSubsystem* Checkpoint, UPokeMonsterQuestSubsystem* Quests, bool bValidateOnly)
 {
 	if (!IsValid(Save) || !IsValid(Encounter) || !IsValid(Inventory) || Encounter->IsEncounterActive()
 		|| (IsValid(Checkpoint) && Checkpoint->IsReturningFromDefeat())) return false;
@@ -227,7 +275,8 @@ bool UPokeMonsterSaveSubsystem::RestoreSnapshot(const UPokeMonsterSaveGame* Save
 	}
 	if (Save->SaveVersion >= 3)
 		for (FName Id : Save->CapturedSpeciesIds) if (Id.IsNone()) return false;
-	const TArray<FPokeMonsterInventoryStack> PreviousStacks = Inventory->GetStacks();
+	if (bValidateOnly) return true;
+ const TArray<FPokeMonsterInventoryStack> PreviousStacks = Inventory->GetStacks();
 	if (!Inventory->RestoreStacks(Stacks)) return false;
 	if (!Encounter->RestorePersistentState(Team, Save->DefeatedTrainerIds, Save->CompletedEncounterIds))
 	{
@@ -249,9 +298,9 @@ bool UPokeMonsterSaveSubsystem::SaveSnapshotToSlot(UPokeMonsterSaveGame* Save, c
 {
 #if WITH_EDITOR
     // A low-level caller must not bypass an active manual PIE preview's disk protection.
-    if (SlotName == DevSlotName)
+    if (SlotName == DevSlotName || SlotName == RecoverySlotName)
         for (TObjectIterator<UPokeMonsterSaveSubsystem> It; It; ++It)
-            if (It->IsPIEMemoryPreviewActive() && It->GetWorld()
+            if ((It->IsPIEMemoryPreviewActive() || !It->IsolatedPIESlot.IsEmpty()) && It->GetWorld()
                 && It->GetWorld()->WorldType == EWorldType::PIE) return false;
 #endif
 	// This project targets macOS. Its physical MoveFile uses same-filesystem rename(2),
@@ -278,76 +327,322 @@ bool UPokeMonsterSaveSubsystem::SaveSnapshotToSlot(UPokeMonsterSaveGame* Save, c
 #endif
 }
 
-bool UPokeMonsterSaveSubsystem::SaveCurrentGame()
+namespace
 {
-    if (!APokeMonsterGameMode::AllowsPersistentGameplay(GetWorld())) return false;
-	UGameInstance* Instance = GetGameInstance();
-	if (!Instance) return false;
-	UPokeMonsterSaveGame* Save = CaptureSnapshot(Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
-		Instance->GetSubsystem<UPokeMonsterInventorySubsystem>(), this,
-		Instance->GetSubsystem<UPokeMonsterCheckpointSubsystem>(),
-		Instance->GetSubsystem<UPokeMonsterQuestSubsystem>());
-	if (!Save) return false;
-#if WITH_EDITOR
-    if (IsPIEMemoryPreviewActive())
-    {
-        TArray<uint8> Bytes;
-        if (!UGameplayStatics::SaveGameToMemory(Save, Bytes) || Bytes.IsEmpty()) return false;
-        PIEMemorySave = MoveTemp(Bytes);
-        UE_LOG(LogPokeMonsterSave, Display, TEXT("PIE preview saved IN MEMORY; normal slot untouched."));
-        return true;
-    }
-#endif
-	const bool bSaved = SaveSnapshotToSlot(Save, DevSlotName);
-	if (bSaved) { UE_LOG(LogPokeMonsterSave, Display, TEXT("Save written: %s"), *DevSlotName); }
-	else { UE_LOG(LogPokeMonsterSave, Error, TEXT("Save failed: %s"), *DevSlotName); }
-	return bSaved;
+ bool MapAvailable(FName Name)
+ {
+  return Name.ToString().StartsWith(TEXT("/Game/"))
+   && FPackageName::IsValidLongPackageName(Name.ToString())
+   && FPackageName::DoesPackageExist(Name.ToString());
+ }
+ void InteriorContext(UWorld* World, FPokeMonsterSavedPlayerLocation& Location)
+ {
+  Location.InteriorActor = NAME_None; Location.bRelocatedInterior = false;
+  for (TActorIterator<APokeMonsterBuildingCutaway> It(World); It; ++It)
+   if (It->IsViewerInside(Location.Location))
+   {
+    Location.InteriorActor = It->GetFName();
+    Location.bRelocatedInterior = It->IsViewerInRelocatedRoom(Location.Location);
+    break;
+   }
+ }
+ bool SafeLocation(APokeMonsterPlayerCharacter* Player, const FPokeMonsterSavedPlayerLocation& Candidate)
+ {
+  if (!Player || !Candidate.IsValid()) return false;
+  UWorld* World = Player->GetWorld();
+  if (Candidate.MapPackage != UPokeMonsterCheckpointSubsystem::GetMapPackage(World)) return false;
+  FPokeMonsterSavedPlayerLocation Context = Candidate; InteriorContext(World, Context);
+  if (Context.InteriorActor != Candidate.InteriorActor
+   || Context.bRelocatedInterior != Candidate.bRelocatedInterior) return false;
+  const auto* Capsule = Player->GetCapsuleComponent();
+  FCollisionQueryParams Query(SCENE_QUERY_STAT(SaveV2Position), false, Player);
+  const FCollisionShape Shape = FCollisionShape::MakeCapsule(
+   FMath::Max(1.f, Capsule->GetScaledCapsuleRadius() - .5f),
+   FMath::Max(1.f, Capsule->GetScaledCapsuleHalfHeight() - .5f));
+  if (World->OverlapBlockingTestByChannel(Candidate.Location, FQuat::Identity,
+   Capsule->GetCollisionObjectType(), Shape, Query, Capsule->GetCollisionResponseToChannels())) return false;
+  FHitResult Floor;
+  const float HalfHeight = Capsule->GetScaledCapsuleHalfHeight();
+  return World->LineTraceSingleByChannel(Floor, Candidate.Location,
+   Candidate.Location - FVector(0,0,HalfHeight + 30.f), ECC_Visibility, Query)
+   && Floor.bBlockingHit && Floor.ImpactNormal.Z >= Player->GetCharacterMovement()->GetWalkableFloorZ();
+ }
+ bool ResolvePlacement(APokeMonsterPlayerCharacter* Player, const FPokeMonsterSavedPlayerLocation& Desired,
+  FPokeMonsterSavedPlayerLocation& Out)
+ {
+  if (SafeLocation(Player, Desired)) { Out = Desired; return true; }
+  // Only a blocked location is adjusted, within 2 m; do not silently move to another room.
+  for (float Radius : {40.f, 80.f, 140.f, 200.f})
+   for (int32 Direction = 0; Direction < 8; ++Direction)
+   {
+    Out = Desired;
+    const float Angle = Direction * PI / 4.f;
+    Out.Location += FVector(FMath::Cos(Angle)*Radius, FMath::Sin(Angle)*Radius, 0);
+    FHitResult Floor;
+    FCollisionQueryParams Query(SCENE_QUERY_STAT(SaveV2Fallback), false, Player);
+    if (Player->GetWorld()->LineTraceSingleByChannel(Floor, Out.Location + FVector(0,0,80),
+     Out.Location - FVector(0,0,180), ECC_Visibility, Query))
+     Out.Location.Z = Floor.ImpactPoint.Z + Player->GetCapsuleComponent()->GetScaledCapsuleHalfHeight() + 2.5f;
+    if (SafeLocation(Player, Out)) return true;
+   }
+  return false;
+ }
 }
 
-bool UPokeMonsterSaveSubsystem::LoadGame()
+void UPokeMonsterSaveSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
-    if (!APokeMonsterGameMode::AllowsPersistentGameplay(GetWorld())) return false;
-	if (!HasSaveGame())
-	{
-		UE_LOG(LogPokeMonsterSave, Warning, TEXT("No save in slot %s."), *DevSlotName);
-		return false;
-	}
-	UGameInstance* Instance = GetGameInstance();
+ Super::Initialize(Collection);
+ PostLoadMapHandle = FCoreUObjectDelegates::PostLoadMapWithWorld.AddUObject(
+  this, &UPokeMonsterSaveSubsystem::HandlePostLoadMap);
+ if (GEngine) TravelFailureHandle = GEngine->OnTravelFailure().AddUObject(this, &UPokeMonsterSaveSubsystem::HandleTravelFailure);
+}
+
+FString UPokeMonsterSaveSubsystem::SlotName(bool bRecovery) const
+{
 #if WITH_EDITOR
-    auto* Save = Cast<UPokeMonsterSaveGame>(IsPIEMemoryPreviewActive()
-        ? UGameplayStatics::LoadGameFromMemory(PIEMemorySave)
-        : UGameplayStatics::LoadGameFromSlot(DevSlotName, 0));
+ if (!IsolatedPIESlot.IsEmpty()) return IsolatedPIESlot + (bRecovery ? TEXT("_Recovery") : TEXT(""));
+#endif
+ return bRecovery ? RecoverySlotName : DevSlotName;
+}
+
+bool UPokeMonsterSaveSubsystem::UseIsolatedPIETestSlot(const FString& Name)
+{
+#if WITH_EDITOR
+ if (!GetWorld() || GetWorld()->WorldType != EWorldType::PIE || IsLoadInProgress()
+  || IsPIEMemoryPreviewActive() || bWriting || !IsolatedPIESlot.IsEmpty()
+  || !Name.StartsWith(TEXT("PokeMonster_SaveV2_Test_")) || Name.Len() > 100) return false;
+ for (TCHAR Char : Name) if (!FChar::IsAlnum(Char) && Char != TEXT('_')) return false;
+ IsolatedPIESlot = Name;
+ return true;
 #else
-    auto* Save = Cast<UPokeMonsterSaveGame>(UGameplayStatics::LoadGameFromSlot(DevSlotName, 0));
+ return false;
 #endif
-	if (!Instance || !Save)
-	{
-		UE_LOG(LogPokeMonsterSave, Error, TEXT("Save slot %s is unreadable or has the wrong class."), *DevSlotName);
-		return false;
-	}
-	const bool bLoaded = RestoreSnapshot(Save, Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
-		Instance->GetSubsystem<UPokeMonsterInventorySubsystem>(),
-		Instance->GetSubsystem<UPokeMonsterCheckpointSubsystem>(),
-		Instance->GetSubsystem<UPokeMonsterQuestSubsystem>());
-	if (bLoaded) { UE_LOG(LogPokeMonsterSave, Display, TEXT("Load completed: %s"), *DevSlotName); }
-	else { UE_LOG(LogPokeMonsterSave, Error, TEXT("Load rejected: %s"), *DevSlotName); }
-	return bLoaded;
 }
 
-bool UPokeMonsterSaveSubsystem::HasSaveGame() const
+bool UPokeMonsterSaveSubsystem::CanAccessWorldState(bool bRecovery) const
 {
-    if (!APokeMonsterGameMode::AllowsPersistentGameplay(GetWorld())) return false;
+ if (bWriting || IsLoadInProgress() || !APokeMonsterGameMode::AllowsPersistentGameplay(GetWorld())) return false;
+ const auto* GI = GetGameInstance();
+ const auto* E = GI ? GI->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
+ const auto* C = GI ? GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>() : nullptr;
+ const auto* D = GI ? GI->GetSubsystem<UPokeMonsterDialogueSubsystem>() : nullptr;
+ const auto* PC = GetWorld() ? Cast<APokeMonsterOverworldPlayerController>(GetWorld()->GetFirstPlayerController()) : nullptr;
+ const auto* Player = PC ? Cast<APokeMonsterPlayerCharacter>(PC->GetPawn()) : nullptr;
+ if (!E || E->IsEncounterActive() || (C && C->IsReturningFromDefeat())
+  || (D && D->IsDialogueActive()) || !Player || (!bRecovery && PC && PC->GetEvolutionWidget())) return false;
+ if (!bRecovery && Player->IsOverworldInputLocked() && !PC->IsMenuOpen()) return false;
+ if (Player->GetCharacterMovement()->IsFalling()
+  && (!bRecovery || !SafeLocation(const_cast<APokeMonsterPlayerCharacter*>(Player), CapturePlayerLocation(GetWorld())))) return false;
+ for (TActorIterator<APokeMonsterBuildingCutaway> It(GetWorld()); It; ++It)
+  if (It->GetRelocationMask() > .001f) return false;
+ return true;
+}
+
+bool UPokeMonsterSaveSubsystem::SaveCurrentGame() { return WriteCurrentGame(false); }
+bool UPokeMonsterSaveSubsystem::SaveRecoveryGame() { return WriteCurrentGame(true); }
+bool UPokeMonsterSaveSubsystem::SaveProgressGame() { return WriteCurrentGame(true); }
+
+bool UPokeMonsterSaveSubsystem::WriteCurrentGame(bool bRecovery)
+{
+ if (!CanAccessWorldState(bRecovery))
+ {
+  LastStorageMessage = TEXT("Speichern in dieser Spielsituation nicht möglich.");
+  const auto* GI=GetGameInstance();const auto* W=GetWorld();
+  const auto* PC=W?Cast<APokeMonsterOverworldPlayerController>(W->GetFirstPlayerController()):nullptr;
+  const auto* P=PC?Cast<APokeMonsterPlayerCharacter>(PC->GetPawn()):nullptr;
+  UE_LOG(LogPokeMonsterSave,Display,TEXT("Save guard: automatic=%d world=%s allowed=%d pending=%d writing=%d battle=%d return=%d dialogue=%d pawn=%d falling=%d safe=%d"),
+   bRecovery,*GetNameSafe(W),APokeMonsterGameMode::AllowsPersistentGameplay(W),IsLoadInProgress(),bWriting,
+   GI&&GI->GetSubsystem<UPokeMonsterEncounterSubsystem>()->IsEncounterActive(),GI&&GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>()->IsReturningFromDefeat(),
+   GI&&GI->GetSubsystem<UPokeMonsterDialogueSubsystem>()->IsDialogueActive(),P!=nullptr,P&&P->GetCharacterMovement()->IsFalling(),P&&SafeLocation(const_cast<APokeMonsterPlayerCharacter*>(P),CapturePlayerLocation(W)));
+  for(TActorIterator<APokeMonsterBuildingCutaway> It(W);It;++It)if(It->GetRelocationMask()>.001f)UE_LOG(LogPokeMonsterSave,Display,TEXT("Save guard: transitioning building %s mask=%f"),*It->GetName(),It->GetRelocationMask());
+  return false;
+ }
+ TGuardValue<bool> Writing(bWriting, true);
+ auto* GI = GetGameInstance();
+ auto* Save = CaptureSnapshot(GI->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
+  GI->GetSubsystem<UPokeMonsterInventorySubsystem>(), this,
+  GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>(), GI->GetSubsystem<UPokeMonsterQuestSubsystem>());
+ if (!Save || !Save->PlayerLocation.IsValid())
+ { LastStorageMessage = TEXT("Spielerposition oder Spieldaten sind nicht speicherbar."); return false; }
 #if WITH_EDITOR
-    if (IsPIEMemoryPreviewActive()) return !PIEMemorySave.IsEmpty();
+ if (IsPIEMemoryPreviewActive())
+ {
+  TArray<uint8> Bytes;
+  if (!UGameplayStatics::SaveGameToMemory(Save, Bytes) || Bytes.IsEmpty()) return false;
+  (bRecovery ? PIEMemoryRecovery : PIEMemorySave) = MoveTemp(Bytes);
+  LastStorageMessage = bRecovery ? TEXT("Automatischer Stand im Test-RAM gespeichert.") : TEXT("Spiel im Test-RAM gespeichert.");
+  return true;
+ }
 #endif
-	return UGameplayStatics::DoesSaveGameExist(DevSlotName, 0);
+ const bool Saved = SaveSnapshotToSlot(Save, SlotName(bRecovery));
+ LastStorageMessage = Saved ? (bRecovery ? TEXT("Automatischer Stand gespeichert; manueller Spielstand unverändert.")
+  : TEXT("Spiel gespeichert.")) : TEXT("Speichern fehlgeschlagen. Vorheriger Spielstand bleibt erhalten.");
+ UE_LOG(LogPokeMonsterSave, Display, TEXT("%s [%s]"), *LastStorageMessage, *SlotName(bRecovery));
+ return Saved;
+}
+
+bool UPokeMonsterSaveSubsystem::HasSlot(bool bRecovery) const
+{
+ if (!APokeMonsterGameMode::AllowsPersistentGameplay(GetWorld())) return false;
+#if WITH_EDITOR
+ if (IsPIEMemoryPreviewActive()) return !(bRecovery ? PIEMemoryRecovery : PIEMemorySave).IsEmpty();
+#endif
+ return UGameplayStatics::DoesSaveGameExist(SlotName(bRecovery), 0);
+}
+bool UPokeMonsterSaveSubsystem::HasSaveGame() const { return HasSlot(false); }
+bool UPokeMonsterSaveSubsystem::HasRecoveryGame() const { return HasSlot(true); }
+bool UPokeMonsterSaveSubsystem::LoadGame() { return ReadGame(false); }
+bool UPokeMonsterSaveSubsystem::LoadRecoveryGame() { return ReadGame(true); }
+
+bool UPokeMonsterSaveSubsystem::ReadGame(bool bRecovery)
+{
+ if (!CanAccessWorldState() || !HasSlot(bRecovery))
+ { LastStorageMessage = TEXT("Laden derzeit nicht möglich oder kein Spielstand vorhanden."); return false; }
+ UPokeMonsterSaveGame* Save = nullptr;
+#if WITH_EDITOR
+ if (IsPIEMemoryPreviewActive()) Save = Cast<UPokeMonsterSaveGame>(UGameplayStatics::LoadGameFromMemory(
+  bRecovery ? PIEMemoryRecovery : PIEMemorySave));
+ else
+#endif
+ Save = Cast<UPokeMonsterSaveGame>(UGameplayStatics::LoadGameFromSlot(SlotName(bRecovery), 0));
+ auto* GI = GetGameInstance();
+ if (!Save || !RestoreSnapshot(Save, GI->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
+  GI->GetSubsystem<UPokeMonsterInventorySubsystem>(), GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>(),
+  GI->GetSubsystem<UPokeMonsterQuestSubsystem>(), true))
+ { LastStorageMessage = TEXT("Spielstand ungültig; laufende Daten bleiben erhalten."); return false; }
+ PendingLocation = Save->SaveVersion >= 9 ? Save->PlayerLocation : FPokeMonsterSavedPlayerLocation();
+ bool bFallback = !PendingLocation.IsValid() || !MapAvailable(PendingLocation.MapPackage);
+ bUsingPositionFallback = bFallback;
+ if (bFallback)
+ {
+  PendingLocation = {};
+  if (Save->ActiveCheckpoint.IsValid() && MapAvailable(Save->ActiveCheckpoint.MapPackage))
+  {
+   PendingLocation.bHasPosition = true; PendingLocation.MapPackage = Save->ActiveCheckpoint.MapPackage;
+   PendingLocation.Location = Save->ActiveCheckpoint.Location; PendingLocation.Rotation = Save->ActiveCheckpoint.Rotation;
+   PendingLocation.FacingDirection = Save->ActiveCheckpoint.Rotation.Vector().GetSafeNormal2D();
+   if (PendingLocation.MapPackage == UPokeMonsterCheckpointSubsystem::GetMapPackage(GetWorld()))
+    InteriorContext(GetWorld(), PendingLocation);
+  }
+ }
+ PendingLoad = Save;
+ LoadAttempts = 0;
+ LastStorageMessage = bFallback ? TEXT("Alte/ungültige Position: sicherer Rückkehrpunkt wird geprüft.") : TEXT("Spielstand wird geladen …");
+ if (PendingLocation.IsValid() && PendingLocation.MapPackage != UPokeMonsterCheckpointSubsystem::GetMapPackage(GetWorld()))
+ {
+  if (auto* PC = GetWorld()->GetFirstPlayerController())
+   if (auto* P = Cast<APokeMonsterPlayerCharacter>(PC->GetPawn())) P->SetOverworldInputLocked(true);
+  UGameplayStatics::OpenLevel(GetWorld(), PendingLocation.MapPackage);
+  return true; // Completion and input release occur only in the destination world.
+ }
+ return CompleteLoad(GetWorld());
+}
+
+void UPokeMonsterSaveSubsystem::SynchronizeRestoredPlayer(APokeMonsterPlayerCharacter* Player)
+{
+ if (!Player) return;
+ auto* Move = Player->GetCharacterMovement(); Move->StopMovementImmediately(); Move->bJustTeleported = true;
+ for (TActorIterator<APokeMonsterBuildingCutaway> It(Player->GetWorld()); It; ++It) It->SynchronizeViewerAfterLoad();
+ if (auto* PC = Player->GetController())
+ {
+  PC->SetControlRotation(Player->GetActorRotation());
+  if (auto* Controller = Cast<APlayerController>(PC))
+  {
+   Controller->SetViewTarget(Player);
+   if (Controller->PlayerCameraManager) Controller->PlayerCameraManager->SetGameCameraCutThisFrame();
+  }
+ }
+}
+
+bool UPokeMonsterSaveSubsystem::CompleteLoad(UWorld* World)
+{
+ auto* GI = GetGameInstance();
+ auto* PC = World ? World->GetFirstPlayerController() : nullptr;
+ auto* Player = PC ? Cast<APokeMonsterPlayerCharacter>(PC->GetPawn()) : nullptr;
+ if (!PendingLoad || !GI || !Player) return false;
+ FPokeMonsterSavedPlayerLocation Destination;
+ bool bPlacedTarget = PendingLocation.IsValid() && ResolvePlacement(Player, PendingLocation, Destination);
+ if (!bPlacedTarget && PendingLoad->ActiveCheckpoint.IsValid()
+  && PendingLoad->ActiveCheckpoint.MapPackage == UPokeMonsterCheckpointSubsystem::GetMapPackage(World))
+ {
+  FPokeMonsterSavedPlayerLocation Fallback;
+  Fallback.bHasPosition = true; Fallback.MapPackage = PendingLoad->ActiveCheckpoint.MapPackage;
+  Fallback.Location = PendingLoad->ActiveCheckpoint.Location; Fallback.Rotation = PendingLoad->ActiveCheckpoint.Rotation;
+  Fallback.FacingDirection = Fallback.Rotation.Vector().GetSafeNormal2D();
+  InteriorContext(World, Fallback);
+  bPlacedTarget = ResolvePlacement(Player, Fallback, Destination);
+ }
+ if (!bPlacedTarget)
+ {
+  for (TActorIterator<APlayerStart> It(World); It; ++It)
+  {
+   FPokeMonsterSavedPlayerLocation Fallback;
+   Fallback.bHasPosition = true; Fallback.MapPackage = UPokeMonsterCheckpointSubsystem::GetMapPackage(World);
+   Fallback.Location = It->GetActorLocation(); Fallback.Rotation = It->GetActorRotation();
+   Fallback.FacingDirection = Fallback.Rotation.Vector().GetSafeNormal2D(); InteriorContext(World, Fallback);
+   if (ResolvePlacement(Player, Fallback, Destination)) { bPlacedTarget = true; break; }
+  }
+ }
+ if (!bPlacedTarget)
+ { LastStorageMessage = TEXT("Kein sicherer Ladeort; Spieldaten unverändert."); ClearPendingLoad(); return false; }
+ const FTransform Previous = Player->GetActorTransform();
+ if (!Player->TeleportTo(Destination.Location, Destination.Rotation, false, true))
+ { LastStorageMessage = TEXT("Platzieren fehlgeschlagen; Spieldaten unverändert."); ClearPendingLoad(); return false; }
+ const bool Loaded = RestoreSnapshot(PendingLoad, GI->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
+  GI->GetSubsystem<UPokeMonsterInventorySubsystem>(), GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>(),
+  GI->GetSubsystem<UPokeMonsterQuestSubsystem>());
+ if (!Loaded) Player->SetActorTransform(Previous, false, nullptr, ETeleportType::TeleportPhysics);
+ SynchronizeRestoredPlayer(Player);
+ if (Loaded) Player->RestoreSavedFacing(Destination.FacingDirection);
+ LastStorageMessage = Loaded ? (bUsingPositionFallback ? TEXT("Spielstand am sicheren Rückkehrpunkt geladen.") : Destination.Location.Equals(PendingLocation.Location, .01f)
+  ? TEXT("Spielstand und Position geladen.") : TEXT("Spielstand an sicherem Ersatzort geladen."))
+  : TEXT("Laden abgelehnt; vorherige Daten bleiben erhalten.");
+ UE_LOG(LogPokeMonsterSave, Display, TEXT("%s"), *LastStorageMessage);
+ ClearPendingLoad();
+ return Loaded;
+}
+
+void UPokeMonsterSaveSubsystem::HandlePostLoadMap(UWorld* World)
+{
+ if (!PendingLoad || !World || World->GetGameInstance() != GetGameInstance()) return;
+ if (PendingLocation.IsValid() && PendingLocation.MapPackage != UPokeMonsterCheckpointSubsystem::GetMapPackage(World))
+ { LastStorageMessage = TEXT("Zielwelt nicht geladen; Spieldaten unverändert."); ClearPendingLoad(); return; }
+ if (bUsingPositionFallback && PendingLocation.IsValid()) InteriorContext(World, PendingLocation);
+ // PlayerController BeginPlay is not guaranteed to have possessed its pawn at PostLoad.
+ World->GetTimerManager().SetTimer(LoadTimer, FTimerDelegate::CreateWeakLambda(this, [this, World]()
+ {
+  if (CompleteLoad(World)) return;
+  if (!PendingLoad) return;
+  if (++LoadAttempts >= 30) { LastStorageMessage = TEXT("Ladevorgang ohne Spielfigur abgebrochen."); ClearPendingLoad(); }
+  else HandlePostLoadMap(World);
+ }), .1f, false);
+}
+
+void UPokeMonsterSaveSubsystem::HandleTravelFailure(UWorld* World, ETravelFailure::Type, const FString& Error)
+{
+ if (!PendingLoad || (World && World->GetGameInstance() != GetGameInstance())) return;
+ LastStorageMessage = TEXT("Weltwechsel fehlgeschlagen; laufende Spieldaten unverändert.");
+ UE_LOG(LogPokeMonsterSave, Display, TEXT("Load travel rejected: %s"), *Error);
+ ClearPendingLoad();
+}
+
+void UPokeMonsterSaveSubsystem::ClearPendingLoad()
+{
+ if (GetWorld())
+ {
+  GetWorld()->GetTimerManager().ClearTimer(LoadTimer);
+  if (auto* PC = Cast<APokeMonsterOverworldPlayerController>(GetWorld()->GetFirstPlayerController()))
+   if (auto* Player = Cast<APokeMonsterPlayerCharacter>(PC->GetPawn()))
+    Player->SetOverworldInputLocked(PC->IsMenuOpen() || PC->GetEvolutionWidget() != nullptr);
+ }
+ PendingLoad = nullptr; PendingLocation = {}; LoadAttempts = 0;
 }
 
 bool UPokeMonsterSaveSubsystem::DeleteDevSave()
 {
     if (!APokeMonsterGameMode::AllowsPersistentGameplay(GetWorld())) return false;
 #if WITH_EDITOR
-    if (IsPIEMemoryPreviewActive()) return false;
+    if (IsPIEMemoryPreviewActive() || !IsolatedPIESlot.IsEmpty()) return false;
 #endif
 	return !HasSaveGame() || UGameplayStatics::DeleteGameInSlot(DevSlotName, 0);
 }
@@ -405,16 +700,21 @@ bool UPokeMonsterSaveSubsystem::RunDevRoundTripTest()
 	return bPassed;
 }
 
-#if WITH_EDITOR
 void UPokeMonsterSaveSubsystem::Deinitialize()
 {
-    PIEOriginalSnapshot.Reset();
-    PIEMemorySave.Reset();
-    Super::Deinitialize();
+ FCoreUObjectDelegates::PostLoadMapWithWorld.Remove(PostLoadMapHandle);
+ if (GEngine) GEngine->OnTravelFailure().Remove(TravelFailureHandle);
+ ClearPendingLoad();
+#if WITH_EDITOR
+ PIEOriginalSnapshot.Reset(); PIEMemorySave.Reset(); PIEMemoryRecovery.Reset();
+ IsolatedPIESlot.Reset();
+#endif
+ Super::Deinitialize();
 }
+#if WITH_EDITOR
 bool UPokeMonsterSaveSubsystem::BeginPIEMemoryPreview()
 {
-    if (IsPIEMemoryPreviewActive()) return false;
+    if (IsPIEMemoryPreviewActive() || !IsolatedPIESlot.IsEmpty()) return false;
     auto* GI = GetGameInstance();
     if (!GI || !GetWorld() || GetWorld()->WorldType != EWorldType::PIE) return false;
     auto* Snapshot = CaptureSnapshot(GI->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
@@ -437,6 +737,7 @@ bool UPokeMonsterSaveSubsystem::EndPIEMemoryPreview()
     // Keep protection active until the entire original session has restored successfully.
     PIEOriginalSnapshot.Reset();
     PIEMemorySave.Reset();
+    PIEMemoryRecovery.Reset();
     return true;
 }
 #endif

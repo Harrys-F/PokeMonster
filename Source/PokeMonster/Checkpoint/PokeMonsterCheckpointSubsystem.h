@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Engine/EngineBaseTypes.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "PokeMonsterCheckpointSubsystem.generated.h"
 
@@ -33,7 +34,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Checkpoint") bool RestoreCheckpoint(const FPokeMonsterCheckpointData& Data);
 	UFUNCTION(BlueprintPure, Category="Checkpoint") const FPokeMonsterCheckpointData& GetActiveCheckpoint() const { return ActiveCheckpoint; }
 	bool HasActiveCheckpoint() const { return ActiveCheckpoint.IsValid(); }
-	bool IsReturningFromDefeat() const { return bReturning; }
+	UFUNCTION(BlueprintPure, Category="Checkpoint") bool IsReturningFromDefeat() const { return bReturning; }
 	UFUNCTION(BlueprintPure, Category="Checkpoint") bool WasLastRecoverySaved() const { return bLastRecoverySaved; }
 	bool BeginDefeatRecovery(APokeMonsterPlayerCharacter* Player, APlayerController* Controller);
 	static FName GetMapPackage(const UWorld* World);
@@ -47,8 +48,10 @@ private:
 #endif
 	void PerformReturn();
 	void FinishReturn(UWorld* World);
+ void SaveSettledReturn();
 	void UnlockAfterReturn();
 	void HandlePostLoadMap(UWorld* World);
+ void HandleTravelFailure(UWorld* World, ETravelFailure::Type Type, const FString& Error);
 	void ShowOverlay(APlayerController* Controller, const FText& Message);
 	void ClearOverlay();
 	static bool FindFallback(UWorld* World, FTransform& OutTransform);
@@ -60,6 +63,7 @@ private:
 	TWeakObjectPtr<APlayerController> ReturningController;
 	FTimerHandle TransitionTimer;
 	FDelegateHandle PostLoadMapHandle;
+ FDelegateHandle TravelFailureHandle;
 	int32 ReturnAttempts = 0;
 	bool bReturning = false;
 	bool bLastRecoverySaved = false;

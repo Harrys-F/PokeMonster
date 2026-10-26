@@ -44,19 +44,35 @@ struct POKEMONSTER_API FPokeMonsterSavedItemStack
 	UPROPERTY() int32 Quantity = 0;
 };
 
+/** Independent manual-resume position; never substitutes for the defeat checkpoint. */
+USTRUCT(BlueprintType)
+struct POKEMONSTER_API FPokeMonsterSavedPlayerLocation
+{
+ GENERATED_BODY()
+ UPROPERTY(BlueprintReadOnly) bool bHasPosition = false;
+ UPROPERTY(BlueprintReadOnly) FName MapPackage;
+ UPROPERTY(BlueprintReadOnly) FVector Location = FVector::ZeroVector;
+ UPROPERTY(BlueprintReadOnly) FRotator Rotation = FRotator::ZeroRotator;
+ UPROPERTY(BlueprintReadOnly) FVector FacingDirection = FVector::ForwardVector;
+ UPROPERTY(BlueprintReadOnly) FName InteriorActor;
+ UPROPERTY(BlueprintReadOnly) bool bRelocatedInterior = false;
+ bool IsValid() const;
+};
+
 /** Versioned, engine-native snapshot of the GameInstance session state. */
 UCLASS()
 class POKEMONSTER_API UPokeMonsterSaveGame : public USaveGame
 {
 	GENERATED_BODY()
 public:
-	static constexpr int32 CurrentVersion = 8;
+	static constexpr int32 CurrentVersion = 9;
 	UPROPERTY() int32 SaveVersion = CurrentVersion;
 	UPROPERTY() TArray<FPokeMonsterSavedCreature> PlayerTeam;
 	UPROPERTY() TArray<FPokeMonsterSavedItemStack> InventoryStacks;
 	UPROPERTY() TArray<FName> DefeatedTrainerIds;
 	UPROPERTY() TArray<FName> CompletedEncounterIds;
 	UPROPERTY() FPokeMonsterCheckpointData ActiveCheckpoint;
+ UPROPERTY() FPokeMonsterSavedPlayerLocation PlayerLocation;
 	UPROPERTY() TArray<FPokeMonsterQuestProgress> QuestProgress;
 	UPROPERTY() TArray<FName> CapturedSpeciesIds;
 };

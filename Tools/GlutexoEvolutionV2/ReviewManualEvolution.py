@@ -52,6 +52,7 @@ act('record real member before success',lambda:state.update(success=snap(),targe
 act('confirm full sequence',lambda:key('Enter'));wait('full normal committed presentation',lambda:phase('complete'),15)
 check('Confirmed evolution preserves selected instance XP and spent AP',lambda:snap()[index]['species'].endswith('DA_'+state['target']+'.DA_'+state['target'])and same_individual(state['success'][index],snap()[index]))
 act('success screenshot',lambda:shot('RealMemberSuccess'))
+act('return to safe play before manual save',lambda:key('Enter'));wait('evolution widget closed before manual save',lambda:not ui())
 act('in memory save load',lambda:state.update(roundtrip=save.save_current_game()and save.load_game()))
 check('Save Load reads evolved RAM state without touching disk',lambda:state['roundtrip']and snap()[index]['species'].endswith('DA_'+state['target']+'.DA_'+state['target'])and disk_unchanged())
 check('Delete normal save blocked during preview',lambda:not save.delete_dev_save()and slot.exists()and disk_unchanged())

@@ -7,7 +7,7 @@
 #if !UE_BUILD_SHIPPING
 namespace
 {
- FAutoConsoleCommandWithWorldAndArgs Key(TEXT("pm.Input.Key"),
+ FAutoConsoleCommandWithWorldAndArgs SimulatedKeyCommand(TEXT("pm.Input.Key"),
   TEXT("Simulated Slate key: <UE key name> <down|up|tap> [repeat]. Not hardware evidence."),
   FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& Args,UWorld* W)
  {

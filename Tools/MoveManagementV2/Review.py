@@ -5,7 +5,8 @@ R=Path(unreal.Paths.project_dir()).resolve();O=R/'Saved/MoveManagementV2';label=
 w=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_game_world();assert w
 p=unreal.GameplayStatics.get_player_pawn(w,0);pc=unreal.GameplayStatics.get_player_controller(w,0);ui=pc.get_overworld_widget();gi=unreal.GameplayStatics.get_game_instance(w)
 enc=next(x for x in unreal.ObjectIterator(unreal.PokeMonsterEncounterSubsystem)if x.get_outer()==gi);save=next(x for x in unreal.ObjectIterator(unreal.PokeMonsterSaveSubsystem)if x.get_outer()==gi)
-slot=R/'Saved/SaveGames/PokeMonster_Dev.sav';assert not slot.exists(),'Runner must hold original save before this fixture'
+assert save.use_isolated_pie_test_slot('PokeMonster_SaveV2_Test_Master'+label)
+slot=R/'Saved/SaveGames'/('PokeMonster_SaveV2_Test_Master'+label+'_Recovery.sav');assert not slot.exists(),'Use a fresh isolated label'
 settings=unreal.get_default_object(unreal.load_class(None,'/Script/UnrealEd.EditorPerformanceSettings'));throttle=settings.get_editor_property('bThrottleCPUWhenNotForeground');settings.set_editor_property('bThrottleCPUWhenNotForeground',False)
 old_percentage=unreal.SystemLibrary.get_console_variable_float_value('r.ScreenPercentage')
 for a in unreal.GameplayStatics.get_all_actors_of_class(w,unreal.Actor):
@@ -47,11 +48,11 @@ key('B picks old Tackle at full set',B);key('Down selects replacement slot one',
 key('B reopens master',B);key('B selects learner again',B);key('B picks remembered Tackle',B);key('Down chooses slot one again','Gamepad_DPad_Down');key('B replaces in draft',B);down(5);key('B reviews changes',B);key('B confirms and saves',B)
 check('Confirmation closes master and saves',lambda:not pc.is_menu_open()and slot.exists());action('record first commit',lambda:state.update(committed=snap(),saved=save_hash()))
 check('First individual retains five known moves',lambda:len(snap()[0]['known'])==5);check('Other individual remains distinct and unchanged',lambda:snap()[1]==state['initial'][1]);check('Old Tackle retains spent AP after reactivation',lambda:snap()[0]['active'][1]==state['initial'][0]['known'][0]);check('New Water Gun retains spent AP',lambda:snap()[0]['active'][0]==state['initial'][0]['active'][0])
-action('load via existing save system',lambda:save.load_game());check('Saved loadout and inactive AP restore exactly',lambda:snap()==state['committed'])
+action('load via existing save system',lambda:save.load_recovery_game());check('Saved loadout and inactive AP restore exactly',lambda:snap()==state['committed'])
 # Remove and append an active move to reorder it. All changes remain a draft until reviewed.
 key('B opens master for ordering',B);key('B selects same individual',B);down(4);key('B removes Water Gun from draft',B);key('B appends Water Gun at end',B);down(1);key('B reviews order',B);action('capture reordered draft',lambda:shot('MasterReorderedReview'));key('B saves order',B)
 check('Order change preserved PP and complete repertoire',lambda:snap()[0]['known']==state['initial'][0]['known']and snap()[0]['active'][3]==state['initial'][0]['active'][0]and snap()[1]==state['initial'][1]);action('remember ordered save',lambda:state.update(ordered=snap()))
-action('load order',lambda:save.load_game());check('Order survives save/load',lambda:snap()==state['ordered']);key('X final read-only view',X);key('L final moves','Gamepad_LeftShoulder');key('B final pokemon',B);action('capture saved result',lambda:shot('SavedRepertoire'));key('A leave details',A);key('A leave moves',A);key('A close',A)
+action('load order',lambda:save.load_recovery_game());check('Order survives save/load',lambda:snap()==state['ordered']);key('X final read-only view',X);key('L final moves','Gamepad_LeftShoulder');key('B final pokemon',B);action('capture saved result',lambda:shot('SavedRepertoire'));key('A leave details',A);key('A leave moves',A);key('A close',A)
 # Actual battle lock uses the existing system; no new battle logic or UI.
 action('existing classic fixture',lambda:cmd('pm.BattleV3.Start classic wild'),1.5);check('ClassicBattle active',lambda:enc.is_encounter_active());action('remember combat state',lambda:state.update(combat=snap()))
 key('B is battle input, not NPC interaction',B);check('No master/menu during battle',lambda:not pc.is_menu_open());check('Normal menu API blocked during battle',lambda:not pc.open_menu(unreal.PokeMonsterOverworldMenuSection.MOVES));check('Battle input has not changed persistent loadout',lambda:snap()==state['combat'])

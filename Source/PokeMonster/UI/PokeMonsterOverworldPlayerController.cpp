@@ -1,6 +1,7 @@
 #include "PokeMonsterOverworldPlayerController.h"
 #include "PokeMonsterControllerInput.h"
 #include "PokeMonsterEvolutionWidget.h"
+#include "../Save/PokeMonsterSaveSubsystem.h"
 #if WITH_EDITOR
 #include "../Development/PokeMonsterEvolutionTest.h"
 #endif
@@ -84,8 +85,15 @@ void APokeMonsterOverworldPlayerController::BeginPlay()
  UWidgetBlueprintLibrary::SetFocusToGameViewport();
 	GetWorldTimerManager().SetTimer(RefreshTimer, this,
 		&APokeMonsterOverworldPlayerController::RefreshHUD, 0.25f, true);
-	RefreshHUD();
-	OnDialogueChanged();
+ RefreshHUD();
+ OnDialogueChanged();
+ if (const auto* GI = GetGameInstance())
+ {
+  const auto* Save = GI->GetSubsystem<UPokeMonsterSaveSubsystem>();
+  const auto* Checkpoint = GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>();
+  if ((Save && Save->IsLoadInProgress()) || (Checkpoint && Checkpoint->IsReturningFromDefeat()))
+   if (auto* Player = Cast<APokeMonsterPlayerCharacter>(GetPawn())) Player->SetOverworldInputLocked(true);
+ }
 }
 
 void APokeMonsterOverworldPlayerController::EndPlay(const EEndPlayReason::Type EndPlayReason)
@@ -141,8 +149,9 @@ bool APokeMonsterOverworldPlayerController::CloseMenu()
 	bMenuOpen = false;
  MoveMaster.Reset(); MasterPartySnapshot.Reset();
 	if (OverworldWidget) OverworldWidget->SetMenuOpen(false);
-	UnlockMenu(Cast<APokeMonsterPlayerCharacter>(GetPawn()));
-	SetInputMode(FInputModeGameAndUI());
+ if (const auto* Save = GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>())
+  if (!Save->IsLoadInProgress()) UnlockMenu(Cast<APokeMonsterPlayerCharacter>(GetPawn()));
+ SetInputMode(FInputModeGameAndUI());
  UWidgetBlueprintLibrary::SetFocusToGameViewport();
 	bShowMouseCursor = true;
 	RefreshHUD();

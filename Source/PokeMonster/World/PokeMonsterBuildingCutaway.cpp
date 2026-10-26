@@ -206,6 +206,13 @@ void APokeMonsterBuildingCutaway::Tick(float DeltaSeconds)
 	RefreshVisibility(DeltaSeconds);
 }
 
+void APokeMonsterBuildingCutaway::SynchronizeViewerAfterLoad()
+{
+ bViewerInitialized = false;
+ bMidpointArmed = bRelocationRejected = false;
+ RefreshVisibility(0.f);
+}
+
 void APokeMonsterBuildingCutaway::RefreshVisibility(float DeltaSeconds)
 {
 	APawn* Player = UGameplayStatics::GetPlayerPawn(this, 0);

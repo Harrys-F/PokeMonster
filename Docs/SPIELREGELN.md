@@ -237,3 +237,15 @@ Nachweise und genaue Einschränkungen: `ATTACKENSYSTEM_V4_ABSCHLUSSPRUEFBERICHT.
 Glumanda/Zunderlauf entwickelt sich frühestens ab Level 16 zu Glutexo, Glutexo frühestens ab Level 36 zum vorhandenen Glurak. Angebote erfolgen im sicheren Zustand nach Kampf-/Lernabschluss. B bestätigt, A kann die laufende Präsentation vor ihrer endgültigen Übernahme abbrechen. Ein späterer Levelaufstieg oder ein anderer Kampfsieg bietet einen neuen Versuch; keine sofortige Wiederholung nach Abbruch. Eine Zwischenform wird niemals übersprungen.
 
 Dieselbe individuelle Kreatur behält Identität, Level, numerische XP, ihre verwendete Erfahrungskurve, Status, Attackenrepertoire und verbrauchte AP. Neue Artwerte werden berechnet; fehlende KP bleiben erhalten, K.O. wird nicht geheilt. Neue Attacken am Entwicklungslevel werden regulär angeboten. Fehlende Zielmodelle blockieren die Ausführung ohne Datenänderung. Die besonderen Regeln ehemaliger Tauschentwicklungen bleiben bestehen.
+
+
+## Speichern und Rückkehr – verbindliche Präzisierung vom 26.10.2026
+
+Manuelles Speichern hält den aktuellen Aufenthaltsort und die Blickrichtung fest.
+Normales Laden führt zu diesem Speicherort, auch im Gebäude. Der letzte aktivierte
+Heil-/Kontrollpunkt ist eine getrennte Information: Nur Niederlage/Ohnmacht führt
+dorthin. Manuelles Speichern aktiviert keinen neuen Kontrollpunkt. Die automatische
+Niederlagen-Sicherung ersetzt den manuellen Spielstand nicht; erneutes manuelles
+Laden stellt den zuvor gesicherten Zustand wieder her. Die bisherige gemeinsame
+Dev-Slotbeschreibung ist insoweit ersetzt; Heilung und übrige Niederlagenregeln
+bleiben bestehen.

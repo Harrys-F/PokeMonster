@@ -42,6 +42,7 @@ protected:
 	void OnOverworldViewUpdated(const FPokeMonsterOverworldView& NewView);
 private:
  friend class FMoveManagementV2Widget;
+ friend class FSaveV2MenuGuardTest;
  void RenderMoves();
  UFUNCTION() void ConfirmMoves();
  void CancelMoves();
@@ -61,6 +62,14 @@ private:
  void NavigateMenu(int32 Delta);
  void ConfirmMenu();
  UFUNCTION() void SaveGame();
+ UFUNCTION() void LoadGame();
+ UFUNCTION() void LoadRecoveryGame();
+ UFUNCTION() void ConfirmStorage();
+ UFUNCTION() void CancelStorage();
+ int32 PendingStorageAction = 0;
+ bool bStorageBusy = false;
+ uint64 LastStorageInputFrame = MAX_uint64;
+ FString StorageMessage;
  UPROPERTY(Transient) TArray<TObjectPtr<UButton>> MainButtons;
  int32 FocusedMainSlot = 0;
  int32 FocusedInventorySlot = 0;

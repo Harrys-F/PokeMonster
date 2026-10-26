@@ -457,7 +457,7 @@ bool UPokeMonsterEncounterSubsystem::CommitRememberedMoves(APokeMonsterNPC* Mast
  if(!Save)return false;
  const auto Previous=Current;
  PlayerParty[Index]=Next;
- if(!Save->SaveCurrentGame()) { PlayerParty[Index]=Previous; return false; }
+ if(!Save->SaveProgressGame()) { PlayerParty[Index]=Previous; return false; }
  return true;
 }
 
@@ -481,7 +481,7 @@ int32 UPokeMonsterEncounterSubsystem::PrepareEvolutionOffer(FGuid OnlyCreatureId
    if(C.LastEvolutionOfferedLevel>=C.Level)continue;
    const auto Old=C;C.PendingEvolutionTarget=O.TargetSpecies;C.LastEvolutionOfferedLevel=C.Level;
    auto* Save=GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>();
-   if(!Save||!Save->SaveCurrentGame()){C=Old;return INDEX_NONE;}
+   if(!Save||!Save->SaveProgressGame()){C=Old;return INDEX_NONE;}
    return I;
   }
  }
@@ -501,7 +501,7 @@ bool UPokeMonsterEncounterSubsystem::ResolveEvolution(FGuid Id,FPrimaryAssetId T
  const auto OldProgress=Q?Q->GetProgress():TArray<FPokeMonsterQuestProgress>();const auto OldFlags=CompletedEncounterIds;
  if(Accept&&Q)if(auto* S=C->Species.LoadSynchronous())Q->RecordCapturedSpecies(S->GetInternalId());
  auto* Save=GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>();
- if(!Save||!Save->SaveCurrentGame()){*C=Old;CompletedEncounterIds=OldFlags;if(Q){Q->RestoreCapturedSpeciesIds(OldDex);Q->RestoreProgress(OldProgress);}return false;}
+ if(!Save||!Save->SaveProgressGame()){*C=Old;CompletedEncounterIds=OldFlags;if(Q){Q->RestoreCapturedSpeciesIds(OldDex);Q->RestoreProgress(OldProgress);}return false;}
  OnPersistentStateRestored.Broadcast();return true;
 }
 bool UPokeMonsterEncounterSubsystem::ResolveEvolutionLearning(FGuid Id,int32 Slot)
@@ -512,6 +512,6 @@ bool UPokeMonsterEncounterSubsystem::ResolveEvolutionLearning(FGuid Id,int32 Slo
  if(!C||C->PendingMoves.IsEmpty())return false;
  const auto Old=*C;auto Copy=Old;if(!Copy.ResolveMoveLearning(Slot))return false;*C=Copy;
  auto* Save=GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>();
- if(!Save||!Save->SaveCurrentGame()){*C=Old;return false;}
+ if(!Save||!Save->SaveProgressGame()){*C=Old;return false;}
  OnPersistentStateRestored.Broadcast();return true;
 }

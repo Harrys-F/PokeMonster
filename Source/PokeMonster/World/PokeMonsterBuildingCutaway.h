@@ -63,7 +63,9 @@ public:
 	UFUNCTION(BlueprintPure, Category="Building") float GetCutawayAmount() const { return CutawayAmount; }
 	/** Opt-in room-only lighting; exterior primitive channels/shadow flags are restored exactly. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Interior Lighting") bool bUseShadowlessInteriorLighting = false;
-	virtual void Tick(float DeltaSeconds) override;
+	/** Rebuild the existing cutaway/camera/lighting after an explicit load, without a doorway transition. */
+ void SynchronizeViewerAfterLoad();
+ virtual void Tick(float DeltaSeconds) override;
 protected:
 	virtual void BeginPlay() override;
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;

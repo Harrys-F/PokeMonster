@@ -31,7 +31,9 @@ def check(name,fn):
 def key(name,k):action(name+' down',lambda:cmd('pm.Input.Key '+k+' down'),.15);action(name+' up',lambda:cmd('pm.Input.Key '+k+' up'),.3)
 def equivalent(before,after):return all(before[k]==after[k]for k in ['id','level','xp','status','active','known'])and before['max']-before['hp']==after['max']-after['hp']
 def fixture(name,level):cmd('pm.EvolutionReview.Party '+name+' '+str(level))
-def original_save_roundtrip():assert save.save_current_game()and save.load_game()
+def original_save_roundtrip():
+ if ui():pc.close_evolution_presentation()
+ assert save.save_current_game()and save.load_game()
 action('level15 fixture',lambda:fixture('Zunderlauf',15));action('normal safe-state polling',lambda:cmd('pm.Evolution.Auto 1'),1.5)
 check('No evolution below level 16',lambda:not ui()and snap()[0]['level']==15)
 action('award exact level16 XP',lambda:cmd('pm.EvolutionReview.XP next'),2)

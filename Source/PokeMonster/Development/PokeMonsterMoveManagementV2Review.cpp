@@ -19,9 +19,13 @@ static FAutoConsoleCommandWithWorldAndArgs Fixture(TEXT("pm.MoveManagementV2.Pre
  FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& Args,UWorld* W)
  {
   if(!W || !W->IsGameWorld() || !W->GetGameInstance())return;
-  if(UGameplayStatics::DoesSaveGameExist(UPokeMonsterSaveSubsystem::DevSlotName,0))
+  bool bProtectedTest=false;
+#if WITH_EDITOR
+  if(const auto* Save=W->GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>()) bProtectedTest=Save->IsPIETestStorageActive();
+#endif
+  if(UGameplayStatics::DoesSaveGameExist(UPokeMonsterSaveSubsystem::DevSlotName,0) && !bProtectedTest)
   {
-   UE_LOG(LogTemp,Warning,TEXT("MOVE_MANAGEMENT_V2_FIXTURE_REFUSED: developer save exists. Use Tools/MoveManagementV2/RunReview.py with its verified save guard."));
+   UE_LOG(LogTemp,Warning,TEXT("MOVE_MANAGEMENT_V2_FIXTURE_REFUSED: developer save exists. Use Tools/MoveManagementV2/RunReview.py with its isolated test slot."));
    return;
   }
   auto* E=W->GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>();auto* PC=W->GetFirstPlayerController();auto* P=PC?Cast<APokeMonsterPlayerCharacter>(PC->GetPawn()):nullptr;
