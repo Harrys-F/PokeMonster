@@ -1331,3 +1331,18 @@ Fülllicht wird zeitabhängig gedimmt, SkyLight/Exposition bleiben konstant. Ein
 transienter Engine-Himmel ist von Reflection-/Sky-Captures ausgeschlossen;
 keine Änderungen an globalen Materialien, Innenraumlicht oder anderen Maps.
 Keine zweite Uhr, keine Wetter-/KI-Zeitabhängigkeit, keine neuen Lichtquellen.
+
+## 26.10.2026 – Tag-Nacht V1.1 / KI V2.2
+
+Die vorläufige B/C-Auswahl aus Tag-Nacht V1 ist durch Harrys Auftrag ersetzt:
+75° ist reguläre Mittagssonne, 85° bleibt ausschließlich Debug-/Vergleichsoption.
+Keine 60°-Variante. Morgens/abends werden gerichtetes warmes Licht und vorhandenes
+Fülllicht verbessert; keine globale Expositions-/Qualitätsreduktion oder neue
+Lichtquelle. Eine begrenzte Rotationstoleranz wird nur nach Bild-/GPU-Vergleich
+übernommen.
+
+Die frühere Aussage, KI habe noch keine Uhranbindung, wird für die sechs
+VisualV2-Testarten durch V2.2 ersetzt. Die vorhandene RoamingComponent und
+reservierte Sozialkontakte bleiben maßgeblich. Tagesrhythmen gewichten vorhandene
+Aktivitäten, keine Spawn-/Kampf-/Fang-/Fortschrittsänderung. Konfiguration ohne
+Modell-/Map-/Save-Änderung; Uhr und 120-Minuten-Regel bleiben unverändert.

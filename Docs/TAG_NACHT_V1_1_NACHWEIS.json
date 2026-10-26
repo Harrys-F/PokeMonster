@@ -1,0 +1,549 @@
+{
+  "baseline": "f712b662",
+  "automation": {
+    "succeeded": 272,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "strict_wrapper_exit": 1,
+  "engine_exit": 0,
+  "build": "DayNightV11A_Build02",
+  "map_checks": 12,
+  "map_errors": 0,
+  "map_warnings": 0,
+  "evidence_root": "Saved/ProjectRefinement/DayNightV11AI22",
+  "images": [
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/Before01/Baumkrone0000.png",
+      "sha256": "6b73afc4e5a659743d7c97934f8abcda49973f76228710516c8818d7041b5a8f"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/Before01/Baumkrone0600.png",
+      "sha256": "0d61416bc01bad6720081f231d40c7b245697a33763f1a8f26901e3cf5a9a46b"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/Before01/Baumkrone0900.png",
+      "sha256": "ac03da6cdd3683acbf78f7e7756d07a3ad5905bca4c895d66bd236118ea96ae3"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/Before01/Baumkrone1200.png",
+      "sha256": "62027975ce3255e2bbbf2d11e62e6fcecc83ad501532f4dd1ce715d94a271c56"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/Before01/Baumkrone1900.png",
+      "sha256": "b6beab285bc761dabf5aafe93aa4446d57b264de1419dd2385d2e1ea4b39ccc3"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/Before01/Baumkrone2200.png",
+      "sha256": "ef58b896d3138d05f60ea3d865c54e75c707b367c447e8525c05364da56e9b1d"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/Before01/Wiese0000.png",
+      "sha256": "16a539bb4d63a47a749abd8b42b30037dfbbe3a43693e7bcdfbb391ac8e23207"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/Before01/Wiese0600.png",
+      "sha256": "8c222c36072a2b8db6092f4ee2bbcc9585fa94fffe600f56607874132f050873"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/Before01/Wiese0900.png",
+      "sha256": "85e67502120bea6ade08bc380a8eb52f1884a2f4c8d976e93601bd47f747d69f"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/Before01/Wiese1200.png",
+      "sha256": "2fc356949d2f92f179bc17bb2e7725c6fb0e170af5f6ca2aaa9bb8e07d234aae"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/Before01/Wiese1900.png",
+      "sha256": "1b004c44f7b56668ea3dc78224a8aac734004122a50585ce73f263298c7ac58b"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/Before01/Wiese2200.png",
+      "sha256": "7d6c01b5e959a01eec8b372115ea5fd6bf7b5a12170a3734df711ca6b2581454"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/AfterA01/Baumkrone0000.png",
+      "sha256": "3180e36d8900fad4974fbcdc78f2d0cfea59a30e25d70d4613147463e0d5ee54"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/AfterA01/Baumkrone0600.png",
+      "sha256": "0174fb358855a99c777a1c6267f18887350151b8b9f567565aed3252b6a41663"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/AfterA01/Baumkrone0900.png",
+      "sha256": "6c7eca5d4d7e82848ae9ea271afb6757b0c7e3757ec8dd8e4c5a0feb5dead195"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/AfterA01/Baumkrone1200.png",
+      "sha256": "fe2d3c78acaf2f3a0836c8bbebb08bcb89b5a1bd0ce066d415e9af9be64cbd3f"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/AfterA01/Baumkrone1900.png",
+      "sha256": "cac3539701f4912411249f1bf7a9f7e24f99f37a46abafc3c26c5775d296d168"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/AfterA01/Baumkrone2200.png",
+      "sha256": "53736ffb18b7d124336349a5d31593a83a7d2486887b5caeee5f4349ca4f9265"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/AfterA01/Wiese0000.png",
+      "sha256": "ce6949767061c5170eece878e737b54cac0511aeffb90962291fdc01dc7b536a"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/AfterA01/Wiese0600.png",
+      "sha256": "e35869ea453bd77cb8d7f12586779e60c47dd253329f40c4b2e8d0f48deabe89"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/AfterA01/Wiese0900.png",
+      "sha256": "ce0a190b398674cfc2554d29d9b55f834cb07d455d28bfb7a81fa62d29dba94b"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/AfterA01/Wiese1200.png",
+      "sha256": "f2d02fa102f0376007d3bee6b1cc4342f6e509c93855ab539bc1818c50409993"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/AfterA01/Wiese1900.png",
+      "sha256": "69964d1e321cabfeda79f48386ed3e95bd14a082616368fc470d3a2594d9da9a"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/AfterA01/Wiese2200.png",
+      "sha256": "d515e3a3dea070262abf12a355b3775e962f2b88fa46eea5d12a051ac00c835b"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/GameplayA01/InteriorDay.png",
+      "sha256": "3faca565c5f203cddcc004ac00af5517c425c10e09ee2d0afe091ead36cbc1bc"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/GameplayA01/InteriorLoaded.png",
+      "sha256": "9852ee3ab4d56bec6c873fbd1a2ce929412e332d66d43e1eb04263f6076654a3"
+    },
+    {
+      "file": "Saved/ProjectRefinement/DayNightV11AI22/GameplayA01/InteriorNight.png",
+      "sha256": "9517c758aa04c3caaa2d66dd3b87798b173603677f596d207b17138cf362c739"
+    }
+  ],
+  "gpu": [
+    {
+      "label": "VGB1_GPUA01_Raw",
+      "site": "Dorf",
+      "repeat": 1,
+      "frames": 48,
+      "FrameTime": 103.41345000000001,
+      "GPUTime": 90.06885,
+      "GPU/ShadowDepths": 10.2359,
+      "GPU/ShadowProjection": 9.8232,
+      "GPU/DistanceFieldShadows": 0.76465,
+      "GPU/Lights": 3.5863500000000004,
+      "GPU/Basepass": 24.30775
+    },
+    {
+      "label": "VGB1_GPUA01_Raw",
+      "site": "Wald",
+      "repeat": 1,
+      "frames": 46,
+      "FrameTime": 108.376,
+      "GPUTime": 96.0665,
+      "GPU/ShadowDepths": 4.829549999999999,
+      "GPU/ShadowProjection": 11.496649999999999,
+      "GPU/DistanceFieldShadows": 0.7129000000000001,
+      "GPU/Lights": 3.1195000000000004,
+      "GPU/Basepass": 30.98285
+    },
+    {
+      "label": "VGB1_GPUA01_Raw",
+      "site": "Dorf",
+      "repeat": 2,
+      "frames": 49,
+      "FrameTime": 103.8696,
+      "GPUTime": 89.3333,
+      "GPU/ShadowDepths": 10.5505,
+      "GPU/ShadowProjection": 7.1027,
+      "GPU/DistanceFieldShadows": 0.796,
+      "GPU/Lights": 3.2525,
+      "GPU/Basepass": 23.9789
+    },
+    {
+      "label": "VGB1_GPUA01_Raw",
+      "site": "Wald",
+      "repeat": 2,
+      "frames": 48,
+      "FrameTime": 105.08595,
+      "GPUTime": 92.65514999999999,
+      "GPU/ShadowDepths": 4.6759,
+      "GPU/ShadowProjection": 11.5009,
+      "GPU/DistanceFieldShadows": 0.69685,
+      "GPU/Lights": 3.09585,
+      "GPU/Basepass": 29.55405
+    },
+    {
+      "label": "VGB1_GPUA01_Raw",
+      "site": "Dorf",
+      "repeat": 3,
+      "frames": 47,
+      "FrameTime": 104.7022,
+      "GPUTime": 89.8816,
+      "GPU/ShadowDepths": 10.6449,
+      "GPU/ShadowProjection": 8.6733,
+      "GPU/DistanceFieldShadows": 0.7851,
+      "GPU/Lights": 3.4281,
+      "GPU/Basepass": 25.8004
+    },
+    {
+      "label": "VGB1_GPUA01_Raw",
+      "site": "Wald",
+      "repeat": 3,
+      "frames": 47,
+      "FrameTime": 105.4802,
+      "GPUTime": 92.5623,
+      "GPU/ShadowDepths": 4.797,
+      "GPU/ShadowProjection": 10.5963,
+      "GPU/DistanceFieldShadows": 0.7034,
+      "GPU/Lights": 3.116,
+      "GPU/Basepass": 29.3643
+    },
+    {
+      "label": "VGB1_GPUA01_Cached",
+      "site": "Dorf",
+      "repeat": 1,
+      "frames": 50,
+      "FrameTime": 99.81975,
+      "GPUTime": 85.47645,
+      "GPU/ShadowDepths": 4.4578,
+      "GPU/ShadowProjection": 8.76325,
+      "GPU/DistanceFieldShadows": 0.7874,
+      "GPU/Lights": 3.5999,
+      "GPU/Basepass": 24.77515
+    },
+    {
+      "label": "VGB1_GPUA01_Cached",
+      "site": "Wald",
+      "repeat": 1,
+      "frames": 48,
+      "FrameTime": 104.245,
+      "GPUTime": 90.85775000000001,
+      "GPU/ShadowDepths": 4.60965,
+      "GPU/ShadowProjection": 7.811299999999999,
+      "GPU/DistanceFieldShadows": 0.7023,
+      "GPU/Lights": 3.53485,
+      "GPU/Basepass": 28.1581
+    },
+    {
+      "label": "VGB1_GPUA01_Cached",
+      "site": "Dorf",
+      "repeat": 2,
+      "frames": 50,
+      "FrameTime": 100.3697,
+      "GPUTime": 85.65925,
+      "GPU/ShadowDepths": 6.4955,
+      "GPU/ShadowProjection": 6.9685500000000005,
+      "GPU/DistanceFieldShadows": 0.7987,
+      "GPU/Lights": 3.5663,
+      "GPU/Basepass": 25.58345
+    },
+    {
+      "label": "VGB1_GPUA01_Cached",
+      "site": "Wald",
+      "repeat": 2,
+      "frames": 48,
+      "FrameTime": 102.74435,
+      "GPUTime": 89.6262,
+      "GPU/ShadowDepths": 4.557,
+      "GPU/ShadowProjection": 11.12345,
+      "GPU/DistanceFieldShadows": 0.6588,
+      "GPU/Lights": 2.9416,
+      "GPU/Basepass": 28.56195
+    },
+    {
+      "label": "VGB1_GPUA01_Cached",
+      "site": "Dorf",
+      "repeat": 3,
+      "frames": 51,
+      "FrameTime": 99.8619,
+      "GPUTime": 85.3475,
+      "GPU/ShadowDepths": 6.5407,
+      "GPU/ShadowProjection": 7.1157,
+      "GPU/DistanceFieldShadows": 0.75,
+      "GPU/Lights": 3.5254,
+      "GPU/Basepass": 24.3005
+    },
+    {
+      "label": "VGB1_GPUA01_Cached",
+      "site": "Wald",
+      "repeat": 3,
+      "frames": 49,
+      "FrameTime": 103.2021,
+      "GPUTime": 90.0075,
+      "GPU/ShadowDepths": 4.4773,
+      "GPU/ShadowProjection": 9.3884,
+      "GPU/DistanceFieldShadows": 0.6941,
+      "GPU/Lights": 3.3795,
+      "GPU/Basepass": 26.5675
+    },
+    {
+      "label": "VGB1_GPUA01_Held",
+      "site": "Dorf",
+      "repeat": 1,
+      "frames": 53,
+      "FrameTime": 96.4034,
+      "GPUTime": 83.191,
+      "GPU/ShadowDepths": 2.5592,
+      "GPU/ShadowProjection": 7.0193,
+      "GPU/DistanceFieldShadows": 0.7755,
+      "GPU/Lights": 3.2593,
+      "GPU/Basepass": 23.4581
+    },
+    {
+      "label": "VGB1_GPUA01_Held",
+      "site": "Wald",
+      "repeat": 1,
+      "frames": 49,
+      "FrameTime": 101.902,
+      "GPUTime": 89.4435,
+      "GPU/ShadowDepths": 2.6292,
+      "GPU/ShadowProjection": 10.1029,
+      "GPU/DistanceFieldShadows": 0.7147,
+      "GPU/Lights": 3.0893,
+      "GPU/Basepass": 28.6554
+    },
+    {
+      "label": "VGB1_GPUA01_Held",
+      "site": "Dorf",
+      "repeat": 2,
+      "frames": 52,
+      "FrameTime": 96.91605,
+      "GPUTime": 83.84915000000001,
+      "GPU/ShadowDepths": 2.5374499999999998,
+      "GPU/ShadowProjection": 7.299950000000001,
+      "GPU/DistanceFieldShadows": 0.7868999999999999,
+      "GPU/Lights": 3.2966499999999996,
+      "GPU/Basepass": 25.80685
+    },
+    {
+      "label": "VGB1_GPUA01_Held",
+      "site": "Wald",
+      "repeat": 2,
+      "frames": 49,
+      "FrameTime": 100.6661,
+      "GPUTime": 88.5024,
+      "GPU/ShadowDepths": 2.6311,
+      "GPU/ShadowProjection": 11.1392,
+      "GPU/DistanceFieldShadows": 0.6641,
+      "GPU/Lights": 2.9189,
+      "GPU/Basepass": 29.9574
+    },
+    {
+      "label": "VGB1_GPUA01_Held",
+      "site": "Dorf",
+      "repeat": 3,
+      "frames": 52,
+      "FrameTime": 98.32175000000001,
+      "GPUTime": 84.2015,
+      "GPU/ShadowDepths": 2.54265,
+      "GPU/ShadowProjection": 9.88555,
+      "GPU/DistanceFieldShadows": 0.7779499999999999,
+      "GPU/Lights": 3.25305,
+      "GPU/Basepass": 25.5347
+    },
+    {
+      "label": "VGB1_GPUA01_Held",
+      "site": "Wald",
+      "repeat": 3,
+      "frames": 50,
+      "FrameTime": 102.42415,
+      "GPUTime": 88.53785,
+      "GPU/ShadowDepths": 2.6915,
+      "GPU/ShadowProjection": 11.30855,
+      "GPU/DistanceFieldShadows": 0.63845,
+      "GPU/Lights": 3.074,
+      "GPU/Basepass": 28.0963
+    },
+    {
+      "label": "VGB1_GPUA01_RawReturn",
+      "site": "Dorf",
+      "repeat": 1,
+      "frames": 50,
+      "FrameTime": 101.09944999999999,
+      "GPUTime": 87.1481,
+      "GPU/ShadowDepths": 6.765750000000001,
+      "GPU/ShadowProjection": 9.5461,
+      "GPU/DistanceFieldShadows": 0.7543500000000001,
+      "GPU/Lights": 3.23615,
+      "GPU/Basepass": 25.31515
+    },
+    {
+      "label": "VGB1_GPUA01_RawReturn",
+      "site": "Wald",
+      "repeat": 1,
+      "frames": 48,
+      "FrameTime": 104.6267,
+      "GPUTime": 91.6424,
+      "GPU/ShadowDepths": 4.6629000000000005,
+      "GPU/ShadowProjection": 9.9065,
+      "GPU/DistanceFieldShadows": 0.68215,
+      "GPU/Lights": 3.1540999999999997,
+      "GPU/Basepass": 29.2252
+    },
+    {
+      "label": "VGB1_GPUA01_RawReturn",
+      "site": "Dorf",
+      "repeat": 2,
+      "frames": 49,
+      "FrameTime": 101.9515,
+      "GPUTime": 88.2766,
+      "GPU/ShadowDepths": 9.6287,
+      "GPU/ShadowProjection": 7.1892,
+      "GPU/DistanceFieldShadows": 0.7741,
+      "GPU/Lights": 3.4275,
+      "GPU/Basepass": 24.7475
+    },
+    {
+      "label": "VGB1_GPUA01_RawReturn",
+      "site": "Wald",
+      "repeat": 2,
+      "frames": 48,
+      "FrameTime": 103.3156,
+      "GPUTime": 91.58785,
+      "GPU/ShadowDepths": 4.7490000000000006,
+      "GPU/ShadowProjection": 7.9025,
+      "GPU/DistanceFieldShadows": 0.69025,
+      "GPU/Lights": 2.9427,
+      "GPU/Basepass": 28.1164
+    },
+    {
+      "label": "VGB1_GPUA01_RawReturn",
+      "site": "Dorf",
+      "repeat": 3,
+      "frames": 50,
+      "FrameTime": 101.8224,
+      "GPUTime": 88.01535,
+      "GPU/ShadowDepths": 9.0925,
+      "GPU/ShadowProjection": 7.37005,
+      "GPU/DistanceFieldShadows": 0.79285,
+      "GPU/Lights": 3.38795,
+      "GPU/Basepass": 23.985599999999998
+    },
+    {
+      "label": "VGB1_GPUA01_RawReturn",
+      "site": "Wald",
+      "repeat": 3,
+      "frames": 49,
+      "FrameTime": 104.7881,
+      "GPUTime": 90.623,
+      "GPU/ShadowDepths": 4.7072,
+      "GPU/ShadowProjection": 8.4823,
+      "GPU/DistanceFieldShadows": 0.7122,
+      "GPU/Lights": 3.1293,
+      "GPU/Basepass": 28.5185
+    },
+    {
+      "label": "VGB1_GPUReference01_V1Moving",
+      "site": "Dorf",
+      "repeat": 1,
+      "frames": 48,
+      "FrameTime": 104.5307,
+      "GPUTime": 91.11885000000001,
+      "GPU/ShadowDepths": 10.5092,
+      "GPU/ShadowProjection": 6.547499999999999,
+      "GPU/DistanceFieldShadows": 0.6379999999999999,
+      "GPU/Lights": 4.577400000000001,
+      "GPU/Basepass": 26.0461
+    },
+    {
+      "label": "VGB1_GPUReference01_V1Moving",
+      "site": "Wald",
+      "repeat": 1,
+      "frames": 47,
+      "FrameTime": 104.122,
+      "GPUTime": 93.1077,
+      "GPU/ShadowDepths": 4.7975,
+      "GPU/ShadowProjection": 10.5098,
+      "GPU/DistanceFieldShadows": 0.5091,
+      "GPU/Lights": 4.1941,
+      "GPU/Basepass": 28.7602
+    },
+    {
+      "label": "VGB1_GPUReference01_V1Moving",
+      "site": "Dorf",
+      "repeat": 2,
+      "frames": 48,
+      "FrameTime": 102.47575,
+      "GPUTime": 89.226,
+      "GPU/ShadowDepths": 9.86805,
+      "GPU/ShadowProjection": 6.51485,
+      "GPU/DistanceFieldShadows": 0.62765,
+      "GPU/Lights": 4.7648,
+      "GPU/Basepass": 24.84085
+    },
+    {
+      "label": "VGB1_GPUReference01_V1Moving",
+      "site": "Wald",
+      "repeat": 2,
+      "frames": 48,
+      "FrameTime": 105.94635,
+      "GPUTime": 92.59045,
+      "GPU/ShadowDepths": 4.7171,
+      "GPU/ShadowProjection": 10.9813,
+      "GPU/DistanceFieldShadows": 0.48455,
+      "GPU/Lights": 4.1706,
+      "GPU/Basepass": 29.550849999999997
+    },
+    {
+      "label": "VGB1_GPUReference01_V1Moving",
+      "site": "Dorf",
+      "repeat": 3,
+      "frames": 49,
+      "FrameTime": 101.98904999999999,
+      "GPUTime": 88.1092,
+      "GPU/ShadowDepths": 10.3172,
+      "GPU/ShadowProjection": 6.4015,
+      "GPU/DistanceFieldShadows": 0.6148,
+      "GPU/Lights": 4.7142,
+      "GPU/Basepass": 24.167
+    },
+    {
+      "label": "VGB1_GPUReference01_V1Moving",
+      "site": "Wald",
+      "repeat": 3,
+      "frames": 48,
+      "FrameTime": 103.87755,
+      "GPUTime": 91.3977,
+      "GPU/ShadowDepths": 4.54645,
+      "GPU/ShadowProjection": 7.27885,
+      "GPU/DistanceFieldShadows": 0.4867,
+      "GPU/Lights": 4.28475,
+      "GPU/Basepass": 27.8035
+    }
+  ],
+  "checks": {
+    "GameplayA01": [
+      "Ordinary new-session clock and lighting are 09:00",
+      "B75 immediate correct lighting",
+      "C85 immediate correct lighting",
+      "Pause freezes actual light sample",
+      "Normal clock resumes actual light movement",
+      "Actual main menu pauses clock",
+      "Menu holds exact world light",
+      "Closing menu resumes original clock",
+      "Clock-driven dawn crossed phase and sun rose",
+      "Existing relocated interior and camera work",
+      "Existing save accepts interior state",
+      "SaveLoad restores night light, exact clock, room camera, party and independent checkpoint",
+      "Original exit and outdoor camera work at night",
+      "Night state survives midnight",
+      "ClassicBattle starts and clock pauses",
+      "Existing battle victory returns control and valid companion state"
+    ],
+    "TravelA01": [
+      "Other existing map has neither active cycle nor added sky; exact world clock preserved",
+      "Return to VisualV2 immediately restores night lighting from unchanged shared clock",
+      "Clock resumes after loading and normal player control restored"
+    ],
+    "ShadowMotionA02": true
+  },
+  "protection": {
+    "protected_files_unchanged": 85,
+    "original_untracked_preserved": 31,
+    "backup_refs_unchanged": true
+  }
+}

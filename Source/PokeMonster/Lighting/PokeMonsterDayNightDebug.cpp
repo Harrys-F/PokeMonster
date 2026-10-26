@@ -18,7 +18,7 @@ namespace
   else if(A==TEXT("c"))S->SetNoonVariant(EPokeMonsterNoonSun::C85);
   else if(A==TEXT("on")||A==TEXT("off"))S->SetCycleEnabled(A==TEXT("on"));
   else if(A!=TEXT("show")){Out.Logf(TEXT("DayNight: show | B | C | on | off; keine dritte Mittagsvariante."));return;}
-  const auto V=S->GetLightingSample();Out.Logf(TEXT("DayNight: aktiv=%d, Mittag=%g Grad (vorlaeufig), Sonnenhoehe=%.3f, Azimut=%.3f, direkt=%.3f, Fuellung=%.3f, Sterne=%.3f, Himmel=%d"),S->IsCycleEnabled(),UPokeMonsterDayNightSettings::MaximumElevation(S->GetNoonVariant()),V.SunElevation,V.SunAzimuth,V.DirectIntensity,V.FillIntensity,V.Stars,S->IsSkyReady());
+  const auto V=S->GetLightingSample();Out.Logf(TEXT("DayNight: aktiv=%d, Mittag=%g Grad (B75 Standard / C85 Vergleich), Sonnenhoehe=%.3f, Azimut=%.3f, direkt=%.3f, Fuellung=%.3f, Sterne=%.3f, Himmel=%d"),S->IsCycleEnabled(),UPokeMonsterDayNightSettings::MaximumElevation(S->GetNoonVariant()),V.SunElevation,V.SunAzimuth,V.DirectIntensity,V.FillIntensity,V.Stars,S->IsSkyReady());
  }),ECVF_Cheat);
 }
 #endif

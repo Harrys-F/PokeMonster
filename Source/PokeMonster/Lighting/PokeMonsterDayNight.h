@@ -34,14 +34,17 @@ class POKEMONSTER_API UPokeMonsterDayNightSettings : public UObject
 {
  GENERATED_BODY()
 public:
- /** Provisional recommendation only. Both requested comparison candidates remain available. */
+ /** Regular noon is B75. C85 remains a diagnostic comparison option. */
  UPROPERTY(Config,EditAnywhere) EPokeMonsterNoonSun NoonVariant=EPokeMonsterNoonSun::B75;
  UPROPERTY(Config,EditAnywhere) float NoonAzimuth=-100;
  UPROPERTY(Config,EditAnywhere) float UpdateSeconds=.1f;
  UPROPERTY(Config,EditAnywhere) float DayDirectIntensity=7.5f;
  UPROPERTY(Config,EditAnywhere) float DayFillIntensity=1.8f;
- UPROPERTY(Config,EditAnywhere) float MoonIntensity=.5f;
- UPROPERTY(Config,EditAnywhere) float NightFillIntensity=.9f;
+ UPROPERTY(Config,EditAnywhere) float MoonIntensity=.55f;
+ UPROPERTY(Config,EditAnywhere) float NightFillIntensity=1.1f;
+ /** Maximum angular error before updating the shadow caster; zero is the V1 reference. */
+ UPROPERTY(Config,EditAnywhere) float RotationThresholdDegrees=.025f;
+ static bool NeedsRotationUpdate(const FRotator& Current,const FRotator& Desired,float Degrees);
  UPROPERTY(Config,EditAnywhere) FName SunActor=TEXT("DirectionalLight_1");
  UPROPERTY(Config,EditAnywhere) FName FillActor=TEXT("DirectionalLight_0");
  bool IsValidConfiguration() const;
@@ -61,6 +64,8 @@ public:
  virtual void Deinitialize() override;
  static bool IsTargetMap(const FString& PackageName);
  UFUNCTION(BlueprintPure,Category="PokeMonster|Day Night") FPokeMonsterDayNightSample GetLightingSample() const { return LastSample; }
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly) int32 RotationApplications=0;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly) int32 LightingEvaluations=0;
  UFUNCTION(BlueprintPure,Category="PokeMonster|Day Night") bool IsCycleEnabled() const { return bEnabled; }
  UFUNCTION(BlueprintCallable,Category="PokeMonster|Day Night") void SetCycleEnabled(bool Enabled);
  UFUNCTION(BlueprintCallable,Category="PokeMonster|Day Night") void SetNoonVariant(EPokeMonsterNoonSun Variant);
@@ -72,6 +77,7 @@ protected:
 private:
  UFUNCTION() void HandleTimeSet(FPokeMonsterWorldTime Time);
  void UpdateFromClock();
+ void ApplyLighting(bool ForceRotation);
  void RestoreLights();
  UPROPERTY(Transient) TObjectPtr<UPokeMonsterWorldClock> Clock;
  UPROPERTY(Transient) TObjectPtr<UDirectionalLightComponent> Sun;

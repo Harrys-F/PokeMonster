@@ -44,7 +44,7 @@ bool FDayNightPhaseTest::RunTest(const FString&)
 {
  const auto* Clock=GetDefault<UPokeMonsterWorldClockSettings>();TestEqual(TEXT("Existing day duration unchanged"),Clock->RealMinutesPerDay,120.0);
  for(int M=0;M<1440;++M)TestTrue(TEXT("Every phase supplied by central clock configuration"),Sample(M/60.).Phase==Clock->PhaseAt(M*60.));
- auto Noon=Sample(12),Night=Sample(22);TestTrue(TEXT("Night direct far below day"),Night.DirectIntensity<Noon.DirectIntensity*.1f);TestTrue(TEXT("Night fill subdued but nonzero"),Night.FillIntensity>0&&Night.FillIntensity<Noon.FillIntensity*.6f);TestTrue(TEXT("Combined night light stays well below daytime"),Night.DirectIntensity+Night.FillIntensity<(Noon.DirectIntensity+Noon.FillIntensity)*.2f);TestTrue(TEXT("Night stars"),Night.Stars>.99f);TestEqual(TEXT("Day stars hidden"),Noon.Stars,0.f);
+ auto Noon=Sample(12),Night=Sample(22);TestTrue(TEXT("Night direct far below day"),Night.DirectIntensity<Noon.DirectIntensity*.1f);TestTrue(TEXT("Night fill subdued but nonzero"),Night.FillIntensity>0&&Night.FillIntensity<Noon.FillIntensity*.65f);TestTrue(TEXT("Combined night light stays well below daytime"),Night.DirectIntensity+Night.FillIntensity<(Noon.DirectIntensity+Noon.FillIntensity)*.2f);TestTrue(TEXT("Night stars"),Night.Stars>.99f);TestEqual(TEXT("Day stars hidden"),Noon.Stars,0.f);
  float Previous=Sample(4).DirectIntensity+Sample(4).FillIntensity;
  for(int M=241;M<=420;++M){const auto V=Sample(M/60.);const float Total=V.DirectIntensity+V.FillIntensity;TestTrue(TEXT("Early morning never dims as moon recedes"),Total+.0001f>=Previous);Previous=Total;}
  TestTrue(TEXT("Morning lower than noon"),Sample(6).SunElevation>0&&Sample(6).SunElevation<Sample(9).SunElevation&&Sample(9).SunElevation<Noon.SunElevation);TestTrue(TEXT("Evening sun falls"),Sample(16).SunElevation>Sample(18).SunElevation&&Sample(20).SunElevation<0);
@@ -64,5 +64,23 @@ bool FDayNightMapTest::RunTest(const FString&)
  TestTrue(TEXT("Central map"),UPokeMonsterDayNightSubsystem::IsTargetMap(TEXT("/Game/Maps/Dev_TestMap_VisualV2")));TestTrue(TEXT("PIE prefix"),UPokeMonsterDayNightSubsystem::IsTargetMap(TEXT("/Game/Maps/UEDPIE_0_Dev_TestMap_VisualV2")));
  for(const TCHAR* Name:{TEXT("/Game/Maps/Dev_WestlandRegion"),TEXT("/Game/Maps/Dev_BiomeTestMap_V1"),TEXT("/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1")})TestFalse(TEXT("Other maps excluded"),UPokeMonsterDayNightSubsystem::IsTargetMap(Name));
  TestTrue(TEXT("Lighting config valid"),GetDefault<UPokeMonsterDayNightSettings>()->IsValidConfiguration());return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FDayNightRefinementTest,"PokeMonster.DayNight.V11TwilightAndBoundedShadowUpdates",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FDayNightRefinementTest::RunTest(const FString&)
+{
+ const auto Morning=Sample(6),Evening=Sample(19),Night=Sample(22);
+ TestTrue(TEXT("Recognizable direct sunrise"),Morning.DirectIntensity>4.5f&&Morning.Temperature<4300);
+ TestTrue(TEXT("Sunset is still visible at 19"),Evening.SunElevation>5&&Evening.DirectIntensity>1.5f&&Evening.Temperature<4000);
+ TestTrue(TEXT("Night readability without a bright blue day"),Night.DirectIntensity+Night.FillIntensity>1.6f&&Night.DirectIntensity+Night.FillIntensity<1.86f);
+ auto Applied=Sample(12).LightRotation;int Updates=0;
+ for(int I=1;I<=500;++I)
+ {
+  const auto Desired=Sample(12.+I*.1/300.).LightRotation;
+  if(UPokeMonsterDayNightSettings::NeedsRotationUpdate(Applied,Desired,.025f)){Applied=Desired;++Updates;}
+  TestTrue(TEXT("Maximum shadow angle error bounded"),Applied.Quaternion().AngularDistance(Desired.Quaternion())<=FMath::DegreesToRadians(.0251));
+ }
+ TestTrue(TEXT("Normal time invalidates substantially fewer shadow frames"),Updates<180&&Updates>20);
+ TestTrue(TEXT("Large clock jumps cannot remain stale"),UPokeMonsterDayNightSettings::NeedsRotationUpdate(Applied,Sample(22).LightRotation,.025f));
+ return true;
 }
 #endif

@@ -20,6 +20,7 @@ bool UPokeMonsterDayNightSettings::IsValidConfiguration() const
  return FMath::IsFinite(NoonAzimuth)&&FMath::IsFinite(UpdateSeconds)&&UpdateSeconds>=.05f&&UpdateSeconds<=1
   &&FMath::IsFinite(DayDirectIntensity)&&DayDirectIntensity>0&&FMath::IsFinite(DayFillIntensity)&&DayFillIntensity>=0
   &&FMath::IsFinite(MoonIntensity)&&MoonIntensity>=0&&MoonIntensity<DayDirectIntensity
+  &&FMath::IsFinite(RotationThresholdDegrees)&&RotationThresholdDegrees>=0&&RotationThresholdDegrees<=.05f
   &&FMath::IsFinite(NightFillIntensity)&&NightFillIntensity>=0&&NightFillIntensity<DayFillIntensity;
 }
 FPokeMonsterDayNightSample UPokeMonsterDayNightSettings::Evaluate(double Fraction,EPokeMonsterNoonSun Variant,const UPokeMonsterWorldClockSettings& C) const
@@ -27,30 +28,30 @@ FPokeMonsterDayNightSample UPokeMonsterDayNightSettings::Evaluate(double Fractio
  FPokeMonsterDayNightSample S;
  const double H=(Fraction-FMath::FloorToDouble(Fraction))*24.0;
  const double Early=C.PhaseStartMinutes[0]/60.0,Dawn=C.PhaseStartMinutes[1]/60.0,Day=C.PhaseStartMinutes[2]/60.0,Dusk=C.PhaseStartMinutes[3]/60.0,Night=C.PhaseStartMinutes[4]/60.0;
- const double Sunset=(Dusk+Night)*.5;
+ const double Sunset=FMath::Lerp(Dusk,Night,.75);
  S.Phase=C.PhaseAt(H*3600);
  // Artistic rise/set, apex exactly 12:00. Below-horizon parts never illuminate the world.
  const double HalfSpan=H<=12?12-Dawn:Sunset-12;
  S.SunElevation=MaximumElevation(Variant)*FMath::Cos((H-12)*UE_PI/(2.0*FMath::Max(HalfSpan,1.0)));
  S.SunAzimuth=NoonAzimuth+float((H-12)*15.0);
- const float SunStrength=Smooth(Dawn,Day,H)*(1-Smooth(Dusk-1,Sunset,H));
+ const float SunStrength=Smooth(Dawn,Day-.35,H)*(1-Smooth(Dusk,Sunset,H));
  const float MoonStrength=H<12?1-Smooth(Early,Day-1,H):Smooth(Dusk,Night,H);
  float Ambient=H<12?FMath::Lerp(.11f,.19f,Smooth(Early,Dawn,H)):FMath::Lerp(1.f,.11f,Smooth(Dusk,Night,H));
  if(H>=Dawn&&H<12)Ambient=FMath::Lerp(.19f,1.f,Smooth(Dawn,Day,H));
  S.DirectIntensity=DayDirectIntensity*SunStrength+MoonIntensity*MoonStrength;
  // Blend the reused caster over a fixed time interval, not by rapidly changing light-energy ratios.
- const float MoonBlend=H<12?1-Smooth(Early,Day-1,H):Smooth(Sunset,Night,H);
+ const float MoonBlend=H<12?1-Smooth(Early,Day-1,H):Smooth((Dusk+Night)*.5,Night,H);
  S.LightRotation=FQuat::Slerp(FRotator(-S.SunElevation,S.SunAzimuth,0).Quaternion(),FRotator(-50,NoonAzimuth+110,0).Quaternion(),MoonBlend).Rotator();
  S.FillIntensity=FMath::Lerp(NightFillIntensity,DayFillIntensity,FMath::Clamp((Ambient-.11f)/.89f,0.f,1.f));
  // Receding moon must not darken the early morning before sunlight takes over.
  if(H>=Early&&H<Day)S.FillIntensity+=MoonIntensity*(1-SunStrength)*(1-MoonStrength);
- const float DayTemperature=FMath::Lerp(3100.f,5700.f,Smooth(0,32,S.SunElevation));
+ const float DayTemperature=FMath::Lerp(2900.f,5700.f,Smooth(6,35,S.SunElevation));
  S.Temperature=FMath::Lerp(DayTemperature,8500.f,MoonBlend);
- const float DaySky=Smooth(Dawn,Day,H)*(1-Smooth(Dusk,Night,H));
+ const float DaySky=Smooth(Dawn,Day-.35,H)*(1-Smooth(Dusk,Night,H));
  const float Twilight=Smooth(Early,Dawn,H)*(1-Smooth(Dawn,Day,H))+Smooth(Dusk,Dusk+.6,H)*(1-Smooth(Dusk+.6,Night,H));
  S.Zenith=FMath::Lerp(FLinearColor(.006f,.012f,.029f),FLinearColor(.08f,.25f,.48f),DaySky);
  S.Horizon=FMath::Lerp(FLinearColor(.018f,.025f,.045f),FLinearColor(.48f,.65f,.72f),DaySky);
- S.Horizon=FMath::Lerp(S.Horizon,FLinearColor(.66f,.25f,.09f),FMath::Clamp(Twilight*.75f,0.f,1.f));
+ S.Horizon=FMath::Lerp(S.Horizon,FLinearColor(.75f,.32f,.11f),FMath::Clamp(Twilight*.75f,0.f,1.f));
  S.Stars=1-Smooth(Early,Day,H);if(H>=12)S.Stars=Smooth(Dusk,Night,H);
  return S;
 }
@@ -99,14 +100,20 @@ void UPokeMonsterDayNightSubsystem::SetCycleEnabled(bool Enabled)
 }
 void UPokeMonsterDayNightSubsystem::SetNoonVariant(EPokeMonsterNoonSun Variant){if(Variant!=EPokeMonsterNoonSun::B75&&Variant!=EPokeMonsterNoonSun::C85)return;NoonVariant=Variant;LastSeconds=-1;if(bEnabled)RefreshLighting();}
 void UPokeMonsterDayNightSubsystem::HandleTimeSet(FPokeMonsterWorldTime){if(bEnabled)RefreshLighting();}
-void UPokeMonsterDayNightSubsystem::UpdateFromClock(){if(bEnabled&&Clock&&Clock->GetTime().SecondsOfDay!=LastSeconds)RefreshLighting();}
-void UPokeMonsterDayNightSubsystem::RefreshLighting()
+bool UPokeMonsterDayNightSettings::NeedsRotationUpdate(const FRotator& Current,const FRotator& Desired,float Degrees)
+{return Degrees<=0 || Current.Quaternion().AngularDistance(Desired.Quaternion())>=FMath::DegreesToRadians(double(Degrees));}
+void UPokeMonsterDayNightSubsystem::UpdateFromClock(){if(bEnabled&&Clock&&Clock->GetTime().SecondsOfDay!=LastSeconds)ApplyLighting(false);}
+void UPokeMonsterDayNightSubsystem::RefreshLighting(){ApplyLighting(true);}
+void UPokeMonsterDayNightSubsystem::ApplyLighting(bool ForceRotation)
 {
  if(!bBound||!bEnabled||!Clock)return;
  const auto* C=GetDefault<UPokeMonsterWorldClockSettings>();if(!C->IsValidConfiguration())return;
  const auto* Config=GetDefault<UPokeMonsterDayNightSettings>();LastSeconds=Clock->GetTime().SecondsOfDay;
  LastSample=Config->Evaluate(Clock->GetDayFraction(),NoonVariant,*C);
- Sun->GetOwner()->SetActorRotation(LastSample.LightRotation);Sun->SetIntensity(LastSample.DirectIntensity);Sun->SetUseTemperature(true);Sun->SetTemperature(LastSample.Temperature);Fill->SetIntensity(LastSample.FillIntensity);
+ ++LightingEvaluations;
+ if(ForceRotation||UPokeMonsterDayNightSettings::NeedsRotationUpdate(Sun->GetOwner()->GetActorRotation(),LastSample.LightRotation,Config->RotationThresholdDegrees))
+ {Sun->GetOwner()->SetActorRotation(LastSample.LightRotation);++RotationApplications;}
+ Sun->SetIntensity(LastSample.DirectIntensity);Sun->SetUseTemperature(true);Sun->SetTemperature(LastSample.Temperature);Fill->SetIntensity(LastSample.FillIntensity);
  if(SkyMID)
  {
   // CameraVectorWS points from the sky pixel toward the camera; the disk therefore uses the downward light ray.
