@@ -3,6 +3,8 @@
 #include "Components/ActorComponent.h"
 #include "PokeMonsterCreatureOverworldSettings.h"
 #include "PokeMonsterCreatureActivities.h"
+#include "PokeMonsterCreatureRhythm.h"
+#include "../../Time/PokeMonsterWorldClock.h"
 #include "PokeMonsterCreatureRoamingComponent.generated.h"
 class APokeMonsterBuildingCutaway;
 class APokeMonsterBiomeHabitat;
@@ -85,7 +87,27 @@ public:
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 SocialDeclined=0;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 SocialInterrupted=0;
  UFUNCTION(BlueprintPure,Category="Activities") bool IsActivityTravelling() const { return bActivityTravelling; }
+/** Optional per-encounter rhythm; normal rollout still uses the existing VisualV2 activity boundary. */
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Activities|Rhythm") bool bOverrideRhythm=false;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Activities|Rhythm") FPokeMonsterCreatureRhythm RhythmOverride;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities|Rhythm") bool bRhythmEnabled=false;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities|Rhythm") FPokeMonsterCreatureRhythm Rhythm;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities|Rhythm") FPokeMonsterCreatureActivityProfile RhythmActivities;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities|Rhythm") float RhythmActivity=1.f;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities|Rhythm") float RhythmOffsetMinutes=0.f;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities|Rhythm") int32 RhythmRefreshes=0;
 private:
+ void ConfigureRhythm(int32 Seed);
+ void BindRhythm(UPokeMonsterWorldClock* Clock);
+ void UnbindRhythm();
+ void RefreshRhythm();
+ UFUNCTION() void RhythmTimeSet(FPokeMonsterWorldTime Time);
+ UFUNCTION() void RhythmPhaseChanged(EPokeMonsterDayPhase Phase);
+ bool IsAmbientClockPaused() const;
+ bool IsSocialPartnerValid() const;
+ const FPokeMonsterCreatureActivityProfile& ActivityWeights() const { return bRhythmEnabled?RhythmActivities:Activities; }
+ TWeakObjectPtr<UPokeMonsterWorldClock> RhythmClock;
+ float RhythmRefreshRemaining=0;
  friend struct FPokeMonsterNaturalActivityTestAccess;
  void ConfigureActivities(const UPokeMonsterCreatureSpeciesData* Species,int32 Seed);
  bool UpdateActivities(float Delta,const FVector& Current,const APawn* Player,float& Speed);

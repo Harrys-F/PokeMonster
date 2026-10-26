@@ -1346,3 +1346,12 @@ VisualV2-Testarten durch V2.2 ersetzt. Die vorhandene RoamingComponent und
 reservierte Sozialkontakte bleiben maßgeblich. Tagesrhythmen gewichten vorhandene
 Aktivitäten, keine Spawn-/Kampf-/Fang-/Fortschrittsänderung. Konfiguration ohne
 Modell-/Map-/Save-Änderung; Uhr und 120-Minuten-Regel bleiben unverändert.
+
+### Pokémon-KI V2.2 – Tagesrhythmen (26.10.2026)
+
+- Vorhandene Wildaktivitäten werden durch die maßgebliche Weltuhr gewichtet, nicht ersetzt. Keine zweite Zeit-/Zustandsmaschine, kein neues Save-Feld, keine Spawn-/Kampfwertänderungen.
+- VisualV2-Rollout: Bisasam/Pikachu tagaktiv, Myrapla/Nebulak nachtaktiv, Enton dämmerungsaktiv, Zunderlauf (Glumanda) flexibel. Artenzuordnung und Multiplikatoren in `DefaultGame.ini` sowie optional pro Begegnung editierbar. Andere Maps und Begleiter behalten ihr Verhalten.
+- Weiche Wahrscheinlichkeitskurven und individuelle, aus dem bestehenden Seed abgeleitete ±45 Ingame-Minuten statt fester Schlafenszeiten. Laufende Aktivitäten beenden sich regulär; Gefahren/Kampf/Flucht dürfen sie weiterhin unterbrechen.
+- Schlaf bleibt technisch eigener Zustand mit vorhandener Idle-Darstellung. Schlafende nehmen keine normalen Sozialkontakte an; Ruhende akzeptieren seltener. Gegenseitige Reservierung/Abbruch der KI V2.1 bleiben maßgeblich.
+- Bei pausierter Weltuhr stehen ambienter Ablauf und Bewegung still, wichtige Spieler-/Gefahrenreaktionen behalten Vorrang. Zeit-/Phasenereignisse aktualisieren Gewichte sofort; regulär alle drei Sekunden im bestehenden Bewegungstimer (bei Debugbeschleunigung mindestens 0,5 s).
+- Weltzeit wird weiter ausschließlich vom vorhandenen Save-System gespeichert. Aktivitäten/Reservierungen bleiben transient und werden nach Laden/Mapwechsel sicher neu initialisiert.

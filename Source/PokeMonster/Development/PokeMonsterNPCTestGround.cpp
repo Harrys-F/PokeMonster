@@ -22,7 +22,7 @@
 #include "Materials/MaterialInterface.h"
 namespace
 {
- const TCHAR* Ids[]={TEXT("Ranger"),TEXT("SilverLady"),TEXT("TreeBeing"),TEXT("ElvenScholar"),TEXT("Wizard"),TEXT("WhiteHairedWarrior"),TEXT("DwarfWarrior"),TEXT("CrouchedCreature"),TEXT("ElvenArcher"),TEXT("DarkArmored"),TEXT("HobbitBase")};
+ const TCHAR* NPCTestSpeciesIds[]={TEXT("Ranger"),TEXT("SilverLady"),TEXT("TreeBeing"),TEXT("ElvenScholar"),TEXT("Wizard"),TEXT("WhiteHairedWarrior"),TEXT("DwarfWarrior"),TEXT("CrouchedCreature"),TEXT("ElvenArcher"),TEXT("DarkArmored"),TEXT("HobbitBase")};
 }
 bool UPokeMonsterNPCTestGround::IsSupportedMap(const FString& Name,EWorldType::Type Type)
 {
@@ -61,15 +61,15 @@ void UPokeMonsterNPCTestGround::OnWorldBeginPlay(UWorld& World)
  Box(Center()+FVector(0,-1890,35),FVector(50,.2,.7));Box(Center()+FVector(0,1890,35),FVector(50,.2,.7));
  TestDialogue=NewObject<UPokeMonsterDialogueData>(this);auto* Dialogue=TestDialogue.Get();FPokeMonsterDialoguePage Page;
  Page.SpeakerName=FText::FromString(TEXT("NPC-Bibliothek · technischer Test"));Page.Text=FText::FromString(TEXT("Hallo! Diese Figur zeigt Begruessung, Blickwendung und Gespraechsgesten. Rolle und Geschichte sind noch offen."));Dialogue->Pages.Add(Page);
- for(int32 I=0;I<UE_ARRAY_COUNT(Ids);++I)
+ for(int32 I=0;I<UE_ARRAY_COUNT(NPCTestSpeciesIds);++I)
  {
-  const FString Asset=FString(TEXT("/Game/Characters/NPCs/Library/Profiles/DA_NPC_"))+Ids[I];
+  const FString Asset=FString(TEXT("/Game/Characters/NPCs/Library/Profiles/DA_NPC_"))+NPCTestSpeciesIds[I];
   auto* Profile=LoadObject<UPokeMonsterNPCPresentationData>(nullptr,*Asset);
-  if(!Profile||!Profile->GetValidationErrors().IsEmpty()){UE_LOG(LogTemp,Error,TEXT("PM_NPCGROUND invalid profile %s"),Ids[I]);continue;}
+  if(!Profile||!Profile->GetValidationErrors().IsEmpty()){UE_LOG(LogTemp,Error,TEXT("PM_NPCGROUND invalid profile %s"),NPCTestSpeciesIds[I]);continue;}
   const float HalfHeight=FMath::Clamp(Profile->ReferenceHeightCm*.45f,40.f,160.f);
   const FVector Position=Station(I)+FVector(0,0,HalfHeight+.5f);
   auto* NPC=World.SpawnActorDeferred<APokeMonsterNPC>(APokeMonsterNPC::StaticClass(),FTransform(Position),nullptr,nullptr,ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
-  NPC->SetFlags(RF_Transient);NPC->DisplayName=FText::FromString(FString::Printf(TEXT("TEST %02d · %s"),I+1,Ids[I]));NPC->Dialogue=Dialogue;NPC->Tags.Add(TEXT("NPCDevelopmentSpecimen"));
+  NPC->SetFlags(RF_Transient);NPC->DisplayName=FText::FromString(FString::Printf(TEXT("TEST %02d · %s"),I+1,NPCTestSpeciesIds[I]));NPC->Dialogue=Dialogue;NPC->Tags.Add(TEXT("NPCDevelopmentSpecimen"));
   auto* Body=CastChecked<UCapsuleComponent>(NPC->GetRootComponent());Body->SetCapsuleSize(FMath::Clamp(Profile->ReferenceHeightCm*.12f,22.f,50.f),HalfHeight);Body->SetCollisionResponseToChannel(ECC_WorldStatic,ECR_Block);
   NPC->FinishSpawning(FTransform(Position));Owned.Add(NPC);
   auto* V=World.SpawnActor<APokeMonsterNPCVisualActor>(Station(I)+FVector(0,0,.5f),FRotator(0,135,0),Spawn);Owned.Add(V);V->SourceActor=NPC;V->ApplyPresentation(Profile);V->Tags.Add(TEXT("NPCDevelopmentSpecimen"));

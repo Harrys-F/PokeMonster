@@ -3,7 +3,7 @@
 #include "PokeMonsterCreatureBehavior.h"
 #include "PokeMonsterCreatureActivities.generated.h"
 
-/** Context supplied by a future world clock; never changes lighting or battle time. */
+/** Legacy manual period. Clock-bound rhythms weight activities directly, without a second night multiplier. */
 UENUM(BlueprintType)
 enum class EPokeMonsterActivityPeriod : uint8 { Day, Evening, Night };
 

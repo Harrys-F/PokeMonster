@@ -1,0 +1,294 @@
+{
+  "package_A_commit": "230ff51e",
+  "build": "DayRhythmV22_Build02",
+  "automation": {
+    "mode": "Automation",
+    "exit": 0,
+    "seconds": 39.08401298522949,
+    "summary": {
+      "succeeded": 279,
+      "succeededWithWarnings": 0,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0
+    }
+  },
+  "independent_pie": {
+    "label": "RhythmB02",
+    "passed": true,
+    "checks": [
+      "All six profiles immediately use central noon time",
+      "12 to 22 jump immediately updates every profile",
+      "Paused world clock freezes ambient activity timers and movement",
+      "No unintended encounter throughout ambient observation",
+      "Every subject keeps valid enabled native activity and rhythm"
+    ],
+    "seconds": 94.17440595803782,
+    "states": {
+      "Bisasam": {
+        "noon": {
+          "samples": 198,
+          "states": {
+            "<PokeMonsterOverworldState.WANDER: 1>": 43,
+            "<PokeMonsterOverworldState.FORAGE: 10>": 69,
+            "<PokeMonsterOverworldState.IDLE: 8>": 12,
+            "<PokeMonsterOverworldState.SOCIAL: 11>": 72,
+            "<PokeMonsterOverworldState.REST: 0>": 2
+          },
+          "completed_forage": 0,
+          "completed_social": 1
+        },
+        "night": {
+          "samples": 216,
+          "states": {
+            "<PokeMonsterOverworldState.FORAGE: 10>": 42,
+            "<PokeMonsterOverworldState.WANDER: 1>": 22,
+            "<PokeMonsterOverworldState.REST: 0>": 123,
+            "<PokeMonsterOverworldState.SLEEP: 9>": 29
+          },
+          "completed_forage": 1,
+          "completed_social": 1
+        }
+      },
+      "Pikachu": {
+        "noon": {
+          "samples": 66,
+          "states": {
+            "<PokeMonsterOverworldState.WANDER: 1>": 66
+          },
+          "completed_forage": 0,
+          "completed_social": 0
+        },
+        "night": {
+          "samples": 72,
+          "states": {
+            "<PokeMonsterOverworldState.WANDER: 1>": 7,
+            "<PokeMonsterOverworldState.IDLE: 8>": 9,
+            "<PokeMonsterOverworldState.REST: 0>": 56
+          },
+          "completed_forage": 0,
+          "completed_social": 0
+        }
+      },
+      "Zunderlauf": {
+        "noon": {
+          "samples": 66,
+          "states": {
+            "<PokeMonsterOverworldState.FORAGE: 10>": 35,
+            "<PokeMonsterOverworldState.REST: 0>": 1,
+            "<PokeMonsterOverworldState.IDLE: 8>": 30
+          },
+          "completed_forage": 0,
+          "completed_social": 0
+        },
+        "night": {
+          "samples": 72,
+          "states": {
+            "<PokeMonsterOverworldState.IDLE: 8>": 9,
+            "<PokeMonsterOverworldState.FORAGE: 10>": 40,
+            "<PokeMonsterOverworldState.REST: 0>": 1,
+            "<PokeMonsterOverworldState.WANDER: 1>": 22
+          },
+          "completed_forage": 1,
+          "completed_social": 0
+        }
+      },
+      "Myrapla": {
+        "noon": {
+          "samples": 66,
+          "states": {
+            "<PokeMonsterOverworldState.FORAGE: 10>": 35,
+            "<PokeMonsterOverworldState.REST: 0>": 31
+          },
+          "completed_forage": 0,
+          "completed_social": 0
+        },
+        "night": {
+          "samples": 72,
+          "states": {
+            "<PokeMonsterOverworldState.REST: 0>": 70,
+            "<PokeMonsterOverworldState.FORAGE: 10>": 2
+          },
+          "completed_forage": 0,
+          "completed_social": 0
+        }
+      },
+      "Enton": {
+        "noon": {
+          "samples": 66,
+          "states": {
+            "<PokeMonsterOverworldState.REST: 0>": 66
+          },
+          "completed_forage": 0,
+          "completed_social": 0
+        },
+        "night": {
+          "samples": 72,
+          "states": {
+            "<PokeMonsterOverworldState.REST: 0>": 19,
+            "<PokeMonsterOverworldState.WANDER: 1>": 33,
+            "<PokeMonsterOverworldState.SLEEP: 9>": 20
+          },
+          "completed_forage": 0,
+          "completed_social": 0
+        }
+      },
+      "Nebulak": {
+        "noon": {
+          "samples": 66,
+          "states": {
+            "<PokeMonsterOverworldState.IDLE: 8>": 34,
+            "<PokeMonsterOverworldState.REST: 0>": 32
+          },
+          "completed_forage": 0,
+          "completed_social": 0
+        },
+        "night": {
+          "samples": 72,
+          "states": {
+            "<PokeMonsterOverworldState.IDLE: 8>": 6,
+            "<PokeMonsterOverworldState.FORAGE: 10>": 42,
+            "<PokeMonsterOverworldState.WANDER: 1>": 24
+          },
+          "completed_forage": 1,
+          "completed_social": 0
+        }
+      }
+    },
+    "lighting_cycle_off": true,
+    "original_habitats": true
+  },
+  "cpu": {
+    "passed": true,
+    "error": null,
+    "cases": [
+      {
+        "count": 1,
+        "rhythms": false,
+        "far": false,
+        "component_cpu_ms_per_frame_sum": 0.12103406091531117,
+        "mean_frame_ms": 122.89826882382233,
+        "measured_ticks": 66,
+        "decisions": 1,
+        "peer_queries": 1,
+        "traces": 0,
+        "distant_count": 0,
+        "plans": 1,
+        "rhythm_refreshes": 0,
+        "enabled_count": 0
+      },
+      {
+        "count": 1,
+        "rhythms": true,
+        "far": false,
+        "component_cpu_ms_per_frame_sum": 0.11647848495796545,
+        "mean_frame_ms": 119.81328682445769,
+        "measured_ticks": 67,
+        "decisions": 1,
+        "peer_queries": 1,
+        "traces": 0,
+        "distant_count": 0,
+        "plans": 1,
+        "rhythm_refreshes": 3,
+        "enabled_count": 1
+      },
+      {
+        "count": 3,
+        "rhythms": false,
+        "far": false,
+        "component_cpu_ms_per_frame_sum": 0.1217857448022757,
+        "mean_frame_ms": 120.148667481853,
+        "measured_ticks": 201,
+        "decisions": 3,
+        "peer_queries": 3,
+        "traces": 19,
+        "distant_count": 0,
+        "plans": 1,
+        "rhythm_refreshes": 0,
+        "enabled_count": 0
+      },
+      {
+        "count": 3,
+        "rhythms": true,
+        "far": false,
+        "component_cpu_ms_per_frame_sum": 0.1310513201934188,
+        "mean_frame_ms": 119.86217436505787,
+        "measured_ticks": 201,
+        "decisions": 3,
+        "peer_queries": 3,
+        "traces": 19,
+        "distant_count": 0,
+        "plans": 1,
+        "rhythm_refreshes": 9,
+        "enabled_count": 3
+      },
+      {
+        "count": 8,
+        "rhythms": false,
+        "far": false,
+        "component_cpu_ms_per_frame_sum": 0.2857943190567529,
+        "mean_frame_ms": 119.47512304160132,
+        "measured_ticks": 536,
+        "decisions": 7,
+        "peer_queries": 8,
+        "traces": 56,
+        "distant_count": 0,
+        "plans": 5,
+        "rhythm_refreshes": 0,
+        "enabled_count": 0
+      },
+      {
+        "count": 8,
+        "rhythms": true,
+        "far": false,
+        "component_cpu_ms_per_frame_sum": 0.25573482408243065,
+        "mean_frame_ms": 119.51732794370722,
+        "measured_ticks": 544,
+        "decisions": 7,
+        "peer_queries": 7,
+        "traces": 57,
+        "distant_count": 0,
+        "plans": 4,
+        "rhythm_refreshes": 24,
+        "enabled_count": 8
+      },
+      {
+        "count": 8,
+        "rhythms": true,
+        "far": true,
+        "component_cpu_ms_per_frame_sum": 0.002729613333940506,
+        "mean_frame_ms": 100.12199738994241,
+        "measured_ticks": 640,
+        "decisions": 0,
+        "peer_queries": 0,
+        "traces": 0,
+        "distant_count": 8,
+        "plans": 0,
+        "rhythm_refreshes": 8,
+        "enabled_count": 8
+      }
+    ],
+    "method": "native per-component wall-clock CPU scope inside real game Tick; development measurement flag; no GPU profiling",
+    "seconds_per_case": 8,
+    "lighting": "same V1.1 enabled for both; actual 1x clock",
+    "synthetic_count": 0
+  },
+  "map_checks": 12,
+  "map_errors": 0,
+  "map_warnings": 0,
+  "protection": {
+    "protected_files_unchanged": 85,
+    "original_untracked_preserved": 31,
+    "backup_refs_unchanged": true
+  },
+  "images": [
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/RhythmB02/Night.png",
+      "sha256": "1baec231f84d912d6cb1839de50da1a7548a793611271cfc96fe43f593afa5fc"
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/RhythmB02/Noon.png",
+      "sha256": "f3db9065d5d9300866092823909855f514e78e7a5b057257c35f643bdf2d5285"
+    }
+  ]
+}

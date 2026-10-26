@@ -7,10 +7,11 @@
 #include "Engine/World.h"
 #include "Engine/OverlapResult.h"
 #include "EngineUtils.h"
+#include "Engine/GameInstance.h"
 
 void UPokeMonsterCreatureRoamingComponent::EndPlay(const EEndPlayReason::Type Reason)
 {
- ReleaseSocial();
+ ReleaseSocial();UnbindRhythm();
  Super::EndPlay(Reason);
 }
 void UPokeMonsterCreatureRoamingComponent::ConfigureActivities(const UPokeMonsterCreatureSpeciesData* Species,int32 Seed)
@@ -29,6 +30,7 @@ void UPokeMonsterCreatureRoamingComponent::ConfigureActivities(const UPokeMonste
  PeerQueryRemaining=ActivityRandom.FRandRange(.1f,Activities.PerceptionSeconds);
  VisibilityRemaining=0;PerceivedPeer.Reset();ForageAnchors.Reset();
  ActivityDecisions=PeerQueries=PerceptionTraces=SocialCompleted=ForageCompleted=SocialRequests=SocialDeclined=SocialInterrupted=0;
+ ConfigureRhythm(Seed);
  if(!bActivitiesEnabled || !Activities.bPreferVegetation)return;
  // Cache nearby authored vegetation once. Approaches stop beside it, never inside a bush.
  const float Radius=HabitatRadiusOverride>0?HabitatRadiusOverride:Settings.RoamRadius;
@@ -89,7 +91,7 @@ bool UPokeMonsterCreatureRoamingComponent::CanSocialize() const
  return bActivitiesEnabled && bReady && !bPaused && !bPresentationHold && IsComponentTickEnabled()
   && Wild && Wild->LifeState==EPokeMonsterWildLifeState::Active && !GetOwner()->IsHidden()
   && !bEscapingDefeat && !bActivityDistant && !SocialPartner && SocialCooldown<=0 && CooldownRemaining<=0
-  && Activities.SocialWeight>0
+  && ActivityWeights().SocialWeight>0 && !IsAmbientClockPaused()
   && (BehaviorState==S::Wander || BehaviorState==S::Idle || BehaviorState==S::Rest)
   // Honour a minimum quiet period before accepting a visit. Sleep/forage and player reactions never accept.
   && (!bActivityRunning || BehaviorState!=S::Rest || ActivityElapsed>=Activities.MinimumSeconds);
@@ -104,7 +106,7 @@ bool UPokeMonsterCreatureRoamingComponent::TryStartSocial(UPokeMonsterCreatureRo
   || FVector::Dist2D(Current,PeerPosition)>FMath::Min(Activities.SocialRadius,Peer->Activities.SocialRadius))return false;
  ++SocialRequests;
  ++PerceptionTraces;if(!PeerVisible(Peer)){LastSocialDecision=TEXT("Obstructed");return false;}
- if(Peer->ActivityRandom.FRand()>=Peer->Activities.SocialAcceptance)
+ if(Peer->ActivityRandom.FRand()>=Peer->ActivityWeights().SocialAcceptance*(Peer->bRhythmEnabled&&Peer->BehaviorState==S::Rest?.5f:1.f))
  {
   ++Peer->SocialDeclined;Peer->LastSocialDecision=TEXT("Declined");LastSocialDecision=TEXT("Rejected");
   SocialCooldown=ActivityRandom.FRandRange(6.f,10.f);Peer->SocialCooldown=Peer->ActivityRandom.FRandRange(3.f,5.f);
@@ -204,6 +206,18 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateActivities(float Delta,const FV
  QUICK_SCOPE_CYCLE_COUNTER(STAT_PokeMonsterNaturalActivities);
  using S=EPokeMonsterOverworldState;
  if(BehaviorState==S::Approach||BehaviorState==S::Retreat||BehaviorState==S::Observe||BehaviorState==S::Warning)return false;
+ // Player/threat reactions above have priority. Only ambient timers/motion follow the clock pause.
+ if(IsAmbientClockPaused())
+ {
+  if(SocialPartner&&!IsSocialPartnerValid())FinishActivity(true);
+  CurrentSpeed=0;return true;
+ }
+ if(bRhythmEnabled)
+ {
+  RhythmRefreshRemaining-=Delta;
+  if(RhythmRefreshRemaining<=0)RefreshRhythm();
+ }
+ const auto& Weights=ActivityWeights();
  SocialCooldown=FMath::Max(0.f,SocialCooldown-Delta);SleepCooldown=FMath::Max(0.f,SleepCooldown-Delta);ForageCooldown=FMath::Max(0.f,ForageCooldown-Delta);
  PeerQueryRemaining-=Delta;SocialInvitationRemaining-=Delta;
  if(bActivityRunning)ActivityElapsed+=Delta;
@@ -211,8 +225,8 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateActivities(float Delta,const FV
  if(bActivityRunning && ActivityElapsed>=Activities.MinimumSeconds && SocialInvitationRemaining<=0 && CanSocialize())
  {
   SocialInvitationRemaining=ActivityRandom.FRandRange(8.f,13.f);
-  const float Total=Activities.WanderWeight+Activities.ObserveWeight+Activities.RestWeight+Activities.ForageWeight+Activities.SocialWeight;
-  if(ActivityRandom.FRand()<FMath::Min(.5f,2.f*Activities.SocialWeight/FMath::Max(1.f,Total)))
+  const float Total=Weights.WanderWeight+Weights.ObserveWeight+Weights.RestWeight+Weights.ForageWeight+Weights.SocialWeight;
+  if(ActivityRandom.FRand()<FMath::Min(.5f,2.f*Weights.SocialWeight/FMath::Max(1.f,Total)))
   {
    if(FindSocialPartner())TryStartSocial(PerceivedPeer.Get(),Current);
    PeerQueryRemaining=Activities.PerceptionSeconds;
@@ -223,13 +237,8 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateActivities(float Delta,const FV
   if(BehaviorState==S::Social)
   {
    auto* Peer=SocialPartner.Get();
-   const auto* Wild=IsValid(Peer)?Cast<APokeMonsterVisibleWildCreatureActor>(Peer->GetOwner()):nullptr;
    SocialDeadlineRemaining-=Delta;SocialValidationRemaining-=Delta;
-   if(!IsValid(Peer)||Peer->SocialPartner!=this||!Wild||Wild->LifeState!=EPokeMonsterWildLifeState::Active
-    ||Peer->bPaused||Peer->bPresentationHold||Peer->bEscapingDefeat||Peer->bActivityDistant
-    ||Peer->GetOwner()->IsHidden()||!Peer->IsComponentTickEnabled()||SocialDeadlineRemaining<=0
-    ||FVector::Dist2D(Current,Peer->GetOwner()->GetActorLocation())>FMath::Min(Activities.SocialRadius,Peer->Activities.SocialRadius)*1.4f)
-   {FinishActivity(true);return true;}
+   if(!IsSocialPartnerValid()){FinishActivity(true);return true;}
    if(SocialValidationRemaining<=0)
    {
     SocialValidationRemaining=ActivityRandom.FRandRange(.8f,1.2f);++PerceptionTraces;
@@ -263,7 +272,7 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateActivities(float Delta,const FV
  if(ActivityDecisions==0 && PeerQueryRemaining>0){CurrentSpeed=0;return true;}
  if(PeerQueryRemaining<=0){FindSocialPartner();PeerQueryRemaining=Activities.PerceptionSeconds*ActivityRandom.FRandRange(.8f,1.25f);}
  const bool Social=PerceivedPeer.IsValid()&&CanSocialize()&&PerceivedPeer->CanSocialize();
- S Next=FPokeMonsterCreatureActivityProfile::Select(Activities,ActivityRandom,ActivityPeriod,SleepCooldown<=0,ForageCooldown<=0,Social);
+ S Next=FPokeMonsterCreatureActivityProfile::Select(Weights,ActivityRandom,bRhythmEnabled?EPokeMonsterActivityPeriod::Day:ActivityPeriod,SleepCooldown<=0,ForageCooldown<=0,Social);
  ++ActivityDecisions;
  if(Next==S::Social)
  {
@@ -283,4 +292,57 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateActivities(float Delta,const FV
  if(Next==S::Idle)ActivityFocus=Current+GetOwner()->GetActorForwardVector().RotateAngleAxis(ActivityRandom.FRandRange(-65,65),FVector::UpVector)*150;
  PauseRemaining=0;
  return Next!=S::Wander && !bActivityTravelling;
+}
+
+void UPokeMonsterCreatureRoamingComponent::ConfigureRhythm(int32 Seed)
+{
+ UnbindRhythm();RhythmRefreshes=0;RhythmOffsetMinutes=0;
+ if(!bActivitiesEnabled)return;
+ const auto* Config=GetDefault<UPokeMonsterCreatureRhythmSettings>();
+ if(!Config->bEnableRhythms)return;
+ if(bOverrideRhythm){if(!RhythmOverride.IsValid())return;Rhythm=RhythmOverride;}
+ else if(!Config->Find(ActivitySpecies,Rhythm))return;
+ auto* GI=GetWorld()->GetGameInstance();auto* Clock=GI?GI->GetSubsystem<UPokeMonsterWorldClock>():nullptr;
+ if(!Clock)return;
+ // Separate stream preserves the established movement/social random sequence.
+ FRandomStream R(Seed^0x72A039);RhythmOffsetMinutes=R.FRandRange(-Rhythm.IndividualOffsetMinutes,Rhythm.IndividualOffsetMinutes);
+ BindRhythm(Clock);
+}
+void UPokeMonsterCreatureRoamingComponent::BindRhythm(UPokeMonsterWorldClock* Clock)
+{
+ RhythmClock=Clock;bRhythmEnabled=Clock!=nullptr;
+ if(!Clock)return;
+ Clock->OnTimeSet.AddUniqueDynamic(this,&UPokeMonsterCreatureRoamingComponent::RhythmTimeSet);
+ Clock->OnPhaseChanged.AddUniqueDynamic(this,&UPokeMonsterCreatureRoamingComponent::RhythmPhaseChanged);
+ RefreshRhythm();
+}
+void UPokeMonsterCreatureRoamingComponent::UnbindRhythm()
+{
+ if(auto* C=RhythmClock.Get())
+ {
+  C->OnTimeSet.RemoveDynamic(this,&UPokeMonsterCreatureRoamingComponent::RhythmTimeSet);
+  C->OnPhaseChanged.RemoveDynamic(this,&UPokeMonsterCreatureRoamingComponent::RhythmPhaseChanged);
+ }
+ RhythmClock.Reset();bRhythmEnabled=false;
+}
+void UPokeMonsterCreatureRoamingComponent::RefreshRhythm()
+{
+ auto* C=RhythmClock.Get();if(!bRhythmEnabled||!C)return;
+ const auto* Config=GetDefault<UPokeMonsterWorldClockSettings>();if(!Config->IsValidConfiguration())return;
+ RhythmActivity=Rhythm.ActivityAt(C->GetTime().SecondsOfDay,RhythmOffsetMinutes,*Config);
+ RhythmActivities=Rhythm.Weight(Activities,RhythmActivity);++RhythmRefreshes;
+ RhythmRefreshRemaining=FMath::Max(.5f,3.f/float(FMath::Max(1.,C->GetDebugSpeed())));
+ // Existing activity, path, reservation and minimum duration deliberately survive phase/time changes.
+}
+void UPokeMonsterCreatureRoamingComponent::RhythmTimeSet(FPokeMonsterWorldTime){RefreshRhythm();}
+void UPokeMonsterCreatureRoamingComponent::RhythmPhaseChanged(EPokeMonsterDayPhase){RefreshRhythm();}
+bool UPokeMonsterCreatureRoamingComponent::IsAmbientClockPaused() const
+{return bRhythmEnabled&&RhythmClock.IsValid()&&RhythmClock->IsClockPaused();}
+bool UPokeMonsterCreatureRoamingComponent::IsSocialPartnerValid() const
+{
+ const auto* Peer=SocialPartner.Get();const auto* Wild=IsValid(Peer)?Cast<APokeMonsterVisibleWildCreatureActor>(Peer->GetOwner()):nullptr;
+ return IsValid(Peer)&&Peer->SocialPartner==this&&Wild&&Wild->LifeState==EPokeMonsterWildLifeState::Active
+  &&!Peer->bPaused&&!Peer->bPresentationHold&&!Peer->bEscapingDefeat&&!Peer->bActivityDistant
+  &&!Peer->GetOwner()->IsHidden()&&Peer->IsComponentTickEnabled()&&SocialDeadlineRemaining>0
+  &&FVector::Dist2D(GetOwner()->GetActorLocation(),Peer->GetOwner()->GetActorLocation())<=FMath::Min(Activities.SocialRadius,Peer->Activities.SocialRadius)*1.4f;
 }

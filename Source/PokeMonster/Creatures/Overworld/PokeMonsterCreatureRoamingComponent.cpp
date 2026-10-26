@@ -28,7 +28,7 @@ UPokeMonsterCreatureRoamingComponent::UPokeMonsterCreatureRoamingComponent()
 void UPokeMonsterCreatureRoamingComponent::Configure(const UPokeMonsterCreatureSpeciesData* Species,
 	float RootGroundOffset, float Radius, float HalfHeight, AActor* Follow, int32 Seed)
 {
-	ReleaseSocial();
+	ReleaseSocial();UnbindRhythm();
 	SetComponentTickEnabled(false); bReady = false; bPresentationHold = false; PresentationHoverHeight=0.f;bWasAerialTravel=false;
 	if (!Species || !Species->Overworld.IsValid() || !FMath::IsFinite(RootGroundOffset)
 		|| !FMath::IsFinite(Radius) || Radius <= 0 || !FMath::IsFinite(HalfHeight) || HalfHeight <= 0

@@ -8,6 +8,8 @@
 #include "Engine/Engine.h"
 #include "Engine/World.h"
 #include "GameFramework/Pawn.h"
+#include "Engine/GameInstance.h"
+#include "UObject/StrongObjectPtr.h"
 
 struct FPokeMonsterNaturalActivityTestAccess
 {
@@ -23,6 +25,9 @@ struct FPokeMonsterNaturalActivityTestAccess
  static void Update(UPokeMonsterCreatureRoamingComponent* M,float D=.1f)
  {float Speed=60;M->UpdateActivities(D,M->GetOwner()->GetActorLocation()-FVector(0,0,M->Offset),nullptr,Speed);}
  static void Finish(UPokeMonsterCreatureRoamingComponent* M){M->FinishActivity();}
+ static void BindClock(UPokeMonsterCreatureRoamingComponent* M,UPokeMonsterWorldClock* C,EPokeMonsterActivityRhythm Type)
+ {M->Rhythm.Rhythm=Type;M->RhythmOffsetMinutes=0;M->BindRhythm(C);}
+ static void UnbindClock(UPokeMonsterCreatureRoamingComponent* M){M->UnbindRhythm();}
  static int Anchors(UPokeMonsterCreatureRoamingComponent* M){return M->ForageAnchors.Num();}
 };
 namespace NaturalActivityTests
@@ -253,6 +258,101 @@ bool FNaturalSocialThreatTest::RunTest(const FString&)
  TestNull(TEXT("Player approach clears initiator reservation"),A->SocialPartner.Get());TestNull(TEXT("Player approach also clears receiver"),B->SocialPartner.Get());
  TestTrue(TEXT("Receiver returns to a valid ambient state"),B->BehaviorState==S::Rest && !B->IsActivityTravelling());
  TestTrue(TEXT("Both record the same interruption"),A->SocialInterrupted==1&&B->SocialInterrupted==1);
+ return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FRhythmConfigurationTest,"PokeMonster.Creatures.DayRhythms.SixProfilesAndSafeConfiguration",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FRhythmConfigurationTest::RunTest(const FString&)
+{
+ const auto* C=GetDefault<UPokeMonsterCreatureRhythmSettings>();FPokeMonsterCreatureRhythm R;
+ const FName Names[]={TEXT("Bisasam"),TEXT("Pikachu"),TEXT("Zunderlauf"),TEXT("Myrapla"),TEXT("Enton"),TEXT("Nebulak")};
+ const EPokeMonsterActivityRhythm Types[]={EPokeMonsterActivityRhythm::Diurnal,EPokeMonsterActivityRhythm::Diurnal,EPokeMonsterActivityRhythm::Flexible,EPokeMonsterActivityRhythm::Nocturnal,EPokeMonsterActivityRhythm::Crepuscular,EPokeMonsterActivityRhythm::Nocturnal};
+ TestEqual(TEXT("Only six species configured"),C->SpeciesProfiles.Num(),6);
+ for(int I=0;I<6;++I){TestTrue(TEXT("Data configuration resolves stable species"),C->Find(Names[I],R));TestEqual(TEXT("Requested rhythm"),R.Rhythm,Types[I]);TestTrue(TEXT("Valid default offset"),R.IsValid());}
+ TestFalse(TEXT("Other species not silently enabled"),C->Find(TEXT("Glurak"),R));
+ auto* Bad=NewObject<UPokeMonsterCreatureRhythmSettings>();Bad->SpeciesProfiles=C->SpeciesProfiles;Bad->SpeciesProfiles.Add(C->SpeciesProfiles[0]);TestFalse(TEXT("Ambiguous duplicated rows fail closed"),Bad->Find(TEXT("Bisasam"),R));
+ R.QuietWander=0;TestFalse(TEXT("Zero mobility configuration rejected"),R.IsValid());R={};R.ActiveSleep=NAN;TestFalse(TEXT("NaN rejected"),R.IsValid());R={};R.IndividualOffsetMinutes=121;TestFalse(TEXT("Unbounded offsets rejected"),R.IsValid());
+ return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FRhythmWeightsTest,"PokeMonster.Creatures.DayRhythms.ActivitySleepForageAndSocialDistributions",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FRhythmWeightsTest::RunTest(const FString&)
+{
+ using S=EPokeMonsterOverworldState;const auto* Clock=GetDefault<UPokeMonsterWorldClockSettings>();
+ for(FName Id:{FName("Bisasam"),FName("Pikachu"),FName("Myrapla"),FName("Nebulak"),FName("Enton")})
+ {
+  FPokeMonsterCreatureRhythm R;GetDefault<UPokeMonsterCreatureRhythmSettings>()->Find(Id,R);
+  const double ActiveHour=R.Rhythm==EPokeMonsterActivityRhythm::Nocturnal?22:R.Rhythm==EPokeMonsterActivityRhythm::Crepuscular?6:12;
+  const double QuietHour=R.Rhythm==EPokeMonsterActivityRhythm::Diurnal?22:12;
+  auto Base=FPokeMonsterCreatureActivityProfile::ForSpecies(Id);auto Active=R.Weight(Base,R.ActivityAt(ActiveHour*3600,0,*Clock)),Quiet=R.Weight(Base,R.ActivityAt(QuietHour*3600,0,*Clock));
+  TestTrue(TEXT("Active feeding and social weights increase"),Active.ForageWeight>Quiet.ForageWeight&&Active.SocialWeight>Quiet.SocialWeight&&Active.SocialAcceptance>Quiet.SocialAcceptance);
+  FRandomStream A(913),Q(913);int ActiveSleep=0,QuietSleep=0,ActiveForage=0,QuietForage=0;
+  for(int I=0;I<12000;++I)
+  {
+   const auto X=FPokeMonsterCreatureActivityProfile::Select(Active,A,EPokeMonsterActivityPeriod::Day,true,true,true),Y=FPokeMonsterCreatureActivityProfile::Select(Quiet,Q,EPokeMonsterActivityPeriod::Day,true,true,true);
+   ActiveSleep+=X==S::Sleep;QuietSleep+=Y==S::Sleep;ActiveForage+=X==S::Forage;QuietForage+=Y==S::Forage;
+  }
+  TestTrue(TEXT("Quiet sleep is more frequent, never a forced schedule"),QuietSleep>ActiveSleep*3&&ActiveSleep>0);
+  TestTrue(TEXT("Active forage is more frequent; quiet remains possible"),ActiveForage>QuietForage&&QuietForage>0);
+ }
+ FPokeMonsterCreatureRhythm Flexible;TestTrue(TEXT("Flexible remains substantially active at night"),Flexible.ActivityAt(0,0,*Clock)>.6f);return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FRhythmContinuityTest,"PokeMonster.Creatures.DayRhythms.ContinuousMidnightOffsetsAndNoSecondClock",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FRhythmContinuityTest::RunTest(const FString&)
+{
+ const auto* C=GetDefault<UPokeMonsterWorldClockSettings>();TestEqual(TEXT("120-minute rule untouched"),C->RealMinutesPerDay,120.);
+ FPokeMonsterCreatureRhythm R;
+ for(auto Type:{EPokeMonsterActivityRhythm::Diurnal,EPokeMonsterActivityRhythm::Nocturnal,EPokeMonsterActivityRhythm::Crepuscular,EPokeMonsterActivityRhythm::Flexible})
+ {
+  R.Rhythm=Type;
+  for(float Offset:{-45.f,0.f,45.f})for(int M=0;M<1440;++M)
+  {
+   const float A=R.ActivityAt(M*60,Offset,*C),B=R.ActivityAt(M*60+.01,Offset,*C);
+   TestTrue(TEXT("All day including boundaries continuous and bounded"),A>=0&&A<=1&&FMath::Abs(A-B)<.001f);
+   TestEqual(TEXT("Next day same rhythm, no stored independent time"),A,R.ActivityAt(M*60+86400,Offset,*C));
+  }
+ }
+ R.Rhythm=EPokeMonsterActivityRhythm::Diurnal;TestTrue(TEXT("Individuals do not all change together"),R.ActivityAt(6*3600,-45,*C)<R.ActivityAt(6*3600,45,*C));
+ return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FRhythmClockEventsTest,"PokeMonster.Creatures.DayRhythms.ClockJumpsAndUnbindingPreserveCurrentActivity",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FRhythmClockEventsTest::RunTest(const FString&)
+{
+ using namespace NaturalActivityTests;using A=FPokeMonsterNaturalActivityTestAccess;
+ WorldFixture F;auto* M=F.Spawn();TStrongObjectPtr<UGameInstance> GI(NewObject<UGameInstance>());auto* Clock=NewObject<UPokeMonsterWorldClock>(GI.Get());
+ A::Rest(M,7);A::BindClock(M,Clock,EPokeMonsterActivityRhythm::Diurnal);const float Remaining=M->ActivityRemaining;
+ for(int H:{12,22,6,18,4})
+ {
+  FPokeMonsterWorldTime T;T.SecondsOfDay=H*3600;const int Before=M->RhythmRefreshes;Clock->RestoreTime(T,true);
+  TestTrue(TEXT("Actual world-clock event immediately refreshes weights"),M->RhythmRefreshes>Before);
+  TestTrue(TEXT("Existing rest not abruptly ended by time set"),M->BehaviorState==EPokeMonsterOverworldState::Rest&&M->ActivityRemaining==Remaining);
+  TestEqual(TEXT("Weight derived from actual central clock"),M->RhythmActivity,M->Rhythm.ActivityAt(T.SecondsOfDay,0,*GetDefault<UPokeMonsterWorldClockSettings>()));
+ }
+ A::UnbindClock(M);const int Before=M->RhythmRefreshes;Clock->RestoreTime({},false);TestEqual(TEXT("Unbinding removes delegates"),M->RhythmRefreshes,Before);TestFalse(TEXT("No stale rhythm flag"),M->bRhythmEnabled);
+ return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FRhythmPauseTest,"PokeMonster.Creatures.DayRhythms.PauseFreezesAmbientButThreatStillWakes",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FRhythmPauseTest::RunTest(const FString&)
+{
+ using namespace NaturalActivityTests;using A=FPokeMonsterNaturalActivityTestAccess;using S=EPokeMonsterOverworldState;
+ WorldFixture F;auto* M=F.Spawn();M->Activities=Only(S::Sleep);A::Ready(M);A::Update(M);TestEqual(TEXT("Real activity enters sleep"),M->BehaviorState,S::Sleep);
+ TStrongObjectPtr<UGameInstance> GI(NewObject<UGameInstance>());auto* Clock=NewObject<UPokeMonsterWorldClock>(GI.Get());A::BindClock(M,Clock,EPokeMonsterActivityRhythm::Nocturnal);
+ const float Before=M->ActivityRemaining;const FVector Position=M->GetOwner()->GetActorLocation();
+ for(int I=0;I<100;++I)A::Update(M,.1f);
+ TestEqual(TEXT("Authoritative loading/pause guard freezes activity timer"),M->ActivityRemaining,Before);TestEqual(TEXT("No paused ambient movement"),M->GetOwner()->GetActorLocation(),Position);TestFalse(TEXT("Sleeping cannot accept social contact"),A::Available(M));
+ M->Settings.Behavior.Temperament=EPokeMonsterOverworldTemperament::Shy;auto* Player=F.World->SpawnActor<APawn>(FVector(100,0,60),FRotator::ZeroRotator);A::React(M,Player);
+ TestEqual(TEXT("Danger retains priority even with paused ambient clock"),M->BehaviorState,S::Retreat);TestEqual(TEXT("Sleep activity cleanly interrupted"),M->ActivityRemaining,0.f);
+ return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FRhythmSocialPauseTest,"PokeMonster.Creatures.DayRhythms.ReservationsSurviveTimeChangeAndReleaseInvalidPausedPeer",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FRhythmSocialPauseTest::RunTest(const FString&)
+{
+ using namespace NaturalActivityTests;using A=FPokeMonsterNaturalActivityTestAccess;
+ WorldFixture F;auto* X=F.Spawn();auto* Y=F.Spawn(FVector(280,0,60));for(auto* M:{X,Y}){M->Activities=Only(EPokeMonsterOverworldState::Social);A::Ready(M);}TestTrue(TEXT("Original mutual invitation succeeds"),A::Invite(X,Y));
+ TStrongObjectPtr<UGameInstance> GI(NewObject<UGameInstance>());auto* Clock=NewObject<UPokeMonsterWorldClock>(GI.Get());for(auto* M:{X,Y})A::BindClock(M,Clock,EPokeMonsterActivityRhythm::Diurnal);
+ FPokeMonsterWorldTime T;T.SecondsOfDay=22*3600;Clock->RestoreTime(T,true);const float Remaining=X->ActivityRemaining;
+ for(int I=0;I<400;++I){A::Update(X,.1f);A::Update(Y,.1f);}
+ TestTrue(TEXT("Paused reciprocal reservations stay bounded and intact"),X->SocialPartner==Y&&Y->SocialPartner==X);TestEqual(TEXT("Dwell not advanced while clock paused"),X->ActivityRemaining,Remaining);
+ Y->GetOwner()->SetActorHiddenInGame(true);A::Update(X);TestNull(TEXT("Invalid peer clears leader even during clock pause"),X->SocialPartner.Get());TestNull(TEXT("Invalid peer clears receiver"),Y->SocialPartner.Get());
  return true;
 }
 #endif
