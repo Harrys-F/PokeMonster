@@ -1338,5 +1338,30 @@ Standardtag 120 Echtminuten, neuer Zustand Tag 1 09:00. Ein gefilterter
 World-Pre-Tick verwendet reale Framedauer und vorhandene Gameplay-Sperren; keine
 Uhr pro Map. Save-Schema 10 ergänzt das bestehende SaveGame additiv; Altstände
 fallen nur bezüglich der Uhr auf den Startwert zurück. Debugbefehle sind
-Editor-PIE-exklusiv und verwenden vorhandenen RAM-Speicherschutz. Keine Anbindung
-an Beleuchtung oder KI in V1. API, Konfiguration und Befehle: `WELTUHR_V1.md`.
+Editor-PIE-exklusiv und verwenden vorhandenen RAM-Speicherschutz. Die technische
+Uhr V1 bleibt unverändert; Tag-Nacht V1 konsumiert ihre Werte
+ausschließlich für VisualV2-Beleuchtung. KI-Anbindung bleibt offen. API,
+Konfiguration und Zeitbefehle: `WELTUHR_V1.md`.
+
+## Tag-Nacht-Beleuchtung V1 (VisualV2)
+
+`Lighting/PokeMonsterDayNight` ist ein ausschließlich auf VisualV2 aktives
+World-Subsystem. Es liest die GameInstance-Weltuhr und ihre Phasengrenzen;
+kein eigener Zeitfortschritt, keine Save-Felder und keine neue Pausenlogik.
+0,1-Sekunden-Timer, bei gleicher Weltzeit keine Lichtneuberechnung; `OnTimeSet`
+aktualisiert nach Debugänderung/SaveLoad sofort. Bei Mapwechsel neuer
+Darstellungscontroller, weiterhin dieselbe Uhr.
+
+Vorhandenes Hauptlicht dient tags als Sonne und nachts als schwaches Mondlicht;
+vorhandenes schattenloses Fülllicht bleibt die einzige zusätzliche gerichtete
+Aufhellung. SkyLight, feste Belichtung, Schattenverfahren und Charakterlicht
+bleiben bestehen. Eine transiente Engine-Himmelskugel erhält nur eine eigene
+Materialinstanz; keine Änderungen gemeinsam genutzter Assets. Keine weiteren
+dynamischen Schattenlichter, Atmosphären- oder Wetter-Simulation.
+
+Konfiguration: `PokeMonsterDayNightSettings` in DefaultGame.ini. Mittagsmaximum
+B75 oder C85, vorläufig B75; 12:00-Azimut −100°. Die endgültige visuelle Wahl
+bleibt Harry vorbehalten. Editor-PIE: `pm.DayNight show|B|C|on|off`. `off`
+stellt die ursprünglichen Sonnen-/Fülllichtwerte wieder her. Uhrzeit steuert
+weiter ausschließlich `pm.WorldClock`. Details, Vergleich und Einschränkungen:
+`TAG_NACHT_BELEUCHTUNG_V1_PRUEFBERICHT.md`.

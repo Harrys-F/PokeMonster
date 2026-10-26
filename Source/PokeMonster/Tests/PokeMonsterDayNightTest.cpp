@@ -1,0 +1,68 @@
+#if WITH_DEV_AUTOMATION_TESTS
+#include "Misc/AutomationTest.h"
+#include "../Lighting/PokeMonsterDayNight.h"
+#include "UObject/StrongObjectPtr.h"
+namespace
+{
+ auto Sample(double H,EPokeMonsterNoonSun V=EPokeMonsterNoonSun::B75)
+ {return GetDefault<UPokeMonsterDayNightSettings>()->Evaluate(H/24.,V,*GetDefault<UPokeMonsterWorldClockSettings>());}
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FDayNightNoonTest,"PokeMonster.DayNight.B75C85OnlyHeightDiffers",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FDayNightNoonTest::RunTest(const FString&)
+{
+ const auto B=Sample(12),C=Sample(12,EPokeMonsterNoonSun::C85);
+ TestEqual(TEXT("B elevation over horizon"),B.SunElevation,75.f);TestEqual(TEXT("C elevation over horizon"),C.SunElevation,85.f);
+ TestTrue(TEXT("Light points down by exact 75 degrees"),FMath::IsNearlyEqual(B.LightRotation.Pitch,-75.0,.001));TestTrue(TEXT("Light points down by exact 85 degrees"),FMath::IsNearlyEqual(C.LightRotation.Pitch,-85.0,.001));
+ TestEqual(TEXT("Identical azimuth"),B.SunAzimuth,C.SunAzimuth);TestEqual(TEXT("Identical intensity"),B.DirectIntensity,C.DirectIntensity);TestEqual(TEXT("Identical fill"),B.FillIntensity,C.FillIntensity);TestEqual(TEXT("Identical temperature"),B.Temperature,C.Temperature);TestTrue(TEXT("Identical sky colors"),B.Zenith.Equals(C.Zenith)&&B.Horizon.Equals(C.Horizon));
+ TestTrue(TEXT("Noon is maximum"),Sample(11.99).SunElevation<B.SunElevation&&Sample(12.01).SunElevation<B.SunElevation);
+ return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FDayNightContinuityTest,"PokeMonster.DayNight.ContinuousDayDawnDuskAndMidnight",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FDayNightContinuityTest::RunTest(const FString&)
+{
+ for(auto Variant:{EPokeMonsterNoonSun::B75,EPokeMonsterNoonSun::C85})
+ {
+  auto Previous=Sample(0,Variant);
+  for(int M=1;M<=1440;++M)
+  {
+   const auto S=Sample(M/60.,Variant);TestTrue(TEXT("Finite bounded intensities"),FMath::IsFinite(S.DirectIntensity)&&S.DirectIntensity>=0&&S.DirectIntensity<=7.7&&S.FillIntensity>=0&&S.FillIntensity<=1.81);
+   TestTrue(TEXT("No minute-scale rotation jump"),Previous.LightRotation.Quaternion().AngularDistance(S.LightRotation.Quaternion())<.10);
+   TestTrue(TEXT("No minute-scale brightness jump"),FMath::Abs(Previous.DirectIntensity-S.DirectIntensity)<.20);
+   TestTrue(TEXT("Finite sky and stars"),FMath::IsFinite(S.Zenith.R)&&FMath::IsFinite(S.Zenith.G)&&FMath::IsFinite(S.Zenith.B)&&S.Stars>=0&&S.Stars<=1);Previous=S;
+  }
+  for(double H:{4.,5.,7.,12.,18.,19.,20.,24.})
+  {
+   auto A=Sample(H-.000001,Variant),B=Sample(H+.000001,Variant);
+   TestTrue(TEXT("Exact boundary rotation continuity"),A.LightRotation.Quaternion().AngularDistance(B.LightRotation.Quaternion())<.0001);
+   TestTrue(TEXT("Exact boundary color continuity"),A.Zenith.Equals(B.Zenith,.0001)&&A.Horizon.Equals(B.Horizon,.0001));TestTrue(TEXT("Exact boundary intensity continuity"),FMath::Abs(A.DirectIntensity-B.DirectIntensity)<.0001);
+  }
+ }
+ return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FDayNightPhaseTest,"PokeMonster.DayNight.CentralPhasesAndNightContrast",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FDayNightPhaseTest::RunTest(const FString&)
+{
+ const auto* Clock=GetDefault<UPokeMonsterWorldClockSettings>();TestEqual(TEXT("Existing day duration unchanged"),Clock->RealMinutesPerDay,120.0);
+ for(int M=0;M<1440;++M)TestTrue(TEXT("Every phase supplied by central clock configuration"),Sample(M/60.).Phase==Clock->PhaseAt(M*60.));
+ auto Noon=Sample(12),Night=Sample(22);TestTrue(TEXT("Night direct far below day"),Night.DirectIntensity<Noon.DirectIntensity*.1f);TestTrue(TEXT("Night fill subdued but nonzero"),Night.FillIntensity>0&&Night.FillIntensity<Noon.FillIntensity*.6f);TestTrue(TEXT("Combined night light stays well below daytime"),Night.DirectIntensity+Night.FillIntensity<(Noon.DirectIntensity+Noon.FillIntensity)*.2f);TestTrue(TEXT("Night stars"),Night.Stars>.99f);TestEqual(TEXT("Day stars hidden"),Noon.Stars,0.f);
+ float Previous=Sample(4).DirectIntensity+Sample(4).FillIntensity;
+ for(int M=241;M<=420;++M){const auto V=Sample(M/60.);const float Total=V.DirectIntensity+V.FillIntensity;TestTrue(TEXT("Early morning never dims as moon recedes"),Total+.0001f>=Previous);Previous=Total;}
+ TestTrue(TEXT("Morning lower than noon"),Sample(6).SunElevation>0&&Sample(6).SunElevation<Sample(9).SunElevation&&Sample(9).SunElevation<Noon.SunElevation);TestTrue(TEXT("Evening sun falls"),Sample(16).SunElevation>Sample(18).SunElevation&&Sample(20).SunElevation<0);
+ return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FDayNightDeterminismTest,"PokeMonster.DayNight.RestoreSetAndFramerateIndependentSampling",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FDayNightDeterminismTest::RunTest(const FString&)
+{
+ FPokeMonsterWorldTime T;auto Saved=T;T.Advance(7200);TestEqual(TEXT("Central clock still 120-minute day"),T.Day,2);
+ auto Before=Sample(Saved.SecondsOfDay/3600.),After=Sample(T.SecondsOfDay/3600.);TestTrue(TEXT("Same time next day gives same light"),Before.LightRotation.Equals(After.LightRotation,.0001));
+ FPokeMonsterWorldTime Many;for(int I=0;I<300;++I)Many.Advance(1);auto One=Saved;One.Advance(300);TestEqual(TEXT("No lighting timer advances the world clock"),Many.SecondsOfDay,One.SecondsOfDay);
+ auto A=Sample(Many.SecondsOfDay/3600.),B=Sample(One.SecondsOfDay/3600.);TestTrue(TEXT("Frame splitting independent light"),A.LightRotation.Equals(B.LightRotation,.0001));return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FDayNightMapTest,"PokeMonster.DayNight.VisualV2ScopeAndConfiguration",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FDayNightMapTest::RunTest(const FString&)
+{
+ TestTrue(TEXT("Central map"),UPokeMonsterDayNightSubsystem::IsTargetMap(TEXT("/Game/Maps/Dev_TestMap_VisualV2")));TestTrue(TEXT("PIE prefix"),UPokeMonsterDayNightSubsystem::IsTargetMap(TEXT("/Game/Maps/UEDPIE_0_Dev_TestMap_VisualV2")));
+ for(const TCHAR* Name:{TEXT("/Game/Maps/Dev_WestlandRegion"),TEXT("/Game/Maps/Dev_BiomeTestMap_V1"),TEXT("/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1")})TestFalse(TEXT("Other maps excluded"),UPokeMonsterDayNightSubsystem::IsTargetMap(Name));
+ TestTrue(TEXT("Lighting config valid"),GetDefault<UPokeMonsterDayNightSettings>()->IsValidConfiguration());return true;
+}
+#endif

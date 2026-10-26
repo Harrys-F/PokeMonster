@@ -1,0 +1,775 @@
+{
+  "baseline_commit": "e0b5a0e583c62716994e401620ce20bb92c2a1d5",
+  "scope": "/Game/Maps/Dev_TestMap_VisualV2 only; runtime lights/sky, no content or map edits",
+  "clock_real_minutes_per_day": 120,
+  "noon_variants_degrees": [
+    75,
+    85
+  ],
+  "provisional_default": "B75, final user visual approval open",
+  "build": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 16.403380155563354
+  },
+  "automation": {
+    "succeeded": 270,
+    "succeededWithWarnings": 2,
+    "failed": 0,
+    "notRun": 0,
+    "inProcess": 0
+  },
+  "strict_wrapper_exit": 1,
+  "external_warning_entries": [
+    {
+      "test": "PokeMonster.Battle.Starters.DefenseAndSpeedEffects",
+      "message": "LogHAL: FMacPlatformProcess::CreateProc: posix_spawn(\"/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id\") failed (86, Bad CPU type in executable)"
+    },
+    {
+      "test": "PokeMonster.Battle.Starters.DefenseAndSpeedEffects",
+      "message": "LogHAL: Failed to launch Tool. (/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id)"
+    },
+    {
+      "test": "PokeMonster.Rendering.EnvironmentProfileV2.IndependentExperiment",
+      "message": "LogHAL: FMacPlatformProcess::CreateProc: posix_spawn(\"/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id\") failed (86, Bad CPU type in executable)"
+    },
+    {
+      "test": "PokeMonster.Rendering.EnvironmentProfileV2.IndependentExperiment",
+      "message": "LogHAL: Failed to launch Tool. (/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id)"
+    }
+  ],
+  "map_checks": [
+    {
+      "map": "/Game/Maps/Dev_BattleTestMap",
+      "result": "[2026.10.26-19.11.22:143][826]MapCheck: Kartenprüfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 4,012ms bis zum Abschluss."
+    },
+    {
+      "map": "/Game/Maps/Dev_BiomeTestMap_V1",
+      "result": "[2026.10.26-19.11.22:568][826]MapCheck: Kartenprüfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 12,111ms bis zum Abschluss."
+    },
+    {
+      "map": "/Game/Maps/Dev_BuildingKitTestMap",
+      "result": "[2026.10.26-19.11.22:740][826]MapCheck: Kartenprüfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 4,31ms bis zum Abschluss."
+    },
+    {
+      "map": "/Game/Maps/Dev_HealingHouseTestMap",
+      "result": "[2026.10.26-19.11.22:915][826]MapCheck: Kartenprüfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 2,549ms bis zum Abschluss."
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap",
+      "result": "[2026.10.26-19.11.23:064][826]MapCheck: Kartenprüfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 1,033ms bis zum Abschluss."
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_NPCMotionV3",
+      "result": "[2026.10.26-19.11.23:509][826]MapCheck: Kartenprüfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 3,285ms bis zum Abschluss."
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2",
+      "result": "[2026.10.26-19.11.23:724][826]MapCheck: Kartenprüfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 3,037ms bis zum Abschluss."
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2EnvironmentQualityV1",
+      "result": "[2026.10.26-19.11.24:016][826]MapCheck: Kartenprüfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 2,849ms bis zum Abschluss."
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1",
+      "result": "[2026.10.26-19.11.24:214][826]MapCheck: Kartenprüfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 2,73ms bis zum Abschluss."
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandAssetLibrary",
+      "result": "[2026.10.26-19.11.24:408][826]MapCheck: Kartenprüfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 37,447ms bis zum Abschluss."
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandRegion",
+      "result": "[2026.10.26-19.11.24:935][826]MapCheck: Kartenprüfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 121,777ms bis zum Abschluss."
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandVillage",
+      "result": "[2026.10.26-19.11.25:222][826]MapCheck: Kartenprüfung abgeschlossen: 0 Fehler, 0 Warnung(en), dauerte 3,971ms bis zum Abschluss."
+    }
+  ],
+  "protected_files_unchanged": 84,
+  "original_untracked_preserved": 31,
+  "backup_refs_unchanged": true,
+  "critical_errors_final_editor": [],
+  "comparison": {
+    "passed": true,
+    "pairs": [
+      {
+        "scene": "Wiese",
+        "identical_camera_clock_exposure_and_non_sun_lights": true,
+        "sun_pitch_B": -75,
+        "sun_pitch_C": -85,
+        "qhd": true
+      },
+      {
+        "scene": "Baumkrone",
+        "identical_camera_clock_exposure_and_non_sun_lights": true,
+        "sun_pitch_B": -75,
+        "sun_pitch_C": -85,
+        "qhd": true
+      },
+      {
+        "scene": "Gebaeude",
+        "identical_camera_clock_exposure_and_non_sun_lights": true,
+        "sun_pitch_B": -75,
+        "sun_pitch_C": -85,
+        "qhd": true
+      },
+      {
+        "scene": "Waldweg",
+        "identical_camera_clock_exposure_and_non_sun_lights": true,
+        "sun_pitch_B": -75,
+        "sun_pitch_C": -85,
+        "qhd": true
+      },
+      {
+        "scene": "Felsen",
+        "identical_camera_clock_exposure_and_non_sun_lights": true,
+        "sun_pitch_B": -75,
+        "sun_pitch_C": -85,
+        "qhd": true
+      }
+    ],
+    "qhd_images": 25,
+    "native_images_unchanged": true,
+    "contact_sheets": "Only resized raw Unreal images plus labels; no relighting or retouch."
+  },
+  "pie": {
+    "Before": {
+      "passed": true
+    },
+    "Gameplay01": {
+      "passed": true,
+      "checks": [
+        "Ordinary new-session clock and lighting are 09:00",
+        "B75 immediate correct lighting",
+        "C85 immediate correct lighting",
+        "Pause freezes actual light sample",
+        "Normal clock resumes actual light movement",
+        "Actual main menu pauses clock",
+        "Menu holds exact world light",
+        "Closing menu resumes original clock",
+        "Clock-driven dawn crossed phase and sun rose",
+        "Existing relocated interior and camera work",
+        "Existing save accepts interior state",
+        "SaveLoad restores night light, exact clock, room camera, party and independent checkpoint",
+        "Original exit and outdoor camera work at night",
+        "Night state survives midnight",
+        "ClassicBattle starts and clock pauses",
+        "Existing battle victory returns control and valid companion state"
+      ]
+    },
+    "Travel02": {
+      "passed": true,
+      "checks": [
+        "Other existing map has neither active cycle nor added sky; exact world clock preserved",
+        "Return to VisualV2 immediately restores night lighting from unchanged shared clock",
+        "Clock resumes after loading and normal player control restored"
+      ]
+    },
+    "Sky05": {
+      "passed": true,
+      "diagnostic_camera_only": true,
+      "camera_restored": true
+    },
+    "PerformanceSeries02": {
+      "passed": true,
+      "temporary_encounter_bindings_restored": true,
+      "ai_during_measurements": "existing roaming and animation active; player input not locked"
+    }
+  },
+  "performance_method": "Two identical QHD High/TAA2 normal-camera sites, three 5-second samples each after 3-second warmup. Median of repetition medians. Shadow total is sum of recorded GPU scope medians, not exclusive frame budget. Uncontrolled OS/thermal/AI variation retained.",
+  "performance_conditions": [
+    {
+      "condition": "Original01",
+      "site": "Dorf",
+      "repeats": 3,
+      "frame_median_ms": 91.22006049999999,
+      "frame_repeat_range_ms": [
+        90.292335,
+        91.27262400000001
+      ],
+      "fps_from_frame_median": 10.962500951202506,
+      "frame_p95_ms": 98.61508,
+      "gpu_median_ms": 78.9563,
+      "gpu_repeat_range_ms": [
+        78.25485,
+        79.40684999999999
+      ],
+      "shadow_sum_medians_ms": 10.1135
+    },
+    {
+      "condition": "Original01",
+      "site": "Wald",
+      "repeats": 3,
+      "frame_median_ms": 97.924875,
+      "frame_repeat_range_ms": [
+        96.322916,
+        98.138541
+      ],
+      "fps_from_frame_median": 10.21190989521304,
+      "frame_p95_ms": 101.753917,
+      "gpu_median_ms": 84.67065,
+      "gpu_repeat_range_ms": [
+        83.15645,
+        84.9413
+      ],
+      "shadow_sum_medians_ms": 13.70135
+    },
+    {
+      "condition": "NoonB7502",
+      "site": "Dorf",
+      "repeats": 3,
+      "frame_median_ms": 102.224961,
+      "frame_repeat_range_ms": [
+        102.18327099999999,
+        102.418166
+      ],
+      "fps_from_frame_median": 9.782346603194107,
+      "frame_p95_ms": 112.289127,
+      "gpu_median_ms": 88.5189,
+      "gpu_repeat_range_ms": [
+        88.03055,
+        91.71575
+      ],
+      "shadow_sum_medians_ms": 10.6598
+    },
+    {
+      "condition": "NoonB7502",
+      "site": "Wald",
+      "repeats": 3,
+      "frame_median_ms": 108.055457,
+      "frame_repeat_range_ms": [
+        106.925249,
+        108.909417
+      ],
+      "fps_from_frame_median": 9.254507155524777,
+      "frame_p95_ms": 122.110751,
+      "gpu_median_ms": 94.3163,
+      "gpu_repeat_range_ms": [
+        92.9232,
+        94.9487
+      ],
+      "shadow_sum_medians_ms": 13.1744
+    },
+    {
+      "condition": "OriginalControl02",
+      "site": "Dorf",
+      "repeats": 3,
+      "frame_median_ms": 101.9510625,
+      "frame_repeat_range_ms": [
+        101.919834,
+        103.84896
+      ],
+      "fps_from_frame_median": 9.808627546181777,
+      "frame_p95_ms": 110.369708,
+      "gpu_median_ms": 88.7573,
+      "gpu_repeat_range_ms": [
+        87.9332,
+        90.3377
+      ],
+      "shadow_sum_medians_ms": 14.094100000000001
+    },
+    {
+      "condition": "OriginalControl02",
+      "site": "Wald",
+      "repeats": 3,
+      "frame_median_ms": 106.269669,
+      "frame_repeat_range_ms": [
+        105.642583,
+        106.649585
+      ],
+      "fps_from_frame_median": 9.410022722475968,
+      "frame_p95_ms": 115.214542,
+      "gpu_median_ms": 93.5644,
+      "gpu_repeat_range_ms": [
+        93.1196,
+        93.6455
+      ],
+      "shadow_sum_medians_ms": 15.1713
+    },
+    {
+      "condition": "NoonC8502",
+      "site": "Dorf",
+      "repeats": 3,
+      "frame_median_ms": 100.17539550000001,
+      "frame_repeat_range_ms": [
+        100.13004,
+        100.55504
+      ],
+      "fps_from_frame_median": 9.982491159717956,
+      "frame_p95_ms": 111.513168,
+      "gpu_median_ms": 87.6277,
+      "gpu_repeat_range_ms": [
+        87.15870000000001,
+        87.7684
+      ],
+      "shadow_sum_medians_ms": 12.4031
+    },
+    {
+      "condition": "NoonC8502",
+      "site": "Wald",
+      "repeats": 3,
+      "frame_median_ms": 106.004667,
+      "frame_repeat_range_ms": [
+        105.14960450000001,
+        106.313605
+      ],
+      "fps_from_frame_median": 9.433546921099238,
+      "frame_p95_ms": 114.985041,
+      "gpu_median_ms": 92.37854999999999,
+      "gpu_repeat_range_ms": [
+        92.1488,
+        94.7922
+      ],
+      "shadow_sum_medians_ms": 14.070200000000002
+    },
+    {
+      "condition": "Dawn02",
+      "site": "Dorf",
+      "repeats": 3,
+      "frame_median_ms": 101.0019575,
+      "frame_repeat_range_ms": [
+        100.742083,
+        102.002624
+      ],
+      "fps_from_frame_median": 9.900798209777271,
+      "frame_p95_ms": 110.396709,
+      "gpu_median_ms": 87.0064,
+      "gpu_repeat_range_ms": [
+        85.79185000000001,
+        87.6372
+      ],
+      "shadow_sum_medians_ms": 11.2461
+    },
+    {
+      "condition": "Dawn02",
+      "site": "Wald",
+      "repeats": 3,
+      "frame_median_ms": 104.3966225,
+      "frame_repeat_range_ms": [
+        104.26525,
+        105.44750099999999
+      ],
+      "fps_from_frame_median": 9.578853951908261,
+      "frame_p95_ms": 114.248749,
+      "gpu_median_ms": 91.69075000000001,
+      "gpu_repeat_range_ms": [
+        88.4996,
+        93.13884999999999
+      ],
+      "shadow_sum_medians_ms": 11.8544
+    },
+    {
+      "condition": "Dusk02",
+      "site": "Dorf",
+      "repeats": 3,
+      "frame_median_ms": 100.933291,
+      "frame_repeat_range_ms": [
+        99.304624,
+        102.5381445
+      ],
+      "fps_from_frame_median": 9.907533877994725,
+      "frame_p95_ms": 111.003585,
+      "gpu_median_ms": 87.4346,
+      "gpu_repeat_range_ms": [
+        86.7921,
+        90.29214999999999
+      ],
+      "shadow_sum_medians_ms": 11.779449999999999
+    },
+    {
+      "condition": "Dusk02",
+      "site": "Wald",
+      "repeats": 3,
+      "frame_median_ms": 111.901417,
+      "frame_repeat_range_ms": [
+        107.670665,
+        112.188209
+      ],
+      "fps_from_frame_median": 8.936437328581817,
+      "frame_p95_ms": 120.93804,
+      "gpu_median_ms": 97.85595,
+      "gpu_repeat_range_ms": [
+        94.2105,
+        99.3745
+      ],
+      "shadow_sum_medians_ms": 16.2011
+    },
+    {
+      "condition": "Night02",
+      "site": "Dorf",
+      "repeats": 3,
+      "frame_median_ms": 103.061395,
+      "frame_repeat_range_ms": [
+        102.40656150000001,
+        105.115188
+      ],
+      "fps_from_frame_median": 9.702954243924216,
+      "frame_p95_ms": 112.159833,
+      "gpu_median_ms": 89.0217,
+      "gpu_repeat_range_ms": [
+        87.9538,
+        89.22125
+      ],
+      "shadow_sum_medians_ms": 10.77635
+    },
+    {
+      "condition": "Night02",
+      "site": "Wald",
+      "repeats": 3,
+      "frame_median_ms": 107.98595850000001,
+      "frame_repeat_range_ms": [
+        106.963001,
+        111.501958
+      ],
+      "fps_from_frame_median": 9.260463248099056,
+      "frame_p95_ms": 116.890833,
+      "gpu_median_ms": 94.1551,
+      "gpu_repeat_range_ms": [
+        93.1853,
+        96.0425
+      ],
+      "shadow_sum_medians_ms": 14.1255
+    },
+    {
+      "condition": "MovingNoonB7502",
+      "site": "Dorf",
+      "repeats": 3,
+      "frame_median_ms": 105.457958,
+      "frame_repeat_range_ms": [
+        104.657501,
+        107.252624
+      ],
+      "fps_from_frame_median": 9.48245176528072,
+      "frame_p95_ms": 128.340248,
+      "gpu_median_ms": 91.8828,
+      "gpu_repeat_range_ms": [
+        91.7684,
+        94.3193
+      ],
+      "shadow_sum_medians_ms": 18.5793
+    },
+    {
+      "condition": "MovingNoonB7502",
+      "site": "Wald",
+      "repeats": 3,
+      "frame_median_ms": 111.9343565,
+      "frame_repeat_range_ms": [
+        110.3050205,
+        113.204084
+      ],
+      "fps_from_frame_median": 8.933807557110493,
+      "frame_p95_ms": 121.051293,
+      "gpu_median_ms": 96.93625,
+      "gpu_repeat_range_ms": [
+        96.15355,
+        98.7817
+      ],
+      "shadow_sum_medians_ms": 17.29505
+    }
+  ],
+  "image_manifest": [
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Before/Baumkrone.png",
+      "sha256": "cc2216ea90311e3fa5cdf25c86cfef163d556eff419c40d602cc5eb61628ced6",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Before/Gebaeude.png",
+      "sha256": "d9e1cb2f20b89664d2ff8c73696f8d477d9b5a1d17a85ba337317613577f2183",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Before/Waldweg.png",
+      "sha256": "eee70f18b40f47499646c363c5c885a1d109382634eab52b49e9ad48467e5f2b",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Before/Wiese.png",
+      "sha256": "d5a13448f825d2f3c4a79d28b296eb634fc12fef139e159e3fb2d3e0e14ad5d7",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Before/Felsen.png",
+      "sha256": "bfb389f471674f9d2bc3cccc99017088baf0bbccb925d8d3d106eaf25f864cbf",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/B75/Baumkrone.png",
+      "sha256": "f3c9876e090210ee060313ffa737f313985c978cef0182a96bd37b53a3e1865f",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/B75/Gebaeude.png",
+      "sha256": "49538f4698c150e6caa9e4b8192cc107190e9ba10e37123f889cd9b85e081dbf",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/B75/Waldweg.png",
+      "sha256": "55cfc7848ea70b15c5c30ee502766962919e5db00fb15f1f21d3f3989693a8c9",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/B75/Wiese.png",
+      "sha256": "c079c372252a5898e1b07c6d7f79cdf2167ad5066811154ce1a6999a7fd52cbc",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/B75/Felsen.png",
+      "sha256": "97307737ef074afa38fc5e727375f6ec2e16babb2abf3f49560a7e37612af57c",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Original/Baumkrone.png",
+      "sha256": "e123efb9d268725ac8c91ad3965702108038c56260dcf5120d49e194dda19a19",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Original/Gebaeude.png",
+      "sha256": "3956a009f76829a1d31e991f1b10cc01096b567a186178fc6be07d25e8c7907b",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Original/Waldweg.png",
+      "sha256": "891b87ca0010a5280ada57a84b373b88d93ef14ac88891563cb8245003f5e51c",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Original/Wiese.png",
+      "sha256": "662cc4e47ccb1af81cb24efc2a71521cd25e3ad06a43a7765854600641e03de5",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Original/Felsen.png",
+      "sha256": "3ab07ada390e0574b2f8e978438620d4904aab24f23d1c362fd6ebdbb5442105",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/C85/Baumkrone.png",
+      "sha256": "89eda3aab22a4315ef903f528039bd454ba9d2ed32585271b2cfbf00eef98d42",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/C85/Gebaeude.png",
+      "sha256": "6085f17f6a168f3b05630806cc868ae23d1637658f0d05804daf93a9e3eb83e1",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/C85/Waldweg.png",
+      "sha256": "c762ff54785d8a162570c39cd5de71f01939dd45d83de1800ca77d9ea8e2d552",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/C85/Wiese.png",
+      "sha256": "f5ba4ce1191073c338689100c7fe6d9d8c3e4a3ce875fd82affbf46733256537",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/C85/Felsen.png",
+      "sha256": "95deb694b7de05517f5438273482f725d6f46951959900ded6ad31f55a57ae14",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Cycle/Time0000.png",
+      "sha256": "b063b2167c9a31627e510147e20f76f7a5c654bfbadcd51458d32a7ade01b6f2",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Cycle/Time1900.png",
+      "sha256": "68b0afe7d7644575fbb18e479c1efb80367eb56a500543bc49f618b599f7aa2b",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Cycle/NightCanopy.png",
+      "sha256": "5f46306ada7ba165297fe91cd7d378e2fa7f8251b6e67dbdb5aff249281c932a",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Cycle/Time0600.png",
+      "sha256": "68638538fc3173aa08e9fbe80a7eb5cdb7fc6a6ff4cd19c6feb7796168f7d291",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Cycle/Time2200.png",
+      "sha256": "118bd7480bb67714a251cce62a2d3333d17e2e4ab9f1186e6082b10e5465b379",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Cycle/Time0900.png",
+      "sha256": "5b96ee0fdd0715ecf64f2525241e16d611709c692bb2a09251161e76ff8c93b2",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Cycle/Time1200.png",
+      "sha256": "b8322d621ff9c5f1b7d3c2ac802f70f50d88686960ee44fae4111e47d6663660",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Cycle/Time1600.png",
+      "sha256": "4e4a1f3bee0d8408f075b9ae07e4c6860d786e17f1adf05a1f0e3257ae083d18",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Cycle/NightNPC.png",
+      "sha256": "bbdd82a56dc3205203eba67e10227260a7154e7c9ef9fca4658a93f3e6d33722",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Comparison02/Cycle/Time0430.png",
+      "sha256": "8542c3a762905ccd19cdf6c310457aa1dbb992d2dff5bcae506a325f87c3704c",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Sky05/Day.png",
+      "sha256": "7dcb2826019de99872ea322fc1b15afbd0181d35693c73909cc5663ab689c1f2",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Sky05/Dusk.png",
+      "sha256": "81acbbdc8978782f64e675f5e18b6ff2cf39ceeaba2d78f39c1ca6dc64d673fd",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Sky05/Dawn.png",
+      "sha256": "267512a0b38e5422128fb03dacb1d0f8a4645ada66bda8faef2b25a709ebe221",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Sky05/Night.png",
+      "sha256": "5fa9adbd49fe1555c1133bc0b825c2fafd8ef4b22af22ebbc85c6f0a4cdb0621",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Gameplay01/InteriorNight.png",
+      "sha256": "3ce9e5def694e0f65690e612f2e083bebd7511793537d62950057f6e5d6d0e83",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Gameplay01/InteriorLoaded.png",
+      "sha256": "59c8ff250b1d1edcc3ce7ed969dcddca0f1afe566129bc3d70d1d0e5428e3731",
+      "qhd": [
+        2560,
+        1440
+      ]
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV1/Gameplay01/InteriorDay.png",
+      "sha256": "921b6febce58cab65d8b451136e8e3e170468153b355c42ab05a17fb584f6f98",
+      "qhd": [
+        2560,
+        1440
+      ]
+    }
+  ],
+  "invalidated_runs": {
+    "PerformanceSeries01": "Actual encounter active before profiling. Nominal MovingNoon case had no actual time progress; excluded. Replaced by Series02; raw data preserved.",
+    "Travel01": "Clock correctly remained paused due the same active encounter. Fresh Travel02 passed."
+  }
+}

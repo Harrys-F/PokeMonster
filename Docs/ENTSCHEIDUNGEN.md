@@ -1313,3 +1313,21 @@ Editorbefehle nutzen dessen RAM-Testschutz; Geschwindigkeit/Pausen werden nicht
 gespeichert. Eine neue Session verwendet 1×, reguläres Laden stellt die Zeit wieder
 her. Kleine Anzeige im bestehenden Reisebuch, API und Ereignisse für spätere Systeme.
 Konkrete Nutzung: `Docs/WELTUHR_V1.md`; Prüfungen im zugehörigen Prüfbericht.
+
+## 26.10.2026 – Tag-Nacht-Beleuchtung V1, B/C noch nicht visuell freigegeben
+
+Die Aussage im Weltuhr-V1-Auftrag, Beleuchtung bleibe unverändert, ist nur für
+die jetzt ausdrücklich beauftragte VisualV2-Lichtanbindung ersetzt. Weltuhr,
+120-Minuten-Tag, Zeit-/Pausen-/Speicherregeln und KI bleiben unverändert. Andere
+Maps erhalten keinen Beleuchtungszyklus.
+
+Mittags werden ausschließlich 75° (B) und 85° (C) verglichen, identischer Azimut
+und gleiche Licht-/Belichtungswerte. B75 ist eine vorläufige technische
+Standardeinstellung, keine endgültige gestalterische Entscheidung. Beide sind
+umschaltbar; Harry entscheidet anhand der echten QHD-Bildpaare.
+
+Sonne und Mond teilen das vorhandene Hauptlicht. Vorhandenes schattenloses
+Fülllicht wird zeitabhängig gedimmt, SkyLight/Exposition bleiben konstant. Ein
+transienter Engine-Himmel ist von Reflection-/Sky-Captures ausgeschlossen;
+keine Änderungen an globalen Materialien, Innenraumlicht oder anderen Maps.
+Keine zweite Uhr, keine Wetter-/KI-Zeitabhängigkeit, keine neuen Lichtquellen.
