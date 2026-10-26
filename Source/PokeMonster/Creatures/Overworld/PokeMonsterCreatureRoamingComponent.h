@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "PokeMonsterCreatureOverworldSettings.h"
+#include "PokeMonsterCreatureActivities.h"
 #include "PokeMonsterCreatureRoamingComponent.generated.h"
 class APokeMonsterBuildingCutaway;
 class APokeMonsterBiomeHabitat;
@@ -20,6 +21,7 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Development|Biome") TObjectPtr<APokeMonsterBiomeHabitat> BiomeHabitat;
 	UFUNCTION(BlueprintCallable, Category="Creature|Movement") void Configure(const UPokeMonsterCreatureSpeciesData* Species, float RootGroundOffset,
 		float Radius, float HalfHeight, AActor* Follow = nullptr, int32 Seed = 31);
+	virtual void EndPlay(const EEndPlayReason::Type Reason) override;
 	virtual void TickComponent(float Delta, ELevelTick Tick, FActorComponentTickFunction* Function) override;
 	UFUNCTION(BlueprintCallable, Category="Creature|Movement") void SetMovementPaused(bool Paused);
 	UFUNCTION(BlueprintPure, Category="Creature|Movement") bool ProjectWalkable(const FVector& Point, FVector& Ground) const;
@@ -60,7 +62,46 @@ public:
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") bool bEscapingDefeat=false;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") bool bEscapeBlocked=false;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") float EscapeElapsed=0.f;
+/** VisualV2 rollout only: the six defaults can be tuned per placed wild encounter. */
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Activities") bool bOverrideActivities=false;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Activities") FPokeMonsterCreatureActivityProfile ActivityOverride;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Activities") EPokeMonsterActivityPeriod ActivityPeriod=EPokeMonsterActivityPeriod::Day;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") FPokeMonsterCreatureActivityProfile Activities;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") bool bActivitiesEnabled=false;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") bool bActivityDistant=false;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") float ActivityRemaining=0;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 ActivityDecisions=0;
+ /** Optional development measurement; disabled during normal gameplay. */
+ UPROPERTY(Transient,BlueprintReadWrite,Category="Activities|Diagnostics") bool bMeasureActivityCost=false;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities|Diagnostics") double TickWorkMicroseconds=0;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities|Diagnostics") int64 MeasuredTicks=0;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") FName LastSocialDecision=NAME_None;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 PeerQueries=0;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 PerceptionTraces=0;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 SocialCompleted=0;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 ForageCompleted=0;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") TObjectPtr<UPokeMonsterCreatureRoamingComponent> SocialPartner;
+ UFUNCTION(BlueprintPure,Category="Activities") bool IsActivityTravelling() const { return bActivityTravelling; }
 private:
+ friend struct FPokeMonsterNaturalActivityTestAccess;
+ void ConfigureActivities(const UPokeMonsterCreatureSpeciesData* Species,int32 Seed);
+ bool UpdateActivities(float Delta,const FVector& Current,const APawn* Player,float& Speed);
+ void FinishActivity(bool Interrupted=false);
+ void ReleaseSocial();
+ bool FindSocialPartner();
+ bool CanSocialize() const;
+ bool PeerVisible(const UPokeMonsterCreatureRoamingComponent* Peer) const;
+ bool PlanForage(const FVector& Current);
+ void FaceActivity(float Delta,const FVector& Target);
+ FName ActivitySpecies;
+ FRandomStream ActivityRandom;
+ TArray<FVector> ForageAnchors;
+ TWeakObjectPtr<UPokeMonsterCreatureRoamingComponent> PerceivedPeer;
+ float SocialCooldown=0, SleepCooldown=0, ForageCooldown=0, PeerQueryRemaining=0;
+ float VisibilityRemaining=0;
+ bool bPlayerVisibleCached=false, bActivityRunning=false, bActivityTravelling=false, bSocialLeader=false;
+ float ActivityTravelRemaining=0;
+ FVector ActivityFocus=FVector::ZeroVector;
  bool bWasAerialTravel=false;
  bool IsAerialTravelActive() const;
  bool CanTraverseHoverColumn(const FVector& Start,const FVector& End,float Height,const FBox& Bounds,bool RequireGroundColumn=false) const;

@@ -1253,3 +1253,18 @@ Notwendige gemeinsame Erweiterungen bleiben in BattleSession/BattleLibrary: Erho
 Windstoß/Windhose erhalten einen datengetriebenen Bonus gegen einen ausdrücklich mechanischen Luft-Aufladezustand. Dekoratives Schweben von Modellen zählt nicht dazu. Fliegen als vollständige neue Attacke wird nicht integriert. Der Marker ist mit einer klar benannten transienten Automationfixture geprüft. Vorhandene Kampfregeln ohne diese Komponenten und bestehende Kamera-/Animationsassets bleiben erhalten.
 
 Abgelehnte und offene Angebote sind weiterhin keine erlernten Attacken. Die Korrektur vergibt übersprungene Levelattacken nicht rückwirkend an bestehende Individuen. Reaktivierung im Repertoire erfordert tatsächliche frühere Kenntnis und weiterhin einen autorisierten Meister; AP werden weder durch Bindung, Kopierattacken noch Neuordnung aufgefüllt.
+
+
+## 26.10.2026 – Pokémon-KI V2: natürliche Aktivitäten auf VisualV2
+
+Die vorhandene `PokeMonsterCreatureRoamingComponent` bleibt alleinige Bewegungs- und Verhaltensinstanz. Ein gewichtetes Aktivitätsprofil ergänzt ihren vorhandenen Zustandswert um Idle, Sleep, Forage und Social; bestehende Enum-Werte bleiben erhalten. Rest, Wander, Observe, Approach, Retreat und Warning behalten ihre bisherige Bedeutung. Kampf, Niederlagenflucht und Spielerreaktionen unterbrechen die Hintergrundaktivität. Begleiter und Biome-Verträge verwenden weiterhin ihren bisherigen Ablauf.
+
+Die erste Freischaltung betrifft ausschließlich wilde Bisasam, Pikachu, Zunderlauf/Glumanda, Myrapla, Enton und Nebulak auf `/Game/Maps/Dev_TestMap_VisualV2`. Keine dauerhaften zusätzlichen Pokémon oder Map-Änderungen. Gemeinsame Standardprofile sind über `ForSpecies` definiert; `ActivityOverride` erlaubt Begegnungsvarianten mit derselben Implementierung. Die bereits konfigurierten Temperamente und Begegnungsregeln werden nicht pauschal umgestellt.
+
+Nahrungssuche verwendet erreichbare Bodenstellen beziehungsweise einmalig erfasste Vegetationsnähe, keine Ressourcen- oder Hungerwirtschaft. Schlaf/Ruhe verwenden vorhandenes Idle, niemals Faint als Schlafanimation. Nebulaks vorhandener visueller Schwebekontext bleibt erhalten. Aktivitäten sind flüchtiger Weltzustand und erweitern keine individuellen Save-Daten.
+
+Sozialbesuche benötigen sichtbare, geeignete Nachbarn, eine gegenseitige exklusive Reservierung, Sicherheitsabstand, eine begrenzte Anreise und anschließendes Verweilen. Danach folgen Abklingzeiten; Abbruch, Kampf, Deaktivierung und EndPlay lösen Reservierungen. Eine lokale räumliche Kollisionsabfrage ersetzt dauernde vollständige Pokémon-Paarvergleiche. Entscheidungen/Wahrnehmung werden gestaffelt, tatsächliche Bewegung bleibt pro Spielbild kontinuierlich. Ab 40 m Spielerentfernung pausieren niedrig priorisierte Aktivitäten; die besiegte-Wild-Pokémon-Flucht bleibt davon ausgenommen.
+
+Es gibt noch keine allgemeine Weltuhr. `ActivityPeriod` (Day/Evening/Night) bereitet eine spätere Uhranbindung vor und beeinflusst die Schlafgewichtung; standardmäßig Day. Weder reale Tageszeit noch neue Beleuchtungszyklen werden in diesem Auftrag eingeführt. Eine echte tägliche Ortsroute oder feste Uhrzeiten sind damit nicht behauptet.
+
+Details, Testergebnisse und Grenzen: `Docs/POKEMON_KI_V2_PRUEFBERICHT.md`.

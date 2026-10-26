@@ -14,6 +14,7 @@
 #include "Engine/GameInstance.h"
 #include "Engine/World.h"
 #include "EngineUtils.h"
+#include "Misc/ScopeExit.h"
 #include "../../World/PokeMonsterBuildingCutaway.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -27,6 +28,7 @@ UPokeMonsterCreatureRoamingComponent::UPokeMonsterCreatureRoamingComponent()
 void UPokeMonsterCreatureRoamingComponent::Configure(const UPokeMonsterCreatureSpeciesData* Species,
 	float RootGroundOffset, float Radius, float HalfHeight, AActor* Follow, int32 Seed)
 {
+	ReleaseSocial();
 	SetComponentTickEnabled(false); bReady = false; bPresentationHold = false; PresentationHoverHeight=0.f;bWasAerialTravel=false;
 	if (!Species || !Species->Overworld.IsValid() || !FMath::IsFinite(RootGroundOffset)
 		|| !FMath::IsFinite(Radius) || Radius <= 0 || !FMath::IsFinite(HalfHeight) || HalfHeight <= 0
@@ -76,11 +78,13 @@ void UPokeMonsterCreatureRoamingComponent::Configure(const UPokeMonsterCreatureS
 	CurrentSpeed = AngularVelocity = 0.f; RecentGoals.Reset();
 	for (int32& Visits : SectorVisits) Visits=0;
 	Path.Reset(); bPaused = false; bRecalling = false; bReady = true; BeginPause();
+	ConfigureActivities(Species,Seed);
 	SetComponentTickEnabled(true);
 }
 void UPokeMonsterCreatureRoamingComponent::SetMovementPaused(bool Paused)
 {
 	if (bPaused != Paused) { Path.Reset(); PauseRemaining = .2f; ReplanRemaining = 0.f; }
+	if(Paused && bActivitiesEnabled) FinishActivity(true);
 	bPaused = Paused; if(Paused) CurrentSpeed=AngularVelocity=0.f;
 }
 FCollisionQueryParams UPokeMonsterCreatureRoamingComponent::Query() const
@@ -201,13 +205,17 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	FActorComponentTickFunction* Function)
 {
 	Super::TickComponent(Delta, Tick, Function);
+ const bool Measure=bMeasureActivityCost;const double Started=Measure?FPlatformTime::Seconds():0.;
+ ON_SCOPE_EXIT { if(Measure){TickWorkMicroseconds+=(FPlatformTime::Seconds()-Started)*1000000.;++MeasuredTicks;} };
 	AActor* Owner = GetOwner();
-	if (!bReady || bPaused || !Owner || Owner->IsHidden() || Delta <= 0.f) return;
- if (bPresentationHold) { CurrentSpeed=AngularVelocity=0.f; return; }
+	if (!bReady || bPaused || !Owner || Owner->IsHidden() || Delta <= 0.f)
+ { if(bActivitiesEnabled && bActivityRunning)FinishActivity(true); return; }
+ if (bPresentationHold) { if(bActivitiesEnabled)FinishActivity(true); CurrentSpeed=AngularVelocity=0.f; return; }
 	const auto* GI = GetWorld()->GetGameInstance();
 	const auto* E = GI ? GI->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
 	const auto* C = GI ? GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>() : nullptr;
-	if ((E && E->IsEncounterActive()) || (C && C->IsReturningFromDefeat())) return;
+	if ((E && E->IsEncounterActive()) || (C && C->IsReturningFromDefeat()))
+ { if(bActivitiesEnabled)FinishActivity(true); CurrentSpeed=0; return; }
 	const FVector Current = Owner->GetActorLocation() - FVector(0, 0, Offset);
  const bool AirTravel=BiomeHabitat&&(BiomeHabitat->Medium==EPokeMonsterBiomeMedium::Aerial||IsAerialTravelActive());
  if(AirTravel!=bWasAerialTravel){bWasAerialTravel=AirTravel;Path.Reset();RecentGoals.Reset();PauseRemaining=ReplanRemaining=0.f;}
@@ -216,6 +224,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	if (!FollowTarget.IsValid() && Player && (Player->IsOverworldInputLocked()
 		))
 	{
+		if(bActivitiesEnabled)FinishActivity(true);
 		Path.Reset(); CurrentSpeed=0.f; PauseRemaining = .6f;
 		const float Yaw = (Player->GetActorLocation() - Current).Rotation().Yaw;
 		Owner->SetActorRotation(FMath::RInterpConstantTo(Owner->GetActorRotation(), FRotator(0,Yaw,0),Delta,Settings.TurnDegreesPerSecond));
@@ -237,7 +246,14 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	else if(!FollowTarget.IsValid())
 	{
 	 Speed*=Settings.Behavior.WalkMultiplier;
+     if(bActivitiesEnabled)
+     {
+      const bool Far=Player && FVector::DistSquared2D(Current,Player->GetActorLocation())>FMath::Square(Activities.ActiveDistance);
+      if(Far){if(!bActivityDistant){FinishActivity(true);Path.Reset();}bActivityDistant=true;CurrentSpeed=0;CooldownRemaining=FMath::Max(0.f,CooldownRemaining-Delta);return;}
+      bActivityDistant=false;
+     }
 	 if(UpdateBehavior(Delta,Current,Player,Speed)) return;
+     if(bActivitiesEnabled && UpdateActivities(Delta,Current,Player,Speed)) return;
 	}
  if(AirTravel&&FMath::IsFinite(BiomeHabitat->AirCruiseSpeedCm))Speed=FMath::Clamp(BiomeHabitat->AirCruiseSpeedCm,10.f,200.f);
 	ReplanRemaining -= Delta;
@@ -386,13 +402,23 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateBehavior(float Delta,const FVec
  const float D=Player?FVector::Dist2D(Current,Player->GetActorLocation()):BIG_NUMBER;
  // Leaving the entire response radius is necessary even after the time cooldown has expired.
  if(D>P.DisengageRadius)bTerritoryArmed=true;
- const bool Visible=Player&&D<=P.DisengageRadius&&PlayerVisible(Player);
+ VisibilityRemaining-=Delta;
+ if(!bActivitiesEnabled || VisibilityRemaining<=0 || D<P.PersonalSpace)
+ {
+  bPlayerVisibleCached=Player&&D<=P.DisengageRadius&&PlayerVisible(Player);
+  if(Player&&D<=P.DisengageRadius)++PerceptionTraces;
+  VisibilityRemaining=bActivitiesEnabled?ActivityRandom.FRandRange(.25f,.45f):0.f;
+ }
+ const bool Visible=Player&&D<=P.DisengageRadius&&bPlayerVisibleCached;
  const bool Reacting=BehaviorState==EOverworldState::Approach||BehaviorState==EOverworldState::Retreat||BehaviorState==EOverworldState::Observe||BehaviorState==EOverworldState::Warning;
  EOverworldState Next=FPokeMonsterCreatureBehavior::Decide(P,D,Visible,Reacting,CooldownRemaining>0||(P.Temperament==EOverworldTemperament::Territorial&&!bTerritoryArmed));
  // Curiosity alternates observation and approach, rather than following forever.
  InterestRemaining=FMath::Max(0.f,InterestRemaining-Delta);
  if(P.Temperament==EOverworldTemperament::Curious && Next==EOverworldState::Approach && InterestRemaining>0)Next=EOverworldState::Observe;
  if(P.Temperament==EOverworldTemperament::Territorial && BehaviorState==EOverworldState::Approach && Visible && bTerritoryArmed && CooldownRemaining<=0)Next=EOverworldState::Approach;
+ const bool Reaction=Next==EOverworldState::Observe||Next==EOverworldState::Approach||Next==EOverworldState::Retreat||Next==EOverworldState::Warning;
+ if(bActivitiesEnabled && bActivityRunning && !Reaction)return false;
+ if(bActivitiesEnabled && Reaction && bActivityRunning)FinishActivity(true);
  if(Next!=BehaviorState)
  {
   Path.Reset();ReactionRemaining=0;WarningElapsed=0;PauseRemaining=0;
@@ -440,6 +466,7 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateBehavior(float Delta,const FVec
 }
 void UPokeMonsterCreatureRoamingComponent::NotifyEncounterEnded()
 {
+ if(bActivitiesEnabled)FinishActivity(true);
  CooldownRemaining=Settings.Behavior.EncounterCooldown;bTerritoryArmed=false;
  WarningElapsed=0;BehaviorState=EPokeMonsterOverworldState::Cooldown;CurrentSpeed=0;BeginPause();
 }
@@ -450,6 +477,7 @@ FPokeMonsterCreatureBehaviorProfile UPokeMonsterCreatureRoamingComponent::GetBeh
 bool UPokeMonsterCreatureRoamingComponent::BeginDefeatEscape()
 {
  if(!bReady||FollowTarget.IsValid())return false;
+ if(bActivitiesEnabled)FinishActivity(true);
  bEscapingDefeat=true;bEscapeBlocked=false;EscapeElapsed=EscapeReplan=EscapeStalled=0;
  bPaused=false;Path.Reset();PauseRemaining=0;CurrentSpeed=AngularVelocity=0;
  BehaviorState=EPokeMonsterOverworldState::Retreat;SetComponentTickEnabled(true);return true;

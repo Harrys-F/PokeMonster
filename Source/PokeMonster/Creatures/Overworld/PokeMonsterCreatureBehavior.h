@@ -7,7 +7,7 @@ enum class EPokeMonsterOverworldTemperament : uint8 { Curious, Shy, Territorial,
 UENUM(BlueprintType)
 enum class EPokeMonsterEncounterInitiation : uint8 { ByTemperament, Contact, Challenge, Disabled };
 UENUM(BlueprintType)
-enum class EPokeMonsterOverworldState : uint8 { Rest, Wander, Observe, Approach, Retreat, Warning, Cooldown, Follow };
+enum class EPokeMonsterOverworldState : uint8 { Rest, Wander, Observe, Approach, Retreat, Warning, Cooldown, Follow, Idle, Sleep, Forage, Social };
 
 /** Overworld tuning only. Does not change battle stats, species identity or save data. */
 USTRUCT(BlueprintType)

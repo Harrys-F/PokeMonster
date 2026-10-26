@@ -55,7 +55,7 @@ struct FPokeMonsterSaveV2TestAccess
 };
 namespace
 {
- FAutoConsoleCommand Fixture(TEXT("pm.SaveV2Review.Fixture"),
+ FAutoConsoleCommand SaveV2ReviewFixtureCommand(TEXT("pm.SaveV2Review.Fixture"),
   TEXT("Editor PIE, isolated SaveV2 test slot required: legacy|missing-map|invalid-position|blocked|crossmap|missing-checkpoint. Never a user save."),
   FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& Args)
  {
