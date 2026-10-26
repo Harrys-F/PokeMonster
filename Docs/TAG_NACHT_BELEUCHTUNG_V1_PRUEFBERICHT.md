@@ -281,5 +281,16 @@ Prüfwerkzeuge werden gezielt gesichert. Keine Map-/Content-/Art-/Save-Dateien;
 keine neuen LFS-Objekte erforderlich. Lokale native Bild-/CSV-Nachweise verbleiben
 im angegebenen Saved-Verzeichnis. Geschützte Dateien: 84
 Prüfsummen unverändert; ursprüngliche unversionierte Dateien: 31
-erhalten; beide Vollbackup-Referenzen unverändert. Git-Abschluss mit konkreten
-Commit-/Remote-Daten wird nach erfolgreicher Sicherung ergänzt.
+erhalten; beide Vollbackup-Referenzen unverändert.
+
+Implementierung und geprüfte Werkzeuge: **`e1fc3517`**
+(`feat(lighting): add VisualV2 world-clock day and night cycle`). Normaler Push
+auf `origin/main` erfolgreich; serverseitiger `ls-remote`-Abgleich bestätigt den
+Commit. LFS-Status leer, LFS-Dry-Run ohne ausstehende Objekte, Pointer-fsck OK.
+Es wurden keine neuen LFS-Daten hochgeladen und keine Budgets geändert.
+
+Dieser Abschlussnachtrag ist ein eigener reiner Dokumentationscommit; dessen
+Hash ist im Git-Verlauf dieses Berichts beziehungsweise im abschließenden
+`Saved/ProjectRefinement/DayNightV1/GitFinal.json` festgehalten. Nach seinem Push
+wird main nochmals serverseitig mit origin/main abgeglichen. Die 31 ursprünglichen
+unversionierten Dateien bleiben absichtlich außerhalb des Commits.
