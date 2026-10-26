@@ -1,0 +1,165 @@
+{
+  "A_commit": "230ff51e",
+  "B_commit": "5ae1380d",
+  "joint_cycle_passed": true,
+  "joint_seconds": 354.14714745798847,
+  "samples": 516,
+  "checks": [
+    "All six profiles immediately use central noon time",
+    "12 to 22 jump immediately updates every profile",
+    "Paused world clock freezes ambient activity timers and movement",
+    "Accelerated day crosses midnight and returns beyond dawn",
+    "No unintended encounter throughout ambient observation",
+    "Every subject keeps valid enabled native activity and rhythm"
+  ],
+  "cycle_first": {
+    "seconds": 213.4566716250265,
+    "clock_day": 8,
+    "clock_seconds": 16608.202471733093
+  },
+  "cycle_last": {
+    "seconds": 335.11534620798193,
+    "clock_day": 9,
+    "clock_seconds": 17777.345640063286
+  },
+  "observed_phases": [
+    "<PokeMonsterDayPhase.DAWN: 1>",
+    "<PokeMonsterDayPhase.DAY: 2>",
+    "<PokeMonsterDayPhase.DUSK: 3>",
+    "<PokeMonsterDayPhase.EARLY_MORNING: 0>",
+    "<PokeMonsterDayPhase.NIGHT: 4>"
+  ],
+  "profiles": {
+    "Bisasam": {
+      "states": {
+        "<PokeMonsterOverworldState.WANDER: 1>": 380,
+        "<PokeMonsterOverworldState.FORAGE: 10>": 284,
+        "<PokeMonsterOverworldState.IDLE: 8>": 63,
+        "<PokeMonsterOverworldState.REST: 0>": 279,
+        "<PokeMonsterOverworldState.SLEEP: 9>": 162,
+        "<PokeMonsterOverworldState.SOCIAL: 11>": 32,
+        "<PokeMonsterOverworldState.APPROACH: 3>": 80,
+        "<PokeMonsterOverworldState.OBSERVE: 2>": 268
+      },
+      "forage_completions_max": 2,
+      "social_completions_max": 0
+    },
+    "Pikachu": {
+      "states": {
+        "<PokeMonsterOverworldState.WANDER: 1>": 431,
+        "<PokeMonsterOverworldState.REST: 0>": 26,
+        "<PokeMonsterOverworldState.IDLE: 8>": 59
+      },
+      "forage_completions_max": 0,
+      "social_completions_max": 0
+    },
+    "Zunderlauf": {
+      "states": {
+        "<PokeMonsterOverworldState.WANDER: 1>": 271,
+        "<PokeMonsterOverworldState.FORAGE: 10>": 131,
+        "<PokeMonsterOverworldState.REST: 0>": 36,
+        "<PokeMonsterOverworldState.IDLE: 8>": 78
+      },
+      "forage_completions_max": 3,
+      "social_completions_max": 0
+    },
+    "Myrapla": {
+      "states": {
+        "<PokeMonsterOverworldState.WANDER: 1>": 141,
+        "<PokeMonsterOverworldState.REST: 0>": 251,
+        "<PokeMonsterOverworldState.IDLE: 8>": 55,
+        "<PokeMonsterOverworldState.FORAGE: 10>": 36,
+        "<PokeMonsterOverworldState.SLEEP: 9>": 33
+      },
+      "forage_completions_max": 0,
+      "social_completions_max": 0
+    },
+    "Enton": {
+      "states": {
+        "<PokeMonsterOverworldState.WANDER: 1>": 48,
+        "<PokeMonsterOverworldState.IDLE: 8>": 48,
+        "<PokeMonsterOverworldState.REST: 0>": 304,
+        "<PokeMonsterOverworldState.SLEEP: 9>": 41,
+        "<PokeMonsterOverworldState.FORAGE: 10>": 75
+      },
+      "forage_completions_max": 2,
+      "social_completions_max": 0
+    },
+    "Nebulak": {
+      "states": {
+        "<PokeMonsterOverworldState.IDLE: 8>": 98,
+        "<PokeMonsterOverworldState.REST: 0>": 140,
+        "<PokeMonsterOverworldState.WANDER: 1>": 240,
+        "<PokeMonsterOverworldState.SLEEP: 9>": 38
+      },
+      "forage_completions_max": 0,
+      "social_completions_max": 0
+    }
+  },
+  "clip": {
+    "frames": 45,
+    "seconds": 12.052771229,
+    "hz": 3.650612723332227,
+    "video": "Saved/ProjectRefinement/DayNightV11AI22/Videos/Joint.mp4",
+    "actual_frames_no_interpolation": true
+  },
+  "unfinished_due_editor_stall": [
+    "GPUJoint01",
+    "GameplayJoint01",
+    "TravelJoint01",
+    "final build and automation repeat"
+  ],
+  "images": [
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/Joint01/Joint0000.png",
+      "sha256": "a8b84d91c6316ab8ff5a1f9d89c5fcf542dca0b7bdfba7546cb88623438afc8e"
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/Joint01/Joint0430.png",
+      "sha256": "a60d2b18fcb3f03a59084291c67a62a6080f6a8695806f248c0a8e8337fe5878"
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/Joint01/Joint0600.png",
+      "sha256": "bf1158fa257699cfe2a5a7b8884b3ceea1c1db97f9cb6b1bf4508a5ad8456b94"
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/Joint01/Joint0900.png",
+      "sha256": "91eb8bff3646208e06ebde780dea5441f47c7792654b666fed6ea77a2e018895"
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/Joint01/Joint1200.png",
+      "sha256": "96982125badaa0d2d010007b65c1d620a507acbdbc28cab3d2d81a8617b06457"
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/Joint01/Joint1600.png",
+      "sha256": "ce640c64209b702e0053afbf44a8d08648a5e688cfedc074840c22d63565444c"
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/Joint01/Joint1900.png",
+      "sha256": "597adac360e77649c7b349d003371174c58b1d80cf4fe2fe85bda0e26b2010c0"
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/Joint01/Joint2200.png",
+      "sha256": "68ce0839ac2d6ae41359ac89ed6ad47f47abc57ccd39c063b7955b3a7ea7d753"
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/Joint01/Night.png",
+      "sha256": "64b7ac998d0a8778e8bb69014f7b1e8681c92a308b00a431327790cdeaa41f6c"
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/Joint01/Noon.png",
+      "sha256": "631245baced5c76170686cb3d4bca20afee44ebb63df545f6bfa8a96b322a60c"
+    }
+  ],
+  "blocked_editor": {
+    "pid": 23485,
+    "own_process": true,
+    "PIE_stopped": true,
+    "regular_request_sent_once": true,
+    "force_quit_not_authorized_yet": true,
+    "sample": "Saved/ProjectRefinement/DayNightV11AI22/EditorB_HangSample.txt",
+    "sample_footprint_GiB_reported": 41.4,
+    "stack": "GameThread FSceneViewport::ResizeViewport waiting for render fence; scene-extension deletion task waiting",
+    "no_project_crash_stack_confirmed": true
+  }
+}
