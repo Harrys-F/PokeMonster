@@ -1268,3 +1268,24 @@ Sozialbesuche benötigen sichtbare, geeignete Nachbarn, eine gegenseitige exklus
 Es gibt noch keine allgemeine Weltuhr. `ActivityPeriod` (Day/Evening/Night) bereitet eine spätere Uhranbindung vor und beeinflusst die Schlafgewichtung; standardmäßig Day. Weder reale Tageszeit noch neue Beleuchtungszyklen werden in diesem Auftrag eingeführt. Eine echte tägliche Ortsroute oder feste Uhrzeiten sind damit nicht behauptet.
 
 Details, Testergebnisse und Grenzen: `Docs/POKEMON_KI_V2_PRUEFBERICHT.md`.
+
+
+## 26.10.2026 – Pokémon-KI V2.1 und EP-Anzeige V1
+
+Die vorhandene RoamingComponent bleibt alleiniger Besitzer natürlicher Aktivitäten.
+Sozialbesuche verwenden gegenseitige Einzelreservierungen mit Zusage/Ablehnung,
+Mindest-Ruhezeit, begrenzter Annäherung, gemeinsamer Verweildauer und beidseitiger
+Freigabe bei Gefahr, Kampf, Entfernung oder Ausfall. Ein Partner wartet nach
+Zusage, der andere nähert sich über den vorhandenen kollisionsgeprüften Planner;
+kein Verfolgen eines bewegten Sozialziels und keine neue Gruppen-KI. Die sechs
+VisualV2-Artprofile, bisherigen Reaktionstemperamente und Begegnungsregeln bleiben
+maßgeblich. Schlaf bleibt Idle; Weltuhr und neue Animationen sind nicht Teil davon.
+
+EP-Anzeigen sind ausschließlich abgeleitete UI-Daten. Maßgeblich sind die kumulative
+Erfahrung und die tatsächlich von der individuellen Kreatur verwendete Wachstumskurve
+(einschließlich vorhandener Entwicklungs-Overrides). Fortschritt ist Gesamt-EP minus
+aktuelle Levelgrenze; der Nenner ist die Differenz zur nächsten Grenze. Keine neuen
+Kurven, redundanten Save-Felder oder veränderten EP-Erträge. Höchstlevel 100 zeigt MAX.
+Die bestehende Attackenansicht heißt nun Pokémon-Info und bleibt außerhalb eines
+Meisters nur lesend. ClassicBattle erhält einen schmalen blauen EP-Balken unter KP;
+seine Präsentation folgt echten XP-Ereignissen und verstrichener Spielzeit.

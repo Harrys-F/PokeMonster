@@ -1294,3 +1294,38 @@ Wahrnehmung: Kollisions-Broadphase im lokalen Radius, höchstens zwölf näher g
 Optionales flüchtiges `bMeasureActivityCost` misst nur während gezielter Entwicklungsprüfungen die vollständige native Komponenten-Tickzeit. Standardmäßig deaktiviert, kein Hintergrund-Profiler. Testwerkzeuge unter `Tools/PokemonAIV2`, lokale Rohdaten und echte Medien ausschließlich unter `Saved/ProjectRefinement/PokemonAIV2` beziehungsweise dem vorhandenen Framebuffer-Recorder.
 
 Siehe Prüfbericht für genaue Aufrufe, Testaufbauten, Profile und noch fehlende Schlaf-/Nahrungssuchanimationen sowie die vorbereitete, aber noch nicht an eine Weltuhr gebundene Tagesphase.
+
+
+### Pokémon-KI V2.1 / EP-Anzeige V1
+
+`TryStartSocial` führt Anfrage, Profilprüfung, Zusage/Ablehnung und die gegenseitige
+Reservierung auf dem Game Thread aus. Etablierte Ruhephasen dürfen nach
+`MinimumSeconds` Besuche annehmen. Zusätzliche Einladungsfenster während Wander/Idle/Rest
+liegen 8–13 s auseinander; ihre Chance folgt dem vorhandenen Sozialgewicht.
+`SocialAcceptance` beträgt standardmäßig 0,85, bei Myrapla 0,70 und Nebulak 0,45.
+Ablehnung unterbricht den Empfänger nicht und sperrt wiederholte Anfragen kurz.
+Abstand: beide Navigationsradien + 65–95 cm, bei scheuem Partner weitere 100 cm;
+Annäherungswinkel ±16°, höchstens ein geplanter Weg. Reisezeitlimit 20 s,
+Gesamtlimit 30 s; Verweilen MinimumSeconds + 2–6 s. Periodische Sichtprüfung
+0,8–1,2 s, kein erneutes laufendes Planen zum beweglichen Partner. Beide Partner
+werden bei Unterbrechung freigegeben. Wahrnehmung bleibt lokale Broadphase mit
+höchstens zwölf näher geprüften Kandidaten und vorhandener Distanzreduzierung.
+
+`FPokeMonsterExperienceView` berechnet LevelStart/NextLevelStart, Earned/Required,
+Remaining/Fraction und MAX aus existierenden Progression-Funktionen. Ungültige Daten
+werden als nicht verfügbar angezeigt. OverworldView und BattlePresenter teilen
+dieselbe Berechnung; der Menü-Rendercache berücksichtigt auch EP-Änderungen ohne
+Levelaufstieg. Zugang: X → Team → L → Pokémon-Info → Pokémon mit B auswählen;
+Tastatur Tab/Enter/Pfeile/Esc und die bisherigen Kategorien bleiben erhalten.
+
+BattleSession-Ereignisse erfassen nur zusätzliche Vorher-/Nachher-Metadaten um die
+unveränderte EP-Transaktion. PresentationPlan übernimmt diese pro Empfänger-ID.
+Die bestehende BattleWidget-Präsentation animiert den Balken über reale Levelgrenzen,
+auch mehrfach, ohne erneut EP zu vergeben. Die XP-Phase misst verstrichene Spielzeit,
+damit mehrfach dispatchte Timer bei niedriger Bildrate nicht beschleunigen.
+
+Prüfwerkzeuge: `Tools/PokemonAIV21ExperienceV1/`. Nur isolierte PIE-Saves, keine
+Map-Speicherung. `pm.CreatureReview.CaptureLiveUI <Name> qhd` erhält die originale
+Slate-Aufnahme und rendert zusätzlich die laufende PIE-/UMG-Ansicht in QHD. Die
+zweite Datei ist ausdrücklich ein Live-Render und keine Desktopaufnahme.
+Details und Einschränkungen: `POKEMON_KI_V2_1_EP_ANZEIGE_V1_PRUEFBERICHT.md`.

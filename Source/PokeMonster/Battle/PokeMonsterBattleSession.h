@@ -106,6 +106,10 @@ struct POKEMONSTER_API FPokeMonsterBattleEvent
  UPROPERTY(BlueprintReadOnly) int32 FleeRoll=INDEX_NONE;
  UPROPERTY(BlueprintReadOnly) int32 StageAfter=0;
  UPROPERTY(BlueprintReadOnly) int64 ExperienceAdded=0;
+ // Presentation evidence captured around the existing XP transaction; never persisted.
+ UPROPERTY(BlueprintReadOnly) int64 ExperienceBefore=0;
+ UPROPERTY(BlueprintReadOnly) int64 ExperienceAfter=0;
+ UPROPERTY(BlueprintReadOnly) EPokeMonsterGrowthRate ExperienceGrowth=EPokeMonsterGrowthRate::MediumFast;
  UPROPERTY(BlueprintReadOnly) int32 LevelsGained=0;
  UPROPERTY(BlueprintReadOnly) FText Information;
  UPROPERTY(BlueprintReadOnly) int32 LevelBefore=0;

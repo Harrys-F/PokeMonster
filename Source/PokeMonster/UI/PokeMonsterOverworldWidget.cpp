@@ -13,6 +13,8 @@
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
 #include "Components/VerticalBox.h"
+#include "Components/ProgressBar.h"
+#include "Components/SizeBox.h"
 #include "Brushes/SlateRoundedBoxBrush.h"
 #include "Styling/CoreStyle.h"
 
@@ -77,6 +79,7 @@ namespace
 		for (const auto& Row : View.Team)
 			Key += Row.InstanceId.ToString() + FString::Printf(TEXT("|%s:%d:%d:%d:%d"), *Row.Name.ToString(), Row.Level,
 				Row.CurrentHP, Row.MaxHP, Row.bKnockedOut ? 1 : 0);
+  for (const auto& Row:View.Team) Key+=FString::Printf(TEXT("|XP:%lld:%d"),Row.Experience.Total,Row.Experience.bValid);
   for (const auto& Row:View.Team)for(const auto& M:Row.Repertoire)
    Key+=M.Move.ToSoftObjectPath().ToString()+FString::Printf(TEXT(":%d:%d"),M.CurrentPP,M.ActiveSlot);
   for (const auto& Row:View.Team) Key+=Row.bPendingLearning?TEXT("pending"):TEXT("ready");
@@ -148,7 +151,7 @@ void UPokeMonsterOverworldWidget::BuildDefaultTree()
 		FVector2D(-383,-173),FVector2D(170,49),FAnchors(0.5f,0.5f));
 	InventoryTab = MakeButton(WidgetTree,MenuLayer,TEXT("InventoryTab"),TEXT("Inventar"),
 		FVector2D(-201,-173),FVector2D(170,49),FAnchors(0.5f,0.5f));
- MovesTab=MakeButton(WidgetTree,MenuLayer,TEXT("MovesTab"),TEXT("Attacken"),FVector2D(-19,-173),FVector2D(170,49),FAnchors(.5f,.5f));
+ MovesTab=MakeButton(WidgetTree,MenuLayer,TEXT("MovesTab"),TEXT("Pokémon-Info"),FVector2D(-19,-173),FVector2D(170,49),FAnchors(.5f,.5f));
 	SectionTitle = MakeText(WidgetTree,TEXT("SectionTitle"),TEXT("Team"),23,OverworldDarkInk);
 	Place(MenuLayer,SectionTitle,FVector2D(-378,-102),FVector2D(500,36),FAnchors(0.5f,0.5f));
 	MenuRows = WidgetTree->ConstructWidget<UVerticalBox>(UVerticalBox::StaticClass(),TEXT("MenuRows"));
@@ -580,7 +583,7 @@ void UPokeMonsterOverworldWidget::ShowMoves()
 
 void UPokeMonsterOverworldWidget::RenderMoves()
 {
- if(SectionTitle)SectionTitle->SetText(FText::FromString(bMoveMasterMode?TEXT("Meister der Erinnerungen"):TEXT("Attackenrepertoire · Nur Ansicht")));
+ if(SectionTitle)SectionTitle->SetText(FText::FromString(bMoveMasterMode?TEXT("Meister der Erinnerungen"):TEXT("Pokémon-Info · Nur Ansicht")));
  auto Add=[&](const FString& T,int Size=17)
  {
   auto* Text=MakeText(WidgetTree,NAME_None,T,Size,OverworldDarkInk);
@@ -598,7 +601,15 @@ void UPokeMonsterOverworldWidget::RenderMoves()
  else if(View.Team.IsValidIndex(MovePokemon))
  {
   const auto& C=View.Team[MovePokemon];
-  Add(C.Name.ToString()+TEXT(" · ")+(bMoveReview?TEXT("Änderungen prüfen"):bMoveMasterMode?TEXT("Entwurf · noch nicht gespeichert"):TEXT("Persönliche Erinnerungen")),19);
+  Add(C.Name.ToString()+FString::Printf(TEXT(" · Lv. %d · "),C.Level)+(bMoveReview?TEXT("Änderungen prüfen"):bMoveMasterMode?TEXT("Entwurf · noch nicht gespeichert"):TEXT("Persönliche Erinnerungen")),19);
+  if(!bMoveMasterMode)
+  {
+   Add(C.Experience.ProgressText().ToString()+TEXT("   ·   ")+C.Experience.RemainingText().ToString(),16);
+   auto* Size=WidgetTree->ConstructWidget<USizeBox>();Size->SetHeightOverride(10);Size->SetWidthOverride(728);
+   auto* Bar=WidgetTree->ConstructWidget<UProgressBar>(UProgressBar::StaticClass());
+   ExperienceBar=Bar;Bar->SetPercent(C.Experience.Fraction);Bar->SetFillColorAndOpacity(FLinearColor(.17f,.43f,.67f));
+   Bar->SetVisibility(ESlateVisibility::HitTestInvisible);Size->AddChild(Bar);MenuRows->AddChildToVerticalBox(Size);
+  }
   const auto& Active=bMoveMasterMode?DraftMoves:C.ActiveMoves;
   FString Slots;
   for(int32 I=0;I<4;++I){const auto* M=Active.IsValidIndex(I)?Active[I].LoadSynchronous():nullptr;Slots+=FString::Printf(TEXT("%d %s%s"),I+1,M?*M->GetPlayerFacingName().ToString():TEXT("—"),I==3?TEXT(""):TEXT("   ·   "));}
@@ -617,8 +628,9 @@ void UPokeMonsterOverworldWidget::RenderMoves()
   }
   else
   {
-   const int32 N=C.Repertoire.Num();const int32 Start=FMath::Clamp(MoveCursor-2,0,FMath::Max(0,N-4));
-   for(int32 I=Start;I<FMath::Min(N,Start+4);++I)
+   const int32 Visible=bMoveMasterMode?4:3;
+   const int32 N=C.Repertoire.Num();const int32 Start=FMath::Clamp(MoveCursor-1,0,FMath::Max(0,N-Visible));
+   for(int32 I=Start;I<FMath::Min(N,Start+Visible);++I)
    {
     const auto& M=C.Repertoire[I];const int32 Slot=Active.IndexOfByKey(M.Move);
     Add(FString::Printf(TEXT("%s %s%s · %s · AP %d/%d"),I==MoveCursor?TEXT("›"):TEXT(" "),*M.Name.ToString(),Slot!=INDEX_NONE?*FString::Printf(TEXT(" [%d]"),Slot+1):TEXT(" [inaktiv]"),*M.Type.ToString(),M.CurrentPP,M.MaxPP),18);

@@ -13,6 +13,10 @@
 #include "Components/Button.h"
 #include "Input/Events.h"
 #include "Slate/SceneViewport.h"
+#if WITH_EDITOR
+#include "Slate/WidgetRenderer.h"
+#include "RenderingThread.h"
+#endif
 #include "Widgets/SViewport.h"
 #include "Framework/Application/SlateApplication.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
@@ -52,9 +56,9 @@ void SavePixels(const FString& File,const FIntPoint Size,const TArray<FColor>& P
 {
  TArray64<uint8> PNG;FImageUtils::PNGCompressImageArray(Size.X,Size.Y,Pixels,PNG);FFileHelper::SaveArrayToFile(PNG,*File);
 }
-static FAutoConsoleCommand Capture(TEXT("pm.CreatureReview.CaptureLiveUI"),TEXT("Saved/GlumandaV11/LiveUI/<name>: exact Slate game viewport screenshot; never changes game camera or saves an asset."),FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& Args)
+static FAutoConsoleCommand Capture(TEXT("pm.CreatureReview.CaptureLiveUI"),TEXT("Saved/GlumandaV11/LiveUI/<name>: exact Slate game viewport screenshot; optional qhd also renders the live viewport/UMG at 2560x1440, separately labelled. No camera/asset changes."),FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& Args)
 {
- if(Args.Num()!=1||Args[0].IsEmpty())return;for(TCHAR C:Args[0])if(!FChar::IsAlnum(C)&&C!=TEXT('_'))return;
+ if(Args.IsEmpty()||Args.Num()>2||(Args.Num()==2&&Args[1]!=TEXT("qhd"))||Args[0].IsEmpty())return;for(TCHAR C:Args[0])if(!FChar::IsAlnum(C)&&C!=TEXT('_'))return;
  const FString Dir=FPaths::ProjectSavedDir()/(Args[0].StartsWith(TEXT("PolishV4_"))?TEXT("CreaturePolishV4/LiveUI"):Args[0].StartsWith(TEXT("BattleV3_"))?TEXT("BattleSystemV3/LiveUI"):Args[0].StartsWith(TEXT("BattleV2_"))?TEXT("BattleViewV2/LiveUI"):TEXT("GlumandaV11/LiveUI"))/Args[0];if(IFileManager::Get().DirectoryExists(*Dir))return;
  for(const auto& Context:GEngine->GetWorldContexts()){
   auto* W=Context.World();if(!W||!W->IsGameWorld()||!W->GetGameInstance())continue;
@@ -64,6 +68,20 @@ static FAutoConsoleCommand Capture(TEXT("pm.CreatureReview.CaptureLiveUI"),TEXT(
   auto* Client=W->GetGameInstance()->GetGameViewportClient();auto* VP=Client?Client->GetGameViewport():nullptr;
   if(VP)if(auto Slate=VP->GetViewportWidget().Pin()){
    FIntVector Size;TArray<FColor> Pixels;if(FSlateApplication::Get().TakeScreenshot(Slate.ToSharedRef(),Pixels,Size)){SavePixels(Dir/TEXT("ActualSlateViewport.png"),FIntPoint(Size.X,Size.Y),Pixels);Meta+=FString::Printf(TEXT("Actual size: %d x %d.\n"),Size.X,Size.Y);}
+#if WITH_EDITOR
+   if(Args.Num()==2)
+   {
+    // Actual running PIE viewport and its existing live UMG tree, at explicit QHD layout.
+    // Preserve the native-size screenshot too; never call the offscreen render a desktop capture.
+    auto* Renderer=new FWidgetRenderer(true);
+    auto* Target=FWidgetRenderer::CreateTargetFor(FVector2D(2560,1440),TF_Bilinear,false);
+    Renderer->DrawWidget(Target,Slate.ToSharedRef(),FVector2D(2560,1440),0.f);FlushRenderingCommands();
+    TArray<FColor> QHD;
+    if(Target->GameThread_GetRenderTargetResource()->ReadPixels(QHD,FReadSurfaceDataFlags(RCM_UNorm)))
+    {SavePixels(Dir/TEXT("LivePIEViewportQHD.png"),FIntPoint(2560,1440),QHD);Meta+=TEXT("LivePIEViewportQHD.png: live Unreal PIE viewport/UMG rendered offscreen at 2560x1440; not a desktop screenshot, no generated content or image upscaling.\n");}
+    BeginCleanup(Renderer);
+   }
+#endif
   }
   FFileHelper::SaveStringToFile(Meta,*(Dir/TEXT("CaptureMethod.txt")));return;
  }

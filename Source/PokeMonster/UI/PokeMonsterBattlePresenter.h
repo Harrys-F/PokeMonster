@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PokeMonsterExperienceView.h"
 #include "../Battle/PokeMonsterBattleSession.h"
 #include "PokeMonsterBattlePresenter.generated.h"
 
@@ -22,6 +23,8 @@ USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterBattleCreatureView
 {
 	GENERATED_BODY()
+ UPROPERTY(BlueprintReadOnly) FGuid InstanceId;
+ UPROPERTY(BlueprintReadOnly) FPokeMonsterExperienceView Experience;
 	UPROPERTY(BlueprintReadOnly, Category="Battle") FText Name;
 	UPROPERTY(BlueprintReadOnly, Category="Battle") int32 Level = 0;
 	UPROPERTY(BlueprintReadOnly, Category="Battle") int32 CurrentHP = 0;

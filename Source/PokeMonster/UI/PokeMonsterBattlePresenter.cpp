@@ -11,6 +11,7 @@ namespace
 		const auto* Species = Creature.Species.LoadSynchronous();
 		View.Name = Species ? Species->GetDisplayName() : FText::FromString(TEXT("Fehlende Spezies"));
 		View.Level = Creature.Level;
+  View.InstanceId=Creature.InstanceId;View.Experience=FPokeMonsterExperienceView::FromCreature(Creature);
 		View.CurrentHP = Creature.CurrentHP;
 		View.MaxHP = Creature.GetMaxHP();
 		View.bKO = Creature.CurrentHP <= 0;

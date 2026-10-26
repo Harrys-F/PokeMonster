@@ -290,8 +290,8 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
   SyncActive(Next);const auto* Species=Next.SideB.Species.LoadSynchronous();const int Yield=Species?Species->GetBaseExperienceYield():0;if(Yield<=0)return;
   int Count=0;for(const auto& C:Next.TeamA)if(C.CurrentHP>0&&Next.ParticipantsA.Contains(C.InstanceId))++Count;if(!Count)return;
   int64 XP=int64(Yield)*Next.SideB.Level/7/Count;if(Next.bTrainerExperience)XP=XP*3/2;
-  for(int I=0;I<Next.TeamA.Num();++I){auto& C=Next.TeamA[I];if(C.CurrentHP<=0||!Next.ParticipantsA.Contains(C.InstanceId))continue;const int32 OldLevel=C.Level;const auto OldSlots=C.GetMoveSlots();const auto G=C.AddExperience(XP);if(!G.bSucceeded||G.ExperienceAdded<=0)continue;
-   auto& E=AddEvent(Result,Next,EEvent::ExperienceGained,ESide::A);E.TeamIndex=I;E.Target=ESide::A;E.TargetInstanceId=C.InstanceId;E.ExperienceAdded=G.ExperienceAdded;
+  for(int I=0;I<Next.TeamA.Num();++I){auto& C=Next.TeamA[I];if(C.CurrentHP<=0||!Next.ParticipantsA.Contains(C.InstanceId))continue;const int32 OldLevel=C.Level;const int64 OldExperience=C.Experience;const auto OldSlots=C.GetMoveSlots();const auto G=C.AddExperience(XP);if(!G.bSucceeded||G.ExperienceAdded<=0)continue;
+   auto& E=AddEvent(Result,Next,EEvent::ExperienceGained,ESide::A);E.TeamIndex=I;E.Target=ESide::A;E.TargetInstanceId=C.InstanceId;E.ExperienceAdded=G.ExperienceAdded;E.ExperienceBefore=OldExperience;E.ExperienceAfter=C.Experience;E.ExperienceGrowth=C.GetExperienceGrowthRate();E.LevelBefore=OldLevel;E.LevelAfter=C.Level;
    if(G.LevelsGained>0){auto& L=AddEvent(Result,Next,EEvent::LevelUp,ESide::A);L.TeamIndex=I;L.Target=ESide::A;L.TargetInstanceId=C.InstanceId;L.LevelsGained=G.LevelsGained;L.LevelBefore=OldLevel;L.LevelAfter=C.Level;
     for(const auto& Entry:C.Species.LoadSynchronous()->LevelUpMoves)
     {

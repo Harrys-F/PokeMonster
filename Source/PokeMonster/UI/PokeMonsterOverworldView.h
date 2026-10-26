@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PokeMonsterExperienceView.h"
 #include "PokeMonsterOverworldView.generated.h"
 
 class UPokeMonsterItemData;
@@ -28,6 +29,7 @@ USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterOverworldTeamRow
 {
 	GENERATED_BODY()
+ UPROPERTY(BlueprintReadOnly) FPokeMonsterExperienceView Experience;
 	UPROPERTY(BlueprintReadOnly) FGuid InstanceId;
 	UPROPERTY(BlueprintReadOnly) FText Name;
 	UPROPERTY(BlueprintReadOnly) int32 Level = 1;

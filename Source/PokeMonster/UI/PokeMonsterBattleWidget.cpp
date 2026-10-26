@@ -1,4 +1,5 @@
 #include "PokeMonsterBattleWidget.h"
+#include "../Creatures/PokeMonsterCreatureProgression.h"
 #include "PokeMonsterControllerInput.h"
 #include "Engine/Texture2D.h"
 #include "PokeMonsterBattleTestController.h"
@@ -217,12 +218,20 @@ void UPokeMonsterBattleWidget::BuildClassicTree()
  Artwork(WidgetTree,C,TEXT("PlayerFigure"),TEXT("/Game/Battle/Textures/T_TestWater.T_TestWater"),130,230,380,250);
  Artwork(WidgetTree,C,TEXT("OpponentFigure"),TEXT("/Game/Battle/Textures/T_TestGrass.T_TestGrass"),805,118,255,225);
  auto Card=[&](bool P,float X,float Y,float W){
-  Shape(WidgetTree,C,X+3,Y+5,W,84,FLinearColor(.01f,.025f,.018f,.35f),15);
-  Shape(WidgetTree,C,X,Y,W,84,FLinearColor(.89f,.87f,.76f,.97f),15);
+  const float Height=P?94.f:84.f;
+  Shape(WidgetTree,C,X+3,Y+5,W,Height,FLinearColor(.01f,.025f,.018f,.35f),15);
+  Shape(WidgetTree,C,X,Y,W,Height,FLinearColor(.89f,.87f,.76f,.97f),15);
   Shape(WidgetTree,C,X+12,Y+12,3,58,FLinearColor(.36f,.49f,.31f),2);
   Place(C,Text(WidgetTree,P?TEXT("PlayerName"):TEXT("OpponentName"),TEXT("—"),21,DarkInk),X+25,Y+8,W-42,30);
   Place(C,Text(WidgetTree,P?TEXT("PlayerHP"):TEXT("OpponentHP"),TEXT("KP —"),15,DarkInk),X+25,Y+38,W-42,23);
   auto* Bar=WidgetTree->ConstructWidget<UProgressBar>(UProgressBar::StaticClass(),P?TEXT("PlayerBar"):TEXT("OpponentBar"));Place(C,Bar,X+25,Y+66,W-48,9);
+  if(P)
+  {
+   Place(C,Text(WidgetTree,TEXT("PlayerExperienceLabel"),TEXT("EP"),10,DarkInk),X+25,Y+76,42,16);
+   auto* XP=WidgetTree->ConstructWidget<UProgressBar>(UProgressBar::StaticClass(),TEXT("PlayerExperienceBar"));
+   XP->SetFillColorAndOpacity(FLinearColor(.17f,.43f,.67f));XP->SetVisibility(ESlateVisibility::HitTestInvisible);
+   Place(C,XP,X+65,Y+82,W-88,6);
+  }
  };
  Card(false,35,30,365);Card(true,865,443,380);
  Place(C,Text(WidgetTree,TEXT("PlayerKO"),TEXT("K.O."),26),300,350,100,35);Place(C,Text(WidgetTree,TEXT("OpponentKO"),TEXT("K.O."),26),890,230,100,35);
@@ -330,6 +339,8 @@ void UPokeMonsterBattleWidget::BindControls()
 {
 	PlayerName=Cast<UTextBlock>(GetWidgetFromName(TEXT("PlayerName"))); OpponentName=Cast<UTextBlock>(GetWidgetFromName(TEXT("OpponentName")));
 	PlayerHP=Cast<UTextBlock>(GetWidgetFromName(TEXT("PlayerHP"))); OpponentHP=Cast<UTextBlock>(GetWidgetFromName(TEXT("OpponentHP")));
+	PlayerExperienceBar=Cast<UProgressBar>(GetWidgetFromName(TEXT("PlayerExperienceBar")));
+ PlayerExperienceLabel=Cast<UTextBlock>(GetWidgetFromName(TEXT("PlayerExperienceLabel")));
 	PlayerBar=Cast<UProgressBar>(GetWidgetFromName(TEXT("PlayerBar"))); OpponentBar=Cast<UProgressBar>(GetWidgetFromName(TEXT("OpponentBar")));
 	StatusLabel=Cast<UTextBlock>(GetWidgetFromName(TEXT("StatusLabel"))); LogLabel=Cast<UTextBlock>(GetWidgetFromName(TEXT("LogLabel")));
 	LogScroll=Cast<UScrollBox>(GetWidgetFromName(TEXT("LogScroll")));
@@ -452,6 +463,7 @@ void UPokeMonsterBattleWidget::Refresh()
 	if (!bHoldVisuals)
 	{
 		SetCreature(View.Player,PlayerName,PlayerHP,PlayerBar,PlayerKO,PlayerFigure);
+  DisplayedExperienceId=View.Player.InstanceId;SetPresentedExperience(View.Player.Experience);
 		SetCreature(View.Opponent,OpponentName,OpponentHP,OpponentBar,OpponentKO,OpponentFigure);
 		if (View.bCaptured)
 		{
@@ -639,6 +651,18 @@ void UPokeMonsterBattleWidget::AppendPresentationLog(const FString& Line)
 	if (LogScroll) LogScroll->ScrollToEnd();
 }
 
+void UPokeMonsterBattleWidget::SetPresentedExperience(const FPokeMonsterExperienceView& Value,bool UpdateLevel)
+{
+ DisplayedExperience=Value;
+ if(PlayerExperienceBar){PlayerExperienceBar->SetPercent(Value.Fraction);PlayerExperienceBar->SetToolTipText(Value.ProgressText());}
+ if(PlayerExperienceLabel)PlayerExperienceLabel->SetText(FText::FromString(Value.bMaximumLevel?TEXT("MAX"):Value.bValid?TEXT("EP"):TEXT("EP —")));
+ if(UpdateLevel && PlayerName && Presenter && Value.bValid)
+ {
+  const auto& C=Presenter->GetView().Player;
+  PlayerName->SetText(FText::FromString(FString::Printf(TEXT("%s   ·   Lv. %d%s"),*C.Name.ToString(),Value.Level,C.StatusLabel.IsEmpty()?TEXT(""):*(TEXT(" · ")+C.StatusLabel.ToString()))));
+ }
+}
+
 void UPokeMonsterBattleWidget::SetPresentedHP(EPokeMonsterBattleSide Side, float HP)
 {
 	if (!Presenter) return;
@@ -663,6 +687,13 @@ void UPokeMonsterBattleWidget::BeginAction()
 {
 	if (!PresentationActions.IsValidIndex(ActionIndex)) { EndPresentation(); return; }
 	const auto& Action = PresentationActions[ActionIndex];
+ if(Action.bExperienceGain && Presenter && Action.ExperienceRecipient==DisplayedExperienceId && Action.ExperienceBefore.bValid && Action.ExperienceAfter.bValid)
+ {
+  ExperienceBefore=Action.ExperienceBefore;ExperienceAfter=Action.ExperienceAfter;
+  SetPresentedExperience(ExperienceBefore,true);
+  AppendPresentationLog(Action.Information);if(StatusLabel)StatusLabel->SetText(FText::FromString(Action.Information));
+  BeginPhase(EPresentationPhase::Experience);return;
+ }
  if(Action.bFlee||Action.bItem||Action.bResidual||Action.bInformation){AppendPresentationLog(Action.Information);if(StatusLabel)StatusLabel->SetText(FText::FromString(Action.Information));BeginPhase((Action.bResidual||(Action.bItem&&Action.bAffectsActiveHP))?EPresentationPhase::HP:EPresentationPhase::Message);return;}
 	if (Action.bSwitch)
 	{
@@ -688,9 +719,10 @@ void UPokeMonsterBattleWidget::BeginPhase(EPresentationPhase NewPhase)
 {
 	PresentationPhase = NewPhase;
 	PhaseElapsed = 0.0f;
+ if(NewPhase==EPresentationPhase::Experience)ExperiencePhaseStartTime=GetWorld()?GetWorld()->GetTimeSeconds():0;
 	const auto& Action = PresentationActions[ActionIndex];
 	static const FName Names[] = {TEXT("Windup"), TEXT("Travel"), TEXT("Impact"), TEXT("HP"),
-		TEXT("Message"), TEXT("KO"), TEXT("Gap")};
+		TEXT("Message"), TEXT("KO"), TEXT("Gap"), TEXT("Experience")};
 	OnBattlePresentationStep(Action, Names[static_cast<uint8>(NewPhase)]);
 	OnWorldPresentationStep.Broadcast(Action,Names[static_cast<uint8>(NewPhase)]);
 	if (NewPhase == EPresentationPhase::Travel && Action.bSwitch)
@@ -728,6 +760,13 @@ void UPokeMonsterBattleWidget::BeginPhase(EPresentationPhase NewPhase)
 				if (Name) Name->SetText(FText::FromString(FString::Printf(TEXT("%s   ·   Lv. %d"),*Member.Name.ToString(),Member.Level)));
 				if (KO) KO->SetVisibility(ESlateVisibility::Collapsed);
 				SetPresentedHP(Action.Source,Action.HPBefore);
+    if(Action.Source==EPokeMonsterBattleSide::A)
+    {
+     DisplayedExperienceId=View.Player.InstanceId;auto XP=View.Player.Experience;
+     for(int32 I=ActionIndex+1;I<PresentationActions.Num();++I)if(PresentationActions[I].bExperienceGain&&PresentationActions[I].ExperienceRecipient==DisplayedExperienceId)
+     {XP=PresentationActions[I].ExperienceBefore;break;}
+     SetPresentedExperience(XP);
+    }
 			}
 			if (auto* Figure=FigureFor(Action.Source))
 			{
@@ -794,12 +833,18 @@ void UPokeMonsterBattleWidget::TickPresentation()
 	const float Duration = PresentationPhase == EPresentationPhase::Windup ? 0.16f
 		: PresentationPhase == EPresentationPhase::Travel ? 0.22f
 		: PresentationPhase == EPresentationPhase::Impact ? 0.15f
-		: PresentationPhase == EPresentationPhase::HP ? 0.42f
+		: PresentationPhase == EPresentationPhase::Experience ? FMath::Min(3.f,.85f+.45f*FMath::Max(0,ExperienceAfter.Level-ExperienceBefore.Level))
+  : PresentationPhase == EPresentationPhase::HP ? 0.42f
 		: PresentationPhase == EPresentationPhase::Message ? 0.27f
 		: PresentationPhase == EPresentationPhase::KO ? 0.42f : 0.13f;
-	PhaseElapsed += FMath::Clamp(GetWorld()->GetDeltaSeconds(), 0.0f, 0.5f);
+ // TimerManager can dispatch several callbacks in one slow frame. XP uses elapsed game time
+ // so capture/load hitches cannot accelerate the bar or skip the intended visible duration.
+ if(PresentationPhase==EPresentationPhase::Experience)PhaseElapsed=FMath::Max(0.f,float(GetWorld()->GetTimeSeconds()-ExperiencePhaseStartTime));
+ else PhaseElapsed += FMath::Clamp(GetWorld()->GetDeltaSeconds(), 0.0f, 0.5f);
 	const float Alpha = FMath::Clamp(PhaseElapsed / Duration, 0.0f, 1.0f);
-	if (PresentationPhase == EPresentationPhase::Windup)
+	if (PresentationPhase == EPresentationPhase::Experience)
+ {SetPresentedExperience(FPokeMonsterExperienceView::Interpolate(ExperienceBefore,ExperienceAfter,Alpha),true);}
+ else if (PresentationPhase == EPresentationPhase::Windup)
 	{
 		if (auto* Source = FigureFor(Action.Source))
 		{
@@ -861,6 +906,8 @@ void UPokeMonsterBattleWidget::AdvancePhase()
 	case EPresentationPhase::Travel: BeginPhase(EPresentationPhase::Impact); break;
 	case EPresentationPhase::Impact:
 		BeginPhase(Action.Damage > 0 ? EPresentationPhase::HP : EPresentationPhase::Message); break;
+	case EPresentationPhase::Experience:
+  SetPresentedExperience(ExperienceAfter,true);BeginPhase(EPresentationPhase::Message);break;
 	case EPresentationPhase::HP:
 		SetPresentedHP(Action.Target,Action.HPAfter);
 		BeginPhase(EPresentationPhase::Message); break;

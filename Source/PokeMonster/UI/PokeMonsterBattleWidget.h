@@ -27,6 +27,7 @@ class POKEMONSTER_API UPokeMonsterBattleWidget : public UUserWidget
 	GENERATED_BODY()
  friend class FPokeMonsterSwitchProInputTest;
  friend class FPokeMonsterSwitchProWidgetTest;
+ friend class FExperienceBattleWidgetTest;
 public:
 	UFUNCTION(BlueprintCallable, Category="Battle UI") void SetPresenter(UPokeMonsterBattlePresenter* InPresenter);
 	UFUNCTION(BlueprintPure, Category="Battle UI") UButton* GetAttackButton(int32 SlotIndex) const;
@@ -40,6 +41,7 @@ public:
  void SetBattleGroundAnchors(FVector2D Player,FVector2D Opponent);
 	UFUNCTION(BlueprintPure) bool IsClassicPresentation() const {return bClassicPresentation;}
 	UFUNCTION(BlueprintCallable) void SetBattleMenu(EPokeMonsterBattleMenu Page);
+ UFUNCTION(BlueprintPure,Category="Battle UI") FPokeMonsterExperienceView GetPresentedExperience()const{return DisplayedExperience;}
  UFUNCTION(BlueprintPure) EPokeMonsterBattleMenu GetBattleMenu() const {return MenuPage;}
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Input") bool bNintendoButtonLayout=true;
  UFUNCTION(BlueprintPure) UButton* GetHealingButton(int32 Index)const{return HealingButtons.IsValidIndex(Index)?HealingButtons[Index].Get():nullptr;}
@@ -57,7 +59,7 @@ protected:
 	/** Replace placeholder motion/VFX/sound per step without changing the BattleSession. */
 	UFUNCTION(BlueprintImplementableEvent, Category="Battle UI") void OnBattlePresentationStep(const FPokeMonsterPresentationAction& Action, FName Step);
 private:
-	enum class EPresentationPhase : uint8 { Windup, Travel, Impact, HP, Message, KO, Gap };
+	enum class EPresentationPhase : uint8 { Windup, Travel, Impact, HP, Message, KO, Gap, Experience };
 	void BuildDefaultTree();
 	void BuildClassicTree();
  void UpdateClassicMenu();
@@ -98,6 +100,12 @@ private:
 	void EndPresentation();
 	void ResetVisuals();
 	void AppendPresentationLog(const FString& Line);
+	void SetPresentedExperience(const FPokeMonsterExperienceView& Value,bool UpdateLevel=false);
+ FPokeMonsterExperienceView DisplayedExperience,ExperienceBefore,ExperienceAfter;
+ FGuid DisplayedExperienceId;
+ double ExperiencePhaseStartTime=0;
+ UPROPERTY(Transient) TObjectPtr<UProgressBar> PlayerExperienceBar;
+ UPROPERTY(Transient) TObjectPtr<UTextBlock> PlayerExperienceLabel;
 	void SetPresentedHP(EPokeMonsterBattleSide Side, float HP);
 	UWidget* FigureFor(EPokeMonsterBattleSide Side) const;
 	FString NameFor(EPokeMonsterBattleSide Side) const;

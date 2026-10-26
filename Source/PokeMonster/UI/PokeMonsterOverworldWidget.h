@@ -11,6 +11,7 @@ class UButton;
 class UCanvasPanel;
 class UTextBlock;
 class UVerticalBox;
+class UProgressBar;
 
 UENUM(BlueprintType)
 enum class EPokeMonsterOverworldMenuSection : uint8 { Team, Inventory, Main, Moves };
@@ -42,6 +43,8 @@ protected:
 	void OnOverworldViewUpdated(const FPokeMonsterOverworldView& NewView);
 private:
  friend class FMoveManagementV2Widget;
+ friend class FExperienceInfoWidgetTest;
+ UPROPERTY(Transient) TObjectPtr<UProgressBar> ExperienceBar;
  friend class FSaveV2MenuGuardTest;
  void RenderMoves();
  UFUNCTION() void ConfirmMoves();

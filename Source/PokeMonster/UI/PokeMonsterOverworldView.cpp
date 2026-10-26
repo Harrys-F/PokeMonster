@@ -37,6 +37,7 @@ FPokeMonsterOverworldView FPokeMonsterOverworldViewBuilder::Build(
 			Row.Name = IsValid(Species) ? Species->GetDisplayName() : FText::FromString(TEXT("Unbekannte Kreatur"));
 			Row.InstanceId = Creature.InstanceId;
 			Row.Level = Creature.Level;
+   Row.Experience=FPokeMonsterExperienceView::FromCreature(Creature);
 			Row.CurrentHP = Creature.CurrentHP;
 			Row.MaxHP = Creature.GetMaxHP();
 			Row.bKnockedOut = Creature.CurrentHP <= 0;

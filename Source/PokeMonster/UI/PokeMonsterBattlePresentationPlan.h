@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PokeMonsterExperienceView.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "../Battle/PokeMonsterBattleSession.h"
 #include "PokeMonsterBattlePresentationPlan.generated.h"
@@ -25,6 +26,11 @@ struct POKEMONSTER_API FPokeMonsterPresentationAction
  UPROPERTY(BlueprintReadOnly) bool bItem=false;
  UPROPERTY(BlueprintReadOnly) bool bResidual=false;
  UPROPERTY(BlueprintReadOnly) bool bInformation=false;
+ UPROPERTY(BlueprintReadOnly) bool bExperienceGain=false;
+ UPROPERTY(BlueprintReadOnly) FGuid ExperienceRecipient;
+ UPROPERTY(BlueprintReadOnly) int64 ExperienceAdded=0;
+ UPROPERTY(BlueprintReadOnly) FPokeMonsterExperienceView ExperienceBefore;
+ UPROPERTY(BlueprintReadOnly) FPokeMonsterExperienceView ExperienceAfter;
  UPROPERTY(BlueprintReadOnly) bool bAffectsActiveHP=true;
  UPROPERTY(BlueprintReadOnly) int32 RestoredHP=0;
  UPROPERTY(BlueprintReadOnly) FString Information;
