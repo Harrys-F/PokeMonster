@@ -28,7 +28,7 @@ FText UPokeMonsterMoveData::GetPlayerFacingName()const
 
 bool FPokeMonsterMoveEffectComponent::IsConfigured()const
 {
- if(uint8(Kind)>uint8(EPokeMonsterEffectKind::CriticalFocus) || uint8(Stat)>uint8(EPokeMonsterBattleStat::Evasion)
+ if(uint8(Kind)>uint8(EPokeMonsterEffectKind::AirborneBonus) || uint8(Stat)>uint8(EPokeMonsterBattleStat::Evasion)
   || ChancePercent<0 || ChancePercent>100 || MinTurns<1 || MaxTurns<MinTurns || MaxTurns>15
   || Numerator<0 || Denominator<1 || Amount<0)return false;
  if(Kind==EPokeMonsterEffectKind::Stage && (Stages==0 || Stages < -6 || Stages>6))return false;
@@ -41,6 +41,9 @@ bool FPokeMonsterMoveEffectComponent::IsConfigured()const
   if(MinHits<2 || MaxHits<MinHits || MaxHits>10 || HitWeights.Num()!=MaxHits-MinHits+1)return false;
   int64 Total=0;for(int32 W:HitWeights){if(W<0)return false;Total+=W;}if(Total<=0 || Total>MAX_int32)return false;
  }
+ if((Kind==EPokeMonsterEffectKind::Safeguard || Kind==EPokeMonsterEffectKind::NoEffect) && !bSelf)return false;
+ if((Kind==EPokeMonsterEffectKind::SwitchPunish || Kind==EPokeMonsterEffectKind::AirborneBonus) && Amount!=2)return false;
+ if(uint8(Kind)>=uint8(EPokeMonsterEffectKind::Recharge) && (ChancePercent!=100 || bSecondary))return false;
  // Every accepted kind is dispatched by the shared battle session.
  if((Kind==EPokeMonsterEffectKind::Charge || Kind==EPokeMonsterEffectKind::Rampage) && (bSelf || bSecondary || ChancePercent!=100))return false;
  return true;

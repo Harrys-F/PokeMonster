@@ -23,6 +23,13 @@ elif kind=='collision':req['source']='Tools/GameplayPraxisV1/Collision.py';out=O
 elif kind=='e2e':req['source']='Tools/GameplayPraxisV1/EndToEnd.py';out=O/'Footrun/Result.json'
 else:raise ValueError(kind)
 req['replacements']=replacements;req['result']=str(out.relative_to(R));(D/'Request.json').write_text(json.dumps(req,indent=2));job('script','Tools/GameplayPraxisV1/Prepare.py');job('start_pie');job('script','Tools/GameplayPraxisV1/Guard.py')
+guard_start=time.monotonic()
+while not(O/'Guard.json').exists():
+ if(O/'GuardFailure.json').exists()or time.monotonic()-guard_start>12:
+  failure=(O/'GuardFailure.json').read_text()if(O/'GuardFailure.json').exists()else'Guard timeout'
+  (O/'InitializationFailure.json').write_text(failure);job('script','Tools/GameplayPraxisV1/Teardown.py');job('stop_pie');raise RuntimeError(failure)
+ time.sleep(.1)
+
 if kind=='evolution':
  # The legacy evolution test requires the existing default auto-offer path, after RAM protection.
  job('script','Tools/GameplayPraxisV1/EnableEvolution.py')

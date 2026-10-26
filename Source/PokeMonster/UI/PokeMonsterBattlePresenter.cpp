@@ -354,7 +354,7 @@ void UPokeMonsterBattlePresenter::Refresh()
 		}
   View.bStruggle=!bAnyPlayerMove;
   if(View.bStruggle){auto& V=View.Moves[0];V.Name=FText::FromString(TEXT("Verzweifler"));V.Type=FText::FromString(TEXT("Typneutral"));V.bEnabled=!bBusy&&!View.bFinished&&!View.bMustSwitch;}
-		if (View.bFinished) View.Status = FText::FromString(State.EndReason==EPokeMonsterBattleEndReason::Escaped?TEXT("Du bist entkommen."):State.EndReason == EPokeMonsterBattleEndReason::Captured
+		if (View.bFinished) View.Status = FText::FromString(State.EndReason==EPokeMonsterBattleEndReason::ForcedOut?TEXT("Der Kampf wurde beendet."):State.EndReason==EPokeMonsterBattleEndReason::Escaped?TEXT("Du bist entkommen."):State.EndReason == EPokeMonsterBattleEndReason::Captured
 			? TEXT("Gefangen! Der Kampf ist beendet.")
 			: State.Winner == EPokeMonsterBattleSide::A ? TEXT("Gewonnen! Der Kampf ist beendet.") : TEXT("Besiegt. Der Kampf ist beendet."));
 		else if (bBusy) View.Status = FText::FromString(TEXT("Runde wird aufgelöst …"));
@@ -457,7 +457,7 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
 		case EPokeMonsterBattleEventType::NotVeryEffective: LogLines.Add(TEXT("Nicht sehr effektiv.")); break;
 		case EPokeMonsterBattleEventType::Immune: LogLines.Add(Other + TEXT(" ist immun.")); break;
 		case EPokeMonsterBattleEventType::KnockedOut: LogLines.Add(Other + TEXT(" ist K.O.!")); break;
-		case EPokeMonsterBattleEventType::BattleEnded: LogLines.Add(State.EndReason==EPokeMonsterBattleEndReason::Escaped?TEXT("Flucht gelungen. Kampf beendet."):State.EndReason == EPokeMonsterBattleEndReason::Captured
+		case EPokeMonsterBattleEventType::BattleEnded: LogLines.Add(State.EndReason==EPokeMonsterBattleEndReason::ForcedOut?TEXT("Der Kampf wurde beendet."):State.EndReason==EPokeMonsterBattleEndReason::Escaped?TEXT("Flucht gelungen. Kampf beendet."):State.EndReason == EPokeMonsterBattleEndReason::Captured
 			? TEXT("Gefangen! Kampf beendet.") : Event.Source == EPokeMonsterBattleSide::A
 				? TEXT("Gewonnen! Kampf beendet.") : TEXT("Besiegt. Kampf beendet.")); break;
 		}

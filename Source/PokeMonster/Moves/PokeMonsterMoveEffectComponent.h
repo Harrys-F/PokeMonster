@@ -8,7 +8,8 @@ enum class EPokeMonsterEffectKind : uint8
 {
  Stage, PrimaryStatus, Drain, Recoil, Heal, FixedDamage, MultiHit, Flinch, Confusion,
  Protect, Screen, Charge, Trap, PreventSwitch, Disable, Spite, CopyStages,
- Identify, ClearBindings, Rain, Rage, Rampage, Curse, DestinyBond, CriticalFocus
+ Identify, ClearBindings, Rain, Rage, Rampage, Curse, DestinyBond, CriticalFocus,
+ Recharge, LowHPPower, ForceSwitch, CopyLastMove, Safeguard, SwitchPunish, NoEffect, AirborneBonus
 };
 UENUM(BlueprintType)
 enum class EPokeMonsterBattleStat : uint8 { Attack, Defense, SpecialAttack, SpecialDefense, Speed, Accuracy, Evasion };

@@ -39,6 +39,7 @@ public:
  static FPokeMonsterDamageResult CalculateCrystalDamage(const FPokeMonsterCreatureInstance& Attacker,
   const FPokeMonsterCreatureInstance& Defender,const UPokeMonsterMoveData* Move,int32 AttackStage,int32 DefenseStage,
   int32 SpecialAttackStage,int32 SpecialDefenseStage,bool bCritical,int32 RandomFactor,bool bRain,bool bScreen,bool bIdentified,bool bSunny=false,bool bSand=false,int32 DamageMultiplier=1);
+ static int32 ResolveMovePower(const FPokeMonsterCreatureInstance& Attacker,const UPokeMonsterMoveData* Move);
  static int32 ApplyStage(int32 Value, int32 Stage);
  static int32 ApplyCrystalStage(int32 Value,int32 Stage);
  static int32 AccuracyAtStages(int32 BaseAccuracy,int32 AccuracyStage,int32 EvasionStage);

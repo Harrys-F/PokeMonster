@@ -58,7 +58,7 @@ namespace
   auto Player=FPokeMonsterCreatureInstance::CreateFromSpecies(S,15);Player.AssignSpeciesMoves();Player.Experience=UPokeMonsterCreatureProgression::ExperienceForLevel(Player.GetExperienceGrowthRate(),16)-1;
   auto Enemy=FPokeMonsterCreatureInstance::CreateFromSpecies(O,1);Enemy.AssignSpeciesMoves();Enemy.CurrentHP=1;
   for(const auto& C:GEngine->GetWorldContexts())if(C.WorldType==EWorldType::PIE&&C.World())if(auto* PC=C.World()->GetFirstPlayerController())
-  {FPokeMonsterEncounterStartData Data;Data.Kind=EPokeMonsterEncounterKind::Wild;Data.Source=EPokeMonsterEncounterSource::Scripted;Data.EncounterId=TEXT("ExplicitEvolutionVictoryReview");Data.PlayerTeam=Args.Num()==1&&Args[0]==TEXT("current")?E->GetPlayerParty():TArray<FPokeMonsterCreatureInstance>{Player};Data.OpponentTeam={Enemy};Data.PresentationMode=EPokeMonsterBattlePresentationMode::ClassicBattle;Data.RandomSeed=71;Data.bAllowFlee=true;E->StartEncounter(Data,Cast<APokeMonsterPlayerCharacter>(PC->GetPawn()));return;}
+  {FPokeMonsterEncounterStartData Data;Data.Kind=EPokeMonsterEncounterKind::Wild;Data.Source=EPokeMonsterEncounterSource::Scripted;Data.EncounterId=TEXT("ExplicitEvolutionVictoryReview");Data.PlayerTeam=Args.Num()>=1&&Args[0]==TEXT("current")?E->GetPlayerParty():TArray<FPokeMonsterCreatureInstance>{Player};Data.OpponentTeam={Enemy};Data.PresentationMode=Args.Num()==2&&Args[1]==TEXT("world")?EPokeMonsterBattlePresentationMode::WorldBattle:EPokeMonsterBattlePresentationMode::ClassicBattle;Data.RandomSeed=71;Data.bAllowFlee=true;E->StartEncounter(Data,Cast<APokeMonsterPlayerCharacter>(PC->GetPawn()));return;}
  }));
 }
 #endif

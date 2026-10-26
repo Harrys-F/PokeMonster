@@ -1242,3 +1242,14 @@ während Dialog, Kampf und Entwicklungssequenz gesperrt. Bei mapübergreifender
 Rückkehr darf der fertige kollisionsgeprüfte Bodenort gespeichert werden, auch
 bevor CharacterMovement nach dem Spawn seinen Walking-Status aktualisiert hat.
 Der automatische Slot ist ausdrücklich separat im Hauptmenü ladbar.
+
+
+## 26.10.2026 – Lernattacken V1, bestehende Kristall-Regeln
+
+Die 16 ausdrücklich unverfügbaren Lernlistenzeilen der fünf Biom-Arten werden auf 15 produktive Datenassets abgebildet. Keine neue Lernliste, keine neuen Level, keine Speziesmigration. Verbindliche Regeln bleiben Pokémon Kristall / Gen 2 nach dem bereits gepinnten Stand `5c877ef55197039c9676e8e3eec6d254b1c40fe8`; Quellen/Hashes und exakte Zeilen in `Tools/LearnMovesV1/Plan.json`.
+
+Notwendige gemeinsame Erweiterungen bleiben in BattleSession/BattleLibrary: Erholungszug, persönliche Kopie der letzten ausgeführten Attackendefinition, KP-abhängige Stärke, Team-Statusschutz, Wechselabfang und erzwungener Kampfabschluss/Wechsel. Keine parallele Kampflogik. Physisch/speziell folgt weiter dem Gen-2-Typ; Verfolgung ist daher speziell. Wirbelwind hat relativ zur normalen Priorität −1, nicht die spätere Priorität −6. Duonadel prüft nach den beiden Treffern einmal 20 % Vergiftung; Gen 2 verhindert diese nur bei Gift-Typen, nicht allgemein bei Stahl. Dreschflegel verwendet die gepinnte 48×KP/MaxKP-Tabelle ohne Volltreffer/Schadensstreuung. Fuchtler verwendet die bestehende 2–3-Runden-Rampage mit Kristall-Verwirrung 2–5 statt der früheren kurzen Grundspanne. Diese überprüfte Korrektur gilt auch für die vorhandene Kristall-Blättertanz-Komponente; Legacy-Testregeln bleiben unverändert.
+
+Windstoß/Windhose erhalten einen datengetriebenen Bonus gegen einen ausdrücklich mechanischen Luft-Aufladezustand. Dekoratives Schweben von Modellen zählt nicht dazu. Fliegen als vollständige neue Attacke wird nicht integriert. Der Marker ist mit einer klar benannten transienten Automationfixture geprüft. Vorhandene Kampfregeln ohne diese Komponenten und bestehende Kamera-/Animationsassets bleiben erhalten.
+
+Abgelehnte und offene Angebote sind weiterhin keine erlernten Attacken. Die Korrektur vergibt übersprungene Levelattacken nicht rückwirkend an bestehende Individuen. Reaktivierung im Repertoire erfordert tatsächliche frühere Kenntnis und weiterhin einen autorisierten Meister; AP werden weder durch Bindung, Kopierattacken noch Neuordnung aufgefüllt.

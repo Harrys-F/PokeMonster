@@ -1,0 +1,467 @@
+{
+  "source_commit": "5c877ef55197039c9676e8e3eec6d254b1c40fe8",
+  "source_url": "https://github.com/pret/pokecrystal/blob/5c877ef55197039c9676e8e3eec6d254b1c40fe8/data/moves/moves.asm",
+  "source_sha256": "50cd7c03a51a3228e96af6b61a1f77e9173fc2118017eb3752d5ce055d3be39d",
+  "mechanism_sources_sha256": {
+    "engine_battle_move_effects_mirror_move.asm": "198ae8fa1a35646fef473ce5cbcc65e178c3f0b9f9dceb5cf317bd6dbb0a9646",
+    "engine_battle_core.asm": "6ff9645995603b84621e15f9ca49637f1e82ebdc38a0c1cffc193ef182a8054c",
+    "engine_battle_move_effects_pursuit.asm": "efe1ae3ac992bce3ec5bf51c4176503d985b42ca750079f6dec29681c9e1df40",
+    "data_moves_effects_priorities.asm": "a7fa62226c23b3504338bdb01517eaf0832f9d40ba18ddb5b9ba8ff0688a673e",
+    "engine_battle_move_effects_safeguard.asm": "444180b0e97d76135f2f018398b719b58e978dca788f7ec0cf721296990e0adf",
+    "data_moves_effects.asm": "1cb48da65b33db0c37a42d108a669acac8b6c665d32088ac1ff4a9e00eb3878b",
+    "docs_bugs_and_glitches.md": "7ff7f040b5f8551db162a8953dee9b4508309bcc91c2405ecfdcc3793c835e94",
+    "data_moves_flail_reversal_power.asm": "797b5de6b9059e211772d3dcc6655b1ee6890dfeb2e43f47551ed105f4fe36bf",
+    "engine_battle_effect_commands.asm": "3f549ae0e7062e47f45a6794f1b580e089563c1b491395f760e9e087c8f61723"
+  },
+  "rows": [
+    {
+      "original_id": 16,
+      "token": "GUST",
+      "id": "Gust",
+      "name": "Windstoß",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_Gust",
+      "type": "FLYING",
+      "category": "PHYSICAL",
+      "power": 40,
+      "accuracy": 100,
+      "max_pp": 35,
+      "priority": 0,
+      "never_miss": false,
+      "components": [
+        {
+          "kind": "AIRBORNE_BONUS",
+          "amount": 2
+        }
+      ],
+      "crystal_effect": "EFFECT_GUST",
+      "crystal_chance": 0
+    },
+    {
+      "original_id": 18,
+      "token": "WHIRLWIND",
+      "id": "Whirlwind",
+      "name": "Wirbelwind",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_Whirlwind",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 20,
+      "priority": -1,
+      "never_miss": false,
+      "components": [
+        {
+          "kind": "FORCE_SWITCH"
+        }
+      ],
+      "crystal_effect": "EFFECT_FORCE_SWITCH",
+      "crystal_chance": 0
+    },
+    {
+      "original_id": 37,
+      "token": "THRASH",
+      "id": "Thrash",
+      "name": "Fuchtler",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_Thrash",
+      "type": "NORMAL",
+      "category": "PHYSICAL",
+      "power": 90,
+      "accuracy": 100,
+      "max_pp": 20,
+      "priority": 0,
+      "never_miss": false,
+      "components": [
+        {
+          "kind": "RAMPAGE",
+          "min_turns": 2,
+          "max_turns": 3
+        }
+      ],
+      "crystal_effect": "EFFECT_RAMPAGE",
+      "crystal_chance": 0
+    },
+    {
+      "original_id": 41,
+      "token": "TWINEEDLE",
+      "id": "Twineedle",
+      "name": "Duonadel",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_Twineedle",
+      "type": "BUG",
+      "category": "PHYSICAL",
+      "power": 25,
+      "accuracy": 100,
+      "max_pp": 20,
+      "priority": 0,
+      "never_miss": false,
+      "components": [
+        {
+          "kind": "MULTI_HIT",
+          "min_hits": 2,
+          "max_hits": 2,
+          "hit_weights": [
+            1
+          ]
+        },
+        {
+          "kind": "PRIMARY_STATUS",
+          "status": "POISON",
+          "chance_percent": 20,
+          "secondary": true,
+          "immune_types": [
+            "POISON"
+          ]
+        }
+      ],
+      "crystal_effect": "EFFECT_POISON_MULTI_HIT",
+      "crystal_chance": 20
+    },
+    {
+      "original_id": 42,
+      "token": "PIN_MISSILE",
+      "id": "PinMissile",
+      "name": "Nadelrakete",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_PinMissile",
+      "type": "BUG",
+      "category": "PHYSICAL",
+      "power": 14,
+      "accuracy": 85,
+      "max_pp": 20,
+      "priority": 0,
+      "never_miss": false,
+      "components": [
+        {
+          "kind": "MULTI_HIT",
+          "hit_weights": [
+            3,
+            3,
+            1,
+            1
+          ]
+        }
+      ],
+      "crystal_effect": "EFFECT_MULTI_HIT",
+      "crystal_chance": 0
+    },
+    {
+      "original_id": 48,
+      "token": "SUPERSONIC",
+      "id": "Supersonic",
+      "name": "Superschall",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_Supersonic",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 55,
+      "max_pp": 20,
+      "priority": 0,
+      "never_miss": false,
+      "components": [
+        {
+          "kind": "CONFUSION",
+          "min_turns": 2,
+          "max_turns": 5
+        }
+      ],
+      "crystal_effect": "EFFECT_CONFUSE",
+      "crystal_chance": 0
+    },
+    {
+      "original_id": 60,
+      "token": "PSYBEAM",
+      "id": "Psybeam",
+      "name": "Psystrahl",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_Psybeam",
+      "type": "PSYCHIC",
+      "category": "SPECIAL",
+      "power": 65,
+      "accuracy": 100,
+      "max_pp": 20,
+      "priority": 0,
+      "never_miss": false,
+      "components": [
+        {
+          "kind": "CONFUSION",
+          "min_turns": 2,
+          "max_turns": 5,
+          "secondary": true,
+          "chance_percent": 10
+        }
+      ],
+      "crystal_effect": "EFFECT_CONFUSE_HIT",
+      "crystal_chance": 10
+    },
+    {
+      "original_id": 63,
+      "token": "HYPER_BEAM",
+      "id": "HyperBeam",
+      "name": "Hyperstrahl",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_HyperBeam",
+      "type": "NORMAL",
+      "category": "PHYSICAL",
+      "power": 150,
+      "accuracy": 90,
+      "max_pp": 5,
+      "priority": 0,
+      "never_miss": false,
+      "components": [
+        {
+          "kind": "RECHARGE"
+        }
+      ],
+      "crystal_effect": "EFFECT_HYPER_BEAM",
+      "crystal_chance": 0
+    },
+    {
+      "original_id": 65,
+      "token": "DRILL_PECK",
+      "id": "DrillPeck",
+      "name": "Bohrschnabel",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_DrillPeck",
+      "type": "FLYING",
+      "category": "PHYSICAL",
+      "power": 80,
+      "accuracy": 100,
+      "max_pp": 20,
+      "priority": 0,
+      "never_miss": false,
+      "components": [],
+      "crystal_effect": "EFFECT_NORMAL_HIT",
+      "crystal_chance": 0
+    },
+    {
+      "original_id": 119,
+      "token": "MIRROR_MOVE",
+      "id": "MirrorMove",
+      "name": "Spiegeltrick",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_MirrorMove",
+      "type": "FLYING",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 20,
+      "priority": 0,
+      "never_miss": false,
+      "components": [
+        {
+          "kind": "COPY_LAST_MOVE"
+        }
+      ],
+      "crystal_effect": "EFFECT_MIRROR_MOVE",
+      "crystal_chance": 0
+    },
+    {
+      "original_id": 150,
+      "token": "SPLASH",
+      "id": "Splash",
+      "name": "Platscher",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_Splash",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 40,
+      "priority": 0,
+      "never_miss": true,
+      "components": [
+        {
+          "kind": "NO_EFFECT",
+          "self": true
+        }
+      ],
+      "crystal_effect": "EFFECT_SPLASH",
+      "crystal_chance": 0
+    },
+    {
+      "original_id": 175,
+      "token": "FLAIL",
+      "id": "Flail",
+      "name": "Dreschflegel",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_Flail",
+      "type": "NORMAL",
+      "category": "PHYSICAL",
+      "power": 1,
+      "accuracy": 100,
+      "max_pp": 15,
+      "priority": 0,
+      "never_miss": false,
+      "components": [
+        {
+          "kind": "LOW_HP_POWER"
+        }
+      ],
+      "crystal_effect": "EFFECT_REVERSAL",
+      "crystal_chance": 0
+    },
+    {
+      "original_id": 219,
+      "token": "SAFEGUARD",
+      "id": "Safeguard",
+      "name": "Bodyguard",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_Safeguard",
+      "type": "NORMAL",
+      "category": "STATUS",
+      "power": 0,
+      "accuracy": 100,
+      "max_pp": 25,
+      "priority": 0,
+      "never_miss": true,
+      "components": [
+        {
+          "kind": "SAFEGUARD",
+          "self": true,
+          "min_turns": 5,
+          "max_turns": 5
+        }
+      ],
+      "crystal_effect": "EFFECT_SAFEGUARD",
+      "crystal_chance": 0
+    },
+    {
+      "original_id": 228,
+      "token": "PURSUIT",
+      "id": "Pursuit",
+      "name": "Verfolgung",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_Pursuit",
+      "type": "DARK",
+      "category": "SPECIAL",
+      "power": 40,
+      "accuracy": 100,
+      "max_pp": 20,
+      "priority": 0,
+      "never_miss": false,
+      "components": [
+        {
+          "kind": "SWITCH_PUNISH",
+          "amount": 2
+        }
+      ],
+      "crystal_effect": "EFFECT_PURSUIT",
+      "crystal_chance": 0
+    },
+    {
+      "original_id": 239,
+      "token": "TWISTER",
+      "id": "Twister",
+      "name": "Windhose",
+      "path": "/Game/Data/Moves/LearnMovesV1/DA_Twister",
+      "type": "DRAGON",
+      "category": "SPECIAL",
+      "power": 40,
+      "accuracy": 100,
+      "max_pp": 20,
+      "priority": 0,
+      "never_miss": false,
+      "components": [
+        {
+          "kind": "FLINCH",
+          "secondary": true,
+          "chance_percent": 20
+        },
+        {
+          "kind": "AIRBORNE_BONUS",
+          "amount": 2
+        }
+      ],
+      "crystal_effect": "EFFECT_TWISTER",
+      "crystal_chance": 20
+    }
+  ],
+  "bindings": [
+    {
+      "species": "Karpador",
+      "level": 1,
+      "token": "SPLASH",
+      "id": "Splash"
+    },
+    {
+      "species": "Karpador",
+      "level": 30,
+      "token": "FLAIL",
+      "id": "Flail"
+    },
+    {
+      "species": "Garados",
+      "level": 1,
+      "token": "THRASH",
+      "id": "Thrash"
+    },
+    {
+      "species": "Garados",
+      "level": 35,
+      "token": "TWISTER",
+      "id": "Twister"
+    },
+    {
+      "species": "Garados",
+      "level": 50,
+      "token": "HYPER_BEAM",
+      "id": "HyperBeam"
+    },
+    {
+      "species": "Smettbo",
+      "level": 18,
+      "token": "SUPERSONIC",
+      "id": "Supersonic"
+    },
+    {
+      "species": "Smettbo",
+      "level": 23,
+      "token": "WHIRLWIND",
+      "id": "Whirlwind"
+    },
+    {
+      "species": "Smettbo",
+      "level": 28,
+      "token": "GUST",
+      "id": "Gust"
+    },
+    {
+      "species": "Smettbo",
+      "level": 34,
+      "token": "PSYBEAM",
+      "id": "Psybeam"
+    },
+    {
+      "species": "Smettbo",
+      "level": 40,
+      "token": "SAFEGUARD",
+      "id": "Safeguard"
+    },
+    {
+      "species": "Bibor",
+      "level": 20,
+      "token": "TWINEEDLE",
+      "id": "Twineedle"
+    },
+    {
+      "species": "Bibor",
+      "level": 30,
+      "token": "PURSUIT",
+      "id": "Pursuit"
+    },
+    {
+      "species": "Bibor",
+      "level": 35,
+      "token": "PIN_MISSILE",
+      "id": "PinMissile"
+    },
+    {
+      "species": "Habitak",
+      "level": 25,
+      "token": "PURSUIT",
+      "id": "Pursuit"
+    },
+    {
+      "species": "Habitak",
+      "level": 31,
+      "token": "MIRROR_MOVE",
+      "id": "MirrorMove"
+    },
+    {
+      "species": "Habitak",
+      "level": 37,
+      "token": "DRILL_PECK",
+      "id": "DrillPeck"
+    }
+  ]
+}

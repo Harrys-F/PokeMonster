@@ -35,7 +35,7 @@ UENUM(BlueprintType)
 enum class EPokeMonsterBattleChoiceType : uint8 { Move, Switch, Capture, Flee, Item };
 
 UENUM(BlueprintType)
-enum class EPokeMonsterBattleEndReason : uint8 { None, Knockout, Captured, Escaped };
+enum class EPokeMonsterBattleEndReason : uint8 { None, Knockout, Captured, Escaped, ForcedOut };
 
 USTRUCT(BlueprintType)
 struct POKEMONSTER_API FPokeMonsterBattleChoice
@@ -145,6 +145,10 @@ struct POKEMONSTER_API FPokeMonsterBattleVolatileEffects
  UPROPERTY(BlueprintReadOnly) bool bRage=false;
  UPROPERTY(BlueprintReadOnly) int32 RageCounter=0;
  UPROPERTY(BlueprintReadOnly) bool bJustFrozen=false;
+ UPROPERTY(BlueprintReadOnly) int32 RechargeSlot=INDEX_NONE;
+ UPROPERTY(BlueprintReadOnly) bool bAirborne=false;
+ UPROPERTY() TSoftObjectPtr<UPokeMonsterMoveData> LastExecutedMove;
+ UPROPERTY() TSoftObjectPtr<UPokeMonsterMoveData> ForcedMoveData;
 };
 
 USTRUCT(BlueprintType)
@@ -192,6 +196,8 @@ struct POKEMONSTER_API FPokeMonsterBattleState
  UPROPERTY(BlueprintReadOnly) FPokeMonsterBattleVolatileEffects EffectsB;
  UPROPERTY(BlueprintReadOnly) int32 ScreenTurnsA=0;
  UPROPERTY(BlueprintReadOnly) int32 ScreenTurnsB=0;
+ UPROPERTY(BlueprintReadOnly) int32 SafeguardTurnsA=0;
+ UPROPERTY(BlueprintReadOnly) int32 SafeguardTurnsB=0;
  UPROPERTY(BlueprintReadOnly) EPokeMonsterBattleWeather Weather=EPokeMonsterBattleWeather::Clear;
  UPROPERTY(BlueprintReadOnly) int32 WeatherTurns=0;
 

@@ -41,7 +41,7 @@ FPokeMonsterDamageResult UPokeMonsterBattleLibrary::CalculateDamage(const FPokeM
 	}
 	// Working formula only: no STAB, critical hits, random damage, abilities or complete Generation-2 arithmetic.
 	// Double intermediates avoid integer overflow even for malformed/extreme positive designer values.
-	const double Base = FMath::FloorToDouble((2 * Attacker.Level / 5 + 2) * static_cast<double>(Move->BasePower)
+	const double Base = FMath::FloorToDouble((2 * Attacker.Level / 5 + 2) * static_cast<double>(ResolveMovePower(Attacker,Move))
 		* Offense / Defense / 50.0) + 2.0;
 	Result.Damage = static_cast<int32>(FMath::Clamp(FMath::FloorToDouble(Base * Result.TypeMultiplier), 1.0, double(MAX_int32)));
 	return Result;
@@ -90,6 +90,7 @@ FPokeMonsterDamageResult UPokeMonsterBattleLibrary::CalculateCrystalDamage(const
  if(!M || !M->IsConfigured() || !A.IsValid() || !D.IsValid() || RandomFactor<217 || RandomFactor>255)return R;
  const auto* SA=A.Species.LoadSynchronous();const auto* SD=D.Species.LoadSynchronous();if(!SA || !SD)return R;
  if(M->Category==EPokeMonsterMoveCategory::Status){R.bValid=true;return R;}
+ if(M->HasEffect(EPokeMonsterEffectKind::LowHPPower)){Critical=false;RandomFactor=255;}
  const bool Struggle=M->Effect.EffectId==TEXT("Struggle");
  auto Factor=[&](EPokeMonsterCreatureType T){if(Identified && T==EPokeMonsterCreatureType::Ghost && (M->Type==EPokeMonsterCreatureType::Normal || M->Type==EPokeMonsterCreatureType::Fighting))return 1.f;return GetTypeMultiplier(M->Type,T);};
  R.TypeMultiplier=Struggle?1.f:Factor(SD->GetPrimaryType())*((SD->GetSecondaryType()==EPokeMonsterCreatureType::None || SD->GetSecondaryType()==SD->GetPrimaryType())?1.f:Factor(SD->GetSecondaryType()));
@@ -108,7 +109,7 @@ FPokeMonsterDamageResult UPokeMonsterBattleLibrary::CalculateCrystalDamage(const
  if(!Ignore){Offense=ApplyCrystalStage(int32(Offense),OStage);Defense=ApplyCrystalStage(int32(Defense),DStage);if(!Special && A.Status==EPokeMonsterCreatureStatus::Burn)Offense=FMath::Max<int64>(1,Offense/2);if(Special && Screen)Defense*=2;}
  // Crystal truncates the two stats together when either exceeds 255; deliberately no overflow bugs.
  while(Offense>255 || Defense>255){Offense=FMath::Max<int64>(1,Offense/4);Defense=FMath::Max<int64>(1,Defense/4);}
- int64 Damage=(2*A.Level/5+2)*int64(M->BasePower)*Offense/Defense/50;
+ int64 Damage=(2*A.Level/5+2)*int64(ResolveMovePower(A,M))*Offense/Defense/50;
  if(Critical)Damage*=2;Damage=FMath::Min<int64>(997,Damage)+2;
  if(Rain){if(Type==EPokeMonsterCreatureType::Water)Damage=Damage*3/2;else if(Type==EPokeMonsterCreatureType::Fire)Damage/=2;}
  if(Sunny){if(Type==EPokeMonsterCreatureType::Fire)Damage=Damage*3/2;else if(Type==EPokeMonsterCreatureType::Water)Damage/=2;}
@@ -138,4 +139,13 @@ int32 UPokeMonsterBattleLibrary::ApplyCrystalStage(int32 Value,int32 Stage)
  const int D[]={100,100,100,100,100,100,1,10,1,10,1,10,1};
  const int I=FMath::Clamp(Stage,-6,6)+6;
  return int32(FMath::Clamp<int64>(int64(Value)*N[I]/D[I],1,999));
+}
+
+int32 UPokeMonsterBattleLibrary::ResolveMovePower(const FPokeMonsterCreatureInstance& A,const UPokeMonsterMoveData* M)
+{
+ if(!M)return 0;
+ if(!M->HasEffect(EPokeMonsterEffectKind::LowHPPower))return M->BasePower;
+ if(A.GetMaxHP()<=0)return 0;
+ const int64 Ratio=int64(A.CurrentHP)*48/A.GetMaxHP();
+ return Ratio<=1?200:Ratio<=4?150:Ratio<=9?100:Ratio<=16?80:Ratio<=32?40:20;
 }

@@ -310,7 +310,7 @@ FPokeMonsterEncounterEndData UPokeMonsterEncounterSubsystem::BuildEndData(
 	End.TrainerId = Start.TrainerId;
 	End.Kind = Start.Kind;
 	End.Source = Start.Source;
-	End.Outcome = State.EndReason==EPokeMonsterBattleEndReason::Escaped?EPokeMonsterEncounterOutcome::Fled:State.EndReason == EPokeMonsterBattleEndReason::Captured
+	End.Outcome = (State.EndReason==EPokeMonsterBattleEndReason::Escaped || State.EndReason==EPokeMonsterBattleEndReason::ForcedOut)?EPokeMonsterEncounterOutcome::Fled:State.EndReason == EPokeMonsterBattleEndReason::Captured
 		&& Start.Kind == EPokeMonsterEncounterKind::Wild
 		? EPokeMonsterEncounterOutcome::Captured
 		: State.Winner == EPokeMonsterBattleSide::A
