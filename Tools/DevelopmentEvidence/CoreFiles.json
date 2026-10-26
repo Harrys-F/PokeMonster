@@ -13678,8 +13678,8 @@
       "sha256": "b3af07bc1d071ac4567782101fa6fa79b1fe2e9935fb2125482054ed100fd3cf"
     },
     "Docs/GAMEPLAY_CONTROLLER_PRAXISTEST_V1_PRUEFBERICHT.md": {
-      "bytes": 18427,
-      "sha256": "fd8b955d95f19af1fe75512faefe972b9e3b8e6587a56525f6f5dbe5379d76c7"
+      "bytes": 19016,
+      "sha256": "54cdf86ff448610947bf39d9c0be6103fd4c90035ac4ee139f1ad94912146a6e"
     },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
@@ -16814,8 +16814,8 @@
       "sha256": "6eee54980b0edd7e48d759aec24e194e1f786aa6011f56c0804b7c277e6e609a"
     },
     "Tools/GameplayPraxisV1/Acceptance.json": {
-      "bytes": 27611,
-      "sha256": "c57fb08ddb52688ba5518382153702fbd32ffbccb4d81baf6e103ea4a3cc93c5"
+      "bytes": 28044,
+      "sha256": "567ba3ea86131bdac8eefef2b8677bcc0639f0054e2b02bb1d3361c91c3a62cb"
     },
     "Tools/GameplayPraxisV1/Baseline.py": {
       "bytes": 1278,
@@ -21975,7 +21975,7 @@
     }
   },
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
-  "generated_at": "2026-10-26T05:38:33.592065+00:00",
+  "generated_at": "2026-10-26T05:41:06.133173+00:00",
   "schema": 1,
   "snapshot_kind": "gameplay_controller_praxis_v1_verified"
 }

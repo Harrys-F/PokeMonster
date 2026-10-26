@@ -883,7 +883,15 @@
     "Large collidable wild creatures can narrow the forest route; sideways input exits, no persistent input lock"
   ],
   "failed_adapter_attempts_retained": true,
-  "github_verification": "pending commit and live remote check",
+  "github_verification": {
+    "package_commit": "d2d9778637e06570d2c21e40815e0fc7c670db43",
+    "live_origin_main_verified": "d2d9778637e06570d2c21e40815e0fc7c670db43",
+    "local_main_equals_origin_main": true,
+    "lfs_changed_objects": 0,
+    "lfs_upload_required": false,
+    "tracked_worktree_clean_after_package_push": true,
+    "verification_followup": "Report and this metadata record the observed package push; final branch state is checked again after the documentation follow-up."
+  },
   "integrity": {
     "passed": true,
     "baseline_head": "45068771198d68c6605c89bc4c7bfed38150e218",

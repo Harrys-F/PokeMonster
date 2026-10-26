@@ -254,7 +254,16 @@ keine neue Spielfunktion. Offen bleiben physische Hardwareprüfung, die genannte
 Lernbindungen, Fortsetzen/Positionspersistenz und visuelle Restabnahme.
 Die ausstehende Freigabe der Biom-V1.1 und NPC-Bibliothek wird nicht vorweggenommen.
 
-Die geprüften Adapter, Metadaten und dieser Bericht werden gezielt auf `origin/main`
-gesichert; Commit-/Remote-Verifikation wird nach tatsächlichem Push ergänzt.
+**Prüfpaket:** `d2d9778637e06570d2c21e40815e0fc7c670db43`
+(`test: verify VisualV2 gameplay and controller practice`). Normaler Push erfolgreich;
+lokales `main`, `origin/main` und die live abgefragte GitHub-Referenz waren danach
+identisch. Exakt die 29 vorgesehenen Dateien im Commit, verfolgter Arbeitsbaum sauber;
+31 vorherige unversionierte Dateien weiterhin erhalten.
+
+**LFS:** Keine LFS-Dateien in diesem Paket geändert, null Objekte/Bytes zu übertragen,
+keine ausstehenden LFS-Uploads. Kein neuer LFS-Download als Nachweis behauptet.
+Dieser Verifikationsnachtrag wird getrennt gesichert; anschließend erneute Live-Prüfung
+von `main`/`origin/main`. Finale Git-Nachweise bleiben lokal in
+`Saved/ProjectRefinement/GameplayPraxisV1/FinalGit.json`.
 Keine Bilder, Videos, Saves, Caches oder Builds hochladen. Vollbackup
 `03492bd96b4dba44692f675c19d5f11abfa86b4b` bleibt unverändert erreichbar.
