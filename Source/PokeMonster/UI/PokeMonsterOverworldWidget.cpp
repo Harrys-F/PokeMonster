@@ -145,6 +145,8 @@ void UPokeMonsterOverworldWidget::BuildDefaultTree()
 		OverworldPine,25.f,FAnchors(0.5f,0.5f));
 	Place(MenuLayer,MakeText(WidgetTree,TEXT("MenuTitle"),TEXT("REISEBUCH"),28,OverworldInk),
 		FVector2D(-384,-263),FVector2D(280,42),FAnchors(0.5f,0.5f));
+ Place(MenuLayer,MakeText(WidgetTree,TEXT("WorldTimeLabel"),TEXT(""),17,OverworldInk),
+  FVector2D(-83,-256),FVector2D(300,32),FAnchors(.5f,.5f));
 	CloseButton = MakeButton(WidgetTree,MenuLayer,TEXT("CloseButton"),TEXT("Schließen  ×"),
 		FVector2D(224,-269),FVector2D(150,48),FAnchors(0.5f,0.5f));
 	TeamTab = MakeButton(WidgetTree,MenuLayer,TEXT("TeamTab"),TEXT("Team"),
@@ -375,13 +377,14 @@ void UPokeMonsterOverworldWidget::UpdateView(const FPokeMonsterOverworldView& Ne
 
 void UPokeMonsterOverworldWidget::Render()
 {
-	FString Key = StorageMessage + FString::FromInt(PendingStorageAction) + RenderKey(View, Section) + SelectedInstanceId.ToString() + (PokeMonsterControllerInput::IsGamepadActive()?TEXT("Gamepad"):TEXT("Keyboard"));
+	FString Key = (bMenuOpen ? View.WorldTimeLabel.ToString() : FString()) + StorageMessage + FString::FromInt(PendingStorageAction) + RenderKey(View, Section) + SelectedInstanceId.ToString() + (PokeMonsterControllerInput::IsGamepadActive()?TEXT("Gamepad"):TEXT("Keyboard"));
 	Key+=FString::Printf(TEXT("|m%d:%d:%d:%d:%d:%d"),bMoveMasterMode,bChoosingMovePokemon,bMoveReview,MovePokemon,MoveCursor,ReplaceCursor)+MoveMessage;
  for(const auto& M:DraftMoves)Key+=M.ToSoftObjectPath().ToString();
  if (Key == LastRenderKey || !WidgetTree || !HudTeamRows || !MenuRows) return;
 	LastRenderKey = Key;
 	if (QuestPanel) QuestPanel->SetVisibility(View.ActiveQuestName.IsEmpty()
 		? ESlateVisibility::Collapsed : ESlateVisibility::HitTestInvisible);
+	if (auto* ClockLabel=Cast<UTextBlock>(GetWidgetFromName(TEXT("WorldTimeLabel"))))ClockLabel->SetText(View.WorldTimeLabel);
 	if (QuestTitle) QuestTitle->SetText(View.ActiveQuestName);
 	if (QuestObjective) QuestObjective->SetText(View.ActiveQuestObjective);
 	const float HudHeight = 62.f + 27.f * FMath::Max(1, View.Team.Num());

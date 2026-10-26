@@ -1,4 +1,5 @@
 #include "PokeMonsterOverworldPlayerController.h"
+#include "../Time/PokeMonsterWorldClock.h"
 #include "PokeMonsterControllerInput.h"
 #include "PokeMonsterEvolutionWidget.h"
 #include "../Save/PokeMonsterSaveSubsystem.h"
@@ -243,7 +244,9 @@ void APokeMonsterOverworldPlayerController::RefreshHUD()
 	auto* Quests = Instance ? Instance->GetSubsystem<UPokeMonsterQuestSubsystem>() : nullptr;
 	if (Quests) Quests->RefreshProgress(Encounter, Inventory);
 	OverworldWidget->SetBattleVisible(Encounter && Encounter->IsEncounterActive());
-	OverworldWidget->UpdateView(FPokeMonsterOverworldViewBuilder::Build(Encounter, Inventory, Quests));
+	auto View=FPokeMonsterOverworldViewBuilder::Build(Encounter, Inventory, Quests);
+ if(Instance)if(const auto* Clock=Instance->GetSubsystem<UPokeMonsterWorldClock>())View.WorldTimeLabel=Clock->GetTimeLabel();
+ OverworldWidget->UpdateView(View);
 	auto* Player = Cast<APokeMonsterPlayerCharacter>(GetPawn());
 	AActor* Target = Player && !Player->IsOverworldInputLocked() && !bMenuOpen
 		&& !(Encounter && Encounter->IsEncounterActive())

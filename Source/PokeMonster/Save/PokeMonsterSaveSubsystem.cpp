@@ -140,7 +140,7 @@ namespace
 
 UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 	const UPokeMonsterEncounterSubsystem* Encounter, const UPokeMonsterInventorySubsystem* Inventory,
-	UObject* Outer, const UPokeMonsterCheckpointSubsystem* Checkpoint, const UPokeMonsterQuestSubsystem* Quests)
+	UObject* Outer, const UPokeMonsterCheckpointSubsystem* Checkpoint, const UPokeMonsterQuestSubsystem* Quests, const UPokeMonsterWorldClock* Clock)
 {
 	if (!IsValid(Encounter) || !IsValid(Inventory) || Encounter->IsEncounterActive()
 		|| (IsValid(Checkpoint) && Checkpoint->IsReturningFromDefeat())) return nullptr;
@@ -204,6 +204,7 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 	Save->CompletedEncounterIds.Sort(FNameLexicalLess());
 	if (IsValid(Checkpoint)) Save->ActiveCheckpoint = Checkpoint->GetActiveCheckpoint();
  Save->PlayerLocation = CapturePlayerLocation(Encounter->GetWorld());
+ if(Clock){Save->WorldTime=Clock->GetTime();Save->bHasWorldTime=true;}
 	if (IsValid(Quests))
 	{
 		Save->QuestProgress = Quests->GetProgress();
@@ -215,7 +216,7 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 
 bool UPokeMonsterSaveSubsystem::RestoreSnapshot(const UPokeMonsterSaveGame* Save,
 	UPokeMonsterEncounterSubsystem* Encounter, UPokeMonsterInventorySubsystem* Inventory,
-	UPokeMonsterCheckpointSubsystem* Checkpoint, UPokeMonsterQuestSubsystem* Quests, bool bValidateOnly)
+	UPokeMonsterCheckpointSubsystem* Checkpoint, UPokeMonsterQuestSubsystem* Quests, bool bValidateOnly, UPokeMonsterWorldClock* Clock)
 {
 	if (!IsValid(Save) || !IsValid(Encounter) || !IsValid(Inventory) || Encounter->IsEncounterActive()
 		|| (IsValid(Checkpoint) && Checkpoint->IsReturningFromDefeat())) return false;
@@ -291,6 +292,7 @@ bool UPokeMonsterSaveSubsystem::RestoreSnapshot(const UPokeMonsterSaveGame* Save
 		if (Save->SaveVersion < 3) Quests->MigrateLegacyMiniSlice(Encounter);
 		Quests->RefreshProgress(Encounter, Inventory);
 	}
+ if(Clock)Clock->RestoreTime(Save->WorldTime,Save->SaveVersion>=10&&Save->bHasWorldTime);
 	return true;
 }
 
@@ -461,7 +463,7 @@ bool UPokeMonsterSaveSubsystem::WriteCurrentGame(bool bRecovery)
  auto* GI = GetGameInstance();
  auto* Save = CaptureSnapshot(GI->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
   GI->GetSubsystem<UPokeMonsterInventorySubsystem>(), this,
-  GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>(), GI->GetSubsystem<UPokeMonsterQuestSubsystem>());
+  GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>(), GI->GetSubsystem<UPokeMonsterQuestSubsystem>(), GI->GetSubsystem<UPokeMonsterWorldClock>());
  if (!Save || !Save->PlayerLocation.IsValid())
  { LastStorageMessage = TEXT("Spielerposition oder Spieldaten sind nicht speicherbar."); return false; }
 #if WITH_EDITOR
@@ -590,7 +592,7 @@ bool UPokeMonsterSaveSubsystem::CompleteLoad(UWorld* World)
  { LastStorageMessage = TEXT("Platzieren fehlgeschlagen; Spieldaten unverändert."); ClearPendingLoad(); return false; }
  const bool Loaded = RestoreSnapshot(PendingLoad, GI->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
   GI->GetSubsystem<UPokeMonsterInventorySubsystem>(), GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>(),
-  GI->GetSubsystem<UPokeMonsterQuestSubsystem>());
+  GI->GetSubsystem<UPokeMonsterQuestSubsystem>(), false, GI->GetSubsystem<UPokeMonsterWorldClock>());
  if (!Loaded) Player->SetActorTransform(Previous, false, nullptr, ETeleportType::TeleportPhysics);
  SynchronizeRestoredPlayer(Player);
  if (Loaded) Player->RestoreSavedFacing(Destination.FacingDirection);
@@ -719,7 +721,7 @@ bool UPokeMonsterSaveSubsystem::BeginPIEMemoryPreview()
     if (!GI || !GetWorld() || GetWorld()->WorldType != EWorldType::PIE) return false;
     auto* Snapshot = CaptureSnapshot(GI->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
         GI->GetSubsystem<UPokeMonsterInventorySubsystem>(), this,
-        GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>(), GI->GetSubsystem<UPokeMonsterQuestSubsystem>());
+        GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>(), GI->GetSubsystem<UPokeMonsterQuestSubsystem>(), GI->GetSubsystem<UPokeMonsterWorldClock>());
     TArray<uint8> Bytes;
     if (!Snapshot || !UGameplayStatics::SaveGameToMemory(Snapshot, Bytes) || Bytes.IsEmpty()) return false;
     PIEOriginalSnapshot = Bytes;
@@ -733,7 +735,7 @@ bool UPokeMonsterSaveSubsystem::EndPIEMemoryPreview()
     auto* Snapshot = Cast<UPokeMonsterSaveGame>(UGameplayStatics::LoadGameFromMemory(PIEOriginalSnapshot));
     if (!GI || !Snapshot || !RestoreSnapshot(Snapshot, GI->GetSubsystem<UPokeMonsterEncounterSubsystem>(),
         GI->GetSubsystem<UPokeMonsterInventorySubsystem>(), GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>(),
-        GI->GetSubsystem<UPokeMonsterQuestSubsystem>())) return false;
+        GI->GetSubsystem<UPokeMonsterQuestSubsystem>(), false, GI->GetSubsystem<UPokeMonsterWorldClock>())) return false;
     // Keep protection active until the entire original session has restored successfully.
     PIEOriginalSnapshot.Reset();
     PIEMemorySave.Reset();

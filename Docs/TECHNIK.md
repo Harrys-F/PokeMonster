@@ -1329,3 +1329,14 @@ Map-Speicherung. `pm.CreatureReview.CaptureLiveUI <Name> qhd` erhält die origin
 Slate-Aufnahme und rendert zusätzlich die laufende PIE-/UMG-Ansicht in QHD. Die
 zweite Datei ist ausdrücklich ein Live-Render und keine Desktopaufnahme.
 Details und Einschränkungen: `POKEMON_KI_V2_1_EP_ANZEIGE_V1_PRUEFBERICHT.md`.
+
+## Weltuhr V1
+
+`Time/PokeMonsterWorldClock` ist die einzige GameInstance-Zeitquelle: Tag,
+Tagessekunden, fünf konfigurierbare Phasen, Tagesfortschritt und Pauseabfrage.
+Standardtag 120 Echtminuten, neuer Zustand Tag 1 09:00. Ein gefilterter
+World-Pre-Tick verwendet reale Framedauer und vorhandene Gameplay-Sperren; keine
+Uhr pro Map. Save-Schema 10 ergänzt das bestehende SaveGame additiv; Altstände
+fallen nur bezüglich der Uhr auf den Startwert zurück. Debugbefehle sind
+Editor-PIE-exklusiv und verwenden vorhandenen RAM-Speicherschutz. Keine Anbindung
+an Beleuchtung oder KI in V1. API, Konfiguration und Befehle: `WELTUHR_V1.md`.

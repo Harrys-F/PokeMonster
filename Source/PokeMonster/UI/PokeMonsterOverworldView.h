@@ -58,6 +58,7 @@ struct POKEMONSTER_API FPokeMonsterOverworldView
 	GENERATED_BODY()
 	UPROPERTY(BlueprintReadOnly) TArray<FPokeMonsterOverworldTeamRow> Team;
 	UPROPERTY(BlueprintReadOnly) TArray<FPokeMonsterOverworldItemRow> Inventory;
+	UPROPERTY(BlueprintReadOnly) FText WorldTimeLabel;
 	UPROPERTY(BlueprintReadOnly) FText ActiveQuestName;
 	UPROPERTY(BlueprintReadOnly) FText ActiveQuestObjective;
 };

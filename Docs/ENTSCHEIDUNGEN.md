@@ -1289,3 +1289,27 @@ Kurven, redundanten Save-Felder oder veränderten EP-Erträge. Höchstlevel 100 
 Die bestehende Attackenansicht heißt nun Pokémon-Info und bleibt außerhalb eines
 Meisters nur lesend. ClassicBattle erhält einen schmalen blauen EP-Balken unter KP;
 seine Präsentation folgt echten XP-Ereignissen und verstrichener Spielzeit.
+
+## 26.10.2026 – Weltuhr V1: zentrale technische Spielzeit
+
+Die frühere Aussage „noch keine allgemeine Weltuhr“ im KI-V2-Zwischenstand ist
+hinsichtlich der technischen Zeitverwaltung durch diesen Auftrag ersetzt. Die
+KI-Anbindung bleibt weiterhin offen: ActivityPeriod und Verhaltensprofile werden
+nicht automatisch geändert. Auch Beleuchtung, Schatten und Wetter bleiben bestehen.
+
+Ein GameInstance-Subsystem führt Tag und doppelt genaue Tagessekunden fort.
+Standard: neuer Spielzustand Tag 1, 09:00; 120 Echtminuten pro Spieltag. Phasen:
+04–05 früher Morgen, 05–07 Morgendämmerung, 07–18 Tag, 18–20 Abenddämmerung,
+20–04 Nacht; jeweils inklusive Beginn/exklusive Ende. Zentral konfigurierbar.
+Bestehende Menüs, Dialoge, aktive befehlsbasierte Kämpfe (Classic/WorldBattle),
+Ladevorgänge, Niederlagenrückkehr und Unreal-Pause halten die Uhr gemeinsam an.
+Keine zweite Gameplay-Pausenverwaltung und keine Zeitstrafe bei Ohnmacht.
+
+Save-Schema 10 ergänzt die bestehenden Snapshots additiv um Weltzeit. Ohne gültige
+Zeitdaten: Tag 1, 09:00, ohne andere Daten zu verändern. Kein automatisches
+Überschreiben alter Slots, keine separate Uhrdatei und keine Offlinefortschreibung.
+Manuelle Fortsetzposition und unabhängiger Kontrollpunkt bleiben Speichersystem V2.
+Editorbefehle nutzen dessen RAM-Testschutz; Geschwindigkeit/Pausen werden nicht
+gespeichert. Eine neue Session verwendet 1×, reguläres Laden stellt die Zeit wieder
+her. Kleine Anzeige im bestehenden Reisebuch, API und Ereignisse für spätere Systeme.
+Konkrete Nutzung: `Docs/WELTUHR_V1.md`; Prüfungen im zugehörigen Prüfbericht.

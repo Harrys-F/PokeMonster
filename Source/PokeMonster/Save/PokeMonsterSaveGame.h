@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "../Time/PokeMonsterWorldClock.h"
 #include "Engine/AssetManager.h"
 #include "GameFramework/SaveGame.h"
 #include "../Checkpoint/PokeMonsterCheckpointSubsystem.h"
@@ -65,7 +66,9 @@ class POKEMONSTER_API UPokeMonsterSaveGame : public USaveGame
 {
 	GENERATED_BODY()
 public:
-	static constexpr int32 CurrentVersion = 9;
+	UPROPERTY(SaveGame) bool bHasWorldTime=false;
+ UPROPERTY(SaveGame) FPokeMonsterWorldTime WorldTime;
+ static constexpr int32 CurrentVersion = 10;
 	UPROPERTY() int32 SaveVersion = CurrentVersion;
 	UPROPERTY() TArray<FPokeMonsterSavedCreature> PlayerTeam;
 	UPROPERTY() TArray<FPokeMonsterSavedItemStack> InventoryStacks;

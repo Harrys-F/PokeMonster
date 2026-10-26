@@ -56,12 +56,12 @@ public:
 	static UPokeMonsterSaveGame* CaptureSnapshot(const UPokeMonsterEncounterSubsystem* Encounter,
 		const UPokeMonsterInventorySubsystem* Inventory, UObject* Outer,
 		const UPokeMonsterCheckpointSubsystem* Checkpoint = nullptr,
-		const UPokeMonsterQuestSubsystem* Quests = nullptr);
+		const UPokeMonsterQuestSubsystem* Quests = nullptr, const UPokeMonsterWorldClock* Clock = nullptr);
 	/** Validates and commits a snapshot atomically outside an encounter. */
 	static bool RestoreSnapshot(const UPokeMonsterSaveGame* Save,
 		UPokeMonsterEncounterSubsystem* Encounter, UPokeMonsterInventorySubsystem* Inventory,
 		UPokeMonsterCheckpointSubsystem* Checkpoint = nullptr,
-		UPokeMonsterQuestSubsystem* Quests = nullptr, bool bValidateOnly = false);
+		UPokeMonsterQuestSubsystem* Quests = nullptr, bool bValidateOnly = false, UPokeMonsterWorldClock* Clock = nullptr);
 private:
  friend struct FPokeMonsterSaveV2TestAccess;
  bool WriteCurrentGame(bool bRecovery);
