@@ -119,3 +119,6 @@ Alle Rohdaten unter `Saved/ProjectRefinement/PokemonAIV2/`, Framequellen im vorh
 ## Git-Sicherung
 
 Es werden ausschließlich die geprüften C++-Quellen, Tests, benötigten Prüfwerkzeuge und diese Dokumentation gesichert. Ein einzelner bestehender Save-Test-Konsolenhelfer erhielt wegen eines beim Unity-Build sichtbar gewordenen Namenskonflikts einen eindeutigen C++-Variablennamen; sein Konsolenbefehl und seine Funktion bleiben unverändert. Keine Asset-, Map-, Animations-, Save- oder LFS-Datei wird verändert oder hochgeladen. Der vollständige V5-Evidenzsnapshot `CoreFiles.json` wird als historischer Snapshot unverändert belassen.
+
+
+Implementierungscommit: [`8d00d6893148b6f48e4d149317383d420e837e60`](https://github.com/Harrys-F/PokeMonster/commit/8d00d6893148b6f48e4d149317383d420e837e60), regulär nach `origin/main` gepusht. Der anschließend direkt abgefragte Remote-Hash entspricht exakt lokalem `main`; Divergenz 0/0. Die 23 Commitdateien wurden anhand der ausdrücklichen Paketliste geprüft; keine fremden Dateien enthalten. Keine neuen LFS-Dateien/Objekte in diesem Paket, keine LFS-Übertragung erforderlich oder ausstehend; keine Änderung von Budgets. Bestehende 31 unversionierte Dateien bleiben erhalten. Dieser verifizierte Git-Nachtrag wird separat als Dokumentationscommit gesichert, ohne bestehende Historie umzuschreiben.
