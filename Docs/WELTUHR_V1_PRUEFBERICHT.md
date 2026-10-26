@@ -166,7 +166,18 @@ Der eigene Editor wurde regulär geschlossen.
 
 ## 10. Git-Abschluss
 
-Implementierung und wiederverwendbare Prüfwerkzeuge werden nach dieser Prüfung
-gezielt gesichert. Keine Content-/Art-Dateien oder Testmedien im Commit.
-Feature-Commit und verifizierter Remote-/LFS-Status werden nach dem normalen Push
-hier ergänzt. Kein Force-Push, keine Historyänderung und keine Budgetänderung.
+Implementierungscommit: **`bf83a4bdcd9c544da0f8f18d99fa608733a08813`**,
+`feat(time): add persistent world clock and protected PIE controls`.
+26 gezielt geprüfte Konfigurations-, Quell-, Werkzeug- und Dokumentationsdateien.
+Keine Content-/Art-Dateien oder Testmedien im Commit.
+
+Normaler Push auf `origin/main` erfolgreich. Danach Fetch und serverseitiges
+`ls-remote`: exakt derselbe Commit, `main...origin/main` = **0 / 0**. LFS-Status
+und Push-Dry-Run zeigen keine ausstehenden Objekte. Es gibt keine neuen oder
+geänderten LFS-Assets; historische Assets wurden nicht vollständig neu geladen.
+Kein Force-Push, keine Historyänderung und keine Budgetänderung.
+
+Dieser abschließende Berichtsnachtrag wird separat als Dokumentationscommit
+normal gesichert; dessen exakter Abschluss-Hash steht im Git-Verlauf und im
+lokalen `Saved/ProjectRefinement/WorldClockV1/GitFinal.json`. Danach werden Remote,
+Dateischutz, ursprüngliche unversionierte Dateien und Backup-Refs erneut geprüft.
