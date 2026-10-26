@@ -81,6 +81,9 @@ public:
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 SocialCompleted=0;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 ForageCompleted=0;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") TObjectPtr<UPokeMonsterCreatureRoamingComponent> SocialPartner;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 SocialRequests=0;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 SocialDeclined=0;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 SocialInterrupted=0;
  UFUNCTION(BlueprintPure,Category="Activities") bool IsActivityTravelling() const { return bActivityTravelling; }
 private:
  friend struct FPokeMonsterNaturalActivityTestAccess;
@@ -90,6 +93,7 @@ private:
  void ReleaseSocial();
  bool FindSocialPartner();
  bool CanSocialize() const;
+ bool TryStartSocial(UPokeMonsterCreatureRoamingComponent* Peer,const FVector& Current);
  bool PeerVisible(const UPokeMonsterCreatureRoamingComponent* Peer) const;
  bool PlanForage(const FVector& Current);
  void FaceActivity(float Delta,const FVector& Target);
@@ -100,7 +104,8 @@ private:
  float SocialCooldown=0, SleepCooldown=0, ForageCooldown=0, PeerQueryRemaining=0;
  float VisibilityRemaining=0;
  bool bPlayerVisibleCached=false, bActivityRunning=false, bActivityTravelling=false, bSocialLeader=false;
- float ActivityTravelRemaining=0;
+ float ActivityTravelRemaining=0, ActivityElapsed=0, SocialInvitationRemaining=0;
+ float SocialDeadlineRemaining=0, SocialValidationRemaining=0;
  FVector ActivityFocus=FVector::ZeroVector;
  bool bWasAerialTravel=false;
  bool IsAerialTravelActive() const;

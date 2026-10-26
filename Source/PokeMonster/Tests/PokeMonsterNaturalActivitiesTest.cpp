@@ -7,10 +7,18 @@
 #include "Engine/StaticMeshActor.h"
 #include "Engine/Engine.h"
 #include "Engine/World.h"
+#include "GameFramework/Pawn.h"
 
 struct FPokeMonsterNaturalActivityTestAccess
 {
  static void Ready(UPokeMonsterCreatureRoamingComponent* M){M->Path.Reset();M->PauseRemaining=0;M->PeerQueryRemaining=0;M->bActivityRunning=false;M->BehaviorState=EPokeMonsterOverworldState::Wander;}
+ static bool Invite(UPokeMonsterCreatureRoamingComponent* A,UPokeMonsterCreatureRoamingComponent* B)
+ {return A->TryStartSocial(B,A->GetOwner()->GetActorLocation()-FVector(0,0,A->Offset));}
+ static void Rest(UPokeMonsterCreatureRoamingComponent* M,float Elapsed)
+ {Ready(M);M->bActivityRunning=true;M->BehaviorState=EPokeMonsterOverworldState::Rest;M->ActivityElapsed=Elapsed;M->ActivityRemaining=15;}
+ static void React(UPokeMonsterCreatureRoamingComponent* M,APawn* Player)
+ {float Speed=60;M->UpdateBehavior(.1f,M->GetOwner()->GetActorLocation()-FVector(0,0,M->Offset),Player,Speed);}
+ static bool Available(UPokeMonsterCreatureRoamingComponent* M){return M->CanSocialize();}
  static bool Pair(UPokeMonsterCreatureRoamingComponent* M){return M->FindSocialPartner();}
  static void Update(UPokeMonsterCreatureRoamingComponent* M,float D=.1f)
  {float Speed=60;M->UpdateActivities(D,M->GetOwner()->GetActorLocation()-FVector(0,0,M->Offset),nullptr,Speed);}
@@ -41,7 +49,7 @@ namespace NaturalActivityTests
  };
  FPokeMonsterCreatureActivityProfile Only(EPokeMonsterOverworldState State)
  {
-  using S=EPokeMonsterOverworldState;FPokeMonsterCreatureActivityProfile P;P.bEnabled=true;
+  using S=EPokeMonsterOverworldState;FPokeMonsterCreatureActivityProfile P;P.bEnabled=true;P.SocialAcceptance=1.f;
   P.WanderWeight=.00001f;P.ObserveWeight=P.RestWeight=P.SleepWeight=P.ForageWeight=P.SocialWeight=0;
   if(State==S::Rest)P.RestWeight=100;
   if(State==S::Sleep)P.SleepWeight=100;
@@ -160,6 +168,91 @@ bool FNaturalInitialSocialTest::RunTest(const FString&)
  for(int I=0;I<600 && A->SocialCompleted==0;++I){A->TickComponent(.05f,LEVELTICK_All,nullptr);B->TickComponent(.05f,LEVELTICK_All,nullptr);}
  TestEqual(TEXT("Close neighbours finish without rejecting a short separation step"),A->SocialCompleted,1);
  TestTrue(TEXT("Final spacing is safe"),FVector::Dist2D(A->GetOwner()->GetActorLocation(),B->GetOwner()->GetActorLocation())>=140);
+ return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FNaturalSocialConsentTest,"PokeMonster.Creatures.NaturalActivities.SocialConsentAndMinimumRest",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FNaturalSocialConsentTest::RunTest(const FString&)
+{
+ using namespace NaturalActivityTests;using Access=FPokeMonsterNaturalActivityTestAccess;using S=EPokeMonsterOverworldState;
+ WorldFixture F;auto* A=F.Spawn();auto* B=F.Spawn(FVector(280,0,60));
+ A->Activities=B->Activities=Only(S::Social);Access::Ready(A);Access::Rest(B,0);
+ TestFalse(TEXT("Minimum rest cannot be interrupted by invitation"),Access::Invite(A,B));
+ Access::Rest(B,B->Activities.MinimumSeconds+.1f);TestTrue(TEXT("Established rest can accept a visit"),Access::Available(B));
+ B->Activities.SocialAcceptance=0;const float Remaining=B->ActivityRemaining;
+ TestFalse(TEXT("Receiver can explicitly decline"),Access::Invite(A,B));
+ TestEqual(TEXT("Refusal leaves receiver resting"),B->BehaviorState,S::Rest);
+ TestEqual(TEXT("Refusal does not reset receiver activity"),B->ActivityRemaining,Remaining);
+ TestEqual(TEXT("Decline diagnostic"),B->SocialDeclined,1);TestNull(TEXT("No reservation on refusal"),A->SocialPartner.Get());
+ TestFalse(TEXT("Refusal cooldown avoids repeated requests"),Access::Available(A));
+ // Fresh independent pair exercises 100% consent without a test bypass in production code.
+ auto* C=F.Spawn(FVector(-280,0,60));auto* D=F.Spawn(FVector(-560,0,60));
+ C->Activities=D->Activities=Only(S::Social);Access::Ready(C);Access::Rest(D,6);
+ TestTrue(TEXT("Accept after minimum rest"),Access::Invite(C,D));
+ TestFalse(TEXT("Simultaneous reverse invitation cannot create a second pair"),Access::Invite(D,C));
+ TestTrue(TEXT("Exactly reciprocal reservation"),C->SocialPartner==D && D->SocialPartner==C);
+ return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FNaturalSocialInvalidationTest,"PokeMonster.Creatures.NaturalActivities.SocialPartnerInvalidation",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FNaturalSocialInvalidationTest::RunTest(const FString&)
+{
+ using namespace NaturalActivityTests;using Access=FPokeMonsterNaturalActivityTestAccess;using S=EPokeMonsterOverworldState;
+ for(int Case=0;Case<6;++Case)
+ {
+  WorldFixture F;auto* A=F.Spawn();auto* B=F.Spawn(FVector(280,0,60));
+  A->Activities=B->Activities=Only(S::Social);Access::Ready(A);Access::Ready(B);
+  if(!TestTrue(TEXT("Reservation succeeds before interruption"),Access::Invite(A,B)))continue;
+  switch(Case)
+  {
+   case 0:B->SetMovementPaused(true);break; // Same gate used by encounter transition.
+   case 1:B->BeginDefeatEscape();break;
+   case 2:B->SetComponentTickEnabled(false);break;
+   case 3:B->GetOwner()->SetActorHiddenInGame(true);break;
+   case 4:B->GetOwner()->SetActorLocation(FVector(1600,0,60));break;
+   case 5:B->Configure(LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,TEXT("/Game/Data/Creatures/DA_Zunderlauf")),60,38,60);break;
+  }
+  Access::Update(A);
+  TestNull(TEXT("Initiator releases on pause/flee/disable/hide/distance/reconfigure"),A->SocialPartner.Get());
+  TestNull(TEXT("Receiver also releases"),B->SocialPartner.Get());
+  TestTrue(TEXT("Initiator leaves social state"),A->BehaviorState!=S::Social);
+  TestFalse(TEXT("Cooldown prevents immediate repeated pursuit"),Access::Available(A));
+ }
+ return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FNaturalSpontaneousSocialTest,"PokeMonster.Creatures.NaturalActivities.SpontaneousStandardProfiles",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FNaturalSpontaneousSocialTest::RunTest(const FString&)
+{
+ using namespace NaturalActivityTests;
+ WorldFixture F;TArray<UPokeMonsterCreatureRoamingComponent*> Group;
+ for(int I=0;I<3;++I)Group.Add(F.Spawn(FVector(I*220,0,60),TEXT("Bisasam")));
+ int32 Completed=0;float Closest=10000;
+ for(int I=0;I<3600;++I)
+ {
+  for(auto* M:Group)M->TickComponent(.05f,LEVELTICK_All,nullptr);
+  for(int A=0;A<3;++A)if(Group[A]->SocialPartner)
+  {
+   TestTrue(TEXT("Every live reservation is reciprocal"),Group[A]->SocialPartner->SocialPartner==Group[A]);
+   Closest=FMath::Min(Closest,float(FVector::Dist2D(Group[A]->GetOwner()->GetActorLocation(),Group[A]->SocialPartner->GetOwner()->GetActorLocation())));
+  }
+ }
+ for(auto* M:Group){Completed+=M->SocialCompleted;M->SetMovementPaused(true);}
+ TestTrue(TEXT("Unmodified Bisasam profiles complete spontaneous visits"),Completed>=2);
+ TestTrue(TEXT("No body overlap during real motion"),Closest>=120);
+ for(auto* M:Group)TestNull(TEXT("Group interruption releases all reservations"),M->SocialPartner.Get());
+ return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FNaturalSocialThreatTest,"PokeMonster.Creatures.NaturalActivities.SocialPlayerThreatPriority",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FNaturalSocialThreatTest::RunTest(const FString&)
+{
+ using namespace NaturalActivityTests;using Access=FPokeMonsterNaturalActivityTestAccess;using S=EPokeMonsterOverworldState;
+ WorldFixture F;auto* A=F.Spawn(FVector(0,0,60),TEXT("Enton"));auto* B=F.Spawn(FVector(280,0,60),TEXT("Enton"));
+ A->Activities=B->Activities=Only(S::Social);Access::Ready(A);Access::Ready(B);
+ if(!TestTrue(TEXT("Shy pair accepts before danger"),Access::Invite(A,B)))return false;
+ auto* Player=F.World->SpawnActor<APawn>(FVector(-100,0,60),FRotator::ZeroRotator);
+ Access::React(A,Player);
+ TestEqual(TEXT("Actual existing shy policy takes priority"),A->BehaviorState,S::Retreat);
+ TestNull(TEXT("Player approach clears initiator reservation"),A->SocialPartner.Get());TestNull(TEXT("Player approach also clears receiver"),B->SocialPartner.Get());
+ TestTrue(TEXT("Receiver returns to a valid ambient state"),B->BehaviorState==S::Rest && !B->IsActivityTravelling());
+ TestTrue(TEXT("Both record the same interruption"),A->SocialInterrupted==1&&B->SocialInterrupted==1);
  return true;
 }
 #endif

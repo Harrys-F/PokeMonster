@@ -28,6 +28,8 @@ struct POKEMONSTER_API FPokeMonsterCreatureActivityProfile
  UPROPERTY(EditAnywhere, BlueprintReadWrite) float ForageCooldown=20.f;
  UPROPERTY(EditAnywhere, BlueprintReadWrite) float PerceptionSeconds=1.5f;
  UPROPERTY(EditAnywhere, BlueprintReadWrite) float SocialRadius=500.f;
+ /** A valid invitation can be declined without interrupting the receiver. */
+ UPROPERTY(EditAnywhere, BlueprintReadWrite) float SocialAcceptance=.85f;
  UPROPERTY(EditAnywhere, BlueprintReadWrite) float ActiveDistance=4000.f;
  UPROPERTY(EditAnywhere, BlueprintReadWrite) bool bPreferVegetation=false;
  UPROPERTY(EditAnywhere, BlueprintReadWrite) bool bPreferOwnSpecies=true;
