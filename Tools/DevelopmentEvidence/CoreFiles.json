@@ -13677,6 +13677,10 @@
       "bytes": 10317,
       "sha256": "b3af07bc1d071ac4567782101fa6fa79b1fe2e9935fb2125482054ed100fd3cf"
     },
+    "Docs/GAMEPLAY_CONTROLLER_PRAXISTEST_V1_PRUEFBERICHT.md": {
+      "bytes": 18427,
+      "sha256": "fd8b955d95f19af1fe75512faefe972b9e3b8e6587a56525f6f5dbe5379d76c7"
+    },
     "Docs/GLUMANDA_V11_KAMPFANSICHT_SICHTKREIS_PRUEFBERICHT.md": {
       "bytes": 15474,
       "sha256": "c7ec748dd1d2cbb5ba774ec29a8f2d8ecf227155b108396a0d90b8dae8c71a94"
@@ -16808,6 +16812,114 @@
     "Tools/FinishWestlandRegionV1.py": {
       "bytes": 8243,
       "sha256": "6eee54980b0edd7e48d759aec24e194e1f786aa6011f56c0804b7c277e6e609a"
+    },
+    "Tools/GameplayPraxisV1/Acceptance.json": {
+      "bytes": 27611,
+      "sha256": "c57fb08ddb52688ba5518382153702fbd32ffbccb4d81baf6e103ea4a3cc93c5"
+    },
+    "Tools/GameplayPraxisV1/Baseline.py": {
+      "bytes": 1278,
+      "sha256": "6396f48767e1bd75c437f5abac528cf0e2192d3302a57fff023701a8c7d72ca6"
+    },
+    "Tools/GameplayPraxisV1/Collision.py": {
+      "bytes": 3191,
+      "sha256": "b671e387cbcada18982bc90aa22e578f994077aa8eeef063cc7b91bfa9613bcc"
+    },
+    "Tools/GameplayPraxisV1/CollisionInventory.py": {
+      "bytes": 1046,
+      "sha256": "49fd2f5a67f9e2b7c2887c2fd4857a2596057ea66e34a1dbda977074b3323048"
+    },
+    "Tools/GameplayPraxisV1/EnableEvolution.py": {
+      "bytes": 1410,
+      "sha256": "2bf20f7969af49d2a4a6ce22b48cee48718bca0adfb3e8e01f42fd9ef77ab8e1"
+    },
+    "Tools/GameplayPraxisV1/EncodeMovement.py": {
+      "bytes": 400,
+      "sha256": "5678cb97775b113965a99a78ad5d9a1adcaf798676f6a512841c3d8199d3e66a"
+    },
+    "Tools/GameplayPraxisV1/EndToEnd.py": {
+      "bytes": 11988,
+      "sha256": "75a15c56dc73045305c0a3253955e69b605306eade58f91a64e1fe9f71301ae9"
+    },
+    "Tools/GameplayPraxisV1/Follower.py": {
+      "bytes": 3465,
+      "sha256": "075e5b4d55a43b0596e9ead1e2a0c6706b30faa57fb93a81f5c455cad085482f"
+    },
+    "Tools/GameplayPraxisV1/Guard.py": {
+      "bytes": 1848,
+      "sha256": "56cd362415feb6188158f00b1bb0fcd1a3dac3eed2df9d49663a8232e5215c0d"
+    },
+    "Tools/GameplayPraxisV1/Inspect.py": {
+      "bytes": 2685,
+      "sha256": "bce037e6fd5597cd615389b062830ae0e74f13426d6d818327e3f573361d1c3b"
+    },
+    "Tools/GameplayPraxisV1/Legacy.py": {
+      "bytes": 1718,
+      "sha256": "cbf826563a7135f35e6e4b941df49a876e90a92316fddb7a86b5f326d754e3d1"
+    },
+    "Tools/GameplayPraxisV1/MapChecks.py": {
+      "bytes": 1077,
+      "sha256": "7a1852c95fecc5533e4ac43a8f618f0e40478c88679691736a8734154c68da84"
+    },
+    "Tools/GameplayPraxisV1/Media.py": {
+      "bytes": 2160,
+      "sha256": "9c47fe4900c80a1bf7727bcd22ff8fd1548c20d1e9fa641a9c29b08806c9ad69"
+    },
+    "Tools/GameplayPraxisV1/Movement.py": {
+      "bytes": 1774,
+      "sha256": "07967a74f74220f4b2a0379ed55cd62fbd084995d6358ea24ee5f887ec9642e8"
+    },
+    "Tools/GameplayPraxisV1/Package.py": {
+      "bytes": 3551,
+      "sha256": "84138dec6c736f0efc9a923c615720df26870555e124a29365a8e1678f6e2b4f"
+    },
+    "Tools/GameplayPraxisV1/Prepare.py": {
+      "bytes": 1091,
+      "sha256": "a0572ac49a7d2b91850607d7937db28345a145e74598fe4e57ec88c0672b4d26"
+    },
+    "Tools/GameplayPraxisV1/README.md": {
+      "bytes": 4501,
+      "sha256": "2b0614f639274b44fe590253f2cb3775dc4853a9d52597703a8a169e496a9009"
+    },
+    "Tools/GameplayPraxisV1/Repertoire.py": {
+      "bytes": 4079,
+      "sha256": "428530e3b39e61cc99732370f1f2288ad873df21654a00d127bc96c2f7068d23"
+    },
+    "Tools/GameplayPraxisV1/Restart.py": {
+      "bytes": 2078,
+      "sha256": "fabff923b8e2881826d259a7e2ec34d0f1c427b4df4829425c4a8aac95aa5791"
+    },
+    "Tools/GameplayPraxisV1/RestartState.py": {
+      "bytes": 1104,
+      "sha256": "4765e649719ce57da41fb4a10ecfaa0f741f1b0a30b798cfb9d508260d79ec2d"
+    },
+    "Tools/GameplayPraxisV1/Run.py": {
+      "bytes": 4704,
+      "sha256": "9e981475190ac9fba388f3f03630d36890b9875fb380c2c61145d2188e23449d"
+    },
+    "Tools/GameplayPraxisV1/RunRemaining.py": {
+      "bytes": 1130,
+      "sha256": "1106f574801dd94480bd595244ab079c8330f9ee5a01244bbc766a0ac3ad455c"
+    },
+    "Tools/GameplayPraxisV1/Suite.py": {
+      "bytes": 1704,
+      "sha256": "7c70070119c62ca3796135e43d086d6ac81e05a4145d5e712aab6e377123798c"
+    },
+    "Tools/GameplayPraxisV1/Summarize.py": {
+      "bytes": 5455,
+      "sha256": "ab2490c058d58f887974a6fefeebe96863076513bbac397df19b454033efa279"
+    },
+    "Tools/GameplayPraxisV1/Teardown.py": {
+      "bytes": 914,
+      "sha256": "cc9f9eaf28d253b1384a562ca25f2b7d29aa6b5645e1cfee985774903d64ac65"
+    },
+    "Tools/GameplayPraxisV1/TraceAPI.py": {
+      "bytes": 195,
+      "sha256": "7d743b4efd153d3f64312cee4280f933864dc51543c3f420320fac7f1728cf0e"
+    },
+    "Tools/GameplayPraxisV1/VerifyEditor.py": {
+      "bytes": 913,
+      "sha256": "45eae6c16e9a773c41639d3c16235773905ed8274656d1d65fa940e4b0a1f4b1"
     },
     "Tools/GenerateHealingHouseV2Textures.py": {
       "bytes": 4475,
@@ -21863,7 +21975,7 @@
     }
   },
   "full_reference": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
-  "generated_at": "2026-10-25T20:48:46.194265+00:00",
+  "generated_at": "2026-10-26T05:38:33.592065+00:00",
   "schema": 1,
-  "snapshot_kind": "visualv2_lighting_shadows_v31_verified"
+  "snapshot_kind": "gameplay_controller_praxis_v1_verified"
 }

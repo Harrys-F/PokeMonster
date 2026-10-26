@@ -1,0 +1,902 @@
+{
+  "base_head": "45068771198d68c6605c89bc4c7bfed38150e218",
+  "date": "2026-10-26",
+  "project": "/Users/harry/Developer/PokeMonster",
+  "map": "/Game/Maps/Dev_TestMap_VisualV2",
+  "successful_ram_pie_sessions": [
+    {
+      "kind": "controller",
+      "source": "Tools/SwitchProControllerV1/Probe.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/Controller/Controller01.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "battle",
+      "source": "Tools/BattleSystemV3/Review.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/battle/Battle01/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "progression",
+      "source": "Tools/CreatureProgressionV1/Review.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/progression/Progression01/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "themes",
+      "source": "Tools/BattleViewV2/Review.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/Themes/Themes01/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "evolution",
+      "source": "Tools/GlutexoEvolutionV2/ReviewManualEvolution.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/Evolution/Evolution01/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "wild",
+      "source": "Tools/WildEncountersV2/ReviewEncounter.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/wild/Aggressive01/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "wild",
+      "source": "Tools/WildEncountersV2/ReviewEncounter.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/wild/Territorial01/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "wild",
+      "source": "Tools/WildEncountersV2/ReviewEncounter.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/wild/Shy01/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "wild",
+      "source": "Tools/WildEncountersV2/ReviewEncounter.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/wild/Curious01/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "wild",
+      "source": "Tools/WildEncountersV2/ReviewEncounter.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/wild/Capture01/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "group",
+      "source": "Tools/WildEncountersV2/ReviewGroup.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/group/Group01/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "collision",
+      "source": "Tools/GameplayPraxisV1/Collision.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/Collision01/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "movement",
+      "source": "Tools/GameplayPraxisV1/Movement.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/Movement01/Motion/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "npc",
+      "source": "Tools/NPCExpansion/ExistingInteractionsPIE.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/NPC01/ExistingInteractions.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "e2e",
+      "source": "Tools/GameplayPraxisV1/EndToEnd.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/Journey07/Footrun/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "repertoire",
+      "source": "Tools/GameplayPraxisV1/Repertoire.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/Repertoire01/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    },
+    {
+      "kind": "follower",
+      "source": "Tools/GameplayPraxisV1/Follower.py",
+      "result": "Saved/ProjectRefinement/GameplayPraxisV1/Follower01/Result.json",
+      "passed": true,
+      "save_unchanged": true,
+      "save_copied_or_renamed": false,
+      "normal_pie_start_stop": true
+    }
+  ],
+  "controller_checks": 48,
+  "repertoire_checks": [
+    "Open level19 learning offer, IDs, AP and repertoire survive exact RAM Save/Load",
+    "Team tab",
+    "Inventory tab",
+    "Third repertoire tab",
+    "Normal repertoire is read-only including PP and pending offers",
+    "L goes back to inventory",
+    "L goes back to team",
+    "Three-tab journey returns input and retains pending offer"
+  ],
+  "battle_cases": 9,
+  "progression_cases": 6,
+  "battle_themes": [
+    {
+      "theme": "meadow",
+      "position_before": [
+        -760.0,
+        -1410.0,
+        50.150000704469164
+      ],
+      "camera_before": [
+        -2055.3805113653248,
+        -114.61948863467592,
+        2268.376663588568
+      ],
+      "reactions": [
+        "<PokeMonsterCreatureClip.IDLE: 0>",
+        "<PokeMonsterCreatureClip.ATTACK: 3>",
+        "<PokeMonsterCreatureClip.HIT: 4>",
+        "<PokeMonsterCreatureClip.FAINT: 5>",
+        "<PokeMonsterCreatureClip.HAPPY: 6>"
+      ],
+      "rounds": 5,
+      "environment": "<PokeMonsterBattleEnvironment.MEADOW: 1>",
+      "framing_distance": 686.1669311523438,
+      "dressing_instances": 95,
+      "capture_location": [
+        -485.19329004378517,
+        485.1932900437851,
+        10226.435089111328
+      ],
+      "screenshots": [
+        "BattleV2_meadow_Commands_Themes01",
+        "BattleV2_meadow_Moves_Themes01",
+        "BattleV2_meadow_Team_Themes01",
+        "BattleV2_meadow_Bag_Themes01",
+        "BattleV2_meadow_Attack_Themes01"
+      ],
+      "action_shot": true,
+      "position_after": [
+        -760.0,
+        -1410.0,
+        50.150000704469164
+      ],
+      "camera_after": [
+        -2055.3805113653248,
+        -114.61948863467592,
+        2268.376663588568
+      ]
+    },
+    {
+      "theme": "forest",
+      "position_before": [
+        -760.0,
+        -1410.0,
+        50.150000704469164
+      ],
+      "camera_before": [
+        -2055.3805113653248,
+        -114.61948863467592,
+        2268.376663588568
+      ],
+      "reactions": [
+        "<PokeMonsterCreatureClip.IDLE: 0>",
+        "<PokeMonsterCreatureClip.ATTACK: 3>",
+        "<PokeMonsterCreatureClip.HIT: 4>",
+        "<PokeMonsterCreatureClip.FAINT: 5>",
+        "<PokeMonsterCreatureClip.HAPPY: 6>"
+      ],
+      "rounds": 5,
+      "environment": "<PokeMonsterBattleEnvironment.FOREST: 2>",
+      "framing_distance": 686.1669311523438,
+      "dressing_instances": 102,
+      "capture_location": [
+        -485.19329004378517,
+        485.1932900437851,
+        10226.435089111328
+      ],
+      "screenshots": [
+        "BattleV2_forest_Commands_Themes01",
+        "BattleV2_forest_Moves_Themes01",
+        "BattleV2_forest_Team_Themes01",
+        "BattleV2_forest_Bag_Themes01",
+        "BattleV2_forest_Attack_Themes01"
+      ],
+      "action_shot": true,
+      "position_after": [
+        -760.0,
+        -1410.0,
+        50.150000704469164
+      ],
+      "camera_after": [
+        -2055.3805113653248,
+        -114.61948863467592,
+        2268.376663588568
+      ]
+    },
+    {
+      "theme": "cave",
+      "position_before": [
+        -760.0,
+        -1410.0,
+        50.150000704469164
+      ],
+      "camera_before": [
+        -2055.3805113653248,
+        -114.61948863467592,
+        2268.376663588568
+      ],
+      "reactions": [
+        "<PokeMonsterCreatureClip.IDLE: 0>",
+        "<PokeMonsterCreatureClip.ATTACK: 3>",
+        "<PokeMonsterCreatureClip.HIT: 4>",
+        "<PokeMonsterCreatureClip.FAINT: 5>",
+        "<PokeMonsterCreatureClip.HAPPY: 6>"
+      ],
+      "rounds": 5,
+      "environment": "<PokeMonsterBattleEnvironment.CAVE: 3>",
+      "framing_distance": 686.1669311523438,
+      "dressing_instances": 42,
+      "capture_location": [
+        -485.19329004378517,
+        485.1932900437851,
+        10226.435089111328
+      ],
+      "screenshots": [
+        "BattleV2_cave_Commands_Themes01",
+        "BattleV2_cave_Moves_Themes01",
+        "BattleV2_cave_Team_Themes01",
+        "BattleV2_cave_Bag_Themes01",
+        "BattleV2_cave_Attack_Themes01"
+      ],
+      "action_shot": true,
+      "position_after": [
+        -760.0,
+        -1410.0,
+        50.150000704469164
+      ],
+      "camera_after": [
+        -2055.3805113653248,
+        -114.61948863467592,
+        2268.376663588568
+      ]
+    },
+    {
+      "theme": "ruins",
+      "position_before": [
+        -760.0,
+        -1410.0,
+        50.150000704469164
+      ],
+      "camera_before": [
+        -2055.3805113653248,
+        -114.61948863467592,
+        2268.376663588568
+      ],
+      "reactions": [
+        "<PokeMonsterCreatureClip.IDLE: 0>",
+        "<PokeMonsterCreatureClip.ATTACK: 3>",
+        "<PokeMonsterCreatureClip.HIT: 4>",
+        "<PokeMonsterCreatureClip.FAINT: 5>",
+        "<PokeMonsterCreatureClip.HAPPY: 6>"
+      ],
+      "rounds": 5,
+      "environment": "<PokeMonsterBattleEnvironment.RUINS: 4>",
+      "framing_distance": 686.1669311523438,
+      "dressing_instances": 103,
+      "capture_location": [
+        -485.19329004378517,
+        485.1932900437851,
+        10226.435089111328
+      ],
+      "screenshots": [
+        "BattleV2_ruins_Commands_Themes01",
+        "BattleV2_ruins_Moves_Themes01",
+        "BattleV2_ruins_Team_Themes01",
+        "BattleV2_ruins_Bag_Themes01",
+        "BattleV2_ruins_Attack_Themes01"
+      ],
+      "action_shot": true,
+      "position_after": [
+        -760.0,
+        -1410.0,
+        50.150000704469164
+      ],
+      "camera_after": [
+        -2055.3805113653248,
+        -114.61948863467592,
+        2268.376663588568
+      ]
+    }
+  ],
+  "evolution_checks": [
+    "Invalid slot changes no team or save",
+    "Only selected actual member reaches required level",
+    "Actual late cancellation at 4.605 game seconds before unchanged five-second boundary",
+    "Cancellation keeps species identity and AP",
+    "End restores exact original team including pending metadata",
+    "Confirmed evolution preserves selected instance XP and spent AP",
+    "Save Load reads evolved RAM state without touching disk",
+    "Delete normal save blocked during preview",
+    "End after success restores exact original team",
+    "Team slot2 selected without changing slot1",
+    "First stage uses original selected ID and regular model",
+    "Second stage reaches36 with no skipped individual",
+    "Second stage uses existing Glurak and retains independent reserve",
+    "Fixture and both evolutions fully discarded"
+  ],
+  "connected_journey": {
+    "passed": true,
+    "steps": 74,
+    "distance_m": 262.18845801252564,
+    "no_in_route_test_teleports": true,
+    "fixture": "Existing EvolutionReview.Party creates Glumanda15 + independent Glurak36; one XP before16. All changes RAM-only. Wild actors/HP/profiles remain unchanged.",
+    "xp_before": 4095,
+    "xp_after": 4141,
+    "level_before": 15,
+    "level_after": 16,
+    "battle_outcomes": [
+      "<PokeMonsterEncounterOutcome.VICTORY: 0>",
+      "<PokeMonsterEncounterOutcome.FLED: 2>"
+    ],
+    "healed_hp_and_pp": true,
+    "save_load_roundtrips": [
+      {
+        "step": "RAMSaveLoad",
+        "exact_party_inventory_completion_position_roundtrip": true
+      },
+      {
+        "step": "FinalRAMSaveLoad",
+        "exact_party_inventory_completion_position_roundtrip": true
+      }
+    ],
+    "companion_samples": 1721,
+    "companion_max_distance_cm": 20436.748082194394,
+    "detours": [
+      {
+        "route": "ForestMiddle",
+        "position": [
+          -1704.5414164599217,
+          943.4679472796689,
+          50.14999838097097
+        ],
+        "locked": false,
+        "nearby_blockers": [
+          {
+            "actor": "V2_ForestOak_3",
+            "class": "StaticMeshActor",
+            "position": [
+              -2060.0,
+              650.0,
+              0.0
+            ],
+            "center": [
+              -2068.33163351883,
+              658.9082453522224,
+              322.5678991699219
+            ],
+            "extent": [
+              441.455341131737,
+              431.9965245108683,
+              322.5678991699219
+            ]
+          },
+          {
+            "actor": "Slice_Wild_Gengar_V3",
+            "class": "PokeMonsterVisibleWildCreatureActor",
+            "position": [
+              -1725.137976178755,
+              873.3436591590045,
+              75.0
+            ],
+            "center": [
+              -1725.137976178755,
+              873.3436591590045,
+              75.0
+            ],
+            "extent": [
+              84.40709370023455,
+              84.40709370023455,
+              75.0
+            ]
+          },
+          {
+            "actor": "Slice_Wild_Glurak_V3",
+            "class": "PokeMonsterVisibleWildCreatureActor",
+            "position": [
+              -1669.6721978366031,
+              1013.270841400317,
+              85.0
+            ],
+            "center": [
+              -1669.6721978366031,
+              1013.2708414003168,
+              85.0
+            ],
+            "extent": [
+              91.76347211370376,
+              91.7634721137037,
+              85.0
+            ]
+          },
+          {
+            "actor": "GameplayDebuggerCategoryReplicator0",
+            "class": "GameplayDebuggerCategoryReplicator",
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extent": [
+              1000000.0,
+              1000000.0,
+              1000000.0
+            ]
+          }
+        ],
+        "method": "Actual sideways stick input; no collision changes or teleport"
+      },
+      {
+        "route": "ForestMiddle",
+        "position": [
+          -1704.1823606036357,
+          943.2886028977666,
+          50.150001545340416
+        ],
+        "locked": false,
+        "nearby_blockers": [
+          {
+            "actor": "V2_ForestOak_3",
+            "class": "StaticMeshActor",
+            "position": [
+              -2060.0,
+              650.0,
+              0.0
+            ],
+            "center": [
+              -2068.33163351883,
+              658.9082453522224,
+              322.5678991699219
+            ],
+            "extent": [
+              441.455341131737,
+              431.9965245108683,
+              322.5678991699219
+            ]
+          },
+          {
+            "actor": "Slice_Wild_Gengar_V3",
+            "class": "PokeMonsterVisibleWildCreatureActor",
+            "position": [
+              -1725.137976178755,
+              873.3436591590045,
+              75.0
+            ],
+            "center": [
+              -1725.137976178755,
+              873.3436591590045,
+              75.0
+            ],
+            "extent": [
+              84.65517096874783,
+              84.65517096874794,
+              75.0
+            ]
+          },
+          {
+            "actor": "Slice_Wild_Glurak_V3",
+            "class": "PokeMonsterVisibleWildCreatureActor",
+            "position": [
+              -1669.6721978366031,
+              1013.270841400317,
+              85.0
+            ],
+            "center": [
+              -1669.6721978366031,
+              1013.2708414003168,
+              85.0
+            ],
+            "extent": [
+              91.76347211370376,
+              91.7634721137037,
+              85.0
+            ]
+          },
+          {
+            "actor": "GameplayDebuggerCategoryReplicator0",
+            "class": "GameplayDebuggerCategoryReplicator",
+            "position": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "extent": [
+              1000000.0,
+              1000000.0,
+              1000000.0
+            ]
+          }
+        ],
+        "method": "Actual sideways stick input; no collision changes or teleport"
+      }
+    ],
+    "disk_save_unchanged": true
+  },
+  "fresh_restart": {
+    "passed": true,
+    "normal_pie_start": true,
+    "existing_explicit_load_required": true,
+    "existing_auto_load_implemented": false,
+    "loaded_party_size": 1,
+    "repeat_disk_load_exact_party_ids_moves_hp_xp_ap_pending": true,
+    "native_schema_validation_used": true,
+    "protected_payload_fields_not_read_or_bypassed": true,
+    "disk_save_unchanged": true,
+    "default_evolution_auto": 1,
+    "menu_and_input_unlocked": true,
+    "save_called": false,
+    "saved_position_supported": false,
+    "position_note": "Existing schema stores active checkpoint; no current pawn transform. Stationary RAM roundtrip is not proof of resume-position persistence.",
+    "initial_generated_dev_party_differs_from_loaded_save": true
+  },
+  "hardware_detection": {
+    "controller_records": [
+      {
+        "name": "Nintendo Switch ProCon",
+        "connection_section": [
+          "device_not_connected"
+        ],
+        "product_id": "0x2009",
+        "vendor_id": "0x057E"
+      }
+    ],
+    "source": "system_profiler SPBluetoothDataType; personal identifiers omitted",
+    "physical_button_test": false
+  },
+  "missing_learnset_entries": [
+    {
+      "species": "Bibor",
+      "level": 20,
+      "move": null,
+      "unavailable": "TWINEEDLE",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Bibor",
+      "level": 30,
+      "move": null,
+      "unavailable": "PURSUIT",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Bibor",
+      "level": 35,
+      "move": null,
+      "unavailable": "PIN_MISSILE",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Garados",
+      "level": 1,
+      "move": null,
+      "unavailable": "THRASH",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Garados",
+      "level": 35,
+      "move": null,
+      "unavailable": "TWISTER",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Garados",
+      "level": 50,
+      "move": null,
+      "unavailable": "HYPER_BEAM",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Habitak",
+      "level": 25,
+      "move": null,
+      "unavailable": "PURSUIT",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Habitak",
+      "level": 31,
+      "move": null,
+      "unavailable": "MIRROR_MOVE",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Habitak",
+      "level": 37,
+      "move": null,
+      "unavailable": "DRILL_PECK",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Karpador",
+      "level": 1,
+      "move": null,
+      "unavailable": "SPLASH",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Karpador",
+      "level": 30,
+      "move": null,
+      "unavailable": "FLAIL",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Smettbo",
+      "level": 18,
+      "move": null,
+      "unavailable": "SUPERSONIC",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Smettbo",
+      "level": 23,
+      "move": null,
+      "unavailable": "WHIRLWIND",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Smettbo",
+      "level": 28,
+      "move": null,
+      "unavailable": "GUST",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Smettbo",
+      "level": 34,
+      "move": null,
+      "unavailable": "PSYBEAM",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    },
+    {
+      "species": "Smettbo",
+      "level": 40,
+      "move": null,
+      "unavailable": "SAFEGUARD",
+      "reason": "Verified Crystal learnset; this move is not yet bound in the existing move catalogue.",
+      "existing_candidates": []
+    }
+  ],
+  "existing_move_assets": 75,
+  "species_assets_including_test_species": 21,
+  "editor_build": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 3.0044138431549072
+  },
+  "automation": {
+    "succeeded": 209,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0,
+    "inProcess": 0
+  },
+  "automation_engine_exit": 0,
+  "strict_qa_wrapper_exit": 1,
+  "automation_warnings": [
+    {
+      "test": "PokeMonster.CrystalMoves.Edges.AllTenLearnlistsUseValidStableAssets",
+      "type": "Warning",
+      "message": "LogHAL: FMacPlatformProcess::CreateProc: posix_spawn(\"/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id\") failed (86, Bad CPU type in executable)",
+      "context": "log",
+      "artifact": "00000000000000000000000000000000"
+    },
+    {
+      "test": "PokeMonster.CrystalMoves.Edges.AllTenLearnlistsUseValidStableAssets",
+      "type": "Warning",
+      "message": "LogHAL: Failed to launch Tool. (/Users/Shared/Epic Games/UE_5.8/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/idevice_id)",
+      "context": "log",
+      "artifact": "00000000000000000000000000000000"
+    }
+  ],
+  "map_checks": [
+    {
+      "map": "/Game/Maps/Dev_BattleTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BiomeTestMap_V1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BuildingKitTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_HealingHouseTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_NPCMotionV3",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2EnvironmentQualityV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandAssetLibrary",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandRegion",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandVillage",
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "scene_unchanged": {
+    "passed": true,
+    "actors": 1466,
+    "complete_editor_inventory_unchanged": true,
+    "no_dirty_packages": true
+  },
+  "native_fatal_crash_signatures": [],
+  "media": {
+    "fresh_images": 184,
+    "movement": [
+      {
+        "name": "PlayerMovement",
+        "file": "Saved/ProjectRefinement/GameplayPraxisV1/Movement01/Motion/PlayerMovement.mp4",
+        "frames": 186,
+        "game_seconds": 8.929399481,
+        "game_time_sample_hz": 20.71807856660949,
+        "width": 2331,
+        "height": 1311,
+        "method": "native Slate presented frames, world time dilation .20; encode original game timestamps, no interpolation, not realtime FPS",
+        "encoder": "Encoded 0 / 186\nVIDEO_OK /Users/harry/Developer/PokeMonster/Saved/ProjectRefinement/GameplayPraxisV1/Movement01/Motion/PlayerMovement.mp4 frames 186 duration 9.0 size 2331 1311\n"
+      }
+    ],
+    "not_uploaded": true
+  },
+  "outdoor_follower": {
+    "time": 11.517472475767136,
+    "max_distance_xy_cm": 540.1660610063725,
+    "settled_distance_xy_cm": 130.33750284801667,
+    "max_player_speed_cm_s": 315.00000000000483,
+    "passed": true,
+    "error": null,
+    "isolated_setup": "Existing starter party; outdoor diagnostic start, wild encounters paused only in this fixture",
+    "no_in_motion_teleports": true
+  },
+  "production_changes": [],
+  "scope_limits": [
+    "Physical controller was not connected; no hardware-button pass claimed",
+    "Current pawn transform is not in existing save schema; stationary RAM roundtrip does not prove resume-position persistence",
+    "PIE starts an existing dev party; existing PMLoad required to load user slot",
+    "16 unbound entries / 15 distinct moves have no existing productive matching asset; no new effects or invented values added",
+    "NPC library and BiomeV1.1 visual acceptance remain open",
+    "Large collidable wild creatures can narrow the forest route; sideways input exits, no persistent input lock"
+  ],
+  "failed_adapter_attempts_retained": true,
+  "github_verification": "pending commit and live remote check",
+  "integrity": {
+    "passed": true,
+    "baseline_head": "45068771198d68c6605c89bc4c7bfed38150e218",
+    "prior_core_files": 5465,
+    "unchanged_prior_core_files": 5465,
+    "approved_existing_changes": [],
+    "protected_files_verified": 44,
+    "protected_untracked": 31,
+    "all_maps_and_user_save_unchanged": true,
+    "backup_refs": {
+      "backup/full-03492bd": "03492bd96b4dba44692f675c19d5f11abfa86b4b",
+      "refs/archive/pokemonster/full-backup-03492bd": "03492bd96b4dba44692f675c19d5f11abfa86b4b"
+    },
+    "package_files": 29
+  }
+}
