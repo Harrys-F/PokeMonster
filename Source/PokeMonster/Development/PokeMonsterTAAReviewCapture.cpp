@@ -7,6 +7,7 @@
 #include "Containers/Ticker.h"
 #include "HAL/IConsoleManager.h"
 #include "HAL/FileManager.h"
+#include "HAL/ThreadSafeCounter64.h"
 #include "Misc/FileHelper.h"
 #include "Misc/Paths.h"
 #include "ImageUtils.h"
@@ -24,12 +25,18 @@
 #if !UE_BUILD_SHIPPING
 namespace PMTAAReviewCapture
 {
+// Bounded diagnostic comparison; unchanged default budget until measured.
+static TAutoConsoleVariable<int32> CVarReadbackSlots(TEXT("pm.TAAReview.ReadbackSlots"),3,
+ TEXT("Review-only staging budget, 3-6 buffers. Does not change game graphics or requested capture rate."));
 struct FRecording : TSharedFromThis<FRecording,ESPMode::ThreadSafe>
 {
  FString Directory,CSV=TEXT("frame,game_seconds,wall_seconds,width,height,file\n");
  int32 Frame=0;double Start=0,Last=-1;bool bSlate=false;float Interval=.05f;
  TAtomic<int32> Pending{0};TAtomic<bool> Stopping{false},RenderDrained{false};
- FTSTicker::FDelegateHandle Handle;FDelegateHandle SlateHandle;
+ FTSTicker::FDelegateHandle Handle;FDelegateHandle SlateHandle,WorldCleanupHandle;
+ TWeakObjectPtr<UWorld> CaptureWorld;
+ int32 MaxReadbacks=3,CreatedReadbacks=0,BufferBusy=0,EncoderBusy=0;
+ FThreadSafeCounter64 CopyMicros,ReadyMicros,JPEGMicros,WriteMicros;
  // These fields are render-thread-only in Slate mode.
  const SWindow* Window=nullptr;FIntRect Crop;double GameSeconds=0;
  struct FReadback
@@ -37,6 +44,9 @@ struct FRecording : TSharedFromThis<FRecording,ESPMode::ThreadSafe>
   TUniquePtr<FRHIGPUTextureReadback> GPU;FIntPoint Size;double Game=0,Wall=0;bool bSwap=false;
  };
  TArray<FReadback> Readbacks;
+ // Reuse staging resources instead of allocating and retiring one Metal buffer per frame.
+ // All access is confined to the render thread and the total count is strictly bounded.
+ TArray<TUniquePtr<FRHIGPUTextureReadback>> FreeReadbacks;
  void Save(FIntPoint Size,TArray<FColor>&& Pixels,double Game,double Wall)
  {
   if(!Frame)Start=Game;
@@ -45,8 +55,11 @@ struct FRecording : TSharedFromThis<FRecording,ESPMode::ThreadSafe>
   ++Pending;
   Async(EAsyncExecution::ThreadPool,[Hold=AsShared(),Size,Data=MoveTemp(Pixels),Path=Directory/File]()
   {
+   const double EncodeStart=FPlatformTime::Seconds();
    TArray64<uint8> Encoded;FImageUtils::CompressImage(Encoded,TEXT("jpg"),FImageView(Data.GetData(),Size.X,Size.Y),94);
-   FFileHelper::SaveArrayToFile(Encoded,*Path);--Hold->Pending;
+   Hold->JPEGMicros.Add(int64((FPlatformTime::Seconds()-EncodeStart)*1.e6));
+   const double WriteStart=FPlatformTime::Seconds();FFileHelper::SaveArrayToFile(Encoded,*Path);
+   Hold->WriteMicros.Add(int64((FPlatformTime::Seconds()-WriteStart)*1.e6));--Hold->Pending;
   });
  }
  void PumpReadbacks()
@@ -54,23 +67,25 @@ struct FRecording : TSharedFromThis<FRecording,ESPMode::ThreadSafe>
   check(IsInRenderingThread());
   while(!Readbacks.IsEmpty()&&Readbacks[0].GPU->IsReady())
   {
-   auto& Read=Readbacks[0];int32 Pitch=0;const uint8* Data=static_cast<const uint8*>(Read.GPU->Lock(Pitch));
+   auto& Read=Readbacks[0];ReadyMicros.Add(int64((FPlatformTime::Seconds()-Read.Wall)*1.e6));const double CopyStart=FPlatformTime::Seconds();int32 Pitch=0;const uint8* Data=static_cast<const uint8*>(Read.GPU->Lock(Pitch));
    if(Data)
    {
     TArray<FColor> Pixels;Pixels.SetNumUninitialized(Read.Size.X*Read.Size.Y);
     for(int Y=0;Y<Read.Size.Y;++Y)FMemory::Memcpy(Pixels.GetData()+Y*Read.Size.X,Data+Y*Pitch*4,Read.Size.X*4);
     Read.GPU->Unlock();
     if(Read.bSwap)for(auto& Pixel:Pixels)Swap(Pixel.R,Pixel.B);
-    Save(Read.Size,MoveTemp(Pixels),Read.Game,Read.Wall);
+    CopyMicros.Add(int64((FPlatformTime::Seconds()-CopyStart)*1.e6));Save(Read.Size,MoveTemp(Pixels),Read.Game,Read.Wall);
    }
-   Readbacks.RemoveAt(0);
+   FreeReadbacks.Add(MoveTemp(Read.GPU));Readbacks.RemoveAt(0);
   }
   if(Stopping.Load()&&Readbacks.IsEmpty())RenderDrained.Store(true);
  }
  void OnPresent(SWindow& Presented,ISlateViewportProvider& Provider)
  {
   PumpReadbacks();
-  if(Stopping.Load()||&Presented!=Window||GameSeconds-Last<Interval||Readbacks.Num()>=3||Pending.Load()>=3)return;
+  if(Stopping.Load()||&Presented!=Window||GameSeconds-Last<Interval)return;
+  if(Readbacks.Num()>=MaxReadbacks){++BufferBusy;return;}
+  if(Pending.Load()>=3){++EncoderBusy;return;}
   FRHITexture* Texture=Provider.GetBackBufferResource();if(!Texture)return;
   const auto Format=Texture->GetFormat();
   if(Format!=PF_B8G8R8A8&&Format!=PF_R8G8B8A8)
@@ -78,7 +93,8 @@ struct FRecording : TSharedFromThis<FRecording,ESPMode::ThreadSafe>
   const auto Extent=Texture->GetSizeXY();const FIntRect Rect(FIntPoint(FMath::Clamp(Crop.Min.X,0,Extent.X),FMath::Clamp(Crop.Min.Y,0,Extent.Y)),FIntPoint(FMath::Clamp(Crop.Max.X,0,Extent.X),FMath::Clamp(Crop.Max.Y,0,Extent.Y)));
   if(Rect.Width()<640||Rect.Height()<360)return;
   Last=GameSeconds;FReadback Read;Read.Size=Rect.Size();Read.Game=GameSeconds;Read.Wall=FPlatformTime::Seconds();Read.bSwap=Format==PF_R8G8B8A8;
-  Read.GPU=MakeUnique<FRHIGPUTextureReadback>(TEXT("PokeMonsterActualSlateReview"));
+  if(!FreeReadbacks.IsEmpty())Read.GPU=FreeReadbacks.Pop();
+  else{Read.GPU=MakeUnique<FRHIGPUTextureReadback>(TEXT("PokeMonsterActualSlateReview"));++CreatedReadbacks;}
   Read.GPU->EnqueueCopy(FRHICommandListExecutor::GetImmediateCommandList(),Texture,FResolveRect(Rect.Min.X,Rect.Min.Y,Rect.Max.X,Rect.Max.Y));Readbacks.Add(MoveTemp(Read));
  }
  bool Tick(float)
@@ -91,14 +107,18 @@ struct FRecording : TSharedFromThis<FRecording,ESPMode::ThreadSafe>
     if(!RenderDrained.Load())return true;
    }
    if(Pending.Load()>0)return true;
+   FWorldDelegates::OnWorldBeginTearDown.Remove(WorldCleanupHandle);
    if(SlateHandle.IsValid()&&FSlateApplication::IsInitialized())FSlateApplication::Get().GetRenderer()->OnBackBufferReadyToPresent().Remove(SlateHandle);
    FFileHelper::SaveStringToFile(CSV,*(Directory/TEXT("Frames.csv")));
+   const FString Metrics=FString::Printf(TEXT("{\"frames\":%d,\"readback_slots\":%d,\"created_readbacks\":%d,\"buffer_busy_skips\":%d,\"encoder_busy_skips\":%d,\"readback_wait_us_sum\":%lld,\"copy_us_sum\":%lld,\"jpeg_us_sum\":%lld,\"write_us_sum\":%lld}"),
+    Frame,MaxReadbacks,CreatedReadbacks,BufferBusy,EncoderBusy,(long long)ReadyMicros.GetValue(),(long long)CopyMicros.GetValue(),(long long)JPEGMicros.GetValue(),(long long)WriteMicros.GetValue());
+   FFileHelper::SaveStringToFile(Metrics,*(Directory/TEXT("Metrics.json")));
    FFileHelper::SaveStringToFile(FString::FromInt(Frame),*(Directory/TEXT("Complete.txt")));return false;
   }
   for(const auto& C:GEngine->GetWorldContexts())
   {
    UWorld* W=C.World();if(!W||!W->IsGameWorld()||!(W->GetMapName().Contains(TEXT("Dev_TestMap_VisualV2GPUBottleneckV1"))||W->GetMapName()==TEXT("Dev_TestMap_VisualV2")||W->GetMapName().EndsWith(TEXT("_Dev_TestMap_VisualV2"))||W->GetMapName()==TEXT("Dev_BiomeTestMap_V1")||W->GetMapName().EndsWith(TEXT("_Dev_BiomeTestMap_V1"))))continue;
-   auto* GI=W->GetGameInstance();auto* Client=GI?GI->GetGameViewportClient():nullptr;auto* VP=Client?Client->GetGameViewport():nullptr;if(!VP)return true;
+   CaptureWorld=W;auto* GI=W->GetGameInstance();auto* Client=GI?GI->GetGameViewportClient():nullptr;auto* VP=Client?Client->GetGameViewport():nullptr;if(!VP)return true;
    const double Now=W->GetTimeSeconds();
    if(bSlate)
    {
@@ -126,7 +146,11 @@ static FAutoConsoleCommand StartCommand(TEXT("pm.TAAReview.CaptureStart"),TEXT("
  if(Args.Num()==3&&(Args[1]!=TEXT("slate")||!Args[2].IsNumeric()||FCString::Atoi(*Args[2])<10||FCString::Atoi(*Args[2])>60))return;
  const FString Root=FPaths::ConvertRelativePathToFull(FPaths::ProjectDir()/TEXT("Saved/VisualV2TAAIntegrationV1/Recordings/"));
  const FString Dir=FPaths::ConvertRelativePathToFull(Args[0]);if(!Dir.StartsWith(Root)||IFileManager::Get().DirectoryExists(*Dir))return;
- IFileManager::Get().MakeDirectory(*Dir,true);Recording=MakeShared<FRecording,ESPMode::ThreadSafe>();Recording->Directory=Dir;
+ IFileManager::Get().MakeDirectory(*Dir,true);Recording=MakeShared<FRecording,ESPMode::ThreadSafe>();Recording->Directory=Dir;Recording->MaxReadbacks=FMath::Clamp(CVarReadbackSlots.GetValueOnGameThread(),3,6);
+ // Ending PIE/map travel must finish the review even if no further game Tick can run.
+ // Never flush or wait synchronously inside world teardown.
+ Recording->WorldCleanupHandle=FWorldDelegates::OnWorldBeginTearDown.AddLambda([Weak=Recording.ToWeakPtr()](UWorld* World)
+ {if(auto Hold=Weak.Pin())if(Hold->CaptureWorld.Get()==World)Hold->Stopping.Store(true);});
  if(Args.Num()==3)
  {
   Recording->bSlate=true;Recording->Interval=1.f/FCString::Atoi(*Args[2]);

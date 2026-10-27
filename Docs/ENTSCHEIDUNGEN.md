@@ -1355,3 +1355,10 @@ Modell-/Map-/Save-Änderung; Uhr und 120-Minuten-Regel bleiben unverändert.
 - Schlaf bleibt technisch eigener Zustand mit vorhandener Idle-Darstellung. Schlafende nehmen keine normalen Sozialkontakte an; Ruhende akzeptieren seltener. Gegenseitige Reservierung/Abbruch der KI V2.1 bleiben maßgeblich.
 - Bei pausierter Weltuhr stehen ambienter Ablauf und Bewegung still, wichtige Spieler-/Gefahrenreaktionen behalten Vorrang. Zeit-/Phasenereignisse aktualisieren Gewichte sofort; regulär alle drei Sekunden im bestehenden Bewegungstimer (bei Debugbeschleunigung mindestens 0,5 s).
 - Weltzeit wird weiter ausschließlich vom vorhandenen Save-System gespeichert. Aktivitäten/Reservierungen bleiben transient und werden nach Laden/Mapwechsel sicher neu initialisiert.
+
+
+## 2026-10-27 – VisualV2: Prototypflächen und Entwicklungsaufnahme
+
+An den drei vorhandenen begehbaren Podesten `Hill_Step_Low`, `Hill_Step_Mid`, `Hill_Lookout` wird ausschließlich Materialslot 0 auf das bereits verwendete `M_EQ3_Ground` gesetzt. Die selbstleuchtenden Prototypflächen waren durch die unveränderte Kronenfreistellung sichtbar; Sichtkreis, Geländegeometrie und Beleuchtung bleiben erhalten. Die einfachere Naturgrasvariante wurde wegen sichtbarer Materialgrenzen nicht übernommen. Lokale zusätzliche GPU-Kosten sind dokumentiert; keine allgemeine Performanceverbesserung behauptet.
+
+Der vorhandene Entwicklungsrecorder verwendet begrenzt wiederverwendbare GPU-Lesepuffer (Standardbudget weiterhin drei) und beendet eine Aufnahme beim Abbau ihrer Spielwelt asynchron. Dies ist keine bestätigte Lösung des früheren Editorstillstands. 30-FPS-Aufnahmen bleiben offen. Details, tatsächliche Tests und der abschließende QA-Wrapper **Exit 1** wegen externer iOS-Helferwarnungen stehen im [Prüfbericht](VISUALV2_GRAFIK_PERFORMANCE_STABILITAET_V1.md).
