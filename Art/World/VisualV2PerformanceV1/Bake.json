@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "material": "/Game/Environment/VisualV2PerformanceV1/Materials/M_PV1_BakedGroundSRGB.M_PV1_BakedGroundSRGB",
+  "texture": "/Game/Environment/VisualV2PerformanceV1/Textures/T_PV1_GroundColorSRGB.T_PV1_GroundColorSRGB",
+  "source": "Art/World/VisualV2PerformanceV1/GroundColorSRGB.png",
+  "bounds_cm": [
+    -6000,
+    -3250,
+    3000,
+    3250
+  ],
+  "size": [
+    4096,
+    4096
+  ],
+  "source_bytes": 39639732,
+  "source_sha256": "89c7225ae14270721a5c5762fff02252ed7c0a887965daaf503362786b3f9b86",
+  "static_basecolor_only": true,
+  "lighting_baked": false,
+  "srgb": true,
+  "compression": "<TextureCompressionSettings.TC_BC7: 11>",
+  "normal_unchanged": true,
+  "quality_still_requires_visual_and_timing_review": false,
+  "source_material": "/Game/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_Ground",
+  "source_material_sha256": "2ad683b9e0d53fad3567fa41f434f1340dbac9e7c6dd144b7a8c2706a30487e9",
+  "purpose": "Static base colour only; no scene, lighting, shadow or actor pixels",
+  "rebake_after": "Changes to source material, its textures, route geometry embedded in shader, or world XY extent"
+}

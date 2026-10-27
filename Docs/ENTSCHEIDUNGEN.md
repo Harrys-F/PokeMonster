@@ -1362,3 +1362,27 @@ Modell-/Map-/Save-Änderung; Uhr und 120-Minuten-Regel bleiben unverändert.
 An den drei vorhandenen begehbaren Podesten `Hill_Step_Low`, `Hill_Step_Mid`, `Hill_Lookout` wird ausschließlich Materialslot 0 auf das bereits verwendete `M_EQ3_Ground` gesetzt. Die selbstleuchtenden Prototypflächen waren durch die unveränderte Kronenfreistellung sichtbar; Sichtkreis, Geländegeometrie und Beleuchtung bleiben erhalten. Die einfachere Naturgrasvariante wurde wegen sichtbarer Materialgrenzen nicht übernommen. Lokale zusätzliche GPU-Kosten sind dokumentiert; keine allgemeine Performanceverbesserung behauptet.
 
 Der vorhandene Entwicklungsrecorder verwendet begrenzt wiederverwendbare GPU-Lesepuffer (Standardbudget weiterhin drei) und beendet eine Aufnahme beim Abbau ihrer Spielwelt asynchron. Dies ist keine bestätigte Lösung des früheren Editorstillstands. 30-FPS-Aufnahmen bleiben offen. Details, tatsächliche Tests und der abschließende QA-Wrapper **Exit 1** wegen externer iOS-Helferwarnungen stehen im [Prüfbericht](VISUALV2_GRAFIK_PERFORMANCE_STABILITAET_V1.md).
+
+## 2026-10-27 – VisualV2 Performance V1: statische Bodenfarbe vorberechnen
+
+Die drei Podestzuweisungen der vorangehenden Korrektur und der vorhandene
+Hauptboden werden im Performanceauftrag gezielt weiterentwickelt: `V2_Ground`, `Hill_Step_Low`,
+`Hill_Step_Mid` und `Hill_Lookout` verwenden in Slot 0 die map-spezifische
+`M_PV1_BakedGroundSRGB`. Die ursprüngliche `M_EQ3_Ground` bleibt unverändert als
+Quelle erhalten. Die neue 4096²-BC7-Textur enthält ausschließlich deren statische
+Grundfarbe im Weltbereich X −6000…3000 / Y −3250…3250 cm. Es werden weder Licht
+noch Schatten, Figuren oder Vegetation in ein Szenenbild eingebrannt.
+
+Der wiederholte gepaarte Spielprozessvergleich belegt eine geringere GPU-Zeit.
+Die reale 3D-Vegetation, Weltgrößen, Normalen/Roughness und das dynamische
+Licht-/Schattensystem bleiben erhalten. Feine Bodendetails wirken etwas weicher;
+diese begrenzte Änderung ersetzt die pro Pixel wiederholte prozedurale
+Farb-/Wegeberechnung. Änderungen an Quellmaterial, Texturen, eingebetteten Wegen
+oder Weltbereich erfordern einen neuen überprüften Farbbake.
+
+Keine pauschale Lumen-, Schatten-, Vegetations- oder Auflösungsreduktion wird
+übernommen. QHD/High bei 100 % bleibt die Referenz; Medium und 75 % intern sind
+getrennte Vergleichsalternativen. 30 beziehungsweise 60 FPS sind keine zugesagte
+Leistung. Messwerte, Streuungen, Editor-/Spielprozessunterschiede und verbleibende
+Grenzen werden im [Performancebericht](VISUALV2_PERFORMANCEOPTIMIERUNG_V1.md)
+ausgewiesen. Weltuhr, 75° Mittagssonne/85° Debugoption und Gameplay bleiben gleich.

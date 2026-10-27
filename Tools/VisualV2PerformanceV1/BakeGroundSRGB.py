@@ -1,0 +1,28 @@
+"""Isolated 4096px static base-color bake. Dynamic light/normal/roughness untouched.
+The draw is unlit, no exposure/tonemapping/scene lights; world XY and original
+texture inputs are evaluated once. Only a new material/texture/source are saved.
+"""
+import unreal,json,time,traceback,hashlib
+from pathlib import Path
+R=Path(unreal.Paths.project_dir()).resolve();D=R/'Saved/ProjectRefinement/VisualV2PerformanceV1';E=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);W=E.get_editor_world();L=unreal.MaterialEditingLibrary;K=unreal.RenderingLibrary
+assert not E.get_game_world()and not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()and all(x.get_path_name()=='/Game/Environment/VisualV2PerformanceV1/Materials/M_PV1_BakedGroundSRGB'for x in unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages())
+path='/Game/Environment/VisualV2PerformanceV1/Materials/M_PV1_BakedGroundSRGB';assert not(R/'Content/Environment/VisualV2PerformanceV1/Materials/M_PV1_BakedGroundSRGB.uasset').exists();m=unreal.load_asset(path)if unreal.EditorAssetLibrary.does_asset_exist(path)else unreal.EditorAssetLibrary.duplicate_asset('/Game/Environment/VisualV2EnvironmentV3/Materials/M_EQ3_Ground',path);assert m
+nodes=L.get_material_expressions(m);color=next(x for x in nodes if isinstance(x,unreal.MaterialExpressionCustom)and'W6Route'in x.get_editor_property('code'));world=next(x for x in nodes if isinstance(x,unreal.MaterialExpressionWorldPosition));base=L.get_material_property_input_node(m,unreal.MaterialProperty.MP_BASE_COLOR);assert base
+uv=L.create_material_expression(m,unreal.MaterialExpressionTextureCoordinate,-1800,2700);remap=L.create_material_expression(m,unreal.MaterialExpressionCustom,-1500,2700);remap.set_editor_property('code','return float3(float2(-6000,-3250)+UV*float2(9000,6500),0);');remap.set_editor_property('output_type',unreal.CustomMaterialOutputType.CMOT_FLOAT3);i=unreal.CustomInput();i.set_editor_property('input_name','UV');remap.set_editor_property('inputs',[i]);assert L.connect_material_expressions(uv,'',remap,'UV');assert L.connect_material_expressions(remap,'',color,'P');m.set_editor_property('shading_model',unreal.MaterialShadingModel.MSM_UNLIT);assert L.connect_material_property(base,'',unreal.MaterialProperty.MP_EMISSIVE_COLOR);L.recompile_material(m)
+state={'start':time.monotonic()};unreal._perf1_bake_keep=[m,remap,uv,world,color,base]
+def tick(dt):
+ try:
+  if time.monotonic()-state['start']<10:return
+  unreal.unregister_slate_post_tick_callback(unreal._perf1_bake)
+  rt=K.create_render_target2d(W,4096,4096,unreal.TextureRenderTargetFormat.RTF_RGBA8_SRGB,unreal.LinearColor(0,0,0,1),False,False);unreal._perf1_bake_keep.append(rt);K.draw_material_to_render_target(W,rt,m)
+  source=R/'Art/World/VisualV2PerformanceV1/GroundColorSRGB.png';assert not source.exists();K.export_render_target(W,rt,str(source.parent),source.name);assert source.exists()
+  task=unreal.AssetImportTask();task.filename=str(source);task.destination_path='/Game/Environment/VisualV2PerformanceV1/Textures';task.destination_name='T_PV1_GroundColorSRGB';task.automated=True;task.save=False;task.replace_existing=False;unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks([task]);tex=unreal.load_asset('/Game/Environment/VisualV2PerformanceV1/Textures/T_PV1_GroundColorSRGB');assert tex
+  tex.set_editor_property('srgb',True);tex.set_editor_property('compression_settings',unreal.TextureCompressionSettings.TC_BC7);tex.set_editor_property('never_stream',True);assert unreal.EditorAssetLibrary.save_loaded_asset(tex,False)
+  assert L.connect_material_expressions(world,'',color,'P');m.set_editor_property('shading_model',unreal.MaterialShadingModel.MSM_DEFAULT_LIT);L.disconnect_material_property(m,unreal.MaterialProperty.MP_EMISSIVE_COLOR)
+  coords=L.create_material_expression(m,unreal.MaterialExpressionCustom,-800,2700);coords.set_editor_property('code','return (P.xy-float2(-6000,-3250))/float2(9000,6500);');coords.set_editor_property('output_type',unreal.CustomMaterialOutputType.CMOT_FLOAT2);a=unreal.CustomInput();a.set_editor_property('input_name','P');coords.set_editor_property('inputs',[a]);assert L.connect_material_expressions(world,'',coords,'P')
+  sample=L.create_material_expression(m,unreal.MaterialExpressionTextureSampleParameter2D,-500,2700);sample.set_editor_property('parameter_name','BakedGroundSRGBColor');sample.set_editor_property('texture',tex);sample.set_editor_property('sampler_type',unreal.MaterialSamplerType.SAMPLERTYPE_COLOR);sample.set_editor_property('sampler_source',unreal.SamplerSourceMode.SSM_CLAMP_WORLD_GROUP_SETTINGS);assert L.connect_material_expressions(coords,'',sample,'UVs');assert L.connect_material_property(sample,'RGB',unreal.MaterialProperty.MP_BASE_COLOR);L.recompile_material(m);assert unreal.EditorAssetLibrary.save_loaded_asset(m,False)
+  if hasattr(unreal,'AssetCompilingManager'):unreal.AssetCompilingManager.finish_all_compilation()
+  (D/'BakedGroundSRGB.json').write_text(json.dumps({'passed':True,'material':m.get_path_name(),'texture':tex.get_path_name(),'source':str(source.relative_to(R)),'bounds_cm':[-6000,-3250,3000,3250],'size':[tex.blueprint_get_size_x(),tex.blueprint_get_size_y()],'source_bytes':source.stat().st_size,'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'static_basecolor_only':True,'lighting_baked':False,'srgb':tex.srgb,'compression':str(tex.compression_settings),'normal_unchanged':True,'quality_still_requires_visual_and_timing_review':True},indent=2));unreal._perf1_bake_keep=[];unreal.log('PERF1_GROUND_BAKE_READY')
+ except Exception:
+  (D/'BakeGroundError.txt').write_text(traceback.format_exc());unreal.log_error(traceback.format_exc())
+unreal._perf1_bake=unreal.register_slate_post_tick_callback(tick)

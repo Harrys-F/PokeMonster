@@ -74,3 +74,6 @@ Art/Characters/Creatures/Machomei/Textures/MeshyV1/*.jpg filter=lfs diff=lfs mer
 Art/Characters/Creatures/Nebulak/Textures/MeshyV1/*.jpg filter=lfs diff=lfs merge=lfs -text
 Art/Characters/Creatures/Gengar/Textures/MeshyV1/*.jpg filter=lfs diff=lfs merge=lfs -text
 Art/Characters/Creatures/Glurak/Textures/MeshyV1/*.jpg filter=lfs diff=lfs merge=lfs -text
+
+# Required static VisualV2 base-color bake source, not a review capture.
+Art/World/VisualV2PerformanceV1/GroundColorSRGB.png filter=lfs diff=lfs merge=lfs -text
