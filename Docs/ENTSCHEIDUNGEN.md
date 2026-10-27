@@ -1386,3 +1386,34 @@ getrennte Vergleichsalternativen. 30 beziehungsweise 60 FPS sind keine zugesagte
 Leistung. Messwerte, Streuungen, Editor-/Spielprozessunterschiede und verbleibende
 Grenzen werden im [Performancebericht](VISUALV2_PERFORMANCEOPTIMIERUNG_V1.md)
 ausgewiesen. Weltuhr, 75° Mittagssonne/85° Debugoption und Gameplay bleiben gleich.
+
+
+## 2026-10-27 – Grafikstandard Variante C: QHD High mit 75 %
+
+Harrys ausdrücklicher Folgeauftrag ersetzt die bisherige Entscheidung, High/75 %
+nur als unverbindliche Alternative zu führen. Neuer Grafikstandard C: Ausgabe
+2560×1440, interne Renderauflösung bei 75 % ungefähr 1920×1080, alle
+Skalierungsgruppen High. Die vorhandene VisualV2-TAA-Anbindung verwendet den
+nativen temporalen TAA-Upscale-Pfad auf Metal; keine zusätzliche Upscaling-Plugin-
+Abhängigkeit. Das Lichtvergleichsprofil C (85°) ist davon unabhängig und bleibt
+Debugoption. Mittagssonne weiterhin 75°.
+
+High mit 100 % bleibt über `pm.Graphics 100` als Vergleich verfügbar;
+`pm.Graphics C` aktiviert wieder den Standard, `pm.Graphics status` zeigt die
+wirksamen Einstellungen. Die Auswahl gilt für den laufenden Prozess und wird
+nicht in Pokémon-Spielstände geschrieben. Ein Neustart verwendet den
+konfigurierten Standard C. `-PMGraphicsProfile=100` ermöglicht einen direkten
+Start des Vergleichs. Keine pauschale Lumen-/Schatten-/Vegetationsreduktion.
+
+Die Rendering-Anbindung nutzt vorhandene Unreal-Scalability/GameUserSettings und
+eine nicht tickende World-Subsystem-Anbindung für Spiel-/PIE-Welten. Keine
+Gameplay-Klasse oder Map wird geändert. Editor-Vorschau und Einstellungen vor
+PIE werden beim Beenden wiederhergestellt; explizite höherrangige Konsolen-
+Overrides werden nicht stillschweigend übergangen. Für neue Nutzerfenster sind
+die Standardauflösung und High/75 % zusätzlich in DefaultGameUserSettings
+festgelegt. Vorhandene Nutzerspielstände und Harrys aktuelle Änderungen an
+DefaultEngine.ini bleiben unverändert.
+
+30 FPS bleiben ein Messziel. Eine gesenkte interne Auflösung darf nicht als
+Beschleunigung bei unverändertem QHD/High/100 % ausgegeben werden. Tatsächliche
+Renderer-Auflösung, TAA-Upscale-Pfad und beide Betriebsarten werden neu geprüft.

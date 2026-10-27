@@ -1,0 +1,5 @@
+import unreal,json
+from pathlib import Path
+R=Path(unreal.Paths.project_dir()).resolve();D=R/'Saved/ProjectRefinement/GraphicsVariantC';E=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);assert not E.get_game_world();q=json.loads((D/'StateRequest.json').read_text());p=D/(q['label']+'.json');assert not p.exists();names=['r.ScreenPercentage','r.DynamicRes.OperationMode','r.TemporalAA.Upsampling','r.SecondaryScreenPercentage.GameViewport','r.Editor.Viewport.OverridePIEScreenPercentage']+['sg.'+n+'Quality'for n in ['ViewDistance','AntiAliasing','Shadow','GlobalIllumination','Reflection','PostProcess','Texture','Effects','Foliage','Shading','Landscape']];r={n:unreal.SystemLibrary.get_console_variable_float_value(n)for n in names}
+
+U=unreal.GameUserSettings.get_game_user_settings();res=U.get_screen_resolution();r["user_settings"]={"resolution":[res.x,res.y],"fullscreen":str(U.get_fullscreen_mode()),"dynamic":U.is_dynamic_resolution_enabled(),"desired_display_scale":U.get_default_resolution_scale()};p.write_text(json.dumps(r,indent=2))

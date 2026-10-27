@@ -32,9 +32,9 @@
 #if !UE_BUILD_SHIPPING
 namespace PMEnvironmentPerfV2
 {
-// Reads the renderer driver's upper bound with dynamic resolution explicitly disabled.
+// Public fixed-resolution driver bound; validate screen-percentage showflag and disabled dynamic resolution.
 // Internal dimensions are derived using UE 5.8 ApplyResolutionFraction (ceil), not an allocation readback.
-struct FResolutionState { FCriticalSection Lock; FIntPoint Output=FIntPoint::ZeroValue,Internal=FIntPoint::ZeroValue; float Primary=0,Secondary=0; uint64 Samples=0; int32 ActualAA=-1; };
+struct FResolutionState { FCriticalSection Lock; FIntPoint Output=FIntPoint::ZeroValue,Internal=FIntPoint::ZeroValue; float Primary=0,Secondary=0; uint64 Samples=0; int32 ActualAA=-1,ActualUpscale=-1;bool PercentageEnabled=false; };
 class FResolutionObserver : public FSceneViewExtensionBase
 {
 public:
@@ -45,7 +45,7 @@ public:
   const auto* V=F.Views[0];const auto Fractions=F.GetScreenPercentageInterface()->GetResolutionFractionsUpperBound();
   const float Primary=Fractions[GDynamicPrimaryResolutionFraction],Secondary=F.SecondaryViewFraction;
   FScopeLock L(&State->Lock);State->Primary=Primary;State->Secondary=Secondary;State->Output=V->UnscaledViewRect.Size();
-  State->Internal=FIntPoint(FMath::CeilToInt(State->Output.X*Primary*Secondary),FMath::CeilToInt(State->Output.Y*Primary*Secondary));State->ActualAA=V->AntiAliasingMethod;++State->Samples;
+  State->Internal=FIntPoint(FMath::CeilToInt(State->Output.X*Primary*Secondary),FMath::CeilToInt(State->Output.Y*Primary*Secondary));State->ActualAA=V->AntiAliasingMethod;State->ActualUpscale=int32(V->PrimaryScreenPercentageMethod);State->PercentageEnabled=F.EngineShowFlags.ScreenPercentage;++State->Samples;
  }
 private:TSharedRef<FResolutionState,ESPMode::ThreadSafe> State;FViewport* Viewport;
 };
@@ -57,7 +57,7 @@ struct FProbe : public TSharedFromThis<FProbe>
  TWeakObjectPtr<UWorld> World;TWeakObjectPtr<APawn> Player;FTransform PlayerBefore;TArray<FComponentState> Components;TArray<FPostState> PostVolumes;
  // Explicit vegetation test instances retain the original camera-reveal fade.
  TArray<TPair<TWeakObjectPtr<UMaterialInstanceDynamic>,TStrongObjectPtr<UMaterialInstanceDynamic>>> VegetationTestMIDs;
- TMap<FString,FString> CVars,Factors;TMap<FString,EConsoleVariableFlags> Priorities,FactorPriorities;TArray<FRow> Rows;int32 Index=0;float Warmup=5,Duration=8;FString Label,Mode,Directory,Frames,Segments,Settings;double Start=0,Last=0;bool Capturing=false,Initialized=false;
+ TMap<FString,FString> CVars,Factors;TMap<FString,EConsoleVariableFlags> Priorities,FactorPriorities;TArray<FRow> Rows;int32 Index=0;float Warmup=5,Duration=8;FString Label,Mode,Directory,Frames,Segments,Settings;double Start=0,Last=0;bool Capturing=false,Initialized=false,HadFixedViewport=false;FIntPoint ViewportBefore=FIntPoint::ZeroValue;
  TSharedPtr<FResolutionObserver,ESPMode::ThreadSafe> Observer;TSharedRef<FResolutionState,ESPMode::ThreadSafe> Resolution=MakeShared<FResolutionState,ESPMode::ThreadSafe>();FTSTicker::FDelegateHandle Handle;
  UWorld* FindWorld(){for(const auto& C:GEngine->GetWorldContexts())if(C.World()&&(C.WorldType==EWorldType::PIE||C.WorldType==EWorldType::Game))return C.World();return nullptr;}
  FSceneViewport* Viewport(){auto* W=World.Get();auto* C=W&&W->GetGameInstance()?W->GetGameInstance()->GetGameViewportClient():nullptr;return C?C->GetGameViewport():nullptr;}
@@ -70,16 +70,21 @@ struct FProbe : public TSharedFromThis<FProbe>
   auto* W=FindWorld();if(!W)return false;World=W;Player=UGameplayStatics::GetPlayerPawn(W,0);if(!Player.IsValid()||!Viewport())return false;
   const int32 Category=FCsvProfiler::GetCategoryIndex(TEXT("VSM"));
   Settings+=FString::Printf(TEXT("csv_VSM_category_enabled=%d\n"),Category>=0&&FCsvProfiler::Get()->IsCategoryEnabled(Category));
-  PlayerBefore=Player->GetActorTransform();for(TObjectIterator<UPrimitiveComponent> I;I;++I)if(I->GetWorld()==W&&I->IsRegistered()){FComponentState S{*I,I->IsVisible(),!!I->CastShadow};if(auto* M=Cast<UStaticMeshComponent>(*I))S.ForcedLOD=M->GetForcedLodModel();if(auto* M=Cast<UInstancedStaticMeshComponent>(*I))M->GetCullDistances(S.CullStart,S.CullEnd);if(Vegetation(*I))for(int32 Slot=0;Slot<I->GetNumMaterials();++Slot)S.DiagnosticMaterials.Emplace(I->GetMaterial(Slot));Components.Add(S);}
+  PlayerBefore=Player->GetActorTransform();HadFixedViewport=Viewport()->HasFixedSize();ViewportBefore=Viewport()->GetSizeXY();for(TObjectIterator<UPrimitiveComponent> I;I;++I)if(I->GetWorld()==W&&I->IsRegistered()){FComponentState S{*I,I->IsVisible(),!!I->CastShadow};if(auto* M=Cast<UStaticMeshComponent>(*I))S.ForcedLOD=M->GetForcedLodModel();if(auto* M=Cast<UInstancedStaticMeshComponent>(*I))M->GetCullDistances(S.CullStart,S.CullEnd);if(Vegetation(*I))for(int32 Slot=0;Slot<I->GetNumMaterials();++Slot)S.DiagnosticMaterials.Emplace(I->GetMaterial(Slot));Components.Add(S);}
   for(TActorIterator<APostProcessVolume> I(W);I;++I)PostVolumes.Add({*I,I->Settings});
-  Set(TEXT("r.VSync"),TEXT("0"));Set(TEXT("t.MaxFPS"),TEXT("0"));Set(TEXT("r.GPUCsvStatsEnabled"),TEXT("1"));Set(TEXT("r.DynamicRes.OperationMode"),TEXT("0"));Set(TEXT("r.Editor.Viewport.OverridePIEScreenPercentage"),TEXT("0"));Set(TEXT("r.SecondaryScreenPercentage.GameViewport"),TEXT("100"));
+  Set(TEXT("r.GPUCsvStatsEnabled"),TEXT("1"));
+  // Measure the real production profile without making the expected settings true here.
+  if (Rows[0].Condition != TEXT("GraphicsProfileActive"))
+  { Set(TEXT("r.VSync"),TEXT("0"));Set(TEXT("t.MaxFPS"),TEXT("0"));Set(TEXT("r.DynamicRes.OperationMode"),TEXT("0"));Set(TEXT("r.Editor.Viewport.OverridePIEScreenPercentage"),TEXT("0"));Set(TEXT("r.SecondaryScreenPercentage.GameViewport"),TEXT("100")); }
   Observer=FSceneViewExtensions::NewExtension<FResolutionObserver>(Resolution,Viewport());
-  Frames=TEXT("segment,site,condition,repeat,quality,percentage,utc,frame_ms,viewport_w,viewport_h,target_w,target_h,window_slate_w,window_slate_h,window_dpi,view_w,view_h,internal_w,internal_h,primary_fraction,secondary_fraction,renderer_samples,camera_x,camera_y,camera_z,pitch,yaw,fov,window_active,actual_aa_method\n");
+  Frames=TEXT("segment,site,condition,repeat,quality,percentage,utc,frame_ms,viewport_w,viewport_h,target_w,target_h,window_slate_w,window_slate_h,window_dpi,view_w,view_h,internal_w,internal_h,primary_fraction,secondary_fraction,renderer_samples,camera_x,camera_y,camera_z,pitch,yaw,fov,window_active,actual_aa_method,actual_upscale_method,screen_percentage_showflag\n");
   Segments=TEXT("segment,site,condition,repeat,start_utc,end_utc,mode,width,height,quality,percentage\n");Initialized=true;BeginRow();return true;
  }
  void BeginRow()
  {
   RestoreFactors();const auto& R=Rows[Index];const auto& C=R.Condition;
+  if (C != TEXT("GraphicsProfileActive"))
+  {
   for(const TCHAR* N:{TEXT("sg.ViewDistanceQuality"),TEXT("sg.AntiAliasingQuality"),TEXT("sg.ShadowQuality"),TEXT("sg.GlobalIlluminationQuality"),TEXT("sg.ReflectionQuality"),TEXT("sg.PostProcessQuality"),TEXT("sg.TextureQuality"),TEXT("sg.EffectsQuality"),TEXT("sg.FoliageQuality"),TEXT("sg.ShadingQuality")})Set(N,FString::FromInt(R.Quality));
   // Legacy EnvironmentPerfV2 experiments preserve their V1 profile. New VisualV2
   // diagnostics must measure stock scalability, never silently inherit that candidate.
@@ -89,10 +94,11 @@ struct FProbe : public TSharedFromThis<FProbe>
    Set(TEXT("r.Shadow.Virtual.SMRT.RayCountDirectional"),TEXT("2"),true);
   }
   Set(TEXT("r.ScreenPercentage"),FString::FromInt(R.Percentage));Viewport()->SetFixedViewportSize(R.Width,R.Height);
+  }
   // Explicit benchmark window preparation, before warm-up; never changes the gameplay camera.
   if (auto Window = Viewport()->FindWindow(); Window.IsValid())
   {
-   if (World->WorldType == EWorldType::Game) Window->Resize(FVector2D(R.Width, R.Height));
+   if (World->WorldType == EWorldType::Game && C != TEXT("GraphicsProfileActive")) Window->Resize(FVector2D(R.Width, R.Height));
    Window->BringToFront(true);
   }
   FVector P=R.Site==TEXT("Dorf")?FVector(-4100,450,50.15):R.Site==TEXT("Wald")?FVector(-4300,1550,50.15):R.Site==TEXT("NPCWald")?FVector(-760,-1410,50.15):FVector(-36.6,-47.1,50.15);
@@ -207,7 +213,7 @@ struct FProbe : public TSharedFromThis<FProbe>
   // Restore factors before scalability so their lower-priority settings can take effect again.
   for(const auto& P:CVars)if(!P.Key.StartsWith(TEXT("sg.")))RestoreVar(P.Key,P.Value,Priorities[P.Key]);
   for(const auto& P:CVars)if(P.Key.StartsWith(TEXT("sg.")))RestoreVar(P.Key,P.Value,Priorities[P.Key]);
-  if(auto* V=Viewport())V->SetFixedViewportSize(0,0);if(Player.IsValid())Player->SetActorTransform(PlayerBefore,false,nullptr,ETeleportType::TeleportPhysics);
+  if(auto* V=Viewport())V->SetFixedViewportSize(HadFixedViewport?ViewportBefore.X:0,HadFixedViewport?ViewportBefore.Y:0);if(Player.IsValid())Player->SetActorTransform(PlayerBefore,false,nullptr,ETeleportType::TeleportPhysics);
   Save();FFileHelper::SaveStringToFile(Error.IsEmpty()?TEXT("Complete"):Error,*(Directory/(Label+TEXT("_Done.txt"))));UE_LOG(LogTemp,Display,TEXT("PM_ENV_PERF_DONE %s %s"),*Label,*Error);FTSTicker::GetCoreTicker().RemoveTicker(Handle);
   if(Mode==TEXT("Standalone")&&World.IsValid())GEngine->Exec(World.Get(),TEXT("quit"));
  }
@@ -219,9 +225,9 @@ struct FProbe : public TSharedFromThis<FProbe>
   double Now=FPlatformTime::Seconds(),Elapsed=Now-Start,Ms=(Now-Last)*1000;Last=Now;if(Elapsed<Warmup)return true;const auto& R=Rows[Index];
   if(!Capturing){GEngine->Exec(World.Get(),*FString::Printf(TEXT("csvprofile startfile=ENV2_%s_%03d"),*Label,Index));GEngine->Exec(World.Get(),TEXT("csvprofile start"));Capturing=true;Segments+=FString::Printf(TEXT("%d,%s,%s,%d,%s,"),Index,*R.Site,*R.Condition,R.Repeat,*FDateTime::UtcNow().ToIso8601());return true;}
   auto* VP=Viewport();auto Size=VP->GetSizeXY(),Target=VP->GetRenderTargetTextureSizeXY();auto Window=VP->FindWindow();auto WS=Window.IsValid()?Window->GetSizeInScreen():FVector2D::ZeroVector;float DPI=Window.IsValid()?Window->GetDPIScaleFactor():0;
-  FIntPoint View,Internal;float Primary,Secondary;uint64 Samples;int32 ActualAA;{FScopeLock L(&Resolution->Lock);View=Resolution->Output;Internal=Resolution->Internal;Primary=Resolution->Primary;Secondary=Resolution->Secondary;Samples=Resolution->Samples;ActualAA=Resolution->ActualAA;}
+  FIntPoint View,Internal;float Primary,Secondary;uint64 Samples;int32 ActualAA,ActualUpscale;bool PercentageEnabled;{FScopeLock L(&Resolution->Lock);View=Resolution->Output;Internal=Resolution->Internal;Primary=Resolution->Primary;Secondary=Resolution->Secondary;Samples=Resolution->Samples;ActualAA=Resolution->ActualAA;ActualUpscale=Resolution->ActualUpscale;PercentageEnabled=Resolution->PercentageEnabled;}
   auto* Cam=UGameplayStatics::GetPlayerController(World.Get(),0)->PlayerCameraManager.Get();auto P=Cam->GetCameraLocation();auto Rot=Cam->GetCameraRotation();
-  Frames+=FString::Printf(TEXT("%d,%s,%s,%d,%d,%d,%s,%.6f,%d,%d,%d,%d,%.2f,%.2f,%.3f,%d,%d,%d,%d,%.5f,%.5f,%llu,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%d,%d\n"),Index,*R.Site,*R.Condition,R.Repeat,R.Quality,R.Percentage,*FDateTime::UtcNow().ToIso8601(),Ms,Size.X,Size.Y,Target.X,Target.Y,WS.X,WS.Y,DPI,View.X,View.Y,Internal.X,Internal.Y,Primary,Secondary,Samples,P.X,P.Y,P.Z,Rot.Pitch,Rot.Yaw,Cam->GetFOVAngle(),Window.IsValid()&&Window->IsActive(),ActualAA);
+  Frames+=FString::Printf(TEXT("%d,%s,%s,%d,%d,%d,%s,%.6f,%d,%d,%d,%d,%.2f,%.2f,%.3f,%d,%d,%d,%d,%.5f,%.5f,%llu,%.4f,%.4f,%.4f,%.4f,%.4f,%.4f,%d,%d,%d,%d\n"),Index,*R.Site,*R.Condition,R.Repeat,R.Quality,R.Percentage,*FDateTime::UtcNow().ToIso8601(),Ms,Size.X,Size.Y,Target.X,Target.Y,WS.X,WS.Y,DPI,View.X,View.Y,Internal.X,Internal.Y,Primary,Secondary,Samples,P.X,P.Y,P.Z,Rot.Pitch,Rot.Yaw,Cam->GetFOVAngle(),Window.IsValid()&&Window->IsActive(),ActualAA,ActualUpscale,PercentageEnabled);
   if(Elapsed<Warmup+Duration)return true;GEngine->Exec(World.Get(),TEXT("csvprofile stop"));Capturing=false;Segments+=FString::Printf(TEXT("%s,%s,%d,%d,%d,%d\n"),*FDateTime::UtcNow().ToIso8601(),*Mode,Size.X,Size.Y,R.Quality,R.Percentage);Save();
   if(++Index>=Rows.Num()){Stop();return false;}BeginRow();return true;
  }
