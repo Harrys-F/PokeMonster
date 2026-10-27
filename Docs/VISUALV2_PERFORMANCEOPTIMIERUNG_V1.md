@@ -478,10 +478,18 @@ Assets, erforderliche Farbquelle/Provenienz, exakt begrenzte LFS-Regel, zugehör
 Prüfwerkzeuge und diese Dokumentation. Die 33 ursprünglich unversionierten
 Dateien bleiben außerhalb des Commits. Der Anfangsstand ist oben benannt.
 
-Der konkrete abschließende Commit, tatsächlicher Remote-Stand und LFS-Nachweis
-werden nach Erstellung und regulärem Push im Abschlusschat sowie lokal in
+Implementierung und geprüfter Ausgangsbericht: [`817e9121`](https://github.com/Harrys-F/PokeMonster/commit/817e9121a4e2e2de5617dbdfc5d74a8c4086a211).
+Der normale Push war erfolgreich. Anschließend waren lokales `main`,
+`origin/main` und der per `ls-remote` gelesene Serverstand identisch. Alle vier
+LFS-Objekte (79.805.847 Bytes) wurden vollständig vom Server gelesen und ihre
+SHA-256/Größe gegen den Commit geprüft. Keine ausstehenden LFS-Übertragungen.
+Keine zusätzlichen Archiv-/Dateikopien beim Streaming-Download.
+
+Der ergänzende Dokumentationscommit enthält ausschließlich diesen Git-Nachweis
+und seine Berichtsvorlage; keine weitere Produktänderung. Der aktuelle abschließende
+Branchstand ist zusätzlich im Abschlusschat sowie lokal in
 [GitFinal.json](../Saved/ProjectRefinement/VisualV2PerformanceV1/GitFinal.json)
-angegeben. Kein Force-Push und keine Änderung des bestätigten 0-USD-LFS-Budgets.
+verzeichnet. Kein Force-Push und keine Änderung des bestätigten 0-USD-LFS-Budgets.
 Bei Kontingent-/Abrechnungsfehlern wird abgebrochen und kein synchroner Remote
 behauptet. Die technische Abnahme ist eine erfolgreiche, begrenzte Optimierungs-
 und Analysephase; das Leistungsziel 30 FPS ist ausdrücklich nicht erreicht.
