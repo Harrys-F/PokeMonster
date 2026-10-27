@@ -96,6 +96,11 @@ void UPokeMonsterGraphicsProfile::SelectProfile(EPokeMonsterGraphicsProfile Prof
     Overrides.AddDefaulted_GetRef().Apply(TEXT("r.Editor.Viewport.OverridePIEScreenPercentage"), TEXT("0"));
     // VisualV2 already selects native TAA through its existing map blendable.
     Overrides.AddDefaulted_GetRef().Apply(TEXT("r.TemporalAA.Upsampling"), TEXT("1"));
+    // Measured VisualV2-only sampling budget. Preserve the old 100% reference,
+    // other maps and higher-priority user overrides through the existing scope.
+    if (Profile == EPokeMonsterGraphicsProfile::VariantC
+        && UWorld::RemovePIEPrefix(World->GetPackage()->GetName()) == TEXT("/Game/Maps/Dev_TestMap_VisualV2"))
+        Overrides.AddDefaulted_GetRef().Apply(TEXT("r.Shadow.Virtual.SMRT.RayCountDirectional"), TEXT("4"));
     if (World->WorldType == EWorldType::Game) User->ApplyResolutionSettings(true);
     Client->GetGameViewport()->SetFixedViewportSize(OutputX, OutputY);
     CurrentProfile = Profile; bApplied = true;

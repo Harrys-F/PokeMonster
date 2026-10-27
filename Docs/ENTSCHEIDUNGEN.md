@@ -1417,3 +1417,28 @@ DefaultEngine.ini bleiben unverändert.
 30 FPS bleiben ein Messziel. Eine gesenkte interne Auflösung darf nicht als
 Beschleunigung bei unverändertem QHD/High/100 % ausgegeben werden. Tatsächliche
 Renderer-Auflösung, TAA-Upscale-Pfad und beide Betriebsarten werden neu geprüft.
+
+
+## 2026-10-27 – VisualV2 Material-/Schattenoptimierung V3: gezieltes VSM-Sampling
+
+Für das Standard-Grafikprofil C auf `/Game/Maps/Dev_TestMap_VisualV2` werden
+vier statt acht gerichtete VSM-SMRT-Strahlen verwendet. Vier Samples pro Strahl,
+VSM-Auflösung/Reichweite, Vegetationsgeometrie und Schattenwurf bleiben erhalten.
+Die bestehende Rendering-Override-Verwaltung übernimmt und restauriert den Wert;
+Editor-Vorschau, andere Maps, explizite höher priorisierte Nutzer-Overrides und
+`pm.Graphics 100` behalten ihre bisherigen Einstellungen. Das ergänzt den
+Grafikstandard C gezielt, ohne die High-Skalierungsgruppen zu ändern.
+
+120 getrennte Spielprozess-Messfenster (fünf Orte, vier Uhrzeiten, drei
+Wiederholungen pro Konfiguration) und 20 identische QHD-Bildpaare begründen diese
+kleine Maßnahme. Mittags Dorf: 25,25 → 25,92 FPS, GPU 35,97 → 35,03 ms;
+dichter Wald: 24,35 → 24,89 FPS, GPU 37,65 → 36,77 ms. **Stabile 30 FPS mit
+Reserve sind damit nicht erreicht.** Unterschiede in Innenräumen sind überwiegend
+Messstreuung; dort wird kein Beschleunigungsversprechen abgegeben.
+
+Die drei untersuchten abgeleiteten Wegmaterial-Varianten liefern keinen
+belastbaren Vorteil und werden nicht produktiv eingebunden. Originalmaterialien,
+Maps, Lumen/HWRT, Distance-Field-Schatten, Sonnenbahn/-Aktualisierung, Weltuhr,
+Gameplay und Spielstände bleiben erhalten. Die geringere Sonnen-Updatehäufigkeit
+und das Entfernen von Baum-Distance-Field-Beiträgen werden nicht übernommen.
+Vollständige Messwerte, Prüfstatus und Grenzen: `VISUALV2_MATERIAL_SCHATTEN_V3.md`.
