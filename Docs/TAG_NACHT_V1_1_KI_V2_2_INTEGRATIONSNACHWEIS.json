@@ -103,12 +103,7 @@
     "video": "Saved/ProjectRefinement/DayNightV11AI22/Videos/Joint.mp4",
     "actual_frames_no_interpolation": true
   },
-  "unfinished_due_editor_stall": [
-    "GPUJoint01",
-    "GameplayJoint01",
-    "TravelJoint01",
-    "final build and automation repeat"
-  ],
+  "unfinished_due_editor_stall": [],
   "images": [
     {
       "path": "Saved/ProjectRefinement/DayNightV11AI22/Joint01/Joint0000.png",
@@ -149,6 +144,18 @@
     {
       "path": "Saved/ProjectRefinement/DayNightV11AI22/Joint01/Noon.png",
       "sha256": "631245baced5c76170686cb3d4bca20afee44ebb63df545f6bfa8a96b322a60c"
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/GameplayJoint01/InteriorDay.png",
+      "sha256": "6f7e8085807a511cc8ac7b69db1c678109c7e5e93805e9f97f8f01e5900bee05"
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/GameplayJoint01/InteriorLoaded.png",
+      "sha256": "f8a57b6204134aaeca7fa3752d0e3aa3ab9d978866437af6a1b3aea0787b8bc4"
+    },
+    {
+      "path": "Saved/ProjectRefinement/DayNightV11AI22/GameplayJoint01/InteriorNight.png",
+      "sha256": "bfe4e911b2aa31bd9f4c214659ecbc6ca9af19775cd0a31e975c2d38fd257a7e"
     }
   ],
   "blocked_editor": {
@@ -156,10 +163,310 @@
     "own_process": true,
     "PIE_stopped": true,
     "regular_request_sent_once": true,
-    "force_quit_not_authorized_yet": true,
+    "force_quit_not_authorized_yet": false,
     "sample": "Saved/ProjectRefinement/DayNightV11AI22/EditorB_HangSample.txt",
     "sample_footprint_GiB_reported": 41.4,
     "stack": "GameThread FSceneViewport::ResizeViewport waiting for render fence; scene-extension deletion task waiting",
-    "no_project_crash_stack_confirmed": true
-  }
+    "no_project_crash_stack_confirmed": true,
+    "status": "resolved with user authorization; root cause not conclusively determined",
+    "authorization": {
+      "pid": 23485,
+      "identity": "/Users/Shared/Epic Games/UE_5.8/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor /Users/harry/Developer/PokeMonster/PokeMonster.uproject -NoSplash -NoLiveCoding -ABSLOG=/Users/harry/Developer/PokeMonster/Saved/ProjectRefinement/DayNightV11AI22/EditorB.log -ExecCmds=py /Users/harry/Developer/PokeMonster/Tools/ProjectMaintenance/ArtSession.py",
+      "started": "Mon Oct 26 22:32:42 2026",
+      "authorization": "Ja, nur PID 23485 beenden und fortsetzen",
+      "signal": "SIGKILL",
+      "time": 1793073989.922911,
+      "terminated": true
+    }
+  },
+  "completed_at": "2026-10-27",
+  "technical_acceptance": "complete with documented visual/recording/editor-stall limitations",
+  "final_build": {
+    "mode": "Build",
+    "exit": 0,
+    "seconds": 24.481435775756836
+  },
+  "final_automation": {
+    "mode": "Automation",
+    "exit": 0,
+    "seconds": 41.235745906829834,
+    "summary": {
+      "succeeded": 279,
+      "succeededWithWarnings": 0,
+      "failed": 0,
+      "notRun": 0,
+      "inProcess": 0
+    }
+  },
+  "final_gameplay": {
+    "checks": [
+      "Ordinary new-session clock and lighting are 09:00",
+      "B75 immediate correct lighting",
+      "C85 immediate correct lighting",
+      "Pause freezes actual light sample",
+      "Normal clock resumes actual light movement",
+      "Actual main menu pauses clock",
+      "Menu holds exact world light",
+      "Closing menu resumes original clock",
+      "Clock-driven dawn crossed phase and sun rose",
+      "Existing relocated interior and camera work",
+      "Existing save accepts interior state",
+      "SaveLoad restores night light, exact clock, room camera, party and independent checkpoint",
+      "SaveLoad time event refreshes all configured wild rhythms even while indoors",
+      "Original exit and outdoor camera work at night",
+      "Night state survives midnight",
+      "ClassicBattle starts and clock pauses",
+      "Battle priority releases every social reservation",
+      "Existing battle victory returns control and valid companion state"
+    ],
+    "initial_clock": "(Day=1,SecondsOfDay=32400.000000)",
+    "initial_light": "(SunElevation=58.637360,SunAzimuth=-145.000000,LightRotation=(Pitch=-58.637360,Yaw=-145.000000,Roll=-0.000000),DirectIntensity=7.500000,FillIntensity=1.800000,Temperature=5700.000000,Stars=0.000000,Zenith=(R=0.080000,G=0.250000,B=0.480000,A=1.000000),Horizon=(R=0.480000,G=0.650000,B=0.720000,A=1.000000),Phase=Day)",
+    "isolated_slot": true,
+    "physical_controller_test": false,
+    "passed": true,
+    "error": null,
+    "elapsed": 67.38063058297848
+  },
+  "final_travel": {
+    "checks": [
+      "Other existing map has neither active cycle nor added sky; exact world clock preserved",
+      "Return to VisualV2 immediately restores night lighting from unchanged shared clock",
+      "Clock resumes after loading and normal player control restored",
+      "One visible companion outside wild rhythms; eight configured wild instances, clock and player control active after return"
+    ],
+    "maps": [
+      "Dev_TestMap",
+      "Dev_TestMap_VisualV2"
+    ],
+    "clock": "(Day=11,SecondsOfDay=79200.000000)",
+    "initial_party": [
+      "(bHasExperienceGrowthOverride=False,ExperienceGrowthOverride=MediumFast,PendingEvolutionTarget=\"\",LastEvolutionOfferedLevel=0,PendingMoves=,StatusTurns=0,Status=None,InstanceId=839441E1414F870D4E6D5894A91E4D9D,Species=\"/Game/Data/Creatures/DA_Zunderlauf.DA_Zunderlauf\",Level=15,CurrentHP=33,Experience=3375,CalculatedStats=(MaxHP=38,Attack=22,Defense=17,SpecialAttack=23,SpecialDefense=18,Speed=21),LearnedMoves=((Move=\"/Game/Data/Moves/DA_Scratch.DA_Scratch\",CurrentPP=32,MaxPP=35),(Move=\"/Game/Data/Moves/DA_Growl.DA_Growl\",CurrentPP=40,MaxPP=40),(Move=\"/Game/Data/Moves/DA_Ember.DA_Ember\",CurrentPP=25,MaxPP=25),(Move=\"/Game/Data/Moves/EffectsV4/DA_Smokescreen.DA_Smokescreen\",CurrentPP=20,MaxPP=20)),MoveSlots=((Move=\"/Game/Data/Moves/DA_Scratch.DA_Scratch\",CurrentPP=32,MaxPP=35),(Move=\"/Game/Data/Moves/DA_Growl.DA_Growl\",CurrentPP=40,MaxPP=40),(Move=\"/Game/Data/Moves/DA_Ember.DA_Ember\",CurrentPP=25,MaxPP=25),(Move=\"/Game/Data/Moves/EffectsV4/DA_Smokescreen.DA_Smokescreen\",CurrentPP=20,MaxPP=20)))",
+      "(bHasExperienceGrowthOverride=False,ExperienceGrowthOverride=MediumFast,PendingEvolutionTarget=\"\",LastEvolutionOfferedLevel=0,PendingMoves=,StatusTurns=0,Status=None,InstanceId=50BC9CE208417EC632011E84FCBC6F4F,Species=\"/Game/Data/Creatures/DA_Glurak.DA_Glurak\",Level=36,CurrentHP=102,Experience=40007,CalculatedStats=(MaxHP=102,Attack=65,Defense=61,SpecialAttack=83,SpecialDefense=66,Speed=77),LearnedMoves=((Move=\"/Game/Data/Moves/EffectsV4/DA_Rage.DA_Rage\",CurrentPP=20,MaxPP=20),(Move=\"/Game/Data/Moves/EffectsV4/DA_ScaryFace.DA_ScaryFace\",CurrentPP=10,MaxPP=10),(Move=\"/Game/Data/Moves/ProgressionV1/DA_Flamethrower.DA_Flamethrower\",CurrentPP=15,MaxPP=15),(Move=\"/Game/Data/Moves/DA_WingAttack.DA_WingAttack\",CurrentPP=35,MaxPP=35)),MoveSlots=((Move=\"/Game/Data/Moves/EffectsV4/DA_Rage.DA_Rage\",CurrentPP=20,MaxPP=20),(Move=\"/Game/Data/Moves/EffectsV4/DA_ScaryFace.DA_ScaryFace\",CurrentPP=10,MaxPP=10),(Move=\"/Game/Data/Moves/ProgressionV1/DA_Flamethrower.DA_Flamethrower\",CurrentPP=15,MaxPP=15),(Move=\"/Game/Data/Moves/DA_WingAttack.DA_WingAttack\",CurrentPP=35,MaxPP=35)))"
+    ],
+    "fixture": "Existing pm.EvolutionReview.Party Zunderlauf 15, real models, RAM-only isolated QA state",
+    "passed": true,
+    "error": null
+  },
+  "final_return": {
+    "passed": true,
+    "companions": 1,
+    "wild_instances": 8,
+    "safe_observer_point": [
+      -300,
+      2100,
+      50.15
+    ],
+    "no_forced_wild_state": true
+  },
+  "gpu_final_run": {
+    "cases": [
+      {
+        "label": "VGB1_GPUJoint01_Cached",
+        "name": "Cached",
+        "threshold": 0.025,
+        "paused": false,
+        "clock_before": 43200.0,
+        "clock_after": 43797.73726849258,
+        "elapsed": 51.375239334010985,
+        "counter_before": [
+          3,
+          3
+        ],
+        "counter_after": [
+          459,
+          88
+        ]
+      }
+    ],
+    "passed": true,
+    "error": null
+  },
+  "gpu_final_segments": [
+    {
+      "label": "VGB1_GPUJoint01_Cached",
+      "site": "Dorf",
+      "repeat": 1,
+      "frames": 68,
+      "FrameTime": 73.04755,
+      "GPUTime": 64.1782,
+      "GPU/ShadowDepths": 2.1101,
+      "GPU/ShadowProjection": 4.67665,
+      "GPU/DistanceFieldShadows": 0.50715,
+      "GPU/Lights": 2.4257,
+      "GPU/Basepass": 22.6704
+    },
+    {
+      "label": "VGB1_GPUJoint01_Cached",
+      "site": "Wald",
+      "repeat": 1,
+      "frames": 64,
+      "FrameTime": 78.36395,
+      "GPUTime": 68.51050000000001,
+      "GPU/ShadowDepths": 1.9781,
+      "GPU/ShadowProjection": 5.3649000000000004,
+      "GPU/DistanceFieldShadows": 0.5204,
+      "GPU/Lights": 2.34245,
+      "GPU/Basepass": 25.347450000000002
+    },
+    {
+      "label": "VGB1_GPUJoint01_Cached",
+      "site": "Dorf",
+      "repeat": 2,
+      "frames": 66,
+      "FrameTime": 76.1549,
+      "GPUTime": 66.77625,
+      "GPU/ShadowDepths": 3.4072,
+      "GPU/ShadowProjection": 4.97595,
+      "GPU/DistanceFieldShadows": 0.52585,
+      "GPU/Lights": 2.42765,
+      "GPU/Basepass": 23.28165
+    },
+    {
+      "label": "VGB1_GPUJoint01_Cached",
+      "site": "Wald",
+      "repeat": 2,
+      "frames": 62,
+      "FrameTime": 81.2993,
+      "GPUTime": 71.42985,
+      "GPU/ShadowDepths": 2.21095,
+      "GPU/ShadowProjection": 5.56165,
+      "GPU/DistanceFieldShadows": 0.5237,
+      "GPU/Lights": 2.3051500000000003,
+      "GPU/Basepass": 25.89575
+    },
+    {
+      "label": "VGB1_GPUJoint01_Cached",
+      "site": "Dorf",
+      "repeat": 3,
+      "frames": 65,
+      "FrameTime": 78.191,
+      "GPUTime": 66.3021,
+      "GPU/ShadowDepths": 3.318,
+      "GPU/ShadowProjection": 5.0087,
+      "GPU/DistanceFieldShadows": 0.5254,
+      "GPU/Lights": 2.5374,
+      "GPU/Basepass": 22.8908
+    },
+    {
+      "label": "VGB1_GPUJoint01_Cached",
+      "site": "Wald",
+      "repeat": 3,
+      "frames": 58,
+      "FrameTime": 85.80619999999999,
+      "GPUTime": 75.3226,
+      "GPU/ShadowDepths": 2.3579499999999998,
+      "GPU/ShadowProjection": 5.66555,
+      "GPU/DistanceFieldShadows": 0.53035,
+      "GPU/Lights": 2.45825,
+      "GPU/Basepass": 30.5613
+    }
+  ],
+  "final_map_checks": [
+    {
+      "map": "/Game/Maps/Dev_BattleTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BiomeTestMap_V1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_BuildingKitTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_HealingHouseTestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_NPCMotionV3",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2EnvironmentQualityV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandAssetLibrary",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandRegion",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "map": "/Game/Maps/Dev_WestlandVillage",
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "preservation": {
+    "protected_files_unchanged": 85,
+    "original_untracked_preserved": 31,
+    "backup_refs_unchanged": true
+  },
+  "scene_preserved": {
+    "identical": true,
+    "dirty_packages": []
+  },
+  "fresh_editors_regularly_closed": [
+    {
+      "log": "EditorRecoveryGameplay.log",
+      "exit_marker": "LogExit: Exiting.",
+      "verified": true
+    },
+    {
+      "log": "EditorRecoveryGPU.log",
+      "exit_marker": "LogExit: Exiting.",
+      "verified": true
+    }
+  ],
+  "qa_adapter_failures": [
+    {
+      "run": "ReturnJoint01",
+      "reason": "A later normal contact encounter hid the companion before delayed inspection"
+    },
+    {
+      "run": "TravelJoint02",
+      "reason": "Initial DA_TestWater technical species has no visual; invalid expectation of a companion"
+    },
+    {
+      "run": "TravelJoint03",
+      "reason": "Actor.is_hidden is not exposed to Python; corrected to reflected bHidden"
+    },
+    {
+      "run": "TravelJoint04",
+      "passed": true,
+      "correction": "Existing RAM-only Zunderlauf/Glurak fixture, safe observer point and verified reflected bHidden API; no production change"
+    }
+  ],
+  "remaining_limits": [
+    "Original visibility-circle angular crown surfaces remain for separate visual review",
+    "Original clips only 3.65 to 5.96 Hz; insufficient for definitive fine-motion assessment",
+    "Original render-fence stall required authorized termination; not reproduced in fresh short sessions, cause not conclusively determined",
+    "No physical Switch Pro test claimed"
+  ]
 }
