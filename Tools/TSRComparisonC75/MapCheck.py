@@ -1,0 +1,3 @@
+import unreal,json
+from pathlib import Path
+E=unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem);assert not E.get_game_world();assert not unreal.EditorLoadingAndSavingUtils.get_dirty_map_packages()and not unreal.EditorLoadingAndSavingUtils.get_dirty_content_packages();assert E.get_editor_world().get_path_name().startswith('/Game/Maps/Dev_TestMap_VisualV2.');unreal.log('TSR75_MAPCHECK_BEGIN');unreal.SystemLibrary.execute_console_command(E.get_editor_world(),'MAP CHECK');unreal.log('TSR75_MAPCHECK_END');Path(unreal.Paths.project_dir(),'Saved/ProjectRefinement/TSRComparisonC75/MapCheck.json').write_text(json.dumps({'ran':True,'map':E.get_editor_world().get_path_name(),'unsaved_packages':False}))
