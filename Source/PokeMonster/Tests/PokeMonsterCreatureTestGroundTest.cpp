@@ -12,16 +12,18 @@
 #include "EngineUtils.h"
 #include "Components/SkeletalMeshComponent.h"
 
-IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPermanentGroundGateTest,"PokeMonster.Development.TestGround.OrdinaryPIEOnly",
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPermanentGroundGateTest,"PokeMonster.Development.TestGround.RegisteredDevelopmentScope",
  EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
 bool FPermanentGroundGateTest::RunTest(const FString& Parameters)
 {
  using G=UPokeMonsterCreatureTestGround;
  TestTrue(TEXT("Ordinary VisualV2 PIE eligible without any review command"),G::IsSupportedMap(TEXT("UEDPIE_0_Dev_TestMap_VisualV2"),EWorldType::PIE));
  TestFalse(TEXT("Other development maps untouched"),G::IsSupportedMap(TEXT("Dev_TestMap_VisualV2EnvironmentQualityV1"),EWorldType::PIE));
- TestFalse(TEXT("Packaged game excluded"),G::IsSupportedMap(TEXT("Dev_TestMap_VisualV2"),EWorldType::Game));
+ TestTrue(TEXT("Separate development game supported"),G::IsSupportedMap(TEXT("Dev_TestMap_VisualV2"),EWorldType::Game));
  TestFalse(TEXT("Editor authored level excluded"),G::IsSupportedMap(TEXT("Dev_TestMap_VisualV2"),EWorldType::Editor));
- for(int32 I=0;I<UPokeMonsterCreatureTestGround::SpecimenCount;++I)for(int32 J=I+1;J<UPokeMonsterCreatureTestGround::SpecimenCount;++J)
+ const auto Registered=UPokeMonsterCreatureSpeciesData::GetRegisteredPlayableSpecies();
+ TestTrue(TEXT("Current eighteen models remain available; future registered models need no layout edit"),Registered.Num()>=18);
+ for(int32 I=0;I<Registered.Num();++I)for(int32 J=I+1;J<Registered.Num();++J)
   TestTrue(TEXT("Independent 8.6m movement regions never overlap"),FVector::Dist2D(G::Station(I),G::Station(J))>=1000.f);
  return true;
 }
@@ -36,17 +38,18 @@ bool FPermanentGroundIsolationTest::RunTest(const FString& Parameters)
  auto* G=W->GetSubsystem<UPokeMonsterCreatureTestGround>();
  if(!TestNotNull(TEXT("World owns initialized subsystem"),G))return false;
  G->OnWorldBeginPlay(*W);
- TestEqual(TEXT("All eleven actual species available without a review fixture"),G->Specimens.Num(),UPokeMonsterCreatureTestGround::SpecimenCount);
- if(G->Specimens.Num()!=UPokeMonsterCreatureTestGround::SpecimenCount)return false;
- for(int32 I=0;I<UPokeMonsterCreatureTestGround::SpecimenCount;++I)
+ const auto Registered=UPokeMonsterCreatureSpeciesData::GetRegisteredPlayableSpecies();
+ TestEqual(TEXT("All registered actual species available without a review fixture"),G->Specimens.Num(),Registered.Num());
+ if(G->Specimens.Num()!=Registered.Num())return false;
+ for(int32 I=0;I<Registered.Num();++I)
  {
   const auto* V=G->Specimens[I].Get();const auto* M=G->Movements[I].Get();FVector Ground;
   TestTrue(TEXT("Distinct development tag"),V->ActorHasTag(TEXT("PokemonDevelopmentSpecimen")));
   TestFalse(TEXT("No interaction target"),V->Implements<UPokeMonsterInteractable>());
   TestFalse(TEXT("Never a capturable wild actor"),V->IsA<APokeMonsterVisibleWildCreatureActor>());
   TestEqual(TEXT("No blocking creature collider"),V->Mesh->GetCollisionEnabled(),ECollisionEnabled::NoCollision);
-  TestTrue(TEXT("Own floor is genuinely walkable"),M->ProjectWalkable(UPokeMonsterCreatureTestGround::Station(I),Ground));
-  TestTrue(TEXT("Wide free routes use existing collision planner"),M->CanTraverse(UPokeMonsterCreatureTestGround::Station(I),UPokeMonsterCreatureTestGround::Station(I)+FVector(220,170,0)));
+  TestTrue(TEXT("Own floor is genuinely walkable"),M->ProjectWalkable(G->GetStation(I),Ground));
+  TestTrue(TEXT("Wide free routes use existing collision planner"),M->CanTraverse(G->GetStation(I),G->GetStation(I)+FVector(220,170,0)));
   TestEqual(TEXT("Existing seven animation roles retained"),V->Presentation->Clips.Num(),7);
   TestEqual(TEXT("Encounter disabled on specimen only"),M->GetBehaviorProfile().Initiation,EPokeMonsterEncounterInitiation::Disabled);
  }
@@ -55,15 +58,19 @@ bool FPermanentGroundIsolationTest::RunTest(const FString& Parameters)
  TestFalse(TEXT("Invalid mode rejected"),G->SetMode(TEXT("flight")));
  TestTrue(TEXT("Existing run role selected"),G->SetMode(TEXT("run")));
  G->Tick(.1f);
- for(int32 I : {1,3})
+ for(int32 I=0;I<Registered.Num();++I)
  {
-  const TCHAR* Name=I==1?TEXT("Schiggy"):TEXT("Pikachu");
-  const FString Path=FString::Printf(TEXT("/Game/Data/Creatures/DA_%s.DA_%s"),Name,Name);
-  const auto* Species=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,*Path);
-  const auto* Visual=G->Specimens[I].Get();
+  const auto* Species=G->Species[I].Get();const auto* Visual=G->Specimens[I].Get();
   const float Expected=Species->Overworld.RunSpeedOverride>0.f?Species->Overworld.RunSpeedOverride:Visual->Presentation->RunSpeed;
   TestEqual(TEXT("Test ground uses real species fast speed, not only clip reference"),G->Movements[I]->Settings.WalkSpeedOverride,Expected);
+  TestFalse(TEXT("No natural activity state machine on model specimen"),G->Movements[I]->bActivitiesEnabled);
+  TestTrue(TEXT("Movement is controlled by model preview goals"),G->Movements[I]->bControlledModelPreview);
  }
+ TestTrue(TEXT("Turn mode"),G->SetMode(TEXT("turn")));
+ TestTrue(TEXT("Eight directions mode"),G->SetMode(TEXT("directions")));
+ TestTrue(TEXT("Reset all models to exact station"),G->ResetModels());
+ for(int32 I=0;I<G->Specimens.Num();++I)
+  TestTrue(TEXT("Reset restores spawn without changing species"),G->Specimens[I]->GetActorLocation().Equals(G->GetStation(I)-FVector(0,0,G->Specimens[I]->Presentation->GroundOffsetCm),.01f));
 
  TestFalse(TEXT("Invalid reaction rejected"),G->React(TEXT("unknown")));
  return true;

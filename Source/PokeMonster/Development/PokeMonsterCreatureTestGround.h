@@ -4,6 +4,7 @@
 #include "PokeMonsterCreatureTestGround.generated.h"
 class APokeMonsterCreatureVisualActor;
 class UPokeMonsterCreatureRoamingComponent;
+class UPokeMonsterCreatureSpeciesData;
 class UTextRenderComponent;
 
 /** Automatically available in ordinary VisualV2 PIE. Visual specimens own no encounter/save state. */
@@ -13,9 +14,11 @@ class POKEMONSTER_API UPokeMonsterCreatureTestGround : public UTickableWorldSubs
  GENERATED_BODY()
 public:
  static bool IsSupportedMap(const FString& MapName, EWorldType::Type Type);
- static constexpr int32 SpecimenCount=11;
  static FVector Center() { return FVector(-7500,-4000,0); }
- static FVector Station(int32 Index);
+ static FVector Station(int32 Index,int32 Columns=5,float Spacing=1800.f);
+ UFUNCTION(BlueprintPure) FVector GetStation(int32 Index)const{return Station(Index,Columns,Spacing);}
+ UFUNCTION(BlueprintCallable) bool ResetModels();
+ UFUNCTION(BlueprintCallable) void ListModels()const;
  virtual void OnWorldBeginPlay(UWorld& World) override;
  virtual void Tick(float DeltaTime) override;
  virtual TStatId GetStatId() const override;
@@ -26,6 +29,7 @@ public:
  UFUNCTION(BlueprintCallable,Category="Development|Pokemon Test Ground") bool SetMode(const FString& Mode);
  UFUNCTION(BlueprintCallable,Category="Development|Pokemon Test Ground") bool React(const FString& Role);
  UFUNCTION(BlueprintPure,Category="Development|Pokemon Test Ground") bool HasReturnPosition() const { return bHaveReturn; }
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly) TArray<TObjectPtr<UPokeMonsterCreatureSpeciesData>> Species;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly) TArray<TObjectPtr<APokeMonsterCreatureVisualActor>> Specimens;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly) TArray<TObjectPtr<UPokeMonsterCreatureRoamingComponent>> Movements;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly) FString Mode=TEXT("auto");
@@ -38,6 +42,10 @@ private:
  UPROPERTY(Transient) TArray<TObjectPtr<AActor>> OwnedActors;
  UPROPERTY(Transient) TArray<TObjectPtr<UTextRenderComponent>> Labels;
  TArray<FVector2D> MovementReferenceSpeeds;
+ TArray<int32> RouteSteps;
+ TArray<float> TurnVelocity;
+ int32 Columns=5;
+ float Spacing=1800.f;
  FTransform ReturnPosition;
  TWeakObjectPtr<APawn> ReturnPawn;
  bool bHaveReturn=false;

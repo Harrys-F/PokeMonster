@@ -430,6 +430,7 @@ bool UPokeMonsterSaveSubsystem::CanAccessWorldState(bool bRecovery) const
  const auto* D = GI ? GI->GetSubsystem<UPokeMonsterDialogueSubsystem>() : nullptr;
  const auto* PC = GetWorld() ? Cast<APokeMonsterOverworldPlayerController>(GetWorld()->GetFirstPlayerController()) : nullptr;
  const auto* Player = PC ? Cast<APokeMonsterPlayerCharacter>(PC->GetPawn()) : nullptr;
+ if (Player && Player->ActorHasTag(TEXT("PokemonDevelopmentTestVisit"))) return false;
  if (!E || E->IsEncounterActive() || (C && C->IsReturningFromDefeat())
   || (D && D->IsDialogueActive()) || !Player || (!bRecovery && PC && PC->GetEvolutionWidget())) return false;
  if (!bRecovery && Player->IsOverworldInputLocked() && !PC->IsMenuOpen()) return false;

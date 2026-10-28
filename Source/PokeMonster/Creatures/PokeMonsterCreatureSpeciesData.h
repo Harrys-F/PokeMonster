@@ -27,6 +27,9 @@ class POKEMONSTER_API UPokeMonsterCreatureSpeciesData : public UPrimaryDataAsset
 	GENERATED_BODY()
 
 public:
+ /** Existing AssetManager registry, filtered by usable presentation; never an independently maintained list. */
+ UFUNCTION(BlueprintCallable, Category="PokeMonster|Creature")
+ static TArray<UPokeMonsterCreatureSpeciesData*> GetRegisteredPlayableSpecies();
 	virtual FPrimaryAssetId GetPrimaryAssetId() const override;
 
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Creature")

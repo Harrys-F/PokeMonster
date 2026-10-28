@@ -34,6 +34,9 @@ public:
  /** Explicit, stable-ID group. Each member remains an independent encounter; never a group battle. */
  UPROPERTY(EditInstanceOnly,BlueprintReadOnly,Category="Wild Group",meta=(ClampMin="1",ClampMax="4")) int32 GroupSize=1;
  UPROPERTY(EditInstanceOnly,BlueprintReadOnly,Category="Wild Group",meta=(ClampMin="120",ClampMax="400")) float GroupSpacing=180.f;
+ /** Runtime-only suppression of old demonstration sources; identities/assets/save state remain intact. */
+ UFUNCTION(BlueprintCallable) void SuspendForHabitatPopulation();
+ UPROPERTY(Transient,BlueprintReadOnly) bool bHabitatDormant=false;
 	void SuppressPresentation(bool Suppressed);
  void SetChallengeFocused(bool Focused);
 	virtual bool CanInteract_Implementation(APawn* Interactor) const override;

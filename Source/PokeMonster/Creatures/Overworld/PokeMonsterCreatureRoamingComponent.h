@@ -56,6 +56,10 @@ public:
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") EPokeMonsterOverworldState BehaviorState=EPokeMonsterOverworldState::Rest;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") float WarningElapsed=0.f;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") float CooldownRemaining=0.f;
+ /** Controlled visual specimen route. Uses this same planner/heading/speed, never a second wild AI. */
+ UFUNCTION(BlueprintCallable,Category="Development|Model") bool RequestModelPreviewGoal(FVector Goal);
+ UFUNCTION(BlueprintPure,Category="Development|Model") bool IsModelPreviewMoving()const{return bControlledModelPreview&&!Path.IsEmpty();}
+ UPROPERTY(Transient,BlueprintReadWrite,Category="Development|Model") bool bControlledModelPreview=false;
  UFUNCTION(BlueprintCallable,Category="Behavior") void NotifyEncounterEnded();
  bool CanReengage() const;
  void CancelDefeatEscape();

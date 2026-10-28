@@ -1470,3 +1470,35 @@ die V4-Qualitätsreferenz bei 75 % und vier VisualV2-VSM-Strahlen bereit.
 keine automatische Speicherung von Nutzerkonfiguration oder Pokémon-Daten.
 
 Prüfung und verbleibende Grenzen: `RENDERING_STANDARD_V5.md`.
+
+
+## 2026-10-28 – Pokémon-Lebensräume V2: Modellprüfung und natürliche Population trennen
+
+Der bisherige Testbereich mit fester Elf-Arten-Liste wird durch eine Abfrage des
+vorhandenen AssetManager-Typs CreatureSpecies ersetzt. Gültige vorhandene
+3D-Präsentationen bestimmen den Modellkatalog; keine zweite manuell gepflegte
+Artenliste und keine Integration unregistrierter Incoming-Dateien. Bestehende
+pm.TestGround-Befehle bleiben, Entwicklungs-Spielprozesse kommen neben PIE hinzu.
+Der vorhandene Bereich wächst ausschließlich südlich außerhalb der Spielwelt.
+Kontrollierte Bewegungen verwenden weiterhin die vorhandene Roaming-/Animations-
+Verarbeitung; keine natürliche KI im Testbereich. Modelle ohne passende Clips
+werden nicht künstlich zu Laufanimationen gezwungen. Speichern/Laden während
+expliziter Modellbesuche wird gegen unbeabsichtigte Testpositionen gesperrt.
+
+Die offene VisualV2 erhält ausdrücklich kuratierte, begrenzte Lebensraumzonen.
+Die bisherigen frei platzierten Wildexemplare werden von der Populationsverwaltung
+berücksichtigt beziehungsweise sicher inaktiv gehalten; ihre IDs bleiben erhalten.
+Neue Wildexemplare verwenden die vorhandenen Encounter-Actors, Profile, Factory,
+Fang-, Save- und KI-V2.2-Funktionen. Die bestehende zentrale Weltuhr steuert
+Gewichtungen, keine zweite Uhr. Konfigurationen sind Gameplay-Tuningwerte, keine
+behaupteten originalen Pokémon-Spawnraten. Fehlende geeignete Flächen bedeuten
+keinen erzwungenen Spawn. Weltgeometrie, Modelle, Animationen und Rendering V5
+werden nicht verändert. Ausführung und konkrete Flächen: POKEMON_LEBENSRAEUME_V2.md.
+
+### Lebensräume V2 – begrenzte VisualV2-Population (28.10.2026)
+
+Die vorhandenen Vorführ-Wildactors bleiben mit ihren IDs in der Map erhalten, werden zur Laufzeit aber ruhend geschaltet. Die natürliche Population verwendet dieselben Wildactors und bestehenden Begegnungsprofile; der Modellbereich zeigt unabhängig davon alle registrierten, gültigen Modelle. Acht unsichtbare, aus der tatsächlichen Geografie abgeleitete Zonen werden ohne Map-Neuspeicherung aus einer zentralen Konfiguration erzeugt. Höchstens zehn Wild-Pokémon aus höchstens sechs Arten gleichzeitig; art- und zonenbezogene Grenzen kommen hinzu. Zwölf geeignete Arten sind konfiguriert; große entwickelte Formen bleiben zunächst im Modellbereich. Karpador und Garados erhalten ohne nachgewiesenen ausreichenden Schwimmraum keinen Wildspawn im dekorativen kleinen Teich.
+
+Gewichte sind ausdrücklich Projekt-Spielkonfiguration, keine behaupteten Original-Fang-/Häufigkeitswerte. Arten, Attacken, Level und Fangdaten stammen aus ihren bestehenden Begegnungsprofilen. Ein Spawn hat eine stabile Kennung aus Zone, Platz, Art und Weltuhr-Tag. Bestehende Speicherlogik hält besiegte/gefangene Kennungen fest; derselbe Platz/Art/Tag kann nicht sofort erneut gefangen werden. Der nächste Spieltag ermöglicht Nachbesiedlung. Normales Save/Load verändert weder die gespeicherten Pokémon noch den Kontrollpunkt. Keine neue Speicherstruktur.
+
+PIE-Nachprüfung: Der zunächst südlichere ForestEdge überlappte einen durch das bestehende Heilhausdach verdeckten Kamerabereich. Gesunder Begleiter und Spielfigur waren dort verdeckt, ohne Fang-/KI-Ausfall. Die Zone wird deshalb auf den tatsächlich vorhandenen nördlichen Waldrand bei −2050/1450 cm, Halbausdehnung 450/300 cm, begrenzt. Keine Änderung an Dach, Kamera oder Begleitersystem.

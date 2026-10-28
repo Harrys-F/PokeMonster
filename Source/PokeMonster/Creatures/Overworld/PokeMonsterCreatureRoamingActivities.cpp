@@ -1,4 +1,5 @@
 #include "PokeMonsterCreatureRoamingComponent.h"
+#include "../../Development/BiomeTestV1/PokeMonsterBiomeHabitat.h"
 #include "../PokeMonsterCreatureSpeciesData.h"
 #include "../../Encounter/PokeMonsterVisibleWildCreatureActor.h"
 #include "Components/StaticMeshComponent.h"
@@ -19,9 +20,9 @@ void UPokeMonsterCreatureRoamingComponent::ConfigureActivities(const UPokeMonste
  ActivitySpecies=Species->GetInternalId();
  Activities=bOverrideActivities?ActivityOverride:FPokeMonsterCreatureActivityProfile::ForSpecies(ActivitySpecies);
  // Explicit rollout boundary. Shared species assets, other maps and companions are unchanged.
- bActivitiesEnabled=Activities.bEnabled && Activities.IsValid() && !FollowTarget.IsValid() && !BiomeHabitat
+ bActivitiesEnabled=Activities.bEnabled && Activities.IsValid() && !FollowTarget.IsValid() && (!BiomeHabitat||BiomeHabitat->bAllowNaturalActivities)
   && Cast<APokeMonsterVisibleWildCreatureActor>(GetOwner())
-  && UWorld::RemovePIEPrefix(GetWorld()->GetName())==TEXT("Dev_TestMap_VisualV2");
+  && (UWorld::RemovePIEPrefix(GetWorld()->GetName())==TEXT("Dev_TestMap_VisualV2")||(BiomeHabitat&&BiomeHabitat->bAllowNaturalActivities));
  ActivityRandom.Initialize(Seed ^ 0x32A541);
  bActivityRunning=bActivityTravelling=bActivityDistant=false;
  ActivityRemaining=ActivityTravelRemaining=ActivityElapsed=SocialCooldown=SleepCooldown=ForageCooldown=0;

@@ -60,6 +60,8 @@ public:
  UPROPERTY(EditAnywhere,BlueprintReadWrite) float MinimumDepthCm=20.f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) float ClearanceRadiusCm=20.f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) float ActiveDistanceCm=3800.f;
+ /** Natural production zones opt in; existing visual-only biome specimens remain unchanged. */
+ UPROPERTY(EditAnywhere,BlueprintReadWrite) bool bAllowNaturalActivities=false;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) bool bAllowGroundFlight=false;
  /** Opt-in only: existing GroundHover cruise may cross low obstacles; takeoff/landing stay ground-safe. */
  UPROPERTY(EditAnywhere,BlueprintReadWrite) bool bAllowGroundFlightOverObstacles=false;

@@ -61,6 +61,7 @@ void APokeMonsterVisibleWildCreatureActor::BeginPlay()
 {
 	Super::BeginPlay();
  InitialSpawnTransform=GetActorTransform();
+ if(bHabitatDormant){SuspendForHabitatPopulation();return;}
  if(auto* Species=VisualSpecies.LoadSynchronous())
  {
   Visual=GetWorld()->SpawnActor<APokeMonsterCreatureVisualActor>();
@@ -87,6 +88,7 @@ void APokeMonsterVisibleWildCreatureActor::BeginPlay()
 
 void APokeMonsterVisibleWildCreatureActor::RefreshPersistentState()
 {
+ if(bHabitatDormant){SuspendForHabitatPopulation();return;}
 	const UGameInstance* Instance = GetGameInstance();
 	const auto* Encounters = Instance ? Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
 	const bool Reactivating=bDeactivated||LifeState!=EPokeMonsterWildLifeState::Active;
@@ -117,7 +119,7 @@ bool APokeMonsterVisibleWildCreatureActor::IsReady(const APokeMonsterPlayerChara
 {
  const auto* GI=GetGameInstance(); const auto* E=GI?GI->GetSubsystem<UPokeMonsterEncounterSubsystem>():nullptr;
  const auto* Checkpoint=GI?GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>():nullptr;
- return Player && LifeState==EPokeMonsterWildLifeState::Active && !bDeactivated && E && !E->IsEncounterActive()
+ return !bHabitatDormant && Player && LifeState==EPokeMonsterWildLifeState::Active && !bDeactivated && E && !E->IsEncounterActive()
   && !Player->IsOverworldInputLocked() && !(Checkpoint&&Checkpoint->IsReturningFromDefeat())
   && !Profile.IsNull() && GetWorld()->GetTimeSeconds()>=EncounterReadyAt
   && (!bAmbientMotion||OverworldMovement->CanReengage());
@@ -287,4 +289,12 @@ void APokeMonsterVisibleWildCreatureActor::SetChallengeFocused(bool Focused)
  Label->SetText(FText::FromString(TEXT("▼")));Label->SetWorldSize(15.f);
  if(const auto* PC=UGameplayStatics::GetPlayerController(this,0))if(PC->PlayerCameraManager)
   Label->SetWorldRotation((PC->PlayerCameraManager->GetCameraLocation()-Label->GetComponentLocation()).Rotation());
+}
+
+void APokeMonsterVisibleWildCreatureActor::SuspendForHabitatPopulation()
+{
+ bHabitatDormant=true;
+ OverworldMovement->SetMovementPaused(true);OverworldMovement->SetComponentTickEnabled(false);
+ SetActorTickEnabled(false);SetActorHiddenInGame(true);SetActorEnableCollision(false);
+ if(Visual){Visual->SetActorHiddenInGame(true);Visual->SetActorTickEnabled(false);Visual->Mesh->SetComponentTickEnabled(false);}
 }

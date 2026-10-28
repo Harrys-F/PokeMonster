@@ -243,7 +243,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	 }
 	 if(Path.IsEmpty()){CurrentSpeed=0;return;}
 	}
-	else if(!FollowTarget.IsValid())
+	else if(!FollowTarget.IsValid() && !bControlledModelPreview)
 	{
 	 Speed*=Settings.Behavior.WalkMultiplier;
      if(bActivitiesEnabled)
@@ -300,6 +300,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	if (Path.IsEmpty())
 	{
 		CurrentSpeed=0.f;
+        if(bControlledModelPreview)return;
 		if (bRecalling || ReplanRemaining > 0 || BehaviorState==EPokeMonsterOverworldState::Approach || BehaviorState==EPokeMonsterOverworldState::Retreat) return;
 		const FVector Center = FollowTarget.IsValid() ? FollowTarget->GetActorLocation() : HabitatOrigin;
 		const float Radius = FollowTarget.IsValid() ? Settings.CompanionRoamRadius
@@ -570,4 +571,11 @@ bool UPokeMonsterCreatureRoamingComponent::CanTraverseHoverColumn(const FVector&
  const auto Q=Query();const auto Shape=FCollisionShape::MakeBox(Extent);
  if(GetWorld()->OverlapBlockingTestByChannel(A,FQuat::Identity,ECC_Pawn,Shape,Q))return false;
  FHitResult Hit;return !GetWorld()->SweepSingleByChannel(Hit,A,B,FQuat::Identity,ECC_Pawn,Shape,Q);
+}
+
+
+bool UPokeMonsterCreatureRoamingComponent::RequestModelPreviewGoal(FVector Goal)
+{
+ if(!bReady || !bControlledModelPreview || !GetOwner()->ActorHasTag(TEXT("PokemonDevelopmentSpecimen")) || Goal.ContainsNaN())return false;
+ Path.Reset();PauseRemaining=ReplanRemaining=0;return Plan(Goal);
 }

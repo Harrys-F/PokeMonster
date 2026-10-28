@@ -20,3 +20,26 @@ TArray<UPokeMonsterMoveData*> UPokeMonsterCreatureSpeciesData::MovesForLevel(int
  for(const auto& Entry:Ordered)if(Entry.Level>=1&&Entry.Level<=Level)if(auto* M=Entry.Move.LoadSynchronous())if(M->IsConfigured()){R.Remove(M);R.Add(M);}
  while(R.Num()>4)R.RemoveAt(0);return R;
 }
+
+
+#include "Engine/AssetManager.h"
+#include "PokeMonsterCreaturePresentation.h"
+TArray<UPokeMonsterCreatureSpeciesData*> UPokeMonsterCreatureSpeciesData::GetRegisteredPlayableSpecies()
+{
+ TArray<FPrimaryAssetId> Ids;
+ auto& Manager=UAssetManager::Get();Manager.GetPrimaryAssetIdList(TEXT("CreatureSpecies"),Ids);
+ TArray<UPokeMonsterCreatureSpeciesData*> Result;
+ for(const auto& Id:Ids)
+ {
+  auto* Species=Cast<UPokeMonsterCreatureSpeciesData>(Manager.GetPrimaryAssetPath(Id).TryLoad());
+  const auto* Presentation=Species?Species->GetVisuals().Presentation.LoadSynchronous():nullptr;
+  if(Species && Species->GetPrimaryAssetId()==Id && Species->Overworld.IsValid()
+   && Presentation && Presentation->GetValidationErrors().IsEmpty())Result.AddUnique(Species);
+ }
+ Result.Sort([](const auto& A,const auto& B)
+ {
+  if(A.GetPokedexNumber()!=B.GetPokedexNumber())return A.GetPokedexNumber()<B.GetPokedexNumber();
+  return A.GetPrimaryAssetId().ToString()<B.GetPrimaryAssetId().ToString();
+ });
+ return Result;
+}
