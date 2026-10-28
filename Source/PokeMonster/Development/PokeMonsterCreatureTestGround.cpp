@@ -68,8 +68,8 @@ void UPokeMonsterCreatureTestGround::OnWorldBeginPlay(UWorld& World)
   C->SetCollisionProfileName(TEXT("BlockAll"));C->SetCastShadow(false);A->SetActorScale3D(Scale);
  };
  // North edge stays at Y=-3600, outside the real world's Y=-3250 boundary.
- const int32 Rows=FMath::DivideAndRoundUp(Species.Num(),Columns);
- const float Width=Columns*Spacing,Height=Rows*Spacing;
+ const int32 ModelRows=FMath::DivideAndRoundUp(Species.Num(),Columns);
+ const float Width=Columns*Spacing,Height=ModelRows*Spacing;
  const FVector FloorCenter=Center()+FVector(0,400.f-Height*.5f,0);
  Box(FloorCenter-FVector(0,0,20),FVector(Width/100,Height/100,.4));
  for(float Side:{-1.f,1.f})
@@ -229,7 +229,7 @@ namespace
  FAutoConsoleCommandWithWorldAndArgs Go(TEXT("pm.TestGround.Go"),TEXT("VisualV2 Development/PIE: center or registered specimen index/name; preserves return anchor."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W)){if(A.Num()>1)return;int32 Number=A.IsEmpty()?0:FCString::Atoi(*A[0]);if(A.Num()==1&&!A[0].IsNumeric()){Number=INDEX_NONE;for(int32 I=0;I<G->Species.Num();++I)if(G->Species[I]->GetInternalId().ToString().Equals(A[0],ESearchCase::IgnoreCase)||G->Species[I]->GetDisplayName().ToString().Equals(A[0],ESearchCase::IgnoreCase)){Number=I+1;break;}}G->Visit(Number);}}));
  FAutoConsoleCommandWithWorldAndArgs Back(TEXT("pm.TestGround.Return"),TEXT("Return to the original position before visiting the test ground."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W))G->ReturnToWorld();}));
  FAutoConsoleCommandWithWorldAndArgs Mode(TEXT("pm.TestGround.Mode"),TEXT("auto | idle | walk | run | turn | directions | reset. Registered test visuals only."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W);G&&A.Num()==1)G->SetMode(A[0]);}));
- FAutoConsoleCommandWithWorldAndArgs List(TEXT("pm.TestGround.List"),TEXT("List registered playable models and animation availability."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W))G->ListModels();}));
+ FAutoConsoleCommandWithWorldAndArgs TestGroundList(TEXT("pm.TestGround.List"),TEXT("List registered playable models and animation availability."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W))G->ListModels();}));
  FAutoConsoleCommandWithWorldAndArgs Reset(TEXT("pm.TestGround.Reset"),TEXT("Reset model positions and hold Idle."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W))G->ResetModels();}));
  FAutoConsoleCommandWithWorldAndArgs React(TEXT("pm.TestGround.React"),TEXT("attack | hit | faint | happy. Existing reactions, no combat."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W);G&&A.Num()==1)G->React(A[0]);}));
 }

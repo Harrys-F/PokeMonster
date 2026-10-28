@@ -8,6 +8,7 @@
 #include "Camera/PlayerCameraManager.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "../Checkpoint/PokeMonsterCheckpointSubsystem.h"
+#include "../Development/BiomeTestV1/PokeMonsterBiomeHabitat.h"
 
 #include "../Characters/PokeMonsterPlayerCharacter.h"
 #include "Components/CapsuleComponent.h"
@@ -57,10 +58,27 @@ APokeMonsterVisibleWildCreatureActor::APokeMonsterVisibleWildCreatureActor()
 	Tags.Add(TEXT("VisibleWildEncounter"));
 }
 
+float APokeMonsterVisibleWildCreatureActor::GetShoreInteractionRadius() const
+{
+ return OverworldMovement->BiomeHabitat&&OverworldMovement->BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly?Body->GetScaledCapsuleRadius():0.f;
+}
+void APokeMonsterVisibleWildCreatureActor::PrepareInteractionSight(FCollisionQueryParams& Query) const
+{
+ if(GetShoreInteractionRadius()>0.f)OverworldMovement->BiomeHabitat->IgnorePlayerWaterBarriers(Query);
+}
+
+void APokeMonsterVisibleWildCreatureActor::ConfigureHabitatBody(float Radius,float HalfHeight)
+{
+ Body->SetCapsuleSize(FMath::Max(38.f,Radius),FMath::Max(Radius,HalfHeight));
+ ContactRange->SetSphereRadius(Body->GetScaledCapsuleRadius()+30.f);
+}
+
 void APokeMonsterVisibleWildCreatureActor::BeginPlay()
 {
 	Super::BeginPlay();
  InitialSpawnTransform=GetActorTransform();
+ if(OverworldMovement->BiomeHabitat&&OverworldMovement->BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly)
+  for(TActorIterator<AActor> I(GetWorld());I;++I)if(I->ActorHasTag(TEXT("BiomePlayerWaterBarrier")))Body->IgnoreActorWhenMoving(*I,true);
  if(bHabitatDormant){SuspendForHabitatPopulation();return;}
  if(auto* Species=VisualSpecies.LoadSynchronous())
  {
@@ -131,6 +149,7 @@ bool APokeMonsterVisibleWildCreatureActor::CanInteract_Implementation(APawn* Int
  if(FVector::Dist2D(Player->GetActorLocation(),GetActorLocation())>Player->GetInteractionRange()+Body->GetScaledCapsuleRadius()
   ||FMath::Abs(Player->GetActorLocation().Z-GetActorLocation().Z)>120.f)return false;
  FCollisionQueryParams Q(SCENE_QUERY_STAT(WildChallengeSight),false,Player);Q.AddIgnoredActor(this);if(Visual)Q.AddIgnoredActor(Visual);
+ PrepareInteractionSight(Q);
  FHitResult Hit;return !GetWorld()->LineTraceSingleByChannel(Hit,Player->GetActorLocation(),GetActorLocation(),ECC_Visibility,Q);
 }
 void APokeMonsterVisibleWildCreatureActor::Interact_Implementation(APawn* Interactor)
@@ -273,7 +292,15 @@ void APokeMonsterVisibleWildCreatureActor::SuppressPresentation(bool Suppressed)
 
 void APokeMonsterVisibleWildCreatureActor::UpdateVisualGround()
 {
- if(!Visual||!Visual->Presentation)return;FHitResult Hit;
+ if(!Visual||!Visual->Presentation)return;
+ if(OverworldMovement->BiomeHabitat && OverworldMovement->BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly)
+ {
+  // The shared media planner already anchors the root at surface minus draft.
+  // Tracing the lake bed here would incorrectly sink the visual to the bottom.
+  Visual->SetActorRelativeLocation(FVector(0,0,-Body->GetScaledCapsuleHalfHeight()-Visual->Presentation->GroundOffsetCm));
+  Visual->AquaticPoseAlpha=1.f;return;
+ }
+ FHitResult Hit;
  FCollisionQueryParams Params(SCENE_QUERY_STAT(WildCreatureVisualGround),true);Params.AddIgnoredActor(this);Params.AddIgnoredActor(Visual);
  if(auto* P=UGameplayStatics::GetPlayerPawn(this,0))Params.AddIgnoredActor(P);
  const FVector P=GetActorLocation();

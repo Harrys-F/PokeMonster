@@ -21,6 +21,8 @@ public:
 	UPokeMonsterCreatureRoamingComponent();
     /** Null on all existing maps. Explicit sandbox surface/media contract only. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Development|Biome") TObjectPtr<APokeMonsterBiomeHabitat> BiomeHabitat;
+    /** Per-instance immersion; one pond can contain differently sized swimmers. */
+    UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Creature|Movement") float WaterDraftOverrideCm=-1.f;
 	UFUNCTION(BlueprintCallable, Category="Creature|Movement") void Configure(const UPokeMonsterCreatureSpeciesData* Species, float RootGroundOffset,
 		float Radius, float HalfHeight, AActor* Follow = nullptr, int32 Seed = 31);
 	virtual void EndPlay(const EEndPlayReason::Type Reason) override;

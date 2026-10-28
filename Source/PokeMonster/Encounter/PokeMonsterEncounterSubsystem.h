@@ -96,6 +96,7 @@ public:
 
 	/** Creates the existing development party once. Never revives a defeated party. */
 	bool EnsureDevPlayerParty();
+ static bool BuildVisualV2TestParty(TArray<FPokeMonsterCreatureInstance>& OutParty);
 	bool StartWildEncounter(const UPokeMonsterEncounterProfile* Profile,
 		const FPokeMonsterEncounterContext& Context, EPokeMonsterEncounterSource Source,
 		APokeMonsterPlayerCharacter* Player, AActor* SourceActor, int32 Seed, FName EncounterId);

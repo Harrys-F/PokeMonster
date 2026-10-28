@@ -29,6 +29,7 @@
 #include "UObject/ConstructorHelpers.h"
 #include "../Save/PokeMonsterSaveSubsystem.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
+#include "../Encounter/PokeMonsterVisibleWildCreatureActor.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
 #include "../Moves/PokeMonsterMoveData.h"
 #include "../UI/PokeMonsterOverworldPlayerController.h"
@@ -553,9 +554,12 @@ AActor* APokeMonsterPlayerCharacter::FindInteractableInRange() const
   AActor* Candidate=*It;
   if(Candidate==this||Candidate->IsHidden()||!Candidate->Implements<UPokeMonsterInteractable>()
    ||!IPokeMonsterInteractable::Execute_CanInteract(Candidate,const_cast<APokeMonsterPlayerCharacter*>(this)))continue;
-  const float Score=InteractionTargetScore(Candidate->GetActorLocation()-GetActorLocation(),GetInteractionWorldDirection(),InteractionRange+InteractionTraceRadius);
+  const auto* Wild=Cast<APokeMonsterVisibleWildCreatureActor>(Candidate);
+  const float Range=Wild?FMath::Max(InteractionRange+InteractionTraceRadius,InteractionRange+Wild->GetShoreInteractionRadius()):InteractionRange+InteractionTraceRadius;
+  const float Score=InteractionTargetScore(Candidate->GetActorLocation()-GetActorLocation(),GetInteractionWorldDirection(),Range);
   if(Score<0||Score>=BestScore)continue;
   FCollisionQueryParams Q(SCENE_QUERY_STAT(PokeMonsterInteraction),false,this);Q.AddIgnoredActor(Candidate);FHitResult Hit;
+  if(Wild)Wild->PrepareInteractionSight(Q);
   if(World->LineTraceSingleByChannel(Hit,GetActorLocation(),Candidate->GetActorLocation(),ECC_Visibility,Q))continue;
   Best=Candidate;BestScore=Score;
  }

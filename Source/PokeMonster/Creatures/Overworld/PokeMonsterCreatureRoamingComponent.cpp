@@ -136,7 +136,7 @@ bool UPokeMonsterCreatureRoamingComponent::IsInsideHabitat(const FVector& Point)
 bool UPokeMonsterCreatureRoamingComponent::ProjectWalkable(const FVector& Point, FVector& Ground) const
 {
 	UWorld* W = GetWorld(); if (!W || !IsInsideHabitat(Point)) return false;
-    if (BiomeHabitat) return BiomeHabitat->ProjectFoot(Point, BodyRadius, BodyHalfHeight, Query(), Ground,IsAerialTravelActive()?PresentationHoverHeight:0.f);
+    if (BiomeHabitat) return BiomeHabitat->ProjectFoot(Point, BodyRadius, BodyHalfHeight, Query(), Ground,IsAerialTravelActive()?PresentationHoverHeight:0.f,WaterDraftOverrideCm);
 	const auto Q = Query(); FHitResult Hit;
 	if (!W->LineTraceSingleByChannel(Hit, Point + FVector(0, 0, Settings.MaxStepHeight + 55.f),
 		Point - FVector(0, 0, 100.f), ECC_Visibility, Q) || Hit.ImpactNormal.Z < .75f) return false;

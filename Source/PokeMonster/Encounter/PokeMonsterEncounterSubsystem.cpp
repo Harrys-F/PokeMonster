@@ -65,9 +65,28 @@ bool UPokeMonsterEncounterSubsystem::StartTestEncounter(APokeMonsterPlayerCharac
 	return StartEncounter(Start, Player);
 }
 
+bool UPokeMonsterEncounterSubsystem::BuildVisualV2TestParty(TArray<FPokeMonsterCreatureInstance>& OutParty)
+{
+ auto* Fire=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,TEXT("/Game/Data/Creatures/DA_Zunderlauf.DA_Zunderlauf"));
+ if(!Fire)return false;
+ TArray<FPokeMonsterCreatureInstance> NewParty;auto Starter=FPokeMonsterCreatureInstance::CreateFromSpecies(Fire,15);
+ if(!Starter.AssignSpeciesMoves())return false;NewParty.Add(MoveTemp(Starter));
+ for(const TCHAR* Path:{TEXT("/Game/Data/Encounters/DA_Garados_Wild.DA_Garados_Wild"),TEXT("/Game/Data/Encounters/DA_Pikachu_Wild.DA_Pikachu_Wild")})
+ {
+  const auto* Profile=LoadObject<UPokeMonsterEncounterProfile>(nullptr,Path);FPokeMonsterCreatureInstance Member;
+  FPokeMonsterEncounterContext Context;Context.Time=EPokeMonsterEncounterTime::Any;FRandomStream Random(3817);
+  if(!Profile||!Profile->Roll(Context,Random,Member))return false;NewParty.Add(MoveTemp(Member));
+ }
+ for(const auto& Member:NewParty)if(!Member.IsValid())return false;
+ OutParty=MoveTemp(NewParty);return true;
+}
+
 bool UPokeMonsterEncounterSubsystem::EnsureDevPlayerParty()
 {
 	if (!PlayerParty.IsEmpty()) return true;
+#if !UE_BUILD_SHIPPING
+ if(GetWorld()&&UWorld::RemovePIEPrefix(GetWorld()->GetName())==TEXT("Dev_TestMap_VisualV2"))return BuildVisualV2TestParty(PlayerParty);
+#endif
 	TArray<FPokeMonsterCreatureInstance> InitialParty, UnusedOpponents;
 	if (!BuildTestTeams(InitialParty, UnusedOpponents)) return false;
 	PlayerParty = MoveTemp(InitialParty);

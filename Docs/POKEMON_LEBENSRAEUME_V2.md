@@ -1,5 +1,7 @@
 # Pokémon-Lebensräume V2 – Prüfbericht
 
+Fortschreibung: Die anschließende sichtbare Erstbesiedlung, zehn Zonen, der vertiefte Wasserlebensraum und die neue Entwicklungs-Testparty sind in [VISUALV2_POKEMON_WASSER_TEAM_V1.md](VISUALV2_POKEMON_WASSER_TEAM_V1.md) dokumentiert. Die folgenden Zahlen und Einschränkungen beschreiben die ursprüngliche V2-Prüfung.
+
 Stand: 28.10.2026. Basis `57a76037` auf `main`, UE 5.8.2, MacBook Air M4/16 GB/Metal.
 
 ## 1. Bestand und Abgrenzung

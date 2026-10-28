@@ -18,6 +18,7 @@ public:
  UPROPERTY(EditAnywhere,BlueprintReadWrite) FName ZoneId;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) FName HabitatType;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) int32 MaximumPopulation=2;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite) int32 CoveragePriority=0;
 };
 USTRUCT()
 struct FPokeMonsterHabitatLayout
@@ -28,6 +29,11 @@ struct FPokeMonsterHabitatLayout
  UPROPERTY(EditAnywhere) FVector Center=FVector::ZeroVector;
  UPROPERTY(EditAnywhere) FVector Extent=FVector(600,600,300);
  UPROPERTY(EditAnywhere) int32 Maximum=2;
+ UPROPERTY(EditAnywhere) int32 CoveragePriority=0;
+ UPROPERTY(EditAnywhere) EPokeMonsterBiomeMedium Medium=EPokeMonsterBiomeMedium::Land;
+ UPROPERTY(EditAnywhere) float WaterSurfaceZ=-20.f;
+ UPROPERTY(EditAnywhere) bool bEllipticalBoundary=false;
+ UPROPERTY(EditAnywhere) TArray<FVector> TravelPoints;
 };
 USTRUCT()
 struct POKEMONSTER_API FPokeMonsterHabitatRule
@@ -38,8 +44,11 @@ struct POKEMONSTER_API FPokeMonsterHabitatRule
  UPROPERTY(EditAnywhere) TArray<FName> Habitats;
  UPROPERTY(EditAnywhere) float Weight=1.f;
  UPROPERTY(EditAnywhere) int32 Maximum=2;
+ UPROPERTY(EditAnywhere) int32 CoveragePriority=0;
  UPROPERTY(EditAnywhere) float MinimumPlayerDistance=1100.f;
  UPROPERTY(EditAnywhere) float MinimumPeerDistance=220.f;
+ UPROPERTY(EditAnywhere) float WaterDraftCm=-1.f;
+ UPROPERTY(EditAnywhere) float BodyRadiusCm=0.f;
  /** Population preference only. Existing six activity/rhythm profiles retain authority. */
  UPROPERTY(EditAnywhere) EPokeMonsterActivityRhythm Rhythm=EPokeMonsterActivityRhythm::Flexible;
  bool Allows(FName Habitat) const {return Habitats.Contains(Habitat);}
@@ -83,6 +92,8 @@ public:
 protected:
  virtual bool DoesSupportWorldType(EWorldType::Type Type)const override;
 private:
+ void SeedInitialPopulation();
+ bool bInitialPlacement=false;
  bool CandidateOutsideView(const FVector& Foot,const FVector& Extent)const;
  bool TryPopulate(APokeMonsterHabitatZone* Zone);
  void Retire(APokeMonsterVisibleWildCreatureActor* Actor);

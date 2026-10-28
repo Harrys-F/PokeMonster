@@ -64,7 +64,9 @@ bool APokeMonsterBiomeHabitat::ContainsFootprint(FVector Point,float Radius) con
 {
  if(Point.ContainsNaN()||!FMath::IsFinite(Radius)||Radius<0)return false;
  const FVector P=GetActorTransform().InverseTransformPosition(Point),B=Bounds->GetUnscaledBoxExtent();
- return FMath::Abs(P.X)+Radius<=B.X && FMath::Abs(P.Y)+Radius<=B.Y && P.Z>=-B.Z && P.Z<=B.Z;
+ if(P.Z < -B.Z || P.Z > B.Z || B.X<=Radius || B.Y<=Radius)return false;
+ if(bEllipticalBoundary)return FMath::Square(P.X/(B.X-Radius))+FMath::Square(P.Y/(B.Y-Radius))<=1.f;
+ return FMath::Abs(P.X)+Radius<=B.X && FMath::Abs(P.Y)+Radius<=B.Y;
 }
 bool APokeMonsterBiomeHabitat::ContainsFlightColumn(const FVector& Point,float Height,const FBox& B) const
 {
@@ -93,7 +95,7 @@ void APokeMonsterBiomeHabitat::IgnorePlayerWaterBarriers(FCollisionQueryParams& 
 {
  for(const auto& A:PlayerWaterBarriers)if(A.IsValid())Query.AddIgnoredActor(A.Get());
 }
-bool APokeMonsterBiomeHabitat::ProjectFoot(const FVector& Point,float Radius,float HalfHeight,const FCollisionQueryParams& Input,FVector& Foot,float AirLiftCm) const
+bool APokeMonsterBiomeHabitat::ProjectFoot(const FVector& Point,float Radius,float HalfHeight,const FCollisionQueryParams& Input,FVector& Foot,float AirLiftCm,float DraftOverrideCm) const
 {
  if(!GetWorld()||!ContainsFootprint(Point,Radius))return false;
  FHitResult Hit;auto Q=Input;IgnorePlayerWaterBarriers(Q);
@@ -108,11 +110,12 @@ bool APokeMonsterBiomeHabitat::ProjectFoot(const FVector& Point,float Radius,flo
   return ContainsFootprint(Foot,Radius)&&!GetWorld()->OverlapBlockingTestByChannel(Foot+FVector(0,0,AirLiftCm+HalfHeight+28.f),FQuat::Identity,
    ECC_Pawn,FCollisionShape::MakeCapsule(Radius,FMath::Max(HalfHeight,Radius)),Q);
  }
+ const float Draft=DraftOverrideCm>=0.f?DraftOverrideCm:WaterDraftCm;
  const bool Swimming=(Medium==EPokeMonsterBiomeMedium::Amphibious||Medium==EPokeMonsterBiomeMedium::WaterOnly)
-  && Hit.ImpactPoint.Z<WaterSurfaceZ-WaterDraftCm;
+  && Hit.ImpactPoint.Z<WaterSurfaceZ-Draft;
  if(!Swimming&&Hit.ImpactNormal.Z<.75f)return false;
  if(Hit.GetActor()&&Hit.GetActor()->ActorHasTag(TEXT("CreatureNoWalk")))return false;
- float Z=0;if(!MediumFootHeight(Medium,Hit.ImpactPoint.Z,WaterSurfaceZ,WaterDraftCm,FloatClearanceCm,MinimumDepthCm,Z))return false;
+ float Z=0;if(!MediumFootHeight(Medium,Hit.ImpactPoint.Z,WaterSurfaceZ,Draft,FloatClearanceCm,MinimumDepthCm,Z))return false;
  Foot=FVector(Point.X,Point.Y,Z);
  return ContainsFootprint(Foot,Radius)&&!GetWorld()->OverlapBlockingTestByChannel(Foot+FVector(0,0,HalfHeight+28.f),FQuat::Identity,
   ECC_Pawn,FCollisionShape::MakeCapsule(Radius,FMath::Max(HalfHeight,Radius)),Q);
@@ -120,9 +123,9 @@ bool APokeMonsterBiomeHabitat::ProjectFoot(const FVector& Point,float Radius,flo
 void APokeMonsterBiomeHabitat::BeginPlay()
 {
  Super::BeginPlay();
+ for(TActorIterator<AActor> It(GetWorld());It;++It)if(It->ActorHasTag(TEXT("BiomePlayerWaterBarrier")))PlayerWaterBarriers.Add(*It);
  if(!GetWorld()->GetAuthGameMode<APokeMonsterBiomeTestGameMode>()) {SetActorTickEnabled(false);return;}
  bRunning=true;
- for(TActorIterator<AActor> It(GetWorld());It;++It)if(It->ActorHasTag(TEXT("BiomePlayerWaterBarrier")))PlayerWaterBarriers.Add(*It);
  for(const auto& S:Specimens)
  {
   auto* Species=S.Species.LoadSynchronous();if(!Species)continue;

@@ -12,6 +12,7 @@ enum class EPokeMonsterWildLifeState : uint8 { Active, Recovering, Escaping, Wai
 
 class UPokeMonsterCreatureRoamingComponent;
 class UCapsuleComponent;
+struct FCollisionQueryParams;
 class USphereComponent;
 class UPaperSpriteComponent;
 class UTextRenderComponent;
@@ -39,6 +40,11 @@ public:
  UPROPERTY(Transient,BlueprintReadOnly) bool bHabitatDormant=false;
 	void SuppressPresentation(bool Suppressed);
  void SetChallengeFocused(bool Focused);
+ /** Configure before FinishSpawning; existing authored sources keep their body sizes. */
+ void ConfigureHabitatBody(float Radius,float HalfHeight);
+ /** Shared by the actor and player target selection; land interaction stays unchanged. */
+ float GetShoreInteractionRadius() const;
+ void PrepareInteractionSight(FCollisionQueryParams& Query) const;
 	virtual bool CanInteract_Implementation(APawn* Interactor) const override;
 	virtual void Interact_Implementation(APawn* Interactor) override;
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category="Wild Encounter") TSoftObjectPtr<UPokeMonsterEncounterProfile> Profile;

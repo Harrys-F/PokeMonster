@@ -34,6 +34,7 @@ float FPokeMonsterHabitatRule::WeightAt(double Second)const
 bool FPokeMonsterHabitatRule::IsValid()const
 {
  return !Species.IsNone()&&!Profile.IsNull()&&!Habitats.IsEmpty()&&FMath::IsFinite(Weight)&&Weight>0&&Maximum>0&&Maximum<=10
+  && FMath::IsFinite(WaterDraftCm)&&WaterDraftCm>=-1.f&&FMath::IsFinite(BodyRadiusCm)&&BodyRadiusCm>=0.f
   && FMath::IsFinite(MinimumPlayerDistance)&&MinimumPlayerDistance>=600&&FMath::IsFinite(MinimumPeerDistance)&&MinimumPeerDistance>=120;
 }
 bool UPokeMonsterHabitatSettings::IsValidConfiguration()const
@@ -65,7 +66,8 @@ void UPokeMonsterHabitatSubsystem::OnWorldBeginPlay(UWorld& W)
   for(const auto& L:S->VisualV2Zones)
   {
    auto* Z=W.SpawnActor<APokeMonsterHabitatZone>(L.Center,FRotator::ZeroRotator,P);if(!Z)continue;
-   Z->ZoneId=L.Id;Z->HabitatType=L.Type;Z->HabitatName=L.Id.ToString();Z->MaximumPopulation=L.Maximum;Z->Bounds->SetBoxExtent(L.Extent);
+   Z->ZoneId=L.Id;Z->HabitatType=L.Type;Z->HabitatName=L.Id.ToString();Z->MaximumPopulation=L.Maximum;Z->CoveragePriority=L.CoveragePriority;Z->Bounds->SetBoxExtent(L.Extent);
+   Z->Medium=L.Medium;Z->WaterSurfaceZ=L.WaterSurfaceZ;Z->bEllipticalBoundary=L.bEllipticalBoundary;Z->TravelPoints=L.TravelPoints;
   }
  }
  for(TActorIterator<APokeMonsterHabitatZone> I(&W);I;++I)
@@ -86,8 +88,17 @@ void UPokeMonsterHabitatSubsystem::OnWorldBeginPlay(UWorld& W)
  }
  // Keep authored gallery identities in the map/save data, but not as an all-species wild exhibition.
  if(IsVisualV2(W.GetName()))for(TActorIterator<APokeMonsterVisibleWildCreatureActor> I(&W);I;++I)I->SuspendForHabitatPopulation();
- bEnabled=true;W.GetTimerManager().SetTimer(UpdateTimer,this,&UPokeMonsterHabitatSubsystem::RefreshPopulation,S->UpdateSeconds,true,3.f);
+ bEnabled=true;W.OnWorldBeginPlay.AddUObject(this,&UPokeMonsterHabitatSubsystem::SeedInitialPopulation);
+ W.GetTimerManager().SetTimer(UpdateTimer,this,&UPokeMonsterHabitatSubsystem::RefreshPopulation,S->UpdateSeconds,true,3.f);
  UE_LOG(LogTemp,Display,TEXT("PM_HABITATS %d zones, %d registered models, population cap %d"),Zones.Num(),Registered.Num(),S->MaximumPopulation);
+}
+void UPokeMonsterHabitatSubsystem::SeedInitialPopulation()
+{
+ // World delegates run after actors' BeginPlay and before the first viewport draw.
+ // This is the only camera-independent placement, never a visible gameplay respawn.
+ TGuardValue<bool> Initial(bInitialPlacement,true);
+ for(int32 I=0;I<GetDefault<UPokeMonsterHabitatSettings>()->MaximumPopulation;++I)RefreshPopulation();
+ UE_LOG(LogTemp,Display,TEXT("PM_HABITATS initial pre-frame population %d"),Population.Num());
 }
 bool UPokeMonsterHabitatSubsystem::CandidateOutsideView(const FVector& Foot,const FVector& Extent)const
 {
@@ -134,9 +145,23 @@ void UPokeMonsterHabitatSubsystem::RefreshPopulation()
  }
  if(Population.Num()<S->MaximumPopulation)
  {
-  // One source per update bounds spawn/loading work; random zone order avoids a persistent first-zone bias.
-  const int32 First=Random.RandRange(0,Zones.Num()-1);
-  for(int32 I=0;I<Zones.Num();++I)if(TryPopulate(Zones[(First+I)%Zones.Num()]))break;
+  // Keep spawn work bounded. Cover nearby empty habitats before adding second
+  // occupants to distant ones; aquatic slots must not lose the species budget.
+  TArray<APokeMonsterHabitatZone*> Ordered;
+  for(auto Z:Zones)if(IsValid(Z))Ordered.Add(Z);
+  auto Count=[&](const APokeMonsterHabitatZone* Z){int32 N=0;for(auto A:Population)if(IsValid(A)&&A->OverworldMovement->BiomeHabitat==Z)++N;return N;};
+  Ordered.Sort([&](const APokeMonsterHabitatZone& A,const APokeMonsterHabitatZone& B)
+  {
+   auto Score=[&](const APokeMonsterHabitatZone& Z)
+   {
+    bool TypePresent=false;
+    for(auto A:Population)if(IsValid(A))if(const auto* Home=Cast<APokeMonsterHabitatZone>(A->OverworldMovement->BiomeHabitat))if(Home->HabitatType==Z.HabitatType){TypePresent=true;break;}
+    return FVector::Dist2D(P->GetActorLocation(),Z.GetActorLocation())+Count(&Z)*6000.f
+     -(Z.Medium==EPokeMonsterBiomeMedium::WaterOnly?16000.f:0.f)-(TypePresent?0.f:Z.CoveragePriority*200.f);
+   };
+   return Score(A)<Score(B);
+  });
+  for(auto Z:Ordered)if(TryPopulate(Z))break;
  }
  LastUpdateMicroseconds=(FPlatformTime::Seconds()-Start)*1e6;
 }
@@ -162,7 +187,11 @@ bool UPokeMonsterHabitatSubsystem::TryPopulate(APokeMonsterHabitatZone* Z)
  for(int32 I=0;I<S->Rules.Num();++I)
  {
   const auto& R=S->Rules[I];if(!Profiles.IsValidIndex(I)||!Profiles[I]||!R.Allows(Z->HabitatType)||Counts.FindRef(R.Species)>=R.Maximum)continue;
-  if(!Counts.Contains(R.Species)&&Counts.Num()>=S->MaximumSpecies)continue;
+   int32 ReservedWater=0;
+  if(Z->Medium!=EPokeMonsterBiomeMedium::WaterOnly)
+   for(auto Water:Zones)if(IsValid(Water)&&Water->Medium==EPokeMonsterBiomeMedium::WaterOnly&&FVector::Dist2D(P->GetActorLocation(),Water->GetActorLocation())<5000)
+    for(const auto& Fish:S->Rules)if(Fish.WaterDraftCm>=0&&!Counts.Contains(Fish.Species)&&Fish.Allows(Water->HabitatType))++ReservedWater;
+  if(!Counts.Contains(R.Species)&&Counts.Num()>=S->MaximumSpecies-ReservedWater)continue;
   if(E->IsEncounterCompleted(PopulationId(Z->ZoneId,Slot,R.Species,C->GetDay())))continue;
   Eligible.Add(I);Total+=R.WeightAt(C->GetTime().SecondsOfDay);
  }
@@ -173,29 +202,36 @@ bool UPokeMonsterHabitatSubsystem::TryPopulate(APokeMonsterHabitatZone* Z)
  for(auto A:Registered)if(A->GetInternalId()==R.Species){Species=A;break;}
  if(!Species)return false;
  const auto* Visual=Species->GetVisuals().Presentation.LoadSynchronous();if(!Visual||!Visual->Mesh)return false;
- const FVector Extent=Visual->Mesh->GetBounds().BoxExtent;const float Radius=FMath::Max(38.f,Species->Overworld.BodyRadius);
+ const FVector Extent=Visual->Mesh->GetBounds().BoxExtent;const float Radius=FMath::Max3(38.f,Species->Overworld.BodyRadius,R.BodyRadiusCm);
+ const float HalfHeight=Z->Medium==EPokeMonsterBiomeMedium::WaterOnly?FMath::Max(Radius,Extent.Z):FMath::Max(Radius,60.f);
  FCollisionQueryParams Q(SCENE_QUERY_STAT(NaturalHabitatSpawn),false);Q.AddIgnoredActor(P);
  for(int32 Attempt=0;Attempt<12;++Attempt)
  {
   const FVector B=Z->Bounds->GetScaledBoxExtent();const FVector Point=Center+FVector(Random.FRandRange(-B.X+Radius,B.X-Radius),Random.FRandRange(-B.Y+Radius,B.Y-Radius),0);
-  FVector Foot;if(!Z->ProjectFoot(Point,Radius,60,Q,Foot)||FVector::Dist2D(P->GetActorLocation(),Foot)<R.MinimumPlayerDistance||!CandidateOutsideView(Foot,Extent)){++RejectedPositions;continue;}
+  FVector Foot;if(!Z->ProjectFoot(Point,Radius,HalfHeight,Q,Foot,0.f,R.WaterDraftCm)||FVector::Dist2D(P->GetActorLocation(),Foot)<R.MinimumPlayerDistance||(!bInitialPlacement&&!CandidateOutsideView(Foot,Extent))){++RejectedPositions;continue;}
   bool Clear=true;
   const auto* Companion=GetWorld()->GetSubsystem<UPokeMonsterCreatureCompanionSubsystem>();
   const auto* Buddy=Companion?Companion->GetVisual():nullptr;
   if(Buddy&&!Buddy->IsHidden()&&FVector::Dist2D(Buddy->GetActorLocation(),Foot)<R.MinimumPeerDistance)Clear=false;
-  for(auto A:Population)if(IsValid(A)&&FVector::Dist2D(A->GetActorLocation(),Foot)<R.MinimumPeerDistance){Clear=false;break;}
+  for(auto A:Population)if(IsValid(A)&&FVector::Dist2D(A->GetActorLocation(),Foot)<FMath::Max(R.MinimumPeerDistance,Radius+Cast<UCapsuleComponent>(A->GetRootComponent())->GetScaledCapsuleRadius()+50.f)){Clear=false;break;}
   for(TActorIterator<APokeMonsterBuildingCutaway> I(GetWorld());I;++I)if(I->IsViewerInside(Foot+FVector(0,0,60))){Clear=false;break;}
   if(!Clear){++RejectedPositions;continue;}
-  const FTransform Transform(FRotator(0,Random.FRandRange(-180,180),0),Foot+FVector(0,0,60));
+  const FTransform Transform(FRotator(0,Random.FRandRange(-180,180),0),Foot+FVector(0,0,HalfHeight));
   auto* A=GetWorld()->SpawnActorDeferred<APokeMonsterVisibleWildCreatureActor>(APokeMonsterVisibleWildCreatureActor::StaticClass(),Transform,nullptr,nullptr,ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
   if(!A)return false;
   A->SetFlags(RF_Transient);A->Tags.Add(TEXT("PokemonHabitatPopulation"));A->Tags.Add(FName(*FString::Printf(TEXT("HabitatSlot%d"),Slot)));
-  A->VisualSpecies=Species;A->Profile=Profiles[Index];A->EncounterId=PopulationId(Z->ZoneId,Slot,R.Species,C->GetDay());A->Seed=Random.RandRange(1,MAX_int32-1);A->bAmbientMotion=true;
+  A->VisualSpecies=Species;A->Profile=Profiles[Index];A->EncounterId=PopulationId(Z->ZoneId,Slot,R.Species,C->GetDay());A->Seed=Random.RandRange(1,MAX_int32-1);A->bAmbientMotion=true;A->ConfigureHabitatBody(Radius,HalfHeight);
   A->Context.RegionId=NAME_None;A->Context.Time=EPokeMonsterEncounterTime::Any;
-  auto* M=A->OverworldMovement.Get();M->BiomeHabitat=Z;M->HabitatRadiusOverride=FMath::Clamp(B.Size2D()*2.f,300.f,5000.f);
+  auto* M=A->OverworldMovement.Get();M->BiomeHabitat=Z;M->WaterDraftOverrideCm=R.WaterDraftCm;M->HabitatRadiusOverride=FMath::Clamp(B.Size2D()*2.f,300.f,5000.f);
+  if(Z->Medium==EPokeMonsterBiomeMedium::WaterOnly)
+  {
+   M->bOverrideBehavior=true;M->BehaviorOverride=Species->Overworld.Behavior;
+   if(FPokeMonsterCreatureBehavior::InitiationFor(M->BehaviorOverride)!=EPokeMonsterEncounterInitiation::Disabled)M->BehaviorOverride.Initiation=EPokeMonsterEncounterInitiation::Challenge;
+  }
   if(!FPokeMonsterCreatureActivityProfile::ForSpecies(R.Species).bEnabled)
   {
-   M->bOverrideActivities=true;M->ActivityOverride.bEnabled=true;M->ActivityOverride.bPreferVegetation=Z->HabitatType!=TEXT("Rock");
+   M->bOverrideActivities=true;M->ActivityOverride.bEnabled=true;M->ActivityOverride.bPreferVegetation=Z->HabitatType!=TEXT("Rock")&&Z->Medium!=EPokeMonsterBiomeMedium::WaterOnly;
+   if(Z->Medium==EPokeMonsterBiomeMedium::WaterOnly)M->ActivityOverride.ForageWeight=0.f;
   }
   FPokeMonsterCreatureRhythm Existing;
   if(!GetDefault<UPokeMonsterCreatureRhythmSettings>()->Find(R.Species,Existing)){M->bOverrideRhythm=true;M->RhythmOverride.Rhythm=R.Rhythm;}
@@ -208,7 +244,7 @@ bool UPokeMonsterHabitatSubsystem::TryPopulate(APokeMonsterHabitatZone* Z)
 }
 void UPokeMonsterHabitatSubsystem::Deinitialize()
 {
- if(GetWorld())GetWorld()->GetTimerManager().ClearTimer(UpdateTimer);
+ if(GetWorld()){GetWorld()->GetTimerManager().ClearTimer(UpdateTimer);GetWorld()->OnWorldBeginPlay.RemoveAll(this);}
  for(auto A:Population)if(IsValid(A))A->OverworldMovement->SetMovementPaused(true);
  Population.Reset();Zones.Reset();Registered.Reset();Profiles.Reset();BirthTimes.Reset();Super::Deinitialize();
 }
