@@ -79,4 +79,10 @@ private:
 	UPROPERTY(Transient) TObjectPtr<APokeMonsterCreatureVisualActor> Visual;
 	bool bDeactivated = false;
  bool bWasWarning=false;
+ void UpdateNameplate(float Delta);
+ bool bChallengeFocused=false,bNameplateEligible=false,bNameplateNear=false;
+ float NameplateRefresh=0,NameplateScreenHalfWidth=0;
+ FVector2D NameplateScreen=FVector2D::ZeroVector;
+ FString NameplateText;
+
 };

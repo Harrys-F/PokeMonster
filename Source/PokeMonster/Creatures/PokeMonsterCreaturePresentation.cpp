@@ -193,3 +193,21 @@ struct FCreatureProxy final:FAnimInstanceProxy
 }
 FAnimInstanceProxy* UPokeMonsterCreatureAnimInstance::CreateAnimInstanceProxy(){return new FCreatureProxy(this);}
 void UPokeMonsterCreatureAnimInstance::DestroyAnimInstanceProxy(FAnimInstanceProxy* P){delete P;}
+
+#include "Components/TextRenderComponent.h"
+#include "Camera/PlayerCameraManager.h"
+void APokeMonsterCreatureVisualActor::StyleNameplate(UTextRenderComponent* Label,float Size)
+{
+ if(!Label)return;Label->SetWorldSize(Size);Label->SetTextRenderColor(FColor(220,240,190));
+ Label->SetHorizontalAlignment(EHTA_Center);Label->SetCollisionEnabled(ECollisionEnabled::NoCollision);Label->SetCastShadow(false);
+}
+FVector APokeMonsterCreatureVisualActor::GetNameplateAnchor() const
+{
+ if(!Mesh)return GetActorLocation()+FVector(0,0,60);
+ const auto& B=Mesh->Bounds;return FVector(B.Origin.X,B.Origin.Y,B.Origin.Z+B.BoxExtent.Z+24.f);
+}
+void APokeMonsterCreatureVisualActor::PlaceNameplate(UTextRenderComponent* Label,const APlayerCameraManager* Camera) const
+{
+ if(!Label)return;const FVector Anchor=GetNameplateAnchor();Label->SetWorldLocation(Anchor);
+ if(Camera)Label->SetWorldRotation((Camera->GetCameraLocation()-Anchor).Rotation());
+}

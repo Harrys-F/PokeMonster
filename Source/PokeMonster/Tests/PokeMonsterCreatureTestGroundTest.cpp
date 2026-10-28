@@ -50,6 +50,8 @@ bool FPermanentGroundIsolationTest::RunTest(const FString& Parameters)
   TestEqual(TEXT("No blocking creature collider"),V->Mesh->GetCollisionEnabled(),ECollisionEnabled::NoCollision);
   TestTrue(TEXT("Own floor is genuinely walkable"),M->ProjectWalkable(G->GetStation(I),Ground));
   TestTrue(TEXT("Wide free routes use existing collision planner"),M->CanTraverse(G->GetStation(I),G->GetStation(I)+FVector(220,170,0)));
+  TestTrue(TEXT("Name remains above actual model bounds even for long aquatic models"),V->GetNameplateAnchor().Z>V->Mesh->Bounds.Origin.Z+V->Mesh->Bounds.BoxExtent.Z);
+  TestTrue(TEXT("Label uses head height, not a large length-based species size"),V->GetNameplateAnchor().Z<V->Mesh->Bounds.Origin.Z+V->Mesh->Bounds.BoxExtent.Z+80.f);
   TestEqual(TEXT("Existing seven animation roles retained"),V->Presentation->Clips.Num(),7);
   TestEqual(TEXT("Encounter disabled on specimen only"),M->GetBehaviorProfile().Initiation,EPokeMonsterEncounterInitiation::Disabled);
  }

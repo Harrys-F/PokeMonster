@@ -4,6 +4,7 @@
 #include "../../Encounter/PokeMonsterVisibleWildCreatureActor.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/InstancedStaticMeshComponent.h"
+#include "Components/BoxComponent.h"
 #include "Engine/StaticMesh.h"
 #include "Engine/World.h"
 #include "Engine/OverlapResult.h"
@@ -32,7 +33,7 @@ void UPokeMonsterCreatureRoamingComponent::ConfigureActivities(const UPokeMonste
  VisibilityRemaining=0;PerceivedPeer.Reset();ForageAnchors.Reset();
  ActivityDecisions=PeerQueries=PerceptionTraces=SocialCompleted=ForageCompleted=SocialRequests=SocialDeclined=SocialInterrupted=0;
  ConfigureRhythm(Seed);
- if(!bActivitiesEnabled || !Activities.bPreferVegetation)return;
+ if(!bActivitiesEnabled || !(Activities.bPreferVegetation||Activities.bPreferRocks||Activities.bPreferWaterEdge))return;
  // Cache nearby authored vegetation once. Approaches stop beside it, never inside a bush.
  const float Radius=HabitatRadiusOverride>0?HabitatRadiusOverride:Settings.RoamRadius;
  for(TActorIterator<AActor> It(GetWorld());It;++It)
@@ -42,7 +43,9 @@ void UPokeMonsterCreatureRoamingComponent::ConfigureActivities(const UPokeMonste
   {
    if(!Mesh->GetStaticMesh())continue;
    const FString Name=Mesh->GetStaticMesh()->GetPathName();
-   if(!Name.Contains(TEXT("Grass"))&&!Name.Contains(TEXT("Fern"))&&!Name.Contains(TEXT("Bush"))&&!Name.Contains(TEXT("Shrub")))continue;
+   const bool Plant=Name.Contains(TEXT("Grass"))||Name.Contains(TEXT("Fern"))||Name.Contains(TEXT("Bush"))||Name.Contains(TEXT("Shrub"))||Name.Contains(TEXT("/Trees/"));
+   const bool Rock=Name.Contains(TEXT("/Rocks/"))||Name.Contains(TEXT("Boulder"));
+   if(!(Activities.bPreferVegetation&&Plant)&&!(Activities.bPreferRocks&&Rock))continue;
    auto Add=[&](const FTransform& T)
    {
     const FVector P=T.GetLocation();
@@ -53,6 +56,13 @@ void UPokeMonsterCreatureRoamingComponent::ConfigureActivities(const UPokeMonste
    else Add(Mesh->GetComponentTransform());
   }
  }
+ if(Activities.bPreferWaterEdge)for(TActorIterator<APokeMonsterBiomeHabitat> It(GetWorld());It;++It)
+  if(It->Medium==EPokeMonsterBiomeMedium::WaterOnly)
+  {
+   const FVector B=It->Bounds->GetScaledBoxExtent(),C=It->GetActorLocation();
+   for(const FVector& O:{FVector(B.X+BodyRadius+180,0,0),FVector(-B.X-BodyRadius-180,0,0),FVector(0,B.Y+BodyRadius+180,0),FVector(0,-B.Y-BodyRadius-180,0)})
+    if(FVector::Dist2D(C+O,HabitatOrigin)<Radius+100&&ForageAnchors.Num()<64)ForageAnchors.Add(C+O);
+  }
 }
 void UPokeMonsterCreatureRoamingComponent::ReleaseSocial()
 {
@@ -79,7 +89,8 @@ void UPokeMonsterCreatureRoamingComponent::FinishActivity(bool Interrupted)
  {
   SocialCooldown=Activities.SocialCooldown;
   if(Interrupted){++SocialInterrupted;if(SocialPartner)++SocialPartner->SocialInterrupted;}
-  else if(!bActivityTravelling){++SocialCompleted;if(SocialPartner)++SocialPartner->SocialCompleted;}
+  else if(!bActivityTravelling){++SocialCompleted;if(SocialPartner)++SocialPartner->SocialCompleted;
+   if(BehaviorState==S::Group){++GroupCompleted;if(SocialPartner)++SocialPartner->GroupCompleted;}}
  }
  ReleaseSocial();bActivityRunning=bActivityTravelling=false;ActivityRemaining=ActivityElapsed=0;
  Path.Reset();PauseRemaining=ActivityRandom.FRandRange(1.f,2.5f);CurrentSpeed=0;
@@ -206,7 +217,7 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateActivities(float Delta,const FV
 {
  QUICK_SCOPE_CYCLE_COUNTER(STAT_PokeMonsterNaturalActivities);
  using S=EPokeMonsterOverworldState;
- if(BehaviorState==S::Approach||BehaviorState==S::Retreat||BehaviorState==S::Observe||BehaviorState==S::Warning)return false;
+ if(BehaviorState==S::Approach||BehaviorState==S::Retreat||BehaviorState==S::Observe||BehaviorState==S::Warning||BehaviorState==S::Alert||BehaviorState==S::Curious||BehaviorState==S::Chase||BehaviorState==S::Battle)return false;
  // Player/threat reactions above have priority. Only ambient timers/motion follow the clock pause.
  if(IsAmbientClockPaused())
  {
@@ -235,7 +246,7 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateActivities(float Delta,const FV
  }
  if(bActivityRunning)
  {
-  if(BehaviorState==S::Social)
+  if(BehaviorState==S::Social||BehaviorState==S::Group)
   {
    auto* Peer=SocialPartner.Get();
    SocialDeadlineRemaining-=Delta;SocialValidationRemaining-=Delta;
@@ -256,6 +267,8 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateActivities(float Delta,const FV
    {
     if(FVector::Dist2D(Current,CurrentGoal)>BodyRadius+20){FinishActivity(true);return true;}
     bActivityTravelling=false;CurrentSpeed=0;
+    if(BehaviorState==S::Social&&SocialPartner&&ActivitySpecies==SocialPartner->ActivitySpecies&&Activities.bGroupWithOwnSpecies&&SocialPartner->Activities.bGroupWithOwnSpecies)
+    {BehaviorState=S::Group;SocialPartner->BehaviorState=S::Group;}
    }
    else if(ActivityTravelRemaining<=0){FinishActivity(true);return true;}
    else {Speed*=.8f;return false;}
@@ -264,7 +277,7 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateActivities(float Delta,const FV
   if(ActivityRemaining<=0 && (BehaviorState!=S::Wander||Path.IsEmpty())){FinishActivity();return true;}
   if(BehaviorState==S::Wander)return false;
   CurrentSpeed=0;Path.Reset();PauseRemaining=0;
-  if(BehaviorState==S::Social||BehaviorState==S::Forage||BehaviorState==S::Idle)FaceActivity(Delta,ActivityFocus);
+  if(BehaviorState==S::Social||BehaviorState==S::Group||BehaviorState==S::Forage||BehaviorState==S::Idle)FaceActivity(Delta,ActivityFocus);
   return true;
  }
  if(!Path.IsEmpty()||PauseRemaining>0)return false;

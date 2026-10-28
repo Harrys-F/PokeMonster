@@ -96,7 +96,7 @@ void UPokeMonsterCreatureTestGround::OnWorldBeginPlay(UWorld& World)
   MovementReferenceSpeeds.Add(FVector2D(S->Overworld.WalkSpeedOverride>0.f?S->Overworld.WalkSpeedOverride:V->Presentation->WalkSpeed,
     S->Overworld.RunSpeedOverride>0.f?S->Overworld.RunSpeedOverride:V->Presentation->RunSpeed));
   auto* L=NewObject<UTextRenderComponent>(V);V->AddInstanceComponent(L);L->SetupAttachment(V->GetRootComponent());L->RegisterComponent();
-  L->SetText(FText::FromString(FString::Printf(TEXT("TEST %02d | %s"),I+1,*S->GetDisplayName().ToString())));L->SetWorldSize(26);L->SetTextRenderColor(FColor(220,240,190));L->SetHorizontalAlignment(EHTA_Center);L->SetRelativeLocation(FVector(0,0,V->Presentation->ReferenceSizeCm+55));L->SetCollisionEnabled(ECollisionEnabled::NoCollision);L->SetCastShadow(false);Labels.Add(L);
+  L->SetText(FText::FromString(FString::Printf(TEXT("TEST %02d | %s"),I+1,*S->GetDisplayName().ToString())));APokeMonsterCreatureVisualActor::StyleNameplate(L);V->PlaceNameplate(L,nullptr);Labels.Add(L);
  }
  UE_LOG(LogTemp,Display,TEXT("PM_TESTGROUND registered %d visual-only specimens; cell %.0f cm. pm.TestGround.List / Go [index|name] / Return"),Specimens.Num(),Spacing);
 }
@@ -139,7 +139,7 @@ void UPokeMonsterCreatureTestGround::Tick(float Delta)
    const float Yaw=UPokeMonsterCreatureRoamingComponent::AdvanceHeading(V->GetActorRotation().Yaw,135.f+Elapsed*35.f,TurnVelocity[I],M->Settings,Delta);
    V->SetActorRotation(FRotator(0,Yaw,0));
   }
-  if(PC&&I<Labels.Num())Labels[I]->SetWorldRotation((PC->PlayerCameraManager->GetCameraLocation()-Labels[I]->GetComponentLocation()).Rotation());
+  if(PC&&Nearby&&I<Labels.Num())V->PlaceNameplate(Labels[I],PC->PlayerCameraManager);
  }
 }
 bool UPokeMonsterCreatureTestGround::ResetModels()

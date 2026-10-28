@@ -54,4 +54,30 @@ bool FCharacterCanopyEstimate::RunTest(const FString&)
  TestEqual(TEXT("Small ground shrub not treated as a canopy"),UPokeMonsterCharacterFillComponent::CanopyOcclusion(FVector::ZeroVector,FVector::UpVector,FBox(FVector(-30),FVector(30))),0.f);
  return true;
 }
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FV3SightPolicy,"PokeMonster.Overworld.V3.FieldOfViewAndLegacyCompatibility",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FV3SightPolicy::RunTest(const FString&)
+{
+ FPokeMonsterCreatureBehaviorProfile P;P.Perception.bEnabled=true;P.Perception.FieldOfView=180;
+ TestTrue(TEXT("Front visible"),FPokeMonsterCreatureBehavior::InView(P,FVector::ZeroVector,FVector::ForwardVector,FVector(500,0,0)));
+ TestFalse(TEXT("Distant player behind creature not sensed"),FPokeMonsterCreatureBehavior::InView(P,FVector::ZeroVector,FVector::ForwardVector,FVector(-500,0,0)));
+ TestTrue(TEXT("Personal space sensed in any direction"),FPokeMonsterCreatureBehavior::InView(P,FVector::ZeroVector,FVector::ForwardVector,FVector(-100,0,0)));
+ P.Perception.bEnabled=false;TestTrue(TEXT("Legacy callers retain omnidirectional perception"),FPokeMonsterCreatureBehavior::InView(P,FVector::ZeroVector,FVector::ForwardVector,FVector(-500,0,0)));
+ P.Perception.SampleSeconds=.01;TestFalse(TEXT("Unbounded perception frequency rejected"),P.IsValid());
+ return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FV3AwarenessPolicy,"PokeMonster.Overworld.V3.ReactionDelayLossAndPause",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FV3AwarenessPolicy::RunTest(const FString&)
+{
+ FPokeMonsterCreaturePerceptionProfile P;P.bEnabled=true;P.ReactionSeconds=.5;P.ForgetSeconds=1;
+ float Acquiring=0,Lost=0;bool A=false;
+ for(int I=0;I<4;++I)A=FPokeMonsterCreatureBehavior::UpdateAwareness(P,.1,true,false,A,Acquiring,Lost);
+ TestFalse(TEXT("Brief sighting does not instantly trigger pursuit"),A);
+ A=FPokeMonsterCreatureBehavior::UpdateAwareness(P,.11,true,false,A,Acquiring,Lost);TestTrue(TEXT("Sustained actual sight triggers awareness"),A);
+ A=FPokeMonsterCreatureBehavior::UpdateAwareness(P,.5,false,false,A,Acquiring,Lost);TestTrue(TEXT("Brief occlusion retains memory"),A);
+ A=FPokeMonsterCreatureBehavior::UpdateAwareness(P,0,false,false,A,Acquiring,Lost);TestTrue(TEXT("Pause does not advance memory"),A);
+ A=FPokeMonsterCreatureBehavior::UpdateAwareness(P,.6,false,false,A,Acquiring,Lost);TestFalse(TEXT("Lost target forgotten after bounded memory"),A);
+ A=FPokeMonsterCreatureBehavior::UpdateAwareness(P,.01,true,true,A,Acquiring,Lost);TestTrue(TEXT("Real immediate close threat bypasses delay"),A);
+ return true;
+}
 #endif

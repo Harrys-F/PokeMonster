@@ -22,6 +22,7 @@ bool FHabitatCatalogTest::RunTest(const FString&)
  const auto Registry=UPokeMonsterCreatureSpeciesData::GetRegisteredPlayableSpecies();
  for(const auto& R:S->Rules)
  {
+  TestTrue(TEXT("Curated species has valid opt-in perception and activities"),R.Perception.bEnabled&&R.Perception.IsValid()&&R.bOverrideActivities&&R.Activities.IsValid());
   TestTrue(TEXT("Rule points to registered species"),Registry.ContainsByPredicate([&](const auto* C){return C->GetInternalId()==R.Species;}));
   const auto* P=R.Profile.LoadSynchronous();if(!TestNotNull(TEXT("Existing encounter profile"),P))continue;
   TestFalse(TEXT("Profile has actual data"),P->Entries.IsEmpty());

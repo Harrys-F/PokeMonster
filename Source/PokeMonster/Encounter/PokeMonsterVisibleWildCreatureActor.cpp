@@ -9,6 +9,8 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "../Checkpoint/PokeMonsterCheckpointSubsystem.h"
 #include "../Development/BiomeTestV1/PokeMonsterBiomeHabitat.h"
+#include "HAL/IConsoleManager.h"
+#include "../Habitats/PokeMonsterHabitatSubsystem.h"
 
 #include "../Characters/PokeMonsterPlayerCharacter.h"
 #include "Components/CapsuleComponent.h"
@@ -18,6 +20,12 @@
 #include "PaperSprite.h"
 #include "PaperSpriteComponent.h"
 #include "UObject/ConstructorHelpers.h"
+
+namespace
+{
+ TAutoConsoleVariable<int32> WildNames(TEXT("pm.WildNames"),1,TEXT("Wild Pokemon names: 1 on (default), 0 off. Focus marker and model labels remain available."));
+ TAutoConsoleVariable<float> WildNameDistance(TEXT("pm.WildNames.Distance"),2600.f,TEXT("Wild-name range in cm; 250 cm hysteresis. Does not change creature rendering or AI."));
+}
 
 APokeMonsterVisibleWildCreatureActor::APokeMonsterVisibleWildCreatureActor()
 {
@@ -176,7 +184,7 @@ bool APokeMonsterVisibleWildCreatureActor::TryStart(APokeMonsterPlayerCharacter*
  if(Contact?bAwaitSeparation||!IsTouchingPlayer(Player):!CanInteract_Implementation(Player))return false;
  auto* E=Player->GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>();auto* Loaded=Profile.LoadSynchronous();
  const bool Started=Loaded&&E->EnsureDevPlayerParty()&&E->StartWildEncounter(Loaded,Context,EPokeMonsterEncounterSource::VisibleCreature,Player,this,Seed,EncounterId);
- if(Started)OverworldMovement->SetMovementPaused(true);
+ if(Started)OverworldMovement->NotifyEncounterStarted();
  return Started;
 }
 void APokeMonsterVisibleWildCreatureActor::RemoveWildPresentation()
@@ -260,6 +268,7 @@ void APokeMonsterVisibleWildCreatureActor::Tick(float Delta)
  if(Visual&&Visual->Presentation)UpdateVisualGround();
  auto* Player=Cast<APokeMonsterPlayerCharacter>(UGameplayStatics::GetPlayerPawn(this,0));
  const auto* E=GetGameInstance()?GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>():nullptr;
+ UpdateNameplate(Delta);
  if(E&&E->IsEncounterActive())return;
  if(LifeState==EPokeMonsterWildLifeState::Recovering)
  {
@@ -310,12 +319,53 @@ void APokeMonsterVisibleWildCreatureActor::UpdateVisualGround()
 
 void APokeMonsterVisibleWildCreatureActor::SetChallengeFocused(bool Focused)
 {
- auto* Player=UGameplayStatics::GetPlayerPawn(this,0);
- const bool Show=Focused&&CanInteract_Implementation(Player);
- Label->SetVisibility(Show);if(!Show)return;
- Label->SetText(FText::FromString(TEXT("▼")));Label->SetWorldSize(15.f);
+ if(Visual&&GetWorld()&&UPokeMonsterHabitatSubsystem::IsVisualV2(GetWorld()->GetName()))
+ {
+  if(bChallengeFocused!=Focused){bChallengeFocused=Focused;NameplateRefresh=0;}
+  return;
+ }
+ auto* Player=UGameplayStatics::GetPlayerPawn(this,0);const bool Show=Focused&&CanInteract_Implementation(Player);
+ Label->SetVisibility(Show);if(!Show)return;Label->SetText(FText::FromString(TEXT("▼")));Label->SetWorldSize(15.f);
  if(const auto* PC=UGameplayStatics::GetPlayerController(this,0))if(PC->PlayerCameraManager)
   Label->SetWorldRotation((PC->PlayerCameraManager->GetCameraLocation()-Label->GetComponentLocation()).Rotation());
+}
+void APokeMonsterVisibleWildCreatureActor::UpdateNameplate(float Delta)
+{
+ if(!Visual||!GetWorld()||!UPokeMonsterHabitatSubsystem::IsVisualV2(GetWorld()->GetName()))return;
+ auto* PC=UGameplayStatics::GetPlayerController(this,0);APawn* Player=PC?PC->GetPawn():nullptr;
+ const auto* E=GetGameInstance()?GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>():nullptr;
+ const bool Names=WildNames.GetValueOnGameThread()!=0;
+ if(!PC||!Player||!PC->PlayerCameraManager||IsHidden()||Visual->IsHidden()||bDeactivated||bHabitatDormant||LifeState!=EPokeMonsterWildLifeState::Active||(E&&E->IsEncounterActive())||(!Names&&!bChallengeFocused))
+ {bNameplateEligible=false;Label->SetVisibility(false);return;}
+ if(bNameplateEligible)Visual->PlaceNameplate(Label,PC->PlayerCameraManager);
+ NameplateRefresh-=Delta;if(NameplateRefresh>0)return;
+ NameplateRefresh=.15f+(GetUniqueID()%5)*.015f;
+ const auto* Species=VisualSpecies.Get();if(!Species){bNameplateEligible=false;Label->SetVisibility(false);return;}
+ const FString Desired=Names?(bChallengeFocused?TEXT("▼ "):TEXT(""))+Species->GetDisplayName().ToString():TEXT("▼");
+ if(NameplateText!=Desired){NameplateText=Desired;Label->SetText(FText::FromString(Desired));APokeMonsterCreatureVisualActor::StyleNameplate(Label,Names?24.f:15.f);}
+ Visual->PlaceNameplate(Label,PC->PlayerCameraManager);
+ const float Range=FMath::Clamp(WildNameDistance.GetValueOnGameThread(),400.f,5000.f);
+ bNameplateNear=FVector::DistSquared(Player->GetActorLocation(),GetActorLocation())<=FMath::Square(Range+(bNameplateNear?250.f:0.f));
+ int32 Width=0,Height=0;PC->GetViewportSize(Width,Height);
+ const FVector Anchor=Visual->GetNameplateAnchor();
+ bNameplateEligible=bNameplateNear&&Width>0&&Height>0&&PC->ProjectWorldLocationToScreen(Anchor,NameplateScreen)
+  &&NameplateScreen.X>8&&NameplateScreen.X<Width-8&&NameplateScreen.Y>8&&NameplateScreen.Y<Height-8;
+ if(bNameplateEligible)
+ {
+  FCollisionQueryParams Q(SCENE_QUERY_STAT(WildNameSight),false,this);Q.AddIgnoredActor(Visual);Q.AddIgnoredActor(Player);
+  if(OverworldMovement->BiomeHabitat)OverworldMovement->BiomeHabitat->IgnorePlayerWaterBarriers(Q);
+  FHitResult Hit;bNameplateEligible=!GetWorld()->LineTraceSingleByChannel(Hit,PC->PlayerCameraManager->GetCameraLocation(),Anchor,ECC_Visibility,Q);
+ }
+ bool Show=bNameplateEligible;NameplateScreenHalfWidth=FMath::Max(28.f,Desired.Len()*9.f)*Width/2560.f;
+ // Stable encounter-ID order prevents two overlapping labels from alternately hiding each other.
+ if(Show&&!bChallengeFocused)for(TActorIterator<APokeMonsterVisibleWildCreatureActor> It(GetWorld());It;++It)
+ {
+  const auto* Other=*It;
+  if(Other==this||!Other->bNameplateEligible||(!Other->bChallengeFocused&&Other->EncounterId.ToString()>=EncounterId.ToString()))continue;
+  if(FMath::Abs(Other->NameplateScreen.X-NameplateScreen.X)<Other->NameplateScreenHalfWidth+NameplateScreenHalfWidth+8
+   &&FMath::Abs(Other->NameplateScreen.Y-NameplateScreen.Y)<36.f*Height/1440.f){Show=false;break;}
+ }
+ Label->SetVisibility(Show);
 }
 
 void APokeMonsterVisibleWildCreatureActor::SuspendForHabitatPopulation()

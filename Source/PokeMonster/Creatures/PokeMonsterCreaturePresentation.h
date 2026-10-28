@@ -14,6 +14,8 @@ class UPointLightComponent;
 class UPokeMonsterCreatureSpeciesData;
 class UPokeMonsterCreatureRoamingComponent;
 class USceneComponent;
+class UTextRenderComponent;
+class APlayerCameraManager;
 
 UENUM(BlueprintType)
 enum class EPokeMonsterCreatureClip : uint8 { Idle, Walk, Run, Attack, Hit, Faint, Happy };
@@ -91,6 +93,9 @@ public:
  UFUNCTION(BlueprintCallable, Category="Creature|Presentation") bool SetSpecies(const UPokeMonsterCreatureSpeciesData* Species);
  /** Visual-only candidate preview; does not mutate a species asset or instance state. */
  UFUNCTION(BlueprintCallable, Category="Creature|Presentation") bool SetPresentation(UPokeMonsterCreaturePresentationData* Candidate);
+ static void StyleNameplate(UTextRenderComponent* Label,float WorldSize=26.f);
+ UFUNCTION(BlueprintPure,Category="Creature|Presentation") FVector GetNameplateAnchor() const;
+ void PlaceNameplate(UTextRenderComponent* Label,const APlayerCameraManager* Camera) const;
  UFUNCTION(BlueprintCallable) bool PlayReaction(EPokeMonsterCreatureClip Clip);
  UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<USkeletalMeshComponent> Mesh;
  UPROPERTY(VisibleAnywhere, BlueprintReadOnly) TObjectPtr<UStaticMeshComponent> Flame;

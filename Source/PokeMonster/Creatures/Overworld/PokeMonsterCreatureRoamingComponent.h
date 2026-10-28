@@ -62,7 +62,11 @@ public:
  UFUNCTION(BlueprintCallable,Category="Development|Model") bool RequestModelPreviewGoal(FVector Goal);
  UFUNCTION(BlueprintPure,Category="Development|Model") bool IsModelPreviewMoving()const{return bControlledModelPreview&&!Path.IsEmpty();}
  UPROPERTY(Transient,BlueprintReadWrite,Category="Development|Model") bool bControlledModelPreview=false;
+ UFUNCTION(BlueprintCallable,Category="Behavior") void NotifyEncounterStarted();
  UFUNCTION(BlueprintCallable,Category="Behavior") void NotifyEncounterEnded();
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Behavior") bool bPlayerAware=false;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 GroupCompleted=0;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 GroupAlarms=0;
  bool CanReengage() const;
  void CancelDefeatEscape();
  UFUNCTION(BlueprintCallable,Category="Behavior") bool BeginDefeatEscape();
@@ -142,6 +146,8 @@ private:
  FBox PresentationHoverBounds{ForceInit};
  bool UpdateBehavior(float Delta,const FVector& Current,const APawn* Player,float& Speed);
  bool PlayerVisible(const APawn* Player) const;
+ float SightAcquiring=0,SightLost=0,AwarenessSeconds=0,PursuitElapsed=0,GroupAlertRemaining=0;
+ FVector LastPlayerPoint=FVector::ZeroVector,GroupAlarmPoint=FVector::ZeroVector;
  bool bTerritoryArmed=true;
  float EscapeReplan=0.f,EscapeStalled=0.f;
  bool PlanEscape(const FVector& Current,const APawn* Player);

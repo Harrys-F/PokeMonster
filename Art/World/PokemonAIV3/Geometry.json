@@ -1,0 +1,10 @@
+{
+  "ground": {
+    "vertices": 24331,
+    "triangles": 48658
+  },
+  "water": {
+    "vertices": 129,
+    "triangles": 128
+  }
+}

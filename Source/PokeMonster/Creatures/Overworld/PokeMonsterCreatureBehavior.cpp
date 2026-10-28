@@ -1,9 +1,32 @@
 #include "PokeMonsterCreatureBehavior.h"
+bool FPokeMonsterCreaturePerceptionProfile::IsValid() const
+{
+ const float V[]={FieldOfView,NoticeRadius,SampleSeconds,ReactionSeconds,ForgetSeconds,MaximumChaseSeconds,InvestigationSeconds};
+ for(float X:V)if(!FMath::IsFinite(X))return false;
+ return FieldOfView>=30&&FieldOfView<=360&&NoticeRadius>=0&&NoticeRadius<=1600
+  &&SampleSeconds>=.2f&&SampleSeconds<=2&&ReactionSeconds>=0&&ReactionSeconds<=3
+  &&ForgetSeconds>=.2f&&ForgetSeconds<=5&&MaximumChaseSeconds>=2&&MaximumChaseSeconds<=20
+  &&InvestigationSeconds>=2&&InvestigationSeconds<=20;
+}
+bool FPokeMonsterCreatureBehavior::InView(const FPokeMonsterCreatureBehaviorProfile& P,const FVector& Observer,const FVector& Forward,const FVector& Target)
+{
+ if(Observer.ContainsNaN()||Forward.ContainsNaN()||Target.ContainsNaN())return false;
+ if(!P.Perception.bEnabled||FVector::Dist2D(Observer,Target)<=P.PersonalSpace)return true;
+ return FVector::DotProduct(Forward.GetSafeNormal2D(),(Target-Observer).GetSafeNormal2D())>=FMath::Cos(FMath::DegreesToRadians(P.Perception.FieldOfView*.5f));
+}
+bool FPokeMonsterCreatureBehavior::UpdateAwareness(const FPokeMonsterCreaturePerceptionProfile& P,float Delta,bool Sensed,bool Immediate,bool WasAware,float& Acquiring,float& Lost)
+{
+ if(!FMath::IsFinite(Delta)||Delta<=0)return WasAware;
+ if(!P.bEnabled)return Sensed;
+ if(Sensed){Acquiring+=Delta;Lost=0;return WasAware||Immediate||Acquiring>=P.ReactionSeconds;}
+ Acquiring=0;Lost+=Delta;return WasAware&&Lost<P.ForgetSeconds;
+}
+
 bool FPokeMonsterCreatureBehaviorProfile::IsValid() const
 {
  const float V[]={NoticeRadius,PersonalSpace,DisengageRadius,WarningSeconds,EncounterRadius,EncounterCooldown,WalkMultiplier,ReactionSpeedMultiplier,RestMultiplier};
  for(float X:V) if(!FMath::IsFinite(X))return false;
- return static_cast<uint8>(Temperament)<=static_cast<uint8>(EPokeMonsterOverworldTemperament::Aggressive)
+ return Perception.IsValid()&&static_cast<uint8>(Temperament)<=static_cast<uint8>(EPokeMonsterOverworldTemperament::Aggressive)
   && static_cast<uint8>(Initiation)<=static_cast<uint8>(EPokeMonsterEncounterInitiation::Disabled)
   && PersonalSpace>=100 && NoticeRadius>PersonalSpace && DisengageRadius>NoticeRadius
   && WarningSeconds>=1 && EncounterRadius>=100 && EncounterRadius<NoticeRadius && EncounterCooldown>=5

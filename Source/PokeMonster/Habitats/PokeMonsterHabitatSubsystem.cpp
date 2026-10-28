@@ -33,7 +33,7 @@ float FPokeMonsterHabitatRule::WeightAt(double Second)const
 }
 bool FPokeMonsterHabitatRule::IsValid()const
 {
- return !Species.IsNone()&&!Profile.IsNull()&&!Habitats.IsEmpty()&&FMath::IsFinite(Weight)&&Weight>0&&Maximum>0&&Maximum<=10
+ return Perception.IsValid()&&(!bOverrideActivities||Activities.IsValid())&&!Species.IsNone()&&!Profile.IsNull()&&!Habitats.IsEmpty()&&FMath::IsFinite(Weight)&&Weight>0&&Maximum>0&&Maximum<=10
   && FMath::IsFinite(WaterDraftCm)&&WaterDraftCm>=-1.f&&FMath::IsFinite(BodyRadiusCm)&&BodyRadiusCm>=0.f
   && FMath::IsFinite(MinimumPlayerDistance)&&MinimumPlayerDistance>=600&&FMath::IsFinite(MinimumPeerDistance)&&MinimumPeerDistance>=120;
 }
@@ -223,9 +223,15 @@ bool UPokeMonsterHabitatSubsystem::TryPopulate(APokeMonsterHabitatZone* Z)
   A->VisualSpecies=Species;A->Profile=Profiles[Index];A->EncounterId=PopulationId(Z->ZoneId,Slot,R.Species,C->GetDay());A->Seed=Random.RandRange(1,MAX_int32-1);A->bAmbientMotion=true;A->ConfigureHabitatBody(Radius,HalfHeight);
   A->Context.RegionId=NAME_None;A->Context.Time=EPokeMonsterEncounterTime::Any;
   auto* M=A->OverworldMovement.Get();M->BiomeHabitat=Z;M->WaterDraftOverrideCm=R.WaterDraftCm;M->HabitatRadiusOverride=FMath::Clamp(B.Size2D()*2.f,300.f,5000.f);
-  if(Z->Medium==EPokeMonsterBiomeMedium::WaterOnly)
+  if(R.Perception.bEnabled||Z->Medium==EPokeMonsterBiomeMedium::WaterOnly)
   {
    M->bOverrideBehavior=true;M->BehaviorOverride=Species->Overworld.Behavior;
+   M->BehaviorOverride.Perception=R.Perception;
+   if(R.Perception.bEnabled&&R.Perception.NoticeRadius>0)
+   {M->BehaviorOverride.NoticeRadius=FMath::Max(R.Perception.NoticeRadius,M->BehaviorOverride.PersonalSpace+50.f);M->BehaviorOverride.DisengageRadius=FMath::Max(M->BehaviorOverride.DisengageRadius,M->BehaviorOverride.NoticeRadius+200.f);}
+  }
+  if(Z->Medium==EPokeMonsterBiomeMedium::WaterOnly)
+  {
    if(FPokeMonsterCreatureBehavior::InitiationFor(M->BehaviorOverride)!=EPokeMonsterEncounterInitiation::Disabled)M->BehaviorOverride.Initiation=EPokeMonsterEncounterInitiation::Challenge;
   }
   if(!FPokeMonsterCreatureActivityProfile::ForSpecies(R.Species).bEnabled)
@@ -233,6 +239,7 @@ bool UPokeMonsterHabitatSubsystem::TryPopulate(APokeMonsterHabitatZone* Z)
    M->bOverrideActivities=true;M->ActivityOverride.bEnabled=true;M->ActivityOverride.bPreferVegetation=Z->HabitatType!=TEXT("Rock")&&Z->Medium!=EPokeMonsterBiomeMedium::WaterOnly;
    if(Z->Medium==EPokeMonsterBiomeMedium::WaterOnly)M->ActivityOverride.ForageWeight=0.f;
   }
+  if(R.bOverrideActivities){M->bOverrideActivities=true;M->ActivityOverride=R.Activities;}
   FPokeMonsterCreatureRhythm Existing;
   if(!GetDefault<UPokeMonsterCreatureRhythmSettings>()->Find(R.Species,Existing)){M->bOverrideRhythm=true;M->RhythmOverride.Rhythm=R.Rhythm;}
   UGameplayStatics::FinishSpawningActor(A,Transform);

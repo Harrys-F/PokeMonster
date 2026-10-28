@@ -78,6 +78,7 @@ void UPokeMonsterCreatureRoamingComponent::Configure(const UPokeMonsterCreatureS
 	CurrentSpeed = AngularVelocity = 0.f; RecentGoals.Reset();
 	for (int32& Visits : SectorVisits) Visits=0;
 	Path.Reset(); bPaused = false; bRecalling = false; bReady = true; BeginPause();
+ bPlayerAware=false;SightAcquiring=SightLost=AwarenessSeconds=PursuitElapsed=GroupAlertRemaining=0;LastPlayerPoint=GroupAlarmPoint=HabitatOrigin;GroupCompleted=GroupAlarms=0;
 	ConfigureActivities(Species,Seed);
 	SetComponentTickEnabled(true);
 }
@@ -246,6 +247,8 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	else if(!FollowTarget.IsValid() && !bControlledModelPreview)
 	{
 	 Speed*=Settings.Behavior.WalkMultiplier;
+  if(Settings.Behavior.Perception.bEnabled&&IsAmbientClockPaused())
+  {if(SocialPartner&&!IsSocialPartnerValid())FinishActivity(true);CurrentSpeed=0;return;}
      if(bActivitiesEnabled)
      {
       const bool Far=Player && FVector::DistSquared2D(Current,Player->GetActorLocation())>FMath::Square(Activities.ActiveDistance);
@@ -301,7 +304,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 	{
 		CurrentSpeed=0.f;
         if(bControlledModelPreview)return;
-		if (bRecalling || ReplanRemaining > 0 || BehaviorState==EPokeMonsterOverworldState::Approach || BehaviorState==EPokeMonsterOverworldState::Retreat) return;
+		if (bRecalling || ReplanRemaining > 0 || BehaviorState==EPokeMonsterOverworldState::Approach || BehaviorState==EPokeMonsterOverworldState::Retreat || BehaviorState==EPokeMonsterOverworldState::Chase) return;
 		const FVector Center = FollowTarget.IsValid() ? FollowTarget->GetActorLocation() : HabitatOrigin;
 		const float Radius = FollowTarget.IsValid() ? Settings.CompanionRoamRadius
 			: HabitatRadiusOverride > 0 ? HabitatRadiusOverride : Settings.RoamRadius;
@@ -389,7 +392,7 @@ float UPokeMonsterCreatureRoamingComponent::AdvanceHeading(float CurrentYaw,floa
 
 bool UPokeMonsterCreatureRoamingComponent::PlayerVisible(const APawn* Player) const
 {
- if(!Player||!GetWorld())return false;
+ if(!Player||!GetWorld()||!FPokeMonsterCreatureBehavior::InView(Settings.Behavior,GetOwner()->GetActorLocation(),GetOwner()->GetActorForwardVector(),Player->GetActorLocation()))return false;
  FCollisionQueryParams Q=Query();Q.AddIgnoredActor(Player);
  FHitResult Hit;
  return !GetWorld()->LineTraceSingleByChannel(Hit,GetOwner()->GetActorLocation()+FVector(0,0,35),
@@ -397,77 +400,107 @@ bool UPokeMonsterCreatureRoamingComponent::PlayerVisible(const APawn* Player) co
 }
 bool UPokeMonsterCreatureRoamingComponent::UpdateBehavior(float Delta,const FVector& Current,const APawn* Player,float& Speed)
 {
- using EOverworldState = EPokeMonsterOverworldState;using EOverworldTemperament = EPokeMonsterOverworldTemperament;
- CooldownRemaining=FMath::Max(0.f,CooldownRemaining-Delta);
- const auto& P=Settings.Behavior;
- const float D=Player?FVector::Dist2D(Current,Player->GetActorLocation()):BIG_NUMBER;
- // Leaving the entire response radius is necessary even after the time cooldown has expired.
- if(D>P.DisengageRadius)bTerritoryArmed=true;
+ using S=EPokeMonsterOverworldState;using T=EPokeMonsterOverworldTemperament;
+ CooldownRemaining=FMath::Max(0.f,CooldownRemaining-Delta);GroupAlertRemaining=FMath::Max(0.f,GroupAlertRemaining-Delta);
+ const auto& P=Settings.Behavior;const bool Advanced=P.Perception.bEnabled;
+ const float ActualDistance=Player?FVector::Dist2D(Current,Player->GetActorLocation()):BIG_NUMBER;
+ if(ActualDistance>P.DisengageRadius)bTerritoryArmed=true;
  VisibilityRemaining-=Delta;
- if(!bActivitiesEnabled || VisibilityRemaining<=0 || D<P.PersonalSpace)
+ if(VisibilityRemaining<=0||(!Advanced&&(!bActivitiesEnabled||ActualDistance<P.PersonalSpace)))
  {
-  bPlayerVisibleCached=Player&&D<=P.DisengageRadius&&PlayerVisible(Player);
-  if(Player&&D<=P.DisengageRadius)++PerceptionTraces;
-  VisibilityRemaining=bActivitiesEnabled?ActivityRandom.FRandRange(.25f,.45f):0.f;
+  bPlayerVisibleCached=Player&&ActualDistance<=P.DisengageRadius&&PlayerVisible(Player);
+  if(Player&&ActualDistance<=P.DisengageRadius)++PerceptionTraces;
+  VisibilityRemaining=Advanced?P.Perception.SampleSeconds*ActivityRandom.FRandRange(.85f,1.15f):bActivitiesEnabled?ActivityRandom.FRandRange(.25f,.45f):0.f;
  }
- const bool Visible=Player&&D<=P.DisengageRadius&&bPlayerVisibleCached;
- const bool Reacting=BehaviorState==EOverworldState::Approach||BehaviorState==EOverworldState::Retreat||BehaviorState==EOverworldState::Observe||BehaviorState==EOverworldState::Warning;
- EOverworldState Next=FPokeMonsterCreatureBehavior::Decide(P,D,Visible,Reacting,CooldownRemaining>0||(P.Temperament==EOverworldTemperament::Territorial&&!bTerritoryArmed));
- // Curiosity alternates observation and approach, rather than following forever.
+ const bool Sensed=Player&&ActualDistance<=(Advanced&&!bPlayerAware?P.NoticeRadius:P.DisengageRadius)&&bPlayerVisibleCached;
+ if(Sensed)LastPlayerPoint=Player->GetActorLocation();
+ bPlayerAware=FPokeMonsterCreatureBehavior::UpdateAwareness(P.Perception,Delta,Sensed,ActualDistance<=P.PersonalSpace,bPlayerAware,SightAcquiring,SightLost);
+ AwarenessSeconds=bPlayerAware?AwarenessSeconds+Delta:0.f;
+ const bool Visible=Player&&ActualDistance<=P.DisengageRadius&&(Advanced?bPlayerAware:Sensed);
+ const FVector Target=Advanced?LastPlayerPoint:Player?Player->GetActorLocation():Current;
+ const float D=Advanced&&Visible?FVector::Dist2D(Current,Target):ActualDistance;
+ const bool WasReacting=BehaviorState==S::Approach||BehaviorState==S::Retreat||BehaviorState==S::Observe||BehaviorState==S::Warning||BehaviorState==S::Alert||BehaviorState==S::Curious||BehaviorState==S::Chase;
+ S Next=FPokeMonsterCreatureBehavior::Decide(P,D,Visible,WasReacting,CooldownRemaining>0||(P.Temperament==T::Territorial&&!bTerritoryArmed));
  InterestRemaining=FMath::Max(0.f,InterestRemaining-Delta);
- if(P.Temperament==EOverworldTemperament::Curious && Next==EOverworldState::Approach && InterestRemaining>0)Next=EOverworldState::Observe;
- if(P.Temperament==EOverworldTemperament::Territorial && BehaviorState==EOverworldState::Approach && Visible && bTerritoryArmed && CooldownRemaining<=0)Next=EOverworldState::Approach;
- const bool Reaction=Next==EOverworldState::Observe||Next==EOverworldState::Approach||Next==EOverworldState::Retreat||Next==EOverworldState::Warning;
- if(bActivitiesEnabled && bActivityRunning && !Reaction)return false;
- if(bActivitiesEnabled && Reaction && bActivityRunning)FinishActivity(true);
+ if(Advanced)
+ {
+  if(Sensed&&!bPlayerAware&&ActualDistance<=P.NoticeRadius&&CooldownRemaining<=0)Next=S::Alert;
+  if(GroupAlertRemaining>0&&!Visible&&!Sensed&&CooldownRemaining<=0)Next=S::Alert;
+  if(P.Temperament==T::Curious&&Next==S::Approach&&AwarenessSeconds<1.25f)Next=S::Curious;
+  if(P.Temperament==T::Shy&&Next==S::Retreat&&D>P.NoticeRadius*.65f&&BehaviorState!=S::Retreat)Next=S::Alert;
+  const bool Contact=FPokeMonsterCreatureBehavior::InitiationFor(P)==EPokeMonsterEncounterInitiation::Contact;
+  if(P.Temperament==T::Territorial&&Visible&&(BehaviorState==S::Chase||BehaviorState==S::Approach)&&bTerritoryArmed&&CooldownRemaining<=0)Next=Contact?S::Chase:S::Observe;
+  if(P.Temperament==T::Territorial&&Visible&&BehaviorState==S::Observe&&!Contact&&InterestRemaining<=0)Next=S::Observe;
+  if(P.Temperament==T::Aggressive&&Next==S::Approach)Next=S::Chase;
+  const bool Limited=P.Temperament==T::Curious||P.Temperament==T::Territorial||P.Temperament==T::Aggressive;
+  if(Limited&&InterestRemaining>0&&Next!=S::Retreat)Next=S::Wander;
+  if(Next==S::Approach||Next==S::Chase||Next==S::Curious||(Limited&&Next==S::Observe))PursuitElapsed+=Delta;
+  else if(Next!=S::Warning)PursuitElapsed=0;
+  const float Limit=Next==S::Chase?P.Perception.MaximumChaseSeconds:P.Perception.InvestigationSeconds;
+  if(Limited&&PursuitElapsed>=Limit){Next=S::Wander;InterestRemaining=ActivityRandom.FRandRange(8.f,13.f);PursuitElapsed=0;}
+ }
+ else
+ {
+  if(P.Temperament==T::Curious&&Next==S::Approach&&InterestRemaining>0)Next=S::Observe;
+  if(P.Temperament==T::Territorial&&BehaviorState==S::Approach&&Visible&&bTerritoryArmed&&CooldownRemaining<=0)Next=S::Approach;
+ }
+ const bool Reaction=Next==S::Observe||Next==S::Approach||Next==S::Retreat||Next==S::Warning||Next==S::Alert||Next==S::Curious||Next==S::Chase;
+ // A reserved same-species peer hears a real visible threat once, never an all-pairs search.
+ if(Advanced&&Next!=BehaviorState&&(Next==S::Retreat||Next==S::Warning||Next==S::Chase)&&Activities.bGroupWithOwnSpecies)
+  if(auto* Peer=SocialPartner.Get();IsValid(Peer)&&Peer->ActivitySpecies==ActivitySpecies&&Peer->Activities.bGroupWithOwnSpecies&&PeerVisible(Peer))
+  {Peer->GroupAlarmPoint=Target;Peer->GroupAlertRemaining=3.f;++Peer->GroupAlarms;}
+ if(bActivitiesEnabled&&bActivityRunning&&!Reaction)return false;
+ if(bActivitiesEnabled&&Reaction&&bActivityRunning)FinishActivity(true);
  if(Next!=BehaviorState)
  {
   Path.Reset();ReactionRemaining=0;WarningElapsed=0;PauseRemaining=0;
-  if(BehaviorState==EOverworldState::Approach&&Next==EOverworldState::Observe)InterestRemaining=Random.FRandRange(1.5f,3.5f);
+  if(!Advanced&&BehaviorState==S::Approach&&Next==S::Observe)InterestRemaining=Random.FRandRange(1.5f,3.5f);
   BehaviorState=Next;
  }
- if(Next==EOverworldState::Warning && BehaviorState==EOverworldState::Warning) WarningElapsed+=Delta;
- if(Next==EOverworldState::Warning && WarningElapsed>=P.WarningSeconds)Next=EOverworldState::Approach;
- // Chasing follows the warning, never starts a battle; only the actor's actual contact gate can.
- if(BehaviorState==EOverworldState::Approach && P.Temperament==EOverworldTemperament::Territorial && Visible && bTerritoryArmed)Next=EOverworldState::Approach;
- if(Next==EOverworldState::Approach && BehaviorState!=Next){BehaviorState=Next;Path.Reset();ReactionRemaining=0;}
- if(Next==EOverworldState::Warning||Next==EOverworldState::Observe)
+ if(Next==S::Warning)
  {
-  CurrentSpeed=0;Path.Reset();
-  if(Player)GetOwner()->SetActorRotation(FMath::RInterpConstantTo(GetOwner()->GetActorRotation(),
-   FRotator(0,(Player->GetActorLocation()-Current).Rotation().Yaw,0),Delta,Settings.TurnDegreesPerSecond));
-  if(Next==EOverworldState::Warning)
+  WarningElapsed+=Delta;
+  if(WarningElapsed>=P.WarningSeconds)
   {
-   // Warning animation is visual only.
+   Next=Advanced?(FPokeMonsterCreatureBehavior::InitiationFor(P)==EPokeMonsterEncounterInitiation::Contact?S::Chase:S::Observe):S::Approach;
+   BehaviorState=Next;Path.Reset();ReactionRemaining=0;
   }
-  return true;
+ }
+ if(Next==S::Warning||Next==S::Observe||Next==S::Alert||Next==S::Curious)
+ {
+  CurrentSpeed=0;Path.Reset();const FVector Focus=Next==S::Alert&&GroupAlertRemaining>0&&!Sensed?GroupAlarmPoint:Target;
+  FaceActivity(Delta,Focus);return true;
  }
  WarningElapsed=0;
- if(Next==EOverworldState::Approach||Next==EOverworldState::Retreat)
+ if(Next==S::Approach||Next==S::Retreat||Next==S::Chase)
  {
   PauseRemaining=0;ReactionRemaining-=Delta;
-  if(Next==EOverworldState::Retreat)Speed*=P.ReactionSpeedMultiplier;
+  if(Next==S::Retreat||Next==S::Chase)Speed*=P.ReactionSpeedMultiplier;
   if(ReactionRemaining<=0)
   {
-   const FVector Away=(Current-Player->GetActorLocation()).GetSafeNormal2D(SMALL_NUMBER,FVector::ForwardVector);
-   const FVector Direction=Next==EOverworldState::Retreat?Away:-Away;
-   const float Distance=Next==EOverworldState::Retreat?320.f:FMath::Clamp(D-(P.Temperament==EOverworldTemperament::Curious?P.PersonalSpace+100.f:65.f),5.f,350.f);
+   const FVector Away=(Current-Target).GetSafeNormal2D(SMALL_NUMBER,FVector::ForwardVector);
+   const FVector Direction=Next==S::Retreat?Away:-Away;
+   const float Distance=Next==S::Retreat?320.f:FMath::Clamp(D-(P.Temperament==T::Curious?P.PersonalSpace+100.f:65.f),5.f,350.f);
    Path.Reset();
    for(float Angle:{0.f,30.f,-30.f,60.f,-60.f,90.f,-90.f})
    {
     const FVector Candidate=Current+Direction.RotateAngleAxis(Angle,FVector::UpVector)*Distance;
-    if(Next==EOverworldState::Retreat && FVector::Dist2D(Candidate,Player->GetActorLocation())<D+30.f)continue;
-    if(Plan(Candidate))break;
-    ++RejectedTargets;
+    if(Next==S::Retreat&&FVector::Dist2D(Candidate,Target)<D+30.f)continue;
+    if(Plan(Candidate))break;++RejectedTargets;
    }
    ReactionRemaining=Random.FRandRange(1.1f,1.8f);
   }
  }
  return false;
 }
+void UPokeMonsterCreatureRoamingComponent::NotifyEncounterStarted()
+{
+ SetMovementPaused(true);BehaviorState=EPokeMonsterOverworldState::Battle;
+}
 void UPokeMonsterCreatureRoamingComponent::NotifyEncounterEnded()
 {
  if(bActivitiesEnabled)FinishActivity(true);
+ bPlayerAware=false;SightAcquiring=SightLost=AwarenessSeconds=PursuitElapsed=GroupAlertRemaining=0;
  CooldownRemaining=Settings.Behavior.EncounterCooldown;bTerritoryArmed=false;
  WarningElapsed=0;BehaviorState=EPokeMonsterOverworldState::Cooldown;CurrentSpeed=0;BeginPause();
 }

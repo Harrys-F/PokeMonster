@@ -49,6 +49,9 @@ struct POKEMONSTER_API FPokeMonsterHabitatRule
  UPROPERTY(EditAnywhere) float MinimumPeerDistance=220.f;
  UPROPERTY(EditAnywhere) float WaterDraftCm=-1.f;
  UPROPERTY(EditAnywhere) float BodyRadiusCm=0.f;
+ UPROPERTY(EditAnywhere) FPokeMonsterCreaturePerceptionProfile Perception;
+ UPROPERTY(EditAnywhere) bool bOverrideActivities=false;
+ UPROPERTY(EditAnywhere) FPokeMonsterCreatureActivityProfile Activities;
  /** Population preference only. Existing six activity/rhythm profiles retain authority. */
  UPROPERTY(EditAnywhere) EPokeMonsterActivityRhythm Rhythm=EPokeMonsterActivityRhythm::Flexible;
  bool Allows(FName Habitat) const {return Habitats.Contains(Habitat);}

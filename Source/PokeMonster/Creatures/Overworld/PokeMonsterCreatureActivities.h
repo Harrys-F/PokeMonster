@@ -33,6 +33,9 @@ struct POKEMONSTER_API FPokeMonsterCreatureActivityProfile
  UPROPERTY(EditAnywhere, BlueprintReadWrite) float ActiveDistance=4000.f;
  UPROPERTY(EditAnywhere, BlueprintReadWrite) bool bPreferVegetation=false;
  UPROPERTY(EditAnywhere, BlueprintReadWrite) bool bPreferOwnSpecies=true;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite) bool bGroupWithOwnSpecies=false;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite) bool bPreferRocks=false;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite) bool bPreferWaterEdge=false;
  bool IsValid() const;
  static FPokeMonsterCreatureActivityProfile ForSpecies(FName Species);
  static EPokeMonsterOverworldState Select(const FPokeMonsterCreatureActivityProfile& Profile,

@@ -4,6 +4,7 @@
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
 #include "../Encounter/PokeMonsterVisibleWildCreatureActor.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/SceneComponent.h"
 #include "Engine/StaticMeshActor.h"
 #include "Engine/Engine.h"
 #include "Engine/World.h"
@@ -20,6 +21,8 @@ struct FPokeMonsterNaturalActivityTestAccess
  {Ready(M);M->bActivityRunning=true;M->BehaviorState=EPokeMonsterOverworldState::Rest;M->ActivityElapsed=Elapsed;M->ActivityRemaining=15;}
  static void React(UPokeMonsterCreatureRoamingComponent* M,APawn* Player)
  {float Speed=60;M->UpdateBehavior(.1f,M->GetOwner()->GetActorLocation()-FVector(0,0,M->Offset),Player,Speed);}
+ static void Perceive(UPokeMonsterCreatureRoamingComponent* M,APawn* Player,float Delta=.1f)
+ {float Speed=60;M->UpdateBehavior(Delta,M->GetOwner()->GetActorLocation()-FVector(0,0,M->Offset),Player,Speed);}
  static bool Available(UPokeMonsterCreatureRoamingComponent* M){return M->CanSocialize();}
  static bool Pair(UPokeMonsterCreatureRoamingComponent* M){return M->FindSocialPartner();}
  static void Update(UPokeMonsterCreatureRoamingComponent* M,float D=.1f)
@@ -353,6 +356,37 @@ bool FRhythmSocialPauseTest::RunTest(const FString&)
  for(int I=0;I<400;++I){A::Update(X,.1f);A::Update(Y,.1f);}
  TestTrue(TEXT("Paused reciprocal reservations stay bounded and intact"),X->SocialPartner==Y&&Y->SocialPartner==X);TestEqual(TEXT("Dwell not advanced while clock paused"),X->ActivityRemaining,Remaining);
  Y->GetOwner()->SetActorHiddenInGame(true);A::Update(X);TestNull(TEXT("Invalid peer clears leader even during clock pause"),X->SocialPartner.Get());TestNull(TEXT("Invalid peer clears receiver"),Y->SocialPartner.Get());
+ return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FV3BoundedPursuit,"PokeMonster.Creatures.V3.BoundedChaseAndBattleLifecycle",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FV3BoundedPursuit::RunTest(const FString&)
+{
+ using namespace NaturalActivityTests;using A=FPokeMonsterNaturalActivityTestAccess;using S=EPokeMonsterOverworldState;
+ WorldFixture F;auto* M=F.Spawn();A::Ready(M);M->Settings.Behavior.Perception.bEnabled=true;M->Settings.Behavior.Perception.ReactionSeconds=.2;
+ M->Settings.Behavior.Perception.MaximumChaseSeconds=2;M->Settings.Behavior.WarningSeconds=1;
+ auto* Player=F.World->SpawnActor<APawn>();auto* Root=NewObject<USceneComponent>(Player);Player->SetRootComponent(Root);Root->RegisterComponent();Player->SetActorLocation(FVector(400,0,60));
+ TestTrue(TEXT("Perception fixture actually stands 4m away"),Player->GetActorLocation().Equals(FVector(400,0,60)));
+ bool Alert=false,Warning=false,Chase=false,Returned=false;FString Trace;
+ for(int I=0;I<60;++I){A::Perceive(M,Player);if(I<25)Trace+=FString::Printf(TEXT("%d:%d "),I,int(M->BehaviorState));Alert|=M->BehaviorState==S::Alert;Warning|=M->BehaviorState==S::Warning;Chase|=M->BehaviorState==S::Chase;Returned|=Chase&&M->BehaviorState==S::Wander;}
+ if(!Alert||!Warning)AddInfo(Trace);TestTrue(TEXT("Delayed alert before reaction"),Alert);TestTrue(TEXT("Territorial warning precedes chase"),Warning);TestTrue(TEXT("Controlled chase follows warning"),Chase);TestTrue(TEXT("Chase stops without an encounter or infinite pursuit"),Returned);
+ M->NotifyEncounterStarted();TestEqual(TEXT("Actual encounter enters Battle and pauses planner"),M->BehaviorState,S::Battle);
+ M->NotifyEncounterEnded();TestEqual(TEXT("Battle end restores existing cooldown"),M->BehaviorState,S::Cooldown);TestFalse(TEXT("No stale awareness after battle"),M->bPlayerAware);
+ return true;
+}
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(FV3GroupLifecycle,"PokeMonster.Creatures.V3.GroupsReuseReservationsAndReleaseOnThreat",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
+bool FV3GroupLifecycle::RunTest(const FString&)
+{
+ using namespace NaturalActivityTests;using A=FPokeMonsterNaturalActivityTestAccess;using S=EPokeMonsterOverworldState;
+ WorldFixture F;auto* X=F.Spawn();auto* Y=F.Spawn(FVector(280,0,60));
+ for(auto* M:{X,Y}){M->Activities=Only(S::Social);M->Activities.bGroupWithOwnSpecies=true;A::Ready(M);}
+ TestTrue(TEXT("Group starts through existing mutual social invitation"),A::Invite(X,Y));
+ bool Group=false;for(int I=0;I<500&&!X->GroupCompleted;++I){X->TickComponent(.05f,LEVELTICK_All,nullptr);Y->TickComponent(.05f,LEVELTICK_All,nullptr);Group|=X->BehaviorState==S::Group;}
+ TestTrue(TEXT("Both arrived and entered group dwell"),Group);TestTrue(TEXT("Group completes through same bounded dwell clock"),X->GroupCompleted>0&&Y->GroupCompleted>0);
+ for(auto* M:{X,Y}){M->Configure(LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,TEXT("/Game/Data/Creatures/DA_Zunderlauf")),60,38,60);M->Activities=Only(S::Social);M->Activities.bGroupWithOwnSpecies=true;M->Settings.Behavior.Perception.bEnabled=true;A::Ready(M);}
+ TestTrue(TEXT("Second pair reserves cleanly"),A::Invite(X,Y));
+ auto* Player=F.World->SpawnActor<APawn>(FVector(100,-100,60),FRotator::ZeroRotator);A::Perceive(X,Player);
+ TestTrue(TEXT("Visible danger alerts reserved group peer once"),Y->GroupAlarms>0);TestNull(TEXT("Threat releases initiator"),X->SocialPartner.Get());TestNull(TEXT("Threat releases receiver"),Y->SocialPartner.Get());
  return true;
 }
 #endif
