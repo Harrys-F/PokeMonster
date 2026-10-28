@@ -1438,7 +1438,35 @@ Messstreuung; dort wird kein Beschleunigungsversprechen abgegeben.
 
 Die drei untersuchten abgeleiteten Wegmaterial-Varianten liefern keinen
 belastbaren Vorteil und werden nicht produktiv eingebunden. Originalmaterialien,
-Maps, Lumen/HWRT, Distance-Field-Schatten, Sonnenbahn/-Aktualisierung, Weltuhr,
+Maps, Lumen/HWRT (damaliger Stand; Rendering-Standard durch V5 ersetzt), Distance-Field-Schatten, Sonnenbahn/-Aktualisierung, Weltuhr,
 Gameplay und Spielstände bleiben erhalten. Die geringere Sonnen-Updatehäufigkeit
 und das Entfernen von Baum-Distance-Field-Beiträgen werden nicht übernommen.
 Vollständige Messwerte, Prüfstatus und Grenzen: `VISUALV2_MATERIAL_SCHATTEN_V3.md`.
+
+
+## 2026-10-28 – Rendering-Standard V5: Software-Lumen + IFG
+
+Harry legt Software-Lumen + Irradiance Field Gather ausdrücklich als Standard
+für Grafikprofil C fest. Diese Entscheidung ersetzt den damaligen HW-Lumen-/SPG-
+Standard und die Nichtumstellung des V4-Vergleichs. Die offenen Nachweise zur
+temporalen Bildqualität und zu stabilen 30 FPS bleiben bestehen; sie sind keine
+Sperre für die ausdrücklich beauftragte Umstellung.
+
+C verwendet die exakt in V4 getesteten Werte `r.Lumen.HardwareRayTracing=0` und
+`r.Lumen.FinalGatherMethod=0`. IFG bleibt bei den vorhandenen Engine-Werten
+GridResolution 64, ProbeResolution 16 und NumProbesToTraceBudget 100. High,
+QHD/75 %/TAAU, VSM und die VisualV2-Strahlenzahl 4 bleiben erhalten. Keine
+Map-, Asset-, Gameplay- oder Save-Änderung. Die bestehende Nutzeränderung an
+DefaultEngine.ini bleibt unangetastet.
+
+Die vorhandene Rendering-Profilverwaltung wendet den Standard bei jedem neuen
+Spiel-/PIE-World an. Auswahl gilt im Prozess über Mapwechsel, Neustart beginnt
+mit C. Editor-Vorschau und Werte vor PIE werden am Weltende restauriert;
+höherrangige explizite Nutzer-Overrides bleiben maßgeblich und im Status sichtbar.
+`pm.Graphics 100` bleibt der native QHD-/High-Vergleich mit Hardware-Lumen + SPG
+und seiner bisherigen Schattenkonfiguration. `pm.Graphics HardwareSPG` stellt
+die V4-Qualitätsreferenz bei 75 % und vier VisualV2-VSM-Strahlen bereit.
+`pm.Graphics C` kehrt zum neuen Standard zurück. Keine zweite Profilverwaltung,
+keine automatische Speicherung von Nutzerkonfiguration oder Pokémon-Daten.
+
+Prüfung und verbleibende Grenzen: `RENDERING_STANDARD_V5.md`.

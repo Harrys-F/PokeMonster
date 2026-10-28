@@ -1365,3 +1365,17 @@ bleibt Harry vorbehalten. Editor-PIE: `pm.DayNight show|B|C|on|off`. `off`
 stellt die ursprünglichen Sonnen-/Fülllichtwerte wieder her. Uhrzeit steuert
 weiter ausschließlich `pm.WorldClock`. Details, Vergleich und Einschränkungen:
 `TAG_NACHT_BELEUCHTUNG_V1_PRUEFBERICHT.md`.
+
+
+## Rendering-Standard V5
+
+`Rendering/PokeMonsterGraphicsProfile` bleibt die einzige Laufzeit-Profilverwaltung.
+Der konfigurierte Standard `VariantC` setzt Software-Lumen + IFG (HWRT 0 / FinalGatherMethod 0)
+bei QHD/High/75 %/TAAU. Die bestehenden reversiblen CVar-Scopes restaurieren
+Editorwerte beim PIE-Ende und respektieren höher priorisierte Nutzer-Overrides.
+`pm.Graphics HardwareSPG` setzt die 75-%-Hardware-Lumen-/SPG-Referenz (1/1),
+`pm.Graphics 100` behält native 100 % mit Hardware-Lumen/SPG und ursprünglichen
+Schattenwerten. Keine Save- oder Asset-Abhängigkeit. Auswahl gilt für diesen
+Prozess; ein frischer Editor-/Spielprozess beginnt wieder mit C. Editor-Vorschau
+außerhalb PIE wird nicht global umgestellt. Exakte Werte, Befehle und tatsächliche
+Tests stehen in `RENDERING_STANDARD_V5.md`.

@@ -7,10 +7,13 @@ Diese Python-Werkzeuge sind **explizite Entwicklungsprüfungen**, keine Spielsta
 ## Verwendung im Spiel oder PIE
 
 - Ohne Befehl: 2560×1440, High, 75 %, VisualV2 mit nativem TAAU.
+- `pm.Graphics HardwareSPG`: frühere Hardware-Lumen-/SPG-Referenz bei 75 %; VisualV2 mit VSM4.
 - `pm.Graphics status`: angeforderten und effektiven Screen Percentage sowie Viewport ausgeben.
-- `pm.Graphics 100`: QHD High / 100 % als Vergleich.
+- `pm.Graphics 100`: unveränderter nativer QHD-High-Vergleich mit Hardware-Lumen/SPG und ursprünglichen Schattenwerten.
 - `pm.Graphics C`: wieder QHD High / 75 %.
 - Startargument `-PMGraphicsProfile=100`: Vergleich ab Prozessstart.
+
+Seit Rendering-Standard V5 verwendet C Software-Lumen + IFG (0/0); beide Referenzen setzen Hardware-Lumen + SPG (1/1). `-PMGraphicsProfile=HardwareSPG` startet die 75-%-Referenz. IFG-Parameter bleiben bei den in V4 geprüften Engine-Werten 64/16/100. Details und offene Bildqualitäts-/Framezeitfragen: `Docs/RENDERING_STANDARD_V5.md`.
 
 Die Auswahl gilt im Prozess, auch bei Mapwechseln. Ein Neustart beginnt mit C.
 Keine Spielstände oder gespeicherten Nutzereinstellungen werden automatisch geschrieben.
