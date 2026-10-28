@@ -28,12 +28,24 @@ bool UPokeMonsterGraphicsProfile::ParseProfile(const FString& Text, EPokeMonster
     { Out = EPokeMonsterGraphicsProfile::VariantC; return true; }
     if (Text == TEXT("100") || Text.Equals(TEXT("Reference100"), ESearchCase::IgnoreCase))
     { Out = EPokeMonsterGraphicsProfile::Reference100; return true; }
+    if (Text.Equals(TEXT("HardwareSPG"), ESearchCase::IgnoreCase))
+    { Out = EPokeMonsterGraphicsProfile::HardwareReference75; return true; }
     return false;
 }
 
 float UPokeMonsterGraphicsProfile::ScreenPercentage(EPokeMonsterGraphicsProfile Profile)
 {
-    return Profile == EPokeMonsterGraphicsProfile::VariantC ? 75.f : 100.f;
+    return Profile == EPokeMonsterGraphicsProfile::Reference100 ? 100.f : 75.f;
+}
+
+void UPokeMonsterGraphicsProfile::ApplyLumenOverrides(EPokeMonsterGraphicsProfile Profile,
+    TArray<FPokeMonsterEnvironmentCVarOverride>& Scopes)
+{
+    // V4 tested exactly these two changes. Keep IFG defaults, reflections, High
+    // quality and global RT/DF support intact so both paths remain available.
+    const TCHAR* Value = Profile == EPokeMonsterGraphicsProfile::VariantC ? TEXT("0") : TEXT("1");
+    Scopes.AddDefaulted_GetRef().Apply(TEXT("r.Lumen.HardwareRayTracing"), Value);
+    Scopes.AddDefaulted_GetRef().Apply(TEXT("r.Lumen.FinalGatherMethod"), Value);
 }
 
 void UPokeMonsterGraphicsProfile::Configure(UGameUserSettings& User, EPokeMonsterGraphicsProfile Profile)
@@ -54,7 +66,8 @@ void UPokeMonsterGraphicsProfile::OnWorldBeginPlay(UWorld& InWorld)
         || !InWorld.GetGameInstance() || !InWorld.GetGameInstance()->GetGameViewportClient()) return;
     auto Profile = SessionChoice.Get(DefaultProfile);
     FString Requested;
-    if (FParse::Value(FCommandLine::Get(), TEXT("PMGraphicsProfile="), Requested))
+    // A later explicit console choice also wins after travel from a CLI-started reference.
+    if (!SessionChoice.IsSet() && FParse::Value(FCommandLine::Get(), TEXT("PMGraphicsProfile="), Requested))
     {
         if (!ParseProfile(Requested, Profile))
             UE_LOG(LogTemp, Warning, TEXT("GRAPHICS_PROFILE invalid command-line choice; using configured default"));
@@ -98,7 +111,8 @@ void UPokeMonsterGraphicsProfile::SelectProfile(EPokeMonsterGraphicsProfile Prof
     Overrides.AddDefaulted_GetRef().Apply(TEXT("r.TemporalAA.Upsampling"), TEXT("1"));
     // Measured VisualV2-only sampling budget. Preserve the old 100% reference,
     // other maps and higher-priority user overrides through the existing scope.
-    if (Profile == EPokeMonsterGraphicsProfile::VariantC
+    ApplyLumenOverrides(Profile, Overrides);
+    if (Profile != EPokeMonsterGraphicsProfile::Reference100
         && UWorld::RemovePIEPrefix(World->GetPackage()->GetName()) == TEXT("/Game/Maps/Dev_TestMap_VisualV2"))
         Overrides.AddDefaulted_GetRef().Apply(TEXT("r.Shadow.Virtual.SMRT.RayCountDirectional"), TEXT("4"));
     if (World->WorldType == EWorldType::Game) User->ApplyResolutionSettings(true);
@@ -151,15 +165,23 @@ void UPokeMonsterGraphicsProfile::LogStatus() const
     const auto* SP = IConsoleManager::Get().FindConsoleVariable(TEXT("r.ScreenPercentage"));
     const auto* Client = ViewportClient.Get();
     const FIntPoint Size = Client && Client->GetGameViewport() ? Client->GetGameViewport()->GetSizeXY() : FIntPoint::ZeroValue;
-    UE_LOG(LogTemp, Display, TEXT("GRAPHICS_PROFILE %s requested=%.0f effective=%.2f output=%dx%d High=2 TAAUpsampling=1; renderer measurement required for internal pixels"),
-        CurrentProfile == EPokeMonsterGraphicsProfile::VariantC ? TEXT("C") : TEXT("Reference100"),
-        ScreenPercentage(CurrentProfile), SP ? SP->GetFloat() : -1.f, Size.X, Size.Y);
+    const auto* HW = IConsoleManager::Get().FindConsoleVariable(TEXT("r.Lumen.HardwareRayTracing"));
+    const auto* FG = IConsoleManager::Get().FindConsoleVariable(TEXT("r.Lumen.FinalGatherMethod"));
+    const auto* TAAU = IConsoleManager::Get().FindConsoleVariable(TEXT("r.TemporalAA.Upsampling"));
+    const TCHAR* Name = CurrentProfile == EPokeMonsterGraphicsProfile::VariantC ? TEXT("C")
+        : CurrentProfile == EPokeMonsterGraphicsProfile::Reference100 ? TEXT("Reference100") : TEXT("HardwareSPG");
+    UE_LOG(LogTemp, Display, TEXT("GRAPHICS_PROFILE %s requested=%.0f effective=%.2f output=%dx%d High=2 TAAUpsampling=%d LumenHWRT=%d FinalGatherMethod=%d (0=IFG,1=SPG); renderer measurement required for internal pixels"),
+        Name, ScreenPercentage(CurrentProfile), SP ? SP->GetFloat() : -1.f, Size.X, Size.Y,
+        TAAU ? TAAU->GetInt() : -1, HW ? HW->GetInt() : -1, FG ? FG->GetInt() : -1);
+    const int32 RequestedLumen = CurrentProfile == EPokeMonsterGraphicsProfile::VariantC ? 0 : 1;
+    if (!HW || !FG || HW->GetInt() != RequestedLumen || FG->GetInt() != RequestedLumen)
+        UE_LOG(LogTemp, Display, TEXT("GRAPHICS_PROFILE requested Lumen path not effective; check higher-priority user overrides/platform support"));
 }
 
 namespace
 {
     FAutoConsoleCommandWithWorldAndArgs Select(TEXT("pm.Graphics"),
-        TEXT("C: 1440p High 75% TAAU. 100: native 1440p High comparison. status: actual settings. Session-only; no save writes."),
+        TEXT("C: Software-Lumen/IFG, 1440p High 75% TAAU. HardwareSPG: Hardware-Lumen/SPG at 75%. 100: original native High reference. status: actual settings. Session-only; no save writes."),
         FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& Args, UWorld* World)
     {
         auto* Profile = World ? World->GetSubsystem<UPokeMonsterGraphicsProfile>() : nullptr;
@@ -167,7 +189,7 @@ namespace
         if (Args.Num() == 0 || Args[0].Equals(TEXT("status"), ESearchCase::IgnoreCase)) { Profile->LogStatus(); return; }
         EPokeMonsterGraphicsProfile Choice;
         if (!UPokeMonsterGraphicsProfile::ParseProfile(Args[0], Choice))
-        { UE_LOG(LogTemp, Display, TEXT("Usage: pm.Graphics C | 100 | status")); return; }
+        { UE_LOG(LogTemp, Display, TEXT("Usage: pm.Graphics C | 100 | HardwareSPG | status")); return; }
         SessionChoice = Choice;
         Profile->SelectProfile(Choice);
     }));

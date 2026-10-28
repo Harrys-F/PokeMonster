@@ -13,7 +13,8 @@ UENUM()
 enum class EPokeMonsterGraphicsProfile : uint8
 {
     VariantC,
-    Reference100
+    Reference100,
+    HardwareReference75
 };
 
 /** Rendering only. Uses UE scalability/user settings, never game saves or gameplay classes.
@@ -33,6 +34,7 @@ public:
 
     static bool ParseProfile(const FString& Text, EPokeMonsterGraphicsProfile& Out);
     static float ScreenPercentage(EPokeMonsterGraphicsProfile Profile);
+    static void ApplyLumenOverrides(EPokeMonsterGraphicsProfile Profile, TArray<FPokeMonsterEnvironmentCVarOverride>& Scopes);
     static void Configure(UGameUserSettings& Settings, EPokeMonsterGraphicsProfile Profile);
     void SelectProfile(EPokeMonsterGraphicsProfile Profile);
     void LogStatus() const;
