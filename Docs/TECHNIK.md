@@ -1381,3 +1381,9 @@ Schattenwerten. Keine Save- oder Asset-Abhängigkeit. Auswahl gilt für diesen
 Prozess; ein frischer Editor-/Spielprozess beginnt wieder mit C. Editor-Vorschau
 außerhalb PIE wird nicht global umgestellt. Exakte Werte, Befehle und tatsächliche
 Tests stehen in `RENDERING_STANDARD_V5.md`.
+
+### Glumanda – Anzeigename und Entwicklerbefehle (28.10.2026)
+
+Sichtbarer Artname: **Glumanda**. Modellliste und -beschriftung verwenden ausschließlich den Anzeigenamen. `pm.TestGround.Go Glumanda`, `pm.StarterReview.Party Glumanda Pikachu`, `pm.EvolutionReview.Party Glumanda 15`, `pm.MoveEffectsV4.Start classic status Glumanda` sowie `pm.CrystalMoves.Start classic Smokescreen Glumanda 51` verwenden denselben vorhandenen Datensatz. Die beiden Battle-Befehle sind explizite ungespeicherte Prüffixtures; `EvolutionReview.Party` ist nur in PIE verfügbar. Technische Alt-ID und Pfade bleiben für Save-/Skriptkompatibilität bestehen; alte `Zunderlauf`-Befehle werden weiter akzeptiert. Keine Änderung an Nutzerpartys oder Dateien durch diese Namensanpassung.
+
+Prüfung: Editor-Build Exit 0; 285 Automationstests funktional erfolgreich (282 ohne, drei mit externen Warnungen; kein fehlgeschlagener/ausgelassener Test). Strenger Wrapper Exit 1: zwei iOS-Helfer-Doppelwarnungen und ein externer HTTP-Timeout, kein vollständig warnungsfreier Erfolg. Echter isolierter PIE-Lauf: 23 Prüfungen bestanden, 18 korrekt benannte Modellzeilen/-schilder, neue und alte Starter-/Entwicklungsaufrufe, drei reguläre Kampfstarts/-rückkehrfälle mit Glumanda-Anzeige. Der erste Label-Zähler erfasste auch NPC-Schilder; nur der korrigierte, auf Pokémon begrenzte Lauf gilt als bestanden. 475 vorhandene Save-Dateien, zwölf Maps, Speziesassets, Originalquellen und Nutzeränderungen unverändert. Einzelbelege ausschließlich unter `Saved/ProjectRefinement/GlumandaNameV1/`.

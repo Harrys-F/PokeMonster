@@ -13,11 +13,12 @@ namespace PMMoveEffectsV4Review
 FAutoConsoleCommandWithWorldAndArgs Review(TEXT("pm.MoveEffectsV4.Start"),TEXT("Explicit runtime technical fixture: classic|world stages|status|heal|drain|recoil|multi|confusion|protect|screen <existing species>. Stop PIE afterwards; never saves."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& Args,UWorld* W)
 {
  if(Args.Num()!=3 || !W || !W->IsGameWorld() || !W->GetGameInstance() || (Args[0]!=TEXT("classic")&&Args[0]!=TEXT("world")))return;
+ const FString SpeciesId=Args[2].Equals(TEXT("Glumanda"),ESearchCase::IgnoreCase)?TEXT("Zunderlauf"):Args[2];
  const TArray<FString> Names={TEXT("Zunderlauf"),TEXT("Schiggy"),TEXT("Bisasam"),TEXT("Pikachu"),TEXT("Myrapla"),TEXT("Enton"),TEXT("Machomei"),TEXT("Nebulak"),TEXT("Gengar"),TEXT("Glurak")};
  const TArray<FString> Cases={TEXT("stages"),TEXT("status"),TEXT("heal"),TEXT("drain"),TEXT("recoil"),TEXT("multi"),TEXT("confusion"),TEXT("protect"),TEXT("screen")};
- if(!Names.Contains(Args[2]) || !Cases.Contains(Args[1]))return;
+ if(!Names.Contains(SpeciesId) || !Cases.Contains(Args[1]))return;
  auto* E=W->GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>();auto* PC=W->GetFirstPlayerController();auto* P=PC?Cast<APokeMonsterPlayerCharacter>(PC->GetPawn()):nullptr;if(!E||!P||E->IsEncounterActive()||P->IsOverworldInputLocked())return;
- auto* Species=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,*FString::Printf(TEXT("/Game/Data/Creatures/DA_%s.DA_%s"),*Args[2],*Args[2]));auto* Scratch=LoadObject<UPokeMonsterMoveData>(nullptr,TEXT("/Game/Data/Moves/DA_Scratch.DA_Scratch"));if(!Species||!Scratch)return;
+ auto* Species=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,*FString::Printf(TEXT("/Game/Data/Creatures/DA_%s.DA_%s"),*SpeciesId,*SpeciesId));auto* Scratch=LoadObject<UPokeMonsterMoveData>(nullptr,TEXT("/Game/Data/Moves/DA_Scratch.DA_Scratch"));if(!Species||!Scratch)return;
  auto A=FPokeMonsterCreatureInstance::CreateFromSpecies(Species,10),B=FPokeMonsterCreatureInstance::CreateFromSpecies(Species,10);
  for(auto* C:{&A,&B}){C->CurrentHP=C->CalculatedStats.MaxHP=500;C->CalculatedStats.Attack=C->CalculatedStats.SpecialAttack=C->CalculatedStats.Defense=C->CalculatedStats.SpecialDefense=100;C->CalculatedStats.Speed=50;C->AssignMove(0,Scratch);}A.CalculatedStats.Speed=100;
  auto* M=NewObject<UPokeMonsterMoveData>(E);M->InternalId=FName(*(TEXT("V4Technical_")+Args[1]));M->DisplayName=FText::FromString(TEXT("Effektprüfung · ")+Args[1]);M->Category=EPokeMonsterMoveCategory::Status;M->BasePower=0;M->MaxPP=20;
@@ -42,10 +43,11 @@ FAutoConsoleCommandWithWorldAndArgs Review(TEXT("pm.CrystalMoves.Start"),TEXT("E
 {
  if(Args.Num()!=4 || !W || !W->IsGameWorld() || !W->GetGameInstance() || (Args[0]!=TEXT("classic")&&Args[0]!=TEXT("world")))return;
  const TArray<FString> Ids={TEXT("KarateChop"),TEXT("Bite"),TEXT("Disable"),TEXT("Acid"),TEXT("Submission"),TEXT("LowKick"),TEXT("Growth"),TEXT("RazorLeaf"),TEXT("SolarBeam"),TEXT("PoisonPowder"),TEXT("StunSpore"),TEXT("SleepPowder"),TEXT("PetalDance"),TEXT("DragonRage"),TEXT("FireSpin"),TEXT("ThunderShock"),TEXT("Thunderbolt"),TEXT("ThunderWave"),TEXT("Thunder"),TEXT("Confusion"),TEXT("Hypnosis"),TEXT("Agility"),TEXT("Rage"),TEXT("Screech"),TEXT("DoubleTeam"),TEXT("Smokescreen"),TEXT("ConfuseRay"),TEXT("LightScreen"),TEXT("FocusEnergy"),TEXT("Lick"),TEXT("SkullBash"),TEXT("DreamEater"),TEXT("FurySwipes"),TEXT("Slash"),TEXT("Curse"),TEXT("Spite"),TEXT("Protect"),TEXT("ScaryFace"),TEXT("Foresight"),TEXT("DestinyBond"),TEXT("MeanLook"),TEXT("RapidSpin"),TEXT("SweetScent"),TEXT("VitalThrow"),TEXT("Synthesis"),TEXT("Moonlight"),TEXT("CrossChop"),TEXT("RainDance"),TEXT("PsychUp"),TEXT("Gust"),TEXT("Whirlwind"),TEXT("Thrash"),TEXT("Twineedle"),TEXT("PinMissile"),TEXT("Supersonic"),TEXT("Psybeam"),TEXT("HyperBeam"),TEXT("DrillPeck"),TEXT("MirrorMove"),TEXT("Splash"),TEXT("Flail"),TEXT("Safeguard"),TEXT("Pursuit"),TEXT("Twister")};
+ const FString SpeciesId=Args[2].Equals(TEXT("Glumanda"),ESearchCase::IgnoreCase)?TEXT("Zunderlauf"):Args[2];
  const TArray<FString> Names={TEXT("Zunderlauf"),TEXT("Schiggy"),TEXT("Bisasam"),TEXT("Pikachu"),TEXT("Myrapla"),TEXT("Enton"),TEXT("Machomei"),TEXT("Nebulak"),TEXT("Gengar"),TEXT("Glurak"),TEXT("Bibor"),TEXT("Garados"),TEXT("Habitak"),TEXT("Karpador"),TEXT("Smettbo")};
- if(!Ids.Contains(Args[1]) || !Names.Contains(Args[2]))return;
+ if(!Ids.Contains(Args[1]) || !Names.Contains(SpeciesId))return;
  auto* E=W->GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>();auto* PC=W->GetFirstPlayerController();auto* P=PC?Cast<APokeMonsterPlayerCharacter>(PC->GetPawn()):nullptr;if(!E||!P||E->IsEncounterActive()||P->IsOverworldInputLocked())return;
- auto* Species=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,*FString::Printf(TEXT("/Game/Data/Creatures/DA_%s.DA_%s"),*Args[2],*Args[2]));
+ auto* Species=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,*FString::Printf(TEXT("/Game/Data/Creatures/DA_%s.DA_%s"),*SpeciesId,*SpeciesId));
  auto* Opponent=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,TEXT("/Game/Data/Creatures/DA_Schiggy.DA_Schiggy"));
  auto* M=LoadObject<UPokeMonsterMoveData>(nullptr,*FString::Printf(TEXT("/Game/Data/Moves/EffectsV4/DA_%s.DA_%s"),*Args[1],*Args[1]));
  if(!M)M=LoadObject<UPokeMonsterMoveData>(nullptr,*FString::Printf(TEXT("/Game/Data/Moves/LearnMovesV1/DA_%s.DA_%s"),*Args[1],*Args[1]));

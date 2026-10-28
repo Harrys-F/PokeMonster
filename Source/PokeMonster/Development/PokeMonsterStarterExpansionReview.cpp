@@ -13,16 +13,17 @@ namespace PMStarterReview
 {
 static bool Creature(const FString& Name, FPokeMonsterCreatureInstance& Out)
 {
+	const FString AssetId = Name.Equals(TEXT("Glumanda"), ESearchCase::IgnoreCase) ? TEXT("Zunderlauf") : Name;
 	const TSet<FString> Allowed = {TEXT("Schiggy"),TEXT("Bisasam"),TEXT("Zunderlauf"),TEXT("Pikachu"),TEXT("Myrapla"),TEXT("Enton"),TEXT("Machomei"),TEXT("Nebulak"),TEXT("Gengar"),TEXT("Glurak"),TEXT("Glutexo"),TEXT("Karpador"),TEXT("Garados"),TEXT("Raupy"),TEXT("Hornliu"),TEXT("Smettbo"),TEXT("Bibor"),TEXT("Habitak")};
-	if (!Allowed.Contains(Name)) return false;
-	const FString Path = TEXT("/Game/Data/Creatures/DA_") + Name + TEXT(".DA_") + Name;
+	if (!Allowed.Contains(AssetId)) return false;
+	const FString Path = TEXT("/Game/Data/Creatures/DA_") + AssetId + TEXT(".DA_") + AssetId;
 	auto* Species = LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr, *Path);
 	if (!Species) return false;
 	Out = FPokeMonsterCreatureInstance::CreateFromSpecies(Species, Species->GetStartingLevel());
 	return Out.AssignSpeciesMoves();
 }
 static FAutoConsoleCommand Start(TEXT("pm.StarterReview.Start"),
-	TEXT("Runtime-only battle fixture: classic|world configured species ID opponent."),
+	TEXT("Runtime-only battle fixture: classic|world species name opponent (e.g. Glumanda); legacy IDs accepted."),
 	FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& Args)
 {
 	if (Args.Num() != 3 || (Args[0] != TEXT("classic") && Args[0] != TEXT("world"))) return;
@@ -51,7 +52,7 @@ static FAutoConsoleCommand Start(TEXT("pm.StarterReview.Start"),
 	}
 }));
 static FAutoConsoleCommand Party(TEXT("pm.StarterReview.Party"),
-	TEXT("Explicit unsaved party fixture: one to six configured creature IDs, outside battle only."),
+	TEXT("Explicit unsaved party fixture: one to six species names (e.g. Glumanda), outside battle only; legacy IDs accepted."),
 	FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& Args)
 {
 	if (Args.IsEmpty() || Args.Num() > 6) return;

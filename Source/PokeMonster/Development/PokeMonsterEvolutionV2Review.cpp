@@ -11,10 +11,12 @@
 namespace
 {
  UPokeMonsterEncounterSubsystem* ReviewParty(){for(const auto& C:GEngine->GetWorldContexts())if(C.WorldType==EWorldType::PIE&&C.World()&&C.World()->GetGameInstance())return C.World()->GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>();return nullptr;}
- FAutoConsoleCommand Party(TEXT("pm.EvolutionReview.Party"),TEXT("Explicit PIE fixture: Zunderlauf|Glutexo level; independent Glurak reserve, spent PP and 5 missing HP."),FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& A)
+ FAutoConsoleCommand Party(TEXT("pm.EvolutionReview.Party"),TEXT("Explicit PIE fixture: Glumanda|Glutexo level; independent Glurak reserve, spent PP and 5 missing HP."),FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& A)
  {
-  if(A.Num()!=2||!A[1].IsNumeric()||(A[0]!=TEXT("Zunderlauf")&&A[0]!=TEXT("Glutexo")))return;auto* E=ReviewParty();if(!E||E->IsEncounterActive())return;
-  auto* S=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,*(TEXT("/Game/Data/Creatures/DA_")+A[0]+TEXT(".DA_")+A[0]));
+  if(A.Num()!=2||!A[1].IsNumeric())return;
+  const FString SpeciesId=A[0].Equals(TEXT("Glumanda"),ESearchCase::IgnoreCase)?TEXT("Zunderlauf"):A[0];
+  if(SpeciesId!=TEXT("Zunderlauf")&&SpeciesId!=TEXT("Glutexo"))return;auto* E=ReviewParty();if(!E||E->IsEncounterActive())return;
+  auto* S=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,*(TEXT("/Game/Data/Creatures/DA_")+SpeciesId+TEXT(".DA_")+SpeciesId));
   auto* R=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,TEXT("/Game/Data/Creatures/DA_Glurak.DA_Glurak"));if(!S||!R)return;
   auto C=FPokeMonsterCreatureInstance::CreateFromSpecies(S,FCString::Atoi(*A[1]));C.AssignSpeciesMoves();C.ConsumeMovePP(0,3);C.CurrentHP=FMath::Max(1,C.GetMaxHP()-5);
   auto Reserve=FPokeMonsterCreatureInstance::CreateFromSpecies(R,36);Reserve.AssignSpeciesMoves();E->RestorePersistentState({C,Reserve},E->GetDefeatedTrainerIds(),E->GetCompletedEncounterIds());

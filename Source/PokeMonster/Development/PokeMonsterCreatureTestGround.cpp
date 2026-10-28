@@ -157,8 +157,8 @@ void UPokeMonsterCreatureTestGround::ListModels()const
  for(int32 I=0;I<Species.Num();++I)
  {
   const auto* P=Species[I]->GetVisuals().Presentation.LoadSynchronous();
-  UE_LOG(LogTemp,Display,TEXT("PM_TESTGROUND %02d | %s | %s | %.0f cm | walk=%d run=%d swim=%d"),I+1,
-   *Species[I]->GetDisplayName().ToString(),*Species[I]->GetInternalId().ToString(),P->ReferenceSizeCm,
+  UE_LOG(LogTemp,Display,TEXT("PM_TESTGROUND %02d | %s | %.0f cm | walk=%d run=%d swim=%d"),I+1,
+   *Species[I]->GetDisplayName().ToString(),P->ReferenceSizeCm,
    P->Clips.FindRef(EPokeMonsterCreatureClip::Walk)!=nullptr,P->Clips.FindRef(EPokeMonsterCreatureClip::Run)!=nullptr,P->SwimClip!=nullptr);
  }
 }
