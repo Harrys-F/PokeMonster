@@ -1,0 +1,12 @@
+{
+  "source": "Art/Characters/Creatures/Raichu/Source/Raichu_V4.blend",
+  "vertices": 36367,
+  "triangles": 72352,
+  "materials": 6,
+  "bones": 23,
+  "height_m": 0.8091591205447912,
+  "loose_vertices": 0,
+  "boundary_edges": 288,
+  "zero_area_faces": 0,
+  "status": "candidate, visual approval outstanding"
+}

@@ -103,8 +103,8 @@ def build():
  check('Confirmed discard persists exactly two',lambda:I.get_quantity(item('PokeBall'))==1,.7)
  add('Close bag',lambda:PC.close_menu())
  def invalid_stone():
-  before=snap();assert E.prepare_item_evolution_offer(item('ThunderStone'),2)==-1;assert snap()==before;r['checks'].append('Real ThunderStone safely refused for missing Raichu; no item consumed')
- add('Missing stone target safely refused',invalid_stone)
+  before=snap();assert E.prepare_item_evolution_offer(item('FireStone'),2)==-1;assert snap()==before;r['checks'].append('Wrong FireStone safely refused for Pikachu; no item consumed')
+ add('Wrong stone safely refused for Pikachu',invalid_stone)
  # Short performance windows exclude screenshots and include the ordinary world/AI.
  for label,pos in [('VillageBefore',(-2500,-1700,50.15)),('ForestBefore',(-4350,1200,50.15))]:
   add('Move to '+label,lambda pos=pos:place(pos),1)

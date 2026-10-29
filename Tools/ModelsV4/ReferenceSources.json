@@ -1,0 +1,32 @@
+{
+  "rules": "Pokemon Crystal / Generation 2; no later-generation Raichu speed buff",
+  "sources": [
+    "https://github.com/pret/pokecrystal/blob/master/data/pokemon/base_stats/raichu.asm",
+    "https://github.com/pret/pokecrystal/blob/master/data/pokemon/evos_attacks.asm#L325-L347",
+    "https://www.pokemon.com/de/pokedex/raichu"
+  ],
+  "facts": {
+    "dex": 26,
+    "height_cm": 80,
+    "stats_HP_Attack_Defense_SpAttack_SpDefense_Speed": [
+      60,
+      90,
+      55,
+      90,
+      80,
+      100
+    ],
+    "growth": "MediumFast",
+    "catch_rate": 75,
+    "base_exp": 122,
+    "level_1_moves": [
+      "ThunderShock",
+      "TailWhip",
+      "QuickAttack",
+      "Thunderbolt"
+    ]
+  },
+  "art_source": "New original Blender mesh authored by Tools/ModelsV4/BuildRaichu.py, no downloaded model/texture, no Pikachu modification",
+  "configured_development_level": 11,
+  "configuration_note": "Starting level is a developer preview setting matching the current test Pikachu, not an evolution minimum."
+}

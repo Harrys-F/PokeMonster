@@ -1,0 +1,52 @@
+{
+  "Idle": {
+    "duration": 2.0,
+    "frames": 61,
+    "speed_cm_s": 0,
+    "minimum_surface_z_m": 0.0029999909456819296,
+    "stance_increment_error_m": 0
+  },
+  "Walk": {
+    "duration": 0.6,
+    "frames": 19,
+    "speed_cm_s": 35.0,
+    "minimum_surface_z_m": 0.0029999897815287113,
+    "stance_increment_error_m": 6.4695874837927825e-09
+  },
+  "Run": {
+    "duration": 0.4,
+    "frames": 13,
+    "speed_cm_s": 65.0,
+    "minimum_surface_z_m": 0.0029999888502061367,
+    "stance_increment_error_m": 3.551443417126876e-09
+  },
+  "Attack": {
+    "duration": 0.8,
+    "frames": 25,
+    "speed_cm_s": 0,
+    "minimum_surface_z_m": 0.0029999909456819296,
+    "stance_increment_error_m": 0
+  },
+  "Hit": {
+    "duration": 0.5,
+    "frames": 16,
+    "speed_cm_s": 0,
+    "minimum_surface_z_m": 0.0029999909456819296,
+    "stance_increment_error_m": 0
+  },
+  "Faint": {
+    "duration": 1.2,
+    "frames": 37,
+    "speed_cm_s": 0,
+    "minimum_surface_z_m": 0.003,
+    "stance_increment_error_m": 0,
+    "revision": "Forward fall; ground contact every sample, long tail does not levitate torso"
+  },
+  "Happy": {
+    "duration": 1.2,
+    "frames": 37,
+    "speed_cm_s": 0,
+    "minimum_surface_z_m": 0.0029999909456819296,
+    "stance_increment_error_m": 0
+  }
+}

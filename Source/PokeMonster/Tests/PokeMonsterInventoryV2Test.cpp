@@ -48,7 +48,7 @@ bool FInventoryV2EvolutionData::RunTest(const FString&)
  FPokeMonsterEvolutionContext Context;Context.Trigger=EPokeMonsterEvolutionTrigger::Item;Context.UsedItemId=IV2::Item(TEXT("ThunderStone"))->GetInternalId();
  auto P=FPokeMonsterCreatureInstance::CreateFromSpecies(Pikachu,30);P.AssignSpeciesMoves();
  const auto Options=UPokeMonsterCreatureProgression::GetEvolutionOptions(P,Context);
- TestFalse(TEXT("Missing Raichu cannot be passed off as ready"),Options.ContainsByPredicate([](const auto& O){return O.Readiness==EPokeMonsterEvolutionReadiness::Ready;}));
+ TestTrue(TEXT("Models V4 supplies the real Raichu target"),Options.ContainsByPredicate([](const auto& O){return O.Readiness==EPokeMonsterEvolutionReadiness::Ready;}));
  const auto Rules=Myrapla->GetEvolutions();TestTrue(TEXT("Myrapla keeps required Duflor intermediate"),Rules.Num()==1&&Rules[0].Trigger==EPokeMonsterEvolutionTrigger::Level&&Rules[0].MinimumLevel==21&&Rules[0].TargetSpecies.PrimaryAssetName==TEXT("Duflor"));
  Context.UsedItemId=IV2::Item(TEXT("LeafStone"))->GetInternalId();auto M=FPokeMonsterCreatureInstance::CreateFromSpecies(Myrapla,30);
  TestFalse(TEXT("No invented Myrapla to Giflor stone shortcut"),UPokeMonsterCreatureProgression::ApplyEvolution(M,FPrimaryAssetId(TEXT("CreatureSpecies"),TEXT("Giflor")),Context));

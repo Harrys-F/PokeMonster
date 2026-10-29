@@ -1590,3 +1590,12 @@ kein festgelegter Questinhalt, kein Weltfund und kein Startgegenstand.
 Reguläre Steinrouten bleiben bei fehlenden Zielmodellen gesperrt. Myrapla
 überspringt Duflor nicht; weder Evoli-Formen noch besondere Prüfungsgegenstände
 oder endgültige Handlungsbedingungen werden erfunden.
+
+
+## 29.10.2026 – Pokémon-Modelle V4: Raichu und erste reguläre Steinroute
+
+Die zuvor wegen fehlenden Zielmodells gesperrte bestehende Pikachu-/Donnerstein-Regel wird durch die neue Art Raichu (026) nutzbar. Inventar V2, Entwicklung V3/Präsentation V2.1, atomarer Itemverbrauch, individuelle Daten, AP und Save-Schema 11 bleiben unverändert zuständig. Die frühere Feststellung „reguläre Steinroute fehlt“ ist für Pikachu → Raichu damit ersetzt; weitere fehlende Formen bleiben offen.
+
+Mangels vorhandener Raichu-Quelle wird auf ausdrücklichen Modellauftrag ein eigenes Blender-Modell erstellt. Körperhöhe ca. 80,9 cm bei Referenz 80 cm; keine Skalierung der Welt oder vorhandener Figuren. Klassische Kristall-Artendaten einschließlich Initiative 100 und vorhandener Attacken verwenden; kein späterer Werte-Buff. Neue Darstellung nutzt die vorhandene zentrale Artenregistrierung und das bestehende Modelltestgelände. Keine neue Wildpopulation oder zweite Entwicklungslogik.
+
+Der Kandidat bleibt **technisch integriert – visuelle Freigabe ausstehend**. Bestand, technische und tatsächliche Gameplay-Nachweise sowie verbleibende optische Einschränkungen stehen in `POKEMON_MODELLE_V4_RAICHU.md`. Vorhandene Meshy-/Blender-Originale und Nutzeränderungen in DefaultEngine.ini bleiben erhalten.

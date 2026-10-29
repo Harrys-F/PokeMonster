@@ -73,7 +73,7 @@ def build():
   assert state['stock']==3
   assert E.prepare_item_evolution_offer(state['item'],0)==-1
   assert snapshot()==state['pikachu']and I.get_quantity(state['item'])==3
-  r['checks'].append('Wrong item and missing Raichu never mutate Pikachu or inventory')
+  r['checks'].append('Wrong technical item never mutates Pikachu or inventory')
  add('wrong source and item refused',item_init)
  add('technical item fixture party',lambda:fixture('Karpador',20))
  add('resume normal presentation',lambda:cmd('pm.Evolution.Auto 1'))
