@@ -96,6 +96,7 @@ namespace
 		Out = FPokeMonsterCreatureInstance::CreateFromSpecies(Species, Saved.Level);
   if(Version>=8){Out.bHasExperienceGrowthOverride=Saved.bHasExperienceGrowthOverride;Out.ExperienceGrowthOverride=Saved.ExperienceGrowthOverride;
    Out.PendingEvolutionTarget=Saved.PendingEvolutionTarget;Out.LastEvolutionOfferedLevel=Saved.LastEvolutionOfferedLevel;}
+  if(Version>=11)Out.PendingEvolutionItemId=Saved.PendingEvolutionItemId;
   if(!Out.ValidateEvolutionState())return false;
 		TArray<FPokeMonsterMoveSlot> Slots;
 		Slots.SetNum(FPokeMonsterCreatureInstance::MoveSlotCount);
@@ -163,6 +164,7 @@ UPokeMonsterSaveGame* UPokeMonsterSaveSubsystem::CaptureSnapshot(
 		Entry.CurrentHP = Creature.CurrentHP;
   Entry.bHasExperienceGrowthOverride=Creature.bHasExperienceGrowthOverride;Entry.ExperienceGrowthOverride=Creature.ExperienceGrowthOverride;
   Entry.PendingEvolutionTarget=Creature.PendingEvolutionTarget;Entry.LastEvolutionOfferedLevel=Creature.LastEvolutionOfferedLevel;
+  Entry.PendingEvolutionItemId=Creature.PendingEvolutionItemId;
   Entry.Status=Creature.Status; Entry.StatusTurns=Creature.StatusTurns;
   for (const auto& Ref : Creature.PendingMoves)
   {

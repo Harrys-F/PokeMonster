@@ -107,7 +107,7 @@ void UPokeMonsterEvolutionWidget::RefreshText()
 {
  const auto* C=Individual(this,CreatureId);if(!C||!Title)return;
  auto* S=C->Species.LoadSynchronous();const FString Name=S?S->GetDisplayName().ToString():TEXT("Pokémon");
- if(Phase==TEXT("offer")){Title->SetText(FText::FromString(Name+TEXT(" ist bereit zur Entwicklung")));Details->SetText(FText::FromString(TEXT("B / Enter beginnen · A / Esc abbrechen.\nNach einem späteren Levelaufstieg oder Kampfsieg ist ein neues Angebot möglich.")));}
+ if(Phase==TEXT("offer")){Title->SetText(FText::FromString(Name+TEXT(" ist bereit zur Entwicklung")));Details->SetText(FText::FromString(C->PendingEvolutionItemId.IsNone()?TEXT("B / Enter beginnen · A / Esc abbrechen.\nNach einem späteren Levelaufstieg oder Kampfsieg ist ein neues Angebot möglich."):TEXT("B / Enter beginnen · A / Esc abbrechen.\nDer Gegenstand wird nur bei erfolgreicher Entwicklung verbraucht. Abbruch erlaubt eine erneute Auswahl.")));}
  else if(Phase==TEXT("transform")){Title->SetText(FText::FromString(TEXT("Eine neue Kraft erwacht …")));Details->SetText(FText::FromString(TEXT("A / Esc kann bis zum Ende der Lichtverwandlung (5 s) abbrechen.")));}
  else if(Phase==TEXT("reveal")){Title->SetText(FText::FromString(TEXT("Die neue Gestalt erwacht …")));Details->SetText(FText::FromString(TEXT("Die Entwicklung ist übernommen. Dein Pokémon zeigt seine neue Form.")));}
  else if(Phase==TEXT("complete")){Title->SetText(FText::FromString(SourceName+TEXT(" hat sich zu ")+DestinationName+TEXT(" entwickelt!")));Details->SetText(FText::FromString(TEXT("Dein Pokémon hat eine neue Kraft gewonnen.\nBestätigen, um die Reise fortzusetzen.")));}

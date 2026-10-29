@@ -152,7 +152,7 @@ bool UPokeMonsterCreatureProgression::ApplyEvolution(FPokeMonsterCreatureInstanc
  Copy.ExperienceGrowthOverride=Creature.GetExperienceGrowthRate();Copy.bHasExperienceGrowthOverride=true;
  Copy.Species=Destination;Copy.CalculatedStats=CalculateStats(Destination->GetBaseStats(),Copy.Level);
  Copy.CurrentHP=Creature.CurrentHP==0?0:FMath::Clamp(Creature.CurrentHP+Copy.GetMaxHP()-Creature.GetMaxHP(),1,Copy.GetMaxHP());
- Copy.PendingEvolutionTarget=FPrimaryAssetId();Copy.LastEvolutionOfferedLevel=0;
+ Copy.PendingEvolutionTarget=FPrimaryAssetId();Copy.PendingEvolutionItemId=NAME_None;Copy.LastEvolutionOfferedLevel=0;
  // Only the current level's evolution-time offer, not a retroactive species learnset grant.
  for(const auto& Entry:Destination->LevelUpMoves)if(Entry.Level==Copy.Level)
  {

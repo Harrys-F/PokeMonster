@@ -46,6 +46,8 @@ public:
  UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Progression") bool bHasExperienceGrowthOverride=false;
  UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Progression") EPokeMonsterGrowthRate ExperienceGrowthOverride=EPokeMonsterGrowthRate::MediumFast;
  UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Evolution") FPrimaryAssetId PendingEvolutionTarget;
+ /** Stable item identity reserved by an explicit offer, never consumed until commit. */
+ UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Evolution") FName PendingEvolutionItemId;
  UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Evolution") int32 LastEvolutionOfferedLevel=0;
  /** Validate saved offer metadata against this species' routes without requiring the target model. */
  bool ValidateEvolutionState() const;

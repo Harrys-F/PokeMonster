@@ -3,6 +3,7 @@
 #include "../Dialogue/PokeMonsterNPC.h"
 #include "../Save/PokeMonsterSaveSubsystem.h"
 #include "../Time/PokeMonsterWorldClock.h"
+#include "../Dialogue/PokeMonsterDialogueSubsystem.h"
 #include "PokeMonsterClassicBattleScene.h"
 #include "PokeMonsterEncounterProfile.h"
 #include "PokeMonsterVisibleWildCreatureActor.h"
@@ -495,6 +496,7 @@ int32 UPokeMonsterEncounterSubsystem::PrepareEvolutionOffer(FGuid OnlyCreatureId
  {
   auto& C=PlayerParty[I];if(OnlyCreatureId.IsValid()&&C.InstanceId!=OnlyCreatureId)continue;if(C.CurrentHP<=0||!C.PendingMoves.IsEmpty())continue;
   FPokeMonsterEvolutionContext Context;
+  if(!C.PendingEvolutionItemId.IsNone()){Context.Trigger=EPokeMonsterEvolutionTrigger::Item;Context.UsedItemId=C.PendingEvolutionItemId;}
   if(const auto* Clock=GetGameInstance()->GetSubsystem<UPokeMonsterWorldClock>())Context.MinuteOfDay=FMath::FloorToInt(Clock->GetTime().SecondsOfDay/60.);
   for(const auto& O:UPokeMonsterCreatureProgression::GetEvolutionOptions(C,Context))if(O.Readiness==EPokeMonsterEvolutionReadiness::Ready)
   {
@@ -508,6 +510,28 @@ int32 UPokeMonsterEncounterSubsystem::PrepareEvolutionOffer(FGuid OnlyCreatureId
  }
  return INDEX_NONE;
 }
+int32 UPokeMonsterEncounterSubsystem::PrepareItemEvolutionOffer(const UPokeMonsterItemData* Item,int32 Index)
+{
+ auto* GI=GetGameInstance();auto* Inventory=GI?GI->GetSubsystem<UPokeMonsterInventorySubsystem>():nullptr;
+ auto* Save=GI?GI->GetSubsystem<UPokeMonsterSaveSubsystem>():nullptr;
+ if(IsEncounterActive()||!PlayerParty.IsValidIndex(Index)||!Inventory||!Save||Save->IsLoadInProgress()
+  ||!IsValid(Item)||!Item->IsConfigured()||!Item->CanUseInOverworld()
+  ||Item->GetCategory()!=EPokeMonsterItemCategory::Evolution||!Inventory->HasItem(Item))return INDEX_NONE;
+ if(const auto* D=GI->GetSubsystem<UPokeMonsterDialogueSubsystem>();D&&D->IsDialogueActive())return INDEX_NONE;
+ if(const auto* Recovery=GI->GetSubsystem<UPokeMonsterCheckpointSubsystem>();Recovery&&Recovery->IsReturningFromDefeat())return INDEX_NONE;
+ auto& C=PlayerParty[Index];if(C.CurrentHP<=0||!C.PendingMoves.IsEmpty()||!C.ValidateEvolutionState())return INDEX_NONE;
+ // An explicit retry may resume its own failed item offer, but cannot replace another offer.
+ if(C.PendingEvolutionTarget.IsValid()&&C.PendingEvolutionItemId!=Item->GetInternalId())return INDEX_NONE;
+ FPokeMonsterEvolutionContext Context;Context.Trigger=EPokeMonsterEvolutionTrigger::Item;Context.UsedItemId=Item->GetInternalId();
+ if(const auto* Clock=GI->GetSubsystem<UPokeMonsterWorldClock>())Context.MinuteOfDay=FMath::FloorToInt(Clock->GetTime().SecondsOfDay/60.);
+ TArray<FPrimaryAssetId> Ready;
+ for(const auto& O:UPokeMonsterCreatureProgression::GetEvolutionOptions(C,Context))if(O.Readiness==EPokeMonsterEvolutionReadiness::Ready)Ready.AddUnique(O.TargetSpecies);
+ // Ambiguous branches require authored selection; never choose the first arbitrary target.
+ if(Ready.Num()!=1||(C.PendingEvolutionTarget.IsValid()&&C.PendingEvolutionTarget!=Ready[0]))return INDEX_NONE;
+ const auto Old=C;C.PendingEvolutionTarget=Ready[0];C.PendingEvolutionItemId=Item->GetInternalId();C.LastEvolutionOfferedLevel=C.Level;
+ if(!Save->SaveProgressGame()){C=Old;return INDEX_NONE;}
+ return Index;
+}
 bool UPokeMonsterEncounterSubsystem::ResolveEvolution(FGuid Id,FPrimaryAssetId Target,bool Accept)
 {
  if(IsEncounterActive())return false;
@@ -515,16 +539,30 @@ bool UPokeMonsterEncounterSubsystem::ResolveEvolution(FGuid Id,FPrimaryAssetId T
  auto* C=PlayerParty.FindByPredicate([Id](const auto& X){return X.InstanceId==Id;});
  if(!C||C->PendingEvolutionTarget!=Target||!Target.IsValid()||!C->ValidateEvolutionState()||!C->PendingMoves.IsEmpty())return false;
  const auto Old=*C;auto Candidate=Old;
+ auto* Inventory=GetGameInstance()->GetSubsystem<UPokeMonsterInventorySubsystem>();
+ const auto OldStacks=Inventory?Inventory->GetStacks():TArray<FPokeMonsterInventoryStack>();
+ const UPokeMonsterItemData* Consumable=nullptr;
  if(Accept){FPokeMonsterEvolutionContext Context;
+  if(C->CurrentHP<=0)return false;
+  if(!C->PendingEvolutionItemId.IsNone())
+  {
+   if(!Inventory)return false;
+   for(const auto& Stack:OldStacks)if(const auto* Item=Stack.Item.LoadSynchronous())
+    if(Item->GetInternalId()==C->PendingEvolutionItemId&&Item->IsConfigured()&&Item->CanUseInOverworld()&&Item->GetCategory()==EPokeMonsterItemCategory::Evolution&&Inventory->HasItem(Item)){Consumable=Item;break;}
+   if(!Consumable)return false;
+   Context.Trigger=EPokeMonsterEvolutionTrigger::Item;Context.UsedItemId=Consumable->GetInternalId();
+  }
   if(const auto* Clock=GetGameInstance()->GetSubsystem<UPokeMonsterWorldClock>())Context.MinuteOfDay=FMath::FloorToInt(Clock->GetTime().SecondsOfDay/60.);
-  if(!UPokeMonsterCreatureProgression::ApplyEvolution(Candidate,Target,Context))return false;}
- else Candidate.PendingEvolutionTarget=FPrimaryAssetId();
+  if(!UPokeMonsterCreatureProgression::ApplyEvolution(Candidate,Target,Context))return false;
+  if(Consumable&&!Inventory->RemoveItem(Consumable,1))return false;
+ }
+ else {Candidate.PendingEvolutionTarget=FPrimaryAssetId();Candidate.PendingEvolutionItemId=NAME_None;}
  *C=Candidate;
  auto* Q=GetGameInstance()->GetSubsystem<UPokeMonsterQuestSubsystem>();const auto OldDex=Q?Q->GetCapturedSpeciesIds():TArray<FName>();
  const auto OldProgress=Q?Q->GetProgress():TArray<FPokeMonsterQuestProgress>();const auto OldFlags=CompletedEncounterIds;
  if(Accept&&Q)if(auto* S=C->Species.LoadSynchronous())Q->RecordCapturedSpecies(S->GetInternalId());
  auto* Save=GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>();
- if(!Save||!Save->SaveProgressGame()){*C=Old;CompletedEncounterIds=OldFlags;if(Q){Q->RestoreCapturedSpeciesIds(OldDex);Q->RestoreProgress(OldProgress);}return false;}
+ if(!Save||!Save->SaveProgressGame()){*C=Old;if(Inventory)Inventory->RestoreStacks(OldStacks);CompletedEncounterIds=OldFlags;if(Q){Q->RestoreCapturedSpeciesIds(OldDex);Q->RestoreProgress(OldProgress);}return false;}
  OnPersistentStateRestored.Broadcast();return true;
 }
 bool UPokeMonsterEncounterSubsystem::ResolveEvolutionLearning(FGuid Id,int32 Slot)

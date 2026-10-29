@@ -117,8 +117,10 @@ public:
 	/** Swap occupied slots; free targets append with compact save-compatible ordering. */
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Team")
 	bool ReorderParty(FGuid SourceInstanceId, int32 TargetIndex);
- /** Level-route offers only; special item/place/trial contexts retain their existing separate gates. */
+ /** Existing automatic level offers and explicitly selected, persisted item offers. */
  UFUNCTION(BlueprintCallable,Category="Evolution") int32 PrepareEvolutionOffer(FGuid OnlyCreatureId = FGuid());
+ /** Item selection uses the same offer, sequence and atomic commit as level evolution. */
+ UFUNCTION(BlueprintCallable,Category="Evolution") int32 PrepareItemEvolutionOffer(const UPokeMonsterItemData* Item,int32 TeamIndex);
  UFUNCTION(BlueprintCallable,Category="Evolution") bool ResolveEvolution(FGuid CreatureId,FPrimaryAssetId Target,bool bAccept);
  UFUNCTION(BlueprintCallable,Category="Evolution") bool ResolveEvolutionLearning(FGuid CreatureId,int32 SlotIndex);
 	/** Savegame handoff: copy these IDs into a future save object and restore them on load. */

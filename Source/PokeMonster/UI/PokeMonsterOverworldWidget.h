@@ -91,7 +91,7 @@ private:
 	UFUNCTION() void Team5();
 	UPROPERTY(Transient) TArray<TObjectPtr<UButton>> TeamButtons;
 	FGuid SelectedInstanceId;
- UPROPERTY(Transient) TObjectPtr<UPokeMonsterItemData> PendingHealingItem;
+ UPROPERTY(Transient) TObjectPtr<UPokeMonsterItemData> PendingUseItem;
 	int32 FocusedTeamSlot = 0;
 	void Render();
 	UFUNCTION() void OpenInventory();

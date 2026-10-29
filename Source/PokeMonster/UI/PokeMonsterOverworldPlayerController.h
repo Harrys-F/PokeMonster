@@ -34,6 +34,7 @@ public:
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Dialogue") UPokeMonsterDialogueWidget* GetDialogueWidget() const { return DialogueWidget; }
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Team") bool ReorderParty(FGuid SourceInstanceId, int32 TargetIndex);
  UFUNCTION(BlueprintCallable, Category="PokeMonster|Inventory") bool UseMenuHealingItem(UPokeMonsterItemData* Item, int32 TeamIndex);
+ UFUNCTION(BlueprintCallable, Category="PokeMonster|Inventory") bool UseMenuEvolutionItem(UPokeMonsterItemData* Item,int32 TeamIndex);
  bool OpenMoveMaster(APokeMonsterNPC* Master);
  bool IsMoveMasterActive() const;
  bool CommitMoveMaster(FGuid CreatureId, const TArray<TSoftObjectPtr<UPokeMonsterMoveData>>& Moves);

@@ -168,6 +168,16 @@ bool APokeMonsterOverworldPlayerController::UseMenuHealingItem(UPokeMonsterItemD
  return bUsed;
 }
 
+bool APokeMonsterOverworldPlayerController::UseMenuEvolutionItem(UPokeMonsterItemData* Item,int32 TeamIndex)
+{
+ if(!bMenuOpen||EvolutionWidget||MoveMaster.IsValid()||!OverworldWidget||OverworldWidget->GetSection()!=EPokeMonsterOverworldMenuSection::Team)return false;
+ auto* E=GetGameInstance()?GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>():nullptr;
+ if(!E||E->PrepareItemEvolutionOffer(Item,TeamIndex)==INDEX_NONE)return false;
+ bEvolutionPresentationFailed=false; // Explicit validated selection retries a recoverable item/save error.
+ // Closing the existing team menu resumes its normal offer/presentation polling.
+ return CloseMenu();
+}
+
 bool APokeMonsterOverworldPlayerController::ReorderParty(const FGuid SourceInstanceId, const int32 TargetIndex)
 {
 	if (!bMenuOpen || !OverworldWidget || OverworldWidget->GetSection() != EPokeMonsterOverworldMenuSection::Team) return false;

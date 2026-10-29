@@ -32,6 +32,7 @@ struct POKEMONSTER_API FPokeMonsterSavedCreature
  UPROPERTY() bool bHasExperienceGrowthOverride=false;
  UPROPERTY() EPokeMonsterGrowthRate ExperienceGrowthOverride=EPokeMonsterGrowthRate::MediumFast;
  UPROPERTY() FPrimaryAssetId PendingEvolutionTarget;
+ UPROPERTY() FName PendingEvolutionItemId;
  UPROPERTY() int32 LastEvolutionOfferedLevel=0;
  UPROPERTY() int32 StatusTurns=0;
  UPROPERTY() EPokeMonsterCreatureStatus Status=EPokeMonsterCreatureStatus::None;
@@ -68,7 +69,7 @@ class POKEMONSTER_API UPokeMonsterSaveGame : public USaveGame
 public:
 	UPROPERTY(SaveGame) bool bHasWorldTime=false;
  UPROPERTY(SaveGame) FPokeMonsterWorldTime WorldTime;
- static constexpr int32 CurrentVersion = 10;
+ static constexpr int32 CurrentVersion = 11;
 	UPROPERTY() int32 SaveVersion = CurrentVersion;
 	UPROPERTY() TArray<FPokeMonsterSavedCreature> PlayerTeam;
 	UPROPERTY() TArray<FPokeMonsterSavedItemStack> InventoryStacks;

@@ -7,15 +7,32 @@
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
 #include "../Creatures/PokeMonsterCreatureProgression.h"
+#include "../Items/PokeMonsterInventorySubsystem.h"
+#include "Misc/Paths.h"
 #if WITH_EDITOR
 namespace
 {
- UPokeMonsterEncounterSubsystem* ReviewParty(){for(const auto& C:GEngine->GetWorldContexts())if(C.WorldType==EWorldType::PIE&&C.World()&&C.World()->GetGameInstance())return C.World()->GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>();return nullptr;}
+ bool IsV3Isolated(){return FPaths::IsUnderDirectory(FPaths::ConvertRelativePathToFull(FPaths::ProjectSavedDir()),FPaths::ConvertRelativePathToFull(FPaths::ProjectDir()/TEXT("Saved/ProjectRefinement/EvolutionV3")));}
+ TWeakObjectPtr<UPokeMonsterCreatureSpeciesData> ItemFixtureSource;TArray<FPokeMonsterEvolutionData> ItemFixtureOriginal;
+ void RestoreItemFixture(){if(ItemFixtureSource.IsValid()){const_cast<TArray<FPokeMonsterEvolutionData>&>(ItemFixtureSource->GetEvolutions())=ItemFixtureOriginal;ItemFixtureSource=nullptr;ItemFixtureOriginal.Reset();}}
+ UPokeMonsterEncounterSubsystem* ReviewParty(){for(const auto& C:GEngine->GetWorldContexts())if(C.World()&&C.World()->GetGameInstance()&&(C.WorldType==EWorldType::PIE||(IsV3Isolated()&&C.World()->IsGameWorld())))return C.World()->GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>();return nullptr;}
+ // These temporary fixtures cannot run against canonical user storage or a packaged build.
+ FAutoConsoleCommand ItemFixture(TEXT("pm.EvolutionReview.ItemFixture"),TEXT("Owned EvolutionV3 UserDir only: on|off. Explicit non-production Karpador/item fixture; restore before ending PIE."),FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& A)
+ {
+  if(!IsV3Isolated()||A.Num()!=1)return;auto* E=ReviewParty();if(!E||E->IsEncounterActive())return;
+  if(A[0]==TEXT("off")){RestoreItemFixture();return;}if(A[0]!=TEXT("on")||ItemFixtureSource.IsValid())return;
+  auto* S=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,TEXT("/Game/Data/Creatures/DA_Karpador"));
+  auto* I=E->GetGameInstance()->GetSubsystem<UPokeMonsterInventorySubsystem>();auto* Item=LoadObject<UPokeMonsterItemData>(nullptr,TEXT("/Game/Data/Items/DA_TestEvolutionItem"));
+  if(!S||!I||!Item||S->GetEvolutions().Num()!=1||S->GetEvolutions()[0].MinimumLevel!=20)return;
+  ItemFixtureSource=S;ItemFixtureOriginal=S->GetEvolutions();auto Rule=ItemFixtureOriginal[0];Rule.Trigger=EPokeMonsterEvolutionTrigger::Item;Rule.MinimumLevel=1;Rule.RequiredItemId=Item->GetInternalId();
+  const_cast<TArray<FPokeMonsterEvolutionData>&>(S->GetEvolutions())={Rule};I->AddItem(Item,3);
+ }));
+ struct FRestoreV3FixtureOnCleanup{FRestoreV3FixtureOnCleanup(){FWorldDelegates::OnWorldCleanup.AddLambda([](UWorld* W,bool,bool){if(W&&W->IsGameWorld())RestoreItemFixture();});}} RestoreV3FixtureOnCleanup;
  FAutoConsoleCommand Party(TEXT("pm.EvolutionReview.Party"),TEXT("Explicit PIE fixture: Glumanda|Glutexo level; independent Glurak reserve, spent PP and 5 missing HP."),FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& A)
  {
   if(A.Num()!=2||!A[1].IsNumeric())return;
   const FString SpeciesId=A[0].Equals(TEXT("Glumanda"),ESearchCase::IgnoreCase)?TEXT("Zunderlauf"):A[0];
-  if(SpeciesId!=TEXT("Zunderlauf")&&SpeciesId!=TEXT("Glutexo"))return;auto* E=ReviewParty();if(!E||E->IsEncounterActive())return;
+  if(SpeciesId!=TEXT("Zunderlauf")&&SpeciesId!=TEXT("Glutexo")&&!(IsV3Isolated()&&SpeciesId==TEXT("Karpador")))return;auto* E=ReviewParty();if(!E||E->IsEncounterActive())return;
   auto* S=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,*(TEXT("/Game/Data/Creatures/DA_")+SpeciesId+TEXT(".DA_")+SpeciesId));
   auto* R=LoadObject<UPokeMonsterCreatureSpeciesData>(nullptr,TEXT("/Game/Data/Creatures/DA_Glurak.DA_Glurak"));if(!S||!R)return;
   auto C=FPokeMonsterCreatureInstance::CreateFromSpecies(S,FCString::Atoi(*A[1]));C.AssignSpeciesMoves();C.ConsumeMovePP(0,3);C.CurrentHP=FMath::Max(1,C.GetMaxHP()-5);

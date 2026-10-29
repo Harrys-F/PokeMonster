@@ -123,7 +123,7 @@ bool PokeMonsterEvolutionTest::PrepareConditions(FPokeMonsterCreatureInstance& C
         const int64 XP = UPokeMonsterCreatureProgression::ExperienceForLevel(Creature.GetExperienceGrowthRate(), Level);
         if (!Candidate.AddExperience(FMath::Max<int64>(0, XP-Creature.Experience)).bSucceeded) continue;
         Candidate.CurrentHP = FMath::Max(1, Candidate.CurrentHP);
-        Candidate.PendingEvolutionTarget = FPrimaryAssetId(); Candidate.LastEvolutionOfferedLevel = 0;
+        Candidate.PendingEvolutionTarget = FPrimaryAssetId(); Candidate.PendingEvolutionItemId=NAME_None; Candidate.LastEvolutionOfferedLevel = 0;
         FPokeMonsterEvolutionContext Context;
         for (const auto& Option : UPokeMonsterCreatureProgression::GetEvolutionOptions(Candidate, Context))
             if (Option.TargetSpecies == Route.TargetSpecies && Option.Readiness == EPokeMonsterEvolutionReadiness::Ready)

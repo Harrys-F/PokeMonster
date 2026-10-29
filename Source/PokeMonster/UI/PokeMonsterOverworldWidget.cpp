@@ -224,7 +224,7 @@ FReply UPokeMonsterOverworldWidget::NativeOnPreviewKeyDown(const FGeometry& Geom
   {
    if (PendingStorageAction) CancelStorage();
    else if(Section==EPokeMonsterOverworldMenuSection::Moves) CancelMoves();
-   else if (PendingHealingItem) { PendingHealingItem=nullptr; ShowInventory(); }
+   else if (PendingUseItem) { PendingUseItem=nullptr; ShowInventory(); }
    else if (SelectedInstanceId.IsValid()) { SelectedInstanceId.Invalidate(); LastRenderKey.Reset(); Render(); }
    else CloseMenu();
   }
@@ -298,9 +298,9 @@ void UPokeMonsterOverworldWidget::ConfirmMenu()
  else if (View.Inventory.IsValidIndex(FocusedInventorySlot))
  {
   auto* Item=View.Inventory[FocusedInventorySlot].Item.LoadSynchronous();
-  if (Item && Item->CanUseInOverworld() && Item->GetCategory()==EPokeMonsterItemCategory::Healing)
+  if (Item && Item->CanUseInOverworld() && (Item->GetCategory()==EPokeMonsterItemCategory::Healing||Item->GetCategory()==EPokeMonsterItemCategory::Evolution))
   {
-   PendingHealingItem=Item; SelectedInstanceId.Invalidate(); ShowTeam();
+   PendingUseItem=Item; SelectedInstanceId.Invalidate(); ShowTeam();
   }
   else if (SectionTitle) SectionTitle->SetText(FText::FromString(View.Inventory[FocusedInventorySlot].Name.ToString()+TEXT(" · Hier nicht verwendbar")));
  }
@@ -366,7 +366,7 @@ void UPokeMonsterOverworldWidget::SetMenuOpen(const bool bOpen, const EPokeMonst
 	bMenuOpen = bOpen;
  PendingStorageAction = 0; StorageMessage.Reset(); LastStorageInputFrame = MAX_uint64;
  bMoveMasterMode=false; bChoosingMovePokemon=true;bMoveReview=false;MovePokemon=0;MoveCursor=0;ReplaceCursor=INDEX_NONE;DraftMoves.Reset();MoveMessage.Reset();
-	SelectedInstanceId.Invalidate(); PendingHealingItem=nullptr; FocusedTeamSlot = 0; FocusedMainSlot = 0; FocusedInventorySlot = 0;
+	SelectedInstanceId.Invalidate(); PendingUseItem=nullptr; FocusedTeamSlot = 0; FocusedMainSlot = 0; FocusedInventorySlot = 0;
 	Section = InitialSection;
 	LastRenderKey.Reset();
 	if (MenuLayer) MenuLayer->SetVisibility(bOpen ? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
@@ -442,8 +442,8 @@ void UPokeMonsterOverworldWidget::Render()
 		if (View.Team.IsEmpty())
 			MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,TEXT("Noch keine Kreaturen im Team."),19,OverworldDarkInk));
 		if (SelectedInstanceId.IsValid() && !View.Team.ContainsByPredicate([&](const auto& Row) { return Row.InstanceId == SelectedInstanceId; })) SelectedInstanceId.Invalidate();
-		if (SectionTitle) SectionTitle->SetText(FText::FromString(PendingHealingItem
-   ? PendingHealingItem->GetDisplayName().ToString()+TEXT(" · Ziel wählen")
+		if (SectionTitle) SectionTitle->SetText(FText::FromString(PendingUseItem
+   ? PendingUseItem->GetDisplayName().ToString()+TEXT(" · Ziel wählen")
    : SelectedInstanceId.IsValid()?FString(TEXT("Zielplatz wählen · freie Plätze rücken ans Teamende")):FString(TEXT("Pokémon wählen · danach Zielplatz"))));
 		for (int32 Index = 0; Index < 6; ++Index)
 		{
@@ -530,7 +530,7 @@ void UPokeMonsterOverworldWidget::ShowInventory()
 {
  if (bStorageBusy || PendingStorageAction) return;
  if(bMoveMasterMode)return;
- PendingHealingItem=nullptr;
+ PendingUseItem=nullptr;
 	SelectedInstanceId.Invalidate();
 	Section = EPokeMonsterOverworldMenuSection::Inventory;
 	LastRenderKey.Reset(); Render();
@@ -552,11 +552,13 @@ bool UPokeMonsterOverworldWidget::SelectTeamSlot(const int32 Slot)
 {
 	if (!bMenuOpen || bBattleVisible || Section != EPokeMonsterOverworldMenuSection::Team || Slot < 0 || Slot >= 6) return false;
 	FocusedTeamSlot = Slot;
- if (PendingHealingItem)
+ if (PendingUseItem)
  {
-  const bool bUsed=View.Team.IsValidIndex(Slot) && OwnerController.IsValid() && OwnerController->UseMenuHealingItem(PendingHealingItem,Slot);
-  if (bUsed) { PendingHealingItem=nullptr; ShowInventory(); }
-  else if (SectionTitle) SectionTitle->SetText(FText::FromString(TEXT("Ungültiges Ziel · kein Item verbraucht")));
+  const bool Evolution=PendingUseItem->GetCategory()==EPokeMonsterItemCategory::Evolution;
+  const bool bUsed=View.Team.IsValidIndex(Slot) && OwnerController.IsValid()
+   &&(Evolution?OwnerController->UseMenuEvolutionItem(PendingUseItem,Slot):OwnerController->UseMenuHealingItem(PendingUseItem,Slot));
+  if (bUsed) { PendingUseItem=nullptr; if(!Evolution)ShowInventory(); }
+  else if (SectionTitle) SectionTitle->SetText(FText::FromString(Evolution?TEXT("Keine passende spielbereite Entwicklung · kein Item verbraucht"):TEXT("Ungültiges Ziel · kein Item verbraucht")));
   return bUsed;
  }
 	if (!SelectedInstanceId.IsValid())
@@ -597,7 +599,7 @@ void UPokeMonsterOverworldWidget::ShowMoves()
 {
  if (bStorageBusy || PendingStorageAction) return;
  if(bMoveMasterMode)return;
- PendingHealingItem=nullptr;SelectedInstanceId.Invalidate();Section=EPokeMonsterOverworldMenuSection::Moves;
+ PendingUseItem=nullptr;SelectedInstanceId.Invalidate();Section=EPokeMonsterOverworldMenuSection::Moves;
  bChoosingMovePokemon=true;MovePokemon=FMath::Clamp(FocusedTeamSlot,0,FMath::Max(0,View.Team.Num()-1));MoveCursor=0;
  LastRenderKey.Reset();Render();
 }

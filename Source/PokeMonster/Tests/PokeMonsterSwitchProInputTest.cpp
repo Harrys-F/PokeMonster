@@ -60,8 +60,13 @@ bool FPokeMonsterSwitchProWidgetTest::RunTest(const FString&)
  auto* Healing=LoadObject<UPokeMonsterItemData>(nullptr,TEXT("/Game/Data/Items/DA_TestHealingItem.DA_TestHealingItem"));
  if (!TestNotNull(TEXT("Existing healing item"),Healing)) return false;
  View.Inventory[0].Item=Healing;Widget->UpdateView(View);Widget->SetMenuOpen(true,EPokeMonsterOverworldMenuSection::Inventory);
- Press(Keys::Confirm());TestTrue(TEXT("B selects an existing overworld healing item"),Widget->PendingHealingItem==Healing);TestEqual(TEXT("Existing team view is reused for item target"),Widget->GetSection(),EPokeMonsterOverworldMenuSection::Team);
- Press(Keys::Cancel());TestTrue(TEXT("A cancels item target without consuming anything"),Widget->PendingHealingItem==nullptr);TestEqual(TEXT("A returns to bag"),Widget->GetSection(),EPokeMonsterOverworldMenuSection::Inventory);
+ Press(Keys::Confirm());TestTrue(TEXT("B selects an existing overworld healing item"),Widget->PendingUseItem==Healing);TestEqual(TEXT("Existing team view is reused for item target"),Widget->GetSection(),EPokeMonsterOverworldMenuSection::Team);
+ Press(Keys::Cancel());TestTrue(TEXT("A cancels item target without consuming anything"),Widget->PendingUseItem==nullptr);TestEqual(TEXT("A returns to bag"),Widget->GetSection(),EPokeMonsterOverworldMenuSection::Inventory);
+ auto* Stone=LoadObject<UPokeMonsterItemData>(nullptr,TEXT("/Game/Data/Items/DA_TestEvolutionItem"));
+ View.Inventory[0].Item=Stone;Widget->UpdateView(View);Widget->SetMenuOpen(true,EPokeMonsterOverworldMenuSection::Inventory);
+ Press(Keys::Confirm());TestTrue(TEXT("B selects evolution item through existing bag"),Widget->PendingUseItem==Stone);
+ TestEqual(TEXT("Same team selection, no second item menu"),Widget->GetSection(),EPokeMonsterOverworldMenuSection::Team);
+ Press(Keys::Cancel());TestTrue(TEXT("A cancels stone selection before any use"),Widget->PendingUseItem==nullptr);
  TStrongObjectPtr<UPokeMonsterBattleWidget> Battle(NewObject<UPokeMonsterBattleWidget>());Battle->SetEncounterOverlay(true);Battle->TakeWidget();
  TStrongObjectPtr<UPokeMonsterBattlePresenter> Presenter(NewObject<UPokeMonsterBattlePresenter>());
  if (!TestTrue(TEXT("Existing battle data start real presenter"),Presenter->StartDemo())) return false;
