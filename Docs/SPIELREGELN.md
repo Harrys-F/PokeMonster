@@ -200,7 +200,7 @@ verwenden dieselbe BattleSession; Darstellung verändert keine Kampf- oder Save-
 
 Normale Wildkämpfe erlauben Flucht abhängig von Geschwindigkeit und wiederholten
 Versuchen. Fehlgeschlagene Flucht verbraucht den Zug; Trainer- und geskriptete
-Storykämpfe erlauben sie nicht. Heilitems im Beutel verbrauchen bei gültiger
+Storykämpfe erlauben sie nicht. KP-Heilitems im Beutel verbrauchen bei gültiger
 Verwendung einen Zug und genau einen Gegenstand. Auch ein inaktives verletztes
 Teammitglied kann geheilt werden; volle KP, K.O. und ungültige Ziele werden abgewiesen.
 
@@ -249,3 +249,25 @@ Niederlagen-Sicherung ersetzt den manuellen Spielstand nicht; erneutes manuelles
 Laden stellt den zuvor gesicherten Zustand wieder her. Die bisherige gemeinsame
 Dev-Slotbeschreibung ist insoweit ersetzt; Heilung und übrige Niederlagenregeln
 bleiben bestehen.
+
+
+## Inventar und Gegenstände V2 (29.10.2026)
+
+Die bisherigen KP-Heilitems werden um Statusheilung, Beleber und AP-Mittel ergänzt.
+Trank bleibt 20 KP, Supertrank heilt 50, Hypertrank 200 und Top-Trank alle KP.
+KP-Heiler und Status-/AP-Mittel wirken nicht auf kampfunfähige Pokémon. Beleber
+wirken ausschließlich dort (halbe beziehungsweise volle KP), ohne AP aufzufüllen.
+Hyperheiler beseitigt die fünf primären Statusprobleme und im Kampf auch Verwirrung.
+Äther wählt eine aktive Attacke, Elixiere betreffen alle aktiven Attacken; die
+jeweiligen persönlichen Repertoire-AP bleiben synchron, ohne inaktive Attacken
+kostenlos aufzufüllen. Die ortsgebundene Attackenneuordnung bleibt unverändert.
+
+Reguläre Würfe verbrauchen den ausgewählten Ball auch bei Misserfolg; technische
+Fehler vor dem Wurf kosten keinen Ball. Meisterbälle umgehen keine Fangverbote.
+Normale Items können nach Mengenwahl und Bestätigung weggeworfen werden;
+Schlüsselitems und ausdrücklich geschützte Gegenstände nicht. Weltfunde bleiben
+nach erfolgreicher Speicherung eingesammelt. Laden eines älteren manuellen
+Standes stellt dessen zusammengehörige Mengen und Weltkennungen wieder her.
+Fehlgeschlagene Item-/Fundtransaktionen verlieren weder Items noch den Fundort.
+Es gibt keine erfundenen Stein-Entwicklungskürzel bei fehlenden Zielmodellen.
+Details, Datenquellen und tatsächliche Abnahme: `INVENTAR_GEGENSTAENDE_V2.md`.

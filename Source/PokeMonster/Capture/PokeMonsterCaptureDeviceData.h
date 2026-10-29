@@ -15,7 +15,9 @@ public:
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Capture") FName GetInternalId() const { return InternalId; }
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Capture") FText GetDisplayName() const { return DisplayName; }
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Capture") float GetCaptureBonus() const { return CaptureBonus; }
+UFUNCTION(BlueprintPure, Category="PokeMonster|Capture") bool GuaranteesCapture() const { return bGuaranteedCapture; }
 private:
+ UPROPERTY(EditDefaultsOnly,Category="Capture") bool bGuaranteedCapture=false;
 	UPROPERTY(EditDefaultsOnly, Category="Capture") FName InternalId = NAME_None;
 	UPROPERTY(EditDefaultsOnly, Category="Capture") FText DisplayName;
 	UPROPERTY(EditDefaultsOnly, Category="Capture", meta=(ClampMin="0.01")) float CaptureBonus = 1.0f;

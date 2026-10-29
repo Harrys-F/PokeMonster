@@ -49,6 +49,7 @@ struct POKEMONSTER_API FPokeMonsterBattleChoice
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Battle")
 	TSoftObjectPtr<UPokeMonsterCaptureDeviceData> CaptureDevice;
  UPROPERTY(EditAnywhere,BlueprintReadWrite) TSoftObjectPtr<UPokeMonsterItemData> Item;
+ UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 ItemMoveSlot=INDEX_NONE;
 };
 
 /** Ordered, self-contained event data for a future presentation layer. No UObject/world dependency. */
@@ -281,6 +282,7 @@ public:
 	FPokeMonsterBattleResult ForceSwitch(EPokeMonsterBattleSide Side, int32 TeamIndex);
 
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Battle")
+	bool CanApplyMedicine(const UPokeMonsterItemData* Item,int32 TeamIndex,int32 MoveSlot=-1) const;
 	const FPokeMonsterBattleState& GetState() const { return State; }
 
 public:

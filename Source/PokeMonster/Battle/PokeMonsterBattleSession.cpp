@@ -228,7 +228,8 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
   else if(Choices[Index].Type==EPokeMonsterBattleChoiceType::Item){
    Item=Choices[Index].Item.LoadSynchronous();const auto& T=State.TeamA;const int Target=Choices[Index].Index;
    if(Side!=ESide::A||!Item||!Item->IsConfigured()||!Item->CanUseInBattle()||Item->GetCategory()!=EPokeMonsterItemCategory::Healing)Error=EError::InvalidItem;
-   else if(!T.IsValidIndex(Target)||T[Target].CurrentHP<=0||T[Target].CurrentHP>=T[Target].GetMaxHP())Error=EError::InvalidItemTarget;
+   else if(!T.IsValidIndex(Target))Error=EError::InvalidItemTarget;
+   else if(!CanApplyMedicine(Item,Target,Choices[Index].ItemMoveSlot))Error=EError::InvalidItemTarget;
   }
 		else Error = EError::InvalidSlot;
   if(!EffectRules.bExtendedStatus && Moves[Index])for(const auto& E:Moves[Index]->GetEffectComponents())
@@ -522,14 +523,14 @@ FPokeMonsterBattleResult UPokeMonsterBattleSession::ResolveTurn(
   if(Escaped){Next.Phase=EPhase::Finished;Next.Winner=ESide::None;Next.EndReason=EPokeMonsterBattleEndReason::Escaped;AddEvent(Result,Next,EEvent::BattleEnded,ESide::None);SyncActive(Next);State=MoveTemp(Next);Random=NextRandom;Result.bSucceeded=true;return Result;}
  }else Next.FleeAttempts=0;
  if(ChoiceA.Type==EPokeMonsterBattleChoiceType::Item){
-  auto& C=Next.TeamA[ChoiceA.Index];const int Before=C.CurrentHP;C.CurrentHP=int32(FMath::Min<int64>(C.GetMaxHP(),int64(C.CurrentHP)+Item->GetHealAmount()));if(ChoiceA.Index==Next.ActiveIndexA)Next.SideA=C;
+  auto& C=Next.TeamA[ChoiceA.Index];const int Before=C.CurrentHP;Item->ApplyMedicine(C,ChoiceA.ItemMoveSlot);if(Item->CuresConfusion()&&ChoiceA.Index==Next.ActiveIndexA)Next.EffectsA.ConfusionTurns=0;if(ChoiceA.Index==Next.ActiveIndexA)Next.SideA=C;
   auto& E=AddEvent(Result,Next,EEvent::Healed,ESide::A);E.Target=ESide::A;E.TargetInstanceId=C.InstanceId;E.TeamIndex=ChoiceA.Index;E.ItemId=Item->GetPrimaryAssetId();E.HPBefore=Before;E.HPAfter=C.CurrentHP;E.RestoredHP=C.CurrentHP-Before;
  }
 	// A capture attempt is the player's entire turn and resolves before the wild creature attacks.
 	if (ChoiceA.Type == EPokeMonsterBattleChoiceType::Capture)
 	{
 		const auto* Species = Next.SideB.Species.LoadSynchronous();
-		const float Chance = FPokeMonsterCaptureLibrary::CalculateChance(Next.SideB.CurrentHP,
+		const float Chance = Device->GuaranteesCapture()?1.f:FPokeMonsterCaptureLibrary::CalculateChance(Next.SideB.CurrentHP,
 			Next.SideB.GetMaxHP(), Species->GetBaseCaptureRate(), Device->GetCaptureBonus());
 		const int32 Roll = NextRandom.RandRange(0, 9999);
 		const bool bCaught = FPokeMonsterCaptureLibrary::CheckCapture(Chance, Roll);
@@ -864,4 +865,11 @@ bool UPokeMonsterBattleSession::CanLeave(ESide Side)const
 {
  const auto& V=Side==ESide::A?State.EffectsA:State.EffectsB;
  return V.TrapTurns<=0 && !V.SwitchBlockSource.IsValid() && ForcedMoveSlot(Side)==INDEX_NONE;
+}
+
+bool UPokeMonsterBattleSession::CanApplyMedicine(const UPokeMonsterItemData* Item,int32 Index,int32 MoveSlot) const
+{
+ if(!Item||!Item->IsConfigured()||!Item->CanUseInBattle()||Item->GetCategory()!=EPokeMonsterItemCategory::Healing||!State.TeamA.IsValidIndex(Index))return false;
+ auto Preview=State.TeamA[Index];
+ return Item->ApplyMedicine(Preview,MoveSlot)||(Preview.CurrentHP>0&&Item->CuresConfusion()&&Index==State.ActiveIndexA&&State.EffectsA.ConfusionTurns>0);
 }

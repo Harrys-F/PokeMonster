@@ -1,4 +1,5 @@
 #include "PokeMonsterBattlePresenter.h"
+#include "Engine/AssetManager.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
 #include "../Items/PokeMonsterInventorySubsystem.h"
 #include "../Items/PokeMonsterItemData.h"
@@ -209,10 +210,10 @@ bool UPokeMonsterBattlePresenter::TrySelectFlee()
  if(bBusy||(Session&&Session->HasPendingLearning())||!Session||!Session->GetState().bFleeAllowed||!Session->CanLeave(EPokeMonsterBattleSide::A)||Session->GetState().Phase!=EPokeMonsterBattlePhase::AwaitingChoices)return false;
  PendingSlot=0;bPendingCapture=bPendingSwitch=false;PendingItem=nullptr;bPendingFlee=true;bBusy=true;bResolved=false;Refresh();return true;
 }
-bool UPokeMonsterBattlePresenter::TrySelectHealingItem(UPokeMonsterItemData* Item,int32 TeamIndex)
+bool UPokeMonsterBattlePresenter::TrySelectHealingItem(UPokeMonsterItemData* Item,int32 TeamIndex,int32 MoveSlot)
 {
  if(bBusy||(Session&&Session->HasPendingLearning())||!Session||!Inventory||!Inventory->HasItem(Item)||!Item||!Item->IsConfigured()||!Item->CanUseInBattle()||Item->GetCategory()!=EPokeMonsterItemCategory::Healing)return false;
- const auto& S=Session->GetState();if(Session->ForcedMoveSlot(EPokeMonsterBattleSide::A)!=INDEX_NONE||S.Phase!=EPokeMonsterBattlePhase::AwaitingChoices||!S.TeamA.IsValidIndex(TeamIndex))return false;const auto& C=S.TeamA[TeamIndex];if(C.CurrentHP<=0||C.CurrentHP>=C.GetMaxHP())return false;
+ const auto& S=Session->GetState();if(Session->ForcedMoveSlot(EPokeMonsterBattleSide::A)!=INDEX_NONE||S.Phase!=EPokeMonsterBattlePhase::AwaitingChoices||!S.TeamA.IsValidIndex(TeamIndex))return false;if(!Session->CanApplyMedicine(Item,TeamIndex,MoveSlot))return false;PendingItemMoveSlot=MoveSlot;
  PendingSlot=TeamIndex;bPendingCapture=bPendingSwitch=bPendingFlee=false;PendingItem=Item;bBusy=true;bResolved=false;Refresh();return true;
 }
 
@@ -223,8 +224,8 @@ bool UPokeMonsterBattlePresenter::ResolveSelection()
  if(bPendingFlee){FPokeMonsterBattleChoice A,B;A.Type=EPokeMonsterBattleChoiceType::Flee;B.Index=ChooseOpponentMove();LastResult=Session->ResolveTurn(A,B);}
  else if(PendingItem){
   const auto Stacks=Inventory?Inventory->GetStacks():TArray<FPokeMonsterInventoryStack>();
-  if(!Inventory||!Inventory->RemoveItem(PendingItem,1)){Problem=TEXT("Das Heilitem ist nicht mehr verfügbar.");bBusy=false;bResolved=false;PendingSlot=INDEX_NONE;PendingItem=nullptr;Refresh();return false;}
-  FPokeMonsterBattleChoice A,B;A.Type=EPokeMonsterBattleChoiceType::Item;A.Index=PendingSlot;A.Item=PendingItem;B.Index=ChooseOpponentMove();LastResult=Session->ResolveTurn(A,B);
+  if(!Inventory||(PendingItem->IsConsumedOnUse()&&!Inventory->RemoveItem(PendingItem,1))){Problem=TEXT("Das Heilitem ist nicht mehr verfügbar.");bBusy=false;bResolved=false;PendingSlot=INDEX_NONE;PendingItem=nullptr;Refresh();return false;}
+  FPokeMonsterBattleChoice A,B;A.Type=EPokeMonsterBattleChoiceType::Item;A.Index=PendingSlot;A.Item=PendingItem;A.ItemMoveSlot=PendingItemMoveSlot;B.Index=ChooseOpponentMove();LastResult=Session->ResolveTurn(A,B);
   if(!LastResult.bSucceeded)Inventory->RestoreStacks(Stacks);
  }
  else	if (bPendingCapture)
@@ -316,8 +317,8 @@ void UPokeMonsterBattlePresenter::Refresh()
 			&& !View.bFinished && State.Phase == EPokeMonsterBattlePhase::AwaitingChoices;
 		View.CaptureDeviceName = CaptureItem ? CaptureItem->GetDisplayName() : FText::GetEmpty();
   View.bFleeEnabled=State.bFleeAllowed&&Session->CanLeave(EPokeMonsterBattleSide::A)&&!bBusy&&!View.bFinished&&State.Phase==EPokeMonsterBattlePhase::AwaitingChoices;
-  if(Inventory){TSet<UPokeMonsterItemData*> Seen;for(const auto& Stack:Inventory->GetStacks())if(auto* Item=Stack.Item.LoadSynchronous())if(!Seen.Contains(Item)&&Item->CanUseInBattle()&&Item->GetCategory()==EPokeMonsterItemCategory::Healing&&Item->IsConfigured()){
-   Seen.Add(Item);auto& I=View.HealingItems.AddDefaulted_GetRef();I.Item=Item;I.Name=Item->GetDisplayName();I.Quantity=Inventory->GetQuantity(Item);bool Target=false;for(const auto& C:State.TeamA)Target|=C.CurrentHP>0&&C.CurrentHP<C.GetMaxHP();I.bEnabled=Target&&Session->ForcedMoveSlot(EPokeMonsterBattleSide::A)==INDEX_NONE&&!bBusy&&!View.bFinished&&State.Phase==EPokeMonsterBattlePhase::AwaitingChoices;
+  if(Inventory){TSet<UPokeMonsterItemData*> Seen;for(const auto& Stack:Inventory->GetStacks())if(auto* Item=Stack.Item.LoadSynchronous())if(!Seen.Contains(Item)&&Item->CanUseInBattle()&&(Item->GetCategory()==EPokeMonsterItemCategory::Healing||Item->GetCategory()==EPokeMonsterItemCategory::Capture)&&Item->IsConfigured()){
+   Seen.Add(Item);auto& I=View.HealingItems.AddDefaulted_GetRef();I.Item=Item;I.Name=Item->GetDisplayName();I.Quantity=Inventory->GetQuantity(Item);bool Target=false;for(const auto& C:State.TeamA){for(int Slot=INDEX_NONE;Slot<4;++Slot){auto Preview=C;Target|=Item->ApplyMedicine(Preview,Slot);}}if(Item->CuresConfusion()&&State.EffectsA.ConfusionTurns>0)Target=true;if(Item->GetCategory()==EPokeMonsterItemCategory::Capture)Target=State.bCaptureAllowed;I.bEnabled=Target&&Session->ForcedMoveSlot(EPokeMonsterBattleSide::A)==INDEX_NONE&&!bBusy&&!View.bFinished&&State.Phase==EPokeMonsterBattlePhase::AwaitingChoices;
   }}
 		View.bMustSwitch = State.Phase == EPokeMonsterBattlePhase::AwaitingSwitch && State.SideA.CurrentHP == 0;
 		for (int32 SideIndex = 0; SideIndex < 2; ++SideIndex)
@@ -423,7 +424,12 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
   case EPokeMonsterBattleEventType::FleeFailed:LogLines.Add(TEXT("Flucht fehlgeschlagen!"));break;
   case EPokeMonsterBattleEventType::SeedHeal:
   case EPokeMonsterBattleEventType::StatusApplied:case EPokeMonsterBattleEventType::StatusPrevented:case EPokeMonsterBattleEventType::StatusDamage:case EPokeMonsterBattleEventType::StatusRecovered:case EPokeMonsterBattleEventType::StatChanged:case EPokeMonsterBattleEventType::Flinched:case EPokeMonsterBattleEventType::Confused:case EPokeMonsterBattleEventType::ConfusionDamage:case EPokeMonsterBattleEventType::Protected:case EPokeMonsterBattleEventType::HitCount:LogLines.Add(Other+TEXT(": ")+Event.Information.ToString());break;
-  case EPokeMonsterBattleEventType::Healed:LogLines.Add(FString::Printf(TEXT("%s erhält %d KP zurück."),*Other,Event.RestoredHP));break;
+  case EPokeMonsterBattleEventType::Healed:
+  {
+   const auto* UsedItem=Event.ItemId.IsValid()?Cast<UPokeMonsterItemData>(UAssetManager::Get().GetPrimaryAssetPath(Event.ItemId).TryLoad()):nullptr;
+   const FString Label=UsedItem?UsedItem->GetDisplayName().ToString():Event.ItemId.PrimaryAssetName.ToString();
+   LogLines.Add(Event.ItemId.IsValid()?FString::Printf(TEXT("%s verwendet · %s"),*Label,Event.RestoredHP>0?*FString::Printf(TEXT("%d KP wiederhergestellt"),Event.RestoredHP):TEXT("Wirkung erfolgreich")):FString::Printf(TEXT("%s erhält %d KP zurück."),*Other,Event.RestoredHP));break;
+  }
   case EPokeMonsterBattleEventType::AttackLowered:LogLines.Add(Other+TEXT("s Angriff sinkt!"));break;
   case EPokeMonsterBattleEventType::EffectFailed:LogLines.Add(TEXT("Die Attacke hat keine weitere Wirkung."));break;
   case EPokeMonsterBattleEventType::DefenseLowered:LogLines.Add(Other+TEXT("s Verteidigung sinkt!"));break;
@@ -486,4 +492,19 @@ bool UPokeMonsterBattlePresenter::ResolveMoveLearning(int32 SlotIndex)
 	}
 	else Refresh();
 	return true;
+}
+
+bool UPokeMonsterBattlePresenter::TrySelectCaptureItem(UPokeMonsterItemData* Item)
+{
+ if(!Item||Item->GetCategory()!=EPokeMonsterItemCategory::Capture||!Item->IsConfigured()||!Inventory||!Inventory->HasItem(Item)||bBusy)return false;
+ const auto OldItem=CaptureItem;const auto OldDevice=TestCaptureDevice;
+ CaptureItem=Item;TestCaptureDevice=Item->GetCaptureDevice();
+ if(TrySelectCapture())return true;
+ CaptureItem=OldItem;TestCaptureDevice=OldDevice;return false;
+}
+
+bool UPokeMonsterBattlePresenter::CanUseMedicineOn(const UPokeMonsterItemData* Item,int32 Index) const
+{
+ if(!Item||!Session||!Session->GetState().TeamA.IsValidIndex(Index))return false;
+ for(int Slot=INDEX_NONE;Slot<4;++Slot){if(Session->CanApplyMedicine(Item,Index,Slot))return true;}return false;
 }

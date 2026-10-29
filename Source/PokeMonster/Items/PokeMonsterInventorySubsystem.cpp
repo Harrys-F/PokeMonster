@@ -2,6 +2,7 @@
 #include "../Creatures/PokeMonsterCreatureInstance.h"
 #include "../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "Engine/GameInstance.h"
+#include "../Save/PokeMonsterSaveSubsystem.h"
 
 void UPokeMonsterInventorySubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
@@ -28,8 +29,15 @@ bool UPokeMonsterInventorySubsystem::HasItem(const UPokeMonsterItemData* Item, i
 bool UPokeMonsterInventorySubsystem::AddItem(const UPokeMonsterItemData* Item, int32 Quantity)
 {
 	if (!IsValid(Item) || !Item->IsConfigured() || Quantity <= 0
-		|| int64(GetQuantity(Item)) + Quantity > MAX_int32) return false;
-	int32 Remaining = Quantity;
+		|| int64(GetQuantity(Item)) + Quantity > MAX_int32 || MaxStackSlots<0) return false;
+ int64 Total=Quantity;for(const auto& S:Stacks)Total+=S.Quantity;if(Total>MAX_int32)return false;
+	int64 Space=0;for(const auto& Stack:Stacks)if(Stack.Item.ToSoftObjectPath()==FSoftObjectPath(Item))Space+=Item->GetMaxStackSize()-Stack.Quantity;
+ const int64 Needed=FMath::DivideAndRoundUp(FMath::Max<int64>(0,int64(Quantity)-Space),int64(Item->GetMaxStackSize()));
+ // A single malformed/absurd grant must not allocate millions of stacks. This is a
+ // transaction allocation guard, not a new gameplay capacity or a save migration.
+ constexpr int64 MaxNewStacksPerOperation=65536;
+ if(Needed>MaxNewStacksPerOperation || Needed>MAX_int32-Stacks.Num() || (MaxStackSlots>0 && Needed>FMath::Max(0,MaxStackSlots-Stacks.Num())))return false;
+ int32 Remaining = Quantity;
 	for (auto& Stack : Stacks)
 	{
 		if (Stack.Item.ToSoftObjectPath() != FSoftObjectPath(Item) || Stack.Quantity >= Item->GetMaxStackSize()) continue;
@@ -79,15 +87,39 @@ bool UPokeMonsterInventorySubsystem::RestoreStacks(const TArray<FPokeMonsterInve
 }
 
 bool UPokeMonsterInventorySubsystem::UseHealingItem(const UPokeMonsterItemData* Item,
-	FPokeMonsterCreatureInstance& Creature)
+ FPokeMonsterCreatureInstance& Creature,int32 MoveSlot)
 {
-	if (!IsValid(Item) || !Item->IsConfigured() || Item->GetCategory() != EPokeMonsterItemCategory::Healing
-		|| !Item->CanUseInOverworld() || !Creature.IsValid() || Creature.CurrentHP <= 0
-		|| Creature.CurrentHP >= Creature.GetMaxHP() || !HasItem(Item)) return false;
-	if (const auto* GameInstance = GetGameInstance())
-		if (const auto* Encounter = GameInstance->GetSubsystem<UPokeMonsterEncounterSubsystem>())
-			if (Encounter->IsEncounterActive()) return false;
-	if (!RemoveItem(Item, 1)) return false;
-	Creature.CurrentHP = int32(FMath::Min<int64>(Creature.GetMaxHP(), int64(Creature.CurrentHP) + Item->GetHealAmount()));
-	return true;
+ if(!IsValid(Item)||!Item->CanUseInOverworld()||!HasItem(Item))return false;
+ if(GetGameInstance())if(auto* E=GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>())if(E->IsEncounterActive())return false;
+ auto Preview=Creature;if(!Item->ApplyMedicine(Preview,MoveSlot))return false;
+ if(Item->IsConsumedOnUse()&&!RemoveItem(Item,1))return false;
+ Creature=MoveTemp(Preview);return true;
+}
+
+FText UPokeMonsterInventorySubsystem::GetNotification() const
+{ return FPlatformTime::Seconds()<NotificationUntil?Notification:FText::GetEmpty(); }
+void UPokeMonsterInventorySubsystem::Notify(const FString& Message)
+{ Notification=FText::FromString(Message);NotificationUntil=FPlatformTime::Seconds()+6.; }
+
+bool UPokeMonsterInventorySubsystem::DiscardItem(const UPokeMonsterItemData* Item,int32 Quantity)
+{
+ auto* GI=GetGameInstance();auto* E=GI?GI->GetSubsystem<UPokeMonsterEncounterSubsystem>():nullptr;
+ auto* Save=GI?GI->GetSubsystem<UPokeMonsterSaveSubsystem>():nullptr;
+ if(bTransactionActive||!E||E->IsEncounterActive()||!Save||!Item||!Item->CanDiscard()||!HasItem(Item,Quantity))return false;
+ TGuardValue<bool> Guard(bTransactionActive,true);const auto Before=Stacks;
+ if(!RemoveItem(Item,Quantity))return false;
+ if(!Save->SaveProgressGame()){Stacks=Before;Notify(TEXT("Speicherfehler · nichts weggeworfen"));return false;}
+ Notify(FString::Printf(TEXT("%s × %d weggeworfen"),*Item->GetDisplayName().ToString(),Quantity));return true;
+}
+
+bool UPokeMonsterInventorySubsystem::CollectItem(const UPokeMonsterItemData* Item,int32 Quantity,FName SourceId)
+{
+ auto* GI=GetGameInstance();auto* E=GI?GI->GetSubsystem<UPokeMonsterEncounterSubsystem>():nullptr;
+ auto* Save=GI?GI->GetSubsystem<UPokeMonsterSaveSubsystem>():nullptr;
+ if(bTransactionActive||!E||E->IsEncounterActive()||!Save||SourceId.IsNone()||E->IsEncounterCompleted(SourceId))return false;
+ TGuardValue<bool> Guard(bTransactionActive,true);const auto Before=Stacks;
+ if(!AddItem(Item,Quantity)){Notify(TEXT("Gegenstand nicht aufgenommen · Inventar voll oder ungültig"));return false;}
+ E->MarkEncounterCompleted(SourceId);
+ if(!Save->SaveProgressGame()){Stacks=Before;E->UnmarkEncounterCompleted(SourceId);Notify(TEXT("Speicherfehler · Gegenstand bleibt erhalten"));return false;}
+ Notify(FString::Printf(TEXT("%s × %d erhalten!"),*Item->GetDisplayName().ToString(),Quantity));return true;
 }

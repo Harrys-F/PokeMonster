@@ -10,6 +10,7 @@
 #include "../Items/PokeMonsterInventorySubsystem.h"
 #include "Blueprint/WidgetTree.h"
 #include "Components/VerticalBox.h"
+#include "Components/TextBlock.h"
 #include "Engine/GameInstance.h"
 #include "Engine/Engine.h"
 #include "Engine/World.h"
@@ -56,7 +57,11 @@ bool FPokeMonsterOverworldUITest::RunTest(const FString& Parameters)
 	TestTrue(TEXT("Menu opens"), Widget->IsMenuOpen());
 	TestEqual(TEXT("Inventory view selectable"), Widget->GetSection(), EPokeMonsterOverworldMenuSection::Inventory);
 	if (auto* InventoryRows = Cast<UVerticalBox>(Widget->GetWidgetFromName(TEXT("MenuRows"))))
-		TestEqual(TEXT("Inventory row rendered"), InventoryRows->GetChildrenCount(), 1);
+		{
+   TestEqual(TEXT("Item and description rendered"), InventoryRows->GetChildrenCount(), 2);
+   const auto* Description=Cast<UTextBlock>(InventoryRows->GetChildAt(1));
+   TestTrue(TEXT("Selected item description visible"),Description&&Description->GetText().EqualTo(Item->GetDescription()));
+  }
 	else AddError(TEXT("Inventory rows widget missing"));
 	Widget->SetBattleVisible(true);
 	TestEqual(TEXT("Overworld UI hidden behind battle"), Widget->GetVisibility(), ESlateVisibility::Collapsed);

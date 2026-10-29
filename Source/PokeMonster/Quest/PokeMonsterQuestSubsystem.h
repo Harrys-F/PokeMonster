@@ -8,6 +8,7 @@
 
 class UPokeMonsterEncounterSubsystem;
 class UPokeMonsterInventorySubsystem;
+class UPokeMonsterItemData;
 
 UENUM(BlueprintType)
 enum class EPokeMonsterQuestStatus : uint8 { NotStarted, Active, Completed };
@@ -29,6 +30,8 @@ class POKEMONSTER_API UPokeMonsterQuestSubsystem : public UGameInstanceSubsystem
 	GENERATED_BODY()
 public:
 	bool StartQuest(const UPokeMonsterQuestData* Definition);
+ /** Existing authored quest must be complete. RewardId identifies one stable authored reward. */
+ UFUNCTION(BlueprintCallable,Category="PokeMonster|Quest") bool GrantItemReward(FName QuestId,FName RewardId,const UPokeMonsterItemData* Item,int32 Quantity);
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Quest") bool StartQuestById(FName QuestId);
 	void RecordDialogue(FName DialogueId);
 	void RecordCapturedSpecies(FName SpeciesId);

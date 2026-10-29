@@ -1393,3 +1393,24 @@ Prüfung: Editor-Build Exit 0; 285 Automationstests funktional erfolgreich (282 
 Fortschreibung der älteren Entwicklungs- und Inventarabschnitte: Der bereits spielbare Leveldienst und die Präsentation V2.1 bleiben erhalten. Das bestehende Karpador-DataAsset ergänzt jetzt die fehlende Level-20-Route zum bereits spielbaren Garados. `PrepareItemEvolutionOffer` ergänzt denselben EncounterSubsystem-Dienst um eine explizite Inventar-/Teamwahl; `ResolveEvolution` prüft vor Annahme erneut die Itemmenge und verbraucht erst beim erfolgreichen atomaren Save genau eins. Abbruch kostet nichts; Schreibfehler nehmen auch Inventar, Chronik und Questfortschritt zurück.
 
 Save-Schema 11 ergänzt nur die stabile `PendingEvolutionItemId` am bestehenden Angebot; Schema 1–10 migriert dieses Feld auf None und behält seine bisherigen Daten. Der Teststein ist kein neues reguläres Steinitem. Es existiert noch keine vollständig eingebundene Stein-Zielkette, keine individuelle Freundschaftsökonomie und keine fertige Sonderprüfung. Mindestlevel, Ort, Handlung und Zeit nutzen weiterhin denselben reinen UND-Bedingungsprüfer. Technische Fixture-Grenzwerte sind keine neuen artspezifischen Regeln. Bestand, tatsächliche Abnahme und offene Inhalte: `POKEMON_ENTWICKLUNGEN_V3_ERWEITERUNG.md`.
+
+
+### Inventar und Gegenstände V2 – aktueller Stand (29.10.2026)
+
+Die vorhandenen `UPokeMonsterItemData` und `UPokeMonsterInventorySubsystem`
+werden erweitert, nicht ersetzt. Vier datengetriebene Medizinbausteine bilden
+KP-, Status-, Wiederbelebungs- und AP-Wirkungen ab. BattleSession und Oberwelt
+verwenden denselben Effektprüfer; die Session ergänzt ihren eigenen flüchtigen
+Verwirrungszustand. Der bestehende Presenter führt die paginierte Ball-/Medizinwahl
+weiter. Vier aktive Attacken und persönliches Repertoire bleiben unverändert.
+
+`APokeMonsterWorldItem` implementiert die vorhandene Interaktionsschnittstelle,
+benutzt ein vorhandenes generisches Kistenmesh und hat weder Tick noch Kollision
+oder Licht. Stabile `Pickup.VisualV2.V1.*`-IDs verwenden die bestehenden
+CompletedEncounterIds. Aufnahme, Medizin und Wegwerfen sichern über den vorhandenen
+atomaren automatischen Speicherpfad und rollen bei Fehlern zurück. Der manuelle
+Spielstand wird dadurch nicht überschrieben. Questbelohnungen verwenden ebenfalls
+einmalige Weltkennungen. Schema 11 und die bestehenden Migrationen bleiben erhalten.
+UI-Kategorien, kulturabhängige Sortierung, Mengenbestätigung und AP-Zielwahl bleiben
+in der bisherigen Oberfläche. Die bestehende Trank-ID `TestHealingItem` wird
+weiterverwendet. Daten, zwölf Orte und QA-Nachweise: `INVENTAR_GEGENSTAENDE_V2.md`.

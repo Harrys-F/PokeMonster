@@ -283,3 +283,17 @@ bool FPokeMonsterCreatureInstance::ValidateEvolutionState() const
  }
  return false;
 }
+
+bool FPokeMonsterCreatureInstance::RestoreMovePP(int32 SlotIndex,int32 Amount,bool bFull)
+{
+ if(!MoveSlots.IsValidIndex(SlotIndex)||(!bFull&&Amount<=0))return false;
+ auto& Slot=MoveSlots[SlotIndex];if(Slot.GetMove().IsNull()||Slot.GetCurrentPP()>=Slot.GetMaxPP())return false;
+ const int32 PP=bFull?Slot.GetMaxPP():int32(FMath::Min<int64>(Slot.GetMaxPP(),int64(Slot.GetCurrentPP())+Amount));
+ Slot.RestoreCurrentPP(PP);
+ // Keep the documented independent PP of legacy duplicate active slots intact.
+ // The unique remembered entry retains their conservative minimum, as on consumption.
+ int32 RememberedPP=PP;
+ for(const auto& Other:MoveSlots)if(Other.GetMove()==Slot.GetMove())RememberedPP=FMath::Min(RememberedPP,Other.GetCurrentPP());
+ for(auto& Known:LearnedMoves)if(Known.GetMove()==Slot.GetMove())Known.RestoreCurrentPP(RememberedPP);
+ return true;
+}

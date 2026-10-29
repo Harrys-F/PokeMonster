@@ -1,4 +1,6 @@
 #include "PokeMonsterOverworldWidget.h"
+#include "../Items/PokeMonsterInventorySubsystem.h"
+#include "Engine/GameInstance.h"
 #include "PokeMonsterControllerInput.h"
 #include "PokeMonsterNameplateLayout.h"
 #include "../Encounter/PokeMonsterVisibleWildCreatureActor.h"
@@ -99,6 +101,7 @@ namespace
 	for (const auto& Row : View.Inventory)
 			Key += FString::Printf(TEXT("|%s:%s:%d"), *Row.Name.ToString(),
 				*Row.Category.ToString(), Row.Quantity) + Row.Item.ToSoftObjectPath().ToString();
+		Key += View.Notification.ToString();
 		Key += TEXT("|Q:") + View.ActiveQuestName.ToString() + TEXT(":") + View.ActiveQuestObjective.ToString();
 		return Key;
 	}
@@ -173,11 +176,11 @@ void UPokeMonsterOverworldWidget::BuildDefaultTree()
 		FVector2D(-201,-173),FVector2D(170,49),FAnchors(0.5f,0.5f));
  MovesTab=MakeButton(WidgetTree,MenuLayer,TEXT("MovesTab"),TEXT("Pokémon-Info"),FVector2D(-19,-173),FVector2D(170,49),FAnchors(.5f,.5f));
 	SectionTitle = MakeText(WidgetTree,TEXT("SectionTitle"),TEXT("Team"),23,OverworldDarkInk);
-	Place(MenuLayer,SectionTitle,FVector2D(-378,-102),FVector2D(500,36),FAnchors(0.5f,0.5f));
+	Place(MenuLayer,SectionTitle,FVector2D(-378,-102),FVector2D(748,36),FAnchors(0.5f,0.5f));
 	MenuRows = WidgetTree->ConstructWidget<UVerticalBox>(UVerticalBox::StaticClass(),TEXT("MenuRows"));
 	Place(MenuLayer,MenuRows,FVector2D(-380,-51),FVector2D(748,296),FAnchors(0.5f,0.5f));
 	Place(MenuLayer,MakeText(WidgetTree,TEXT("MenuHint"),TEXT("↑↓: Platz · Interagieren: wählen/tauschen · ESC: zurück"),14,OverworldDarkInk),
-		FVector2D(-378,255),FVector2D(600,26),FAnchors(0.5f,0.5f));
+		FVector2D(-378,255),FVector2D(748,26),FAnchors(0.5f,0.5f));
 	MenuLayer->SetVisibility(ESlateVisibility::Collapsed);
 }
 
@@ -222,7 +225,9 @@ FReply UPokeMonsterOverworldWidget::NativeOnPreviewKeyDown(const FGeometry& Geom
  {
   if (!Event.IsRepeat())
   {
-   if (PendingStorageAction) CancelStorage();
+   if(DiscardStage){DiscardStage=0;LastRenderKey.Reset();Render();}
+   else if(PPMoveTarget!=INDEX_NONE){PPMoveTarget=INDEX_NONE;LastRenderKey.Reset();Render();}
+   else if (PendingStorageAction) CancelStorage();
    else if(Section==EPokeMonsterOverworldMenuSection::Moves) CancelMoves();
    else if (PendingUseItem) { PendingUseItem=nullptr; ShowInventory(); }
    else if (SelectedInstanceId.IsValid()) { SelectedInstanceId.Invalidate(); LastRenderKey.Reset(); Render(); }
@@ -235,6 +240,13 @@ FReply UPokeMonsterOverworldWidget::NativeOnPreviewKeyDown(const FGeometry& Geom
  // X opens once; a held/repeated X cannot close and reopen the same menu.
  if (Key == PokeMonsterControllerInput::QuickMenu() || Key == EKeys::Gamepad_LeftThumbstick)
   return FReply::Handled();
+ if(Section==EPokeMonsterOverworldMenuSection::Inventory && !Event.IsRepeat())
+ {
+  if(Key==EKeys::S || Key==EKeys::Gamepad_LeftTrigger){BagSort=(BagSort+1)%3;FocusedInventorySlot=0;LastRenderKey.Reset();Render();return FReply::Handled();}
+  if(Key==EKeys::Delete || Key==EKeys::Gamepad_RightTrigger){auto Rows=BagRows();if(Rows.IsValidIndex(FocusedInventorySlot)){auto* Item=Rows[FocusedInventorySlot].Item.LoadSynchronous();if(Item&&Item->CanDiscard()){DiscardStage=1;DiscardQuantity=1;LastRenderKey.Reset();Render();}}return FReply::Handled();}
+  if(!DiscardStage && (Key==EKeys::Gamepad_DPad_Left || Key==EKeys::Gamepad_DPad_Right || Key==EKeys::Left || Key==EKeys::Right || Key==EKeys::PageUp || Key==EKeys::PageDown))
+  {if(!DiscardStage){BagCategory=(BagCategory+7+(Key==EKeys::Gamepad_DPad_Left||Key==EKeys::Left||Key==EKeys::PageUp?-1:1))%7; if(BagCategory==6)BagCategory=-1;FocusedInventorySlot=0;LastRenderKey.Reset();Render();}return FReply::Handled();}
+ }
  if (Key == EKeys::Gamepad_LeftShoulder || Key == EKeys::Gamepad_RightShoulder)
  {
   if (!Event.IsRepeat() && !bMoveMasterMode && !PendingStorageAction)
@@ -257,6 +269,8 @@ FReply UPokeMonsterOverworldWidget::NativeOnPreviewKeyDown(const FGeometry& Geom
 
 void UPokeMonsterOverworldWidget::NavigateMenu(int32 Delta)
 {
+ if(DiscardStage){auto Rows=BagRows();if(DiscardStage==1&&Rows.IsValidIndex(FocusedInventorySlot))DiscardQuantity=FMath::Clamp(DiscardQuantity+Delta,1,Rows[FocusedInventorySlot].Quantity);LastRenderKey.Reset();Render();return;}
+ if(PPMoveTarget!=INDEX_NONE){PPMoveCursor=(PPMoveCursor+Delta+4)%4;LastRenderKey.Reset();Render();return;}
  if(Section==EPokeMonsterOverworldMenuSection::Moves)
  {
   if(bChoosingMovePokemon && !View.Team.IsEmpty())MovePokemon=(MovePokemon+Delta+View.Team.Num())%View.Team.Num();
@@ -267,7 +281,7 @@ void UPokeMonsterOverworldWidget::NavigateMenu(int32 Delta)
  else if (Section == EPokeMonsterOverworldMenuSection::Team)
  { FocusedTeamSlot = (FocusedTeamSlot + Delta + 6) % 6; RefreshTeamFocus(); }
  else if (Section == EPokeMonsterOverworldMenuSection::Inventory)
- { if (!View.Inventory.IsEmpty()) FocusedInventorySlot = (FocusedInventorySlot + Delta + View.Inventory.Num()) % View.Inventory.Num(); LastRenderKey.Reset(); Render(); }
+ { auto Rows=BagRows();if (!Rows.IsEmpty()) FocusedInventorySlot = (FocusedInventorySlot + Delta + Rows.Num()) % Rows.Num(); LastRenderKey.Reset(); Render(); }
  else
  {
   const int32 Count = FMath::Max(1, MainButtons.Num());
@@ -280,6 +294,8 @@ void UPokeMonsterOverworldWidget::NavigateMenu(int32 Delta)
 void UPokeMonsterOverworldWidget::ConfirmMenu()
 {
  if (bStorageBusy) return;
+ if(DiscardStage){if(DiscardStage==1)DiscardStage=2;else{auto Rows=BagRows();if(Rows.IsValidIndex(FocusedInventorySlot)&&GetGameInstance())if(auto* Inv=GetGameInstance()->GetSubsystem<UPokeMonsterInventorySubsystem>())Inv->DiscardItem(Rows[FocusedInventorySlot].Item.LoadSynchronous(),DiscardQuantity);DiscardStage=0;}LastRenderKey.Reset();Render();return;}
+ if(PPMoveTarget!=INDEX_NONE){SelectTeamSlot(PPMoveCursor);return;}
  if (PendingStorageAction)
  {
   if (FocusedMainSlot == 0) ConfirmStorage(); else CancelStorage();
@@ -295,14 +311,14 @@ void UPokeMonsterOverworldWidget::ConfirmMenu()
   else if (FocusedMainSlot==4) LoadRecoveryGame();
   else CloseMenu();
  }
- else if (View.Inventory.IsValidIndex(FocusedInventorySlot))
+ else if (BagRows().IsValidIndex(FocusedInventorySlot))
  {
-  auto* Item=View.Inventory[FocusedInventorySlot].Item.LoadSynchronous();
+  const auto Rows=BagRows();auto* Item=Rows[FocusedInventorySlot].Item.LoadSynchronous();
   if (Item && Item->CanUseInOverworld() && (Item->GetCategory()==EPokeMonsterItemCategory::Healing||Item->GetCategory()==EPokeMonsterItemCategory::Evolution))
   {
-   PendingUseItem=Item; SelectedInstanceId.Invalidate(); ShowTeam();
+   PendingUseItem=Item;PPMoveTarget=INDEX_NONE; SelectedInstanceId.Invalidate(); ShowTeam();
   }
-  else if (SectionTitle) SectionTitle->SetText(FText::FromString(View.Inventory[FocusedInventorySlot].Name.ToString()+TEXT(" · Hier nicht verwendbar")));
+  else if (SectionTitle) SectionTitle->SetText(FText::FromString(Rows[FocusedInventorySlot].Name.ToString()+TEXT(" · Hier nicht verwendbar")));
  }
 }
 
@@ -366,7 +382,7 @@ void UPokeMonsterOverworldWidget::SetMenuOpen(const bool bOpen, const EPokeMonst
 	bMenuOpen = bOpen;
  PendingStorageAction = 0; StorageMessage.Reset(); LastStorageInputFrame = MAX_uint64;
  bMoveMasterMode=false; bChoosingMovePokemon=true;bMoveReview=false;MovePokemon=0;MoveCursor=0;ReplaceCursor=INDEX_NONE;DraftMoves.Reset();MoveMessage.Reset();
-	SelectedInstanceId.Invalidate(); PendingUseItem=nullptr; FocusedTeamSlot = 0; FocusedMainSlot = 0; FocusedInventorySlot = 0;
+	SelectedInstanceId.Invalidate(); PendingUseItem=nullptr;PPMoveTarget=INDEX_NONE;DiscardStage=0; FocusedTeamSlot = 0; FocusedMainSlot = 0; FocusedInventorySlot = 0;
 	Section = InitialSection;
 	LastRenderKey.Reset();
 	if (MenuLayer) MenuLayer->SetVisibility(bOpen ? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
@@ -405,7 +421,7 @@ void UPokeMonsterOverworldWidget::Render()
 	if (auto* ClockLabel=Cast<UTextBlock>(GetWidgetFromName(TEXT("WorldTimeLabel"))))ClockLabel->SetText(View.WorldTimeLabel);
 	if (QuestTitle) QuestTitle->SetText(View.ActiveQuestName);
 	if (QuestObjective) QuestObjective->SetText(View.ActiveQuestObjective);
-	const float HudHeight = 62.f + 27.f * FMath::Max(1, View.Team.Num());
+	const float HudHeight = 62.f + 27.f * FMath::Max(1, View.Team.Num())+(View.Notification.IsEmpty()?0.f:55.f);
 	if (auto* Shadow = Cast<UImage>(GetWidgetFromName(TEXT("HudShadow"))))
 		if (auto* Slot = Cast<UCanvasPanelSlot>(Shadow->Slot)) Slot->SetSize(FVector2D(296.f, HudHeight));
 	if (auto* Plate = Cast<UImage>(GetWidgetFromName(TEXT("HudPlate"))))
@@ -425,6 +441,7 @@ void UPokeMonsterOverworldWidget::Render()
 		HudTeamRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,Line,15,
 			Row.bKnockedOut ? FLinearColor(0.83f,0.56f,0.49f) : OverworldInk));
 	}
+	if(!View.Notification.IsEmpty()){auto* Notice=MakeText(WidgetTree,NAME_None,View.Notification.ToString(),16,OverworldInk);Notice->SetAutoWrapText(true);HudTeamRows->AddChildToVerticalBox(Notice);}
 	if (SectionTitle) SectionTitle->SetText(FText::FromString(Section == EPokeMonsterOverworldMenuSection::Team
 		? TEXT("Deine Kreaturen") : TEXT("Deine Gegenstände")));
  TeamButtons.Reset(); MainButtons.Reset();
@@ -445,6 +462,9 @@ void UPokeMonsterOverworldWidget::Render()
 		if (SectionTitle) SectionTitle->SetText(FText::FromString(PendingUseItem
    ? PendingUseItem->GetDisplayName().ToString()+TEXT(" · Ziel wählen")
    : SelectedInstanceId.IsValid()?FString(TEXT("Zielplatz wählen · freie Plätze rücken ans Teamende")):FString(TEXT("Pokémon wählen · danach Zielplatz"))));
+  if(PPMoveTarget!=INDEX_NONE && View.Team.IsValidIndex(PPMoveTarget))
+  {const auto& Team=View.Team[PPMoveTarget];SectionTitle->SetText(FText::FromString(PendingUseItem->GetDisplayName().ToString()+TEXT(" · Attacke wählen")));
+   for(int I=0;I<4;++I){FString Line=I==PPMoveCursor?TEXT("› "):TEXT("  ");const auto* M=Team.Repertoire.FindByPredicate([&](const auto& R){return R.ActiveSlot==I;});Line+=M?FString::Printf(TEXT("%s · AP %d/%d"),*M->Name.ToString(),M->CurrentPP,M->MaxPP):TEXT("Leer");MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,Line,21,OverworldDarkInk));}return;}
 		for (int32 Index = 0; Index < 6; ++Index)
 		{
 			const auto* Row = View.Team.IsValidIndex(Index) ? &View.Team[Index] : nullptr;
@@ -499,16 +519,21 @@ void UPokeMonsterOverworldWidget::Render()
  }
  else
  {
-  FocusedInventorySlot=FMath::Clamp(FocusedInventorySlot,0,FMath::Max(0,View.Inventory.Num()-1));
-  if (View.Inventory.IsEmpty())
-			MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,TEXT("Die Tasche ist leer."),19,OverworldDarkInk));
-		for (int32 Index=0; Index<View.Inventory.Num(); ++Index)
-		{
-   const auto& Row=View.Inventory[Index];
-			const FString Line = FString::Printf(TEXT("%s     ·     %s     ·     × %d"),
-				*Row.Name.ToString(),*Row.Category.ToString(),Row.Quantity);
-			MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,(Index==FocusedInventorySlot?TEXT("› "):TEXT("  "))+Line,21,OverworldDarkInk));
-		}
+  const auto Rows=BagRows();FocusedInventorySlot=FMath::Clamp(FocusedInventorySlot,0,FMath::Max(0,Rows.Num()-1));
+  static const TCHAR* Categories[]={TEXT("Pokébälle"),TEXT("Medizin"),TEXT("Kampfgegenstände"),TEXT("Entwicklung"),TEXT("Wichtige Gegenstände"),TEXT("Sonstiges")};
+  static const TCHAR* Sorts[]={TEXT("Reihenfolge"),TEXT("Kategorie"),TEXT("Name")};
+  SectionTitle->SetText(FText::FromString(FString::Printf(TEXT("Beutel · %s · %s"),BagCategory<0?TEXT("Alle"):Categories[BagCategory],Sorts[BagSort])));
+  if(auto* Hint=Cast<UTextBlock>(GetWidgetFromName(TEXT("MenuHint"))))Hint->SetText(FText::FromString(TEXT("←→: Kategorie · ZL/S: Sortieren · ZR/Entf: Wegwerfen · B: Verwenden · A: Zurück")));
+  if(Rows.IsEmpty())MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,TEXT("Keine Gegenstände in dieser Kategorie."),19,OverworldDarkInk));
+  const int32 Start=(FocusedInventorySlot/7)*7;
+  for(int32 I=Start;I<FMath::Min(Start+7,Rows.Num());++I)
+  {const auto& Row=Rows[I];MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,FString::Printf(TEXT("%s%s  ·  %s  ·  × %d"),I==FocusedInventorySlot?TEXT("› "):TEXT("  "),*Row.Name.ToString(),*Row.Category.ToString(),Row.Quantity),20,OverworldDarkInk));}
+  if(Rows.IsValidIndex(FocusedInventorySlot))if(auto* Item=Rows[FocusedInventorySlot].Item.LoadSynchronous())
+  {auto* Description=MakeText(WidgetTree,NAME_None,Item->GetDescription().ToString(),18,OverworldDarkInk);Description->SetAutoWrapText(true);MenuRows->AddChildToVerticalBox(Description);
+   if(!Item->CanDiscard())MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,TEXT("Wichtiger Gegenstand · Wegwerfen gesperrt"),17,OverworldDarkInk));
+   if(DiscardStage)MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,FString::Printf(TEXT("%s × %d %s · ↑↓ Menge · B/Enter bestätigen · A/Esc abbrechen"),*Item->GetDisplayName().ToString(),DiscardQuantity,DiscardStage==1?TEXT("wegwerfen?"):TEXT("ENDGÜLTIG wegwerfen?")),18,OverworldDarkInk));
+  }
+  if(Rows.Num()>7)MenuRows->AddChildToVerticalBox(MakeText(WidgetTree,NAME_None,FString::Printf(TEXT("Seite %d/%d"),Start/7+1,(Rows.Num()+6)/7),16,OverworldDarkInk));
 	}
 }
 
@@ -530,7 +555,7 @@ void UPokeMonsterOverworldWidget::ShowInventory()
 {
  if (bStorageBusy || PendingStorageAction) return;
  if(bMoveMasterMode)return;
- PendingUseItem=nullptr;
+ PendingUseItem=nullptr;PPMoveTarget=INDEX_NONE;DiscardStage=0;
 	SelectedInstanceId.Invalidate();
 	Section = EPokeMonsterOverworldMenuSection::Inventory;
 	LastRenderKey.Reset(); Render();
@@ -554,6 +579,10 @@ bool UPokeMonsterOverworldWidget::SelectTeamSlot(const int32 Slot)
 	FocusedTeamSlot = Slot;
  if (PendingUseItem)
  {
+  if(PendingUseItem->NeedsMoveTarget())
+  {if(PPMoveTarget==INDEX_NONE){if(!View.Team.IsValidIndex(Slot))return false;PPMoveTarget=Slot;PPMoveCursor=0;LastRenderKey.Reset();Render();return true;}
+   const bool Used=OwnerController.IsValid()&&OwnerController->UseMenuHealingItem(PendingUseItem,PPMoveTarget,Slot);
+   if(Used){PPMoveTarget=INDEX_NONE;ShowInventory();}else if(SectionTitle)SectionTitle->SetText(FText::FromString(TEXT("Diese Attacke benötigt keine AP · nichts verbraucht")));return Used;}
   const bool Evolution=PendingUseItem->GetCategory()==EPokeMonsterItemCategory::Evolution;
   const bool bUsed=View.Team.IsValidIndex(Slot) && OwnerController.IsValid()
    &&(Evolution?OwnerController->UseMenuEvolutionItem(PendingUseItem,Slot):OwnerController->UseMenuHealingItem(PendingUseItem,Slot));
@@ -778,4 +807,12 @@ void UPokeMonsterOverworldWidget::UpdatePokemonNames(const FVector2D& ViewSize)
     Draw(Ground->Specimens[I],FString::Printf(TEXT("TEST %02d | %s"),I+1,*Ground->Species[I]->GetDisplayName().ToString()));
  }
  for(int32 I=VisiblePokemonNameCount;I<PokemonNameLabels.Num();++I)PokemonNameLabels[I]->SetVisibility(ESlateVisibility::Collapsed);
+}
+
+TArray<FPokeMonsterOverworldItemRow> UPokeMonsterOverworldWidget::BagRows() const
+{
+ TArray<FPokeMonsterOverworldItemRow> Rows;
+ for(const auto& Row:View.Inventory){auto* Item=Row.Item.LoadSynchronous();if(BagCategory<0||(Item&&int32(Item->GetCategory())==BagCategory))Rows.Add(Row);}
+ if(BagSort)Rows.StableSort([&](const auto& A,const auto& B){auto* IA=A.Item.LoadSynchronous();auto* IB=B.Item.LoadSynchronous();if(BagSort==1&&IA&&IB&&IA->GetCategory()!=IB->GetCategory())return IA->GetCategory()<IB->GetCategory();return A.Name.CompareTo(B.Name)<0;});
+ return Rows;
 }

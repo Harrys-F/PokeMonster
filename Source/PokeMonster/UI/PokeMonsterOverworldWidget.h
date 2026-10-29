@@ -83,6 +83,10 @@ private:
  UPROPERTY(Transient) TArray<TObjectPtr<UButton>> MainButtons;
  int32 FocusedMainSlot = 0;
  int32 FocusedInventorySlot = 0;
+ int32 BagCategory=-1, BagSort=0;
+ int32 DiscardStage=0, DiscardQuantity=1;
+ int32 PPMoveTarget=INDEX_NONE, PPMoveCursor=0;
+ TArray<FPokeMonsterOverworldItemRow> BagRows() const;
 	UFUNCTION() void Team0();
 	UFUNCTION() void Team1();
 	UFUNCTION() void Team2();

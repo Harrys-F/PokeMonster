@@ -70,6 +70,7 @@ private:
  UPROPERTY(Transient) TArray<TObjectPtr<UButton>> HealingButtons;
  UPROPERTY(Transient) TObjectPtr<UButton> BagNextButton;
  UPROPERTY(Transient) TObjectPtr<UPokeMonsterItemData> HealingTargetItem;
+ int32 MedicineTeamTarget=INDEX_NONE;
  int32 BagPage=0;
  UFUNCTION()void CommandFight();UFUNCTION()void CommandTeam();UFUNCTION()void CommandBag();UFUNCTION()void CommandFlee();UFUNCTION()void MenuBack();
  UPROPERTY(Transient)TArray<TObjectPtr<UButton>> CommandButtons;

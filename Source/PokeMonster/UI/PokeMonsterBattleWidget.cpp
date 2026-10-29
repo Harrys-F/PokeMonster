@@ -268,11 +268,11 @@ void UPokeMonsterBattleWidget::BuildClassicTree()
  auto* F=Text(WidgetTree,TEXT("FeedbackLabel"),TEXT(""),24);F->SetVisibility(ESlateVisibility::Collapsed);Place(C,F,570,250,300,40);
 }
 void UPokeMonsterBattleWidget::CommandFight(){SetBattleMenu(EPokeMonsterBattleMenu::Moves);}
-void UPokeMonsterBattleWidget::CommandTeam(){HealingTargetItem=nullptr;SetBattleMenu(EPokeMonsterBattleMenu::Team);}
-void UPokeMonsterBattleWidget::CommandBag(){HealingTargetItem=nullptr;SetBattleMenu(EPokeMonsterBattleMenu::Bag);}
+void UPokeMonsterBattleWidget::CommandTeam(){HealingTargetItem=nullptr;MedicineTeamTarget=INDEX_NONE;SetBattleMenu(EPokeMonsterBattleMenu::Team);}
+void UPokeMonsterBattleWidget::CommandBag(){HealingTargetItem=nullptr;MedicineTeamTarget=INDEX_NONE;SetBattleMenu(EPokeMonsterBattleMenu::Bag);}
 void UPokeMonsterBattleWidget::CommandFlee(){if(Presenter&&GetWorld()&&Presenter->TrySelectFlee())GetWorld()->GetTimerManager().SetTimer(OverlayRoundTimer,this,&UPokeMonsterBattleWidget::ResolveOverlaySelection,.22f,false);}
-void UPokeMonsterBattleWidget::MenuBack(){if(Presenter&&Presenter->GetView().bLearningMove){Presenter->ResolveMoveLearning(INDEX_NONE);return;}if(!Presenter||Presenter->GetView().bBusy||Presenter->GetView().bMustSwitch)return;const bool Target=HealingTargetItem!=nullptr;HealingTargetItem=nullptr;SetBattleMenu(Target?EPokeMonsterBattleMenu::Bag:EPokeMonsterBattleMenu::Commands);}
-void UPokeMonsterBattleWidget::SelectHealing(int32 ButtonIndex){if(!Presenter||Presenter->GetView().bBusy)return;const auto& Items=Presenter->GetView().HealingItems;const int I=BagPage*3+ButtonIndex;if(!Items.IsValidIndex(I)||!Items[I].bEnabled)return;HealingTargetItem=Items[I].Item;SetBattleMenu(EPokeMonsterBattleMenu::Team);Refresh();}
+void UPokeMonsterBattleWidget::MenuBack(){if(Presenter&&Presenter->GetView().bLearningMove){Presenter->ResolveMoveLearning(INDEX_NONE);return;}if(!Presenter||Presenter->GetView().bBusy||Presenter->GetView().bMustSwitch)return;const bool Target=HealingTargetItem!=nullptr;HealingTargetItem=nullptr;MedicineTeamTarget=INDEX_NONE;SetBattleMenu(Target?EPokeMonsterBattleMenu::Bag:EPokeMonsterBattleMenu::Commands);}
+void UPokeMonsterBattleWidget::SelectHealing(int32 ButtonIndex){if(!Presenter||Presenter->GetView().bBusy)return;const auto& Items=Presenter->GetView().HealingItems;const int I=BagPage*3+ButtonIndex;if(!Items.IsValidIndex(I)||!Items[I].bEnabled)return;if(Items[I].Item->GetCategory()==EPokeMonsterItemCategory::Capture){if(GetWorld()&&Presenter->TrySelectCaptureItem(Items[I].Item))GetWorld()->GetTimerManager().SetTimer(OverlayRoundTimer,this,&UPokeMonsterBattleWidget::ResolveOverlaySelection,.22f,false);return;}HealingTargetItem=Items[I].Item;MedicineTeamTarget=INDEX_NONE;SetBattleMenu(EPokeMonsterBattleMenu::Team);Refresh();}
 void UPokeMonsterBattleWidget::Healing0(){SelectHealing(0);}void UPokeMonsterBattleWidget::Healing1(){SelectHealing(1);}void UPokeMonsterBattleWidget::Healing2(){SelectHealing(2);}
 void UPokeMonsterBattleWidget::NextBagPage(){if(Presenter){BagPage=(BagPage+1)%FMath::Max(1,(Presenter->GetView().HealingItems.Num()+2)/3);UpdateClassicMenu();}}
 void UPokeMonsterBattleWidget::SetBattleMenu(EPokeMonsterBattleMenu Page)
@@ -305,7 +305,9 @@ void UPokeMonsterBattleWidget::UpdateClassicMenu()
  BagPage=FMath::Clamp(BagPage,0,FMath::Max(0,(V.HealingItems.Num()-1)/3));
  for(int I=0;I<HealingButtons.Num();++I){const int ItemIndex=BagPage*3+I;const bool Exists=V.HealingItems.IsValidIndex(ItemIndex);auto* B=HealingButtons[I].Get();B->SetIsEnabled(Exists&&V.HealingItems[ItemIndex].bEnabled);if(auto* L=Cast<UTextBlock>(B->GetContent()))L->SetText(FText::FromString(Exists?FString::Printf(TEXT("%s  ×%d"),*V.HealingItems[ItemIndex].Name.ToString(),V.HealingItems[ItemIndex].Quantity):TEXT("—")));}
  if(BagNextButton)BagNextButton->SetVisibility(MenuPage==EPokeMonsterBattleMenu::Bag&&!V.bBusy&&!V.bFinished&&V.HealingItems.Num()>3?ESlateVisibility::Visible:ESlateVisibility::Collapsed);
- if(HealingTargetItem)for(int I=0;I<TeamButtons.Num();++I)if(TeamButtons[I])TeamButtons[I]->SetIsEnabled(V.PlayerTeam.IsValidIndex(I)&&!V.bBusy&&V.PlayerTeam[I].CurrentHP>0&&V.PlayerTeam[I].CurrentHP<V.PlayerTeam[I].MaxHP);
+ if(HealingTargetItem)for(int I=0;I<TeamButtons.Num();++I)if(TeamButtons[I])TeamButtons[I]->SetIsEnabled(V.PlayerTeam.IsValidIndex(I)&&!V.bBusy&&Presenter->CanUseMedicineOn(HealingTargetItem,I));
+ if(HealingTargetItem&&MedicineTeamTarget!=INDEX_NONE && Presenter->GetBattleState() && Presenter->GetBattleState()->TeamA.IsValidIndex(MedicineTeamTarget))
+ {const auto& C=Presenter->GetBattleState()->TeamA[MedicineTeamTarget];for(int I=0;I<Buttons.Num();++I){const auto& Slot=C.GetMoveSlots()[I];auto* M=Slot.GetMove().LoadSynchronous();Buttons[I]->SetIsEnabled(M&&Slot.GetCurrentPP()<Slot.GetMaxPP());if(auto* L=Cast<UTextBlock>(Buttons[I]->GetContent()))L->SetText(FText::FromString(M?FString::Printf(TEXT("%s · AP %d/%d"),*M->GetPlayerFacingName().ToString(),Slot.GetCurrentPP(),Slot.GetMaxPP()):TEXT("Leer")));}}
  if(!V.bBusy&&!V.bFinished&&StatusLabel){FString T=MenuPage==EPokeMonsterBattleMenu::Commands?FString::Printf(TEXT("Was soll %s tun?"),*V.Player.Name.ToString()):MenuPage==EPokeMonsterBattleMenu::Moves?TEXT("Wähle eine Attacke."):MenuPage==EPokeMonsterBattleMenu::Team?(HealingTargetItem?FString::Printf(TEXT("%s: Wähle ein verletztes Pokémon."),*HealingTargetItem->GetDisplayName().ToString()):TEXT("Wähle dein Pokémon.")):TEXT("Wähle ein Item.");if(V.bMustSwitch)T=TEXT("K.O. – wähle einen kampffähigen Ersatz.");if(V.bLearningMove)T=V.LearningPrompt.ToString();StatusLabel->SetAutoWrapText(true);StatusLabel->SetText(FText::FromString(T));}
 
 }
@@ -565,6 +567,7 @@ void UPokeMonsterBattleWidget::RoundResolved(const FPokeMonsterBattleResult& Res
 
 void UPokeMonsterBattleWidget::Choose(int32 Slot)
 {
+ if(HealingTargetItem&&MedicineTeamTarget!=INDEX_NONE){if(Presenter&&GetWorld()&&Presenter->TrySelectHealingItem(HealingTargetItem,MedicineTeamTarget,Slot)){HealingTargetItem=nullptr;MedicineTeamTarget=INDEX_NONE;GetWorld()->GetTimerManager().SetTimer(OverlayRoundTimer,this,&UPokeMonsterBattleWidget::ResolveOverlaySelection,.22f,false);}return;}
  if(Presenter&&Presenter->GetView().bLearningMove){Presenter->ResolveMoveLearning(Slot);return;}
 	if (bEncounterOverlay)
 	{
@@ -588,7 +591,7 @@ void UPokeMonsterBattleWidget::Choose(int32 Slot)
 
 void UPokeMonsterBattleWidget::ChooseSwitch(int32 TeamIndex)
 {
- if(HealingTargetItem){if(Presenter&&GetWorld()&&Presenter->TrySelectHealingItem(HealingTargetItem,TeamIndex)){HealingTargetItem=nullptr;GetWorld()->GetTimerManager().SetTimer(OverlayRoundTimer,this,&UPokeMonsterBattleWidget::ResolveOverlaySelection,.22f,false);}return;}
+ if(HealingTargetItem){if(HealingTargetItem->NeedsMoveTarget()){MedicineTeamTarget=TeamIndex;SetBattleMenu(EPokeMonsterBattleMenu::Moves);Refresh();return;}if(Presenter&&GetWorld()&&Presenter->TrySelectHealingItem(HealingTargetItem,TeamIndex)){HealingTargetItem=nullptr;GetWorld()->GetTimerManager().SetTimer(OverlayRoundTimer,this,&UPokeMonsterBattleWidget::ResolveOverlaySelection,.22f,false);}return;}
 
 	if (bEncounterOverlay)
 	{

@@ -33,7 +33,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Dialogue") void CloseDialogue();
 	UFUNCTION(BlueprintPure, Category="PokeMonster|Dialogue") UPokeMonsterDialogueWidget* GetDialogueWidget() const { return DialogueWidget; }
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Team") bool ReorderParty(FGuid SourceInstanceId, int32 TargetIndex);
- UFUNCTION(BlueprintCallable, Category="PokeMonster|Inventory") bool UseMenuHealingItem(UPokeMonsterItemData* Item, int32 TeamIndex);
+ UFUNCTION(BlueprintCallable, Category="PokeMonster|Inventory") bool UseMenuHealingItem(UPokeMonsterItemData* Item, int32 TeamIndex,int32 MoveSlot=-1);
  UFUNCTION(BlueprintCallable, Category="PokeMonster|Inventory") bool UseMenuEvolutionItem(UPokeMonsterItemData* Item,int32 TeamIndex);
  bool OpenMoveMaster(APokeMonsterNPC* Master);
  bool IsMoveMasterActive() const;

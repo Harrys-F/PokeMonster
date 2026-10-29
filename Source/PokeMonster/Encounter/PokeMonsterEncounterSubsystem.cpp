@@ -95,11 +95,16 @@ bool UPokeMonsterEncounterSubsystem::EnsureDevPlayerParty()
 	return true;
 }
 
-bool UPokeMonsterEncounterSubsystem::UseHealingItemOnPartyMember(const UPokeMonsterItemData* Item, int32 TeamIndex)
+bool UPokeMonsterEncounterSubsystem::UseHealingItemOnPartyMember(const UPokeMonsterItemData* Item, int32 TeamIndex,int32 MoveSlot)
 {
 	if (bActive || !PlayerParty.IsValidIndex(TeamIndex) || !GetGameInstance()) return false;
 	UPokeMonsterInventorySubsystem* Inventory = GetGameInstance()->GetSubsystem<UPokeMonsterInventorySubsystem>();
-	return Inventory && Inventory->UseHealingItem(Item, PlayerParty[TeamIndex]);
+	if(!Inventory)return false;
+ const auto Before=PlayerParty[TeamIndex];const auto Stacks=Inventory->GetStacks();
+ if(!Inventory->UseHealingItem(Item,PlayerParty[TeamIndex],MoveSlot))return false;
+ auto* Save=GetGameInstance()->GetSubsystem<UPokeMonsterSaveSubsystem>();
+ if(!Save||!Save->SaveProgressGame()){PlayerParty[TeamIndex]=Before;Inventory->RestoreStacks(Stacks);return false;}
+ Inventory->Notify(Item->GetDisplayName().ToString()+TEXT(" verwendet"));return true;
 }
 
 bool UPokeMonsterEncounterSubsystem::RestorePlayerPartyAtRestPoint()

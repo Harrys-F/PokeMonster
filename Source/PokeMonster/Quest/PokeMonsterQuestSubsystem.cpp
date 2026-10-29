@@ -212,3 +212,10 @@ void UPokeMonsterQuestSubsystem::Deinitialize()
 	Progress.Reset(); RuntimeDefinitions.Reset(); CapturedSpeciesIds.Reset();
 	Super::Deinitialize();
 }
+
+bool UPokeMonsterQuestSubsystem::GrantItemReward(FName QuestId,FName RewardId,const UPokeMonsterItemData* Item,int32 Quantity)
+{
+ if(GetStatus(QuestId)!=EPokeMonsterQuestStatus::Completed||RewardId.IsNone()||!GetGameInstance())return false;
+ const FName Source(*FString::Printf(TEXT("QuestReward.%s.%s"),*QuestId.ToString(),*RewardId.ToString()));
+ auto* I=GetGameInstance()->GetSubsystem<UPokeMonsterInventorySubsystem>();return I&&I->CollectItem(Item,Quantity,Source);
+}

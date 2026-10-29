@@ -23,6 +23,7 @@ public:
 	/** Technical creation/learning hook, never a player-facing loadout editor. */
 	bool AssignMove(int32 SlotIndex, UPokeMonsterMoveData* Move);
 	bool ConsumeMovePP(int32 SlotIndex, int32 Amount = 1);
+ bool RestoreMovePP(int32 SlotIndex,int32 Amount,bool bFull=false);
 	const TArray<FPokeMonsterMoveSlot>& GetLearnedMoves() const { return LearnedMoves; }
 	/** Save transport: validates uniqueness, PP bounds and active membership atomically. */
 	bool RestoreLearnedMoves(const TArray<FPokeMonsterMoveSlot>& Moves);

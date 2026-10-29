@@ -101,8 +101,9 @@ public:
 		UPokeMonsterInventorySubsystem* InInventory = nullptr, bool bAllowFlee = false, bool bTrainerExperience = false, const FPokeMonsterBattleEffectRules& EffectRules = FPokeMonsterBattleEffectRules());
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectMove(int32 Slot);
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectCapture();
+ UFUNCTION(BlueprintCallable,Category="Battle") bool TrySelectCaptureItem(UPokeMonsterItemData* Item);
  UFUNCTION(BlueprintCallable) bool TrySelectFlee();
- UFUNCTION(BlueprintCallable) bool TrySelectHealingItem(UPokeMonsterItemData* Item,int32 TeamIndex);
+ UFUNCTION(BlueprintCallable) bool TrySelectHealingItem(UPokeMonsterItemData* Item,int32 TeamIndex,int32 MoveSlot=-1);
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool TrySelectSwitch(int32 TeamIndex);
 	UFUNCTION(BlueprintCallable, Category="Battle UI") bool ResolveSelection();
 	UFUNCTION(BlueprintCallable, Category="Battle UI") void FinishPresentation();
@@ -110,6 +111,7 @@ public:
 	UFUNCTION(BlueprintPure, Category="Battle UI") const FPokeMonsterBattleView& GetView() const { return View; }
 	UFUNCTION(BlueprintPure, Category="Battle UI") const FPokeMonsterBattleResult& GetLastResult() const { return LastResult; }
 	/** Read-only battle copies for returning each team member's HP and PP to the caller. */
+	bool CanUseMedicineOn(const UPokeMonsterItemData* Item,int32 TeamIndex) const;
 	const FPokeMonsterBattleState* GetBattleState() const { return Session ? &Session->GetState() : nullptr; }
 	UPROPERTY(BlueprintAssignable, Category="Battle UI") FPokeMonsterBattleViewChanged OnChanged;
 	UPROPERTY(BlueprintAssignable, Category="Battle UI") FPokeMonsterBattleRoundPresented OnRoundResolved;
@@ -132,6 +134,7 @@ private:
 	bool bPendingCapture = false;
  bool bPendingFlee=false;
  UPROPERTY(Transient) TObjectPtr<UPokeMonsterItemData> PendingItem;
+ int32 PendingItemMoveSlot=INDEX_NONE;
 	bool bBusy = false;
 	bool bResolved = false;
 };

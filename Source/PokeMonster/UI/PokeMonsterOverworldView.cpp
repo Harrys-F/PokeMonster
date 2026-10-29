@@ -12,8 +12,8 @@ namespace
 	{
 		switch (Category)
 		{
-		case EPokeMonsterItemCategory::Capture: return FText::FromString(TEXT("Fangen"));
-		case EPokeMonsterItemCategory::Healing: return FText::FromString(TEXT("Heilung"));
+		case EPokeMonsterItemCategory::Capture: return FText::FromString(TEXT("Pokébälle"));
+		case EPokeMonsterItemCategory::Healing: return FText::FromString(TEXT("Medizin"));
 		case EPokeMonsterItemCategory::Battle: return FText::FromString(TEXT("Kampf"));
 		case EPokeMonsterItemCategory::Evolution: return FText::FromString(TEXT("Entwicklung"));
 		case EPokeMonsterItemCategory::KeyItem: return FText::FromString(TEXT("Wichtig"));
@@ -61,10 +61,12 @@ FPokeMonsterOverworldView FPokeMonsterOverworldViewBuilder::Build(
 	}
 	if (IsValid(Inventory))
 	{
+  View.Notification=Inventory->GetNotification();
 		for (const FPokeMonsterInventoryStack& Stack : Inventory->GetStacks())
 		{
 			const UPokeMonsterItemData* Item = Stack.Item.LoadSynchronous();
 			if (!IsValid(Item) || Stack.Quantity <= 0) continue;
+			if(auto* Existing=View.Inventory.FindByPredicate([&](const auto& R){return R.Item==Stack.Item;})){Existing->Quantity+=Stack.Quantity;continue;}
 			FPokeMonsterOverworldItemRow& Row = View.Inventory.AddDefaulted_GetRef();
 			Row.Item = Stack.Item;
 			Row.Name = Item->GetDisplayName();

@@ -1552,3 +1552,41 @@ Das bestehende Entwicklungssystem einschließlich Glumanda 16→Glutexo 36→Glu
 Die bestehende Itemkategorie Evolution wird über die vorhandene Beutel-/Teamwahl an denselben Angebots- und Sequenzpfad angebunden. Genau ein ausgewähltes Item wird nur mit erfolgreicher Entwicklung und erfolgreicher Speicherung verbraucht; Abbruch und fehlgeschlagene Speicherung behalten es. Schema 11 merkt sich dafür die Item-ID zum vorhandenen offenen Angebot, mit unveränderter Rückwärtsmigration für 1–10. Der vorhandene Teststein wird nicht zum Donnerstein umdefiniert. Eine vollständige reguläre Steinroute fehlt weiterhin mangels passender spielbereiter Formen/Items.
 
 Für besondere frühere Tauschentwicklungen bleiben endgültige Mindestlevel, Orte und Prüfungsinhalte ausdrücklich offen. Der vorhandene UND-Prüfer für Mindestlevel, Ort, Handlung, Freundschaft und Tageszeit wird wiederverwendet und zusätzlich mit den existierenden Quest-/WorldFlag-Klassen geprüft. Es werden keine künstlichen Freundschaftswerte, neuen Quests oder Orte eingeführt. Bestandsübersicht, technische Testfixtures und Abschlussnachweise stehen in `POKEMON_ENTWICKLUNGEN_V3_ERWEITERUNG.md`.
+
+## 29.10.2026 – Inventar und Gegenstände V2
+
+Die früheren reinen KP-Heilprototypen sind durch diesen erweiterten Itemumfang
+ersetzt; die bestehenden KP-Heiler behalten ihre bisherigen Zielregeln.
+
+Die vorhandenen Item-DataAssets, Stapel, BattleSession, Entwicklungsangebote V3,
+Interaktionsschnittstelle und SaveGame-Schema 11 bleiben die Grundlage. Der schon
+vorhandene Trank behält ID `TestHealingItem`, Assetpfad und Wirkung von 20 KP.
+Hyperheiler heilt im Kampf zusätzlich den vorhandenen Verwirrungszustand.
+Weitere Medizin verwendet wiederverwendbare KP-, Status-, Wiederbelebungs- und
+AP-Wirkungen; Supertrank 50 und Hypertrank 200 KP gemäß dem beauftragten
+Generation-2-Stand. AP-Mittel betreffen die ausgewählte beziehungsweise alle
+aktiven Attacken und synchronisieren deren persönliche Repertoireeinträge;
+inaktive Attacken werden nicht allein durch einen aktiven Elixiereinsatz aufgefüllt.
+
+Die bestehende technische Fangformel bleibt bestehen. Reguläre Bälle verwenden
+Bonus 1/1,5/2; der Meisterball garantiert nur einen bereits als fangbar zugelassenen
+Wildfang. Ein geworfener Ball wird auch bei Misserfolg verbraucht. Die alten
+Test-Fanggeräte mit Bonus 1,25 und Teststeine bleiben identisch erhalten.
+
+Zwölf generische, nicht blockierende Fundkisten auf VisualV2 verwenden stabile
+`Pickup.VisualV2.V1.*`-Kennungen im vorhandenen Weltfortschritt. Aufnahme und
+Wegwerfen werden erst nach erfolgreicher Speicherung wirksam; Schreibfehler
+rollen Mengen und neue Fundkennung zurück. Keine zusätzliche Speicherdatei,
+kein neues Schema, keine Wiederbefüllung beim Mapwechsel. Laden eines älteren
+manuellen Standes stellt wie bisher dessen zusammengehörigen Inventar- und
+Weltzustand wieder her. Hauptmenüs, Controllergrundbelegung, Landschaft,
+Lebensräume, Modelltestgelände und Rendering bleiben erhalten.
+
+Schlüsselitems sind grundsätzlich nicht wegwerfbar; weitere Items können explizit
+geschützt werden. Die Questverwaltung bietet eine einmalige, über vorhandene
+Weltflags gespeicherte Itembelohnung für abgeschlossene vorhandene Quests.
+Die Entwickler-Prüfmarke ist ausschließlich eine technische Persistenzfixture,
+kein festgelegter Questinhalt, kein Weltfund und kein Startgegenstand.
+Reguläre Steinrouten bleiben bei fehlenden Zielmodellen gesperrt. Myrapla
+überspringt Duflor nicht; weder Evoli-Formen noch besondere Prüfungsgegenstände
+oder endgültige Handlungsbedingungen werden erfunden.

@@ -111,7 +111,7 @@ public:
 	bool IsTrainerDefeated(FName TrainerId) const { return !TrainerId.IsNone() && DefeatedTrainerIds.Contains(TrainerId); }
 	/** Direct gameplay hook until a party/inventory menu exists. */
 	UFUNCTION(BlueprintCallable, Category="PokeMonster|Encounter")
-	bool UseHealingItemOnPartyMember(const UPokeMonsterItemData* Item, int32 TeamIndex);
+	bool UseHealingItemOnPartyMember(const UPokeMonsterItemData* Item, int32 TeamIndex,int32 MoveSlot=-1);
 	/** Restores the whole persistent party outside battle; no item is consumed. */
 	bool RestorePlayerPartyAtRestPoint();
 	/** Swap occupied slots; free targets append with compact save-compatible ordering. */
@@ -134,6 +134,7 @@ public:
 	TArray<FName> GetCompletedEncounterIds() const { return CompletedEncounterIds.Array(); }
 	UFUNCTION(BlueprintPure,Category="PokeMonster|Encounter") bool IsEncounterCompleted(FName EncounterId) const
 	{ return !EncounterId.IsNone() && CompletedEncounterIds.Contains(EncounterId); }
+	void UnmarkEncounterCompleted(FName EncounterId) { CompletedEncounterIds.Remove(EncounterId); }
 	void MarkEncounterCompleted(FName EncounterId)
 	{ if (!EncounterId.IsNone()) CompletedEncounterIds.Add(EncounterId); }
 

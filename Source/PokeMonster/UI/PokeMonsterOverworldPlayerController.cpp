@@ -19,6 +19,7 @@
 #include "../Interaction/PokeMonsterInteractable.h"
 #include "../Encounter/PokeMonsterVisibleWildCreatureActor.h"
 #include "../Items/PokeMonsterInventorySubsystem.h"
+#include "../Items/PokeMonsterWorldItem.h"
 #include "../Quest/PokeMonsterQuestSubsystem.h"
 #include "Blueprint/UserWidget.h"
 #include "Engine/GameInstance.h"
@@ -159,11 +160,11 @@ bool APokeMonsterOverworldPlayerController::CloseMenu()
 	return true;
 }
 
-bool APokeMonsterOverworldPlayerController::UseMenuHealingItem(UPokeMonsterItemData* Item, int32 TeamIndex)
+bool APokeMonsterOverworldPlayerController::UseMenuHealingItem(UPokeMonsterItemData* Item, int32 TeamIndex,int32 MoveSlot)
 {
  if (!bMenuOpen || !OverworldWidget || OverworldWidget->GetSection()!=EPokeMonsterOverworldMenuSection::Team) return false;
  auto* Encounter=GetGameInstance()?GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>():nullptr;
- const bool bUsed=Encounter && Encounter->UseHealingItemOnPartyMember(Item,TeamIndex);
+ const bool bUsed=Encounter && Encounter->UseHealingItemOnPartyMember(Item,TeamIndex,MoveSlot);
  if (bUsed) RefreshHUD();
  return bUsed;
 }
@@ -264,8 +265,10 @@ void APokeMonsterOverworldPlayerController::RefreshHUD()
 	auto* Wild=Cast<APokeMonsterVisibleWildCreatureActor>(Target);
  if(FocusedWild.IsValid()&&FocusedWild.Get()!=Wild)FocusedWild->SetChallengeFocused(false);
  FocusedWild=Wild;if(Wild)Wild->SetChallengeFocused(true);
+ const auto* Pickup=Cast<APokeMonsterWorldItem>(Target);
+ const auto* PickupItem=Pickup?Pickup->Item.LoadSynchronous():nullptr;
  OverworldWidget->SetInteractionAvailable(Target &&
-		IPokeMonsterInteractable::Execute_CanInteract(Target, Player),Wild?FString::Printf(TEXT("Interagieren · %s herausfordern"),*Wild->GetChallengeName()):FString());
+		IPokeMonsterInteractable::Execute_CanInteract(Target, Player),Wild?FString::Printf(TEXT("Interagieren · %s herausfordern"),*Wild->GetChallengeName()):PickupItem?FString::Printf(TEXT("Aufnehmen · %s × %d"),*PickupItem->GetDisplayName().ToString(),Pickup->Quantity):FString());
  TryOpenEvolutionPresentation();
 }
 
