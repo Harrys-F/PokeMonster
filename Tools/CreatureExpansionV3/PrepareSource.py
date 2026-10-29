@@ -56,12 +56,24 @@ def assign(v,w):
 locked=0
 for v in body.data.vertices:
  x,y,z=v.co
- if chains and z<s['ankle'][2]*.8 and abs(x)>s['height']*.04:
+ if name!='Raichu' and chains and z<s['ankle'][2]*.8 and abs(x)>s['height']*.04:
   assign(v,{'foot_L'if x>0 else'foot_R':1});locked+=1
+ if name=='Raichu':
+  # Continuous fitted sole envelope: no sharp boundary through welded foot surfaces.
+  def ramp(a,b,t):
+   t=max(0.,min(1.,(t-a)/(b-a)));return t*t*(3-2*t)
+  f=(1-ramp(.105,.195,z))*ramp(.005,.055,abs(x))*(1-ramp(.055,.11,y))
+  if f>0:
+   w={body.vertex_groups[g.group].name:g.weight*(1-f)for g in v.groups};n='foot_L'if x>0 else'foot_R';w[n]=w.get(n,0)+f;assign(v,w);locked+=1
+  # The original flat bolt is behind the arm; blend its root rather than cutting at X=.18.
+  f=ramp(.09,.19,x)*ramp(.015,.055,y)*ramp(.17,.21,z)*(1-ramp(.53,.57,z))
+  if f>0:
+   w={body.vertex_groups[g.group].name:g.weight*(1-f)for g in v.groups};w['tail_8']=w.get('tail_8',0)+f;assign(v,w)
  if name=='Nebulak':
   # Facial sphere is rigid; smoke's existing sculpted volume gets only subtle peripheral deformation.
   radial=((x/.39)**2+((z-.47)/.39)**2)**.5
   if radial<.90:assign(v,{'head':1})
+if name=='Raichu':weights['final_envelope_smoothing']=smooth(body,iterations=8)
 body.parent=rig;mod=body.modifiers.new('Anatomically fitted skin','ARMATURE');mod.object=rig;scene=bpy.context.scene;scene.unit_settings.system='METRIC';scene.unit_settings.scale_length=1;scene.render.fps=30
 for im in bpy.data.images:
  if im.type=='IMAGE':im.pack()

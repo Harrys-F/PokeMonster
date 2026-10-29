@@ -1,5 +1,6 @@
 """Hand-fitted landmarks from actual orthogonal Meshy intake views; metres, front -Y."""
 SPECS={
+ 'Raichu':dict(dex=26,height=.8,origin_offset=(-.19,0,0),family='Biped',walk=.28,run=.55,arm_lower_radians=1.05,walk_pelvis_drop_m=.012,run_pelvis_drop_m=.014,tail_sway_radians=.008,faint_ground_lock=True,pelvis=(0,.015,.235),chest=(0,.015,.41),neck=(0,-.010,.49),head=(0,-.025,.62),hip=(.083,.005,.205),knee=(.085,-.045,.13),ankle=(.085,.005,.042),toe=(.085,-.055,.018),shoulder=(.11,-.005,.435),elbow=(.20,-.01,.44),hand=(.245,-.01,.44),tip=(.27,-.02,.435)),
  'Pikachu':dict(dex=25,height=.4,origin_offset=(-.070,0,0),family='Biped',walk=.13,run=.28,pelvis=(0,-.025,.105),chest=(0,-.025,.185),neck=(0,-.035,.235),head=(0,-.035,.300),hip=(.052,-.025,.105),knee=(.060,-.040,.055),ankle=(.060,-.040,.012),toe=(.060,-.070,.010),shoulder=(.065,-.025,.187),elbow=(.105,-.027,.185),hand=(.145,-.032,.181),tip=(.157,-.04,.18)),
  'Myrapla':dict(dex=43,height=.5,family='Biped',walk=.10,run=.21,pelvis=(0,-.025,.075),chest=(0,-.025,.17),neck=(0,-.025,.23),head=(0,-.025,.26),hip=(.060,-.025,.075),knee=(.069,-.042,.040),ankle=(.073,-.044,.014),toe=(.073,-.078,.012)),
  'Enton':dict(dex=54,height=.8,family='Biped',walk=.21,run=.42,pelvis=(0,-.04,.20),chest=(0,-.04,.40),neck=(0,-.04,.53),head=(0,-.06,.69),hip=(.115,-.03,.20),knee=(.130,-.11,.11),ankle=(.135,-.10,.025),toe=(.135,-.22,.014),shoulder=(.14,-.03,.46),elbow=(.245,-.025,.45),hand=(.365,-.04,.45),tip=(.43,-.06,.45)),
@@ -17,6 +18,10 @@ def layout(name):
    b('thigh_'+side,p('hip'),p('knee'),'pelvis');b('shin_'+side,p('knee'),p('ankle'),'thigh_'+side);b('foot_'+side,p('ankle'),p('toe'),'shin_'+side);chains.append(dict(id=side,upper='thigh_'+side,lower='shin_'+side,foot='foot_'+side,pole=-1,phase=0 if side=='L'else .5))
    if 'shoulder'in s:
     for n,a,c,par in [('upperarm','shoulder','elbow','chest'),('forearm','elbow','hand','upperarm_'+side),('hand','hand','tip','forearm_'+side)]:b(n+'_'+side,p(a),p(c),par)
+ if name=='Raichu':
+  tail=[(0,.13,.245),(-.012,.15,.105),(-.10,.16,.045),(-.22,.16,.06),(-.235,.16,.14),(-.20,.16,.20),(-.12,.16,.25),(0,.145,.29),(.16,.12,.36),(.44,.095,.38)]
+  for i in range(len(tail)-1):b('tail_'+str(i),tail[i],tail[i+1],'pelvis'if i==0 else'tail_'+str(i-1))
+  for side,sg in [('L',1),('R',-1)]:b('ear_'+side,(sg*.095,-.005,.585),(sg*.215,-.005,.78),'head')
  if name=='Pikachu':
   b('tail_base',(0,.045,.075),(.075,.065,.10),'pelvis');b('tail_mid',(.075,.065,.10),(.10,.075,.20),'tail_base');b('tail_tip',(.10,.075,.20),(.20,.075,.26),'tail_mid')
   for side,sg in [('L',1),('R',-1)]:b('ear_'+side,(sg*.055,-.025,.28),(sg*.115,-.020,.365),'head')

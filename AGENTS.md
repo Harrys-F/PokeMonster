@@ -70,3 +70,13 @@ Wenn eine Entscheidung geändert wird:
 - Vorhandene Testumgebungen verwenden; neue Unreal-Maps nur nach ausdrücklicher Freigabe.
 - Der frühere schlanke Worktree bleibt vorerst bestehen. Keine Entfernung oder Bereinigung ohne weitere Freigabe.
 - Nach erfolgreich geprüften Arbeitspaketen nur benötigte Quellen, Assets, Werkzeuge und Dokumentation sinnvoll committen und regulär pushen; Remote und LFS überprüfen. Keine Kontrollmedien oder temporären Dateien hochladen.
+
+
+## Verbindliche Pokémon-Modellquellen – Raichu-Korrektur (29.10.2026)
+
+- Für sämtliche Pokémon ausschließlich Harrys eigene Meshy-Modelle aus dem bestehenden `Art/Characters/Creatures/Incoming` (einschließlich ausdrücklich zugeordneter Unterordner) verwenden. Tatsächlichen Pfad und Groß-/Kleinschreibung zuerst prüfen.
+- Pokémon-Modelle weder selbst modellieren noch prozedural generieren oder durch selbst erstellte Ersatzmodelle austauschen. Auch ein als Prototyp gekennzeichneter Ersatz ist dafür nicht freigegeben. Frühere Erlaubnisse für eigene Pokémon-Ersatzmodelle sind durch diese Regel ersetzt.
+- Blender nur für Import, Rigging, Skinning, Animationen, Skalierung und technische Bearbeitung des eindeutig identifizierten Meshy-Originals verwenden. Die ursprüngliche Gestalt muss von Harrys Modell stammen.
+- Meshy-Originale unverändert erhalten; Arbeitsquellen im vorgesehenen Artenverzeichnis anlegen. Keine ungeprüften Downloads, generierten Alternativen oder falschen Arten als Ersatz.
+- Fehlt die Quelle oder ist ihre Artzuordnung nicht eindeutig, den genauen Projektpfad bei Harry erfragen. Keine Quelle erfinden und keine funktionierenden Referenzen auf ein falsches/fehlendes Modell umbiegen.
+- Das selbst erstellte Raichu ist durch das korrekte Meshy-Raichu zu ersetzen und mit seinen ausschließlich eigenen Modell-/Material-/Export-/Generator-Dateien tatsächlich aus dem Arbeitsstand zu löschen. Erst Referenzen prüfen und ersetzen, dann entfernen; keine bloße Deaktivierung. Andere Pokémon, gemeinsam genutzte Assets, Spielstände und Nutzerdateien schützen. Keine Git-Historie umschreiben oder LFS-Prune ausführen.

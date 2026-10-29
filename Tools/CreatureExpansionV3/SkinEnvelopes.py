@@ -23,6 +23,10 @@ def assign(body,rig,s,name):
    candidates=['upperarm_'+side,'forearm_'+side,'hand_'+side]
    if name=='Machomei':candidates+=['lower_upperarm_'+side,'lower_forearm_'+side,'lower_hand_'+side]
    ar=near(p,candidates);f=smooth(.095,.145,abs(x))if name=='Pikachu'else smooth(s['shoulder'][0]*.80,s['shoulder'][0]*1.32,abs(x));weights={k:weights.get(k,0)*(1-f)+ar.get(k,0)*f for k in weights.keys()|ar.keys()}
+  if name=='Raichu':
+   if z>.625 and abs(x)>.070:weights={'ear_'+side:1}
+   tailnames=[n for n in bones.keys()if n.startswith('tail_')]
+   taildist=min(dist(p,n)for n in tailnames);f=smooth(.025,.075,y)*(1-smooth(.035,.075,taildist));tw=near(p,tailnames);weights={k:weights.get(k,0)*(1-f)+tw.get(k,0)*f for k in weights.keys()|tw.keys()}
   if name=='Pikachu':
    if z>.325 and abs(x)>.070:weights={'ear_'+side:1}
    if y>.075:

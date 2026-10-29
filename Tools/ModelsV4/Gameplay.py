@@ -1,7 +1,7 @@
 """Real existing bag, item-evolution sequence, buddy and native save in owned ModelsV4 UserDir only."""
 import unreal,json,time,traceback,os,stat,math,shutil
 from pathlib import Path
-R=Path(unreal.Paths.project_dir()).resolve();D=R/'Saved/ProjectRefinement/ModelsV4';q=json.loads((D/'Active.json').read_text());O=D/q['label'];route=[];s={'i':0,'start':time.monotonic(),'at':time.monotonic(),'ready':False};r={'checks':[],'cases':[],'performance':[],'test_team':'Original QA fixture, Pikachu level11; same individuals reordered, never replaces user team','physical_controller_test':False};state={};W=PC=P=E=S=I=C=Buddy=Input=Move=None
+R=Path(unreal.Paths.project_dir()).resolve();review_root=os.environ.get('PM_REVIEW_ROOT','ModelsV4');assert review_root in ['ModelsV4','RaichuMeshyCorrection'];D=R/'Saved/ProjectRefinement'/review_root;q=json.loads((D/'Active.json').read_text());O=D/q['label'];route=[];s={'i':0,'start':time.monotonic(),'at':time.monotonic(),'ready':False};r={'checks':[],'cases':[],'performance':[],'test_team':'Original QA fixture, Pikachu level11; same individuals reordered, never replaces user team','physical_controller_test':False};state={};W=PC=P=E=S=I=C=Buddy=Input=Move=None
 
 def cmd(x):unreal.SystemLibrary.execute_console_command(W,x,PC)
 def key(x):cmd('pm.Input.Key '+x+' tap')

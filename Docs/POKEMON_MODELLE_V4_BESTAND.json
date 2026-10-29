@@ -662,48 +662,48 @@
       "dex": 26,
       "asset": "/Game/Data/Creatures/DA_Raichu.DA_Raichu",
       "playable": true,
-      "presentation": "/Game/Characters/Creatures/Raichu/V4/DA_Raichu_Presentation.DA_Raichu_Presentation",
-      "mesh": "/Game/Characters/Creatures/Raichu/V4/Meshes/SK_Raichu_V4.SK_Raichu_V4",
-      "skeleton": "/Game/Characters/Creatures/Raichu/V4/Meshes/SK_Raichu_V4_Skeleton.SK_Raichu_V4_Skeleton",
+      "presentation": "/Game/Characters/Creatures/Raichu/MeshyV1/DA_Raichu_Meshy_Presentation.DA_Raichu_Meshy_Presentation",
+      "mesh": "/Game/Characters/Creatures/Raichu/MeshyV1/Meshes/SK_Raichu_Meshy.SK_Raichu_Meshy",
+      "skeleton": "/Game/Characters/Creatures/Raichu/MeshyV1/Meshes/SK_Raichu_Meshy_Skeleton.SK_Raichu_Meshy_Skeleton",
       "reference_cm": 80.0,
-      "ground_offset": 0.30000001192092896,
-      "walk_speed": 35.0,
-      "run_speed": 65.0,
+      "ground_offset": 0.0,
+      "walk_speed": 28.0,
+      "run_speed": 55.0,
       "clips": {
         "<PokeMonsterCreatureClip.IDLE: 0>": {
-          "asset": "/Game/Characters/Creatures/Raichu/V4/Animations/A_Raichu_Idle.A_Raichu_Idle",
+          "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Animations/A_Raichu_Idle.A_Raichu_Idle",
           "seconds": 2.0,
-          "skeleton": "/Game/Characters/Creatures/Raichu/V4/Meshes/SK_Raichu_V4_Skeleton.SK_Raichu_V4_Skeleton"
+          "skeleton": "/Game/Characters/Creatures/Raichu/MeshyV1/Meshes/SK_Raichu_Meshy_Skeleton.SK_Raichu_Meshy_Skeleton"
         },
         "<PokeMonsterCreatureClip.WALK: 1>": {
-          "asset": "/Game/Characters/Creatures/Raichu/V4/Animations/A_Raichu_Walk.A_Raichu_Walk",
-          "seconds": 0.6000000238418579,
-          "skeleton": "/Game/Characters/Creatures/Raichu/V4/Meshes/SK_Raichu_V4_Skeleton.SK_Raichu_V4_Skeleton"
+          "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Animations/A_Raichu_Walk.A_Raichu_Walk",
+          "seconds": 0.6333333253860474,
+          "skeleton": "/Game/Characters/Creatures/Raichu/MeshyV1/Meshes/SK_Raichu_Meshy_Skeleton.SK_Raichu_Meshy_Skeleton"
         },
         "<PokeMonsterCreatureClip.RUN: 2>": {
-          "asset": "/Game/Characters/Creatures/Raichu/V4/Animations/A_Raichu_Run.A_Raichu_Run",
+          "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Animations/A_Raichu_Run.A_Raichu_Run",
           "seconds": 0.4000000059604645,
-          "skeleton": "/Game/Characters/Creatures/Raichu/V4/Meshes/SK_Raichu_V4_Skeleton.SK_Raichu_V4_Skeleton"
+          "skeleton": "/Game/Characters/Creatures/Raichu/MeshyV1/Meshes/SK_Raichu_Meshy_Skeleton.SK_Raichu_Meshy_Skeleton"
         },
         "<PokeMonsterCreatureClip.ATTACK: 3>": {
-          "asset": "/Game/Characters/Creatures/Raichu/V4/Animations/A_Raichu_Attack.A_Raichu_Attack",
+          "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Animations/A_Raichu_Attack.A_Raichu_Attack",
           "seconds": 0.800000011920929,
-          "skeleton": "/Game/Characters/Creatures/Raichu/V4/Meshes/SK_Raichu_V4_Skeleton.SK_Raichu_V4_Skeleton"
+          "skeleton": "/Game/Characters/Creatures/Raichu/MeshyV1/Meshes/SK_Raichu_Meshy_Skeleton.SK_Raichu_Meshy_Skeleton"
         },
         "<PokeMonsterCreatureClip.HIT: 4>": {
-          "asset": "/Game/Characters/Creatures/Raichu/V4/Animations/A_Raichu_Hit.A_Raichu_Hit",
-          "seconds": 0.5,
-          "skeleton": "/Game/Characters/Creatures/Raichu/V4/Meshes/SK_Raichu_V4_Skeleton.SK_Raichu_V4_Skeleton"
+          "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Animations/A_Raichu_Hit.A_Raichu_Hit",
+          "seconds": 0.4000000059604645,
+          "skeleton": "/Game/Characters/Creatures/Raichu/MeshyV1/Meshes/SK_Raichu_Meshy_Skeleton.SK_Raichu_Meshy_Skeleton"
         },
         "<PokeMonsterCreatureClip.FAINT: 5>": {
-          "asset": "/Game/Characters/Creatures/Raichu/V4/Animations/A_Raichu_Faint.A_Raichu_Faint",
+          "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Animations/A_Raichu_Faint.A_Raichu_Faint",
           "seconds": 1.2000000476837158,
-          "skeleton": "/Game/Characters/Creatures/Raichu/V4/Meshes/SK_Raichu_V4_Skeleton.SK_Raichu_V4_Skeleton"
+          "skeleton": "/Game/Characters/Creatures/Raichu/MeshyV1/Meshes/SK_Raichu_Meshy_Skeleton.SK_Raichu_Meshy_Skeleton"
         },
         "<PokeMonsterCreatureClip.HAPPY: 6>": {
-          "asset": "/Game/Characters/Creatures/Raichu/V4/Animations/A_Raichu_Happy.A_Raichu_Happy",
-          "seconds": 1.2000000476837158,
-          "skeleton": "/Game/Characters/Creatures/Raichu/V4/Meshes/SK_Raichu_V4_Skeleton.SK_Raichu_V4_Skeleton"
+          "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Animations/A_Raichu_Happy.A_Raichu_Happy",
+          "seconds": 1.0,
+          "skeleton": "/Game/Characters/Creatures/Raichu/MeshyV1/Meshes/SK_Raichu_Meshy_Skeleton.SK_Raichu_Meshy_Skeleton"
         }
       },
       "validation": [],
@@ -1307,6 +1307,366 @@
   ],
   "all_creature_unreal_assets": [
     {
+      "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/DA_Raichu_Meshy_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Meshes/SK_Raichu_Meshy",
+      "class": "SkeletalMesh",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Materials/M_Raichu_Meshy",
+      "class": "Material",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Textures/T_Raichu_Normal",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Textures/T_Raichu_MetallicRoughness",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Textures/T_Raichu_BaseColor",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Animations/A_Raichu_Walk",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Animations/A_Raichu_Run",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Animations/A_Raichu_Idle",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Animations/A_Raichu_Hit",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Animations/A_Raichu_Happy",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Animations/A_Raichu_Faint",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Animations/A_Raichu_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raichu/MeshyV1/Meshes/SK_Raichu_Meshy_Skeleton",
+      "class": "Skeleton",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/DA_Garados_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Meshes/SK_Garados_Meshy",
+      "class": "SkeletalMesh",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Materials/M_Garados",
+      "class": "Material",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Textures/T_Garados_Normal",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Textures/T_Garados_MetallicRoughness",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Textures/T_Garados_BaseColor",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Walk",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Run",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Idle",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Hit",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Happy",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Faint",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Meshes/SK_Garados_Meshy_Skeleton",
+      "class": "Skeleton",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/SurfaceV2/DA_Schiggy_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/SurfaceV2/SK_Schiggy_Surface",
+      "class": "SkeletalMesh",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Materials/M_Schiggy",
+      "class": "Material",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Textures/T_Schiggy_Normal",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Textures/T_Schiggy_MetallicRoughness",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Textures/T_Schiggy_BaseColor",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/SurfaceV2/M_Schiggy_LocalSurfaceCaps",
+      "class": "Material",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Walk",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Run",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Idle",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Hit",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Happy",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Faint",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Meshes/SK_Schiggy_Meshy_Skeleton",
+      "class": "Skeleton",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Enton/PolishV4/DA_Enton_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Enton/PolishV4/SK_Enton_PolishV4",
+      "class": "SkeletalMesh",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Enton/MeshyV1/Materials/M_Enton",
+      "class": "Material",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Enton/MeshyV1/Textures/T_Enton_Normal",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Enton/MeshyV1/Textures/T_Enton_MetallicRoughness",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Enton/MeshyV1/Textures/T_Enton_BaseColor",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Enton/PolishV4/A_Enton_Walk",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Enton/PolishV4/A_Enton_Run",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Enton/PolishV4/A_Enton_Idle",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Enton/PolishV4/A_Enton_Hit",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Enton/PolishV4/A_Enton_Happy",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Enton/PolishV4/A_Enton_Faint",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Enton/PolishV4/A_Enton_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Enton/PolishV4/SK_Enton_PolishV4_Skeleton",
+      "class": "Skeleton",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/DA_Karpador_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Meshes/SK_Karpador_Meshy",
+      "class": "SkeletalMesh",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Materials/M_Karpador",
+      "class": "Material",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Textures/T_Karpador_Normal",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Textures/T_Karpador_MetallicRoughness",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Textures/T_Karpador_BaseColor",
+      "class": "Texture2D",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Walk",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Run",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Idle",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Hit",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Happy",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Faint",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Meshes/SK_Karpador_Meshy_Skeleton",
+      "class": "Skeleton",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Glurak/AnimationV61/DA_Glurak_Presentation_V61",
+      "class": "PokeMonsterCreaturePresentationData",
+      "tags": {}
+    },
+    {
       "asset": "/Game/Characters/Creatures/Glurak/AnimationV61/SK_Glurak_V61",
       "class": "SkeletalMesh",
       "tags": {}
@@ -1392,337 +1752,22 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/DA_Karpador_Presentation",
+      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/DA_Machomei_Presentation_V6",
       "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Meshes/SK_Karpador_Meshy",
+      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/SK_Machomei_V6",
       "class": "SkeletalMesh",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Materials/M_Karpador",
+      "asset": "/Game/Characters/Creatures/Machomei/MeshyV1/Materials/M_Machomei",
       "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Textures/T_Karpador_Normal",
-      "class": "Texture2D",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Textures/T_Karpador_MetallicRoughness",
-      "class": "Texture2D",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Textures/T_Karpador_BaseColor",
-      "class": "Texture2D",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Run",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Idle",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Hit",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Happy",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Faint",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Animations/A_Karpador_Attack",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Karpador/MeshyV1/Meshes/SK_Karpador_Meshy_Skeleton",
-      "class": "Skeleton",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Enton/PolishV4/DA_Enton_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Enton/PolishV4/SK_Enton_PolishV4",
-      "class": "SkeletalMesh",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Enton/MeshyV1/Materials/M_Enton",
-      "class": "Material",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Enton/MeshyV1/Textures/T_Enton_Normal",
-      "class": "Texture2D",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Enton/MeshyV1/Textures/T_Enton_MetallicRoughness",
-      "class": "Texture2D",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Enton/MeshyV1/Textures/T_Enton_BaseColor",
-      "class": "Texture2D",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Enton/PolishV4/A_Enton_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Enton/PolishV4/A_Enton_Run",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Enton/PolishV4/A_Enton_Idle",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Enton/PolishV4/A_Enton_Hit",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Enton/PolishV4/A_Enton_Happy",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Enton/PolishV4/A_Enton_Faint",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Enton/PolishV4/A_Enton_Attack",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Enton/PolishV4/SK_Enton_PolishV4_Skeleton",
-      "class": "Skeleton",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/SurfaceV2/DA_Schiggy_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/SurfaceV2/SK_Schiggy_Surface",
-      "class": "SkeletalMesh",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Materials/M_Schiggy",
-      "class": "Material",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Textures/T_Schiggy_Normal",
-      "class": "Texture2D",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Textures/T_Schiggy_MetallicRoughness",
-      "class": "Texture2D",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Textures/T_Schiggy_BaseColor",
-      "class": "Texture2D",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/SurfaceV2/M_Schiggy_LocalSurfaceCaps",
-      "class": "Material",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Run",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Idle",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Hit",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Happy",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Faint",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Animations/A_Schiggy_Attack",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Schiggy/MeshyV1/Meshes/SK_Schiggy_Meshy_Skeleton",
-      "class": "Skeleton",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/DA_Garados_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Meshes/SK_Garados_Meshy",
-      "class": "SkeletalMesh",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Materials/M_Garados",
-      "class": "Material",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Textures/T_Garados_Normal",
-      "class": "Texture2D",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Textures/T_Garados_MetallicRoughness",
-      "class": "Texture2D",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Textures/T_Garados_BaseColor",
-      "class": "Texture2D",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Run",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Idle",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Hit",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Happy",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Faint",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Animations/A_Garados_Attack",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Garados/MeshyV1/Meshes/SK_Garados_Meshy_Skeleton",
-      "class": "Skeleton",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Glurak/AnimationV61/DA_Glurak_Presentation_V61",
-      "class": "PokeMonsterCreaturePresentationData",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/SK_Machomei_V6_Skeleton",
-      "class": "Skeleton",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Attack_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Faint_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Happy_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Hit_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Idle_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Run_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Walk_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Machomei/MeshyV1/Textures/T_Machomei_BaseColor",
+      "asset": "/Game/Characters/Creatures/Machomei/MeshyV1/Textures/T_Machomei_Normal",
       "class": "Texture2D",
       "tags": {}
     },
@@ -1732,92 +1777,67 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Machomei/MeshyV1/Textures/T_Machomei_Normal",
+      "asset": "/Game/Characters/Creatures/Machomei/MeshyV1/Textures/T_Machomei_BaseColor",
       "class": "Texture2D",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Machomei/MeshyV1/Materials/M_Machomei",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Walk_V6",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/SK_Machomei_V6",
-      "class": "SkeletalMesh",
+      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Run_V6",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/DA_Machomei_Presentation_V6",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Idle_V6",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/M_Nebulak_Envelope_V6",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Hit_V6",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/SK_Nebulak_V6_Skeleton",
+      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Happy_V6",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Faint_V6",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/A_Machomei_Attack_V6",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Machomei/AnimationV6/SK_Machomei_V6_Skeleton",
       "class": "Skeleton",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Attack_V6",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/DA_Nebulak_Presentation_V6",
+      "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Faint_V6",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/SK_Nebulak_V6",
+      "class": "SkeletalMesh",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Happy_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Hit_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Idle_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Run_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Walk_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/M_Nebulak_ClosedCore_V6",
+      "asset": "/Game/Characters/Creatures/Nebulak/MeshyV1/Materials/M_Nebulak",
       "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/M_Nebulak_GasSurface_V6",
-      "class": "Material",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Nebulak/MotionV5/M_Nebulak_GasEnvelope",
-      "class": "Material",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Nebulak/MotionV5/SM_Nebulak_GasEnvelope",
-      "class": "StaticMesh",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Nebulak/MeshyV1/Textures/T_Nebulak_BaseColor",
+      "asset": "/Game/Characters/Creatures/Nebulak/MeshyV1/Textures/T_Nebulak_Normal",
       "class": "Texture2D",
       "tags": {}
     },
@@ -1827,67 +1847,92 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Nebulak/MeshyV1/Textures/T_Nebulak_Normal",
+      "asset": "/Game/Characters/Creatures/Nebulak/MeshyV1/Textures/T_Nebulak_BaseColor",
       "class": "Texture2D",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Nebulak/MeshyV1/Materials/M_Nebulak",
+      "asset": "/Game/Characters/Creatures/Nebulak/MotionV5/SM_Nebulak_GasEnvelope",
+      "class": "StaticMesh",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Nebulak/MotionV5/M_Nebulak_GasEnvelope",
       "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/SK_Nebulak_V6",
-      "class": "SkeletalMesh",
+      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/M_Nebulak_GasSurface_V6",
+      "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/DA_Nebulak_Presentation_V6",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/M_Nebulak_ClosedCore_V6",
+      "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Meshes/SK_Smettbo_Meshy_Skeleton",
+      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Walk_V6",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Run_V6",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Idle_V6",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Hit_V6",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Happy_V6",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Faint_V6",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/A_Nebulak_Attack_V6",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/SK_Nebulak_V6_Skeleton",
       "class": "Skeleton",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Animations/A_Smettbo_Attack",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Nebulak/AnimationV6/M_Nebulak_Envelope_V6",
+      "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Animations/A_Smettbo_Faint",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/DA_Smettbo_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Animations/A_Smettbo_Happy",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Meshes/SK_Smettbo_Meshy",
+      "class": "SkeletalMesh",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Animations/A_Smettbo_Hit",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Materials/M_Smettbo",
+      "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Animations/A_Smettbo_Idle",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Animations/A_Smettbo_Run",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Animations/A_Smettbo_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Textures/T_Smettbo_BaseColor",
+      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Textures/T_Smettbo_Normal",
       "class": "Texture2D",
       "tags": {}
     },
@@ -1897,67 +1942,67 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Textures/T_Smettbo_Normal",
+      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Textures/T_Smettbo_BaseColor",
       "class": "Texture2D",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Materials/M_Smettbo",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Animations/A_Smettbo_Walk",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Meshes/SK_Smettbo_Meshy",
-      "class": "SkeletalMesh",
+      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Animations/A_Smettbo_Run",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/DA_Smettbo_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Animations/A_Smettbo_Idle",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Meshes/SK_Bisasam_Meshy_Skeleton",
+      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Animations/A_Smettbo_Hit",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Animations/A_Smettbo_Happy",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Animations/A_Smettbo_Faint",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Animations/A_Smettbo_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Smettbo/MeshyV1/Meshes/SK_Smettbo_Meshy_Skeleton",
       "class": "Skeleton",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Attack",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Bisasam/PolishV2/DA_Bisasam_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Faint",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Bisasam/PolishV2/SK_Bisasam_Skin",
+      "class": "SkeletalMesh",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Happy",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Materials/M_Bisasam",
+      "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Hit",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Idle",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Run",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Textures/T_Bisasam_BaseColor",
+      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Textures/T_Bisasam_Normal",
       "class": "Texture2D",
       "tags": {}
     },
@@ -1967,67 +2012,67 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Textures/T_Bisasam_Normal",
+      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Textures/T_Bisasam_BaseColor",
       "class": "Texture2D",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Materials/M_Bisasam",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Walk",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bisasam/PolishV2/SK_Bisasam_Skin",
-      "class": "SkeletalMesh",
+      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Run",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bisasam/PolishV2/DA_Bisasam_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Idle",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/SK_Myrapla_V6_Skeleton",
+      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Hit",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Happy",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Faint",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Animations/A_Bisasam_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Bisasam/MeshyV1/Meshes/SK_Bisasam_Meshy_Skeleton",
       "class": "Skeleton",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Attack_V6",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/DA_Myrapla_Presentation_V6",
+      "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Faint_V6",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/SK_Myrapla_V6",
+      "class": "SkeletalMesh",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Happy_V6",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Myrapla/MeshyV1/Materials/M_Myrapla",
+      "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Hit_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Idle_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Run_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Walk_V6",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Myrapla/MeshyV1/Textures/T_Myrapla_BaseColor",
+      "asset": "/Game/Characters/Creatures/Myrapla/MeshyV1/Textures/T_Myrapla_Normal",
       "class": "Texture2D",
       "tags": {}
     },
@@ -2037,67 +2082,67 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Myrapla/MeshyV1/Textures/T_Myrapla_Normal",
+      "asset": "/Game/Characters/Creatures/Myrapla/MeshyV1/Textures/T_Myrapla_BaseColor",
       "class": "Texture2D",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Myrapla/MeshyV1/Materials/M_Myrapla",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Walk_V6",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/SK_Myrapla_V6",
-      "class": "SkeletalMesh",
+      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Run_V6",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/DA_Myrapla_Presentation_V6",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Idle_V6",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Meshes/SK_Gengar_Meshy_Skeleton",
+      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Hit_V6",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Happy_V6",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Faint_V6",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/A_Myrapla_Attack_V6",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Myrapla/AnimationV6/SK_Myrapla_V6_Skeleton",
       "class": "Skeleton",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Attack",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/DA_Gengar_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Faint",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Meshes/SK_Gengar_Meshy",
+      "class": "SkeletalMesh",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Happy",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Materials/M_Gengar",
+      "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Hit",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Idle",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Run",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Textures/T_Gengar_BaseColor",
+      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Textures/T_Gengar_Normal",
       "class": "Texture2D",
       "tags": {}
     },
@@ -2107,67 +2152,67 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Textures/T_Gengar_Normal",
+      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Textures/T_Gengar_BaseColor",
       "class": "Texture2D",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Materials/M_Gengar",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Walk",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Meshes/SK_Gengar_Meshy",
-      "class": "SkeletalMesh",
+      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Run",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/DA_Gengar_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Idle",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Meshes/SK_Hornliu_Meshy_Skeleton",
+      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Hit",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Happy",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Faint",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Animations/A_Gengar_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Gengar/MeshyV1/Meshes/SK_Gengar_Meshy_Skeleton",
       "class": "Skeleton",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Animations/A_Hornliu_Attack",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/DA_Hornliu_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Animations/A_Hornliu_Faint",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Meshes/SK_Hornliu_Meshy",
+      "class": "SkeletalMesh",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Animations/A_Hornliu_Happy",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Materials/M_Hornliu",
+      "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Animations/A_Hornliu_Hit",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Animations/A_Hornliu_Idle",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Animations/A_Hornliu_Run",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Animations/A_Hornliu_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Textures/T_Hornliu_BaseColor",
+      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Textures/T_Hornliu_Normal",
       "class": "Texture2D",
       "tags": {}
     },
@@ -2177,72 +2222,67 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Textures/T_Hornliu_Normal",
+      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Textures/T_Hornliu_BaseColor",
       "class": "Texture2D",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Materials/M_Hornliu",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Animations/A_Hornliu_Walk",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Meshes/SK_Hornliu_Meshy",
-      "class": "SkeletalMesh",
+      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Animations/A_Hornliu_Run",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/DA_Hornliu_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Animations/A_Hornliu_Idle",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Meshes/SK_Bibor_Meshy_Skeleton",
+      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Animations/A_Hornliu_Hit",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Animations/A_Hornliu_Happy",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Animations/A_Hornliu_Faint",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Animations/A_Hornliu_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Hornliu/MeshyV1/Meshes/SK_Hornliu_Meshy_Skeleton",
       "class": "Skeleton",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Animations/A_Bibor_Attack",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/DA_Bibor_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Animations/A_Bibor_Faint",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Meshes/SK_Bibor_Meshy",
+      "class": "SkeletalMesh",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Animations/A_Bibor_Happy",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Materials/M_Raichu_Highlight",
+      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Materials/M_Bibor",
       "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Animations/A_Bibor_Hit",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Animations/A_Bibor_Idle",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Animations/A_Bibor_Run",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Animations/A_Bibor_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Textures/T_Bibor_BaseColor",
+      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Textures/T_Bibor_Normal",
       "class": "Texture2D",
       "tags": {}
     },
@@ -2252,82 +2292,72 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Textures/T_Bibor_Normal",
+      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Textures/T_Bibor_BaseColor",
       "class": "Texture2D",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Materials/M_Bibor",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Animations/A_Bibor_Walk",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Meshes/SK_Bibor_Meshy",
-      "class": "SkeletalMesh",
+      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Animations/A_Bibor_Run",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Materials/M_Raichu_Eyes",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Animations/A_Bibor_Idle",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/DA_Bibor_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Animations/A_Bibor_Hit",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Meshes/SM_GlumandaTailFlame",
-      "class": "StaticMesh",
+      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Animations/A_Bibor_Happy",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Meshes/SK_Glumanda_Meshy_Skeleton",
+      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Animations/A_Bibor_Faint",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Animations/A_Bibor_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Bibor/MeshyV1/Meshes/SK_Bibor_Meshy_Skeleton",
       "class": "Skeleton",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Attack",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Zunderlauf/PolishV2/DA_Zunderlauf_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Happy",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV11/SK_Glumanda_V11",
+      "class": "SkeletalMesh",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Hit",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Idle",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Materials/M_Raichu_Gold",
+      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Materials/M_Glumanda",
       "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Run",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Materials/M_GlumandaTailFlame",
+      "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/PolishV2/A_Glumanda_Faint",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Textures/T_Glumanda_BaseColor",
+      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Textures/T_Glumanda_Normal",
       "class": "Texture2D",
       "tags": {}
     },
@@ -2337,82 +2367,72 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Textures/T_Glumanda_Normal",
+      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Textures/T_Glumanda_BaseColor",
       "class": "Texture2D",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Materials/M_GlumandaTailFlame",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Zunderlauf/PolishV2/A_Glumanda_Faint",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Materials/M_Glumanda",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Walk",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV11/SK_Glumanda_V11",
-      "class": "SkeletalMesh",
+      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Run",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/PolishV2/DA_Zunderlauf_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Idle",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Meshes/SK_Raupy_Meshy_Skeleton",
+      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Hit",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Happy",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Animations/A_Glumanda_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Meshes/SK_Glumanda_Meshy_Skeleton",
       "class": "Skeleton",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Animations/A_Raupy_Attack",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Zunderlauf/MeshyV1/Meshes/SM_GlumandaTailFlame",
+      "class": "StaticMesh",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Materials/M_Raichu_Brown",
+      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/DA_Raupy_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Meshes/SK_Raupy_Meshy",
+      "class": "SkeletalMesh",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Materials/M_Raupy",
       "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Animations/A_Raupy_Faint",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Animations/A_Raupy_Happy",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Animations/A_Raupy_Hit",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Animations/A_Raupy_Idle",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Animations/A_Raupy_Run",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Materials/M_Raichu_Cream",
-      "class": "Material",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Animations/A_Raupy_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Textures/T_Raupy_BaseColor",
+      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Textures/T_Raupy_Normal",
       "class": "Texture2D",
       "tags": {}
     },
@@ -2422,82 +2442,67 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Textures/T_Raupy_Normal",
+      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Textures/T_Raupy_BaseColor",
       "class": "Texture2D",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Materials/M_Raupy",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Animations/A_Raupy_Walk",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Meshes/SK_Raupy_Meshy",
-      "class": "SkeletalMesh",
+      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Animations/A_Raupy_Run",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/DA_Raupy_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Animations/A_Raupy_Idle",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Meshes/SK_Habitak_Meshy_Skeleton",
+      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Animations/A_Raupy_Hit",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Animations/A_Raupy_Happy",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Animations/A_Raupy_Faint",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Animations/A_Raupy_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Raupy/MeshyV1/Meshes/SK_Raupy_Meshy_Skeleton",
       "class": "Skeleton",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Attack",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/DA_Habitak_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Faint",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Meshes/SK_Habitak_Meshy",
+      "class": "SkeletalMesh",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Happy",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Materials/M_Habitak",
+      "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Hit",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Hover",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Idle",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Land",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Run",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Takeoff",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Textures/T_Habitak_BaseColor",
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Textures/T_Habitak_Normal",
       "class": "Texture2D",
       "tags": {}
     },
@@ -2507,67 +2512,87 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Textures/T_Habitak_Normal",
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Textures/T_Habitak_BaseColor",
       "class": "Texture2D",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Materials/M_Habitak",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Walk",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Meshes/SK_Habitak_Meshy",
-      "class": "SkeletalMesh",
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Takeoff",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/DA_Habitak_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Run",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Meshes/SK_Glutexo_Meshy_Skeleton",
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Land",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Idle",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Hover",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Hit",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Happy",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Faint",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Animations/A_Habitak_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Habitak/MeshyV1/Meshes/SK_Habitak_Meshy_Skeleton",
       "class": "Skeleton",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Attack",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/DA_Glutexo_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Faint",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Meshes/SK_Glutexo_Meshy",
+      "class": "SkeletalMesh",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Happy",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Materials/M_Glutexo",
+      "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Hit",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_Normal",
+      "class": "Texture2D",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Idle",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Run",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_BaseColor",
+      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_MetallicRoughness",
       "class": "Texture2D",
       "tags": {}
     },
@@ -2577,72 +2602,67 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_MetallicRoughness",
+      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_BaseColor",
       "class": "Texture2D",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Textures/T_Glutexo_Normal",
-      "class": "Texture2D",
+      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Walk",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Materials/M_Glutexo",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Run",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Meshes/SK_Glutexo_Meshy",
-      "class": "SkeletalMesh",
+      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Idle",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/DA_Glutexo_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Hit",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Meshes/SK_Pikachu_Meshy_Skeleton",
+      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Happy",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Faint",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Animations/A_Glutexo_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Glutexo/MeshyV1/Meshes/SK_Glutexo_Meshy_Skeleton",
       "class": "Skeleton",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Animations/A_Pikachu_Attack",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/DA_Pikachu_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Animations/A_Pikachu_Faint",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Meshes/SK_Pikachu_Meshy",
+      "class": "SkeletalMesh",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Animations/A_Pikachu_Happy",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Materials/M_Pikachu",
+      "class": "Material",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Animations/A_Pikachu_Hit",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Animations/A_Pikachu_Idle",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Animations/A_Pikachu_Run",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Animations/A_Pikachu_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Textures/T_Pikachu_BaseColor",
+      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Textures/T_Pikachu_Normal",
       "class": "Texture2D",
       "tags": {}
     },
@@ -2652,78 +2672,58 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Textures/T_Pikachu_Normal",
+      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Textures/T_Pikachu_BaseColor",
       "class": "Texture2D",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Materials/M_Pikachu",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Animations/A_Pikachu_Walk",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Meshes/SK_Pikachu_Meshy",
-      "class": "SkeletalMesh",
+      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Animations/A_Pikachu_Run",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/DA_Pikachu_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Animations/A_Pikachu_Idle",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Materials/M_Raichu_Coat",
-      "class": "Material",
+      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Animations/A_Pikachu_Hit",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Meshes/SK_Raichu_V4",
-      "class": "SkeletalMesh",
+      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Animations/A_Pikachu_Happy",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Meshes/SK_Raichu_V4_Skeleton",
+      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Animations/A_Pikachu_Faint",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Animations/A_Pikachu_Attack",
+      "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Pikachu/MeshyV1/Meshes/SK_Pikachu_Meshy_Skeleton",
       "class": "Skeleton",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Animations/A_Raichu_Idle",
+      "asset": "/Game/Characters/Creatures/Zunderlauf/OverworldV1/Animations/A_Zunderlauf_Sprint",
       "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Animations/A_Raichu_Walk",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Animations/A_Raichu_Run",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Animations/A_Raichu_Attack",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Animations/A_Raichu_Hit",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Animations/A_Raichu_Faint",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/Animations/A_Raichu_Happy",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Raichu/V4/DA_Raichu_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Shared/EvolutionV2/M_EvolutionGlow",
+      "class": "Material",
       "tags": {}
     },
     {
@@ -2792,11 +2792,6 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Nebulak/MotionV5/DA_Nebulak_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
-      "tags": {}
-    },
-    {
       "asset": "/Game/Characters/Creatures/Nebulak/MotionV5/A_Nebulak_Attack",
       "class": "AnimSequence",
       "tags": {}
@@ -2832,6 +2827,11 @@
       "tags": {}
     },
     {
+      "asset": "/Game/Characters/Creatures/Nebulak/MotionV5/DA_Nebulak_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
+      "tags": {}
+    },
+    {
       "asset": "/Game/Characters/Creatures/Nebulak/PolishV4/M_Nebulak_PolishV4",
       "class": "Material",
       "tags": {}
@@ -2844,11 +2844,6 @@
     {
       "asset": "/Game/Characters/Creatures/Nebulak/PolishV4/SK_Nebulak_PolishV4_Skeleton",
       "class": "Skeleton",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Nebulak/PolishV4/DA_Nebulak_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
@@ -2884,6 +2879,11 @@
     {
       "asset": "/Game/Characters/Creatures/Nebulak/PolishV4/A_Nebulak_Hit",
       "class": "AnimSequence",
+      "tags": {}
+    },
+    {
+      "asset": "/Game/Characters/Creatures/Nebulak/PolishV4/DA_Nebulak_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
@@ -3067,11 +3067,6 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Zunderlauf/OverworldV1/Animations/A_Zunderlauf_Sprint",
-      "class": "AnimSequence",
-      "tags": {}
-    },
-    {
       "asset": "/Game/Characters/Creatures/Zunderlauf/Animations/A_Zunderlauf_Attack",
       "class": "AnimSequence",
       "tags": {}
@@ -3104,11 +3099,6 @@
     {
       "asset": "/Game/Characters/Creatures/Zunderlauf/Animations/A_Zunderlauf_Happy",
       "class": "AnimSequence",
-      "tags": {}
-    },
-    {
-      "asset": "/Game/Characters/Creatures/Shared/EvolutionV2/M_EvolutionGlow",
-      "class": "Material",
       "tags": {}
     },
     {
@@ -3237,11 +3227,6 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Glurak/MotionV5/DA_Glurak_Presentation",
-      "class": "PokeMonsterCreaturePresentationData",
-      "tags": {}
-    },
-    {
       "asset": "/Game/Characters/Creatures/Glurak/MotionV5/A_Glurak_Takeoff",
       "class": "AnimSequence",
       "tags": {}
@@ -3292,6 +3277,11 @@
       "tags": {}
     },
     {
+      "asset": "/Game/Characters/Creatures/Glurak/MotionV5/DA_Glurak_Presentation",
+      "class": "PokeMonsterCreaturePresentationData",
+      "tags": {}
+    },
+    {
       "asset": "/Game/Characters/Creatures/Glurak/PolishV4/M_Glurak_PolishV4",
       "class": "Material",
       "tags": {}
@@ -3317,13 +3307,13 @@
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Schiggy/BiomeV11/DA_Schiggy_SwimPresentation",
-      "class": "PokeMonsterCreaturePresentationData",
+      "asset": "/Game/Characters/Creatures/Schiggy/BiomeV11/A_Schiggy_Swim",
+      "class": "AnimSequence",
       "tags": {}
     },
     {
-      "asset": "/Game/Characters/Creatures/Schiggy/BiomeV11/A_Schiggy_Swim",
-      "class": "AnimSequence",
+      "asset": "/Game/Characters/Creatures/Schiggy/BiomeV11/DA_Schiggy_SwimPresentation",
+      "class": "PokeMonsterCreaturePresentationData",
       "tags": {}
     },
     {
@@ -4092,6 +4082,17 @@
       "generator": "pygltflib@v1.16.5"
     },
     {
+      "path": "Art/Characters/Creatures/Incoming/Raichu.glb",
+      "bytes": 5478044,
+      "meshes": 1,
+      "materials": 1,
+      "textures": 3,
+      "skins": 0,
+      "animations": 0,
+      "triangles": 21351,
+      "generator": "pygltflib@v1.16.5"
+    },
+    {
       "path": "Art/Characters/Creatures/Incoming/Raupy.glb",
       "bytes": 5602888,
       "meshes": 1,
@@ -4504,36 +4505,36 @@
       "bytes": 18158069
     },
     {
-      "path": "Art/Characters/Creatures/Raichu/Exports/V4/Raichu_Attack.fbx",
-      "bytes": 2300092
+      "path": "Art/Characters/Creatures/Raichu/Exports/MeshyV1/Raichu_Attack.fbx",
+      "bytes": 1472188
     },
     {
-      "path": "Art/Characters/Creatures/Raichu/Exports/V4/Raichu_Faint.fbx",
-      "bytes": 2308108
+      "path": "Art/Characters/Creatures/Raichu/Exports/MeshyV1/Raichu_Faint.fbx",
+      "bytes": 1485164
     },
     {
-      "path": "Art/Characters/Creatures/Raichu/Exports/V4/Raichu_Happy.fbx",
-      "bytes": 2307116
+      "path": "Art/Characters/Creatures/Raichu/Exports/MeshyV1/Raichu_Happy.fbx",
+      "bytes": 1487804
     },
     {
-      "path": "Art/Characters/Creatures/Raichu/Exports/V4/Raichu_Hit.fbx",
-      "bytes": 2284764
+      "path": "Art/Characters/Creatures/Raichu/Exports/MeshyV1/Raichu_Hit.fbx",
+      "bytes": 1445228
     },
     {
-      "path": "Art/Characters/Creatures/Raichu/Exports/V4/Raichu_Idle.fbx",
-      "bytes": 2337740
+      "path": "Art/Characters/Creatures/Raichu/Exports/MeshyV1/Raichu_Idle.fbx",
+      "bytes": 1520668
     },
     {
-      "path": "Art/Characters/Creatures/Raichu/Exports/V4/Raichu_Run.fbx",
-      "bytes": 2276988
+      "path": "Art/Characters/Creatures/Raichu/Exports/MeshyV1/Raichu_Run.fbx",
+      "bytes": 1445228
     },
     {
-      "path": "Art/Characters/Creatures/Raichu/Exports/V4/Raichu_Walk.fbx",
-      "bytes": 2286924
+      "path": "Art/Characters/Creatures/Raichu/Exports/MeshyV1/Raichu_Walk.fbx",
+      "bytes": 1459580
     },
     {
-      "path": "Art/Characters/Creatures/Raichu/Source/Raichu_V4.blend",
-      "bytes": 2312107
+      "path": "Art/Characters/Creatures/Raichu/Source/Raichu_Meshy_V1.blend",
+      "bytes": 7027334
     },
     {
       "path": "Art/Characters/Creatures/Raupy/Exports/MeshyV1/Raupy_Attack.fbx",
@@ -6956,6 +6957,75 @@
           "packed": true
         }
       ]
+    },
+    {
+      "source": "Art/Characters/Creatures/Incoming/Raichu.glb",
+      "sha256": "e41d212e1fd8500275067f3953a9709a4a2eaa07dc4c4e006954768dca6c5b64",
+      "original_bounds": [
+        [
+          -0.4748539924621582,
+          -0.21899400651454926,
+          -0.44165000319480896
+        ],
+        [
+          0.4782710075378418,
+          0.21801799535751343,
+          0.4367679953575134
+        ]
+      ],
+      "normalization_scale": 0.9107281514249945,
+      "normalized_bounds": [
+        [
+          -0.43401888466347394,
+          -0.19899957309319344,
+          0.0
+        ],
+        [
+          0.43401888466347394,
+          0.19899957309319344,
+          0.7999999728581861
+        ]
+      ],
+      "meshes": [
+        {
+          "name": "Mesh_0",
+          "vertices": 17144,
+          "triangles": 21351,
+          "uv_layers": 1,
+          "materials": 1,
+          "boundary_edges": 11305,
+          "zero_area_faces": 0
+        }
+      ],
+      "rigs": 0,
+      "actions": 0,
+      "images": [
+        {
+          "name": "Image_0",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true
+        },
+        {
+          "name": "Image_1",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true
+        },
+        {
+          "name": "Image_2",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true
+        }
+      ],
+      "name": "Raichu"
     }
   ],
   "blend_technical": [
@@ -9624,179 +9694,1274 @@
         }
       ],
       "unit_scale": 1.0
+    },
+    {
+      "path": "Art/Characters/Creatures/Raichu/Source/Raichu_Meshy_V1.blend",
+      "original": "Art/Characters/Creatures/Incoming/Raichu.glb",
+      "sha256": "e41d212e1fd8500275067f3953a9709a4a2eaa07dc4c4e006954768dca6c5b64",
+      "mesh_vertices": 17144,
+      "triangles": 21351,
+      "rig_bones": 27,
+      "source_geometry_and_uv_retained": true,
+      "packed_images": true,
+      "actions": [
+        "Idle",
+        "Walk",
+        "Run",
+        "Attack",
+        "Hit",
+        "Faint",
+        "Happy"
+      ],
+      "audit": "Art/Characters/Creatures/Raichu/MeshyV1_ModelAudit.json"
     }
   ],
   "raichu_current_source": {
+    "origin": "Harry Meshy Original",
+    "path": "Art/Characters/Creatures/Incoming/Raichu.glb",
+    "sha256": "e41d212e1fd8500275067f3953a9709a4a2eaa07dc4c4e006954768dca6c5b64",
     "model": {
-      "source": "Art/Characters/Creatures/Raichu/Source/Raichu_V4.blend",
-      "vertices": 36367,
-      "triangles": 72352,
-      "materials": 6,
-      "bones": 23,
-      "height_m": 0.8091591205447912,
-      "loose_vertices": 0,
-      "boundary_edges": 288,
-      "zero_area_faces": 0,
-      "status": "candidate, visual approval outstanding"
+      "species": "Raichu",
+      "source": "Art/Characters/Creatures/Incoming/Raichu.glb",
+      "source_sha256": "e41d212e1fd8500275067f3953a9709a4a2eaa07dc4c4e006954768dca6c5b64",
+      "height_m": 0.8,
+      "size_basis": "standing_height",
+      "size_measurement": "complete neutral model including ears/leaves/gas silhouette; no runtime actor rescaling",
+      "front": "-Y",
+      "anatomical_origin_offset_m": [
+        -0.19,
+        0,
+        0
+      ],
+      "scale": 0.9107281514249945,
+      "vertices": 17144,
+      "triangles": 21351,
+      "materials": 1,
+      "bones": {
+        "root": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0.032
+          ],
+          null
+        ],
+        "pelvis": [
+          [
+            0,
+            0.015,
+            0.235
+          ],
+          [
+            0,
+            0.015,
+            0.41
+          ],
+          "root"
+        ],
+        "chest": [
+          [
+            0,
+            0.015,
+            0.41
+          ],
+          [
+            0,
+            -0.01,
+            0.49
+          ],
+          "pelvis"
+        ],
+        "head": [
+          [
+            0,
+            -0.01,
+            0.49
+          ],
+          [
+            0,
+            -0.025,
+            0.62
+          ],
+          "chest"
+        ],
+        "thigh_L": [
+          [
+            0.083,
+            0.005,
+            0.205
+          ],
+          [
+            0.085,
+            -0.045,
+            0.13
+          ],
+          "pelvis"
+        ],
+        "shin_L": [
+          [
+            0.085,
+            -0.045,
+            0.13
+          ],
+          [
+            0.085,
+            0.005,
+            0.042
+          ],
+          "thigh_L"
+        ],
+        "foot_L": [
+          [
+            0.085,
+            0.005,
+            0.042
+          ],
+          [
+            0.085,
+            -0.055,
+            0.018
+          ],
+          "shin_L"
+        ],
+        "upperarm_L": [
+          [
+            0.11,
+            -0.005,
+            0.435
+          ],
+          [
+            0.2,
+            -0.01,
+            0.44
+          ],
+          "chest"
+        ],
+        "forearm_L": [
+          [
+            0.2,
+            -0.01,
+            0.44
+          ],
+          [
+            0.245,
+            -0.01,
+            0.44
+          ],
+          "upperarm_L"
+        ],
+        "hand_L": [
+          [
+            0.245,
+            -0.01,
+            0.44
+          ],
+          [
+            0.27,
+            -0.02,
+            0.435
+          ],
+          "forearm_L"
+        ],
+        "thigh_R": [
+          [
+            -0.083,
+            0.005,
+            0.205
+          ],
+          [
+            -0.085,
+            -0.045,
+            0.13
+          ],
+          "pelvis"
+        ],
+        "shin_R": [
+          [
+            -0.085,
+            -0.045,
+            0.13
+          ],
+          [
+            -0.085,
+            0.005,
+            0.042
+          ],
+          "thigh_R"
+        ],
+        "foot_R": [
+          [
+            -0.085,
+            0.005,
+            0.042
+          ],
+          [
+            -0.085,
+            -0.055,
+            0.018
+          ],
+          "shin_R"
+        ],
+        "upperarm_R": [
+          [
+            -0.11,
+            -0.005,
+            0.435
+          ],
+          [
+            -0.2,
+            -0.01,
+            0.44
+          ],
+          "chest"
+        ],
+        "forearm_R": [
+          [
+            -0.2,
+            -0.01,
+            0.44
+          ],
+          [
+            -0.245,
+            -0.01,
+            0.44
+          ],
+          "upperarm_R"
+        ],
+        "hand_R": [
+          [
+            -0.245,
+            -0.01,
+            0.44
+          ],
+          [
+            -0.27,
+            -0.02,
+            0.435
+          ],
+          "forearm_R"
+        ],
+        "tail_0": [
+          [
+            0,
+            0.13,
+            0.245
+          ],
+          [
+            -0.012,
+            0.15,
+            0.105
+          ],
+          "pelvis"
+        ],
+        "tail_1": [
+          [
+            -0.012,
+            0.15,
+            0.105
+          ],
+          [
+            -0.1,
+            0.16,
+            0.045
+          ],
+          "tail_0"
+        ],
+        "tail_2": [
+          [
+            -0.1,
+            0.16,
+            0.045
+          ],
+          [
+            -0.22,
+            0.16,
+            0.06
+          ],
+          "tail_1"
+        ],
+        "tail_3": [
+          [
+            -0.22,
+            0.16,
+            0.06
+          ],
+          [
+            -0.235,
+            0.16,
+            0.14
+          ],
+          "tail_2"
+        ],
+        "tail_4": [
+          [
+            -0.235,
+            0.16,
+            0.14
+          ],
+          [
+            -0.2,
+            0.16,
+            0.2
+          ],
+          "tail_3"
+        ],
+        "tail_5": [
+          [
+            -0.2,
+            0.16,
+            0.2
+          ],
+          [
+            -0.12,
+            0.16,
+            0.25
+          ],
+          "tail_4"
+        ],
+        "tail_6": [
+          [
+            -0.12,
+            0.16,
+            0.25
+          ],
+          [
+            0,
+            0.145,
+            0.29
+          ],
+          "tail_5"
+        ],
+        "tail_7": [
+          [
+            0,
+            0.145,
+            0.29
+          ],
+          [
+            0.16,
+            0.12,
+            0.36
+          ],
+          "tail_6"
+        ],
+        "tail_8": [
+          [
+            0.16,
+            0.12,
+            0.36
+          ],
+          [
+            0.44,
+            0.095,
+            0.38
+          ],
+          "tail_7"
+        ],
+        "ear_L": [
+          [
+            0.095,
+            -0.005,
+            0.585
+          ],
+          [
+            0.215,
+            -0.005,
+            0.78
+          ],
+          "head"
+        ],
+        "ear_R": [
+          [
+            -0.095,
+            -0.005,
+            0.585
+          ],
+          [
+            -0.215,
+            -0.005,
+            0.78
+          ],
+          "head"
+        ]
+      },
+      "leg_chains": [
+        {
+          "id": "L",
+          "upper": "thigh_L",
+          "lower": "shin_L",
+          "foot": "foot_L",
+          "pole": -1,
+          "phase": 0
+        },
+        {
+          "id": "R",
+          "upper": "thigh_R",
+          "lower": "shin_R",
+          "foot": "foot_R",
+          "pole": -1,
+          "phase": 0.5
+        }
+      ],
+      "rig_family": "Biped",
+      "walk_speed_m_s": 0.28,
+      "run_speed_m_s": 0.55,
+      "geometry_unchanged": true,
+      "uv_original": true,
+      "weights": {
+        "method": "explicit hand-fitted anatomical segment envelopes, maximum four normalized influences; pose inspection required",
+        "bone_heat": "Pikachu original Bone Heat failed; incomplete weights rejected, not transferred",
+        "vertices_per_bone": {
+          "tail_2": 868,
+          "tail_3": 803,
+          "tail_1": 1407,
+          "tail_4": 445,
+          "chest": 4854,
+          "head": 7599,
+          "pelvis": 5831,
+          "tail_7": 11409,
+          "upperarm_L": 1515,
+          "forearm_L": 1277,
+          "tail_8": 1914,
+          "tail_0": 7967,
+          "tail_6": 8518,
+          "ear_L": 1422,
+          "thigh_L": 1326,
+          "shin_L": 1266,
+          "forearm_R": 616,
+          "upperarm_R": 817,
+          "hand_R": 545,
+          "thigh_R": 1286,
+          "shin_R": 1477,
+          "foot_L": 998,
+          "tail_5": 605,
+          "ear_R": 1411,
+          "hand_L": 1057,
+          "foot_R": 1343
+        },
+        "unweighted_vertices": 0,
+        "original_geometry_unchanged": true,
+        "smoothing": {
+          "iterations": 18,
+          "virtual_vertices": 10699,
+          "original_vertices": 17144,
+          "maximum_influences": 4,
+          "no_geometry_or_uv_changes": true
+        },
+        "final_envelope_smoothing": {
+          "iterations": 8,
+          "virtual_vertices": 10699,
+          "original_vertices": 17144,
+          "maximum_influences": 4,
+          "no_geometry_or_uv_changes": true
+        }
+      },
+      "sole_vertices_locked": 3164,
+      "notes": [
+        "Original source appearance preserved; no remesh or decimation."
+      ]
     },
     "animation": {
       "Idle": {
-        "duration": 2.0,
         "frames": 61,
+        "duration_s": 2.0,
         "speed_cm_s": 0,
-        "minimum_surface_z_m": 0.0029999909456819296,
-        "stance_increment_error_m": 0
+        "foot_stance_increment_error_m": 0,
+        "max_unreachable_m": 0.0,
+        "min_z_m": 3.810036286466811e-09,
+        "max_min_z_m": 3.810036286466811e-09,
+        "foot_tracks": {
+          "L": [],
+          "R": []
+        }
       },
       "Walk": {
-        "duration": 0.6,
-        "frames": 19,
-        "speed_cm_s": 35.0,
-        "minimum_surface_z_m": 0.0029999897815287113,
-        "stance_increment_error_m": 6.4695874837927825e-09
+        "frames": 20,
+        "duration_s": 0.6333333333333333,
+        "speed_cm_s": 28.000000000000004,
+        "foot_stance_increment_error_m": 1.337130864538516e-08,
+        "max_unreachable_m": 0.0,
+        "min_z_m": -4.470391612443336e-09,
+        "max_min_z_m": 0.0022149267606437206,
+        "foot_tracks": {
+          "L": [
+            {
+              "phase": 0.0,
+              "stance": true,
+              "ankle": [
+                0.08499999344348907,
+                -0.045540016144514084,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.05263157894736842,
+              "stance": true,
+              "ankle": [
+                0.08500000834465027,
+                -0.0362066812813282,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.10526315789473684,
+              "stance": true,
+              "ankle": [
+                0.08499999344348907,
+                -0.026873348280787468,
+                0.04199999198317528
+              ]
+            },
+            {
+              "phase": 0.15789473684210525,
+              "stance": true,
+              "ankle": [
+                0.08499999344348907,
+                -0.017540013417601585,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.21052631578947367,
+              "stance": true,
+              "ankle": [
+                0.08500000834465027,
+                -0.008206682279706001,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.2631578947368421,
+              "stance": true,
+              "ankle": [
+                0.08500000834465027,
+                0.0011266510700806975,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.3157894736842105,
+              "stance": true,
+              "ankle": [
+                0.08500000089406967,
+                0.010459985584020615,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.3684210526315789,
+              "stance": true,
+              "ankle": [
+                0.08500000089406967,
+                0.019793320447206497,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.42105263157894735,
+              "stance": true,
+              "ankle": [
+                0.08500000834465027,
+                0.02912665158510208,
+                0.041999999433755875
+              ]
+            },
+            {
+              "phase": 0.47368421052631576,
+              "stance": true,
+              "ankle": [
+                0.08500000834465027,
+                0.03845999017357826,
+                0.04199999198317528
+              ]
+            },
+            {
+              "phase": 0.5263157894736842,
+              "stance": true,
+              "ankle": [
+                0.08500000834465027,
+                0.04779331013560295,
+                0.04199999198317528
+              ]
+            },
+            {
+              "phase": 0.5789473684210527,
+              "stance": false,
+              "ankle": [
+                0.08500000834465027,
+                0.05343673378229141,
+                0.04224041476845741
+              ]
+            },
+            {
+              "phase": 0.631578947368421,
+              "stance": false,
+              "ankle": [
+                0.08500000834465027,
+                0.041064634919166565,
+                0.046129584312438965
+              ]
+            },
+            {
+              "phase": 0.6842105263157895,
+              "stance": false,
+              "ankle": [
+                0.08499999344348907,
+                0.028692543506622314,
+                0.051183559000492096
+              ]
+            },
+            {
+              "phase": 0.7368421052631579,
+              "stance": false,
+              "ankle": [
+                0.08500000089406967,
+                0.016320446506142616,
+                0.05509722977876663
+              ]
+            },
+            {
+              "phase": 0.7894736842105263,
+              "stance": false,
+              "ankle": [
+                0.08500001579523087,
+                0.00394835602492094,
+                0.05638846009969711
+              ]
+            },
+            {
+              "phase": 0.8421052631578947,
+              "stance": false,
+              "ankle": [
+                0.08500000834465027,
+                -0.00842373538762331,
+                0.05458751320838928
+              ]
+            },
+            {
+              "phase": 0.8947368421052632,
+              "stance": false,
+              "ankle": [
+                0.08500000834465027,
+                -0.020795833319425583,
+                0.05035156011581421
+              ]
+            },
+            {
+              "phase": 0.9473684210526315,
+              "stance": false,
+              "ankle": [
+                0.08499998599290848,
+                -0.03316792473196983,
+                0.04530841484665871
+              ]
+            },
+            {
+              "phase": 0.0,
+              "stance": true,
+              "ankle": [
+                0.08499999344348907,
+                -0.045540016144514084,
+                0.041999995708465576
+              ]
+            }
+          ],
+          "R": [
+            {
+              "phase": 0.5,
+              "stance": true,
+              "ankle": [
+                -0.08500000089406967,
+                0.04312665015459061,
+                0.041999999433755875
+              ]
+            },
+            {
+              "phase": 0.5526315789473684,
+              "stance": true,
+              "ankle": [
+                -0.08500000834465027,
+                0.05245998501777649,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.6052631578947368,
+              "stance": false,
+              "ankle": [
+                -0.08500000834465027,
+                0.04725068807601929,
+                0.04385200887918472
+              ]
+            },
+            {
+              "phase": 0.6578947368421053,
+              "stance": false,
+              "ankle": [
+                -0.08500000089406967,
+                0.03487859293818474,
+                0.048674579709768295
+              ]
+            },
+            {
+              "phase": 0.7105263157894737,
+              "stance": false,
+              "ankle": [
+                -0.08500000089406967,
+                0.022506490349769592,
+                0.05339622125029564
+              ]
+            },
+            {
+              "phase": 0.763157894736842,
+              "stance": false,
+              "ankle": [
+                -0.08500000089406967,
+                0.01013440452516079,
+                0.0561264306306839
+              ]
+            },
+            {
+              "phase": 0.8157894736842105,
+              "stance": false,
+              "ankle": [
+                -0.08500001579523087,
+                -0.002237690845504403,
+                0.055859241634607315
+              ]
+            },
+            {
+              "phase": 0.868421052631579,
+              "stance": false,
+              "ankle": [
+                -0.08499999344348907,
+                -0.014609786681830883,
+                0.05269157141447067
+              ]
+            },
+            {
+              "phase": 0.9210526315789473,
+              "stance": false,
+              "ankle": [
+                -0.08500000089406967,
+                -0.02698187530040741,
+                0.04779909551143646
+              ]
+            },
+            {
+              "phase": 0.9736842105263157,
+              "stance": false,
+              "ankle": [
+                -0.08500000089406967,
+                -0.03935396671295166,
+                0.04320278391242027
+              ]
+            },
+            {
+              "phase": 0.02631578947368407,
+              "stance": true,
+              "ankle": [
+                -0.08500000834465027,
+                -0.040873344987630844,
+                0.041999999433755875
+              ]
+            },
+            {
+              "phase": 0.07894736842105265,
+              "stance": true,
+              "ankle": [
+                -0.08499998599290848,
+                -0.03154001384973526,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.13157894736842102,
+              "stance": true,
+              "ankle": [
+                -0.08500000089406967,
+                -0.022206680849194527,
+                0.04199998825788498
+              ]
+            },
+            {
+              "phase": 0.18421052631578938,
+              "stance": true,
+              "ankle": [
+                -0.08500000089406967,
+                -0.012873350642621517,
+                0.041999999433755875
+              ]
+            },
+            {
+              "phase": 0.23684210526315796,
+              "stance": true,
+              "ankle": [
+                -0.08499999344348907,
+                -0.0035400146152824163,
+                0.04199999198317528
+              ]
+            },
+            {
+              "phase": 0.2894736842105263,
+              "stance": true,
+              "ankle": [
+                -0.08500000089406967,
+                0.005793313961476088,
+                0.04199999198317528
+              ]
+            },
+            {
+              "phase": 0.3421052631578947,
+              "stance": true,
+              "ankle": [
+                -0.08500000089406967,
+                0.015126654878258705,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.3947368421052633,
+              "stance": true,
+              "ankle": [
+                -0.08500000089406967,
+                0.02445998415350914,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.4473684210526314,
+              "stance": true,
+              "ankle": [
+                -0.08500000089406967,
+                0.03379331901669502,
+                0.04199999198317528
+              ]
+            },
+            {
+              "phase": 0.5,
+              "stance": true,
+              "ankle": [
+                -0.08500000089406967,
+                0.04312665015459061,
+                0.041999999433755875
+              ]
+            }
+          ]
+        }
       },
       "Run": {
-        "duration": 0.4,
         "frames": 13,
-        "speed_cm_s": 65.0,
-        "minimum_surface_z_m": 0.0029999888502061367,
-        "stance_increment_error_m": 3.551443417126876e-09
+        "duration_s": 0.4,
+        "speed_cm_s": 55.00000000000001,
+        "foot_stance_increment_error_m": 6.7303578057953395e-09,
+        "max_unreachable_m": 0.0,
+        "min_z_m": -3.2624529744396114e-09,
+        "max_min_z_m": 0.002213867148384452,
+        "foot_tracks": {
+          "L": [
+            {
+              "phase": 0.0,
+              "stance": true,
+              "ankle": [
+                0.08500000834465027,
+                -0.04340001195669174,
+                0.04199999198317528
+              ]
+            },
+            {
+              "phase": 0.08333333333333333,
+              "stance": true,
+              "ankle": [
+                0.08500000834465027,
+                -0.02506668120622635,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.16666666666666666,
+              "stance": true,
+              "ankle": [
+                0.08500001579523087,
+                -0.006733348127454519,
+                0.041999999433755875
+              ]
+            },
+            {
+              "phase": 0.25,
+              "stance": true,
+              "ankle": [
+                0.08500001579523087,
+                0.011599982157349586,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.3333333333333333,
+              "stance": true,
+              "ankle": [
+                0.08500000089406967,
+                0.029933316633105278,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.4166666666666667,
+              "stance": true,
+              "ankle": [
+                0.08500000834465027,
+                0.04826665669679642,
+                0.041999999433755875
+              ]
+            },
+            {
+              "phase": 0.5,
+              "stance": false,
+              "ankle": [
+                0.08500000834465027,
+                0.04302855208516121,
+                0.04731470346450806
+              ]
+            },
+            {
+              "phase": 0.5833333333333334,
+              "stance": false,
+              "ankle": [
+                0.08500000834465027,
+                0.02862379141151905,
+                0.05911363661289215
+              ]
+            },
+            {
+              "phase": 0.6666666666666666,
+              "stance": false,
+              "ankle": [
+                0.08500000834465027,
+                0.014219032600522041,
+                0.06815493106842041
+              ]
+            },
+            {
+              "phase": 0.75,
+              "stance": false,
+              "ankle": [
+                0.08500000834465027,
+                -0.00018573175475466996,
+                0.06940868496894836
+              ]
+            },
+            {
+              "phase": 0.8333333333333334,
+              "stance": false,
+              "ankle": [
+                0.08500000089406967,
+                -0.014590495266020298,
+                0.062208134680986404
+              ]
+            },
+            {
+              "phase": 0.9166666666666666,
+              "stance": false,
+              "ankle": [
+                0.08500000089406967,
+                -0.02899525687098503,
+                0.05047079175710678
+              ]
+            },
+            {
+              "phase": 0.0,
+              "stance": true,
+              "ankle": [
+                0.08500000834465027,
+                -0.04340001195669174,
+                0.04199999198317528
+              ]
+            }
+          ],
+          "R": [
+            {
+              "phase": 0.5,
+              "stance": false,
+              "ankle": [
+                -0.08500000834465027,
+                0.04302855208516121,
+                0.04731470346450806
+              ]
+            },
+            {
+              "phase": 0.5833333333333334,
+              "stance": false,
+              "ankle": [
+                -0.08500000834465027,
+                0.02862379141151905,
+                0.05911363661289215
+              ]
+            },
+            {
+              "phase": 0.6666666666666666,
+              "stance": false,
+              "ankle": [
+                -0.08500000834465027,
+                0.014219032600522041,
+                0.06815493106842041
+              ]
+            },
+            {
+              "phase": 0.75,
+              "stance": false,
+              "ankle": [
+                -0.08500000834465027,
+                -0.00018573175475466996,
+                0.06940868496894836
+              ]
+            },
+            {
+              "phase": 0.8333333333333333,
+              "stance": false,
+              "ankle": [
+                -0.08500000089406967,
+                -0.014590495266020298,
+                0.062208134680986404
+              ]
+            },
+            {
+              "phase": 0.9166666666666667,
+              "stance": false,
+              "ankle": [
+                -0.08500000089406967,
+                -0.02899525687098503,
+                0.05047079175710678
+              ]
+            },
+            {
+              "phase": 0.0,
+              "stance": true,
+              "ankle": [
+                -0.08500000834465027,
+                -0.04340001195669174,
+                0.04199999198317528
+              ]
+            },
+            {
+              "phase": 0.08333333333333348,
+              "stance": true,
+              "ankle": [
+                -0.08500000834465027,
+                -0.02506668120622635,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.16666666666666652,
+              "stance": true,
+              "ankle": [
+                -0.08500001579523087,
+                -0.006733348127454519,
+                0.041999999433755875
+              ]
+            },
+            {
+              "phase": 0.25,
+              "stance": true,
+              "ankle": [
+                -0.08500001579523087,
+                0.011599982157349586,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.3333333333333335,
+              "stance": true,
+              "ankle": [
+                -0.08500000089406967,
+                0.029933316633105278,
+                0.041999995708465576
+              ]
+            },
+            {
+              "phase": 0.4166666666666665,
+              "stance": true,
+              "ankle": [
+                -0.08500000834465027,
+                0.04826665669679642,
+                0.041999999433755875
+              ]
+            },
+            {
+              "phase": 0.5,
+              "stance": false,
+              "ankle": [
+                -0.08500000834465027,
+                0.04302855208516121,
+                0.04731470346450806
+              ]
+            }
+          ]
+        }
       },
       "Attack": {
-        "duration": 0.8,
         "frames": 25,
+        "duration_s": 0.8,
         "speed_cm_s": 0,
-        "minimum_surface_z_m": 0.0029999909456819296,
-        "stance_increment_error_m": 0
+        "foot_stance_increment_error_m": 0,
+        "max_unreachable_m": 0.0,
+        "min_z_m": 1.559335771617043e-09,
+        "max_min_z_m": 1.0185990717559434e-08,
+        "foot_tracks": {
+          "L": [],
+          "R": []
+        }
       },
       "Hit": {
-        "duration": 0.5,
-        "frames": 16,
+        "frames": 13,
+        "duration_s": 0.4,
         "speed_cm_s": 0,
-        "minimum_surface_z_m": 0.0029999909456819296,
-        "stance_increment_error_m": 0
+        "foot_stance_increment_error_m": 0,
+        "max_unreachable_m": 0.0,
+        "min_z_m": 3.344374999159072e-09,
+        "max_min_z_m": 6.858720702496157e-09,
+        "foot_tracks": {
+          "L": [],
+          "R": []
+        }
       },
       "Faint": {
-        "duration": 1.2,
         "frames": 37,
+        "duration_s": 1.2,
         "speed_cm_s": 0,
-        "minimum_surface_z_m": 0.003,
-        "stance_increment_error_m": 0,
-        "revision": "Forward fall; ground contact every sample, long tail does not levitate torso"
+        "foot_stance_increment_error_m": 0,
+        "max_unreachable_m": 0.0,
+        "min_z_m": 0.0,
+        "max_min_z_m": 0.0,
+        "foot_tracks": {
+          "L": [],
+          "R": []
+        }
       },
       "Happy": {
-        "duration": 1.2,
-        "frames": 37,
+        "frames": 31,
+        "duration_s": 1.0,
         "speed_cm_s": 0,
-        "minimum_surface_z_m": 0.0029999909456819296,
-        "stance_increment_error_m": 0
+        "foot_stance_increment_error_m": 0,
+        "max_unreachable_m": 0.0,
+        "min_z_m": 3.810036286466811e-09,
+        "max_min_z_m": 3.810036286466811e-09,
+        "foot_tracks": {
+          "L": [],
+          "R": []
+        }
       }
     },
     "roundtrip_validation": {
-      "weighted_vertices": 36367,
-      "weight_max_error": 9.164214134216309e-07,
-      "source_bones": 23,
-      "roles": {
-        "Idle": {
-          "loop_surface_gap_m": 0.0
+      "species": "Raichu",
+      "passed": true,
+      "source_sha256": "8516fea79d7cc1b4950a7928717c265065a9b734a81e0fa3cf11e880bd956672",
+      "packed": true,
+      "uv_identical": true,
+      "weights_normalized": true,
+      "roundtrips": [
+        {
+          "role": "Idle",
+          "bones": 27,
+          "triangles": 21351,
+          "sha256": "3fab380175d484e60dcdad0886bcffe3ed70f36e0d2af5431791580e442d7fb4"
         },
-        "Walk": {
-          "loop_surface_gap_m": 0.0
+        {
+          "role": "Walk",
+          "bones": 27,
+          "triangles": 21351,
+          "sha256": "cc205cbd3ec3d6888673287938135ce3dc403d0da496e6b6472cfbd45434f501"
         },
-        "Run": {
-          "loop_surface_gap_m": 0.0
+        {
+          "role": "Run",
+          "bones": 27,
+          "triangles": 21351,
+          "sha256": "1100d08505d16c39743921a0a140329ede0564a3401c19b24b3193f36bed6f89"
         },
-        "Attack": {
-          "loop_surface_gap_m": 0.0
+        {
+          "role": "Attack",
+          "bones": 27,
+          "triangles": 21351,
+          "sha256": "303e40fa8cd00d3ba2ee270ba5a0a56a11505645ec2b37fa8bfc3c4c8b06c6f6"
         },
-        "Hit": {
-          "loop_surface_gap_m": 0.0
+        {
+          "role": "Hit",
+          "bones": 27,
+          "triangles": 21351,
+          "sha256": "0be1b1f39dce078919302cba3c04bad0c63f9f895fcfa3facff35dbc2e7c3088"
         },
-        "Faint": {
-          "loop_surface_gap_m": 0.9379895521529651
+        {
+          "role": "Faint",
+          "bones": 27,
+          "triangles": 21351,
+          "sha256": "3b5191ff9354cf718428f636b14721d9c27cede9a200a4087b9b85df2c418a5d"
         },
-        "Happy": {
-          "loop_surface_gap_m": 0.0
+        {
+          "role": "Happy",
+          "bones": 27,
+          "triangles": 21351,
+          "sha256": "2767297ee910942e436f6e463f18f5a568a700254a80adff273d3c19d6f553e8"
         }
-      },
-      "fbx_reopened": [
+      ],
+      "note": "Blender diagnostics only; real Unreal animation acceptance still required"
+    },
+    "validation": {
+      "species": "Raichu",
+      "passed": true,
+      "source_sha256": "c8ed3f802a90f258674a1f27ff305df1b35d05d33cde3b10ec19061693c76b89",
+      "packed": true,
+      "uv_identical": true,
+      "weights_normalized": true,
+      "roundtrips": [
         {
-          "file": "Raichu_Attack.fbx",
-          "height_m": 0.8091589980758727,
-          "bones": 23,
-          "actions": 1,
-          "scale": [
-            1.0,
-            1.0,
-            1.0
-          ]
+          "role": "Idle",
+          "bones": 27,
+          "triangles": 21351,
+          "sha256": "03a2d1e0741526b1cb978461dc5415e1285e54854d7fb308aebd054be4694cc5"
         },
         {
-          "file": "Raichu_Faint.fbx",
-          "height_m": 0.8091589980758727,
-          "bones": 23,
-          "actions": 1,
-          "scale": [
-            1.0,
-            1.0,
-            1.0
-          ]
+          "role": "Walk",
+          "bones": 27,
+          "triangles": 21351,
+          "sha256": "0fd536187f31dc00437412d60af8dac65e4ae41e27077fc8318451bbcc147386"
         },
         {
-          "file": "Raichu_Happy.fbx",
-          "height_m": 0.8091589980758727,
-          "bones": 23,
-          "actions": 1,
-          "scale": [
-            1.0,
-            1.0,
-            1.0
-          ]
+          "role": "Run",
+          "bones": 27,
+          "triangles": 21351,
+          "sha256": "4590c5372310381e58b27ed42b9bbe53079c8f899fb540908b9c9ef924a465da"
         },
         {
-          "file": "Raichu_Hit.fbx",
-          "height_m": 0.8091589980758727,
-          "bones": 23,
-          "actions": 1,
-          "scale": [
-            1.0,
-            1.0,
-            1.0
-          ]
+          "role": "Attack",
+          "bones": 27,
+          "triangles": 21351,
+          "sha256": "cabf6091ca486261000f49e14f11e191ecac95aa32b4845b656a01c081d88517"
         },
         {
-          "file": "Raichu_Idle.fbx",
-          "height_m": 0.8091589980758727,
-          "bones": 23,
-          "actions": 1,
-          "scale": [
-            1.0,
-            1.0,
-            1.0
-          ]
+          "role": "Hit",
+          "bones": 27,
+          "triangles": 21351,
+          "sha256": "4985eb1f63d8c03572455f86aec2f0e095402208be69cc7c3ecaa39de3263993"
         },
         {
-          "file": "Raichu_Run.fbx",
-          "height_m": 0.8091589980758727,
-          "bones": 23,
-          "actions": 1,
-          "scale": [
-            1.0,
-            1.0,
-            1.0
-          ]
+          "role": "Faint",
+          "bones": 27,
+          "triangles": 21351,
+          "sha256": "46fceffff6edd10d636e24f25325679d756585e97c2b56042392840eec8325a9"
         },
         {
-          "file": "Raichu_Walk.fbx",
-          "height_m": 0.8091589980758727,
-          "bones": 23,
-          "actions": 1,
-          "scale": [
-            1.0,
-            1.0,
-            1.0
-          ]
+          "role": "Happy",
+          "bones": 27,
+          "triangles": 21351,
+          "sha256": "1a2ca544cafb18de11268ec4bb7dbcd60630e2eba7d88db377ccf002d6c3307f"
         }
-      ]
+      ],
+      "note": "Blender diagnostics only; real Unreal animation acceptance still required"
     }
   },
   "project_wide_extra_model_paths": [
@@ -10165,5 +11330,5 @@
       "bytes": 152
     }
   ],
-  "source_note": "Generated from actual read-only AssetRegistry/Blender/GLB inventories. Historical mesh variants are not additional species. No images or user saves included."
+  "source_note": "Current after binding Harry Meshy Raichu and actual deletion of authored replacement. Historical commits retained; see RAICHU_MESHY_KORREKTUR.md."
 }

@@ -189,6 +189,9 @@ Alle Regionen müssen trotz unterschiedlicher Farbwelten wie Bestandteile dessel
 
 ## Kreaturen in der Spielwelt
 
+**Verbindliche Modellquelle (Raichu-Korrektur, 29.10.2026):** Sämtliche Pokémon-Gestalten stammen ausschließlich aus Harrys eigenen Meshy-Originalen im bestehenden Incoming-Verzeichnis. Keine selbst modellierten, prozedural generierten oder umgefärbten Ersatzmodelle, auch nicht als Prototyp. Blender dient der technischen Vorbereitung und Animation dieser Originale. Bei fehlender/unklarer Quelle nach dem exakten Projektpfad fragen; keine Alternative erzeugen. Originaldateien unverändert erhalten.
+
+
 Kreaturen sollen sichtbar und natürlich in die Umgebung integriert werden. Ihre Platzierung vermittelt Verhalten, Lebensraum und Größenverhältnis zur Welt.
 
 - Kreaturen stehen nicht wie isolierte Markierungen auf leeren Flächen.

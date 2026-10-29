@@ -17,12 +17,15 @@ for role,(duration,speed)in clips.items():
   root=rig.pose.bones['root'];pelvis=rig.pose.bones['pelvis'];chest=rig.pose.bones['chest'];head=rig.pose.bones['head']
   if spec['family']=='Floating':
    pelvis.matrix=Matrix.Translation((0,0,h*(.018*wave if role in ['Idle','Walk','Run','Happy']else 0)))@rest['pelvis'];chest.rotation_quaternion=Quaternion((0,0,1),.025*wave)
-  elif speed:pelvis.matrix=Matrix.Translation((0,0,-h*(.035 if role=='Run'else .025)+h*.0015*(1+math.cos(2*math.tau*t))))@rest['pelvis'];chest.rotation_quaternion=Quaternion((0,0,1),.012*wave)
+  elif speed:pelvis.matrix=Matrix.Translation((0,0,-spec.get('run_pelvis_drop_m'if role=='Run'else'walk_pelvis_drop_m',h*(.035 if role=='Run'else .025))+h*.0015*(1+math.cos(2*math.tau*t))))@rest['pelvis'];chest.rotation_quaternion=Quaternion((0,0,1),.012*wave)
   else:chest.scale=(1+.002*wave,1+.002*wave,1+.0015*wave)
   if role=='Idle':head.rotation_quaternion=Quaternion((0,0,1),.008*wave)
   elif role=='Attack':root.matrix=Matrix.Translation((0,-h*.055*pulse,0))@rest['root'];head.rotation_quaternion=Quaternion((1,0,0),.08*pulse)
   elif role=='Hit':root.matrix=Matrix.Translation((0,h*.03*math.sin(math.pi*t),0))@rest['root'];head.rotation_quaternion=Quaternion((1,0,0),-.06*math.sin(math.pi*t))
-  elif role=='Faint':q=t*t*(3-2*t);root.matrix=Matrix.Translation((h*.04*q,0,h*.20*q))@Quaternion((0,1,0),math.radians(72)*q).to_matrix().to_4x4()@rest['root']
+  elif role=='Faint':
+   q=t*t*(3-2*t)
+   if spec.get('faint_ground_lock',False):root.matrix=Matrix.Translation((0,h*.05*q,0))@Quaternion((1,0,0),math.radians(82)*q).to_matrix().to_4x4()@rest['root']
+   else:root.matrix=Matrix.Translation((h*.04*q,0,h*.20*q))@Quaternion((0,1,0),math.radians(72)*q).to_matrix().to_4x4()@rest['root']
   elif role=='Happy':head.rotation_quaternion=Quaternion((0,0,1),.045*wave)
   bpy.context.view_layer.update()
   for c in chains:
@@ -36,20 +39,20 @@ for role,(duration,speed)in clips.items():
   if 'upperarm_L'in rig.pose.bones:
    for side,sign,offset in [('L',1,0),('R',-1,.5)]:
     for prefix in ['','lower_']if name=='Machomei'else['']:
-     arm=prefix+'upperarm_'+side;chest_delta=rig.pose.bones['chest'].matrix.to_3x3()@rest['chest'].to_3x3().inverted();lower=.35 if name in ['Pikachu','Enton','Glurak']else .06
+     arm=prefix+'upperarm_'+side;chest_delta=rig.pose.bones['chest'].matrix.to_3x3()@rest['chest'].to_3x3().inverted();lower=spec.get('arm_lower_radians',.35 if name in ['Pikachu','Enton','Glurak']else .06)
      swing=(.18 if role=='Walk'else .26 if role=='Run'else .015)*math.sin(math.tau*(t+offset)+(math.pi if prefix else 0));q=Quaternion((1,0,0),swing)@Quaternion((0,1,0),sign*lower)
      if role=='Attack':q=Quaternion((0,0,1),sign*-.24*pulse)@q
      direction=chest_delta@(q@(tails[arm]-heads[arm]));start=rig.pose.bones[arm].head.copy();orient(arm,start,start+direction)
   for n in rig.pose.bones.keys():
    p=rig.pose.bones[n]
-   if n.startswith('tail_'):p.rotation_quaternion=Quaternion((0,0,1),.025*math.sin(math.tau*t-.4*list(rig.pose.bones.keys()).index(n)))
+   if n.startswith('tail_'):p.rotation_quaternion=Quaternion((0,0,1),spec.get('tail_sway_radians',.025)*math.sin(math.tau*t-.4*list(rig.pose.bones.keys()).index(n)))
    elif n.startswith('flame_'):p.rotation_quaternion=Quaternion((1,0,0),.025*math.sin(2*math.tau*t))
    elif n.startswith('ear_'):p.rotation_quaternion=Quaternion((1,0,0),.015*wave)
    elif n.startswith('leaf_'):p.rotation_quaternion=Quaternion((1,0,0),.018*math.sin(math.tau*t+.7*list(rig.pose.bones.keys()).index(n)))
    elif n.startswith('gas_'):p.rotation_quaternion=Quaternion((0,0,1),.025*math.sin(math.tau*t+int(n[-1])*.7))
    elif n.startswith('wing_'):p.rotation_quaternion=Quaternion((0,1,0),.012*wave*(1 if n.endswith('L')else-1))
   bpy.context.view_layer.update();ev=body.evaluated_get(bpy.context.evaluated_depsgraph_get());mesh=ev.to_mesh();low=min(v.co.z for v in mesh.vertices);ev.to_mesh_clear()
-  if role=='Faint'and low<0:m=root.matrix.copy();m.translation.z-=low;root.matrix=m;bpy.context.view_layer.update();low=0.
+  if role=='Faint'and (low<0 or spec.get('faint_ground_lock',False)):m=root.matrix.copy();m.translation.z-=low;root.matrix=m;bpy.context.view_layer.update();low=0.
   ground.append(low)
   for p in rig.pose.bones:
    for prop in ['location','rotation_quaternion','scale']:p.keyframe_insert(data_path=prop,frame=frame+1,group=p.name)

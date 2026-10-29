@@ -77,3 +77,6 @@ Art/Characters/Creatures/Glurak/Textures/MeshyV1/*.jpg filter=lfs diff=lfs merge
 
 # Required static VisualV2 base-color bake source, not a review capture.
 Art/World/VisualV2PerformanceV1/GroundColorSRGB.png filter=lfs diff=lfs merge=lfs -text
+
+# Original Meshy Raichu texture inputs; no QA captures.
+Art/Characters/Creatures/Raichu/Textures/MeshyV1/*.jpg filter=lfs diff=lfs merge=lfs -text

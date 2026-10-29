@@ -1592,10 +1592,19 @@ Reguläre Steinrouten bleiben bei fehlenden Zielmodellen gesperrt. Myrapla
 oder endgültige Handlungsbedingungen werden erfunden.
 
 
-## 29.10.2026 – Pokémon-Modelle V4: Raichu und erste reguläre Steinroute
+## 29.10.2026 – Pokémon-Modelle V4: Raichu und erste reguläre Steinroute (Modellentscheidung ersetzt)
 
 Die zuvor wegen fehlenden Zielmodells gesperrte bestehende Pikachu-/Donnerstein-Regel wird durch die neue Art Raichu (026) nutzbar. Inventar V2, Entwicklung V3/Präsentation V2.1, atomarer Itemverbrauch, individuelle Daten, AP und Save-Schema 11 bleiben unverändert zuständig. Die frühere Feststellung „reguläre Steinroute fehlt“ ist für Pikachu → Raichu damit ersetzt; weitere fehlende Formen bleiben offen.
 
 Mangels vorhandener Raichu-Quelle wird auf ausdrücklichen Modellauftrag ein eigenes Blender-Modell erstellt. Körperhöhe ca. 80,9 cm bei Referenz 80 cm; keine Skalierung der Welt oder vorhandener Figuren. Klassische Kristall-Artendaten einschließlich Initiative 100 und vorhandener Attacken verwenden; kein späterer Werte-Buff. Neue Darstellung nutzt die vorhandene zentrale Artenregistrierung und das bestehende Modelltestgelände. Keine neue Wildpopulation oder zweite Entwicklungslogik.
 
 Der Kandidat bleibt **technisch integriert – visuelle Freigabe ausstehend**. Bestand, technische und tatsächliche Gameplay-Nachweise sowie verbleibende optische Einschränkungen stehen in `POKEMON_MODELLE_V4_RAICHU.md`. Vorhandene Meshy-/Blender-Originale und Nutzeränderungen in DefaultEngine.ini bleiben erhalten.
+
+
+## 29.10.2026 – Verbindliche Korrektur: ausschließlich Harrys Meshy-Pokémon
+
+Die vorstehende Freigabe eines selbst erstellten Raichu-Kandidaten ist ausdrücklich **ersetzt**. Für sämtliche Pokémon ausschließlich Harrys eigene Meshy-Originale aus Incoming verwenden. Keine selbst modellierten/prozedural generierten Ersatzmodelle, auch keine Prototyp-Ausnahme. Blender bleibt für Import, technische Bearbeitung, Rigging, Skinning, Skalierung und Animation der identifizierten Originale erlaubt. Diese Regel steht zusätzlich dauerhaft in AGENTS.md und GRAFIKSTIL.md.
+
+Das selbst erstellte Raichu aus 67476bc2/5840ee63/3b2e1baa muss nach geprüftem Referenzaustausch tatsächlich aus dem Arbeitsstand entfernt werden. Die vorhandenen Art-/Save-Identitäten und die Donnerstein-Transaktion bleiben Grundlage. Originale, andere Pokémon, gemeinsam genutzte Assets und Spielstände nicht löschen. Kein Umschreiben der Git-Historie.
+
+Bei Beginn der Korrektur enthält Art/Characters/Creatures/Incoming weiterhin 38 bekannte Pokémon-GLBs, darunter Pikachu, aber kein identifizierbares Raichu. Auch in den anderen tatsächlichen Incoming-Unterordnern wurde keine Raichu-Quelle gefunden. Nach der Rückfrage hat Harry `Art/Characters/Creatures/Incoming/Raichu.glb` bereitgestellt (SHA-256 e41d212e1fd8500275067f3953a9709a4a2eaa07dc4c4e006954768dca6c5b64). Diese eindeutig geprüfte Quelle ersetzt das selbst erstellte Modell. Tatsächliche Dateientfernung, Referenzprüfung und neue Funktionsabnahme sind im Korrekturbericht nachzuweisen; frühere 308-Tests-Ergebnisse gelten nicht automatisch für den Austausch. Siehe RAICHU_MESHY_KORREKTUR.md.

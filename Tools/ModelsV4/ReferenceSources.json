@@ -26,7 +26,8 @@
       "Thunderbolt"
     ]
   },
-  "art_source": "New original Blender mesh authored by Tools/ModelsV4/BuildRaichu.py, no downloaded model/texture, no Pikachu modification",
+  "art_source": "Harry original Meshy: Art/Characters/Creatures/Incoming/Raichu.glb",
   "configured_development_level": 11,
-  "configuration_note": "Starting level is a developer preview setting matching the current test Pikachu, not an evolution minimum."
+  "configuration_note": "Starting level is a developer preview setting matching the current test Pikachu, not an evolution minimum.",
+  "art_source_sha256": "e41d212e1fd8500275067f3953a9709a4a2eaa07dc4c4e006954768dca6c5b64"
 }
