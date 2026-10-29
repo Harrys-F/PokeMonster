@@ -138,6 +138,11 @@ struct POKEMONSTER_API FPokeMonsterEvolutionData
 	/** Zero disables the extra friendship gate; Friendship routes require a positive threshold. */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Evolution", meta = (ClampMin = "0", ClampMax = "255"))
 	int32 MinimumFriendship = 0;
+
+ /** Optional half-open local world-time window [start,end); wraps midnight. Both -1 disable it. */
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Evolution",meta=(ClampMin="-1",ClampMax="1439")) int32 RequiredStartMinute=-1;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Evolution",meta=(ClampMin="-1",ClampMax="1439")) int32 RequiredEndMinute=-1;
+
 };
 
 /** Supplied by the caller at the event being evaluated. Does not consume items or execute actions. */
@@ -160,6 +165,9 @@ struct POKEMONSTER_API FPokeMonsterEvolutionContext
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Evolution", meta = (ClampMin = "0", ClampMax = "255"))
 	int32 Friendship = 0;
+ /** Caller supplies the central world's minute, never the machine's clock. -1 means unknown. */
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Evolution",meta=(ClampMin="-1",ClampMax="1439")) int32 MinuteOfDay=-1;
+
 };
 
 /** Calculated per-instance values, distinct from immutable species base stats. */

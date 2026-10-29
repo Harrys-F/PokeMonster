@@ -86,6 +86,9 @@ public:
  /** Optional development measurement; disabled during normal gameplay. */
  UPROPERTY(Transient,BlueprintReadWrite,Category="Activities|Diagnostics") bool bMeasureActivityCost=false;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities|Diagnostics") double TickWorkMicroseconds=0;
+ /** Subset of the existing opt-in tick timing; includes failed local path/surface attempts. */
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities|Diagnostics") double PlanningWorkMicroseconds=0;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities|Diagnostics") int64 MeasuredPlans=0;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities|Diagnostics") int64 MeasuredTicks=0;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") FName LastSocialDecision=NAME_None;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities") int32 PeerQueries=0;

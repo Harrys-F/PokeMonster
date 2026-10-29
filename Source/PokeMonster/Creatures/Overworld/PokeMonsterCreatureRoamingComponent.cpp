@@ -187,6 +187,8 @@ bool UPokeMonsterCreatureRoamingComponent::CanTraverse(const FVector& Start, con
 }
 bool UPokeMonsterCreatureRoamingComponent::Plan(const FVector& Target)
 {
+ const bool Measure=bMeasureActivityCost;const double Started=Measure?FPlatformTime::Seconds():0.;
+ ON_SCOPE_EXIT { if(Measure){PlanningWorkMicroseconds+=(FPlatformTime::Seconds()-Started)*1000000.;++MeasuredPlans;} };
 	const FVector Start = GetOwner()->GetActorLocation() - FVector(0, 0, Offset);
 	FVector Goal;
 	if (!ProjectWalkable(Target, Goal)) return false;
@@ -400,7 +402,7 @@ bool UPokeMonsterCreatureRoamingComponent::PlayerVisible(const APawn* Player) co
 }
 bool UPokeMonsterCreatureRoamingComponent::UpdateBehavior(float Delta,const FVector& Current,const APawn* Player,float& Speed)
 {
- using S=EPokeMonsterOverworldState;using T=EPokeMonsterOverworldTemperament;
+ using S=EPokeMonsterOverworldState;using Temperament=EPokeMonsterOverworldTemperament;
  CooldownRemaining=FMath::Max(0.f,CooldownRemaining-Delta);GroupAlertRemaining=FMath::Max(0.f,GroupAlertRemaining-Delta);
  const auto& P=Settings.Behavior;const bool Advanced=P.Perception.bEnabled;
  const float ActualDistance=Player?FVector::Dist2D(Current,Player->GetActorLocation()):BIG_NUMBER;
@@ -420,19 +422,19 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateBehavior(float Delta,const FVec
  const FVector Target=Advanced?LastPlayerPoint:Player?Player->GetActorLocation():Current;
  const float D=Advanced&&Visible?FVector::Dist2D(Current,Target):ActualDistance;
  const bool WasReacting=BehaviorState==S::Approach||BehaviorState==S::Retreat||BehaviorState==S::Observe||BehaviorState==S::Warning||BehaviorState==S::Alert||BehaviorState==S::Curious||BehaviorState==S::Chase;
- S Next=FPokeMonsterCreatureBehavior::Decide(P,D,Visible,WasReacting,CooldownRemaining>0||(P.Temperament==T::Territorial&&!bTerritoryArmed));
+ S Next=FPokeMonsterCreatureBehavior::Decide(P,D,Visible,WasReacting,CooldownRemaining>0||(P.Temperament==Temperament::Territorial&&!bTerritoryArmed));
  InterestRemaining=FMath::Max(0.f,InterestRemaining-Delta);
  if(Advanced)
  {
   if(Sensed&&!bPlayerAware&&ActualDistance<=P.NoticeRadius&&CooldownRemaining<=0)Next=S::Alert;
   if(GroupAlertRemaining>0&&!Visible&&!Sensed&&CooldownRemaining<=0)Next=S::Alert;
-  if(P.Temperament==T::Curious&&Next==S::Approach&&AwarenessSeconds<1.25f)Next=S::Curious;
-  if(P.Temperament==T::Shy&&Next==S::Retreat&&D>P.NoticeRadius*.65f&&BehaviorState!=S::Retreat)Next=S::Alert;
+  if(P.Temperament==Temperament::Curious&&Next==S::Approach&&AwarenessSeconds<1.25f)Next=S::Curious;
+  if(P.Temperament==Temperament::Shy&&Next==S::Retreat&&D>P.NoticeRadius*.65f&&BehaviorState!=S::Retreat)Next=S::Alert;
   const bool Contact=FPokeMonsterCreatureBehavior::InitiationFor(P)==EPokeMonsterEncounterInitiation::Contact;
-  if(P.Temperament==T::Territorial&&Visible&&(BehaviorState==S::Chase||BehaviorState==S::Approach)&&bTerritoryArmed&&CooldownRemaining<=0)Next=Contact?S::Chase:S::Observe;
-  if(P.Temperament==T::Territorial&&Visible&&BehaviorState==S::Observe&&!Contact&&InterestRemaining<=0)Next=S::Observe;
-  if(P.Temperament==T::Aggressive&&Next==S::Approach)Next=S::Chase;
-  const bool Limited=P.Temperament==T::Curious||P.Temperament==T::Territorial||P.Temperament==T::Aggressive;
+  if(P.Temperament==Temperament::Territorial&&Visible&&(BehaviorState==S::Chase||BehaviorState==S::Approach)&&bTerritoryArmed&&CooldownRemaining<=0)Next=Contact?S::Chase:S::Observe;
+  if(P.Temperament==Temperament::Territorial&&Visible&&BehaviorState==S::Observe&&!Contact&&InterestRemaining<=0)Next=S::Observe;
+  if(P.Temperament==Temperament::Aggressive&&Next==S::Approach)Next=S::Chase;
+  const bool Limited=P.Temperament==Temperament::Curious||P.Temperament==Temperament::Territorial||P.Temperament==Temperament::Aggressive;
   if(Limited&&InterestRemaining>0&&Next!=S::Retreat)Next=S::Wander;
   if(Next==S::Approach||Next==S::Chase||Next==S::Curious||(Limited&&Next==S::Observe))PursuitElapsed+=Delta;
   else if(Next!=S::Warning)PursuitElapsed=0;
@@ -441,8 +443,8 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateBehavior(float Delta,const FVec
  }
  else
  {
-  if(P.Temperament==T::Curious&&Next==S::Approach&&InterestRemaining>0)Next=S::Observe;
-  if(P.Temperament==T::Territorial&&BehaviorState==S::Approach&&Visible&&bTerritoryArmed&&CooldownRemaining<=0)Next=S::Approach;
+  if(P.Temperament==Temperament::Curious&&Next==S::Approach&&InterestRemaining>0)Next=S::Observe;
+  if(P.Temperament==Temperament::Territorial&&BehaviorState==S::Approach&&Visible&&bTerritoryArmed&&CooldownRemaining<=0)Next=S::Approach;
  }
  const bool Reaction=Next==S::Observe||Next==S::Approach||Next==S::Retreat||Next==S::Warning||Next==S::Alert||Next==S::Curious||Next==S::Chase;
  // A reserved same-species peer hears a real visible threat once, never an all-pairs search.
@@ -480,7 +482,7 @@ bool UPokeMonsterCreatureRoamingComponent::UpdateBehavior(float Delta,const FVec
   {
    const FVector Away=(Current-Target).GetSafeNormal2D(SMALL_NUMBER,FVector::ForwardVector);
    const FVector Direction=Next==S::Retreat?Away:-Away;
-   const float Distance=Next==S::Retreat?320.f:FMath::Clamp(D-(P.Temperament==T::Curious?P.PersonalSpace+100.f:65.f),5.f,350.f);
+   const float Distance=Next==S::Retreat?320.f:FMath::Clamp(D-(P.Temperament==Temperament::Curious?P.PersonalSpace+100.f:65.f),5.f,350.f);
    Path.Reset();
    for(float Angle:{0.f,30.f,-30.f,60.f,-60.f,90.f,-90.f})
    {

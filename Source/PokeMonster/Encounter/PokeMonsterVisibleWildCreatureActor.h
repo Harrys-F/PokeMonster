@@ -44,6 +44,9 @@ public:
  void ConfigureHabitatBody(float Radius,float HalfHeight);
  /** Shared by the actor and player target selection; land interaction stays unchanged. */
  float GetShoreInteractionRadius() const;
+ /** Shared UI source. Active instances only; no distance or geometry visibility filter. */
+ UFUNCTION(BlueprintPure) APokeMonsterCreatureVisualActor* GetNameplateVisual() const;
+ UFUNCTION(BlueprintPure) FString GetNameplateText() const;
  void PrepareInteractionSight(FCollisionQueryParams& Query) const;
 	virtual bool CanInteract_Implementation(APawn* Interactor) const override;
 	virtual void Interact_Implementation(APawn* Interactor) override;
@@ -79,10 +82,6 @@ private:
 	UPROPERTY(Transient) TObjectPtr<APokeMonsterCreatureVisualActor> Visual;
 	bool bDeactivated = false;
  bool bWasWarning=false;
- void UpdateNameplate(float Delta);
- bool bChallengeFocused=false,bNameplateEligible=false,bNameplateNear=false;
- float NameplateRefresh=0,NameplateScreenHalfWidth=0;
- FVector2D NameplateScreen=FVector2D::ZeroVector;
- FString NameplateText;
+ bool bChallengeFocused=false;
 
 };

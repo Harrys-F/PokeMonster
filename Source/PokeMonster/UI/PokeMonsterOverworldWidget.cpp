@@ -1,5 +1,18 @@
 #include "PokeMonsterOverworldWidget.h"
 #include "PokeMonsterControllerInput.h"
+#include "PokeMonsterNameplateLayout.h"
+#include "../Encounter/PokeMonsterVisibleWildCreatureActor.h"
+#include "../Creatures/PokeMonsterCreaturePresentation.h"
+#include "../Creatures/Overworld/PokeMonsterCreatureCompanionSubsystem.h"
+#include "../Creatures/PokeMonsterCreatureSpeciesData.h"
+#include "../Development/PokeMonsterCreatureTestGround.h"
+#include "../Habitats/PokeMonsterHabitatSubsystem.h"
+#include "Blueprint/WidgetLayoutLibrary.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "EngineUtils.h"
+#include "Framework/Application/SlateApplication.h"
+#include "Fonts/FontMeasure.h"
+#include "Rendering/SlateRenderer.h"
 #include "../Save/PokeMonsterSaveSubsystem.h"
 #include "../Items/PokeMonsterItemData.h"
 #include "../Moves/PokeMonsterMoveData.h"
@@ -105,6 +118,11 @@ void UPokeMonsterOverworldWidget::BuildDefaultTree()
 {
 	auto* Root = WidgetTree->ConstructWidget<UCanvasPanel>(UCanvasPanel::StaticClass(), TEXT("OverworldRoot"));
 	WidgetTree->RootWidget = Root;
+ PokemonNameLayer=WidgetTree->ConstructWidget<UCanvasPanel>(UCanvasPanel::StaticClass(),TEXT("PokemonNameLayer"));
+ Place(Root,PokemonNameLayer,FVector2D::ZeroVector,FVector2D::ZeroVector,FAnchors(0,0,1,1));
+ CastChecked<UCanvasPanelSlot>(PokemonNameLayer->Slot)->SetOffsets(FMargin(0));
+ PokemonNameLayer->SetVisibility(ESlateVisibility::HitTestInvisible);
+
 	HudLayer = WidgetTree->ConstructWidget<UCanvasPanel>(UCanvasPanel::StaticClass(), TEXT("HudLayer"));
 	Place(Root, HudLayer, FVector2D::ZeroVector, FVector2D::ZeroVector, FAnchors(0.f,0.f,1.f,1.f));
 	if (auto* Slot = Cast<UCanvasPanelSlot>(HudLayer->Slot)) Slot->SetOffsets(FMargin(0));
@@ -700,4 +718,62 @@ void UPokeMonsterOverworldWidget::CancelMoves()
  else if(bMoveMasterMode)CloseMenu();
  else ShowTeam();
  LastRenderKey.Reset();Render();
+}
+
+
+void UPokeMonsterOverworldWidget::NativeTick(const FGeometry& Geometry,float DeltaSeconds)
+{
+ Super::NativeTick(Geometry,DeltaSeconds);
+ UpdatePokemonNames(Geometry.GetLocalSize());
+}
+void UPokeMonsterOverworldWidget::UpdatePokemonNames(const FVector2D& ViewSize)
+{
+ VisiblePokemonNameCount=0;
+ auto* PC=GetOwningPlayer();
+ const bool Available=PokemonNameLayer&&PC&&GetWorld()&&UPokeMonsterHabitatSubsystem::IsVisualV2(GetWorld()->GetName())&&!bBattleVisible&&!bMenuOpen;
+ TArray<FBox2D> Occupied;Occupied.Reserve(32);
+ const auto Draw=[&](APokeMonsterCreatureVisualActor* Visual,const FString& Text)
+ {
+  if(!Available||!IsValid(Visual)||Visual->IsHidden()||Text.IsEmpty()||ViewSize.X<1||ViewSize.Y<1)return;
+  // A body may still be in the camera while its head anchor is outside it (large Pokemon).
+  const FBoxSphereBounds Bounds=Visual->Mesh->Bounds;
+  FVector2D Min(DBL_MAX,DBL_MAX),Max(-DBL_MAX,-DBL_MAX);bool Front=false;
+  for(int32 I=0;I<8;++I)
+  {
+   const FVector Point=Bounds.Origin+Bounds.BoxExtent*FVector((I&1)?1:-1,(I&2)?1:-1,(I&4)?1:-1);
+   FVector2D S;if(UWidgetLayoutLibrary::ProjectWorldLocationToWidgetPosition(PC,Point,S,true))
+   {Front=true;Min.X=FMath::Min(Min.X,S.X);Min.Y=FMath::Min(Min.Y,S.Y);Max.X=FMath::Max(Max.X,S.X);Max.Y=FMath::Max(Max.Y,S.Y);}
+  }
+  if(!Front||Max.X<0||Max.Y<0||Min.X>ViewSize.X||Min.Y>ViewSize.Y)return;
+  FVector2D Anchor;if(!UWidgetLayoutLibrary::ProjectWorldLocationToWidgetPosition(PC,Visual->GetNameplateAnchor(),Anchor,true))return;
+  UTextBlock* Label=nullptr;
+  if(PokemonNameLabels.IsValidIndex(VisiblePokemonNameCount))Label=PokemonNameLabels[VisiblePokemonNameCount];
+  else
+  {
+   Label=MakeText(WidgetTree,*FString::Printf(TEXT("PokemonScreenName%d"),VisiblePokemonNameCount),TEXT(""),14);
+   FSlateFontInfo Font=Label->GetFont();Font.OutlineSettings.OutlineSize=1;Font.OutlineSettings.OutlineColor=FLinearColor(.025f,.04f,.025f,1);Label->SetFont(Font);
+   Label->SetShadowColorAndOpacity(FLinearColor(0,0,0,.8f));Label->SetShadowOffset(FVector2D(1,1));
+   Place(PokemonNameLayer,Label,FVector2D::ZeroVector,FVector2D(200,26));PokemonNameLabels.Add(Label);
+  }
+  if(Label->GetText().ToString()!=Text)Label->SetText(FText::FromString(Text));
+  const FVector2D Size=FSlateApplication::Get().GetRenderer()->GetFontMeasureService()->Measure(Text,Label->GetFont())+FVector2D(6,4);
+  const FVector2D P=FPokeMonsterNameplateLayout::Place(Anchor,Size,ViewSize,Occupied);Occupied.Emplace(P-FVector2D(2,2),P+Size+FVector2D(2,2));
+  auto* Slot=CastChecked<UCanvasPanelSlot>(Label->Slot);Slot->SetPosition(P);Slot->SetSize(Size);Label->SetVisibility(ESlateVisibility::HitTestInvisible);
+  ++VisiblePokemonNameCount;
+ };
+ if(Available)
+ {
+  for(TActorIterator<APokeMonsterVisibleWildCreatureActor> I(GetWorld());I;++I)Draw(I->GetNameplateVisual(),I->GetNameplateText());
+  if(APokeMonsterCreatureVisualActor::AreNamesEnabled())
+   if(const auto* Companion=GetWorld()->GetSubsystem<UPokeMonsterCreatureCompanionSubsystem>())
+    if(const auto* Encounter=GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>())
+    {
+     const auto& Team=Encounter->GetPlayerParty();const int32 Index=UPokeMonsterCreatureCompanionSubsystem::SelectPartyIndex(Team);
+     if(Team.IsValidIndex(Index))if(const auto* Species=Team[Index].Species.Get())Draw(Companion->GetVisual(),Species->GetDisplayName().ToString());
+    }
+  if(APokeMonsterCreatureVisualActor::AreNamesEnabled())if(const auto* Ground=GetWorld()->GetSubsystem<UPokeMonsterCreatureTestGround>())
+   for(int32 I=0;I<Ground->Specimens.Num();++I)if(Ground->Species.IsValidIndex(I))
+    Draw(Ground->Specimens[I],FString::Printf(TEXT("TEST %02d | %s"),I+1,*Ground->Species[I]->GetDisplayName().ToString()));
+ }
+ for(int32 I=VisiblePokemonNameCount;I<PokemonNameLabels.Num();++I)PokemonNameLabels[I]->SetVisibility(ESlateVisibility::Collapsed);
 }

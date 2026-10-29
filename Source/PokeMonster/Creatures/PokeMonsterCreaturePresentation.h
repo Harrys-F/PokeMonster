@@ -93,6 +93,7 @@ public:
  UFUNCTION(BlueprintCallable, Category="Creature|Presentation") bool SetSpecies(const UPokeMonsterCreatureSpeciesData* Species);
  /** Visual-only candidate preview; does not mutate a species asset or instance state. */
  UFUNCTION(BlueprintCallable, Category="Creature|Presentation") bool SetPresentation(UPokeMonsterCreaturePresentationData* Candidate);
+ static bool AreNamesEnabled();
  static void StyleNameplate(UTextRenderComponent* Label,float WorldSize=26.f);
  UFUNCTION(BlueprintPure,Category="Creature|Presentation") FVector GetNameplateAnchor() const;
  void PlaceNameplate(UTextRenderComponent* Label,const APlayerCameraManager* Camera) const;

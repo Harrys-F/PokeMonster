@@ -211,3 +211,10 @@ void APokeMonsterCreatureVisualActor::PlaceNameplate(UTextRenderComponent* Label
  if(!Label)return;const FVector Anchor=GetNameplateAnchor();Label->SetWorldLocation(Anchor);
  if(Camera)Label->SetWorldRotation((Camera->GetCameraLocation()-Anchor).Rotation());
 }
+
+
+// Shared by wild and registered model names. This is presentation, never a spawn registry.
+#include "HAL/IConsoleManager.h"
+namespace { TAutoConsoleVariable<int32> PokemonNames(TEXT("pm.WildNames"),1,
+ TEXT("Pokemon screen names: 1 on (default), 0 off. No distance or geometry occlusion; interaction arrows remain.")); }
+bool APokeMonsterCreatureVisualActor::AreNamesEnabled() { return PokemonNames.GetValueOnGameThread()!=0; }

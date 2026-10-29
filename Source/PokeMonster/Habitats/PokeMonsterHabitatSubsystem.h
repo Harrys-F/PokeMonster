@@ -64,7 +64,7 @@ class POKEMONSTER_API UPokeMonsterHabitatSettings : public UObject
  GENERATED_BODY()
 public:
  UPROPERTY(Config,EditAnywhere) bool bEnableVisualV2=true;
- UPROPERTY(Config,EditAnywhere) int32 MaximumPopulation=10;
+ UPROPERTY(Config,EditAnywhere) int32 MaximumPopulation=14;
  UPROPERTY(Config,EditAnywhere) int32 MaximumSpecies=6;
  UPROPERTY(Config,EditAnywhere) float UpdateSeconds=2.f;
  UPROPERTY(Config,EditAnywhere) float MinimumResidenceSeconds=120.f;

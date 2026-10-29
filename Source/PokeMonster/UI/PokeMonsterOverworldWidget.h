@@ -37,6 +37,7 @@ public:
 protected:
 	virtual TSharedRef<SWidget> RebuildWidget() override;
 	virtual void NativeConstruct() override;
+ virtual void NativeTick(const FGeometry& Geometry,float DeltaSeconds) override;
 	virtual FNavigationReply NativeOnNavigation(const FGeometry& Geometry, const FNavigationEvent& Event) override;
 	virtual FReply NativeOnPreviewKeyDown(const FGeometry& InGeometry, const FKeyEvent& InKeyEvent) override;
 	UFUNCTION(BlueprintImplementableEvent, Category="PokeMonster|Overworld UI")
@@ -60,6 +61,12 @@ private:
  UPROPERTY(Transient) TObjectPtr<UButton> MovesTab;
  UPROPERTY(Transient) TObjectPtr<UButton> MoveActionButton;
  FString MoveMessage;
+ void UpdatePokemonNames(const FVector2D& ViewSize);
+ UPROPERTY(Transient) TObjectPtr<UCanvasPanel> PokemonNameLayer;
+ UPROPERTY(Transient) TArray<TObjectPtr<UTextBlock>> PokemonNameLabels;
+public:
+ UPROPERTY(Transient,BlueprintReadOnly) int32 VisiblePokemonNameCount=0;
+private:
 	void BuildDefaultTree();
 	void RefreshTeamFocus();
  void NavigateMenu(int32 Delta);

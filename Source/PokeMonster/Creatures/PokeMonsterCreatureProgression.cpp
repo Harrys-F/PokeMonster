@@ -66,6 +66,13 @@ bool UPokeMonsterCreatureProgression::IsEvolutionEligible(const FPokeMonsterEvol
 	{
 		return false;
 	}
+ const bool Timed=Rule.RequiredStartMinute!=-1||Rule.RequiredEndMinute!=-1;
+ if(Timed)
+ {
+  const int32 Start=Rule.RequiredStartMinute,End=Rule.RequiredEndMinute,Now=Context.MinuteOfDay;
+  if(Start<0||Start>=1440||End<0||End>=1440||Start==End||Now<0||Now>=1440)return false;
+  if(!(Start<End?(Now>=Start&&Now<End):(Now>=Start||Now<End)))return false;
+ }
 	const auto Matches = [](FName Required, FName Actual) { return Required.IsNone() || Required == Actual; };
 	if (!Matches(Rule.RequiredItemId, Context.UsedItemId) || !Matches(Rule.RequiredLocationId, Context.LocationId)
 		|| !Matches(Rule.RequiredActionId, Context.ActionId))

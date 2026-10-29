@@ -2,6 +2,7 @@
 #include "../Game/PokeMonsterGameMode.h"
 #include "../Dialogue/PokeMonsterNPC.h"
 #include "../Save/PokeMonsterSaveSubsystem.h"
+#include "../Time/PokeMonsterWorldClock.h"
 #include "PokeMonsterClassicBattleScene.h"
 #include "PokeMonsterEncounterProfile.h"
 #include "PokeMonsterVisibleWildCreatureActor.h"
@@ -494,6 +495,7 @@ int32 UPokeMonsterEncounterSubsystem::PrepareEvolutionOffer(FGuid OnlyCreatureId
  {
   auto& C=PlayerParty[I];if(OnlyCreatureId.IsValid()&&C.InstanceId!=OnlyCreatureId)continue;if(C.CurrentHP<=0||!C.PendingMoves.IsEmpty())continue;
   FPokeMonsterEvolutionContext Context;
+  if(const auto* Clock=GetGameInstance()->GetSubsystem<UPokeMonsterWorldClock>())Context.MinuteOfDay=FMath::FloorToInt(Clock->GetTime().SecondsOfDay/60.);
   for(const auto& O:UPokeMonsterCreatureProgression::GetEvolutionOptions(C,Context))if(O.Readiness==EPokeMonsterEvolutionReadiness::Ready)
   {
    if(C.PendingEvolutionTarget.IsValid()) {if(C.PendingEvolutionTarget==O.TargetSpecies)return I;continue;}
@@ -513,7 +515,9 @@ bool UPokeMonsterEncounterSubsystem::ResolveEvolution(FGuid Id,FPrimaryAssetId T
  auto* C=PlayerParty.FindByPredicate([Id](const auto& X){return X.InstanceId==Id;});
  if(!C||C->PendingEvolutionTarget!=Target||!Target.IsValid()||!C->ValidateEvolutionState()||!C->PendingMoves.IsEmpty())return false;
  const auto Old=*C;auto Candidate=Old;
- if(Accept){FPokeMonsterEvolutionContext Context;if(!UPokeMonsterCreatureProgression::ApplyEvolution(Candidate,Target,Context))return false;}
+ if(Accept){FPokeMonsterEvolutionContext Context;
+  if(const auto* Clock=GetGameInstance()->GetSubsystem<UPokeMonsterWorldClock>())Context.MinuteOfDay=FMath::FloorToInt(Clock->GetTime().SecondsOfDay/60.);
+  if(!UPokeMonsterCreatureProgression::ApplyEvolution(Candidate,Target,Context))return false;}
  else Candidate.PendingEvolutionTarget=FPrimaryAssetId();
  *C=Candidate;
  auto* Q=GetGameInstance()->GetSubsystem<UPokeMonsterQuestSubsystem>();const auto OldDex=Q?Q->GetCapturedSpeciesIds():TArray<FName>();

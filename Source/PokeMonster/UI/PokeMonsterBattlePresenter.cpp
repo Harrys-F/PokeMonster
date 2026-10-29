@@ -414,6 +414,8 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
 		FString MoveName = Event.MoveId.PrimaryAssetName==TEXT("Struggle")?TEXT("Verzweifler"):Event.MoveId.PrimaryAssetName.ToString();
 		if (Source.GetMoveSlots().IsValidIndex(Event.SlotIndex))
 			if (const auto* Move = Source.GetMoveSlots()[Event.SlotIndex].GetMove().Get()) MoveName = Move->GetPlayerFacingName().ToString();
+  const auto* Recipient=State.TeamA.FindByPredicate([&](const auto& C){return C.InstanceId==Event.TargetInstanceId;});
+  const FString RecipientName=Recipient?CreatureView(*Recipient).Name.ToString():Who;
 		switch (Event.Type)
 		{
 		case EPokeMonsterBattleEventType::FleeChosen:case EPokeMonsterBattleEventType::ItemChosen:break;
@@ -432,10 +434,10 @@ void UPokeMonsterBattlePresenter::AppendEvents(const FPokeMonsterBattleResult& R
   case EPokeMonsterBattleEventType::Burned:LogLines.Add(Other+TEXT(" erleidet eine Verbrennung!"));break;
   case EPokeMonsterBattleEventType::Recoil:LogLines.Add(Who+TEXT(" erleidet Rückstoßschaden."));break;
   case EPokeMonsterBattleEventType::BurnDamage:LogLines.Add(Who+TEXT(" leidet unter der Verbrennung."));break;
-  case EPokeMonsterBattleEventType::ExperienceGained:LogLines.Add(FString::Printf(TEXT("%lld Erfahrungspunkte erhalten."),Event.ExperienceAdded));break;
+  case EPokeMonsterBattleEventType::ExperienceGained:LogLines.Add(FString::Printf(TEXT("%s erhält %lld Erfahrungspunkte."),*RecipientName,Event.ExperienceAdded));break;
   case EPokeMonsterBattleEventType::MoveLearned:case EPokeMonsterBattleEventType::MoveUnavailable:LogLines.Add(Event.Information.ToString());break;
-  case EPokeMonsterBattleEventType::EvolutionPending:LogLines.Add(TEXT("Entwicklung vorbereitet; Zielmodell/Entwicklungssequenz noch nicht verfügbar."));break;
-  case EPokeMonsterBattleEventType::LevelUp:LogLines.Add(FString::Printf(TEXT("Levelaufstieg: Lv. %d → %d!"),Event.LevelBefore,Event.LevelAfter));break;
+  case EPokeMonsterBattleEventType::EvolutionPending:LogLines.Add(TEXT("Entwicklungsangebot wird nach Kampf und Lernentscheidung geprüft."));break;
+  case EPokeMonsterBattleEventType::LevelUp:LogLines.Add(FString::Printf(TEXT("%s: Levelaufstieg Lv. %d → %d!"),*RecipientName,Event.LevelBefore,Event.LevelAfter));break;
   case EPokeMonsterBattleEventType::MoveChosen: break; // Execution describes the choice in the compact log.
 		case EPokeMonsterBattleEventType::SwitchChosen: break;
 		case EPokeMonsterBattleEventType::CaptureChosen: LogLines.Add(TEXT("Fangversuch gestartet.")); break;

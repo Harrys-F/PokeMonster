@@ -96,7 +96,7 @@ void UPokeMonsterCreatureTestGround::OnWorldBeginPlay(UWorld& World)
   MovementReferenceSpeeds.Add(FVector2D(S->Overworld.WalkSpeedOverride>0.f?S->Overworld.WalkSpeedOverride:V->Presentation->WalkSpeed,
     S->Overworld.RunSpeedOverride>0.f?S->Overworld.RunSpeedOverride:V->Presentation->RunSpeed));
   auto* L=NewObject<UTextRenderComponent>(V);V->AddInstanceComponent(L);L->SetupAttachment(V->GetRootComponent());L->RegisterComponent();
-  L->SetText(FText::FromString(FString::Printf(TEXT("TEST %02d | %s"),I+1,*S->GetDisplayName().ToString())));APokeMonsterCreatureVisualActor::StyleNameplate(L);V->PlaceNameplate(L,nullptr);Labels.Add(L);
+  L->SetText(FText::FromString(FString::Printf(TEXT("TEST %02d | %s"),I+1,*S->GetDisplayName().ToString())));APokeMonsterCreatureVisualActor::StyleNameplate(L);V->PlaceNameplate(L,nullptr);L->SetVisibility(false);Labels.Add(L);
  }
  UE_LOG(LogTemp,Display,TEXT("PM_TESTGROUND registered %d visual-only specimens; cell %.0f cm. pm.TestGround.List / Go [index|name] / Return"),Specimens.Num(),Spacing);
 }

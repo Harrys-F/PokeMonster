@@ -272,6 +272,13 @@ bool FPokeMonsterCreatureInstance::ValidateEvolutionState() const
  if(bHasExperienceGrowthOverride&&UPokeMonsterCreatureProgression::ExperienceForLevel(ExperienceGrowthOverride,Level)<0)return false;
  if(!PendingEvolutionTarget.IsValid())return PendingEvolutionTarget==FPrimaryAssetId();
  FPokeMonsterEvolutionContext C;
- auto AtOffer=*this;AtOffer.Level=LastEvolutionOfferedLevel;
- return LastEvolutionOfferedLevel>0&&UPokeMonsterCreatureProgression::GetEligibleEvolutions(AtOffer,C).Contains(PendingEvolutionTarget);
+ // Saved metadata proves a possible offer, not that its time window is open at load time.
+ // Actual offering/acceptance rechecks the current central world time separately.
+ const auto* Data=Species.LoadSynchronous();if(!Data||LastEvolutionOfferedLevel<=0||PendingEvolutionTarget==Data->GetPrimaryAssetId())return false;
+ for(const auto& Rule:Data->GetEvolutions())if(Rule.TargetSpecies==PendingEvolutionTarget)
+ {
+  C.MinuteOfDay=Rule.RequiredStartMinute;
+  if(UPokeMonsterCreatureProgression::IsEvolutionEligible(Rule,LastEvolutionOfferedLevel,C))return true;
+ }
+ return false;
 }
