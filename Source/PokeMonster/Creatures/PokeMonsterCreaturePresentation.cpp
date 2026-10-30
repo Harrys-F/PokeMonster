@@ -46,8 +46,21 @@ TArray<FString> UPokeMonsterCreaturePresentationData::GetValidationErrors() cons
  {
   if (!FMath::IsFinite(SwimReferenceSpeed)||SwimReferenceSpeed<=0.f) Errors.Add(TEXT("Swim reference speed must be finite and positive"));
   for (const UAnimSequence* Clip:{SwimIdleClip.Get(),SwimClip.Get()})
-   if (!Clip || Clip->GetSkeleton()!=Mesh->GetSkeleton() || Clip->bEnableRootMotion || Clip->GetPlayLength()<=0.f)
+   if (!Clip || Clip->GetSkeleton()!=(SwimMesh?SwimMesh->GetSkeleton():Mesh->GetSkeleton()) || Clip->bEnableRootMotion || Clip->GetPlayLength()<=0.f)
     Errors.Add(TEXT("Swimming requires idle and moving in-place clips on this mesh skeleton"));
+ }
+ if (SwimMesh)
+ {
+  if(!SwimIdleClip||!SwimClip)Errors.Add(TEXT("Separate water rig requires both idle and normal swimming clips"));
+  if(!SwimMesh->GetSkeleton()||RigFamily!=EPokeMonsterCreatureRigFamily::Serpentine)Errors.Add(TEXT("Separate swimming rig requires a valid serpentine mesh"));
+  for(const auto* Clip:{SwimSlowClip.Get(),SwimFastClip.Get(),SwimObserveClip.Get(),SwimTurnLeftClip.Get(),SwimTurnRightClip.Get()})
+   if(!Clip||Clip->GetSkeleton()!=SwimMesh->GetSkeleton()||Clip->bEnableRootMotion||Clip->GetPlayLength()<=0.f)Errors.Add(TEXT("Water poses must use their exact swimming skeleton"));
+  for(auto Role:{EPokeMonsterCreatureClip::Attack,EPokeMonsterCreatureClip::Hit,EPokeMonsterCreatureClip::Faint,EPokeMonsterCreatureClip::Happy})
+  {const auto* Clip=SwimReactions.FindRef(Role).Get();if(!Clip||Clip->GetSkeleton()!=SwimMesh->GetSkeleton()||Clip->bEnableRootMotion||!FMath::IsFinite(Clip->GetPlayLength())||Clip->GetPlayLength()<=0)Errors.Add(TEXT("Separate swim rig needs compatible reactions"));}
+  if(!FMath::IsFinite(SwimSlowSpeed)||!FMath::IsFinite(SwimFastSpeed)||SwimSlowSpeed<=0||SwimSlowSpeed>=SwimReferenceSpeed||SwimFastSpeed<=SwimReferenceSpeed
+   ||!FMath::IsFinite(SwimSubmergedDepthCm)||SwimSubmergedDepthCm<=0
+   ||!FMath::IsFinite(SwimClearanceRadiusCm)||SwimClearanceRadiusCm<=0||!FMath::IsFinite(SwimTurnDegreesPerSecond)||SwimTurnDegreesPerSecond<=0
+   ||!FMath::IsFinite(SwimObserveBlendSeconds)||SwimObserveBlendSeconds<.25f||!FMath::IsFinite(SwimPreviewOffsetCm))Errors.Add(TEXT("Invalid water motion/clearance settings"));
  }
  if (bAllowGroundHover)
  {
@@ -78,6 +91,7 @@ bool APokeMonsterCreatureVisualActor::SetPresentation(UPokeMonsterCreaturePresen
  if(!Candidate||!Candidate->GetValidationErrors().IsEmpty())return false;
  for(const auto& Component:EffectComponents)if(Component)Component->DestroyComponent();
  EffectComponents.Reset();Presentation=Candidate;MotionSpeed=0.f;
+ bUsingSwimMesh=false;SwimObserveAlpha=SwimTurnInput=SwimObserveHold=0.f;PreviousSwimYaw=GetActorRotation().Yaw;Reaction=EPokeMonsterCreatureClip::Idle;++ReactionSerial;
  if (HoverContext.IsValid()) { HoverContext->SetPresentationHold(false);HoverContext->SetPresentationHoverClearance(0.f,FBox(ForceInit)); }
  HoverState=EHoverState::Grounded;HoverStateTime=HoverHeight=HoverPoseAlpha=0.f;ActiveHoverClip=nullptr;Mesh->SetRelativeLocation(FVector::ZeroVector);Mesh->SetRelativeRotation(FRotator::ZeroRotator);bUsingAmbientFloat=false;
  Mesh->SetSkeletalMesh(Presentation->Mesh);Mesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
@@ -99,7 +113,7 @@ bool APokeMonsterCreatureVisualActor::SetPresentation(UPokeMonsterCreaturePresen
   if(A.Material)Component->SetMaterial(0,A.Material);
   Component->RegisterComponent();EffectComponents.Add(Component);
  }
- bHavePrevious=false;Reaction=EPokeMonsterCreatureClip::Idle;++ReactionSerial;
+ bHavePrevious=false;
  return true;
 }
 float APokeMonsterCreatureVisualActor::SampleSpeed(const FVector& Delta,float Seconds,bool HasPrevious)
@@ -112,7 +126,7 @@ void APokeMonsterCreatureVisualActor::Tick(float Delta)
 {
  Super::Tick(Delta);const FVector P=GetActorLocation();
  MotionSpeed=SampleSpeed(P-PreviousLocation,Delta,bHavePrevious);
- PreviousLocation=P;bHavePrevious=true;UpdateGroundHover(Delta);
+ PreviousLocation=P;bHavePrevious=true;UpdateGroundHover(Delta);UpdateSwimming(Delta);
  if (AquaticPoseAlpha>0.f)
  {
   if (!Presentation || !Presentation->SwimClip) MotionSpeed*=1.f-FMath::Clamp(AquaticPoseAlpha,0.f,1.f);
@@ -133,30 +147,42 @@ struct FCreatureProxy final:FAnimInstanceProxy
  UAnimSequence *Idle=nullptr,*Walk=nullptr,*Run=nullptr,*OneShot=nullptr,*Hover=nullptr,*PreviousHover=nullptr,*SwimIdle=nullptr,*Swim=nullptr;
  float HoverTime=0,HoverAlpha=0,PreviousHoverTime=0,HoverTransition=1.f;
  float IdleTime=0,Phase=0,ShotTime=0,WalkAlpha=0,RunAlpha=0,ShotAlpha=0,Rate=0;
- float SwimTime=0,SwimIdleTime=0,SwimAlpha=0,SwimMoving=0,SwimRate=1;
+ UAnimSequence *SwimSlow=nullptr,*SwimFast=nullptr,*SwimObserve=nullptr,*SwimLeft=nullptr,*SwimRight=nullptr;
+ float SwimTime=0,SwimIdleTime=0,SwimAlpha=0,SwimMoving=0,SwimRate=1,SwimSlowAlpha=0,SwimFastAlpha=0,SwimObserveAlpha=0,SwimTurn=0;
+ bool SeparateWaterRig=false;
  bool bHold=false,bPhaseInitialized=false;uint32 Serial=0;
  virtual void PreUpdate(UAnimInstance* I,float Dt)override
  {
   FAnimInstanceProxy::PreUpdate(I,Dt);auto* A=Cast<APokeMonsterCreatureVisualActor>(I->GetOwningActor());
   if(!A||!A->Presentation)return;auto* D=A->Presentation.Get();
   auto Get=[D](EPokeMonsterCreatureClip C)->UAnimSequence*{const auto* P=D->Clips.Find(C);return P?P->Get():nullptr;};
-  Idle=Get(EPokeMonsterCreatureClip::Idle);Walk=Get(EPokeMonsterCreatureClip::Walk);Run=Get(EPokeMonsterCreatureClip::Run);
+  SeparateWaterRig=A->bUsingSwimMesh;
+  Idle=SeparateWaterRig?D->SwimIdleClip.Get():Get(EPokeMonsterCreatureClip::Idle);Walk=SeparateWaterRig?nullptr:Get(EPokeMonsterCreatureClip::Walk);Run=SeparateWaterRig?nullptr:Get(EPokeMonsterCreatureClip::Run);
+  SwimSlow=SeparateWaterRig?D->SwimSlowClip.Get():nullptr;SwimFast=SeparateWaterRig?D->SwimFastClip.Get():nullptr;
+  SwimObserve=SeparateWaterRig?D->SwimObserveClip.Get():nullptr;SwimLeft=SeparateWaterRig?D->SwimTurnLeftClip.Get():nullptr;SwimRight=SeparateWaterRig?D->SwimTurnRightClip.Get():nullptr;
+  SwimObserveAlpha=A->SwimObserveAlpha;SwimTurn=A->SwimTurnInput;
   if(!bPhaseInitialized&&Idle){IdleTime=FMath::Fmod(FMath::Max(0.f,A->IdlePhaseOffset),1.f)*Idle->GetPlayLength();bPhaseInitialized=true;}
   if (Hover!=A->ActiveHoverClip) { PreviousHover=Hover;PreviousHoverTime=HoverTime;Hover=A->ActiveHoverClip;HoverTransition=0.f; }
   HoverTime=A->HoverClipTime;HoverAlpha=A->HoverPoseAlpha;
   HoverTransition=FMath::Min(1.f,HoverTransition+Dt/.20f);
   const float Speed=A->MotionSpeed;
-  SwimIdle=D->SwimIdleClip;Swim=D->SwimClip;
+  SwimIdle=(!D->SwimMesh||SeparateWaterRig)?D->SwimIdleClip.Get():nullptr;Swim=(!D->SwimMesh||SeparateWaterRig)?D->SwimClip.Get():nullptr;
+  if(D->SwimMesh&&!SeparateWaterRig)SwimAlpha=0.f;
   const bool HasSwim=SwimIdle&&Swim;
   SwimAlpha=FMath::FInterpConstantTo(SwimAlpha,HasSwim?FMath::Clamp(A->AquaticPoseAlpha,0.f,1.f):0.f,Dt,1.f/.22f);
   SwimMoving=FMath::FInterpConstantTo(SwimMoving,Speed>2.f?1.f:0.f,Dt,1.f/.18f);
   SwimRate=FMath::Clamp(Speed/FMath::Max(D->SwimReferenceSpeed,1.f),.45f,1.75f);
+  if(SeparateWaterRig)
+  {
+   SwimSlowAlpha=FMath::FInterpTo(SwimSlowAlpha,1.f-FMath::Clamp((Speed-D->SwimSlowSpeed)/(D->SwimReferenceSpeed-D->SwimSlowSpeed),0.f,1.f),Dt,3.f);
+   SwimFastAlpha=FMath::FInterpTo(SwimFastAlpha,FMath::Clamp((Speed-D->SwimReferenceSpeed)/(D->SwimFastSpeed-D->SwimReferenceSpeed),0.f,1.f),Dt,3.f);
+  }
 
   WalkAlpha=FMath::FInterpConstantTo(WalkAlpha,Speed>2.f&&Walk?1.f:0.f,Dt,1.f/.14f);
   RunAlpha=FMath::FInterpConstantTo(RunAlpha,Run?FMath::Clamp((Speed-D->WalkSpeed)/(FMath::Max(D->RunSpeed-D->WalkSpeed,1.f)),0.f,1.f):0.f,Dt,1.f/.14f);
   // Use this frame's stride blend, especially when a companion blends into its longer sprint.
   Rate=Speed/FMath::Max(FMath::Lerp(Walk?Walk->GetPlayLength()*D->WalkSpeed:1.f,Run?Run->GetPlayLength()*D->RunSpeed:1.f,RunAlpha),1.f);
-  if(A->ReactionSerial!=Serial){Serial=A->ReactionSerial;OneShot=A->Reaction>EPokeMonsterCreatureClip::Run?Get(A->Reaction):nullptr;ShotTime=0;ShotAlpha=0;bHold=A->Reaction==EPokeMonsterCreatureClip::Faint;}
+  if(A->ReactionSerial!=Serial){Serial=A->ReactionSerial;OneShot=A->Reaction>EPokeMonsterCreatureClip::Run?(SeparateWaterRig?D->SwimReactions.FindRef(A->Reaction).Get():Get(A->Reaction)):nullptr;ShotTime=0;ShotAlpha=0;bHold=A->Reaction==EPokeMonsterCreatureClip::Faint;}
  }
  virtual void Update(float Dt)override
  {
@@ -170,6 +196,7 @@ struct FCreatureProxy final:FAnimInstanceProxy
  {
   FAnimInstanceProxy::PostUpdate(I);auto* V=CastChecked<UPokeMonsterCreatureAnimInstance>(I);
   V->WalkBlend=WalkAlpha;V->RunBlend=RunAlpha;V->ReactionBlend=ShotAlpha;
+  V->SwimSlowBlend=SwimSlowAlpha;V->SwimFastBlend=SwimFastAlpha;V->SwimObservationBlend=SwimObserveAlpha;V->SwimTurnBlend=SwimTurn;
  }
  virtual bool Evaluate(FPoseContext& Out)override
  {
@@ -180,6 +207,15 @@ struct FCreatureProxy final:FAnimInstanceProxy
   Blend(Run,Run?Phase*Run->GetPlayLength():0,RunAlpha*WalkAlpha);
   Blend(SwimIdle,SwimIdleTime,SwimAlpha);
   Blend(Swim,SwimTime,SwimAlpha*SwimMoving);
+  if(SeparateWaterRig)
+  {
+   const float WaterPhase=Swim?SwimTime/FMath::Max(.01f,Swim->GetPlayLength()):0.f;
+   Blend(SwimSlow,SwimSlow?WaterPhase*SwimSlow->GetPlayLength():0,SwimAlpha*SwimMoving*SwimSlowAlpha);
+   Blend(SwimFast,SwimFast?WaterPhase*SwimFast->GetPlayLength():0,SwimAlpha*SwimMoving*SwimFastAlpha);
+   auto* Turn=SwimTurn>0?SwimLeft:SwimRight;
+   Blend(Turn,Turn?WaterPhase*Turn->GetPlayLength():0,SwimAlpha*FMath::Abs(SwimTurn));
+   Blend(SwimObserve,SwimObserve?FMath::Fmod(IdleTime,SwimObserve->GetPlayLength()):0,SwimObserveAlpha*SwimAlpha);
+  }
   if (Hover && HoverAlpha>0.f)
   {
    // Crossfade between takeoff/loop/landing poses before layering any combat reaction.
@@ -204,6 +240,7 @@ void APokeMonsterCreatureVisualActor::StyleNameplate(UTextRenderComponent* Label
 FVector APokeMonsterCreatureVisualActor::GetNameplateAnchor() const
 {
  if(!Mesh)return GetActorLocation()+FVector(0,0,60);
+ if(bUsingSwimMesh&&Mesh->DoesSocketExist(TEXT("head")))return Mesh->GetSocketLocation(TEXT("head"))+FVector(0,0,85);
  const auto& B=Mesh->Bounds;return FVector(B.Origin.X,B.Origin.Y,B.Origin.Z+B.BoxExtent.Z+24.f);
 }
 void APokeMonsterCreatureVisualActor::PlaceNameplate(UTextRenderComponent* Label,const APlayerCameraManager* Camera) const

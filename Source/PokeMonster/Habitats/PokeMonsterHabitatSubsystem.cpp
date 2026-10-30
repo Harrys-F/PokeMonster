@@ -165,6 +165,12 @@ void UPokeMonsterHabitatSubsystem::RefreshPopulation()
  }
  LastUpdateMicroseconds=(FPlatformTime::Seconds()-Start)*1e6;
 }
+void UPokeMonsterHabitatSubsystem::IgnoreWaterTerrainPeers(const APokeMonsterBiomeHabitat* Zone,FCollisionQueryParams& Query)const
+{
+ if(!Zone||Zone->Medium!=EPokeMonsterBiomeMedium::WaterOnly)return;
+ for(const auto& Peer:Population)
+  if(IsValid(Peer)&&Peer->OverworldMovement&&Peer->OverworldMovement->BiomeHabitat==Zone)Query.AddIgnoredActor(Peer);
+}
 bool UPokeMonsterHabitatSubsystem::TryPopulate(APokeMonsterHabitatZone* Z)
 {
  if(!IsValid(Z))return false;
@@ -204,16 +210,21 @@ bool UPokeMonsterHabitatSubsystem::TryPopulate(APokeMonsterHabitatZone* Z)
  const auto* Visual=Species->GetVisuals().Presentation.LoadSynchronous();if(!Visual||!Visual->Mesh)return false;
  const FVector Extent=Visual->Mesh->GetBounds().BoxExtent;const float Radius=FMath::Max3(38.f,Species->Overworld.BodyRadius,R.BodyRadiusCm);
  const float HalfHeight=Z->Medium==EPokeMonsterBiomeMedium::WaterOnly?FMath::Max(Radius,Extent.Z):FMath::Max(Radius,60.f);
+ const bool LongWaterRig=Z->Medium==EPokeMonsterBiomeMedium::WaterOnly&&Visual->SwimMesh;
+ const float NavigationRadius=LongWaterRig?FMath::Max(Radius,Visual->SwimClearanceRadiusCm):Radius;
+ const float BodyDepth=LongWaterRig?Visual->SwimSubmergedDepthCm:0.f;
+ if(NavigationRadius>=FMath::Min(Z->Bounds->GetScaledBoxExtent().X,Z->Bounds->GetScaledBoxExtent().Y))return false;
  FCollisionQueryParams Q(SCENE_QUERY_STAT(NaturalHabitatSpawn),false);Q.AddIgnoredActor(P);
+ if(LongWaterRig)IgnoreWaterTerrainPeers(Z,Q);
  for(int32 Attempt=0;Attempt<12;++Attempt)
  {
-  const FVector B=Z->Bounds->GetScaledBoxExtent();const FVector Point=Center+FVector(Random.FRandRange(-B.X+Radius,B.X-Radius),Random.FRandRange(-B.Y+Radius,B.Y-Radius),0);
-  FVector Foot;if(!Z->ProjectFoot(Point,Radius,HalfHeight,Q,Foot,0.f,R.WaterDraftCm)||FVector::Dist2D(P->GetActorLocation(),Foot)<R.MinimumPlayerDistance||(!bInitialPlacement&&!CandidateOutsideView(Foot,Extent))){++RejectedPositions;continue;}
+  const FVector B=Z->Bounds->GetScaledBoxExtent();const FVector Point=Center+FVector(Random.FRandRange(-B.X+NavigationRadius,B.X-NavigationRadius),Random.FRandRange(-B.Y+NavigationRadius,B.Y-NavigationRadius),0);
+  FVector Foot;if(!Z->ProjectFoot(Point,NavigationRadius,FMath::Max(HalfHeight,NavigationRadius),Q,Foot,0.f,R.WaterDraftCm,BodyDepth)||FVector::Dist2D(P->GetActorLocation(),Foot)<R.MinimumPlayerDistance||(!bInitialPlacement&&!CandidateOutsideView(Foot,Extent))){++RejectedPositions;continue;}
   bool Clear=true;
   const auto* Companion=GetWorld()->GetSubsystem<UPokeMonsterCreatureCompanionSubsystem>();
   const auto* Buddy=Companion?Companion->GetVisual():nullptr;
   if(Buddy&&!Buddy->IsHidden()&&FVector::Dist2D(Buddy->GetActorLocation(),Foot)<R.MinimumPeerDistance)Clear=false;
-  for(auto A:Population)if(IsValid(A)&&FVector::Dist2D(A->GetActorLocation(),Foot)<FMath::Max(R.MinimumPeerDistance,Radius+Cast<UCapsuleComponent>(A->GetRootComponent())->GetScaledCapsuleRadius()+50.f)){Clear=false;break;}
+  for(auto A:Population)if(IsValid(A)&&FVector::Dist2D(A->GetActorLocation(),Foot)<FMath::Max(R.MinimumPeerDistance,NavigationRadius+Cast<UCapsuleComponent>(A->GetRootComponent())->GetScaledCapsuleRadius()+50.f)){Clear=false;break;}
   for(TActorIterator<APokeMonsterBuildingCutaway> I(GetWorld());I;++I)if(I->IsViewerInside(Foot+FVector(0,0,60))){Clear=false;break;}
   if(!Clear){++RejectedPositions;continue;}
   const FTransform Transform(FRotator(0,Random.FRandRange(-180,180),0),Foot+FVector(0,0,HalfHeight));

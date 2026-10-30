@@ -1,0 +1,100 @@
+{
+  "original_glb": "Art/Characters/Creatures/Incoming/Garados.glb",
+  "original_glb_sha256": "ce0661729d56dfa628a3232f4296bd5ae3bd51a914f417e8e82426e33133f5b9",
+  "original_working_source_sha256": "634be2dec767ac422cb8ae406cb92892578c095e370dd3ec55ad731a52344836",
+  "derived_source": "Art/Characters/Creatures/Garados/Source/Garados_Water_V2.blend",
+  "original_topology_faces_uvs_unchanged": true,
+  "water_rest_pose": "Continuous surface-guided uncoiling of the original vertices; original working/source files unchanged",
+  "new_spine_segments": 20,
+  "bones": 22,
+  "body_axis_length_m": 5.877577543258667,
+  "weight_smoothing": {
+    "iterations": 12,
+    "virtual_vertices": 13198,
+    "original_vertices": 24049,
+    "maximum_influences": 4,
+    "original_faces_and_uvs_unchanged": true
+  },
+  "uncoiling": "Harmonic coordinate on connected original body; disconnected original fins/horns attached at nearest body base; original faces and UVs retained",
+  "longitudinal_solver_residual": 9.348339780975497e-07,
+  "clips": {
+    "SwimIdle": {
+      "seconds": 2.4,
+      "frames": 73,
+      "strength": 0.2,
+      "observe": 0,
+      "turn": 0
+    },
+    "SwimSlow": {
+      "seconds": 1.6,
+      "frames": 49,
+      "strength": 0.5,
+      "observe": 0,
+      "turn": 0
+    },
+    "SwimNormal": {
+      "seconds": 1.6,
+      "frames": 49,
+      "strength": 1.0,
+      "observe": 0,
+      "turn": 0
+    },
+    "SwimFast": {
+      "seconds": 1.6,
+      "frames": 49,
+      "strength": 1.4,
+      "observe": 0,
+      "turn": 0
+    },
+    "SwimTurnLeft": {
+      "seconds": 1.6,
+      "frames": 49,
+      "strength": 1.0,
+      "observe": 0,
+      "turn": 1
+    },
+    "SwimTurnRight": {
+      "seconds": 1.6,
+      "frames": 49,
+      "strength": 1.0,
+      "observe": 0,
+      "turn": -1
+    },
+    "SwimObserve": {
+      "seconds": 2.4,
+      "frames": 73,
+      "strength": 0.22,
+      "observe": 1,
+      "turn": 0
+    },
+    "SwimAttack": {
+      "seconds": 1.6,
+      "frames": 49,
+      "strength": 0.3,
+      "observe": 1,
+      "turn": 0
+    },
+    "SwimHit": {
+      "seconds": 1.6,
+      "frames": 49,
+      "strength": 0.25,
+      "observe": 0,
+      "turn": 0
+    },
+    "SwimFaint": {
+      "seconds": 1.6,
+      "frames": 49,
+      "strength": 0.1,
+      "observe": 0.2,
+      "turn": 0
+    },
+    "SwimHappy": {
+      "seconds": 1.6,
+      "frames": 49,
+      "strength": 0.4,
+      "observe": 0.35,
+      "turn": 0
+    }
+  },
+  "land_and_battle_original_rig_animations_untouched": true
+}

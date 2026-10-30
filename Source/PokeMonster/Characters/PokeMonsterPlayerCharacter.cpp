@@ -555,7 +555,7 @@ AActor* APokeMonsterPlayerCharacter::FindInteractableInRange() const
   if(Candidate==this||Candidate->IsHidden()||!Candidate->Implements<UPokeMonsterInteractable>()
    ||!IPokeMonsterInteractable::Execute_CanInteract(Candidate,const_cast<APokeMonsterPlayerCharacter*>(this)))continue;
   const auto* Wild=Cast<APokeMonsterVisibleWildCreatureActor>(Candidate);
-  const float Range=Wild?FMath::Max(InteractionRange+InteractionTraceRadius,InteractionRange+Wild->GetShoreInteractionRadius()):InteractionRange+InteractionTraceRadius;
+  const float Range=Wild?FMath::Max(InteractionRange+InteractionTraceRadius,InteractionRange+Wild->GetShoreInteractionRadius(InteractionRange)):InteractionRange+InteractionTraceRadius;
   const float Score=InteractionTargetScore(Candidate->GetActorLocation()-GetActorLocation(),GetInteractionWorldDirection(),Range);
   if(Score<0||Score>=BestScore)continue;
   FCollisionQueryParams Q(SCENE_QUERY_STAT(PokeMonsterInteraction),false,this);Q.AddIgnoredActor(Candidate);FHitResult Hit;

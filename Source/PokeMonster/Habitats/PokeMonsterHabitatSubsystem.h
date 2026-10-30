@@ -82,6 +82,8 @@ public:
  virtual void Deinitialize() override;
  UFUNCTION(BlueprintCallable) void SetPopulationEnabled(bool Enabled);
  UFUNCTION(BlueprintCallable) void RefreshPopulation();
+ /** Shared terrain-only filter for long swimmers; contact and spawn separation stay independent. */
+ void IgnoreWaterTerrainPeers(const APokeMonsterBiomeHabitat* Zone,FCollisionQueryParams& Query)const;
  UFUNCTION(BlueprintPure) bool IsPopulationEnabled()const{return bEnabled;}
  UPROPERTY(Transient,BlueprintReadOnly) TArray<TObjectPtr<APokeMonsterHabitatZone>> Zones;
  UPROPERTY(Transient,BlueprintReadOnly) TArray<TObjectPtr<APokeMonsterVisibleWildCreatureActor>> Population;

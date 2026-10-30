@@ -43,7 +43,7 @@ public:
  /** Configure before FinishSpawning; existing authored sources keep their body sizes. */
  void ConfigureHabitatBody(float Radius,float HalfHeight);
  /** Shared by the actor and player target selection; land interaction stays unchanged. */
- float GetShoreInteractionRadius() const;
+ float GetShoreInteractionRadius(float PlayerRange=0.f) const;
  /** Shared UI source. Active instances only; no distance or geometry visibility filter. */
  UFUNCTION(BlueprintPure) APokeMonsterCreatureVisualActor* GetNameplateVisual() const;
  UFUNCTION(BlueprintPure) FString GetNameplateText() const;

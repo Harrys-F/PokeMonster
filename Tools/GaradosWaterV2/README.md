@@ -1,0 +1,20 @@
+# Garados Wasserbewegung V2
+
+Only Harry's existing `Art/Characters/Creatures/Incoming/Garados.glb` is a model source. Its expected SHA256 is checked by the preparer. No model generation, new topology, texture replacement, map creation or changes to the original V1 rig/clips.
+
+- `InspectPose.py`: read-only analysis of the old working rig; creates labelled diagnostic renders under Saved.
+- `PrepareWaterSource.py`: derive the water working source, 20 spine segments and eleven FBXs. The continuous uncoiling follows the connected original surface; thirteen disconnected original parts are attached to their original body bases. Source points are repositioned as a technical rest-pose correction; original faces and UVs are retained. Existing generated work is revised only with `--revise-generated`.
+- `ValidateWaterSource.py`: inspect every exported animation frame, original topology/UVs, rest-pose edge distortion, animated bounds and representative diagnostic renders. `--label UniqueReviewName` selects a new Saved output directory. Blender diagnostics are not gameplay evidence.
+- `ImportWater.py`: first import only. Reuse the original Garados materials and primary presentation, mesh, skeleton and seven land/battle clips. `ReimportOwnedWater.py` revises only the thirteen new assets recorded in this task's import manifest; it does not reimport any original asset.
+- `RunAutomation.py Label [PokeMonster|PokeMonster.GaradosWater]`: isolated existing Unreal automation and strict report checks. It never kills a timed-out process. Full suite: at least 314 functional tests, no test warnings/failures/skips for strict success.
+- `PIEWater.py`, `PIEFoot.py`, `PIEGameplay.py`: real PIE observation, Enhanced Input movement, shore interaction/capture and isolated menu Save/Load. Their diagnostic outputs live under Saved. Use only the owned editor/UserDir described in the report.
+- `BaselineGameplay.py`: bounded native observation and terrain diagnostics; `require_movement: true` retains the original acceptance checks for both fish, including >20 cm travel, containment, immersion and aquatic pose. Its terrain-probe loop is not a clean performance benchmark.
+- `PeerProbe.py`: temporary collision/position A/B diagnosis with restoration in `finally`.
+- `WaterCapture.py`: controlled inspection on the actual pond specimen through the existing model-preview planner. Restores speed, tags, natural control and camera offset. Normal camera projection and world scale remain unchanged. Video uses the existing asynchronous framebuffer recorder; original timestamps are retained. Do not use its FPS as gameplay performance.
+- `Restart.py`: load the exact evolved/captured team in a fresh process and travel through existing Dev_TestMap and back, without creating or writing a user save.
+- `Performance.py`: three short native CSV measurements, live world, no recording or terrain-probe loop.
+- `EvolutionGameplay.py`: existing Karpador evolution/UMG, land buddy, model terrain, real attack/capture and Save/Load checks. The established EvolutionV3 isolated-storage gate remains intact; stage this script in its owned Saved queue and use that existing launcher. Do not relax debug guards to run against user saves.
+
+Use Blender with `--background --python-exit-code 1 --python ...`. Unreal imports require a clean owned editor, never an unattended overwrite of a user's dirty session. Evidence, runtime launch manifests and concrete results: `Docs/GARADOS_WASSERBEWEGUNG_V2.md` and `Saved/ProjectRefinement/GaradosWaterV2/`.
+
+Capture limitations: native HDR framebuffer format may be unsupported by the existing recorder. An explicitly labelled own-process `startup_engine_cvars: {"r.DefaultBackBufferPixelFormat": 0}` diagnostic is supported by ModelsV4/Run.py. It never edits configuration. Optional `video_width`/`video_height` and `simulation_dilation` are diagnostic only and must be reported; normal-time benchmarks never use them. Successful recording requires actual frames, no Error.txt and a completed drain. Source PTS must be decoded and checked, never interpolated.

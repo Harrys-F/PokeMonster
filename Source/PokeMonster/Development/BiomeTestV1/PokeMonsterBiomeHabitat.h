@@ -77,7 +77,7 @@ public:
  UPROPERTY(Transient,BlueprintReadOnly) int32 SuspendedCount=0;
  UFUNCTION(BlueprintPure) bool ContainsFootprint(FVector Point,float Radius) const;
  bool ContainsFlightColumn(const FVector& Point,float Height,const FBox& MeshBounds) const;
- bool ProjectFoot(const FVector& Point,float Radius,float HalfHeight,const FCollisionQueryParams& Query,FVector& Foot,float AirLiftCm=0.f,float DraftOverrideCm=-1.f) const;
+ bool ProjectFoot(const FVector& Point,float Radius,float HalfHeight,const FCollisionQueryParams& Query,FVector& Foot,float AirLiftCm=0.f,float DraftOverrideCm=-1.f,float FullBodyDepthCm=0.f) const;
  void IgnorePlayerWaterBarriers(FCollisionQueryParams& Query) const;
  static bool AirFootHeight(float Plane,float Floor,float Lift,float MinClearance,float MaxClearance,float& Foot);
  static bool MediumFootHeight(EPokeMonsterBiomeMedium Mode,float Floor,float Surface,float Draft,float FloatHeight,float MinDepth,float& Height);

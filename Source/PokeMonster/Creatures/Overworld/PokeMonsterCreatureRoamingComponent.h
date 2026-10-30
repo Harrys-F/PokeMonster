@@ -36,6 +36,7 @@ public:
 	static bool IsDecorativeSegmentBlocked(const FBox& Bounds,const FVector& Start,const FVector& End,float Radius,float HalfHeight,float StepHeight);
 	bool CanGroundHover(float Height, const FBox& VisualBounds,bool RequireLandingColumn=false) const;
  void SetPresentationHoverClearance(float Height,const FBox& Bounds) { PresentationHoverHeight=Height;PresentationHoverBounds=Bounds; }
+ void SetSwimPresentationWeight(float Weight) { SwimPresentationWeight=FMath::Clamp(Weight,0.f,1.f); }
  void SetPresentationHold(bool Held) { bPresentationHold=Held; }
  static float AdvanceSpeed(float Current, float Desired, float Distance, bool Companion,
 		const FPokeMonsterCreatureOverworldSettings& Config, float Delta);
@@ -110,6 +111,7 @@ public:
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities|Rhythm") float RhythmOffsetMinutes=0.f;
  UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly,Category="Activities|Rhythm") int32 RhythmRefreshes=0;
 private:
+ float SwimPresentationWeight=0.f;
  void ConfigureRhythm(int32 Seed);
  void BindRhythm(UPokeMonsterWorldClock* Clock);
  void UnbindRhythm();
@@ -157,7 +159,7 @@ private:
  float ReactionRemaining=0.f,InterestRemaining=0.f;
 	bool Plan(const FVector& Goal);
 	void BeginPause();
-	FCollisionQueryParams Query() const;
+	FCollisionQueryParams Query(bool WaterTerrainOnly=false) const;
 	UPROPERTY(Transient) TObjectPtr<UPokeMonsterCreaturePresentationData> Presentation;
 	TWeakObjectPtr<AActor> FollowTarget;
 	TArray<TWeakObjectPtr<APokeMonsterBuildingCutaway>> Buildings;

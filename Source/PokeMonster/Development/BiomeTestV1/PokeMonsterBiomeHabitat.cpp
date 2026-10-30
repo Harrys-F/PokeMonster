@@ -95,7 +95,7 @@ void APokeMonsterBiomeHabitat::IgnorePlayerWaterBarriers(FCollisionQueryParams& 
 {
  for(const auto& A:PlayerWaterBarriers)if(A.IsValid())Query.AddIgnoredActor(A.Get());
 }
-bool APokeMonsterBiomeHabitat::ProjectFoot(const FVector& Point,float Radius,float HalfHeight,const FCollisionQueryParams& Input,FVector& Foot,float AirLiftCm,float DraftOverrideCm) const
+bool APokeMonsterBiomeHabitat::ProjectFoot(const FVector& Point,float Radius,float HalfHeight,const FCollisionQueryParams& Input,FVector& Foot,float AirLiftCm,float DraftOverrideCm,float FullBodyDepthCm) const
 {
  if(!GetWorld()||!ContainsFootprint(Point,Radius))return false;
  FHitResult Hit;auto Q=Input;IgnorePlayerWaterBarriers(Q);
@@ -109,6 +109,26 @@ bool APokeMonsterBiomeHabitat::ProjectFoot(const FVector& Point,float Radius,flo
   Foot=FVector(Point.X,Point.Y,Z);
   return ContainsFootprint(Foot,Radius)&&!GetWorld()->OverlapBlockingTestByChannel(Foot+FVector(0,0,AirLiftCm+HalfHeight+28.f),FQuat::Identity,
    ECC_Pawn,FCollisionShape::MakeCapsule(Radius,FMath::Max(HalfHeight,Radius)),Q);
+ }
+ // Optional conservative water envelope: twelve perimeter probes plus centre.
+ // Long animated swimmers must have bed/rock clearance for the whole silhouette, in any heading.
+ if(!FMath::IsFinite(FullBodyDepthCm)||FullBodyDepthCm<0.f)return false;
+ if(Medium==EPokeMonsterBiomeMedium::WaterOnly && FullBodyDepthCm>0.f)
+ {
+  if(Hit.ImpactPoint.Z>WaterSurfaceZ-FullBodyDepthCm-2.f)return false;
+  // The flat broad-phase volume also catches small rocks between the floor probes.
+  // This deliberately conservative box covers every heading of the animated body.
+  if(GetWorld()->OverlapBlockingTestByChannel(FVector(Point.X,Point.Y,WaterSurfaceZ-FullBodyDepthCm*.5f),FQuat::Identity,
+   ECC_Pawn,FCollisionShape::MakeBox(FVector(Radius,Radius,FullBodyDepthCm*.5f+2.f)),Q))return false;
+  for(int32 I=0;I<12;++I)
+  {
+   const float A=I*2.f*PI/12.f;const FVector P=Point+FVector(FMath::Cos(A),FMath::Sin(A),0)*Radius;
+   FHitResult Edge;
+   if(!GetWorld()->LineTraceSingleByChannel(Edge,FVector(P.X,P.Y,GetActorLocation().Z+1000.f),FVector(P.X,P.Y,GetActorLocation().Z-1500.f),ECC_Visibility,Q)
+    ||!Edge.GetComponent()||Edge.GetComponent()->GetCollisionResponseToChannel(ECC_Pawn)!=ECR_Block
+    ||Edge.ImpactPoint.Z>WaterSurfaceZ-FullBodyDepthCm-2.f
+    ||(Edge.GetActor()&&Edge.GetActor()->ActorHasTag(TEXT("CreatureNoWalk"))))return false;
+  }
  }
  const float Draft=DraftOverrideCm>=0.f?DraftOverrideCm:WaterDraftCm;
  const bool Swimming=(Medium==EPokeMonsterBiomeMedium::Amphibious||Medium==EPokeMonsterBiomeMedium::WaterOnly)

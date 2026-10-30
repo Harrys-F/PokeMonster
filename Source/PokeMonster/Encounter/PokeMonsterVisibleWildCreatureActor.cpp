@@ -66,9 +66,11 @@ APokeMonsterVisibleWildCreatureActor::APokeMonsterVisibleWildCreatureActor()
 	Tags.Add(TEXT("VisibleWildEncounter"));
 }
 
-float APokeMonsterVisibleWildCreatureActor::GetShoreInteractionRadius() const
+float APokeMonsterVisibleWildCreatureActor::GetShoreInteractionRadius(float PlayerRange) const
 {
- return OverworldMovement->BiomeHabitat&&OverworldMovement->BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly?Body->GetScaledCapsuleRadius():0.f;
+ if(!OverworldMovement->BiomeHabitat||OverworldMovement->BiomeHabitat->Medium!=EPokeMonsterBiomeMedium::WaterOnly)return 0.f;
+ const auto* D=Visual?Visual->Presentation.Get():nullptr;
+ return D&&D->SwimMesh?FMath::Max3(Body->GetScaledCapsuleRadius(),D->SwimClearanceRadiusCm,FMath::Max(0.f,OverworldMovement->GetBehaviorProfile().NoticeRadius-PlayerRange)):Body->GetScaledCapsuleRadius();
 }
 void APokeMonsterVisibleWildCreatureActor::PrepareInteractionSight(FCollisionQueryParams& Query) const
 {
@@ -94,6 +96,8 @@ void APokeMonsterVisibleWildCreatureActor::BeginPlay()
   if(Visual&&Visual->SetSpecies(Species))
   {
    Visual->AttachToActor(this,FAttachmentTransformRules::KeepRelativeTransform);Visual->AddTickPrerequisiteActor(this);
+   // Sample the long water body only after this frame's movement, as the existing buddy already does.
+   if(Visual->Presentation->SwimMesh)Visual->AddTickPrerequisiteComponent(OverworldMovement);
    Visual->SetActorRelativeLocation(FVector(0,0,-Body->GetScaledCapsuleHalfHeight()));
    UpdateVisualGround();Sprite->SetVisibility(false);Label->SetVisibility(false);SetActorTickEnabled(true);
    OverworldMovement->Configure(Species, Body->GetScaledCapsuleHalfHeight(), Body->GetScaledCapsuleRadius(), Body->GetScaledCapsuleHalfHeight(), nullptr, Seed);
@@ -154,7 +158,7 @@ bool APokeMonsterVisibleWildCreatureActor::CanInteract_Implementation(APawn* Int
 {
  const auto* Player=Cast<APokeMonsterPlayerCharacter>(Interactor);
  if(!IsReady(Player)||!FPokeMonsterCreatureBehavior::CanInitiate(OverworldMovement->GetBehaviorProfile(),false,true,false))return false;
- if(FVector::Dist2D(Player->GetActorLocation(),GetActorLocation())>Player->GetInteractionRange()+Body->GetScaledCapsuleRadius()
+ if(FVector::Dist2D(Player->GetActorLocation(),GetActorLocation())>Player->GetInteractionRange()+FMath::Max(Body->GetScaledCapsuleRadius(),GetShoreInteractionRadius(Player->GetInteractionRange()))
   ||FMath::Abs(Player->GetActorLocation().Z-GetActorLocation().Z)>120.f)return false;
  FCollisionQueryParams Q(SCENE_QUERY_STAT(WildChallengeSight),false,Player);Q.AddIgnoredActor(this);if(Visual)Q.AddIgnoredActor(Visual);
  PrepareInteractionSight(Q);

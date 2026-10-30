@@ -58,6 +58,23 @@ public:
  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Swimming") TObjectPtr<UAnimSequence> SwimIdleClip;
  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Swimming") TObjectPtr<UAnimSequence> SwimClip;
  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Swimming", meta=(ClampMin="1")) float SwimReferenceSpeed=35.f;
+ /** Optional water-only rig. The same visual component switches medium; land/battle assets remain intact. */
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") TObjectPtr<USkeletalMesh> SwimMesh;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") TObjectPtr<UAnimSequence> SwimSlowClip;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") TObjectPtr<UAnimSequence> SwimFastClip;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") TObjectPtr<UAnimSequence> SwimObserveClip;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") TObjectPtr<UAnimSequence> SwimTurnLeftClip;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") TObjectPtr<UAnimSequence> SwimTurnRightClip;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") TMap<EPokeMonsterCreatureClip,TObjectPtr<UAnimSequence>> SwimReactions;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") float SwimSlowSpeed=35.f;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") float SwimFastSpeed=125.f;
+ /** Conservative complete animated silhouette, not a replacement for the contact capsule. Zero opts out. */
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") float SwimClearanceRadiusCm=0.f;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") float SwimSubmergedDepthCm=0.f;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") float SwimTurnDegreesPerSecond=35.f;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") float SwimObserveBlendSeconds=2.5f;
+ /** Water clip origin references this immersion; dry model previews subtract it only visually. */
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") float SwimPreviewOffsetCm=100.f;
  /** Optional low hover above the same walkable route, never a flight navigation mode. */
  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Ground Hover") bool bAllowGroundHover=false;
  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Ground Hover") TObjectPtr<UAnimSequence> TakeoffClip;
@@ -108,9 +125,16 @@ public:
  UPROPERTY(Transient,BlueprintReadWrite) float IdlePhaseOffset=0.f;
  /** Explicit aquatic context; optional authored swim layer, otherwise existing idle/float fallback. Zero elsewhere. */
  UPROPERTY(Transient,BlueprintReadOnly) float AquaticPoseAlpha=0.f;
+ UPROPERTY(Transient,BlueprintReadOnly,Category="Swimming") float SwimObserveAlpha=0.f;
+ UPROPERTY(Transient,BlueprintReadOnly,Category="Swimming") float SwimTurnInput=0.f;
+ UPROPERTY(Transient,BlueprintReadOnly,Category="Swimming") bool bUsingSwimMesh=false;
+ static float AdvanceSwimObserve(float Current,bool Requested,float Delta,float Seconds);
+ static float SwimTurnFromYaw(float Previous,float Current,float Delta,float MaximumRate);
  uint32 ReactionSerial=0;
 private:
  void UpdateGroundHover(float Delta);
+ void UpdateSwimming(float Delta);
+ float PreviousSwimYaw=0.f,SwimObserveHold=0.f;
  TWeakObjectPtr<UPokeMonsterCreatureRoamingComponent> HoverContext;
  enum class EHoverState : uint8 { Grounded, Takeoff, Hover, Landing };
  EHoverState HoverState=EHoverState::Grounded;
@@ -130,6 +154,10 @@ public:
  UPROPERTY(BlueprintReadOnly) float WalkBlend=0.f;
  UPROPERTY(BlueprintReadOnly) float RunBlend=0.f;
  UPROPERTY(BlueprintReadOnly) float ReactionBlend=0.f;
+ UPROPERTY(BlueprintReadOnly) float SwimSlowBlend=0.f;
+ UPROPERTY(BlueprintReadOnly) float SwimFastBlend=0.f;
+ UPROPERTY(BlueprintReadOnly) float SwimObservationBlend=0.f;
+ UPROPERTY(BlueprintReadOnly) float SwimTurnBlend=0.f;
  virtual FAnimInstanceProxy* CreateAnimInstanceProxy() override;
  virtual void DestroyAnimInstanceProxy(FAnimInstanceProxy* Proxy) override;
 };
