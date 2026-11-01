@@ -73,6 +73,9 @@ public:
  UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") float SwimSubmergedDepthCm=0.f;
  UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") float SwimTurnDegreesPerSecond=35.f;
  UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") float SwimObserveBlendSeconds=2.5f;
+ /** Optional visual-only heading history. Zero retains legacy poses; no steering or collision changes. */
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming",meta=(ClampMin="0",ClampMax="2")) float SwimBodyFollowSeconds=0.f;
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming",meta=(ClampMin="1",ClampMax="45")) float SwimBodyFollowLimitDegrees=32.f;
  /** Water clip origin references this immersion; dry model previews subtract it only visually. */
  UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") float SwimPreviewOffsetCm=100.f;
  /** Optional low hover above the same walkable route, never a flight navigation mode. */
@@ -86,6 +89,18 @@ public:
  UPROPERTY(EditAnywhere, BlueprintReadOnly) TObjectPtr<UStaticMesh> TailFlame;
  UPROPERTY(EditAnywhere, BlueprintReadOnly) TObjectPtr<UMaterialInterface> FlameMaterial;
  UPROPERTY(EditAnywhere, BlueprintReadOnly) FName FlameBone=TEXT("tail_socket");
+};
+
+/** Bounded visual history sampled at 60 Hz; interpolation preserves tail delay at variable frame rates. */
+struct POKEMONSTER_API FPokeMonsterSwimHeadingHistory
+{
+ void Reset(float Yaw);
+ void Advance(float Yaw,float Delta,float FollowSeconds,float LimitDegrees);
+ TArray<float> Offsets;
+private:
+ TArray<FVector2D> Samples;
+ double Time=0,NextSample=1.0/60.0,UnwrappedYaw=0;
+ float PreviousYaw=0;
 };
 
 /** Shared world/battle rendering only. It deliberately has no collision or gameplay identity. */
@@ -128,13 +143,16 @@ public:
  UPROPERTY(Transient,BlueprintReadOnly,Category="Swimming") float SwimObserveAlpha=0.f;
  UPROPERTY(Transient,BlueprintReadOnly,Category="Swimming") float SwimTurnInput=0.f;
  UPROPERTY(Transient,BlueprintReadOnly,Category="Swimming") bool bUsingSwimMesh=false;
+ UPROPERTY(Transient,BlueprintReadOnly,Category="Swimming") TArray<float> SwimBodyYawOffsets;
+ static float SmoothSwimValue(float Current,float Target,float Delta,float Seconds);
  static float AdvanceSwimObserve(float Current,bool Requested,float Delta,float Seconds);
  static float SwimTurnFromYaw(float Previous,float Current,float Delta,float MaximumRate);
  uint32 ReactionSerial=0;
 private:
  void UpdateGroundHover(float Delta);
  void UpdateSwimming(float Delta);
- float PreviousSwimYaw=0.f,SwimObserveHold=0.f;
+ float PreviousSwimYaw=0.f,SwimObserveHold=0.f,SwimObserveProgress=0.f;
+ FPokeMonsterSwimHeadingHistory SwimHeadingHistory;
  TWeakObjectPtr<UPokeMonsterCreatureRoamingComponent> HoverContext;
  enum class EHoverState : uint8 { Grounded, Takeoff, Hover, Landing };
  EHoverState HoverState=EHoverState::Grounded;

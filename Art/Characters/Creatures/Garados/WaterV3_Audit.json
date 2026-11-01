@@ -1,0 +1,86 @@
+{
+  "source": "Art/Characters/Creatures/Garados/Source/Garados_Water_V2.blend",
+  "source_sha256": "70a84ad317bbcf99bdc04ccd73033e17e9fb12acf89f4cfba5492567783c0990",
+  "mesh_rest_skin_uv_material_fingerprint": "e2fcccbba88c3553d8a3ff771d635b675b35af3bfdc4584307adc5cb6dfa7ff7",
+  "geometry_rest_skin_unchanged": true,
+  "land_and_battle_animations_unchanged": true,
+  "animation_only_fbx": true,
+  "clips": {
+    "SwimIdle": {
+      "seconds": 2.8,
+      "sample_rate": 60,
+      "frames": 169,
+      "strength": 0.1,
+      "observe": 0,
+      "turn_bank": 0,
+      "loop_seam_max_m": 0.0
+    },
+    "SwimSlow": {
+      "seconds": 2.8,
+      "sample_rate": 60,
+      "frames": 169,
+      "strength": 0.42,
+      "observe": 0,
+      "turn_bank": 0,
+      "loop_seam_max_m": 0.0
+    },
+    "SwimNormal": {
+      "seconds": 2.8,
+      "sample_rate": 60,
+      "frames": 169,
+      "strength": 0.8,
+      "observe": 0,
+      "turn_bank": 0,
+      "loop_seam_max_m": 0.0
+    },
+    "SwimFast": {
+      "seconds": 2.8,
+      "sample_rate": 60,
+      "frames": 169,
+      "strength": 1.12,
+      "observe": 0,
+      "turn_bank": 0,
+      "loop_seam_max_m": 0.0
+    },
+    "SwimTurnLeft": {
+      "seconds": 2.8,
+      "sample_rate": 60,
+      "frames": 169,
+      "strength": 0.8,
+      "observe": 0,
+      "turn_bank": 1,
+      "loop_seam_max_m": 0.0
+    },
+    "SwimTurnRight": {
+      "seconds": 2.8,
+      "sample_rate": 60,
+      "frames": 169,
+      "strength": 0.8,
+      "observe": 0,
+      "turn_bank": -1,
+      "loop_seam_max_m": 0.0
+    },
+    "SwimObserve": {
+      "seconds": 2.8,
+      "sample_rate": 60,
+      "frames": 169,
+      "strength": 0.1,
+      "observe": 1,
+      "turn_bank": 0,
+      "loop_seam_max_m": 0.0
+    }
+  },
+  "authored_max_radius_cm": 370.04429678783566,
+  "bounds_m": {
+    "min": [
+      -0.8596583008766174,
+      -3.329357624053955,
+      0.8767101764678955
+    ],
+    "max": [
+      0.8596583008766174,
+      3.6897151470184326,
+      3.484783411026001
+    ]
+  }
+}

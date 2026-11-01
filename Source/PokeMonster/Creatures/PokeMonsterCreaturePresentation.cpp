@@ -57,6 +57,8 @@ TArray<FString> UPokeMonsterCreaturePresentationData::GetValidationErrors() cons
    if(!Clip||Clip->GetSkeleton()!=SwimMesh->GetSkeleton()||Clip->bEnableRootMotion||Clip->GetPlayLength()<=0.f)Errors.Add(TEXT("Water poses must use their exact swimming skeleton"));
   for(auto Role:{EPokeMonsterCreatureClip::Attack,EPokeMonsterCreatureClip::Hit,EPokeMonsterCreatureClip::Faint,EPokeMonsterCreatureClip::Happy})
   {const auto* Clip=SwimReactions.FindRef(Role).Get();if(!Clip||Clip->GetSkeleton()!=SwimMesh->GetSkeleton()||Clip->bEnableRootMotion||!FMath::IsFinite(Clip->GetPlayLength())||Clip->GetPlayLength()<=0)Errors.Add(TEXT("Separate swim rig needs compatible reactions"));}
+  if(!FMath::IsFinite(SwimBodyFollowSeconds)||SwimBodyFollowSeconds<0||SwimBodyFollowSeconds>2
+   ||!FMath::IsFinite(SwimBodyFollowLimitDegrees)||SwimBodyFollowLimitDegrees<=0||SwimBodyFollowLimitDegrees>45)Errors.Add(TEXT("Invalid visual swim following settings"));
   if(!FMath::IsFinite(SwimSlowSpeed)||!FMath::IsFinite(SwimFastSpeed)||SwimSlowSpeed<=0||SwimSlowSpeed>=SwimReferenceSpeed||SwimFastSpeed<=SwimReferenceSpeed
    ||!FMath::IsFinite(SwimSubmergedDepthCm)||SwimSubmergedDepthCm<=0
    ||!FMath::IsFinite(SwimClearanceRadiusCm)||SwimClearanceRadiusCm<=0||!FMath::IsFinite(SwimTurnDegreesPerSecond)||SwimTurnDegreesPerSecond<=0
@@ -91,7 +93,7 @@ bool APokeMonsterCreatureVisualActor::SetPresentation(UPokeMonsterCreaturePresen
  if(!Candidate||!Candidate->GetValidationErrors().IsEmpty())return false;
  for(const auto& Component:EffectComponents)if(Component)Component->DestroyComponent();
  EffectComponents.Reset();Presentation=Candidate;MotionSpeed=0.f;
- bUsingSwimMesh=false;SwimObserveAlpha=SwimTurnInput=SwimObserveHold=0.f;PreviousSwimYaw=GetActorRotation().Yaw;Reaction=EPokeMonsterCreatureClip::Idle;++ReactionSerial;
+ bUsingSwimMesh=false;SwimObserveAlpha=SwimTurnInput=SwimObserveHold=SwimObserveProgress=0.f;SwimBodyYawOffsets.Reset();SwimHeadingHistory.Reset(GetActorRotation().Yaw);PreviousSwimYaw=GetActorRotation().Yaw;Reaction=EPokeMonsterCreatureClip::Idle;++ReactionSerial;
  if (HoverContext.IsValid()) { HoverContext->SetPresentationHold(false);HoverContext->SetPresentationHoverClearance(0.f,FBox(ForceInit)); }
  HoverState=EHoverState::Grounded;HoverStateTime=HoverHeight=HoverPoseAlpha=0.f;ActiveHoverClip=nullptr;Mesh->SetRelativeLocation(FVector::ZeroVector);Mesh->SetRelativeRotation(FRotator::ZeroRotator);bUsingAmbientFloat=false;
  Mesh->SetSkeletalMesh(Presentation->Mesh);Mesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
@@ -149,7 +151,7 @@ struct FCreatureProxy final:FAnimInstanceProxy
  float IdleTime=0,Phase=0,ShotTime=0,WalkAlpha=0,RunAlpha=0,ShotAlpha=0,Rate=0;
  UAnimSequence *SwimSlow=nullptr,*SwimFast=nullptr,*SwimObserve=nullptr,*SwimLeft=nullptr,*SwimRight=nullptr;
  float SwimTime=0,SwimIdleTime=0,SwimAlpha=0,SwimMoving=0,SwimRate=1,SwimSlowAlpha=0,SwimFastAlpha=0,SwimObserveAlpha=0,SwimTurn=0;
- bool SeparateWaterRig=false;
+ bool SeparateWaterRig=false;TArray<float> BodyYawOffsets;
  bool bHold=false,bPhaseInitialized=false;uint32 Serial=0;
  virtual void PreUpdate(UAnimInstance* I,float Dt)override
  {
@@ -160,7 +162,7 @@ struct FCreatureProxy final:FAnimInstanceProxy
   Idle=SeparateWaterRig?D->SwimIdleClip.Get():Get(EPokeMonsterCreatureClip::Idle);Walk=SeparateWaterRig?nullptr:Get(EPokeMonsterCreatureClip::Walk);Run=SeparateWaterRig?nullptr:Get(EPokeMonsterCreatureClip::Run);
   SwimSlow=SeparateWaterRig?D->SwimSlowClip.Get():nullptr;SwimFast=SeparateWaterRig?D->SwimFastClip.Get():nullptr;
   SwimObserve=SeparateWaterRig?D->SwimObserveClip.Get():nullptr;SwimLeft=SeparateWaterRig?D->SwimTurnLeftClip.Get():nullptr;SwimRight=SeparateWaterRig?D->SwimTurnRightClip.Get():nullptr;
-  SwimObserveAlpha=A->SwimObserveAlpha;SwimTurn=A->SwimTurnInput;
+  SwimObserveAlpha=A->SwimObserveAlpha;SwimTurn=A->SwimTurnInput;if(SeparateWaterRig&&D->SwimBodyFollowSeconds>0)BodyYawOffsets=A->SwimBodyYawOffsets;else BodyYawOffsets.Reset();
   if(!bPhaseInitialized&&Idle){IdleTime=FMath::Fmod(FMath::Max(0.f,A->IdlePhaseOffset),1.f)*Idle->GetPlayLength();bPhaseInitialized=true;}
   if (Hover!=A->ActiveHoverClip) { PreviousHover=Hover;PreviousHoverTime=HoverTime;Hover=A->ActiveHoverClip;HoverTransition=0.f; }
   HoverTime=A->HoverClipTime;HoverAlpha=A->HoverPoseAlpha;
@@ -170,12 +172,13 @@ struct FCreatureProxy final:FAnimInstanceProxy
   if(D->SwimMesh&&!SeparateWaterRig)SwimAlpha=0.f;
   const bool HasSwim=SwimIdle&&Swim;
   SwimAlpha=FMath::FInterpConstantTo(SwimAlpha,HasSwim?FMath::Clamp(A->AquaticPoseAlpha,0.f,1.f):0.f,Dt,1.f/.22f);
-  SwimMoving=FMath::FInterpConstantTo(SwimMoving,Speed>2.f?1.f:0.f,Dt,1.f/.18f);
-  SwimRate=FMath::Clamp(Speed/FMath::Max(D->SwimReferenceSpeed,1.f),.45f,1.75f);
+  SwimMoving=SeparateWaterRig?APokeMonsterCreatureVisualActor::SmoothSwimValue(SwimMoving,Speed>2.f?1.f:0.f,Dt,.55f):FMath::FInterpConstantTo(SwimMoving,Speed>2.f?1.f:0.f,Dt,1.f/.18f);
+  const float WantedSwimRate=FMath::Clamp(Speed/FMath::Max(D->SwimReferenceSpeed,1.f),.45f,SeparateWaterRig?1.35f:1.75f);
+  SwimRate=SeparateWaterRig?APokeMonsterCreatureVisualActor::SmoothSwimValue(SwimRate,WantedSwimRate,Dt,.55f):WantedSwimRate;
   if(SeparateWaterRig)
   {
-   SwimSlowAlpha=FMath::FInterpTo(SwimSlowAlpha,1.f-FMath::Clamp((Speed-D->SwimSlowSpeed)/(D->SwimReferenceSpeed-D->SwimSlowSpeed),0.f,1.f),Dt,3.f);
-   SwimFastAlpha=FMath::FInterpTo(SwimFastAlpha,FMath::Clamp((Speed-D->SwimReferenceSpeed)/(D->SwimFastSpeed-D->SwimReferenceSpeed),0.f,1.f),Dt,3.f);
+   SwimSlowAlpha=APokeMonsterCreatureVisualActor::SmoothSwimValue(SwimSlowAlpha,1.f-FMath::Clamp((Speed-D->SwimSlowSpeed)/(D->SwimReferenceSpeed-D->SwimSlowSpeed),0.f,1.f),Dt,.4f);
+   SwimFastAlpha=APokeMonsterCreatureVisualActor::SmoothSwimValue(SwimFastAlpha,FMath::Clamp((Speed-D->SwimReferenceSpeed)/(D->SwimFastSpeed-D->SwimReferenceSpeed),0.f,1.f),Dt,.4f);
   }
 
   WalkAlpha=FMath::FInterpConstantTo(WalkAlpha,Speed>2.f&&Walk?1.f:0.f,Dt,1.f/.14f);
@@ -201,26 +204,45 @@ struct FCreatureProxy final:FAnimInstanceProxy
  virtual bool Evaluate(FPoseContext& Out)override
  {
   Out.ResetToRefPose();if(!Idle)return true;FAnimationPoseData Result(Out);
-  Idle->GetAnimationPose(Result,FAnimExtractContext(IdleTime,false));
+  const float WaterPhase=Swim?SwimTime/FMath::Max(.01f,Swim->GetPlayLength()):0.f;
+  Idle->GetAnimationPose(Result,FAnimExtractContext(SeparateWaterRig?WaterPhase*Idle->GetPlayLength():IdleTime,false));
   auto Blend=[&](UAnimSequence* Clip,float Time,float Alpha){if(!Clip||Alpha<=0)return;FPoseContext Base(Out),Other(Out);Base.Pose=Out.Pose;Base.Curve=Out.Curve;Base.CustomAttributes=Out.CustomAttributes;Other.ResetToRefPose();FAnimationPoseData A(Base),B(Other);Clip->GetAnimationPose(B,FAnimExtractContext(Time,false));FAnimationRuntime::BlendTwoPosesTogether(A,B,1.f-Alpha,Result);};
   Blend(Walk,Walk?Phase*Walk->GetPlayLength():0,WalkAlpha);
   Blend(Run,Run?Phase*Run->GetPlayLength():0,RunAlpha*WalkAlpha);
-  Blend(SwimIdle,SwimIdleTime,SwimAlpha);
+  Blend(SwimIdle,SeparateWaterRig&&SwimIdle?WaterPhase*SwimIdle->GetPlayLength():SwimIdleTime,SwimAlpha);
   Blend(Swim,SwimTime,SwimAlpha*SwimMoving);
   if(SeparateWaterRig)
   {
-   const float WaterPhase=Swim?SwimTime/FMath::Max(.01f,Swim->GetPlayLength()):0.f;
    Blend(SwimSlow,SwimSlow?WaterPhase*SwimSlow->GetPlayLength():0,SwimAlpha*SwimMoving*SwimSlowAlpha);
    Blend(SwimFast,SwimFast?WaterPhase*SwimFast->GetPlayLength():0,SwimAlpha*SwimMoving*SwimFastAlpha);
    auto* Turn=SwimTurn>0?SwimLeft:SwimRight;
-   Blend(Turn,Turn?WaterPhase*Turn->GetPlayLength():0,SwimAlpha*FMath::Abs(SwimTurn));
-   Blend(SwimObserve,SwimObserve?FMath::Fmod(IdleTime,SwimObserve->GetPlayLength()):0,SwimObserveAlpha*SwimAlpha);
+   Blend(Turn,Turn?WaterPhase*Turn->GetPlayLength():0,SwimAlpha*SwimMoving*(1.f-SwimObserveAlpha)*.35f*FMath::Abs(SwimTurn));
+   Blend(SwimObserve,SwimObserve?WaterPhase*SwimObserve->GetPlayLength():0,SwimObserveAlpha*SwimAlpha);
   }
   if (Hover && HoverAlpha>0.f)
   {
    // Crossfade between takeoff/loop/landing poses before layering any combat reaction.
    if (PreviousHover && HoverTransition<1.f) Blend(PreviousHover,PreviousHoverTime,HoverAlpha);
    Blend(Hover,FMath::Min(HoverTime,Hover->GetPlayLength()),HoverAlpha*HoverTransition);
+  }
+  if(SeparateWaterRig&&BodyYawOffsets.Num()==20)
+  {
+   // Rotate each authored segment by the heading at its delayed instant. Rebuild
+   // joint positions along the same segment lengths; never twist the whole mesh.
+   FCSPose<FCompactPose> ComponentPose;ComponentPose.InitPose(Out.Pose);
+   const FBoneContainer& Bones=Out.Pose.GetBoneContainer();TArray<FCompactPoseBoneIndex> Indices;TArray<FTransform> Original,Adjusted;
+   for(int32 I=0;I<20;++I)
+   {
+    const int32 MeshIndex=Bones.GetReferenceSkeleton().FindBoneIndex(*FString::Printf(TEXT("spine_%02d"),I));
+    if(MeshIndex==INDEX_NONE)break;const auto Index=Bones.MakeCompactPoseIndex(FMeshPoseBoneIndex(MeshIndex));if(!Index.IsValid())break;
+    Indices.Add(Index);Original.Add(ComponentPose.GetComponentSpaceTransform(Index));
+   }
+   if(Indices.Num()==20)for(int32 I=0;I<20;++I)
+   {
+    FTransform Next=Original[I];const FQuat Turn(FVector::UpVector,FMath::DegreesToRadians(BodyYawOffsets[I]));Next.SetRotation((Turn*Original[I].GetRotation()).GetNormalized());
+    if(I>0){const FQuat PreviousTurn(FVector::UpVector,FMath::DegreesToRadians(BodyYawOffsets[I-1]));Next.SetTranslation(Adjusted[I-1].GetTranslation()+PreviousTurn.RotateVector(Original[I].GetTranslation()-Original[I-1].GetTranslation()));}
+    Adjusted.Add(Next);const auto ParentIndex=Bones.GetParentBoneIndex(Indices[I]);const FTransform Parent=I>0?Adjusted[I-1]:(ParentIndex.IsValid()?ComponentPose.GetComponentSpaceTransform(ParentIndex):FTransform::Identity);Out.Pose[Indices[I]]=Next.GetRelativeTransform(Parent);
+   }
   }
   Blend(OneShot,OneShot?FMath::Min(ShotTime,OneShot->GetPlayLength()):0,ShotAlpha);
   return true;

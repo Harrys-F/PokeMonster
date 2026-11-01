@@ -1611,6 +1611,8 @@ Bei Beginn der Korrektur enthält Art/Characters/Creatures/Incoming weiterhin 38
 
 ## 29.10.2026 – Garados: horizontale Wasser-Ableitung des Meshy-Originals
 
+Die Wasser-Ableitung und ihre Navigation bleiben gültig. Die sieben Wasser-Grundclips und ihre visuellen Übergänge werden durch Garados Animation Polish V3 (01.11.2026, unten) ersetzt; Land-/Kampfclips bleiben unverändert.
+
 Garados erhält für echte Wasserlebensräume eine längliche, horizontal ausgerichtete technische Ruhepose und ein Wasser-Rig mit zwanzig Wirbelsäulensegmenten. Ausschließlich Harrys bestehende Meshy-Geometrie, Flächen, UVs und Materialien verwenden; Original-GLB und bisherige Arbeitsquelle unverändert. Die Wasser-Ableitung darf bestehende Vertices für die Ruhepose korrigieren, aber keine Ersatzfigur oder neue Pokémon-Topologie erzeugen. Der alte aufgerichtete Standard gilt im Wasser damit als ersetzt; situatives weiches Aufrichten bleibt zum Beobachten erhalten.
 
 Die bestehende AnimInstance, Roaming-KI und einzelne MeshComponent bleiben zuständig. Die ursprünglichen Land-/Kampfmodelle und sieben Clips bleiben erhalten, einschließlich des bestehenden Landbegleiters. Lange Wasserformen benötigen eine konservative volle Boden-/Uferhülle und ausreichend tiefe, breite vorhandene Gewässer; kein Landschaftsumbau als Ersatz. Geländeprüfung und physischer Kontakt mit anderen Fischen bleiben getrennt. Bericht und tatsächliche Abnahme: GARADOS_WASSERBEWEGUNG_V2.md.
@@ -1648,3 +1650,12 @@ Origin ist öffentlich. Harry bestätigte ausdrücklich nur eigene Map-/Werkzeug
 Harry hat die Erweiterung ausdrücklich zurückgenommen. Die in d9f44b49 hinzugefügte Waldsektion, ihre eigenen Boden-/Wegassets, Masken und Authoringwerkzeuge werden entfernt; VisualV2 wird bytegenau auf den zuvor geprüften Mapstand aus 94f7d476 zurückgesetzt. Kamera V3, Rendering, Gameplay und alle übrigen Maps bleiben erhalten. Die bisherige Waldentscheidung ist damit ersetzt. Der Prüfbericht bleibt in der Git-Historie von d9f44b49 und die lokalen QA-Nachweise unter Saved erreichbar; keine neue Waldgestaltung.
 
 Fab-/Megascans-Originale und zugehörige lokale Materialbibliothek bleiben unverändert und weiterhin eng von Git ausgeschlossen. Keine Nutzeränderungen oder vorhandenen Spielstände verändern, keine Historie umschreiben; Rücknahme als normaler neuer Commit mit regulärem Push.
+
+
+## 01.11.2026 – Garados Animation Polish V3
+
+Auf Harrys ausdrücklichen Auftrag werden ausschließlich die vorhandenen Wasser-Grundanimationen verfeinert. Dieselbe horizontale WaterV2-Meshy-Ableitung, ihr 22-Bone-Skeleton, Gewichte, Ruhepose, UVs und Materialien bleiben unverändert. Sieben animation-only WaterV3-Clips ersetzen die aktiven Wasser-Grundbindungen: gemeinsame 2,8-s-Phase, ruhigere Kopfbewegung, nach hinten laufende Körperwelle und geschwindigkeitsabhängige Stärke. Die vier Wasser-Reaktionen sowie alle ursprünglichen sieben Land-/Kampfclips bleiben erhalten.
+
+Im vorhandenen Animationsproxy erhält ausschließlich das opt-in aktivierte Garados-Wasser-Rig eine begrenzte visuelle Richtungshistorie: Kopf führt, Schwanz folgt bis 1,1 s später; maximal 32° Korrektur. Exponentielle Geschwindigkeitsmischung und ein 3,2-s-Smoothstep für Aufrichten/Absenken ersetzen abruptere visuelle Übergänge. Aufrichten beginnt erst bei niedriger visueller Geschwindigkeit. Keine neue KI, Navigation, Kollision, Kamera oder Speicherstruktur.
+
+Der bestehende 400-cm-Wasserfreiraum bleibt verbindlich. VisualV2 und alle anderen Maps, Grafikprofile, Originalmodelle und bestehende Spielstände bleiben unverändert. Insbesondere wird die Buchenwald-Rücknahme f10dc77f nicht angetastet. Technische Prüfung und Grenzen stehen in Docs/GARADOS_ANIMATION_POLISH_V3.md. Die künstlerische Beurteilung erfolgt anschließend durch Harry im Spiel; nach Sicherung keine weiteren Änderungen.
