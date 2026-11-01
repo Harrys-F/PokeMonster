@@ -1636,8 +1636,15 @@ Auf ausdrücklichen Auftrag ist vertikaler Orbit aus V2 ersetzt: ausschließlich
 Third Person bleibt Standard,2,5D und bestehende Befehle bleiben erhalten. Modelle, Gameplay, Grafikprofile und Spielstände unverändert. Nach technischer Prüfung und Sicherung wartet jede weitere Kameraänderung auf Harrys eigenen Test. Einstellungen und tatsächliche Abnahme: THIRD_PERSON_CAMERA_V3.md.
 
 
-## 01.11.2026 – European Beech Forest V1 auf VisualV2
+## 01.11.2026 – European Beech Forest V1 auf VisualV2 (auf Harrys Wunsch zurückgenommen)
 
 Auf ausdrücklichen Auftrag eine neue, vom bisherigen Spielbereich getrennte Waldsektion am freien Nordrand derselben Map; keine neue Map. Originale unter /Game/Fab/EuropeanBeech und /Game/MSPresets unverändert lokal erhalten, bestehende Kamera V3/Beleuchtung/Gameplay und Lebensräume nicht ändern. HISM-Gruppen, lokale Boden-/Pfadgestaltung und vorhandene Projektuntervegetation verwenden. Keine neuen Baum-/Pflanzenmodelle, Spawns, NPCs oder Quests. Tatsächlichen Assetbestand zuerst inventarisiert.
 
 Origin ist öffentlich. Harry bestätigte ausdrücklich nur eigene Map-/Werkzeug-/Dokumentationsänderungen zu pushen und Fab-Dateien lokal zu behalten; enge Ignore-Regeln verhindern öffentliche Aufnahme dieser Quellen. Ein frischer Checkout benötigt den separat lizenzierten lokalen Import. Nach erfolgreicher technischer Prüfung zunächst Harrys eigene Erkundung, keine automatische weitere Landschaftsänderung. Bericht: EUROPEAN_BEECH_FOREST_V1.md.
+
+
+## 01.11.2026 – Rücknahme des European-Beech-Testwalds
+
+Harry hat die Erweiterung ausdrücklich zurückgenommen. Die in d9f44b49 hinzugefügte Waldsektion, ihre eigenen Boden-/Wegassets, Masken und Authoringwerkzeuge werden entfernt; VisualV2 wird bytegenau auf den zuvor geprüften Mapstand aus 94f7d476 zurückgesetzt. Kamera V3, Rendering, Gameplay und alle übrigen Maps bleiben erhalten. Die bisherige Waldentscheidung ist damit ersetzt. Der Prüfbericht bleibt in der Git-Historie von d9f44b49 und die lokalen QA-Nachweise unter Saved erreichbar; keine neue Waldgestaltung.
+
+Fab-/Megascans-Originale und zugehörige lokale Materialbibliothek bleiben unverändert und weiterhin eng von Git ausgeschlossen. Keine Nutzeränderungen oder vorhandenen Spielstände verändern, keine Historie umschreiben; Rücknahme als normaler neuer Commit mit regulärem Push.
