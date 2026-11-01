@@ -1419,3 +1419,8 @@ weiterverwendet. Daten, zwölf Orte und QA-Nachweise: `INVENTAR_GEGENSTAENDE_V2.
 ## Third Person V2 – Standardkamera und Gamepad
 
 Die bestehende Third-Person-Kamera wird beim BeginPlay des bestehenden Players und bei dessen vorhandener Lade-Synchronisation aktiviert. `pm.Camera ThirdPerson|2D|Status` bleibt erhalten. Keine neuen Save-Felder oder zweite Kameraarchitektur. Die feste Kamera B bleibt vollständig erhalten. Rechtsstick ist eine zeitbasierte Enhanced-Input-Kameraaktion; Maus bleibt deltabasiert. Die linke Stickquelle teilt dieselbe Bewegungsfunktion mit WASD, hält jedoch beim freien Umsehen die Weltbewegungsbasis bis Neutralstellung oder Richtungswechsel. Bestehendes L3 schaltet Sprint, keine neue Belegung dafür. Maßgeblicher Bericht: THIRD_PERSON_DEFAULT_GAMEPAD_V1.md.
+
+
+## Third Person V3 – feste Neigung und horizontales Rig
+
+Die V2-Vertikalrotation ist ersetzt. Der bestehende SpringArm erhält Pitch0° und170cm Höhe ab Kapselunterkante; nur die vorhandene Kamera trägt festen Pitch−12°. Horizontaler Orbit, Zoom und Kollisionsprobe verändern so die Höhe nicht zusätzlich durch einen geneigten Arm. Stick-Y wird vor dem horizontalen Deadzone-Test verworfen, Maus-Y ignoriert. Bestehende Bewegung, freier horizontaler Orbit, Sprint und Standard-/Ladeverhalten bleiben erhalten. Tatsächliche Kamera-/Bodenmessungen und Abnahme: THIRD_PERSON_CAMERA_V3.md.

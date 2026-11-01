@@ -13,14 +13,14 @@ bool FPokeMonsterThirdPersonCameraTest::RunTest(const FString&)
 {
  UWorld* W=UWorld::CreateWorld(EWorldType::Game,false);GEngine->CreateNewWorldContext(EWorldType::Game).SetCurrentWorld(W);ON_SCOPE_EXIT{GEngine->DestroyWorldContext(W);W->DestroyWorld(false);};
  auto* P=W->SpawnActor<APokeMonsterPlayerCharacter>();const auto Location=P->GetActorLocation();const auto Rot=P->CameraBoom->GetRelativeRotation();const auto Offset=P->CameraBoom->TargetOffset;const float Length=P->CameraBoom->TargetArmLength,FOV=P->FollowCamera->FieldOfView;const float Yaw=P->GetMovementBasisYaw();
- TestFalse(TEXT("Default is retained 2.5D"),P->IsThirdPersonCamera());
+ TestFalse(TEXT("Retained 2.5D camera is available before BeginPlay"),P->IsThirdPersonCamera());
  for(int I=0;I<10;++I)
  {
   const FVector Facing=P->GetInteractionWorldDirection();
   P->SetThirdPersonCamera(true);P->SetThirdPersonCamera(true);
   TestTrue(TEXT("Initial camera looks in the player's current facing direction"),P->ThirdPersonBoom->GetForwardVector().GetSafeNormal2D().Equals(Facing.GetSafeNormal2D(),.001f));
   TestTrue(TEXT("Switch preserves world-facing direction"),P->GetInteractionWorldDirection().Equals(Facing,.001f));TestTrue(TEXT("Third person camera active"),P->ThirdPersonCamera->IsActive());TestTrue(TEXT("Probe collision enabled"),P->ThirdPersonBoom->bDoCollisionTest);
-  P->RotateThirdPersonCamera(FVector2D(750,-10000));TestEqual(TEXT("Pitch cannot flip above player"),P->ThirdPersonBoom->GetComponentRotation().Pitch,5.0);
+  P->RotateThirdPersonCamera(FVector2D(750,-10000));TestEqual(TEXT("Vertical mouse leaves horizontal arm level"),P->ThirdPersonBoom->GetComponentRotation().Pitch,0.0);
   P->Move(FInputActionValue(FVector2D(1,1)));auto D=P->ConsumeMovementInputVector();TestTrue(TEXT("Diagonal input never exceeds unit length"),D.Size()<=1.001f);
   P->Move(FInputActionValue(FVector2D(0,1)));D=P->ConsumeMovementInputVector();TestTrue(TEXT("Forward follows horizontal orbit yaw"),D.GetSafeNormal().Equals(FRotator(0,P->GetMovementBasisYaw(),0).Vector(),.001f));
   P->SetOverworldInputLocked(true);const auto Before=P->ThirdPersonBoom->GetComponentRotation();P->RotateThirdPersonCamera(FVector2D(800,800));TestTrue(TEXT("UI/battle input lock also blocks look"),P->ThirdPersonBoom->GetComponentRotation().Equals(Before));P->SetOverworldInputLocked(false);

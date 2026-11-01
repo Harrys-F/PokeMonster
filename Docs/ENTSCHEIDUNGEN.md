@@ -1622,8 +1622,15 @@ Im engen Wasserfall wird die Mindestzielstrecke aus dem halben nach Abzug des K�
 Auf ausdrücklichen Auftrag zusätzlich zur verbindlichen Kamera B ein ausschließlich sitzungsgebundener Third-Person-Modus am bestehenden Player. Start bleibt2,5D; kein Save-Feld und kein Mapumbau. Eigener Kameraarm am selben Pawn hält bestehende Außen-/Innenkameraeinstellungen unverändert. Dieselben Bewegungs-, Sprint- und Interaktionssysteme weiterverwenden. Siehe THIRD_PERSON_KAMERATEST_V1.md.
 
 
-## 01.11.2026 – Third Person als Standard und Gamepad-Kamera V2
+## 01.11.2026 – Third Person als Standard und Gamepad-Kamera V2 (vertikaler Orbit durch V3 ersetzt)
 
 Auf ausdrücklichen Auftrag ersetzt Third Person die bisherige Standardperspektive B. Die bestehende V1-Kamera wird weiterverwendet, 2,5D bleibt vollständig per `pm.Camera 2D` verfügbar. Neue Spiele/PIE, neue Pawns bei Mapwechseln und reguläres Laden beginnen in Third Person; keine Perspektive im SaveGame speichern. Der bisherige Modell-/Weltmaßstab und alle Renderingprofile bleiben unverändert. Die Freigabe der Standardperspektive ersetzt die frühere Beschränkung auf einen zusätzlichen Testmodus, nicht automatisch die dokumentierten Kulissen- und Großbegleiter-Grenzen.
 
 Linker Stick nutzt dieselbe Bewegung mit eigener Eingabequelle, rechter Stick dreht unabhängig (120°/s horizontal,90°/s vertikal, radiale Deadzone0,15). Eine gehaltene Stickrichtung behält ihre Weltbewegungsbasis beim Umsehen; erneutes Auslenken oder eine erkennbare Richtungsänderung richtet sie wieder kamerarelativ aus. Bestehende L3-Sprintumschaltung, Maus/Tastatur und UI-Belegung erhalten. Keine automatische Kameraausrichtung zur Laufrichtung. Technische Abnahme und Hardwareteststatus: THIRD_PERSON_DEFAULT_GAMEPAD_V1.md.
+
+
+## 01.11.2026 – Third Person V3: feste Kopfhöhe und feste Neigung
+
+Auf ausdrücklichen Auftrag ist vertikaler Orbit aus V2 ersetzt: ausschließlich horizontales Umsehen, rechts120°/s, vertikale Maus-/Stickachse ohne Kamerawirkung. Vorhandener Kameraarm horizontal bei170cm über der Kapselunterkante, Kamera selbst fest−12° geneigt, Standardabstand350cm. Dadurch heben Zoom und Kollisionsverkürzung die Kamera nicht geometrisch an/ab. Tatsächliche Höhe über Boden im Spiel messen; Kapselunterkante und Boden sind wegen des vorhandenen physikalischen Bodenabstands nicht identisch. Gelände weiter über vorhandene Characterbewegung und SpringArm-Nachlauf verfolgen, keine globale Z-Fixierung oder neue Geländeregelung.
+
+Third Person bleibt Standard,2,5D und bestehende Befehle bleiben erhalten. Modelle, Gameplay, Grafikprofile und Spielstände unverändert. Nach technischer Prüfung und Sicherung wartet jede weitere Kameraänderung auf Harrys eigenen Test. Einstellungen und tatsächliche Abnahme: THIRD_PERSON_CAMERA_V3.md.

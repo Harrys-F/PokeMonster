@@ -23,15 +23,15 @@ bool FPokeMonsterThirdPersonGamepadTest::RunTest(const FString&)
  TestTrue(TEXT("Neutral and radial deadzone never drift"),Initial.Equals(P->ThirdPersonBoom->GetComponentRotation(),.001f));
  for(int Rate:{30,120})
  {
-  P->ThirdPersonBoom->SetWorldRotation(FRotator(-12,0,0));
+  P->ThirdPersonBoom->SetWorldRotation(FRotator(0,0,0));
   for(int I=0;I<Rate;++I)P->RotateGamepadCamera(FVector2D(1,0),1.f/Rate);
   TestTrue(TEXT("Full horizontal rate is 120 degrees per second at different frame rates"),FMath::IsNearlyEqual(P->ThirdPersonBoom->GetComponentRotation().Yaw,120.,.01));
  }
- P->ThirdPersonBoom->SetWorldRotation(FRotator(-12,0,0));P->RotateGamepadCamera(FVector2D(0,1),.1f);
- TestTrue(TEXT("Up is not inverted: 90 degrees per second"),FMath::IsNearlyEqual(P->ThirdPersonBoom->GetComponentRotation().Pitch,-3.,.001));
- P->RotateGamepadCamera(FVector2D(0,1),1);TestEqual(TEXT("Upper pitch limit"),P->ThirdPersonBoom->GetComponentRotation().Pitch,5.0);
- P->RotateGamepadCamera(FVector2D(0,-1),2);TestEqual(TEXT("Lower pitch limit"),P->ThirdPersonBoom->GetComponentRotation().Pitch,-65.0);
- P->ThirdPersonBoom->SetWorldRotation(FRotator(-12,0,0));P->GamepadMove(FInputActionValue(FVector2D(0,1)));const FVector Forward=P->ConsumeMovementInputVector();
+ P->ThirdPersonBoom->SetWorldRotation(FRotator(0,0,0));P->RotateGamepadCamera(FVector2D(0,1),.1f);
+ TestEqual(TEXT("Stick up leaves arm level"),P->ThirdPersonBoom->GetComponentRotation().Pitch,0.0);
+ P->RotateGamepadCamera(FVector2D(0,1),1);P->RotateGamepadCamera(FVector2D(0,-1),2);
+ TestEqual(TEXT("Both vertical stick directions remain locked"),P->ThirdPersonBoom->GetComponentRotation().Pitch,0.0);
+ P->ThirdPersonBoom->SetWorldRotation(FRotator(0,0,0));P->GamepadMove(FInputActionValue(FVector2D(0,1)));const FVector Forward=P->ConsumeMovementInputVector();
  P->RotateGamepadCamera(FVector2D(1,0),.5f);P->GamepadMove(FInputActionValue(FVector2D(0,1)));
  TestTrue(TEXT("Held direction retains world movement while camera independently orbits"),P->ConsumeMovementInputVector().Equals(Forward,.001f));
  P->StopGamepadMoving(FInputActionValue(FVector2D::ZeroVector));P->GamepadMove(FInputActionValue(FVector2D(0,1)));

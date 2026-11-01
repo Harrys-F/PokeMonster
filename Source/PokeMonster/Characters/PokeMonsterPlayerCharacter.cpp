@@ -140,11 +140,11 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
  ThirdPersonBoom=CreateDefaultSubobject<USpringArmComponent>(TEXT("ThirdPersonBoom"));
  ThirdPersonBoom->PrimaryComponentTick.bStartWithTickEnabled=false;
  ThirdPersonBoom->SetupAttachment(RootComponent);ThirdPersonBoom->SetUsingAbsoluteRotation(true);
- ThirdPersonBoom->SetRelativeRotation(FRotator(-12, -45, 0));ThirdPersonBoom->TargetArmLength=350;
+ ThirdPersonBoom->SetRelativeRotation(FRotator(0, -45, 0));ThirdPersonBoom->TargetArmLength=350;
  ThirdPersonBoom->bDoCollisionTest=true;ThirdPersonBoom->ProbeSize=12;ThirdPersonBoom->bEnableCameraLag=true;
  ThirdPersonBoom->CameraLagSpeed=12;ThirdPersonBoom->bUseCameraLagSubstepping=true;
  ThirdPersonCamera=CreateDefaultSubobject<UCameraComponent>(TEXT("ThirdPersonCamera"));
- ThirdPersonCamera->SetupAttachment(ThirdPersonBoom,USpringArmComponent::SocketName);ThirdPersonCamera->FieldOfView=75;ThirdPersonCamera->SetAutoActivate(false);
+ ThirdPersonCamera->SetupAttachment(ThirdPersonBoom,USpringArmComponent::SocketName);ThirdPersonCamera->FieldOfView=75;ThirdPersonCamera->SetRelativeRotation(FRotator(ThirdPersonPitch,0,0));ThirdPersonCamera->bUsePawnControlRotation=false;ThirdPersonCamera->SetAutoActivate(false);
 	CameraVisibility = CreateDefaultSubobject<UPokeMonsterCameraVisibilityComponent>(TEXT("CameraVisibility"));
 	CreateDefaultSubobject<UPokeMonsterCharacterFillComponent>(TEXT("CharacterFill"));
 

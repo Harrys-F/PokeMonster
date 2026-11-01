@@ -93,14 +93,14 @@ public:
  UFUNCTION(BlueprintCallable,Category="PokeMonster|Camera") void SetThirdPersonCamera(bool Enabled);
  UFUNCTION(BlueprintPure,Category="PokeMonster|Camera") bool IsThirdPersonCamera()const{return bThirdPersonCamera;}
  UFUNCTION(BlueprintCallable,Category="PokeMonster|Camera") void RotateThirdPersonCamera(FVector2D Delta);
- UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonHeight=120.f;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonHeight=170.f;
+ UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category="PokeMonster|Camera") float ThirdPersonPitch=-12.f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonDistance=350.f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonMinDistance=200.f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonMaxDistance=600.f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonFOV=75.f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonMouseSensitivity=.12f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera|Gamepad",meta=(ClampMin="0")) float GamepadCameraYawSpeed=120.f;
- UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera|Gamepad",meta=(ClampMin="0")) float GamepadCameraPitchSpeed=90.f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera|Gamepad",meta=(ClampMin="0",ClampMax="0.95")) float GamepadCameraDeadZone=.15f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera|Gamepad",meta=(ClampMin="0.1",ClampMax="45")) float GamepadDirectionChangeDegrees=5.f;
  UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="PokeMonster|Camera") TObjectPtr<USpringArmComponent> ThirdPersonBoom;
@@ -240,6 +240,7 @@ private:
 	friend class FPokeMonsterBuildingCameraTest;
  friend class FPokeMonsterThirdPersonCameraTest;
  friend class FPokeMonsterThirdPersonGamepadTest;
+ friend class FPokeMonsterThirdPersonFixedRigTest;
 	friend class FPokeMonsterRelocatedInteriorTransitionTest;
 	friend class FPokeMonsterEncounterIntegrationTest;
 #endif

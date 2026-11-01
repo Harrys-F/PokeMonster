@@ -39,9 +39,9 @@ Der aktuelle technische Kamerastandard ist unten dokumentiert. Perspektivische P
 - die Perspektive bleibt zwischen Außenbereichen und Innenräumen visuell zusammenhängend
 - die technische Projektion darf perspektivisch, nahezu orthografisch oder orthografisch sein, solange das verbindliche Referenzbild erreicht wird
 
-### Aktueller Kamerastandard: Third Person V2 (01.11.2026)
+### Aktueller Kamerastandard: Third Person V3 (01.11.2026)
 
-Harry hat die vorhandene Third-Person-Kamera ausdrücklich als neue Standardperspektive freigegeben. Diese Entscheidung ersetzt die feste 2,5D-Standardperspektive und deren ausschließliche kleine Bildschirmdarstellung der Figur. Körpergröße140cm und alle Welt-/Modellmaßstäbe bleiben unverändert. Vorhandener Arm350cm, Drehpunkt120cm ab Kapselunterkante, Startpitch−12°, FOV75°, Zoom200–600cm; Maus und rechter Stick erlauben unabhängiges Umsehen. Keine neue Weltgestaltung oder Änderung des Renderstils dadurch. Die erhaltene Kamera B ist per `pm.Camera 2D` weiterhin verfügbar. Großbegleiter, Kulissenseiten und bestehende Cutaway-Innenräume behalten die in V1 dokumentierten visuellen Grenzen. Details: `THIRD_PERSON_DEFAULT_GAMEPAD_V1.md`.
+Harry hat die vorhandene Third-Person-Kamera ausdrücklich als neue Standardperspektive freigegeben. Diese Entscheidung ersetzt die feste 2,5D-Standardperspektive und deren ausschließliche kleine Bildschirmdarstellung der Figur. Körpergröße140cm und alle Welt-/Modellmaßstäbe bleiben unverändert. Vorhandener waagerechter Arm350cm bei170cm ab Kapselunterkante, Kamera selbst dauerhaft−12° nach unten geneigt, FOV75°, Zoom200–600cm. Maus und rechter Stick erlauben ausschließlich horizontales Umsehen; vertikale Eingaben sind ohne Wirkung. Die tatsächliche Bodenhöhe der Kamera wird im Spiel gemessen, nicht aus der Pivot-Einstellung allein behauptet. Keine neue Weltgestaltung oder Änderung des Renderstils dadurch. Die erhaltene Kamera B ist per `pm.Camera 2D` weiterhin verfügbar. Großbegleiter, Kulissenseiten und bestehende Cutaway-Innenräume behalten die in V1 dokumentierten visuellen Grenzen. Details: `THIRD_PERSON_CAMERA_V3.md`; vorherige V2-Abnahme historisch in `THIRD_PERSON_DEFAULT_GAMEPAD_V1.md`.
 
 ### Erhaltene 2,5D-Referenzkamera B vom 13.10.2026 (als Standard ersetzt)
 

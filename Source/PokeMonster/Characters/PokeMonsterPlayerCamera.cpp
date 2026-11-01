@@ -19,7 +19,7 @@ void APokeMonsterPlayerCharacter::SetThirdPersonCamera(bool Enabled)
   LastWorldFacing=Facing;bHasWorldFacing=true;
   ThirdPersonBoom->SetRelativeLocation(FVector(0,0,ThirdPersonHeight-GetCapsuleComponent()->GetScaledCapsuleHalfHeight()));
   ThirdPersonBoom->TargetArmLength=FMath::Clamp(ThirdPersonDistance,ThirdPersonMinDistance,ThirdPersonMaxDistance);
-  ThirdPersonBoom->SetWorldRotation(FRotator(-12,Facing.Rotation().Yaw,0));ThirdPersonCamera->FieldOfView=ThirdPersonFOV;
+  ThirdPersonBoom->SetWorldRotation(FRotator(0,Facing.Rotation().Yaw,0));ThirdPersonCamera->SetRelativeRotation(FRotator(ThirdPersonPitch,0,0));ThirdPersonCamera->FieldOfView=ThirdPersonFOV;
   ThirdPersonBoom->SetComponentTickEnabled(true);FollowCamera->Deactivate();ThirdPersonCamera->Activate();bThirdPersonCamera=true;SetActorTickEnabled(true);RefreshThirdPersonInput();
  }
  else
@@ -38,11 +38,11 @@ void APokeMonsterPlayerCharacter::RotateThirdPersonCamera(FVector2D Delta)
 {
  if(!bThirdPersonCamera||IsOverworldInputLocked()||Delta.ContainsNaN())return;
  FRotator R=ThirdPersonBoom->GetComponentRotation();R.Yaw=FRotator::NormalizeAxis(R.Yaw+Delta.X*ThirdPersonMouseSensitivity);
- R.Pitch=FMath::Clamp(R.Pitch-Delta.Y*ThirdPersonMouseSensitivity,-65.f,5.f);R.Roll=0;ThirdPersonBoom->SetWorldRotation(R);
+ R.Pitch=0;R.Roll=0;ThirdPersonBoom->SetWorldRotation(R);
 }
 void APokeMonsterPlayerCharacter::CameraLook(const FInputActionValue& Value)
 {
- if(!Value.Get<FVector2D>().IsNearlyZero())bGamepadMovementBasis=false;
+ if(!FMath::IsNearlyZero(Value.Get<FVector2D>().X))bGamepadMovementBasis=false;
  RotateThirdPersonCamera(Value.Get<FVector2D>());
 }
 void APokeMonsterPlayerCharacter::GamepadLook(const FInputActionValue& Value)
@@ -52,14 +52,15 @@ void APokeMonsterPlayerCharacter::GamepadLook(const FInputActionValue& Value)
 void APokeMonsterPlayerCharacter::RotateGamepadCamera(FVector2D Input,float DeltaSeconds)
 {
  if(!bThirdPersonCamera||IsOverworldInputLocked()||Input.ContainsNaN()||!FMath::IsFinite(DeltaSeconds)||DeltaSeconds<=0.f)return;
- // Enhanced Input reads raw stick values; one radial deadzone here also covers injected input.
+ // Ignore vertical deflection before the horizontal deadzone: Y must not change yaw gain.
+ Input.Y=0;
  const float Magnitude=FMath::Min(float(Input.Size()),1.f);
  const float DeadZone=FMath::Clamp(GamepadCameraDeadZone,0.f,.95f);
  if(Magnitude<=DeadZone)return;
  Input=Input.GetSafeNormal()*((Magnitude-DeadZone)/(1.f-DeadZone));
  FRotator Rotation=ThirdPersonBoom->GetComponentRotation();
  Rotation.Yaw=FRotator::NormalizeAxis(Rotation.Yaw+Input.X*GamepadCameraYawSpeed*DeltaSeconds);
- Rotation.Pitch=FMath::Clamp(Rotation.Pitch+Input.Y*GamepadCameraPitchSpeed*DeltaSeconds,-65.f,5.f);
+ Rotation.Pitch=0;
  Rotation.Roll=0.f;ThirdPersonBoom->SetWorldRotation(Rotation);
 }
 void APokeMonsterPlayerCharacter::GamepadMove(const FInputActionValue& Value)
