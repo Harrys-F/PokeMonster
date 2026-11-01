@@ -43,7 +43,7 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 	TestNotNull(TEXT("The overworld menu input action exists"), Character->MenuAction.Get());
 	TestEqual(TEXT("The move action uses a two-dimensional value"), Character->MoveAction->ValueType, EInputActionValueType::Axis2D);
 	TestEqual(TEXT("The interaction action uses a boolean value"), Character->InteractAction->ValueType, EInputActionValueType::Boolean);
-	TestEqual(TEXT("Movement, B interaction, X quick menu, Plus/Esc main menu and sprint provide nineteen mappings"), Character->DefaultMappingContext->GetMappings().Num(), 19);
+	TestEqual(TEXT("Existing movement/UI/sprint plus camera look and zoom provide twenty-one mappings"), Character->DefaultMappingContext->GetMappings().Num(), 21);
 
 	bool bHasEInteraction = false;
 	bool bHasEnterInteraction = false;

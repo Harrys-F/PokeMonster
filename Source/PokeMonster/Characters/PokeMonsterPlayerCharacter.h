@@ -90,6 +90,17 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Player Presentation")
     TObjectPtr<UPokeMonsterMeshyVisualComponent> MeshyVisual;
 
+ UFUNCTION(BlueprintCallable,Category="PokeMonster|Camera") void SetThirdPersonCamera(bool Enabled);
+ UFUNCTION(BlueprintPure,Category="PokeMonster|Camera") bool IsThirdPersonCamera()const{return bThirdPersonCamera;}
+ UFUNCTION(BlueprintCallable,Category="PokeMonster|Camera") void RotateThirdPersonCamera(FVector2D Delta);
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonHeight=120.f;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonDistance=350.f;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonMinDistance=200.f;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonMaxDistance=600.f;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonFOV=75.f;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonMouseSensitivity=.12f;
+ UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="PokeMonster|Camera") TObjectPtr<USpringArmComponent> ThirdPersonBoom;
+ UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="PokeMonster|Camera") TObjectPtr<UCameraComponent> ThirdPersonCamera;
 	APokeMonsterPlayerCharacter();
 
 	virtual void PawnClientRestart() override;
@@ -223,6 +234,7 @@ private:
  friend class FPokeMonsterSwitchProInputTest;
  friend class FPokeMonsterSwitchProWidgetTest;
 	friend class FPokeMonsterBuildingCameraTest;
+ friend class FPokeMonsterThirdPersonCameraTest;
 	friend class FPokeMonsterRelocatedInteriorTransitionTest;
 	friend class FPokeMonsterEncounterIntegrationTest;
 #endif
@@ -235,6 +247,12 @@ private:
 	FVector LastWorldFacing = FVector::ZeroVector;
 	float GetPresentationCameraYaw() const;
 
+ bool bThirdPersonCamera=false,bOriginalCursor=true,bOriginalActorTick=false;
+ UPROPERTY(Transient) TObjectPtr<UInputAction> CameraLookAction;
+ UPROPERTY(Transient) TObjectPtr<UInputAction> CameraZoomAction;
+ void CameraLook(const FInputActionValue& Value);
+ void CameraZoom(const FInputActionValue& Value);
+ void RefreshThirdPersonInput();
 	void Move(const FInputActionValue& Value);
 	void StartSprintHold(const FInputActionValue& Value);
 	void StopSprintHold(const FInputActionValue& Value);

@@ -1616,3 +1616,7 @@ Garados erhält für echte Wasserlebensräume eine längliche, horizontal ausger
 Die bestehende AnimInstance, Roaming-KI und einzelne MeshComponent bleiben zuständig. Die ursprünglichen Land-/Kampfmodelle und sieben Clips bleiben erhalten, einschließlich des bestehenden Landbegleiters. Lange Wasserformen benötigen eine konservative volle Boden-/Uferhülle und ausreichend tiefe, breite vorhandene Gewässer; kein Landschaftsumbau als Ersatz. Geländeprüfung und physischer Kontakt mit anderen Fischen bleiben getrennt. Bericht und tatsächliche Abnahme: GARADOS_WASSERBEWEGUNG_V2.md.
 
 Im engen Wasserfall wird die Mindestzielstrecke aus dem halben nach Abzug des Körperradius freien Zonenrand abgeleitet (im Teich105cm statt180cm), ohne Körper-/Uferhülle zu verkleinern. Eine einzelne gemerkte Zielposition verhindert, dass vier Ausschlusskreise den gesamten sicheren Korridor sperren. Landarten und große Wasserbereiche behalten ihre bisherigen Grenzen; alle Kontakt- und Geländetests bleiben aktiv.
+
+## 01.11.2026 – Reversibler Third-Person-Test
+
+Auf ausdrücklichen Auftrag zusätzlich zur verbindlichen Kamera B ein ausschließlich sitzungsgebundener Third-Person-Modus am bestehenden Player. Start bleibt2,5D; kein Save-Feld und kein Mapumbau. Eigener Kameraarm am selben Pawn hält bestehende Außen-/Innenkameraeinstellungen unverändert. Dieselben Bewegungs-, Sprint- und Interaktionssysteme weiterverwenden. Siehe THIRD_PERSON_KAMERATEST_V1.md.

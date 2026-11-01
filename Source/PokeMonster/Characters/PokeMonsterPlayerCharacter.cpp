@@ -137,6 +137,14 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	FollowCamera->bUsePawnControlRotation = false;
 	FollowCamera->FieldOfView = 35.0f;
+ ThirdPersonBoom=CreateDefaultSubobject<USpringArmComponent>(TEXT("ThirdPersonBoom"));
+ ThirdPersonBoom->PrimaryComponentTick.bStartWithTickEnabled=false;
+ ThirdPersonBoom->SetupAttachment(RootComponent);ThirdPersonBoom->SetUsingAbsoluteRotation(true);
+ ThirdPersonBoom->SetRelativeRotation(FRotator(-12, -45, 0));ThirdPersonBoom->TargetArmLength=350;
+ ThirdPersonBoom->bDoCollisionTest=true;ThirdPersonBoom->ProbeSize=12;ThirdPersonBoom->bEnableCameraLag=true;
+ ThirdPersonBoom->CameraLagSpeed=12;ThirdPersonBoom->bUseCameraLagSubstepping=true;
+ ThirdPersonCamera=CreateDefaultSubobject<UCameraComponent>(TEXT("ThirdPersonCamera"));
+ ThirdPersonCamera->SetupAttachment(ThirdPersonBoom,USpringArmComponent::SocketName);ThirdPersonCamera->FieldOfView=75;ThirdPersonCamera->SetAutoActivate(false);
 	CameraVisibility = CreateDefaultSubobject<UPokeMonsterCameraVisibilityComponent>(TEXT("CameraVisibility"));
 	CreateDefaultSubobject<UPokeMonsterCharacterFillComponent>(TEXT("CharacterFill"));
 
@@ -171,6 +179,10 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
 	MapDigitalKey(EKeys::Right, false, false);
 	MapDigitalKey(EKeys::Left, true, false);
 
+ CameraLookAction=CreateDefaultSubobject<UInputAction>(TEXT("CameraLookAction"));CameraLookAction->ValueType=EInputActionValueType::Axis2D;
+ DefaultMappingContext->MapKey(CameraLookAction,EKeys::Mouse2D);
+ CameraZoomAction=CreateDefaultSubobject<UInputAction>(TEXT("CameraZoomAction"));CameraZoomAction->ValueType=EInputActionValueType::Axis1D;
+ DefaultMappingContext->MapKey(CameraZoomAction,EKeys::MouseWheelAxis);
 	// Match the existing 0.25 gamepad axis deadzone with a radial 2D mapping.
 	FEnhancedActionKeyMapping& StickMapping = DefaultMappingContext->MapKey(MoveAction, EKeys::Gamepad_Left2D);
 	UInputModifierDeadZone* StickDeadZone = NewObject<UInputModifierDeadZone>(DefaultMappingContext);
@@ -277,11 +289,13 @@ void APokeMonsterPlayerCharacter::BeginPlay()
 
 float APokeMonsterPlayerCharacter::GetMovementBasisYaw() const
 {
+	if(bThirdPersonCamera)return ThirdPersonBoom->GetComponentRotation().Yaw;
 	return bMovementBasisOverride ? MovementBasisYaw : FollowCamera->GetComponentRotation().Yaw;
 }
 
 float APokeMonsterPlayerCharacter::GetPresentationCameraYaw() const
 {
+	if(bThirdPersonCamera)return ThirdPersonBoom->GetComponentRotation().Yaw;
 	const FRotator Exterior = FollowCamera->GetComponentRotation();
 	const auto* Building = InteriorCameraSource.Get();
 	if (!IsValid(Building) || !Building->bUseInteriorCamera) return Exterior.Yaw;
@@ -295,7 +309,7 @@ float APokeMonsterPlayerCharacter::GetPresentationCameraYaw() const
 
 void APokeMonsterPlayerCharacter::SetInteriorCameraSource(APokeMonsterBuildingCutaway* Building)
 {
-	if (!bMovementBasisOverride) MovementBasisYaw = GetMovementBasisYaw();
+	if (!bMovementBasisOverride) MovementBasisYaw = bThirdPersonCamera?FollowCamera->GetComponentRotation().Yaw:GetMovementBasisYaw();
 	InteriorCameraSource = Building;
 	RefreshSprint();
 	bMovementBasisOverride = true;
@@ -316,6 +330,7 @@ void APokeMonsterPlayerCharacter::ClearInteriorCameraSource(const APokeMonsterBu
 void APokeMonsterPlayerCharacter::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
+ if(bThirdPersonCamera){RefreshThirdPersonInput();GetSprite()->SetWorldRotation(FRotator(0,GetPresentationCameraYaw()+90,0));return;}
 	const auto* Building = InteriorCameraSource.Get();
 	const bool bHasBuilding = IsValid(Building) && Building->bUseInteriorCamera;
 	if (!bHasBuilding) bInteriorMovementBasis = false;
@@ -340,6 +355,7 @@ void APokeMonsterPlayerCharacter::Tick(float DeltaSeconds)
 void APokeMonsterPlayerCharacter::CalcCamera(float DeltaTime, FMinimalViewInfo& OutResult)
 {
 	Super::CalcCamera(DeltaTime, OutResult);
+ if(bThirdPersonCamera)return;
 	const APokeMonsterBuildingCutaway* Building = InteriorCameraSource.Get();
 	if (!IsValid(Building) || !Building->bUseInteriorCamera) return;
 	const float Progress = FMath::Clamp(Building->GetCutawayAmount(), 0.f, 1.f);
@@ -387,6 +403,8 @@ void APokeMonsterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* Pla
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 	UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent);
+	EnhancedInputComponent->BindAction(CameraLookAction,ETriggerEvent::Triggered,this,&APokeMonsterPlayerCharacter::CameraLook);
+ EnhancedInputComponent->BindAction(CameraZoomAction,ETriggerEvent::Triggered,this,&APokeMonsterPlayerCharacter::CameraZoom);
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &APokeMonsterPlayerCharacter::Move);
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Completed, this, &APokeMonsterPlayerCharacter::StopMoving);
 	EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &APokeMonsterPlayerCharacter::Interact);
