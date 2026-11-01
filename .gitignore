@@ -8673,3 +8673,8 @@ Tools/StarterExpansionV1/__pycache__/AutomaticSkin.cpython-313.pyc
 # Python bytecode caches are local, reproducible tooling output.
 __pycache__/
 *.pyc
+
+# Licensed Fab sources remain local by owner decision (European Beech Forest V1).
+/Content/Fab/EuropeanBeech/
+/Content/MSPresets/MS_Foliage_Material/
+/Content/MSPresets/MSAssets.db

@@ -1634,3 +1634,10 @@ Linker Stick nutzt dieselbe Bewegung mit eigener Eingabequelle, rechter Stick dr
 Auf ausdrücklichen Auftrag ist vertikaler Orbit aus V2 ersetzt: ausschließlich horizontales Umsehen, rechts120°/s, vertikale Maus-/Stickachse ohne Kamerawirkung. Vorhandener Kameraarm horizontal bei170cm über der Kapselunterkante, Kamera selbst fest−12° geneigt, Standardabstand350cm. Dadurch heben Zoom und Kollisionsverkürzung die Kamera nicht geometrisch an/ab. Tatsächliche Höhe über Boden im Spiel messen; Kapselunterkante und Boden sind wegen des vorhandenen physikalischen Bodenabstands nicht identisch. Gelände weiter über vorhandene Characterbewegung und SpringArm-Nachlauf verfolgen, keine globale Z-Fixierung oder neue Geländeregelung.
 
 Third Person bleibt Standard,2,5D und bestehende Befehle bleiben erhalten. Modelle, Gameplay, Grafikprofile und Spielstände unverändert. Nach technischer Prüfung und Sicherung wartet jede weitere Kameraänderung auf Harrys eigenen Test. Einstellungen und tatsächliche Abnahme: THIRD_PERSON_CAMERA_V3.md.
+
+
+## 01.11.2026 – European Beech Forest V1 auf VisualV2
+
+Auf ausdrücklichen Auftrag eine neue, vom bisherigen Spielbereich getrennte Waldsektion am freien Nordrand derselben Map; keine neue Map. Originale unter /Game/Fab/EuropeanBeech und /Game/MSPresets unverändert lokal erhalten, bestehende Kamera V3/Beleuchtung/Gameplay und Lebensräume nicht ändern. HISM-Gruppen, lokale Boden-/Pfadgestaltung und vorhandene Projektuntervegetation verwenden. Keine neuen Baum-/Pflanzenmodelle, Spawns, NPCs oder Quests. Tatsächlichen Assetbestand zuerst inventarisiert.
+
+Origin ist öffentlich. Harry bestätigte ausdrücklich nur eigene Map-/Werkzeug-/Dokumentationsänderungen zu pushen und Fab-Dateien lokal zu behalten; enge Ignore-Regeln verhindern öffentliche Aufnahme dieser Quellen. Ein frischer Checkout benötigt den separat lizenzierten lokalen Import. Nach erfolgreicher technischer Prüfung zunächst Harrys eigene Erkundung, keine automatische weitere Landschaftsänderung. Bericht: EUROPEAN_BEECH_FOREST_V1.md.

@@ -1,0 +1,31 @@
+{
+  "requires_separate_licensed_Fab_import": true,
+  "fab_root": "/Game/Fab/EuropeanBeech",
+  "presets_root": "/Game/MSPresets/MS_Foliage_Material",
+  "mesh_references": [
+    "/Game/Environment/HealingHouse/ArtV4/Meshes/SM_HH4_FallenBranch",
+    "/Game/Environment/VisualV2EnvironmentV3/Meshes/SM_EQ3_GrassWoodland",
+    "/Game/Environment/VisualV2WorldArtV5/Meshes/SM_WA5_MossCushion",
+    "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_A",
+    "/Game/Environment/VisualV2WorldArtV7/Meshes/SM_WA7_Fern_B",
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Landscape/SM_WLA_Stump_A",
+    "/Game/Environment/WestlandAssetLibrary/Meshes/Landscape/SM_WLA_Stump_B",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Field_01",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Forest_01",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Forest_02",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Forest_04",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Forest_05",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Forest_06",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Forest_07",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Forest_08",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Sapling_01",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Sapling_02",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Sapling_03",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Sapling_04",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Seedling_01",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Seedling_02",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Seedling_03",
+    "/Game/Fab/EuropeanBeech/Geometry/SimpleWind/SM_EuropeanBeech_Seedling_04"
+  ],
+  "original_assets_are_not_in_public_repository": true
+}
