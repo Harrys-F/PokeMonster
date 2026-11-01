@@ -99,6 +99,10 @@ public:
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonMaxDistance=600.f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonFOV=75.f;
  UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera") float ThirdPersonMouseSensitivity=.12f;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera|Gamepad",meta=(ClampMin="0")) float GamepadCameraYawSpeed=120.f;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera|Gamepad",meta=(ClampMin="0")) float GamepadCameraPitchSpeed=90.f;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera|Gamepad",meta=(ClampMin="0",ClampMax="0.95")) float GamepadCameraDeadZone=.15f;
+ UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="PokeMonster|Camera|Gamepad",meta=(ClampMin="0.1",ClampMax="45")) float GamepadDirectionChangeDegrees=5.f;
  UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="PokeMonster|Camera") TObjectPtr<USpringArmComponent> ThirdPersonBoom;
  UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="PokeMonster|Camera") TObjectPtr<UCameraComponent> ThirdPersonCamera;
 	APokeMonsterPlayerCharacter();
@@ -235,6 +239,7 @@ private:
  friend class FPokeMonsterSwitchProWidgetTest;
 	friend class FPokeMonsterBuildingCameraTest;
  friend class FPokeMonsterThirdPersonCameraTest;
+ friend class FPokeMonsterThirdPersonGamepadTest;
 	friend class FPokeMonsterRelocatedInteriorTransitionTest;
 	friend class FPokeMonsterEncounterIntegrationTest;
 #endif
@@ -250,6 +255,16 @@ private:
  bool bThirdPersonCamera=false,bOriginalCursor=true,bOriginalActorTick=false;
  UPROPERTY(Transient) TObjectPtr<UInputAction> CameraLookAction;
  UPROPERTY(Transient) TObjectPtr<UInputAction> CameraZoomAction;
+ UPROPERTY(Transient) TObjectPtr<UInputAction> GamepadLookAction;
+ UPROPERTY(Transient) TObjectPtr<UInputAction> GamepadMoveAction;
+ bool bGamepadMovementBasis=false;
+ float GamepadMovementYaw=0.f;
+ FVector2D GamepadMoveDirection=FVector2D::ZeroVector;
+ void GamepadLook(const FInputActionValue& Value);
+ void RotateGamepadCamera(FVector2D Input,float DeltaSeconds);
+ void GamepadMove(const FInputActionValue& Value);
+ void StopGamepadMoving(const FInputActionValue& Value);
+ void ApplyMoveInput(const FInputActionValue& Value);
  void CameraLook(const FInputActionValue& Value);
  void CameraZoom(const FInputActionValue& Value);
  void RefreshThirdPersonInput();

@@ -546,6 +546,7 @@ bool UPokeMonsterSaveSubsystem::ReadGame(bool bRecovery)
 void UPokeMonsterSaveSubsystem::SynchronizeRestoredPlayer(APokeMonsterPlayerCharacter* Player)
 {
  if (!Player) return;
+ Player->SetThirdPersonCamera(true); // Standard perspective after regular load; no save field.
  auto* Move = Player->GetCharacterMovement(); Move->StopMovementImmediately(); Move->bJustTeleported = true;
  for (TActorIterator<APokeMonsterBuildingCutaway> It(Player->GetWorld()); It; ++It) It->SynchronizeViewerAfterLoad();
  if (auto* PC = Player->GetController())

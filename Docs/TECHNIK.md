@@ -408,7 +408,7 @@ Vor dem Abschluss eines Arbeitsschrittes soll Codex, soweit möglich:
 
 Die historische V1-Messung oben beschreibt den Ausgangsstand. Die Kalibrierung trennt Leinwand, Alpha-Körper, Render-Bounds und Gameplay-Collision. Der Player verwendet visuelle Component-Scale (0,66; 0,66; 1,086758), einen Sohlen-Pivot (128,488) und pro Frame normierte Pixels Per Unreal Unit (3,4 × Körperpixel / 438). Seine Paper2D-Fläche steht aufrecht (Yaw 45°, Roll 0°); die sichtbare Körperhöhe beträgt dadurch tatsächlich 140 cm in Welt-Z. Getrennte Breiten-/Höhenskalierung erhält die Bildschirmproportionen unter der unveränderten -55°-Kamera. Eine zur Kamera gekippte Fläche mit nur passender Bildschirmhöhe wäre für die Verdeckung durch echte 3D-Tresen geometrisch zu niedrig. Die Sprite-Komponente sitzt am Capsule-Fuß, die Capsule bleibt 96 cm hoch und 56 cm breit. Sie ist eine Navigations-/Kollisionshülle, keine Körpergrößenreferenz. Messung und Vergleich stehen in `SCALE_CALIBRATION.md`.
 
-## Aktuelle feste Overworld-Kamera B (13.10.2026)
+## Erhaltene feste Overworld-Kamera B (13.10.2026; Standard seit Third Person V2 ersetzt)
 
 Harrys Übernahmeauftrag vom 13.10.2026 ersetzt Kamera A (2500 cm/−55°) durch Kamera B. `APokeMonsterPlayerCharacter` behält das vorhandene SpringArm-/CameraComponent-System: **2850 cm**, Pitch **−50°**, bestehender Yaw **−45°**, Roll **0°**, perspektivisch, FOV **35°**. Absolute SpringArm-Rotation sowie deaktivierte Controller-/Pawn- und Rotationsvererbung halten die Außenansicht unabhängig von Actorrotation und acht Blickrichtungen fest. `TargetOffset=(0,0,35)` cm bleibt unverändert.
 
@@ -1414,3 +1414,8 @@ einmalige Weltkennungen. Schema 11 und die bestehenden Migrationen bleiben erhal
 UI-Kategorien, kulturabhängige Sortierung, Mengenbestätigung und AP-Zielwahl bleiben
 in der bisherigen Oberfläche. Die bestehende Trank-ID `TestHealingItem` wird
 weiterverwendet. Daten, zwölf Orte und QA-Nachweise: `INVENTAR_GEGENSTAENDE_V2.md`.
+
+
+## Third Person V2 – Standardkamera und Gamepad
+
+Die bestehende Third-Person-Kamera wird beim BeginPlay des bestehenden Players und bei dessen vorhandener Lade-Synchronisation aktiviert. `pm.Camera ThirdPerson|2D|Status` bleibt erhalten. Keine neuen Save-Felder oder zweite Kameraarchitektur. Die feste Kamera B bleibt vollständig erhalten. Rechtsstick ist eine zeitbasierte Enhanced-Input-Kameraaktion; Maus bleibt deltabasiert. Die linke Stickquelle teilt dieselbe Bewegungsfunktion mit WASD, hält jedoch beim freien Umsehen die Weltbewegungsbasis bis Neutralstellung oder Richtungswechsel. Bestehendes L3 schaltet Sprint, keine neue Belegung dafür. Maßgeblicher Bericht: THIRD_PERSON_DEFAULT_GAMEPAD_V1.md.

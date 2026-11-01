@@ -39,7 +39,11 @@ Der aktuelle technische Kamerastandard ist unten dokumentiert. Perspektivische P
 - die Perspektive bleibt zwischen Außenbereichen und Innenräumen visuell zusammenhängend
 - die technische Projektion darf perspektivisch, nahezu orthografisch oder orthografisch sein, solange das verbindliche Referenzbild erreicht wird
 
-### Verbindliche Standardkamera B vom 13.10.2026
+### Aktueller Kamerastandard: Third Person V2 (01.11.2026)
+
+Harry hat die vorhandene Third-Person-Kamera ausdrücklich als neue Standardperspektive freigegeben. Diese Entscheidung ersetzt die feste 2,5D-Standardperspektive und deren ausschließliche kleine Bildschirmdarstellung der Figur. Körpergröße140cm und alle Welt-/Modellmaßstäbe bleiben unverändert. Vorhandener Arm350cm, Drehpunkt120cm ab Kapselunterkante, Startpitch−12°, FOV75°, Zoom200–600cm; Maus und rechter Stick erlauben unabhängiges Umsehen. Keine neue Weltgestaltung oder Änderung des Renderstils dadurch. Die erhaltene Kamera B ist per `pm.Camera 2D` weiterhin verfügbar. Großbegleiter, Kulissenseiten und bestehende Cutaway-Innenräume behalten die in V1 dokumentierten visuellen Grenzen. Details: `THIRD_PERSON_DEFAULT_GAMEPAD_V1.md`.
+
+### Erhaltene 2,5D-Referenzkamera B vom 13.10.2026 (als Standard ersetzt)
 
 Feste schräge Draufsicht: Pitch −50° von der Horizontalen, bestehender Yaw −45°, Roll 0°. Keine zusätzliche isometrische Drehung, keine Rotation mit der Figur oder freie Kamerasteuerung. Perspektivische Projektion und horizontaler FOV 35° bleiben erhalten. Die 140-cm-Figur wird durch 2850 cm SpringArm-Abstand ungefähr mittig, leicht unterhalb der Bildmitte eingerahmt; Fokus 35 cm über dem Capsule-Zentrum. Kamera B ersetzt die bisherige Kamera A mit 2500 cm/−55° und bewahrt die erweiterte Übersicht; die Figur nimmt bei 16:9 ungefähr 9 Prozent der Spielbildhöhe ein, ohne transparente Sprite-Ränder oder Editorleisten. Andere Fensterseitenverhältnisse verändern diesen Anteil.
 

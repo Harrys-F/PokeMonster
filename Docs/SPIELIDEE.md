@@ -2,9 +2,9 @@
 
 ## Grundidee
 
-PokeMonster ist ein modernes 2D-Top-Down-Einzelspiel, das die Erkundung und Kreaturenmechaniken früher Pokémon-Spiele mit einer eigenständigen, atmosphärischen Fantasywelt verbindet.
+PokeMonster ist ein modernes Einzelspiel mit Third Person als Standard und erhaltener 2,5D-Ansicht, das die Erkundung und Kreaturenmechaniken früher Pokémon-Spiele mit einer eigenständigen, atmosphärischen Fantasywelt verbindet.
 
-Die Perspektive und grundsätzliche Lesbarkeit orientieren sich an klassischen frühen Pokémon-Spielen. Grafik, Umgebungen und Figuren sollen jedoch hochauflösend, sauber gezeichnet und zeitgemäß wirken.
+Die grundlegende Lesbarkeit und Erkundung orientieren sich an klassischen frühen Pokémon-Spielen. Seit dem ausdrücklichen Auftrag Third Person V2 ist die vorhandene frei drehbare Third-Person-Kamera Standard; die frühere 2,5D-Perspektive bleibt per `pm.Camera 2D` verfügbar. Grafik, Umgebungen und Figuren sollen jedoch hochauflösend, sauber gezeichnet und zeitgemäß wirken.
 
 Die Welt ist von der Stimmung, Landschaftsvielfalt und Monumentalität Mittelerdes inspiriert. Es sollen keine Tolkien-Schauplätze direkt kopiert werden. Stattdessen entstehen eigenständige Regionen, Orte, Namen und Geschichten.
 

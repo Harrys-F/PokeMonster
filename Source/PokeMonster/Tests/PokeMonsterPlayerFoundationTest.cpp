@@ -43,7 +43,7 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 	TestNotNull(TEXT("The overworld menu input action exists"), Character->MenuAction.Get());
 	TestEqual(TEXT("The move action uses a two-dimensional value"), Character->MoveAction->ValueType, EInputActionValueType::Axis2D);
 	TestEqual(TEXT("The interaction action uses a boolean value"), Character->InteractAction->ValueType, EInputActionValueType::Boolean);
-	TestEqual(TEXT("Existing movement/UI/sprint plus camera look and zoom provide twenty-one mappings"), Character->DefaultMappingContext->GetMappings().Num(), 21);
+	TestEqual(TEXT("Existing movement/UI/sprint plus mouse/gamepad camera and zoom provide twenty-two mappings"), Character->DefaultMappingContext->GetMappings().Num(), 22);
 
 	bool bHasEInteraction = false;
 	bool bHasEnterInteraction = false;
@@ -58,7 +58,7 @@ bool FPokeMonsterPlayerFoundationTest::RunTest(const FString& Parameters)
 		}
 		if (Mapping.Action == Character->MenuAction)
 			bHasTabMenu |= Mapping.Key == EKeys::Tab;
-		if (Mapping.Action == Character->MoveAction && Mapping.Key == EKeys::Gamepad_Left2D)
+		if (Mapping.Action == Character->GamepadMoveAction && Mapping.Key == EKeys::Gamepad_Left2D)
 		{
 			for (const UInputModifier* Modifier : Mapping.Modifiers)
 			{

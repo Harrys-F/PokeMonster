@@ -184,7 +184,12 @@ APokeMonsterPlayerCharacter::APokeMonsterPlayerCharacter()
  CameraZoomAction=CreateDefaultSubobject<UInputAction>(TEXT("CameraZoomAction"));CameraZoomAction->ValueType=EInputActionValueType::Axis1D;
  DefaultMappingContext->MapKey(CameraZoomAction,EKeys::MouseWheelAxis);
 	// Match the existing 0.25 gamepad axis deadzone with a radial 2D mapping.
-	FEnhancedActionKeyMapping& StickMapping = DefaultMappingContext->MapKey(MoveAction, EKeys::Gamepad_Left2D);
+	GamepadLookAction=CreateDefaultSubobject<UInputAction>(TEXT("GamepadLookAction"));
+ GamepadLookAction->ValueType=EInputActionValueType::Axis2D;
+ DefaultMappingContext->MapKey(GamepadLookAction,EKeys::Gamepad_Right2D);
+ GamepadMoveAction=CreateDefaultSubobject<UInputAction>(TEXT("GamepadMoveAction"));
+ GamepadMoveAction->ValueType=EInputActionValueType::Axis2D;
+ FEnhancedActionKeyMapping& StickMapping = DefaultMappingContext->MapKey(GamepadMoveAction, EKeys::Gamepad_Left2D);
 	UInputModifierDeadZone* StickDeadZone = NewObject<UInputModifierDeadZone>(DefaultMappingContext);
 	StickDeadZone->LowerThreshold = 0.25f;
 	StickDeadZone->Type = EDeadZoneType::Radial;
@@ -285,11 +290,12 @@ void APokeMonsterPlayerCharacter::BeginPlay()
 		GetSprite()->SetSpriteColor(FLinearColor::White);
 	}
 	RefreshCharacterVisual();
+ if(GetWorld()->IsGameWorld())SetThirdPersonCamera(true);
 }
 
 float APokeMonsterPlayerCharacter::GetMovementBasisYaw() const
 {
-	if(bThirdPersonCamera)return ThirdPersonBoom->GetComponentRotation().Yaw;
+	if(bThirdPersonCamera)return bGamepadMovementBasis?GamepadMovementYaw:ThirdPersonBoom->GetComponentRotation().Yaw;
 	return bMovementBasisOverride ? MovementBasisYaw : FollowCamera->GetComponentRotation().Yaw;
 }
 
@@ -403,7 +409,11 @@ void APokeMonsterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* Pla
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 	UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent);
-	EnhancedInputComponent->BindAction(CameraLookAction,ETriggerEvent::Triggered,this,&APokeMonsterPlayerCharacter::CameraLook);
+	EnhancedInputComponent->BindAction(GamepadLookAction,ETriggerEvent::Triggered,this,&APokeMonsterPlayerCharacter::GamepadLook);
+ EnhancedInputComponent->BindAction(GamepadMoveAction,ETriggerEvent::Triggered,this,&APokeMonsterPlayerCharacter::GamepadMove);
+ EnhancedInputComponent->BindAction(GamepadMoveAction,ETriggerEvent::Completed,this,&APokeMonsterPlayerCharacter::StopGamepadMoving);
+ EnhancedInputComponent->BindAction(GamepadMoveAction,ETriggerEvent::Canceled,this,&APokeMonsterPlayerCharacter::StopGamepadMoving);
+ EnhancedInputComponent->BindAction(CameraLookAction,ETriggerEvent::Triggered,this,&APokeMonsterPlayerCharacter::CameraLook);
  EnhancedInputComponent->BindAction(CameraZoomAction,ETriggerEvent::Triggered,this,&APokeMonsterPlayerCharacter::CameraZoom);
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &APokeMonsterPlayerCharacter::Move);
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Completed, this, &APokeMonsterPlayerCharacter::StopMoving);
@@ -417,6 +427,12 @@ void APokeMonsterPlayerCharacter::SetupPlayerInputComponent(UInputComponent* Pla
 }
 
 void APokeMonsterPlayerCharacter::Move(const FInputActionValue& Value)
+{
+ bGamepadMovementBasis=false;
+ ApplyMoveInput(Value);
+}
+
+void APokeMonsterPlayerCharacter::ApplyMoveInput(const FInputActionValue& Value)
 {
 	if (bOverworldInputLocked) return;
 	FVector2D Input = Value.Get<FVector2D>();
@@ -607,6 +623,7 @@ void APokeMonsterPlayerCharacter::SetOverworldInputLocked(const bool bLocked)
 	if (bLocked)
 	{
 		bSprintHeld = false;
+  bGamepadMovementBasis=false;
 		UpdateMovementInput(FVector2D::ZeroVector);
 		GetCharacterMovement()->StopMovementImmediately();
 	}

@@ -9,7 +9,7 @@ Dieses Dokument unterscheidet zwischen beschlossenen Regeln und noch offenen Ent
 Beschlossen:
 
 - Einzelspieler
-- 2D-Top-Down-Perspektive
+- Third Person als Standardperspektive (V2, 01.11.2026); erhaltene 2,5D-Ansicht per `pm.Camera 2D`
 - Erkundung einer zusammenhängenden Fantasywelt
 - Kreaturen können gesammelt und im Kampf eingesetzt werden
 - die Demo enthält nur einen kleinen Teil des später möglichen Umfangs

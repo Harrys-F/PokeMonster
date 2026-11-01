@@ -9,6 +9,7 @@
 void APokeMonsterPlayerCharacter::SetThirdPersonCamera(bool Enabled)
 {
  if(Enabled==bThirdPersonCamera)return;
+ bGamepadMovementBasis=false;
  auto* PC=Cast<APlayerController>(GetController());
  if(Enabled)
  {
@@ -39,7 +40,46 @@ void APokeMonsterPlayerCharacter::RotateThirdPersonCamera(FVector2D Delta)
  FRotator R=ThirdPersonBoom->GetComponentRotation();R.Yaw=FRotator::NormalizeAxis(R.Yaw+Delta.X*ThirdPersonMouseSensitivity);
  R.Pitch=FMath::Clamp(R.Pitch-Delta.Y*ThirdPersonMouseSensitivity,-65.f,5.f);R.Roll=0;ThirdPersonBoom->SetWorldRotation(R);
 }
-void APokeMonsterPlayerCharacter::CameraLook(const FInputActionValue& Value){RotateThirdPersonCamera(Value.Get<FVector2D>());}
+void APokeMonsterPlayerCharacter::CameraLook(const FInputActionValue& Value)
+{
+ if(!Value.Get<FVector2D>().IsNearlyZero())bGamepadMovementBasis=false;
+ RotateThirdPersonCamera(Value.Get<FVector2D>());
+}
+void APokeMonsterPlayerCharacter::GamepadLook(const FInputActionValue& Value)
+{
+ RotateGamepadCamera(Value.Get<FVector2D>(),GetWorld()->GetDeltaSeconds());
+}
+void APokeMonsterPlayerCharacter::RotateGamepadCamera(FVector2D Input,float DeltaSeconds)
+{
+ if(!bThirdPersonCamera||IsOverworldInputLocked()||Input.ContainsNaN()||!FMath::IsFinite(DeltaSeconds)||DeltaSeconds<=0.f)return;
+ // Enhanced Input reads raw stick values; one radial deadzone here also covers injected input.
+ const float Magnitude=FMath::Min(float(Input.Size()),1.f);
+ const float DeadZone=FMath::Clamp(GamepadCameraDeadZone,0.f,.95f);
+ if(Magnitude<=DeadZone)return;
+ Input=Input.GetSafeNormal()*((Magnitude-DeadZone)/(1.f-DeadZone));
+ FRotator Rotation=ThirdPersonBoom->GetComponentRotation();
+ Rotation.Yaw=FRotator::NormalizeAxis(Rotation.Yaw+Input.X*GamepadCameraYawSpeed*DeltaSeconds);
+ Rotation.Pitch=FMath::Clamp(Rotation.Pitch+Input.Y*GamepadCameraPitchSpeed*DeltaSeconds,-65.f,5.f);
+ Rotation.Roll=0.f;ThirdPersonBoom->SetWorldRotation(Rotation);
+}
+void APokeMonsterPlayerCharacter::GamepadMove(const FInputActionValue& Value)
+{
+ if(IsOverworldInputLocked())return;
+ if(!bThirdPersonCamera){Move(Value);return;}
+ const FVector2D Input=Value.Get<FVector2D>().GetClampedToMaxSize(1.f);
+ if(Input.IsNearlyZero()){StopGamepadMoving(Value);return;}
+ const FVector2D Direction=Input.GetSafeNormal();
+ if(!bGamepadMovementBasis||FVector2D::DotProduct(Direction,GamepadMoveDirection)<FMath::Cos(FMath::DegreesToRadians(FMath::Clamp(GamepadDirectionChangeDegrees,.1f,45.f))))
+ {
+  GamepadMovementYaw=ThirdPersonBoom->GetComponentRotation().Yaw;
+  GamepadMoveDirection=Direction;bGamepadMovementBasis=true;
+ }
+ ApplyMoveInput(FInputActionValue(Input));
+}
+void APokeMonsterPlayerCharacter::StopGamepadMoving(const FInputActionValue& Value)
+{
+ bGamepadMovementBasis=false;StopMoving(Value);
+}
 void APokeMonsterPlayerCharacter::CameraZoom(const FInputActionValue& Value)
 {
  if(bThirdPersonCamera&&!IsOverworldInputLocked())ThirdPersonBoom->TargetArmLength=FMath::Clamp(ThirdPersonBoom->TargetArmLength-Value.Get<float>()*35.f,ThirdPersonMinDistance,ThirdPersonMaxDistance);

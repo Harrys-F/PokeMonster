@@ -32,7 +32,7 @@ bool FPokeMonsterSwitchProInputTest::RunTest(const FString&)
  TestTrue(TEXT("X and Tab open the same existing menu"),Mapped(P->MenuAction,Keys::QuickMenu())&&Mapped(P->MenuAction,EKeys::Tab));
  TestTrue(TEXT("Plus main menu"),Mapped(P->MainMenuAction,EKeys::Gamepad_Special_Right));
  TestTrue(TEXT("L3 toggles, Shift still holds"),Mapped(P->SprintToggleAction,EKeys::Gamepad_LeftThumbstick)&&Mapped(P->SprintHoldAction,EKeys::LeftShift));
- TestTrue(TEXT("Existing radial stick mapping retained"),Mapped(P->MoveAction,EKeys::Gamepad_Left2D));
+ TestTrue(TEXT("Existing radial stick mapping retained"),Mapped(P->GamepadMoveAction,EKeys::Gamepad_Left2D));
  P->ToggleSprint(FInputActionValue(true));TestTrue(TEXT("L3 may select sprint while stationary"),P->IsSprintModeEnabled());TestFalse(TEXT("Stationary actor does not run"),P->IsSprinting());
  P->Move(FInputActionValue(FVector2D(1,1)));TestEqual(TEXT("Existing 315 sprint speed"),M->MaxWalkSpeed,315.f);
  P->StopMoving(FInputActionValue(FVector2D::ZeroVector));TestTrue(TEXT("Stop retains explicit toggle"),P->IsSprintModeEnabled());TestEqual(TEXT("Stop returns speed to 210"),M->MaxWalkSpeed,210.f);

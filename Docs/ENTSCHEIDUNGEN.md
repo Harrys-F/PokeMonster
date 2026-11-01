@@ -1617,6 +1617,13 @@ Die bestehende AnimInstance, Roaming-KI und einzelne MeshComponent bleiben zust�
 
 Im engen Wasserfall wird die Mindestzielstrecke aus dem halben nach Abzug des Körperradius freien Zonenrand abgeleitet (im Teich105cm statt180cm), ohne Körper-/Uferhülle zu verkleinern. Eine einzelne gemerkte Zielposition verhindert, dass vier Ausschlusskreise den gesamten sicheren Korridor sperren. Landarten und große Wasserbereiche behalten ihre bisherigen Grenzen; alle Kontakt- und Geländetests bleiben aktiv.
 
-## 01.11.2026 – Reversibler Third-Person-Test
+## 01.11.2026 – Reversibler Third-Person-Test (Standardentscheidung durch V2 ersetzt)
 
 Auf ausdrücklichen Auftrag zusätzlich zur verbindlichen Kamera B ein ausschließlich sitzungsgebundener Third-Person-Modus am bestehenden Player. Start bleibt2,5D; kein Save-Feld und kein Mapumbau. Eigener Kameraarm am selben Pawn hält bestehende Außen-/Innenkameraeinstellungen unverändert. Dieselben Bewegungs-, Sprint- und Interaktionssysteme weiterverwenden. Siehe THIRD_PERSON_KAMERATEST_V1.md.
+
+
+## 01.11.2026 – Third Person als Standard und Gamepad-Kamera V2
+
+Auf ausdrücklichen Auftrag ersetzt Third Person die bisherige Standardperspektive B. Die bestehende V1-Kamera wird weiterverwendet, 2,5D bleibt vollständig per `pm.Camera 2D` verfügbar. Neue Spiele/PIE, neue Pawns bei Mapwechseln und reguläres Laden beginnen in Third Person; keine Perspektive im SaveGame speichern. Der bisherige Modell-/Weltmaßstab und alle Renderingprofile bleiben unverändert. Die Freigabe der Standardperspektive ersetzt die frühere Beschränkung auf einen zusätzlichen Testmodus, nicht automatisch die dokumentierten Kulissen- und Großbegleiter-Grenzen.
+
+Linker Stick nutzt dieselbe Bewegung mit eigener Eingabequelle, rechter Stick dreht unabhängig (120°/s horizontal,90°/s vertikal, radiale Deadzone0,15). Eine gehaltene Stickrichtung behält ihre Weltbewegungsbasis beim Umsehen; erneutes Auslenken oder eine erkennbare Richtungsänderung richtet sie wieder kamerarelativ aus. Bestehende L3-Sprintumschaltung, Maus/Tastatur und UI-Belegung erhalten. Keine automatische Kameraausrichtung zur Laufrichtung. Technische Abnahme und Hardwareteststatus: THIRD_PERSON_DEFAULT_GAMEPAD_V1.md.
