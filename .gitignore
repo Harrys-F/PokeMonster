@@ -8678,3 +8678,12 @@ __pycache__/
 /Content/Fab/EuropeanBeech/
 /Content/MSPresets/MS_Foliage_Material/
 /Content/MSPresets/MSAssets.db
+
+# Licensed local Fab inputs for the VisualV2 asset trial; never publish originals.
+/Content/Fab/VisualV2TrialLocal/
+/Content/Jayant_Chakradhari_Assets/
+/Content/Megaplant_Library/
+/Content/Pack_Bonus/
+/Content/RockEnv_Pack/
+/Content/SimpleRocks/
+/Content/StyleHex_Studio/
