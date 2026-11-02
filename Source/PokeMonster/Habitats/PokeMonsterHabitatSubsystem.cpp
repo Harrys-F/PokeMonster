@@ -1,4 +1,5 @@
 #include "PokeMonsterHabitatSubsystem.h"
+#include "../Game/PokeMonsterGameMode.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
 #include "../Creatures/PokeMonsterCreaturePresentation.h"
 #include "../Creatures/Overworld/PokeMonsterCreatureRoamingComponent.h"
@@ -87,7 +88,7 @@ void UPokeMonsterHabitatSubsystem::OnWorldBeginPlay(UWorld& W)
   if(!Exact)UE_LOG(LogTemp,Warning,TEXT("PM_HABITATS rejected mismatched encounter profile for %s"),*R.Species.ToString());
  }
  // Keep authored gallery identities in the map/save data, but not as an all-species wild exhibition.
- if(IsVisualV2(W.GetName()))for(TActorIterator<APokeMonsterVisibleWildCreatureActor> I(&W);I;++I)I->SuspendForHabitatPopulation();
+ if(APokeMonsterGameMode::IsIntegratedRegion(W.GetName()))for(TActorIterator<APokeMonsterVisibleWildCreatureActor> I(&W);I;++I)I->SuspendForHabitatPopulation();
  bEnabled=true;W.OnWorldBeginPlay.AddUObject(this,&UPokeMonsterHabitatSubsystem::SeedInitialPopulation);
  W.GetTimerManager().SetTimer(UpdateTimer,this,&UPokeMonsterHabitatSubsystem::RefreshPopulation,S->UpdateSeconds,true,3.f);
  UE_LOG(LogTemp,Display,TEXT("PM_HABITATS %d zones, %d registered models, population cap %d"),Zones.Num(),Registered.Num(),S->MaximumPopulation);
@@ -218,7 +219,7 @@ bool UPokeMonsterHabitatSubsystem::TryPopulate(APokeMonsterHabitatZone* Z)
  if(LongWaterRig)IgnoreWaterTerrainPeers(Z,Q);
  for(int32 Attempt=0;Attempt<12;++Attempt)
  {
-  const FVector B=Z->Bounds->GetScaledBoxExtent();const FVector Point=Center+FVector(Random.FRandRange(-B.X+NavigationRadius,B.X-NavigationRadius),Random.FRandRange(-B.Y+NavigationRadius,B.Y-NavigationRadius),0);
+  const FVector B=Z->Bounds->GetScaledBoxExtent();const FVector Point=Center+Z->GetActorQuat().RotateVector(FVector(Random.FRandRange(-B.X+NavigationRadius,B.X-NavigationRadius),Random.FRandRange(-B.Y+NavigationRadius,B.Y-NavigationRadius),0));
   FVector Foot;if(!Z->ProjectFoot(Point,NavigationRadius,FMath::Max(HalfHeight,NavigationRadius),Q,Foot,0.f,R.WaterDraftCm,BodyDepth)||FVector::Dist2D(P->GetActorLocation(),Foot)<R.MinimumPlayerDistance||(!bInitialPlacement&&!CandidateOutsideView(Foot,Extent))){++RejectedPositions;continue;}
   bool Clear=true;
   const auto* Companion=GetWorld()->GetSubsystem<UPokeMonsterCreatureCompanionSubsystem>();

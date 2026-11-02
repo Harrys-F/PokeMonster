@@ -61,8 +61,9 @@ bool FDayNightDeterminismTest::RunTest(const FString&)
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FDayNightMapTest,"PokeMonster.DayNight.VisualV2ScopeAndConfiguration",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)
 bool FDayNightMapTest::RunTest(const FString&)
 {
+ TestTrue(TEXT("Westland explicitly integrated"),UPokeMonsterDayNightSubsystem::IsTargetMap(TEXT("/Game/Maps/Dev_WestlandRegion")));
  TestTrue(TEXT("Central map"),UPokeMonsterDayNightSubsystem::IsTargetMap(TEXT("/Game/Maps/Dev_TestMap_VisualV2")));TestTrue(TEXT("PIE prefix"),UPokeMonsterDayNightSubsystem::IsTargetMap(TEXT("/Game/Maps/UEDPIE_0_Dev_TestMap_VisualV2")));
- for(const TCHAR* Name:{TEXT("/Game/Maps/Dev_WestlandRegion"),TEXT("/Game/Maps/Dev_BiomeTestMap_V1"),TEXT("/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1")})TestFalse(TEXT("Other maps excluded"),UPokeMonsterDayNightSubsystem::IsTargetMap(Name));
+ for(const TCHAR* Name:{TEXT("/Game/Maps/Dev_BiomeTestMap_V1"),TEXT("/Game/Maps/Dev_TestMap_VisualV2GPUBottleneckV1")})TestFalse(TEXT("Other maps excluded"),UPokeMonsterDayNightSubsystem::IsTargetMap(Name));
  TestTrue(TEXT("Lighting config valid"),GetDefault<UPokeMonsterDayNightSettings>()->IsValidConfiguration());return true;
 }
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(FDayNightRefinementTest,"PokeMonster.DayNight.V11TwilightAndBoundedShadowUpdates",EAutomationTestFlags::EditorContext|EAutomationTestFlags::EngineFilter)

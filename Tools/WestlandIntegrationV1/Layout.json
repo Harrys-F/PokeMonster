@@ -1,0 +1,196 @@
+{
+  "map": "/Game/Maps/Dev_WestlandRegion",
+  "source_commit": "92042df0ec85bffaea8f7e909a53fb4294060b14",
+  "npc_presentations": [
+    {
+      "label": "WR_NPC_0",
+      "profile": "Ranger",
+      "height_cm": 180,
+      "reason": "Vorhandener Wanderer/Reisender, bestehende Ranger-Bibliothek; Dialog unverändert."
+    },
+    {
+      "label": "WR_NPC_1",
+      "profile": "HobbitBase",
+      "height_cm": 140,
+      "reason": "Hobbit-Dorfbewohner; vorhandene Originalquelle."
+    },
+    {
+      "label": "WR_NPC_2",
+      "profile": "SilverLady",
+      "height_cm": 190,
+      "reason": "Vorhandene weibliche Fantasy-Präsentation für die Archivarin; kein männliches Ersatzmodell, Rolle und Texte bleiben erhalten."
+    },
+    {
+      "label": "HouseHealer",
+      "profile": "SilverLady",
+      "height_cm": 190,
+      "reason": "Vorhandene Heilerinnen-Präsentation. Elfische Modellgröße innerhalb1,85–2,10m; keine neue Volks-/Storyzuordnung."
+    }
+  ],
+  "land_zones": [
+    {
+      "id": "Westland_Hofwiese",
+      "type": "Meadow",
+      "east_m": -292,
+      "north_m": -180,
+      "extent_cm": [
+        1500,
+        1700,
+        1200
+      ],
+      "maximum": 3
+    },
+    {
+      "id": "Westland_Dorfrand",
+      "type": "Village",
+      "east_m": -260,
+      "north_m": -80,
+      "extent_cm": [
+        1200,
+        1400,
+        1200
+      ],
+      "maximum": 2
+    },
+    {
+      "id": "Westland_Obstgarten",
+      "type": "Meadow",
+      "east_m": -195,
+      "north_m": 20,
+      "extent_cm": [
+        1400,
+        1300,
+        1200
+      ],
+      "maximum": 2
+    },
+    {
+      "id": "Westland_Nordwiese",
+      "type": "Meadow",
+      "east_m": -290,
+      "north_m": 125,
+      "extent_cm": [
+        1400,
+        1700,
+        1200
+      ],
+      "maximum": 3
+    },
+    {
+      "id": "Westland_Heilhauslichtung",
+      "type": "Glade",
+      "east_m": -290,
+      "north_m": 192,
+      "extent_cm": [
+        1100,
+        1000,
+        1200
+      ],
+      "maximum": 2
+    },
+    {
+      "id": "Westland_Steinkreis",
+      "type": "Rock",
+      "east_m": -45,
+      "north_m": 222,
+      "extent_cm": [
+        1700,
+        1800,
+        1200
+      ],
+      "maximum": 2
+    },
+    {
+      "id": "Westland_Wildwiesen",
+      "type": "Meadow",
+      "east_m": 145,
+      "north_m": 12,
+      "extent_cm": [
+        2000,
+        1900,
+        1200
+      ],
+      "maximum": 3
+    },
+    {
+      "id": "Westland_Waldrand",
+      "type": "Edge",
+      "east_m": 188,
+      "north_m": 55,
+      "extent_cm": [
+        1400,
+        1800,
+        1200
+      ],
+      "maximum": 3
+    },
+    {
+      "id": "Westland_Waldruinen",
+      "type": "Forest",
+      "east_m": 225,
+      "north_m": 175,
+      "extent_cm": [
+        1800,
+        2000,
+        1200
+      ],
+      "maximum": 3
+    },
+    {
+      "id": "Westland_Waldlichtung",
+      "type": "Glade",
+      "east_m": 280,
+      "north_m": 80,
+      "extent_cm": [
+        1400,
+        1600,
+        1200
+      ],
+      "maximum": 2
+    },
+    {
+      "id": "Westland_Suedwald",
+      "type": "Forest",
+      "east_m": 190,
+      "north_m": -110,
+      "extent_cm": [
+        1400,
+        1900,
+        1200
+      ],
+      "maximum": 3
+    },
+    {
+      "id": "Westland_Muehlenwiese",
+      "type": "Meadow",
+      "east_m": 160,
+      "north_m": -183,
+      "extent_cm": [
+        1400,
+        1400,
+        1200
+      ],
+      "maximum": 2
+    },
+    {
+      "id": "Westland_Flussufer",
+      "type": "Shore",
+      "east_m": 40,
+      "north_m": -125,
+      "extent_cm": [
+        650,
+        1200,
+        1200
+      ],
+      "maximum": 2
+    }
+  ],
+  "water_sections_north_m": [
+    -130,
+    -90,
+    -20
+  ],
+  "water_half_width_cm": 200,
+  "water_half_length_cm": 500,
+  "water_note": "Vorhandener schmaler Fluss, kein neuer Teich. Nur vorhandene Fischdaten bei tatsächlich geprüfter Tiefe; Garados benötigt400cm Radius/180cm Tiefe und passt nicht."
+}

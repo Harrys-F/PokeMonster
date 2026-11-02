@@ -17,4 +17,6 @@ public:
     /** Explicit sandbox opt-out. Existing maps keep all persistent gameplay enabled. */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Development") bool bEnablePersistentGameplay = true;
     static bool AllowsPersistentGameplay(const UWorld* World);
+    /** Explicit rollout boundary: shared systems in the reference world and first playable region. */
+    static bool IsIntegratedRegion(const FString& WorldName);
 };

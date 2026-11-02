@@ -1,4 +1,5 @@
 #include "PokeMonsterVisibleWildCreatureActor.h"
+#include "../Game/PokeMonsterGameMode.h"
 #include "../Creatures/PokeMonsterCreaturePresentation.h"
 #include "../Creatures/PokeMonsterCreatureSpeciesData.h"
 #include "../Creatures/Overworld/PokeMonsterCreatureRoamingComponent.h"
@@ -323,7 +324,7 @@ void APokeMonsterVisibleWildCreatureActor::UpdateVisualGround()
 
 void APokeMonsterVisibleWildCreatureActor::SetChallengeFocused(bool Focused)
 {
- if(Visual&&GetWorld()&&UPokeMonsterHabitatSubsystem::IsVisualV2(GetWorld()->GetName()))
+ if(Visual&&GetWorld()&&APokeMonsterGameMode::IsIntegratedRegion(GetWorld()->GetName()))
  {
   bChallengeFocused=Focused;Label->SetVisibility(false);
   return;
@@ -336,7 +337,7 @@ void APokeMonsterVisibleWildCreatureActor::SetChallengeFocused(bool Focused)
 APokeMonsterCreatureVisualActor* APokeMonsterVisibleWildCreatureActor::GetNameplateVisual() const
 {
  const auto* E=GetGameInstance()?GetGameInstance()->GetSubsystem<UPokeMonsterEncounterSubsystem>():nullptr;
- return GetWorld()&&UPokeMonsterHabitatSubsystem::IsVisualV2(GetWorld()->GetName())
+ return GetWorld()&&APokeMonsterGameMode::IsIntegratedRegion(GetWorld()->GetName())
   &&IsValid(Visual)&&!Visual->IsHidden()&&!IsHidden()&&!bDeactivated&&!bHabitatDormant
   &&LifeState==EPokeMonsterWildLifeState::Active&&(!E||!E->IsEncounterActive())?Visual.Get():nullptr;
 }

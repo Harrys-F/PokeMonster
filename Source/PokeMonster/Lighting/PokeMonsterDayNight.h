@@ -53,7 +53,7 @@ public:
  static float MaximumElevation(EPokeMonsterNoonSun Variant) { return Variant==EPokeMonsterNoonSun::C85?85.f:75.f; }
 };
 
-/** VisualV2-only controller: existing lights + one cheap Engine sky dome, no map writes. */
+/** Shared reference/Westland controller: existing lights + one cheap Engine sky dome, no map writes. */
 UCLASS()
 class POKEMONSTER_API UPokeMonsterDayNightSubsystem : public UWorldSubsystem
 {

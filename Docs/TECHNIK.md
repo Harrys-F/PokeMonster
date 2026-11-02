@@ -1424,3 +1424,13 @@ Die bestehende Third-Person-Kamera wird beim BeginPlay des bestehenden Players u
 ## Third Person V3 – feste Neigung und horizontales Rig
 
 Die V2-Vertikalrotation ist ersetzt. Der bestehende SpringArm erhält Pitch0° und170cm Höhe ab Kapselunterkante; nur die vorhandene Kamera trägt festen Pitch−12°. Horizontaler Orbit, Zoom und Kollisionsprobe verändern so die Höhe nicht zusätzlich durch einen geneigten Arm. Stick-Y wird vor dem horizontalen Deadzone-Test verworfen, Maus-Y ignoriert. Bestehende Bewegung, freier horizontaler Orbit, Sprint und Standard-/Ladeverhalten bleiben erhalten. Tatsächliche Kamera-/Bodenmessungen und Abnahme: THIRD_PERSON_CAMERA_V3.md.
+
+## Westland Region – Integrationsstand V1 (02.11.2026)
+
+Erweitert die früher nur für VisualV2 freigeschalteten Dienste exakt auf die vorhandene `Dev_WestlandRegion`: `APokeMonsterGameMode::IsIntegratedRegion` erkennt die beiden tatsächlichen Mapnamen einschließlich PIE-Präfixen. Das Tag-Nacht-Subsystem verwendet in Westland eindeutige Sun-/SkyFill-Tags an den bestehenden/geprüften Lichtquellen, unveränderte Uhr-/Phasen-/Lichtkurven. Der vorhandene Profil-C-VSM-Scope übernimmt dieselben vier Strahlen; map-eigener nativer TAA-Blendable, keine neue Renderingverwaltung. Außerhalb dieser beiden Maps kein impliziter Rollout.
+
+Gespeicherte `APokeMonsterHabitatZone`-Actors aktivieren den bereits vorhandenen Populationsdienst: 13 Landzonen, drei begrenzte flache Flussabschnitte, unveränderte globale Artenregeln/14er-Grenze. Die vorhandene Spawn-Abtastung berücksichtigt Zonenrotation. Der Bodenplaner erhält an den vorhandenen regionalen Terrain-/Heilhausboden-Instanzen die benötigte Visibility-Abfrage; Pawn-Kollision und Geometrie unverändert. Alte drei Testquellen bleiben als gespeicherte Identitäten ruhend. Namensebene und aktuelles Development-Startteam benutzen dieselben vorhandenen Schnittstellen.
+
+Vier `APokeMonsterNPCVisualActor` an den ursprünglichen drei NPCs und der Heilerin nutzen vorhandene Profile, ohne einen zweiten Dialog-/Heildienst. Drei gewöhnliche `APokeMonsterWorldItem`-Funde haben eigene persistente Regions-IDs. Alle zwölf bisherigen Gebäude-/Innenraumcontroller erhalten. Editor-/GameDefaultMap ist jetzt `/Game/Maps/Dev_WestlandRegion`; normale Saves laden weiterhin ihre tatsächlich gespeicherte Map und Position.
+
+Die gespeicherte Map und C++-Dienste funktionieren ohne die Autoren-/Prüfskripte. `Tools/WestlandIntegrationV1` enthält ausschließlich begrenzte Autoren-/QA-Werkzeuge; kein Laufzeit-Spawnskript oder zusätzliche Projektkopie. Tatsächliche Tests, Originalstand, offene Spielinhalte und Medien: `WESTLAND_REGION_INTEGRATION_V1.md`.

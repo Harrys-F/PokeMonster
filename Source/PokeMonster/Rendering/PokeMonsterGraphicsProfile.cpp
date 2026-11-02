@@ -1,4 +1,5 @@
 #include "PokeMonsterGraphicsProfile.h"
+#include "../Game/PokeMonsterGameMode.h"
 #include "Engine/Engine.h"
 #include "Engine/GameInstance.h"
 #include "Engine/GameViewportClient.h"
@@ -107,13 +108,13 @@ void UPokeMonsterGraphicsProfile::SelectProfile(EPokeMonsterGraphicsProfile Prof
     Overrides.AddDefaulted_GetRef().Apply(TEXT("r.DynamicRes.OperationMode"), TEXT("0"));
     Overrides.AddDefaulted_GetRef().Apply(TEXT("r.SecondaryScreenPercentage.GameViewport"), TEXT("100"));
     Overrides.AddDefaulted_GetRef().Apply(TEXT("r.Editor.Viewport.OverridePIEScreenPercentage"), TEXT("0"));
-    // VisualV2 already selects native TAA through its existing map blendable.
+    // Both integrated maps select native TAA through the same map-owned blendable.
     Overrides.AddDefaulted_GetRef().Apply(TEXT("r.TemporalAA.Upsampling"), TEXT("1"));
-    // Measured VisualV2-only sampling budget. Preserve the old 100% reference,
+    // Transfer the unchanged measured sampling budget to the first region. Preserve the old 100% reference,
     // other maps and higher-priority user overrides through the existing scope.
     ApplyLumenOverrides(Profile, Overrides);
     if (Profile != EPokeMonsterGraphicsProfile::Reference100
-        && UWorld::RemovePIEPrefix(World->GetPackage()->GetName()) == TEXT("/Game/Maps/Dev_TestMap_VisualV2"))
+        && APokeMonsterGameMode::IsIntegratedRegion(World->GetPackage()->GetName()))
         Overrides.AddDefaulted_GetRef().Apply(TEXT("r.Shadow.Virtual.SMRT.RayCountDirectional"), TEXT("4"));
     if (World->WorldType == EWorldType::Game) User->ApplyResolutionSettings(true);
     Client->GetGameViewport()->SetFixedViewportSize(OutputX, OutputY);

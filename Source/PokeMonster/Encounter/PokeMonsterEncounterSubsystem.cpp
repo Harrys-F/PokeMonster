@@ -87,7 +87,7 @@ bool UPokeMonsterEncounterSubsystem::EnsureDevPlayerParty()
 {
 	if (!PlayerParty.IsEmpty()) return true;
 #if !UE_BUILD_SHIPPING
- if(GetWorld()&&UWorld::RemovePIEPrefix(GetWorld()->GetName())==TEXT("Dev_TestMap_VisualV2"))return BuildVisualV2TestParty(PlayerParty);
+ if(GetWorld()&&APokeMonsterGameMode::IsIntegratedRegion(GetWorld()->GetName()))return BuildVisualV2TestParty(PlayerParty);
 #endif
 	TArray<FPokeMonsterCreatureInstance> InitialParty, UnusedOpponents;
 	if (!BuildTestTeams(InitialParty, UnusedOpponents)) return false;

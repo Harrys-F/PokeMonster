@@ -1,4 +1,5 @@
 #include "PokeMonsterDayNight.h"
+#include "../Game/PokeMonsterGameMode.h"
 #include "Engine/World.h"
 #include "Engine/GameInstance.h"
 #include "Engine/DirectionalLight.h"
@@ -61,16 +62,19 @@ UPokeMonsterDayNightSubsystem::UPokeMonsterDayNightSubsystem()
  static ConstructorHelpers::FObjectFinder<UMaterialInterface> Material(TEXT("/Engine/EngineSky/M_Sky_Panning_Clouds2.M_Sky_Panning_Clouds2"));SkyMaterialAsset=Material.Object;
 }
 bool UPokeMonsterDayNightSubsystem::DoesSupportWorldType(EWorldType::Type Type) const{return Type==EWorldType::Game||Type==EWorldType::PIE;}
-bool UPokeMonsterDayNightSubsystem::IsTargetMap(const FString& Name){return UWorld::RemovePIEPrefix(Name)==TEXT("/Game/Maps/Dev_TestMap_VisualV2");}
+bool UPokeMonsterDayNightSubsystem::IsTargetMap(const FString& Name){return APokeMonsterGameMode::IsIntegratedRegion(Name);}
 void UPokeMonsterDayNightSubsystem::OnWorldBeginPlay(UWorld& World)
 {
  Super::OnWorldBeginPlay(World);if(!IsTargetMap(World.GetPackage()->GetName()))return;
  const auto* Config=GetDefault<UPokeMonsterDayNightSettings>();
  if(!Config->IsValidConfiguration()){UE_LOG(LogTemp,Warning,TEXT("DayNight: invalid lighting configuration; existing lights preserved."));return;}
+ const bool ReferenceWorld=UWorld::RemovePIEPrefix(World.GetName())==TEXT("Dev_TestMap_VisualV2");
  for(TActorIterator<ADirectionalLight> I(&World);I;++I)
  {
-  if(I->GetFName()==Config->SunActor)Sun=Cast<UDirectionalLightComponent>(I->GetLightComponent());
-  if(I->GetFName()==Config->FillActor)Fill=Cast<UDirectionalLightComponent>(I->GetLightComponent());
+  // Westland keeps its existing actor identities. Tagged map bindings avoid
+  // depending on editor-generated object names or creating a second controller.
+  if(ReferenceWorld?I->GetFName()==Config->SunActor:I->ActorHasTag(TEXT("PokeMonsterSun")))Sun=Cast<UDirectionalLightComponent>(I->GetLightComponent());
+  if(ReferenceWorld?I->GetFName()==Config->FillActor:I->ActorHasTag(TEXT("PokeMonsterSkyFill")))Fill=Cast<UDirectionalLightComponent>(I->GetLightComponent());
  }
  Clock=World.GetGameInstance()?World.GetGameInstance()->GetSubsystem<UPokeMonsterWorldClock>():nullptr;
  if(!Sun||!Fill||!Clock){UE_LOG(LogTemp,Warning,TEXT("DayNight: existing sun/fill/clock missing; no replacement lights created."));return;}

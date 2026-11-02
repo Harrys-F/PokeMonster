@@ -1,4 +1,5 @@
 #include "PokeMonsterOverworldWidget.h"
+#include "../Game/PokeMonsterGameMode.h"
 #include "../Items/PokeMonsterInventorySubsystem.h"
 #include "Engine/GameInstance.h"
 #include "PokeMonsterControllerInput.h"
@@ -761,7 +762,7 @@ void UPokeMonsterOverworldWidget::UpdatePokemonNames(const FVector2D& ViewSize)
 {
  VisiblePokemonNameCount=0;
  auto* PC=GetOwningPlayer();
- const bool Available=PokemonNameLayer&&PC&&GetWorld()&&UPokeMonsterHabitatSubsystem::IsVisualV2(GetWorld()->GetName())&&!bBattleVisible&&!bMenuOpen;
+ const bool Available=PokemonNameLayer&&PC&&GetWorld()&&APokeMonsterGameMode::IsIntegratedRegion(GetWorld()->GetName())&&!bBattleVisible&&!bMenuOpen;
  TArray<FBox2D> Occupied;Occupied.Reserve(32);
  const auto Draw=[&](APokeMonsterCreatureVisualActor* Visual,const FString& Text)
  {
