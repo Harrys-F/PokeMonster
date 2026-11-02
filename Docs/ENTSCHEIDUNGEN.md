@@ -1702,3 +1702,10 @@ Vorhandene Baum-, Unterholz-, Farn-, Wildblumen-, Kiesel- und Boulderassets verw
 Auf Harrys Auftrag werden ausschließlich in der bestehenden VisualV2 sechs begehbare Fab-Vergleichsbereiche angelegt: Blumenwiese, Waldrand, Bach/Ufer, Felsen, Dorf/Kräutergarten und eingerahmter natürlicher Pokémon-Lebensraum. Vorhandene Fab-Originale und Cachequellen bleiben unverändert und lokal; eigene Instanzen/Materialgraphen und eine kleine Terrainableitung schützen gemeinsam verwendete Assets. Keine Wiederherstellung des verworfenen Buchenwalds, keine Übernahme nach Westland.
 
 Kamera V3, Software-Lumen/IFG-Profil C, Weltuhr, KI und Limit14 bleiben unverändert. Die dichtere Gestaltung verursacht messbare zusätzliche GPU-Kosten; stabile30FPS sind nicht durchgehend erreicht. Technische Prüfung und konkrete Einschränkungen stehen in `VISUALV2_FAB_ASSET_TRIAL_V1.md`. Gestaltung und Kostenabwägung warten auf Harrys Beurteilung.
+
+
+## 02.11.2026 – VisualV2 Environment Polish V2
+
+Auf Harrys Auftrag ersetzt eine eigene weich maskierte Bodenmaterialschicht die fünf zusätzlichen normalen VisualV2-Wegskins aus dem Fab-TestV1. Die tatsächliche Map besitzt einen StaticMesh-Boden, keinen Landscape-Actor; daher keine neue Landscape-Architektur. Originalmesh/Kollision und Wegverläufe bleiben erhalten, besondere Brücken-/Vorplatz-/Innenflächen gesondert. Alte sichtbare reine Dekorationssprites und Gras-Planes werden durch vorhandene räumliche Meshes ersetzt; leere Alt-Actors entfernt, funktionale Komponenten geschützt.
+
+Neue bereits lokal geladene Fab-Quellen nur gezielt für niedrige Bodendecker, Pilze, wenige Hortensien und kleine Uferböschungen einsetzen. Originale lokal/bytegleich erhalten, keine Downloads oder öffentliche Verteilung der lizenzierten Inputs. KameraV3, Software-Lumen/IFG-Profil, Weltuhr, GaradosV4, Gameplay und natürliche Population unverändert. Keine Übernahme nach Westland. Tatsächliche FPS, Messdrift, Prüfungen und Grenzen: `VISUALV2_ENVIRONMENT_POLISH_V2.md`. Nach technischer Sicherung wartet weitere Gestaltung auf Harrys Beurteilung.
