@@ -1,0 +1,137 @@
+{
+  "source": "Art/Characters/Creatures/Garados/Source/Garados_Water_V3.blend",
+  "source_sha256": "13fe45be6c9c68a91bfa892e0c43542cc89f85c208fe2f15d1e59007b4ecae92",
+  "mesh_rest_skin_uv_material_fingerprint": "e2fcccbba88c3553d8a3ff771d635b675b35af3bfdc4584307adc5cb6dfa7ff7",
+  "geometry_rest_skin_unchanged": true,
+  "land_and_battle_animations_unchanged": true,
+  "animation_only_fbx": true,
+  "clips": {
+    "SwimSlow": {
+      "seconds": 2.8,
+      "sample_rate": 60,
+      "frames": 169,
+      "strength": 0.7,
+      "observe": 0,
+      "turn_bank": 0,
+      "loop_seam_max_m": 0.0,
+      "head_z_m": [
+        1.7699999809265137,
+        1.7699999809265137
+      ],
+      "tail_z_m": [
+        1.7699998617172241,
+        1.7700001001358032
+      ],
+      "tail_side_peak_to_peak_cm": 74.1132378578186,
+      "mid_side_peak_to_peak_cm": 50.050073862075806
+    },
+    "SwimNormal": {
+      "seconds": 2.8,
+      "sample_rate": 60,
+      "frames": 169,
+      "strength": 1.0,
+      "observe": 0,
+      "turn_bank": 0,
+      "loop_seam_max_m": 0.0,
+      "head_z_m": [
+        1.7699999809265137,
+        1.7699999809265137
+      ],
+      "tail_z_m": [
+        1.7699998617172241,
+        1.7700001001358032
+      ],
+      "tail_side_peak_to_peak_cm": 100.73819160461426,
+      "mid_side_peak_to_peak_cm": 71.18151187896729
+    },
+    "SwimFast": {
+      "seconds": 2.8,
+      "sample_rate": 60,
+      "frames": 169,
+      "strength": 1.18,
+      "observe": 0,
+      "turn_bank": 0,
+      "loop_seam_max_m": 0.0,
+      "head_z_m": [
+        1.7699999809265137,
+        1.7699999809265137
+      ],
+      "tail_z_m": [
+        1.7699998617172241,
+        1.7700001001358032
+      ],
+      "tail_side_peak_to_peak_cm": 114.32723999023438,
+      "mid_side_peak_to_peak_cm": 83.70569944381714
+    },
+    "SwimTurnLeft": {
+      "seconds": 2.8,
+      "sample_rate": 60,
+      "frames": 169,
+      "strength": 1.0,
+      "observe": 0,
+      "turn_bank": 1,
+      "loop_seam_max_m": 0.0,
+      "head_z_m": [
+        1.7699999809265137,
+        1.7699999809265137
+      ],
+      "tail_z_m": [
+        1.7699998617172241,
+        1.7700001001358032
+      ],
+      "tail_side_peak_to_peak_cm": 100.73816180229187,
+      "mid_side_peak_to_peak_cm": 71.18150889873505
+    },
+    "SwimTurnRight": {
+      "seconds": 2.8,
+      "sample_rate": 60,
+      "frames": 169,
+      "strength": 1.0,
+      "observe": 0,
+      "turn_bank": -1,
+      "loop_seam_max_m": 0.0,
+      "head_z_m": [
+        1.7699999809265137,
+        1.7699999809265137
+      ],
+      "tail_z_m": [
+        1.7699998617172241,
+        1.7700001001358032
+      ],
+      "tail_side_peak_to_peak_cm": 100.73816180229187,
+      "mid_side_peak_to_peak_cm": 71.18150889873505
+    },
+    "SwimObserve": {
+      "seconds": 2.8,
+      "sample_rate": 60,
+      "frames": 169,
+      "strength": 0.04,
+      "observe": 1,
+      "turn_bank": 0,
+      "loop_seam_max_m": 0.0,
+      "head_z_m": [
+        4.42973518371582,
+        4.42973518371582
+      ],
+      "tail_z_m": [
+        1.7699998617172241,
+        1.7700001001358032
+      ],
+      "tail_side_peak_to_peak_cm": 4.897092655301094,
+      "mid_side_peak_to_peak_cm": 2.3553989827632904
+    }
+  },
+  "authored_max_radius_cm": 368.02875013124685,
+  "bounds_m": {
+    "min": [
+      -0.9604865312576294,
+      -3.3579955101013184,
+      0.8767101764678955
+    ],
+    "max": [
+      0.899153470993042,
+      3.6627323627471924,
+      5.090007781982422
+    ]
+  }
+}

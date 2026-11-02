@@ -1654,8 +1654,19 @@ Fab-/Megascans-Originale und zugehörige lokale Materialbibliothek bleiben unver
 
 ## 01.11.2026 – Garados Animation Polish V3
 
+Die V3-Übergänge und das Richtungshistorien-Blending bleiben gültig. Die sechs aktiven Wasser-Bewegungs-/Beobachtungsclips werden durch Water Animation V4 (unten) ersetzt; der ruhige Idle-Clip bleibt V3.
+
 Auf Harrys ausdrücklichen Auftrag werden ausschließlich die vorhandenen Wasser-Grundanimationen verfeinert. Dieselbe horizontale WaterV2-Meshy-Ableitung, ihr 22-Bone-Skeleton, Gewichte, Ruhepose, UVs und Materialien bleiben unverändert. Sieben animation-only WaterV3-Clips ersetzen die aktiven Wasser-Grundbindungen: gemeinsame 2,8-s-Phase, ruhigere Kopfbewegung, nach hinten laufende Körperwelle und geschwindigkeitsabhängige Stärke. Die vier Wasser-Reaktionen sowie alle ursprünglichen sieben Land-/Kampfclips bleiben erhalten.
 
 Im vorhandenen Animationsproxy erhält ausschließlich das opt-in aktivierte Garados-Wasser-Rig eine begrenzte visuelle Richtungshistorie: Kopf führt, Schwanz folgt bis 1,1 s später; maximal 32° Korrektur. Exponentielle Geschwindigkeitsmischung und ein 3,2-s-Smoothstep für Aufrichten/Absenken ersetzen abruptere visuelle Übergänge. Aufrichten beginnt erst bei niedriger visueller Geschwindigkeit. Keine neue KI, Navigation, Kollision, Kamera oder Speicherstruktur.
 
 Der bestehende 400-cm-Wasserfreiraum bleibt verbindlich. VisualV2 und alle anderen Maps, Grafikprofile, Originalmodelle und bestehende Spielstände bleiben unverändert. Insbesondere wird die Buchenwald-Rücknahme f10dc77f nicht angetastet. Technische Prüfung und Grenzen stehen in Docs/GARADOS_ANIMATION_POLISH_V3.md. Die künstlerische Beurteilung erfolgt anschließend durch Harry im Spiel; nach Sicherung keine weiteren Änderungen.
+
+
+## 02.11.2026 – Garados Water Animation V4
+
+Auf Harrys Auftrag werden die seitlichen S-Wellen und das Aufrichten deutlich verstärkt. Bestehendes unverändertes WaterV2-Skeleton und Mesh auf Grundlage der V3-Arbeitsquelle, keine neue Geometrie, Gewichte oder Ruhepose. Sechs zusätzliche reine Animationsclips unter WaterV4: Slow/Normal/Fast/TurnLeft/TurnRight/Observe; V3-Idle und alle Land-/Kampf-/Wasser-Reaktionsclips bleiben unverändert.
+
+Die Körperwelle läuft weiterhin mit gemeinsamer 2,8-s-Phase von vorn nach hinten; größere hintere Auslenkung, ruhiger Kopf. Die bestehende geschwindigkeitsabhängige Abspielrate und V3-Kurvenhistorie bleiben erhalten. Die Beobachtungspose krümmt ausschließlich den Vorderkörper stärker auf; hintere Körperanker bleiben auf derselben Wasserhöhe und der Root unverändert. Referenz ist die tatsächlich vorhandene Garados-Kampfpose, ohne deren Animation zu verändern.
+
+V3-Timing, Blendfunktionen, KI, Navigation, Gameplay, Kamera, Renderingprofile und alle Maps bleiben erhalten. Die tatsächlich zu kleine Sichtbarkeitshülle wird ausschließlich auf dem Wasser-Visual mit einem validierten BoundsScale 1,2 erweitert; beim Land-/Kampfwechsel gilt wieder 1,0. Keine Änderung der Meshgeometrie, Kollision oder Weltgröße. Technischer Nachweis einschließlich tatsächlicher Pose-/Skin-Auswertung, Wasserkörpergrenzen, Vergleichsmedien und Einschränkungen: Docs/GARADOS_WATER_ANIMATION_V4.md. Künstlerische Beurteilung anschließend durch Harry; nach Sicherung keine weitere Bearbeitung.

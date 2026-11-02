@@ -56,6 +56,7 @@ void APokeMonsterCreatureVisualActor::UpdateSwimming(float Delta)
  {
   bUsingSwimMesh=Aquatic;Reaction=EPokeMonsterCreatureClip::Idle;++ReactionSerial;
   Mesh->SetSkeletalMesh(Aquatic?Presentation->SwimMesh.Get():Presentation->Mesh.Get());
+  Mesh->SetBoundsScale(Aquatic?Presentation->SwimBoundsScale:1.f);
   Mesh->SetAnimInstanceClass(UPokeMonsterCreatureAnimInstance::StaticClass());
   SwimObserveAlpha=SwimObserveHold=SwimObserveProgress=SwimTurnInput=0.f;PreviousSwimYaw=GetActorRotation().Yaw;SwimHeadingHistory.Reset(PreviousSwimYaw);SwimBodyYawOffsets=SwimHeadingHistory.Offsets;
  }

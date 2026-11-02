@@ -57,6 +57,7 @@ TArray<FString> UPokeMonsterCreaturePresentationData::GetValidationErrors() cons
    if(!Clip||Clip->GetSkeleton()!=SwimMesh->GetSkeleton()||Clip->bEnableRootMotion||Clip->GetPlayLength()<=0.f)Errors.Add(TEXT("Water poses must use their exact swimming skeleton"));
   for(auto Role:{EPokeMonsterCreatureClip::Attack,EPokeMonsterCreatureClip::Hit,EPokeMonsterCreatureClip::Faint,EPokeMonsterCreatureClip::Happy})
   {const auto* Clip=SwimReactions.FindRef(Role).Get();if(!Clip||Clip->GetSkeleton()!=SwimMesh->GetSkeleton()||Clip->bEnableRootMotion||!FMath::IsFinite(Clip->GetPlayLength())||Clip->GetPlayLength()<=0)Errors.Add(TEXT("Separate swim rig needs compatible reactions"));}
+  if(!FMath::IsFinite(SwimBoundsScale)||SwimBoundsScale<1.f||SwimBoundsScale>2.f)Errors.Add(TEXT("Invalid visual water bounds scale"));
   if(!FMath::IsFinite(SwimBodyFollowSeconds)||SwimBodyFollowSeconds<0||SwimBodyFollowSeconds>2
    ||!FMath::IsFinite(SwimBodyFollowLimitDegrees)||SwimBodyFollowLimitDegrees<=0||SwimBodyFollowLimitDegrees>45)Errors.Add(TEXT("Invalid visual swim following settings"));
   if(!FMath::IsFinite(SwimSlowSpeed)||!FMath::IsFinite(SwimFastSpeed)||SwimSlowSpeed<=0||SwimSlowSpeed>=SwimReferenceSpeed||SwimFastSpeed<=SwimReferenceSpeed
@@ -96,7 +97,7 @@ bool APokeMonsterCreatureVisualActor::SetPresentation(UPokeMonsterCreaturePresen
  bUsingSwimMesh=false;SwimObserveAlpha=SwimTurnInput=SwimObserveHold=SwimObserveProgress=0.f;SwimBodyYawOffsets.Reset();SwimHeadingHistory.Reset(GetActorRotation().Yaw);PreviousSwimYaw=GetActorRotation().Yaw;Reaction=EPokeMonsterCreatureClip::Idle;++ReactionSerial;
  if (HoverContext.IsValid()) { HoverContext->SetPresentationHold(false);HoverContext->SetPresentationHoverClearance(0.f,FBox(ForceInit)); }
  HoverState=EHoverState::Grounded;HoverStateTime=HoverHeight=HoverPoseAlpha=0.f;ActiveHoverClip=nullptr;Mesh->SetRelativeLocation(FVector::ZeroVector);Mesh->SetRelativeRotation(FRotator::ZeroRotator);bUsingAmbientFloat=false;
- Mesh->SetSkeletalMesh(Presentation->Mesh);Mesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
+ Mesh->SetSkeletalMesh(Presentation->Mesh);Mesh->SetBoundsScale(1.f);Mesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
  Mesh->SetAnimInstanceClass(UPokeMonsterCreatureAnimInstance::StaticClass());
  const bool bTail=Presentation->TailFlame&&Mesh->DoesSocketExist(Presentation->FlameBone);
  Flame->SetStaticMesh(bTail?Presentation->TailFlame.Get():nullptr);

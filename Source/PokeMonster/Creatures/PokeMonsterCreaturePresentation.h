@@ -73,6 +73,8 @@ public:
  UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") float SwimSubmergedDepthCm=0.f;
  UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") float SwimTurnDegreesPerSecond=35.f;
  UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming") float SwimObserveBlendSeconds=2.5f;
+ /** Visual culling only; tall authored water poses can exceed the existing mesh bounds. */
+ UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming",meta=(ClampMin="1",ClampMax="2")) float SwimBoundsScale=1.f;
  /** Optional visual-only heading history. Zero retains legacy poses; no steering or collision changes. */
  UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming",meta=(ClampMin="0",ClampMax="2")) float SwimBodyFollowSeconds=0.f;
  UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="Swimming",meta=(ClampMin="1",ClampMax="45")) float SwimBodyFollowLimitDegrees=32.f;

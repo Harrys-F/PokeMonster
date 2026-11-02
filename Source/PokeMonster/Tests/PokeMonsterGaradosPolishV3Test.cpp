@@ -42,7 +42,7 @@ bool FGaradosPolishEvaluated::RunTest(const FString&)
  auto* D=S->GetVisuals().Presentation.LoadSynchronous();if(!TestNotNull(TEXT("Presentation"),D)||!TestNotNull(TEXT("Water mesh"),D->SwimMesh.Get()))return false;
  TestTrue(TEXT("New data validates"),D->GetValidationErrors().IsEmpty());TestTrue(TEXT("Following is explicitly enabled on Garados only"),D->SwimBodyFollowSeconds>0);
  for(const auto* C:{D->SwimIdleClip.Get(),D->SwimClip.Get(),D->SwimSlowClip.Get(),D->SwimFastClip.Get(),D->SwimObserveClip.Get(),D->SwimTurnLeftClip.Get(),D->SwimTurnRightClip.Get()})
- {if(!TestNotNull(TEXT("Polished water clip"),C))return false;TestTrue(TEXT("Only V3 swim references changed"),C->GetPathName().Contains(TEXT("/WaterV3/")));TestTrue(TEXT("All looping poses share a cycle"),FMath::IsNearlyEqual(C->GetPlayLength(),2.8f,.001f));TestEqual(TEXT("Existing exact water skeleton"),C->GetSkeleton(),D->SwimMesh->GetSkeleton());}
+ {if(!TestNotNull(TEXT("Polished water clip"),C))return false;TestTrue(TEXT("Registered V3 idle / V4 water clip references"),C->GetPathName().Contains(C==D->SwimIdleClip.Get()?TEXT("/WaterV3/"):TEXT("/WaterV4/")));TestTrue(TEXT("All looping poses share a cycle"),FMath::IsNearlyEqual(C->GetPlayLength(),2.8f,.001f));TestEqual(TEXT("Existing exact water skeleton"),C->GetSkeleton(),D->SwimMesh->GetSkeleton());}
  UWorld* W=UWorld::CreateWorld(EWorldType::Game,false);GEngine->CreateNewWorldContext(EWorldType::Game).SetCurrentWorld(W);ON_SCOPE_EXIT{GEngine->DestroyWorldContext(W);W->DestroyWorld(false);};
  auto* V=W->SpawnActor<APokeMonsterCreatureVisualActor>();TestTrue(TEXT("Normal species binding"),V->SetSpecies(S));V->AquaticPoseAlpha=1;V->Tick(1.f/60);V->Mesh->bPauseAnims=false;TArray<FVector3f> Vertices;TArray<FMatrix44f> RefToLocal;float MaxRadius=0,InitialHeadZ=0;FVector LastHead=FVector::ZeroVector;bool HaveHead=false;
  for(int I=0;I<480;++I)
@@ -56,13 +56,13 @@ bool FGaradosPolishEvaluated::RunTest(const FString&)
   if(HaveHead)TestTrue(TEXT("No head jump while speeding, turning or raising"),FVector::Dist(LastHead,Head)<12.f);else InitialHeadZ=Head.Z;LastHead=Head;HaveHead=true;
   if(I%30==0)
   {
-   V->Mesh->GetCurrentRefToLocalMatrices(RefToLocal,0);const auto& LOD=D->SwimMesh->GetResourceForRendering()->LODRenderData[0];USkinnedMeshComponent::ComputeSkinnedPositions(V->Mesh,Vertices,RefToLocal,LOD,LOD.SkinWeightVertexBuffer);if(!TestTrue(TEXT("Actual full surface evaluated"),Vertices.Num()>20000))return false;
-   for(const auto& P:Vertices){const FVector Point(P);TestFalse(TEXT("Skin remains finite"),Point.ContainsNaN());MaxRadius=FMath::Max(MaxRadius,float(FVector2D(Point).Size()));}
+   V->Mesh->UpdateBounds();V->Mesh->GetCurrentRefToLocalMatrices(RefToLocal,0);const auto& LOD=D->SwimMesh->GetResourceForRendering()->LODRenderData[0];USkinnedMeshComponent::ComputeSkinnedPositions(V->Mesh,Vertices,RefToLocal,LOD,LOD.SkinWeightVertexBuffer);if(!TestTrue(TEXT("Actual full surface evaluated"),Vertices.Num()>20000))return false;
+   bool BoundsContainSkin=true;for(const auto& P:Vertices){const FVector Point(P);BoundsContainSkin&=V->Mesh->Bounds.GetBox().IsInsideOrOn(V->Mesh->GetComponentTransform().TransformPosition(Point));TestFalse(TEXT("Skin remains finite"),Point.ContainsNaN());MaxRadius=FMath::Max(MaxRadius,float(FVector2D(Point).Size()));}TestTrue(TEXT("Visual culling bounds contain actual deformed skin"),BoundsContainSkin);
   }
  }
  AddInfo(FString::Printf(TEXT("Actual evaluated skin radius %.2f cm; head rise %.2f cm"),MaxRadius,LastHead.Z-InitialHeadZ));
  TestTrue(TEXT("Full mesh evaluation is not a zero pose"),MaxRadius>300);TestTrue(TEXT("Actual observation lifts the head"),LastHead.Z-InitialHeadZ>60);
  TestTrue(FString::Printf(TEXT("Complete deformed surface stays in unchanged 400cm envelope: %.2f"),MaxRadius),MaxRadius<=D->SwimClearanceRadiusCm);
- V->AquaticPoseAlpha=0;V->Tick(.016f);V->Mesh->TickAnimation(.016f,false);V->Mesh->RefreshBoneTransforms();TestEqual(TEXT("Original land/battle mesh restored"),V->Mesh->GetSkeletalMeshAsset(),D->Mesh.Get());TestTrue(TEXT("No water heading correction persists on land"),V->SwimBodyYawOffsets.IsEmpty());TestEqual(TEXT("Original seven land/battle clips retained"),D->Clips.Num(),7);return true;
+ V->AquaticPoseAlpha=0;V->Tick(.016f);V->Mesh->TickAnimation(.016f,false);V->Mesh->RefreshBoneTransforms();TestEqual(TEXT("Original land/battle mesh restored"),V->Mesh->GetSkeletalMeshAsset(),D->Mesh.Get());TestEqual(TEXT("Water culling extension cannot persist on land"),V->Mesh->BoundsScale,1.f);TestTrue(TEXT("No water heading correction persists on land"),V->SwimBodyYawOffsets.IsEmpty());TestEqual(TEXT("Original seven land/battle clips retained"),D->Clips.Num(),7);return true;
 }
 #endif
