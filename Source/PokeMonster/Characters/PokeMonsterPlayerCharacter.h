@@ -126,6 +126,10 @@ public:
 	bool CanSprint() const;
 	UFUNCTION(BlueprintPure, Category = "PokeMonster|Movement")
 	float GetNormalWalkSpeed() const;
+	/** Development-only movement factor; transient per pawn, never written to SaveGame. */
+	UFUNCTION(BlueprintPure, Category="PokeMonster|Development")
+	float GetTestSpeedFactor() const { return TestSpeedFactor; }
+	bool SetTestSpeedFactor(float Factor);
 
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
@@ -235,6 +239,7 @@ private:
 #if WITH_DEV_AUTOMATION_TESTS
 	friend class FPokeMonsterPlayerFoundationTest;
 	friend class FPokeMonsterPlayerSprintTest;
+	friend class FPokeMonsterPlayerTestSpeedTest;
  friend class FPokeMonsterSwitchProInputTest;
  friend class FPokeMonsterSwitchProWidgetTest;
 	friend class FPokeMonsterBuildingCameraTest;
@@ -279,6 +284,7 @@ private:
 	bool bSprintToggled = false;
 	bool bSprintActive = false;
 	float NormalWalkSpeed = 210.f;
+	float TestSpeedFactor = 1.f;
 	TArray<TWeakObjectPtr<APokeMonsterBuildingCutaway>> SprintInteriorAreas;
 	void StopMoving(const FInputActionValue& Value);
 	void Interact(const FInputActionValue& Value);

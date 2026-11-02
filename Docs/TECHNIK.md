@@ -1434,3 +1434,10 @@ Gespeicherte `APokeMonsterHabitatZone`-Actors aktivieren den bereits vorhandenen
 Vier `APokeMonsterNPCVisualActor` an den ursprünglichen drei NPCs und der Heilerin nutzen vorhandene Profile, ohne einen zweiten Dialog-/Heildienst. Drei gewöhnliche `APokeMonsterWorldItem`-Funde haben eigene persistente Regions-IDs. Alle zwölf bisherigen Gebäude-/Innenraumcontroller erhalten. Editor-/GameDefaultMap ist jetzt `/Game/Maps/Dev_WestlandRegion`; normale Saves laden weiterhin ihre tatsächlich gespeicherte Map und Position.
 
 Die gespeicherte Map und C++-Dienste funktionieren ohne die Autoren-/Prüfskripte. `Tools/WestlandIntegrationV1` enthält ausschließlich begrenzte Autoren-/QA-Werkzeuge; kein Laufzeit-Spawnskript oder zusätzliche Projektkopie. Tatsächliche Tests, Originalstand, offene Spielinhalte und Medien: `WESTLAND_REGION_INTEGRATION_V1.md`.
+
+
+## Westland Visual Upgrade V1 – vorhandene Vegetation und Testtempo
+
+Die vorhandene `Dev_WestlandRegion` bindet sieben bereits vorhandene 3D-Baumvarianten an den 1.710 alten Baumstandorten und zwei Buschvarianten an 6.668 alten Buschstandorten. HISM-Gruppen und ausschließlich map-eigene Instancing-/Boden-/Wassermaterialableitungen unter `Environment/WestlandVisualUpgradeV1` erhalten die Originalassets anderer Maps. Baum-Pawn-/Camera-Kollision verwendet die bereits importierten einfachen Stamm-UCX-Hüllen; Visibility ignoriert sie für den bestehenden Terrainplaner. Alte Zylinder sind verborgene, deaktivierte Doppelhindernisse. Bodenpflanzen bleiben kollisionsfrei. Terrain- und Flussmeshgeometrie, Wege, Gebäude und Lebensraum-/Gameplaydaten unverändert.
+
+`pm.Speed 1|2|3|Status` erweitert ausschließlich den vorhandenen Player. Ein transienter, nicht serialisierter Faktor skaliert beim Wechsel die bestehenden MaxWalkSpeed-/NormalWalkSpeed-Werte mit neu/alt; die vorhandene Sprintverwaltung bleibt maßgeblich. Kein TimeDilation, keine neue Save-Struktur oder Stickbelegung. Neustart/neuer Pawn beginnt bei1; Shipping deaktiviert. Details, echte QHD-Bildpaare, 325 Tests und regionale Gameplaynachweise: `WESTLAND_VISUAL_UPGRADE_V1.md`.
