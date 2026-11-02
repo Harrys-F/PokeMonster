@@ -54,10 +54,10 @@ bool FPokeMonsterWestlandVisualUpgradeTest::RunTest(const FString&)
             ++Rivers;const auto* C=A->FindComponentByClass<UStaticMeshComponent>();
             if(TestNotNull(TEXT("Existing water component retained"),C))
             {
-                TestTrue(TEXT("Original river mesh retained"),C->GetStaticMesh()&&C->GetStaticMesh()->GetName()==TEXT("SM_WR_River"));
+                TestTrue(TEXT("Existing river topology uses Westland-only reshaped derivative"),C->GetStaticMesh()&&C->GetStaticMesh()->GetName()==TEXT("SM_WEP_River"));
                 TestEqual(TEXT("Water surface collision unchanged"),C->GetCollisionEnabled(),ECollisionEnabled::NoCollision);
                 const auto* M=C->GetMaterial(0);
-                TestTrue(TEXT("Westland-local translucent surface"),M&&M->GetName()==TEXT("M_WVU_River")&&M->GetBlendMode()==BLEND_Translucent);
+                TestTrue(TEXT("Westland-local physically lit Single Layer Water"),M&&M->GetName()==TEXT("M_WEP_FlowingRiver")&&M->GetBlendMode()==BLEND_Opaque&&M->GetShadingModels().HasShadingModel(MSM_SingleLayerWater));
             }
         }
     }
