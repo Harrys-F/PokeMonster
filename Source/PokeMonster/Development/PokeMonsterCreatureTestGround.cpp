@@ -21,7 +21,88 @@
 #include "Engine/GameInstance.h"
 #include "Materials/MaterialInterface.h"
 #include "Kismet/GameplayStatics.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "AssetRegistry/AssetRegistryModule.h"
+#include "Modules/ModuleManager.h"
 
+UWorld* UPokeMonsterCreatureTestGround::ResolveConsoleWorld(UWorld* Context)
+{
+ if(Context&&(Context->WorldType==EWorldType::Game||Context->WorldType==EWorldType::PIE))
+  return IsSupportedMap(Context->GetMapName(),Context->WorldType)?Context:nullptr;
+ UWorld* Found=nullptr;
+ if(GEngine)for(const auto& C:GEngine->GetWorldContexts())
+  if(C.World()&&IsSupportedMap(C.World()->GetMapName(),C.WorldType))
+  {if(Found&&Found!=C.World())return nullptr;Found=C.World();}
+ return Found;
+}
+bool UPokeMonsterCreatureTestGround::IsInspectionAsset(const FString& Path)
+{
+ return Path.StartsWith(ImportRoot()+TEXT("/"));
+}
+bool UPokeMonsterCreatureTestGround::SupportsInspectionMode(const FString& Value)
+{
+ return Value==TEXT("idle")||Value==TEXT("turn")||Value==TEXT("reset");
+}
+void UPokeMonsterCreatureTestGround::DiscoverImports(bool bScanDisk)
+{
+ ImportModels.Reset();
+ auto& Registry=FModuleManager::LoadModuleChecked<FAssetRegistryModule>(TEXT("AssetRegistry")).Get();
+ // Fresh -game processes need an explicit metadata scan of new uncooked inspection assets.
+ // Do this only on a user review request, never as a model/texture load during normal play.
+ if(bScanDisk)Registry.ScanPathsSynchronous({ImportRoot()},false);
+ FARFilter Filter;Filter.PackagePaths.Add(*ImportRoot());Filter.bRecursivePaths=true;
+ Filter.ClassPaths.Add(UStaticMesh::StaticClass()->GetClassPathName());TArray<FAssetData> Assets;
+ Registry.GetAssets(Filter,Assets);
+ for(const auto& A:Assets)if(IsInspectionAsset(A.PackageName.ToString()))
+ {
+  const FString Relative=A.PackageName.ToString().Mid(ImportRoot().Len()+1);
+  FString Name,Remainder;Relative.Split(TEXT("/"),&Name,&Remainder);
+  // One imported mesh per source directory; never load textures/models during normal play.
+  if(!ImportModels.Contains(Name))ImportModels.Add(Name,A.GetSoftObjectPath());
+ }
+}
+TArray<FString> UPokeMonsterCreatureTestGround::GetImportTargets()
+{
+ DiscoverImports(true);
+ TArray<FString> Names;ImportModels.GetKeys(Names);Names.Sort();return Names;
+}
+void UPokeMonsterCreatureTestGround::EndImportInspection()
+{
+ if(IsValid(ImportSpecimen))ImportSpecimen->Destroy();ImportSpecimen=nullptr;ActiveImport.Reset();
+}
+bool UPokeMonsterCreatureTestGround::VisitImport(const FString& Target)
+{
+ if(!CanTravel())return false;
+ DiscoverImports(true);const FSoftObjectPath* Path=nullptr;FString Name;
+ for(const auto& Pair:ImportModels)if(Pair.Key.Equals(Target,ESearchCase::IgnoreCase)){Path=&Pair.Value;Name=Pair.Key;break;}
+ if(!Path){Message(TEXT("Unbekannter Modellimport. Verfuegbar: pm.TestGround.List"));ListModels();return false;}
+ auto* Mesh=Cast<UStaticMesh>(Path->TryLoad());if(!Mesh)return false;
+ // The normal return anchor is established using the same floor and travel safety checks.
+ if(!Visit(0))return false;
+ EndImportInspection();FActorSpawnParameters Spawn;Spawn.ObjectFlags|=RF_Transient;
+ ImportSpecimen=GetWorld()->SpawnActor<AStaticMeshActor>(Center(),FRotator(0,135,0),Spawn);
+ if(!ImportSpecimen)return false;
+ // Async mesh compilation can refresh component collision defaults after SetStaticMesh.
+ // Actor-level exclusion keeps every unrigged inspection candidate non-interactive.
+ ImportSpecimen->SetActorEnableCollision(false);ImportSpecimen->Tags.Add(TEXT("PokemonStaticImportInspection"));
+ auto* C=ImportSpecimen->GetStaticMeshComponent();C->SetMobility(EComponentMobility::Movable);C->SetStaticMesh(Mesh);
+ C->SetCollisionEnabled(ECollisionEnabled::NoCollision);C->SetCastShadow(true);
+ const auto B=Mesh->GetBoundingBox();const float Scale=200.f/FMath::Max(1.f,B.GetSize().GetMax());
+ ImportSpecimen->SetActorScale3D(FVector(Scale));
+ ImportSpecimen->SetActorLocation(Center()+FVector(0,-450,0)-FVector(B.GetCenter().X,B.GetCenter().Y,B.Min.Z)*Scale);
+ ImportOrigin=ImportSpecimen->GetActorTransform();ActiveImport=Name;Mode=TEXT("idle");
+ if(auto* Player=Cast<APokeMonsterPlayerCharacter>(UGameplayStatics::GetPlayerPawn(this,0))){Player->RestoreSavedFacing(FVector(0,-1,0));Player->ThirdPersonBoom->SetWorldRotation(FRotator(0,-90,0));}
+ Message(FString::Printf(TEXT("%s: statischer Meshy-Import; Pruefgroesse 200 cm, Artmassstab/Rig/Animation offen. Mode idle | turn | reset; Return"),*Name));return true;
+}
+bool UPokeMonsterCreatureTestGround::VisitTarget(const FString& Target)
+{
+ if(Target.StartsWith(TEXT("Modell:"),ESearchCase::IgnoreCase))return VisitImport(Target.Mid(7));
+ if(Target.IsEmpty())return Visit(0);
+ if(Target.IsNumeric())return Visit(FCString::Atoi(*Target));
+ for(int32 I=0;I<Species.Num();++I)
+  if(Species[I]->GetInternalId().ToString().Equals(Target,ESearchCase::IgnoreCase)||Species[I]->GetDisplayName().ToString().Equals(Target,ESearchCase::IgnoreCase))return Visit(I+1);
+ Message(FString::Printf(TEXT("Unbekanntes Ziel '%s'. Verfuegbare Ziele folgen im Protokoll: pm.TestGround.List"),*Target));ListModels();return false;
+}
 bool UPokeMonsterCreatureTestGround::IsSupportedMap(const FString& Name,EWorldType::Type Type)
 {
 #if !UE_BUILD_SHIPPING
@@ -50,6 +131,7 @@ void UPokeMonsterCreatureTestGround::OnWorldBeginPlay(UWorld& World)
 {
  Super::OnWorldBeginPlay(World);
  if(!IsSupportedMap(World.GetMapName(),World.WorldType)||!OwnedActors.IsEmpty())return;
+ DiscoverImports();
  for(auto* S:UPokeMonsterCreatureSpeciesData::GetRegisteredPlayableSpecies())Species.Add(S);
  if(Species.IsEmpty()){UE_LOG(LogTemp,Error,TEXT("PM_TESTGROUND registry contains no usable presentations"));return;}
  Columns=FMath::Clamp(FMath::CeilToInt(FMath::Sqrt(float(Species.Num()))),3,6);
@@ -107,10 +189,11 @@ void UPokeMonsterCreatureTestGround::Tick(float Delta)
  const bool Visiting=Player&&Player->ActorHasTag(TEXT("PokemonDevelopmentTestVisit"));
  const bool CanAnimate=Visiting&&!Player->IsOverworldInputLocked();
  if(CanAnimate)Elapsed+=Delta;
+ if(IsValid(ImportSpecimen)&&CanAnimate&&Mode==TEXT("turn"))ImportSpecimen->AddActorWorldRotation(FRotator(0,Delta*25.f,0));
  for(int32 I=0;I<Specimens.Num();++I)
  {
   auto* V=Specimens[I].Get();auto* M=Movements[I].Get();if(!IsValid(V)||!IsValid(M))continue;
-  const bool Nearby=Visiting&&FVector::DistSquared2D(Player->GetActorLocation(),GetStation(I))<FMath::Square(3500.f);
+  const bool Nearby=ActiveImport.IsEmpty()&&Visiting&&FVector::DistSquared2D(Player->GetActorLocation(),GetStation(I))<FMath::Square(3500.f);
   V->SetActorHiddenInGame(!Nearby);V->SetActorTickEnabled(Nearby);V->Mesh->SetComponentTickEnabled(Nearby);
   FString Selected=Mode;
   if(Mode==TEXT("auto"))
@@ -144,6 +227,7 @@ void UPokeMonsterCreatureTestGround::Tick(float Delta)
 }
 bool UPokeMonsterCreatureTestGround::ResetModels()
 {
+ if(IsValid(ImportSpecimen)){ImportSpecimen->SetActorTransform(ImportOrigin);Mode=TEXT("idle");Elapsed=0;return true;}
  for(int32 I=0;I<Specimens.Num();++I)
  {
   if(!IsValid(Specimens[I])||!IsValid(Movements[I]))return false;
@@ -152,8 +236,9 @@ bool UPokeMonsterCreatureTestGround::ResetModels()
  }
  Mode=TEXT("idle");Elapsed=0;return !Specimens.IsEmpty();
 }
-void UPokeMonsterCreatureTestGround::ListModels()const
+void UPokeMonsterCreatureTestGround::ListModels()
 {
+ for(const auto& Name:GetImportTargets())UE_LOG(LogTemp,Display,TEXT("PM_TESTGROUND Modell:%s | static inspection only; no rig/animations; normalized review size, not canonical scale"),*Name);
  for(int32 I=0;I<Species.Num();++I)
  {
   const auto* P=Species[I]->GetVisuals().Presentation.LoadSynchronous();
@@ -180,13 +265,24 @@ bool UPokeMonsterCreatureTestGround::Travel(const FTransform& Destination)
 {
  auto* P=Cast<APokeMonsterPlayerCharacter>(UGameplayStatics::GetPlayerPawn(this,0));if(!P)return false;
  if(!P->TeleportTo(Destination.GetLocation(),Destination.Rotator(),false,false))return false;
- P->GetCharacterMovement()->StopMovementImmediately();return true;
+ P->GetCharacterMovement()->StopMovementImmediately();
+ TArray<USpringArmComponent*> Arms;P->GetComponents(Arms);
+ for(auto* Arm:Arms)
+ {
+  const bool Lag=Arm->bEnableCameraLag,RotationLag=Arm->bEnableCameraRotationLag;
+  Arm->bEnableCameraLag=false;Arm->bEnableCameraRotationLag=false;Arm->TickComponent(0.f,LEVELTICK_All,nullptr);
+  Arm->bEnableCameraLag=Lag;Arm->bEnableCameraRotationLag=RotationLag;
+ }
+ if(auto* PC=UGameplayStatics::GetPlayerController(this,0);PC&&PC->PlayerCameraManager)PC->PlayerCameraManager->SetGameCameraCutThisFrame();
+ return true;
 }
 bool UPokeMonsterCreatureTestGround::Visit(int32 Number)
 {
  if(!CanTravel()||Number<0||Number>Specimens.Num()){Message(TEXT("Nicht verfuegbar: nur VisualV2 Entwicklung/PIE, freie Aussenansicht; pm.TestGround.List."));return false;}
- auto* P=UGameplayStatics::GetPlayerPawn(this,0);
+ auto* P=Cast<APokeMonsterPlayerCharacter>(UGameplayStatics::GetPlayerPawn(this,0));
  const FTransform Before=P->GetActorTransform();
+ const FVector Facing=P->GetInteractionWorldDirection();const FRotator Orbit=P->ThirdPersonBoom->GetComponentRotation();
+ const bool Third=P->IsThirdPersonCamera();const float Distance=P->ThirdPersonDistance;
  FVector Ground=Center();
  if(Number>0)
  {
@@ -196,23 +292,36 @@ bool UPokeMonsterCreatureTestGround::Visit(int32 Number)
  }
  const float Height=Cast<APokeMonsterPlayerCharacter>(P)->GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
  if(!Travel(FTransform(Before.GetRotation(),Ground+FVector(0,0,Height+.5f))))return false;
- if(!bHaveReturn){ReturnPosition=Before;ReturnPawn=P;bHaveReturn=true;P->Tags.AddUnique(TEXT("PokemonDevelopmentTestVisit"));}
+ EndImportInspection();
+ if(Number>0)
+ {
+  const FVector Look=(Specimens[Number-1]->GetActorLocation()-P->GetActorLocation()).GetSafeNormal2D();
+  P->RestoreSavedFacing(Look);if(P->IsThirdPersonCamera())P->ThirdPersonBoom->SetWorldRotation(FRotator(0,Look.Rotation().Yaw,0));
+ }
+ if(!bHaveReturn){ReturnFacing=Facing;ReturnOrbit=Orbit;bReturnThirdPerson=Third;ReturnDistance=Distance;ReturnPosition=Before;ReturnPawn=P;bHaveReturn=true;P->Tags.AddUnique(TEXT("PokemonDevelopmentTestVisit"));}
  Message(TEXT("Modell-Testgelaende: keine Begegnungen oder Speichervorgaenge. Zurueck: pm.TestGround.Return"));return true;
 }
 bool UPokeMonsterCreatureTestGround::ReturnToWorld()
 {
  if(!bHaveReturn||ReturnPawn.Get()!=UGameplayStatics::GetPlayerPawn(this,0)||!CanTravel())return false;
  if(!Travel(ReturnPosition)){Message(TEXT("Rueckkehrposition blockiert; Anker bleibt erhalten."));return false;}
+ auto* Player=CastChecked<APokeMonsterPlayerCharacter>(ReturnPawn.Get());
+ Player->RestoreSavedFacing(ReturnFacing);Player->ThirdPersonDistance=ReturnDistance;Player->ThirdPersonBoom->TargetArmLength=ReturnDistance;
+ Player->SetThirdPersonCamera(bReturnThirdPerson);Player->ThirdPersonBoom->SetWorldRotation(ReturnOrbit);
+ EndImportInspection();
  ReturnPawn->Tags.Remove(TEXT("PokemonDevelopmentTestVisit"));bHaveReturn=false;ReturnPawn.Reset();Message(TEXT("Zur urspruenglichen Position zurueckgekehrt."));return true;
 }
 bool UPokeMonsterCreatureTestGround::SetMode(const FString& Requested)
 {
- const FString Value=Requested.ToLower();if(Value==TEXT("reset"))return ResetModels();
+ const FString Value=Requested.ToLower();
+ if(!ActiveImport.IsEmpty()&&!SupportsInspectionMode(Value)){Message(TEXT("Statischer Originalimport besitzt keine Bewegungsanimationen. Verfuegbar: idle | turn | reset."));return false;}
+ if(Value==TEXT("reset"))return ResetModels();
  if(Value!=TEXT("auto")&&Value!=TEXT("idle")&&Value!=TEXT("walk")&&Value!=TEXT("run")&&Value!=TEXT("turn")&&Value!=TEXT("directions"))return false;
  for(const auto& M:Movements)M->SetMovementPaused(true);Mode=Value;Elapsed=0;return true;
 }
 bool UPokeMonsterCreatureTestGround::React(const FString& Role)
 {
+ if(!ActiveImport.IsEmpty()){Message(TEXT("Keine Reaktionsanimation am ungeriggten Modellimport vorhanden."));return false;}
  EPokeMonsterCreatureClip Clip;
  if(Role==TEXT("attack"))Clip=EPokeMonsterCreatureClip::Attack;else if(Role==TEXT("hit"))Clip=EPokeMonsterCreatureClip::Hit;
  else if(Role==TEXT("faint"))Clip=EPokeMonsterCreatureClip::Faint;else if(Role==TEXT("happy"))Clip=EPokeMonsterCreatureClip::Happy;else return false;
@@ -220,13 +329,18 @@ bool UPokeMonsterCreatureTestGround::React(const FString& Role)
 }
 void UPokeMonsterCreatureTestGround::Deinitialize()
 {
+ EndImportInspection();ImportModels.Reset();
  for(const auto& A:OwnedActors)if(IsValid(A))A->Destroy();OwnedActors.Reset();Labels.Reset();Movements.Reset();Specimens.Reset();Species.Reset();MovementReferenceSpeeds.Reset();RouteSteps.Reset();TurnVelocity.Reset();if(ReturnPawn.IsValid())ReturnPawn->Tags.Remove(TEXT("PokemonDevelopmentTestVisit"));ReturnPawn.Reset();bHaveReturn=false;Super::Deinitialize();
 }
 #if !UE_BUILD_SHIPPING
 namespace
 {
- UPokeMonsterCreatureTestGround* Ground(UWorld* W){return W&&UPokeMonsterCreatureTestGround::IsSupportedMap(W->GetMapName(),W->WorldType)?W->GetSubsystem<UPokeMonsterCreatureTestGround>():nullptr;}
- FAutoConsoleCommandWithWorldAndArgs Go(TEXT("pm.TestGround.Go"),TEXT("VisualV2 Development/PIE: center or registered specimen index/name; preserves return anchor."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W)){if(A.Num()>1)return;int32 Number=A.IsEmpty()?0:FCString::Atoi(*A[0]);if(A.Num()==1&&!A[0].IsNumeric()){Number=INDEX_NONE;for(int32 I=0;I<G->Species.Num();++I)if(G->Species[I]->GetInternalId().ToString().Equals(A[0],ESearchCase::IgnoreCase)||G->Species[I]->GetDisplayName().ToString().Equals(A[0],ESearchCase::IgnoreCase)){Number=I+1;break;}}G->Visit(Number);}}));
+ UPokeMonsterCreatureTestGround* Ground(UWorld* Context)
+ {
+  if(auto* W=UPokeMonsterCreatureTestGround::ResolveConsoleWorld(Context))return W->GetSubsystem<UPokeMonsterCreatureTestGround>();
+  UE_LOG(LogTemp,Display,TEXT("PM_TESTGROUND Keine eindeutige laufende VisualV2-Spielwelt. VisualV2 in PIE/Development starten; bei mehreren PIE-Welten Spielkonsole verwenden."));return nullptr;
+ }
+ FAutoConsoleCommandWithWorldAndArgs Go(TEXT("pm.TestGround.Go"),TEXT("VisualV2 Development/PIE: center or registered specimen index/name; preserves return anchor."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W)){G->VisitTarget(FString::Join(A,TEXT(" ")));}}));
  FAutoConsoleCommandWithWorldAndArgs Back(TEXT("pm.TestGround.Return"),TEXT("Return to the original position before visiting the test ground."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W))G->ReturnToWorld();}));
  FAutoConsoleCommandWithWorldAndArgs Mode(TEXT("pm.TestGround.Mode"),TEXT("auto | idle | walk | run | turn | directions | reset. Registered test visuals only."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W);G&&A.Num()==1)G->SetMode(A[0]);}));
  FAutoConsoleCommandWithWorldAndArgs TestGroundList(TEXT("pm.TestGround.List"),TEXT("List registered playable models and animation availability."),FConsoleCommandWithWorldAndArgsDelegate::CreateLambda([](const TArray<FString>& A,UWorld* W){if(auto* G=Ground(W))G->ListModels();}));

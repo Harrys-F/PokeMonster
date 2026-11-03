@@ -58,7 +58,7 @@ namespace
 #include "HAL/FileManager.h"
 namespace
 {
- FAutoConsoleCommand Capture(TEXT("pm.EvolutionReview.Capture"),TEXT("QHD live UMG render at 2560x1440; separately identified from the actual Slate viewport size."),FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& A)
+ FAutoConsoleCommand EvolutionCaptureCommand(TEXT("pm.EvolutionReview.Capture"),TEXT("QHD live UMG render at 2560x1440; separately identified from the actual Slate viewport size."),FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& A)
  {
   if(A.Num()!=1||A[0].IsEmpty())return;for(TCHAR C:A[0])if(!FChar::IsAlnum(C)&&C!=TEXT('_'))return;
   for(const auto& C:GEngine->GetWorldContexts())if(C.WorldType==EWorldType::PIE&&C.World())
