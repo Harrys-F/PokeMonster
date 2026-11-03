@@ -25,7 +25,20 @@ public:
  // Separate test presentation stays beyond the visible south boundary of the main world.
  static FVector Center() { return FVector(-7500,-20000,-20000); }
  static FVector Station(int32 Index,int32 Columns=5,float Spacing=1800.f);
- UFUNCTION(BlueprintPure) FVector GetStation(int32 Index)const{return Station(Index,Columns,Spacing);}
+ UFUNCTION(BlueprintPure) FVector GetStation(int32 Index)const{return Stations.IsValidIndex(Index)?Stations[Index]:Center();}
+ UFUNCTION(BlueprintPure) float GetMotionRadius(int32 Index)const{return MotionRadii.IsValidIndex(Index)?MotionRadii[Index]:0.f;}
+ UFUNCTION(BlueprintPure) FVector GetVisitGround(int32 Index)const;
+ UFUNCTION(BlueprintPure) int32 GetPhysicalModelCount()const;
+ UFUNCTION(BlueprintCallable) void PrepareCollection(){bCollectionRequested=true;}
+ UFUNCTION(BlueprintPure) bool IsCollectionReady()const{return StaticSpecimens.Num()==ImportNames.Num()&&GetPhysicalModelCount()==Species.Num()+ImportNames.Num();}
+ UFUNCTION(BlueprintPure) FVector GetImportStation(const FString& Name)const;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly) TArray<FVector> Stations;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly) TArray<float> CellHalfSizes;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly) TArray<float> MotionRadii;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly) TArray<FString> ImportNames;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly) TArray<FVector> ImportStations;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly) TArray<FVector> ImportDimensions;
+ UPROPERTY(Transient,VisibleAnywhere,BlueprintReadOnly) TArray<TObjectPtr<AStaticMeshActor>> StaticSpecimens;
  UFUNCTION(BlueprintCallable) bool ResetModels();
  UFUNCTION(BlueprintCallable) void ListModels();
  virtual void OnWorldBeginPlay(UWorld& World) override;
@@ -49,6 +62,13 @@ private:
  void DiscoverImports(bool bScanDisk=false);
  bool VisitImport(const FString& Target);
  void EndImportInspection();
+ void BuildLayout();
+ bool LoadImport(int32 Index);
+ void CreatePlaque(const FVector& Location,const FString& Text);
+ bool bCollectionRequested=false;
+ TArray<float> ImportHalfSizes;
+ TArray<FTransform> ImportOrigins;
+ TMap<FString,FVector> ImportSizes;
  UPROPERTY(Transient) TObjectPtr<AStaticMeshActor> ImportSpecimen;
  TMap<FString,FSoftObjectPath> ImportModels;
  FString ActiveImport;
@@ -60,8 +80,6 @@ private:
  TArray<FVector2D> MovementReferenceSpeeds;
  TArray<int32> RouteSteps;
  TArray<float> TurnVelocity;
- int32 Columns=5;
- float Spacing=1800.f;
  FTransform ReturnPosition;
  FVector ReturnFacing=FVector::ForwardVector;
  FRotator ReturnOrbit=FRotator::ZeroRotator;

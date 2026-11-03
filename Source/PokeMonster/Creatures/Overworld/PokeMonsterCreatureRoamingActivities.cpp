@@ -20,6 +20,12 @@ void UPokeMonsterCreatureRoamingComponent::ConfigureActivities(const UPokeMonste
 {
  ActivitySpecies=Species->GetInternalId();
  Activities=bOverrideActivities?ActivityOverride:FPokeMonsterCreatureActivityProfile::ForSpecies(ActivitySpecies);
+ // This opt-in is assigned only to the selected VisualV2 water rule. Same activities/priorities.
+ if(bExploreWholeWaterHabitat&&BiomeHabitat&&BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly)
+ {
+  Activities.WanderWeight*=3.f;Activities.ObserveWeight*=.35f;Activities.RestWeight*=.12f;Activities.SleepWeight*=.05f;
+  Activities.MinimumSeconds=3.f;Activities.MaximumSeconds=24.f;Activities.RestSeconds=4.f;Activities.SleepSeconds=6.f;
+ }
  // Explicit rollout boundary. Shared species assets, other maps and companions are unchanged.
  bActivitiesEnabled=Activities.bEnabled && Activities.IsValid() && !FollowTarget.IsValid() && (!BiomeHabitat||BiomeHabitat->bAllowNaturalActivities)
   && Cast<APokeMonsterVisibleWildCreatureActor>(GetOwner())

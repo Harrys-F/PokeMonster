@@ -51,7 +51,9 @@ bool FPermanentGroundIsolationTest::RunTest(const FString& Parameters)
   TestFalse(TEXT("Never a capturable wild actor"),V->IsA<APokeMonsterVisibleWildCreatureActor>());
   TestEqual(TEXT("No blocking creature collider"),V->Mesh->GetCollisionEnabled(),ECollisionEnabled::NoCollision);
   TestTrue(TEXT("Own floor is genuinely walkable"),M->ProjectWalkable(G->GetStation(I),Ground));
-  TestTrue(TEXT("Wide free routes use existing collision planner"),M->CanTraverse(G->GetStation(I),G->GetStation(I)+FVector(220,170,0)));
+  FVector RouteGround;
+  TestTrue(TEXT("Destination is projected onto the actual land/water plane"),M->ProjectWalkable(G->GetStation(I)+FVector(G->GetMotionRadius(I)*.5f,G->GetMotionRadius(I)*.4f,0),RouteGround));
+  TestTrue(TEXT("Free routes use actual land/water height and existing collision planner"),M->CanTraverse(Ground,RouteGround));
   TestTrue(TEXT("Name remains above actual model bounds even for long aquatic models"),V->GetNameplateAnchor().Z>V->Mesh->Bounds.Origin.Z+V->Mesh->Bounds.BoxExtent.Z);
   TestTrue(TEXT("Label uses head height, not a large length-based species size"),V->GetNameplateAnchor().Z<V->Mesh->Bounds.Origin.Z+V->Mesh->Bounds.BoxExtent.Z+80.f);
   TestEqual(TEXT("Existing seven animation roles retained"),V->Presentation->Clips.Num(),7);
@@ -74,7 +76,7 @@ bool FPermanentGroundIsolationTest::RunTest(const FString& Parameters)
  TestTrue(TEXT("Eight directions mode"),G->SetMode(TEXT("directions")));
  TestTrue(TEXT("Reset all models to exact station"),G->ResetModels());
  for(int32 I=0;I<G->Specimens.Num();++I)
-  TestTrue(TEXT("Reset restores spawn without changing species"),G->Specimens[I]->GetActorLocation().Equals(G->GetStation(I)-FVector(0,0,G->Specimens[I]->Presentation->GroundOffsetCm),.01f));
+  TestTrue(TEXT("Reset restores spawn without changing species"),G->Specimens[I]->GetActorLocation().Equals(G->Movements[I]->HabitatOrigin-FVector(0,0,G->Specimens[I]->Presentation->GroundOffsetCm),.01f));
 
  TestFalse(TEXT("Invalid reaction rejected"),G->React(TEXT("unknown")));
  return true;

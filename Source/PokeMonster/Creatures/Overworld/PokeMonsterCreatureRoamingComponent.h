@@ -21,6 +21,9 @@ public:
 	UPokeMonsterCreatureRoamingComponent();
     /** Null on all existing maps. Explicit sandbox surface/media contract only. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Development|Biome") TObjectPtr<APokeMonsterBiomeHabitat> BiomeHabitat;
+    /** Opt-in from the existing VisualV2 species rule. Same checked water/path planner. */
+    UPROPERTY(Transient,BlueprintReadOnly) bool bExploreWholeWaterHabitat=false;
+    static FVector SampleWaterArea(const FTransform& Zone,const FVector& Extent,float BodyRadius,float Angle,float UnitRadius);
     /** Per-instance immersion; one pond can contain differently sized swimmers. */
     UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Creature|Movement") float WaterDraftOverrideCm=-1.f;
 	UFUNCTION(BlueprintCallable, Category="Creature|Movement") void Configure(const UPokeMonsterCreatureSpeciesData* Species, float RootGroundOffset,

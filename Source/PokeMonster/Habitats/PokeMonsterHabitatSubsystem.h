@@ -56,6 +56,8 @@ struct POKEMONSTER_API FPokeMonsterHabitatRule
  UPROPERTY(EditAnywhere) FPokeMonsterCreaturePerceptionProfile Perception;
  UPROPERTY(EditAnywhere) bool bOverrideActivities=false;
  UPROPERTY(EditAnywhere) FPokeMonsterCreatureActivityProfile Activities;
+ /** Explicit VisualV2-only swim exploration opt-in; never changes other maps or species. */
+ UPROPERTY(EditAnywhere) bool bVisualV2WaterExploration=false;
  /** Population preference only. Existing six activity/rhythm profiles retain authority. */
  UPROPERTY(EditAnywhere) EPokeMonsterActivityRhythm Rhythm=EPokeMonsterActivityRhythm::Flexible;
  bool Allows(FName Habitat) const {return Habitats.Contains(Habitat);}

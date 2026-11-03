@@ -28,6 +28,11 @@ UPokeMonsterCreatureRoamingComponent::UPokeMonsterCreatureRoamingComponent()
 	// Translate every rendered game frame; animation speed must not alternate between 0 and double speed.
 	PrimaryComponentTick.TickInterval = 0.f;
 }
+FVector UPokeMonsterCreatureRoamingComponent::SampleWaterArea(const FTransform& Zone,const FVector& Extent,float Radius,float Angle,float UnitRadius)
+{
+ const float R=FMath::Sqrt(FMath::Clamp(UnitRadius,0.f,1.f))*.98f;
+ return Zone.TransformPosition(FVector(FMath::Cos(Angle)*FMath::Max(0.f,Extent.X-Radius)*R,FMath::Sin(Angle)*FMath::Max(0.f,Extent.Y-Radius)*R,0));
+}
 void UPokeMonsterCreatureRoamingComponent::Configure(const UPokeMonsterCreatureSpeciesData* Species,
 	float RootGroundOffset, float Radius, float HalfHeight, AActor* Follow, int32 Seed)
 {
@@ -41,7 +46,10 @@ void UPokeMonsterCreatureRoamingComponent::Configure(const UPokeMonsterCreatureS
 	Presentation = Species->GetVisuals().Presentation.LoadSynchronous();
 	if (!Presentation || !Presentation->GetValidationErrors().IsEmpty()) return;
 	Settings = Species->Overworld;
+ if(bExploreWholeWaterHabitat&&BiomeHabitat&&BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly)
+ {Settings.PauseMinimum=.6f;Settings.PauseMaximum=1.8f;Settings.Behavior.RestMultiplier=1.f;}
 	if(bOverrideBehavior) { if(!BehaviorOverride.IsValid()) return; Settings.Behavior=BehaviorOverride; }
+ if(bExploreWholeWaterHabitat&&BiomeHabitat&&BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly)Settings.Behavior.RestMultiplier=1.f;
 	BehaviorState=EPokeMonsterOverworldState::Rest; WarningElapsed=CooldownRemaining=ReactionRemaining=InterestRemaining=0; bTerritoryArmed=true; bEscapingDefeat=bEscapeBlocked=false; EscapeElapsed=EscapeReplan=EscapeStalled=0;
 	Offset = RootGroundOffset; BodyRadius = FMath::Max(Radius, Settings.BodyRadius);
  if(BiomeHabitat&&BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly&&Presentation->SwimMesh)
@@ -213,6 +221,14 @@ bool UPokeMonsterCreatureRoamingComponent::Plan(const FVector& Target)
 	const FVector Start = GetOwner()->GetActorLocation() - FVector(0, 0, Offset);
 	FVector Goal;
 	if (!ProjectWalkable(Target, Goal)) return false;
+ // Only the explicit whole-pond profile may keep a long direct swim target.
+ // Reuse the complete 25cm footprint/depth/sweep checks; never enlarge the A* search.
+ const bool WholeWater=bExploreWholeWaterHabitat&&BiomeHabitat&&BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly;
+ const bool LongDirect=WholeWater&&FVector::Dist2D(Start,Goal)>1000.f
+  &&FVector::Dist2D(Start,Goal)<=BiomeHabitat->Bounds->GetScaledBoxExtent().Size2D()*2.f
+  &&CanTraverse(Start,Goal);
+ if(LongDirect){Path.Reset();Path.Add(Goal);}
+ else
 	if (!FPokeMonsterCreaturePath::Find(Start, Goal,
 		[this](const FVector& P, FVector& G) { return ProjectWalkable(P, G); },
 		[this](const FVector& A, const FVector& B) { return CanTraverse(A, B); }, Path)) return false;
@@ -332,6 +348,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 		const FVector Center = FollowTarget.IsValid() ? FollowTarget->GetActorLocation() : HabitatOrigin;
 		const float Radius = FollowTarget.IsValid() ? Settings.CompanionRoamRadius
 			: HabitatRadiusOverride > 0 ? HabitatRadiusOverride : Settings.RoamRadius;
+  const bool WholeWater=BiomeHabitat&&BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly&&bExploreWholeWaterHabitat;
   const bool LongWaterGoal=BiomeHabitat&&BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly&&Presentation->SwimMesh;
   const FVector ZoneExtent=LongWaterGoal?BiomeHabitat->Bounds->GetScaledBoxExtent():FVector::ZeroVector;
   // Retain the complete body envelope. In a small eroded pond, the old 180 cm
@@ -344,7 +361,11 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 		{
 			const float Angle=Random.FRandRange(-PI,PI), Distance=Radius*FMath::Sqrt(Random.FRand());
 			FVector Goal=Center+FVector(FMath::Cos(Angle)*Distance,FMath::Sin(Angle)*Distance,0); Goal.Z=Current.Z;
-            if(BiomeHabitat && BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly && Presentation->SwimMesh)
+            if(WholeWater)
+            {
+             Goal=SampleWaterArea(BiomeHabitat->GetActorTransform(),BiomeHabitat->Bounds->GetUnscaledBoxExtent(),BodyRadius,Angle,Random.FRand());Goal.Z=Current.Z;
+            }
+            else if(BiomeHabitat && BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly && Presentation->SwimMesh)
             {
              // The upright gallery anchors need not fit an elongated water rig. Sample the
              // eroded existing zone and pass the same full-body floor/obstacle/path tests.
@@ -358,9 +379,11 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 			if(FVector::Dist2D(Current,Goal)<(FollowTarget.IsValid()?90.f:GoalMinimumTravel)) continue;
 			if(FollowTarget.IsValid() && FVector::Dist2D(Goal,Center)<100.f) continue;
 			if(RecentGoals.ContainsByPredicate([&](const FVector& P){return FVector::Dist2D(P,Goal)<GoalMinimumTravel*.65f;})) continue;
-			if(FVector::Dist2D(Current,Goal)>1000.f) Goal=Current+(Goal-Current).GetSafeNormal2D()*1000.f;
-			const int32 Sector=FMath::Clamp(FMath::FloorToInt((Angle+PI)/(PI/4)),0,7);
-			const float Score=FollowTarget.IsValid()?Random.FRand():4.f/(1+SectorVisits[Sector])+Distance/Radius+Random.FRand()*.4f;
+			if(!WholeWater&&FVector::Dist2D(Current,Goal)>1000.f) Goal=Current+(Goal-Current).GetSafeNormal2D()*1000.f;
+			const FVector FromZone=WholeWater?BiomeHabitat->GetActorTransform().InverseTransformPosition(Goal):FVector::ZeroVector;
+            const float SectorAngle=WholeWater?FMath::Atan2(FromZone.Y,FromZone.X):Angle;
+            const int32 Sector=FMath::Clamp(FMath::FloorToInt((SectorAngle+PI)/(PI/4)),0,7);
+			const float Score=FollowTarget.IsValid()?Random.FRand():(WholeWater?8.f:4.f)/(1+SectorVisits[Sector])+(WholeWater?FVector::Dist2D(Current,Goal)/FMath::Max(1.f,BiomeHabitat->Bounds->GetScaledBoxExtent().Size2D()):Distance/Radius)+Random.FRand()*.4f;
 			Candidates.Add({Goal,Score,Sector});
 		}
 		Candidates.Sort([](const FCandidate& A,const FCandidate& B){return A.Score>B.Score;});
@@ -371,7 +394,7 @@ void UPokeMonsterCreatureRoamingComponent::TickComponent(float Delta, ELevelTick
 				if(!FollowTarget.IsValid()) ++SectorVisits[Candidate.Sector];
 				// Small authored anchor sets must leave alternatives; remembering all anchors
                 // permanently exhausted three-point swim/flight lanes. Unbounded habitats stay unchanged.
-                const bool AuthoredAnchors=BiomeHabitat&&!BiomeHabitat->TravelPoints.IsEmpty()&&!(BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly&&Presentation->SwimMesh);
+                const bool AuthoredAnchors=BiomeHabitat&&!BiomeHabitat->TravelPoints.IsEmpty()&&!WholeWater&&!(BiomeHabitat->Medium==EPokeMonsterBiomeMedium::WaterOnly&&Presentation->SwimMesh);
                 const int32 HistoryLimit=LongWaterGoal&&GoalMinimumTravel<Settings.MinimumTravel?1:AuthoredAnchors
                     ?FMath::Min(4,FMath::Max(0,BiomeHabitat->TravelPoints.Num()-2)):4;
                 RecentGoals.Add(Candidate.Point);while(RecentGoals.Num()>HistoryLimit)RecentGoals.RemoveAt(0);
