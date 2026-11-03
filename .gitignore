@@ -8687,3 +8687,6 @@ __pycache__/
 /Content/RockEnv_Pack/
 /Content/SimpleRocks/
 /Content/StyleHex_Studio/
+
+# VisualV2 V3: derived Fab/StyleHex master stays local, like its licensed sources.
+/Content/Environment/VisualV2WorldOverhaulV3/Materials/M_WOV_ShrubMaster.uasset

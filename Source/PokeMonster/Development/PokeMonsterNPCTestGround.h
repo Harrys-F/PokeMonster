@@ -13,7 +13,8 @@ class POKEMONSTER_API UPokeMonsterNPCTestGround : public UTickableWorldSubsystem
  GENERATED_BODY()
 public:
  static bool IsSupportedMap(const FString& Name,EWorldType::Type Type);
- static FVector Center(){return FVector(-7500,3000,0);}
+ // Keep the complete 50m-wide PIE fixture west of VisualV2 terrain (X >= -6000cm).
+ static FVector Center(){return FVector(-20000,3000,-20000);}
  static FVector Station(int32 Index){return Center()+FVector((Index%4-1.5f)*1100.f,(Index/4-1.f)*1100.f,0);}
  virtual void OnWorldBeginPlay(UWorld& World) override;
  virtual void Tick(float Delta) override;

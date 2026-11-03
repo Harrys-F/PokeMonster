@@ -67,7 +67,7 @@ void UPokeMonsterCreatureTestGround::OnWorldBeginPlay(UWorld& World)
   auto* C=A->GetStaticMeshComponent();C->SetMobility(EComponentMobility::Movable);C->SetStaticMesh(Cube);C->SetMaterial(0,Material);
   C->SetCollisionProfileName(TEXT("BlockAll"));C->SetCastShadow(false);A->SetActorScale3D(Scale);
  };
- // North edge stays at Y=-3600, outside the real world's Y=-3250 boundary.
+ // North edge follows Center()+400cm, well outside the playable world's Y=-3250 boundary.
  const int32 ModelRows=FMath::DivideAndRoundUp(Species.Num(),Columns);
  const float Width=Columns*Spacing,Height=ModelRows*Spacing;
  const FVector FloorCenter=Center()+FVector(0,400.f-Height*.5f,0);

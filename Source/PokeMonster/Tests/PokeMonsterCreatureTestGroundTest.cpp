@@ -17,6 +17,8 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FPermanentGroundGateTest,"PokeMonster.Developme
 bool FPermanentGroundGateTest::RunTest(const FString& Parameters)
 {
  using G=UPokeMonsterCreatureTestGround;
+ TestTrue(TEXT("Test presentation remains below the normal-world horizon"),G::Center().Z<-10000.f);
+ TestTrue(TEXT("Test floor north edge remains well outside the main-world view"),G::Center().Y+400.f<-10000.f);
  TestTrue(TEXT("Ordinary VisualV2 PIE eligible without any review command"),G::IsSupportedMap(TEXT("UEDPIE_0_Dev_TestMap_VisualV2"),EWorldType::PIE));
  TestFalse(TEXT("Other development maps untouched"),G::IsSupportedMap(TEXT("Dev_TestMap_VisualV2EnvironmentQualityV1"),EWorldType::PIE));
  TestTrue(TEXT("Separate development game supported"),G::IsSupportedMap(TEXT("Dev_TestMap_VisualV2"),EWorldType::Game));

@@ -147,7 +147,7 @@ bool UPokeMonsterNPCTestGround::Visit(int32 Number)
  if(Own&&!Save->BeginPIEMemoryPreview())return false;
  FVector Position=Center()+FVector(0,350,0);
  if(Number>0)Position=Specimens[Number-1]->GetActorLocation()+FVector(-95,95,0);
- Position.Z=P->GetCapsuleComponent()->GetScaledCapsuleHalfHeight()+.5f;
+ Position.Z=Center().Z+P->GetCapsuleComponent()->GetScaledCapsuleHalfHeight()+.5f;
  const FTransform Before=P->GetActorTransform();if(!Travel(FTransform(Before.GetRotation(),Position))){if(Own)Save->EndPIEMemoryPreview();return false;}
  if(!bHaveReturn){ReturnTransform=Before;ReturnPawn=P;bHaveReturn=true;bOwnsMemoryPreview=Own;}
  UE_LOG(LogTemp,Display,TEXT("PM_NPCGROUND visited %d; save transport is RAM-only until return"),Number);return true;

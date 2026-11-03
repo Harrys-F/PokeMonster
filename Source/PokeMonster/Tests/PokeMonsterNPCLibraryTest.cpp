@@ -74,6 +74,8 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(FNPCLibraryGround,"PokeMonster.NPC.Library.Ordi
 bool FNPCLibraryGround::RunTest(const FString&)
 {
  using G=UPokeMonsterNPCTestGround;
+ TestTrue(TEXT("Test presentation remains below the normal-world horizon"),G::Center().Z<-10000.f);
+ TestTrue(TEXT("Complete NPC test floor/perimeter stays outside the playable VisualV2 landscape"),G::Center().X+2500.f<-6000.f);
  TestTrue(TEXT("Normal VisualV2 PIE supported"),G::IsSupportedMap(TEXT("UEDPIE_0_Dev_TestMap_VisualV2"),EWorldType::PIE));
  TestFalse(TEXT("Biome excluded"),G::IsSupportedMap(TEXT("Dev_BiomeTestMap_V1"),EWorldType::PIE));TestFalse(TEXT("Westland excluded"),G::IsSupportedMap(TEXT("Dev_WestlandRegion"),EWorldType::PIE));TestFalse(TEXT("Regular build excluded"),G::IsSupportedMap(TEXT("Dev_TestMap_VisualV2"),EWorldType::Game));
  UWorld* W=UWorld::CreateWorld(EWorldType::PIE,false,FName(TEXT("Dev_TestMap_VisualV2")),CreatePackage(TEXT("/Temp/NPCLibrary/Dev_TestMap_VisualV2")));GEngine->CreateNewWorldContext(EWorldType::PIE).SetCurrentWorld(W);

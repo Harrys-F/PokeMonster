@@ -14,7 +14,8 @@ class POKEMONSTER_API UPokeMonsterCreatureTestGround : public UTickableWorldSubs
  GENERATED_BODY()
 public:
  static bool IsSupportedMap(const FString& MapName, EWorldType::Type Type);
- static FVector Center() { return FVector(-7500,-4000,0); }
+ // Separate test presentation stays beyond the visible south boundary of the main world.
+ static FVector Center() { return FVector(-7500,-20000,-20000); }
  static FVector Station(int32 Index,int32 Columns=5,float Spacing=1800.f);
  UFUNCTION(BlueprintPure) FVector GetStation(int32 Index)const{return Station(Index,Columns,Spacing);}
  UFUNCTION(BlueprintCallable) bool ResetModels();
