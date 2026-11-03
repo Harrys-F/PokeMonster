@@ -8690,3 +8690,6 @@ __pycache__/
 
 # VisualV2 V3: derived Fab/StyleHex master stays local, like its licensed sources.
 /Content/Environment/VisualV2WorldOverhaulV3/Materials/M_WOV_ShrubMaster.uasset
+
+# VisualV2 V4: licensed imported surface textures remain local, never publish Fab sources.
+/Content/Fab/VisualV2RefinementLocal/

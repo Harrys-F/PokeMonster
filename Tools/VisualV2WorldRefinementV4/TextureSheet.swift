@@ -1,0 +1,4 @@
+import AppKit
+import Foundation
+let p=CommandLine.arguments[1];let files=try FileManager.default.contentsOfDirectory(atPath:p).filter{$0.hasSuffix(".tga")}.sorted();let h=((files.count+3)/4)*330;let b=NSBitmapImageRep(bitmapDataPlanes:nil,pixelsWide:1280,pixelsHigh:h,bitsPerSample:8,samplesPerPixel:4,hasAlpha:true,isPlanar:false,colorSpaceName:.deviceRGB,bytesPerRow:0,bitsPerPixel:0)!;NSGraphicsContext.current=NSGraphicsContext(bitmapImageRep:b)!;NSColor.black.setFill();NSRect(x:0,y:0,width:1280,height:h).fill()
+for(i,f)in files.enumerated(){let x=(i%4)*320,y=(files.count/4-1-i/4)*330;NSImage(contentsOfFile:p+"/"+f)!.draw(in:NSRect(x:x,y:y,width:320,height:300),from:.zero,operation:.copy,fraction:1);(f as NSString).draw(at:NSPoint(x:x,y:y+304),withAttributes:[.font:NSFont.systemFont(ofSize:10),.foregroundColor:NSColor.white])};try b.representation(using:.png,properties:[:])!.write(to:URL(fileURLWithPath:p+"/Contact.png"))
