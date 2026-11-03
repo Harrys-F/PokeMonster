@@ -6,7 +6,9 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "Engine/GameInstance.h"
+#include "Engine/World.h"
 #include "UObject/ConstructorHelpers.h"
+#include "GameFramework/PlayerController.h"
 
 APokeMonsterWildEncounterZone::APokeMonsterWildEncounterZone()
 {
@@ -18,6 +20,7 @@ APokeMonsterWildEncounterZone::APokeMonsterWildEncounterZone()
 	Trigger->SetCollisionResponseToAllChannels(ECR_Ignore);
 	Trigger->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 	Trigger->OnComponentBeginOverlap.AddDynamic(this, &APokeMonsterWildEncounterZone::OnEntered);
+ Trigger->OnComponentEndOverlap.AddDynamic(this,&APokeMonsterWildEncounterZone::OnLeft);
 	GroundMarker = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("GroundMarker"));
 	GroundMarker->SetupAttachment(Trigger);
 	GroundMarker->SetRelativeLocation(FVector(0.f, 0.f, -62.f));
@@ -44,6 +47,7 @@ APokeMonsterWildEncounterZone::APokeMonsterWildEncounterZone()
 void APokeMonsterWildEncounterZone::BeginPlay()
 {
 	Super::BeginPlay();
+ if(bDistanceBasedBushEncounters){GroundMarker->SetVisibility(false);Label->SetVisibility(false);BushRandom.Initialize(Seed);}
 	if (UGameInstance* Instance = GetGameInstance())
 		if (UPokeMonsterEncounterSubsystem* Encounters = Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>())
 		{
@@ -56,13 +60,15 @@ void APokeMonsterWildEncounterZone::RefreshPersistentState()
 {
 	const UGameInstance* Instance = GetGameInstance();
 	const auto* Encounters = Instance ? Instance->GetSubsystem<UPokeMonsterEncounterSubsystem>() : nullptr;
-	bTriggered = Encounters && Encounters->IsEncounterCompleted(EncounterId);
+	bTriggered = !bDistanceBasedBushEncounters && Encounters && Encounters->IsEncounterCompleted(EncounterId);
+ if(bDistanceBasedBushEncounters){BushTravel.Reset();if(auto* P=Cast<APokeMonsterPlayerCharacter>(GetWorld()->GetFirstPlayerController()?GetWorld()->GetFirstPlayerController()->GetPawn():nullptr))if(Trigger->IsOverlappingActor(P))BeginBushTracking(P);}
 }
 
 void APokeMonsterWildEncounterZone::OnEntered(UPrimitiveComponent*, AActor* OtherActor,
 	UPrimitiveComponent*, int32, bool, const FHitResult&)
 {
-	if (bTriggered) return;
+	if(bDistanceBasedBushEncounters){BeginBushTracking(Cast<APokeMonsterPlayerCharacter>(OtherActor));return;}
+ if (bTriggered) return;
 	auto* Player = Cast<APokeMonsterPlayerCharacter>(OtherActor);
 	if (!Player || Player->IsOverworldInputLocked()) return;
 	UGameInstance* Instance = Player->GetGameInstance();

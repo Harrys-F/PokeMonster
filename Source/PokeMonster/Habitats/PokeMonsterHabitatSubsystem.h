@@ -3,10 +3,14 @@
 #include "Subsystems/WorldSubsystem.h"
 #include "../Development/BiomeTestV1/PokeMonsterBiomeHabitat.h"
 #include "../Creatures/Overworld/PokeMonsterCreatureRhythm.h"
+#include "../Encounter/PokeMonsterEncounterSubsystem.h"
 #include "PokeMonsterHabitatSubsystem.generated.h"
 class APokeMonsterVisibleWildCreatureActor;
 class UPokeMonsterCreatureSpeciesData;
 class UPokeMonsterEncounterProfile;
+class APokeMonsterPlayerCharacter;
+struct FPokeMonsterEncounterEndData;
+struct FPokeMonsterEncounterContext;
 
 /** Natural population uses the existing surface/media contract and roaming component. */
 UCLASS()
@@ -94,9 +98,19 @@ public:
  UPROPERTY(Transient,BlueprintReadOnly) double LastUpdateMicroseconds=0;
  static bool IsVisualV2(const FString& Name);
  static FName PopulationId(FName Zone,int32 Slot,FName Species,int32 Day);
+ /** Hidden encounters reuse curated habitat profiles without creating an overworld actor. */
+ bool CanCheckBushEncounters(APokeMonsterPlayerCharacter* Player)const;
+ bool TryStartBushEncounter(APokeMonsterPlayerCharacter* Player,FName ZoneId,AActor* Source,FRandomStream& Random);
+ void AdvanceBushTravel(float Distance);
+ UFUNCTION(BlueprintPure,Category="Bush Encounters") double GetBushCooldownRemaining()const;
+ UFUNCTION(BlueprintPure,Category="Bush Encounters") float GetBushTravelRemaining()const{return BushTravelRemaining;}
 protected:
  virtual bool DoesSupportWorldType(EWorldType::Type Type)const override;
 private:
+ friend struct FPokeMonsterBushTestAccess;
+ UFUNCTION() void HandleBushEncounterFinished(const FPokeMonsterEncounterEndData& Result);
+ double BushCooldownUntil=0.;
+ float BushTravelRemaining=0.;
  void SeedInitialPopulation();
  bool bInitialPlacement=false;
  bool CandidateOutsideView(const FVector& Foot,const FVector& Extent)const;

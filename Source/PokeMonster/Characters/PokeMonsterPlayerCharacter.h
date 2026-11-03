@@ -247,6 +247,7 @@ private:
  friend class FPokeMonsterThirdPersonGamepadTest;
  friend class FPokeMonsterThirdPersonFixedRigTest;
 	friend class FPokeMonsterRelocatedInteriorTransitionTest;
+ friend class FStableHouseTest;
 	friend class FPokeMonsterEncounterIntegrationTest;
 #endif
 

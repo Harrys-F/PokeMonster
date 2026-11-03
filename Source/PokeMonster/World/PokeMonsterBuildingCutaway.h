@@ -32,6 +32,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building") TArray<FPokeMonsterBuildingInteriorRegion> InteriorRegions;
 	/** Local +X points into the building. This box never generates gameplay overlaps. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Building") TObjectPtr<UBoxComponent> DoorThreshold;
+ /** Opt-in stable doorway: freeze displacement during the existing short blackout, preserve held input. */
+ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Relocated Interior") bool bStableDoorwayTransition=false;
+ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Relocated Interior",meta=(ClampMin="0",ClampMax="250")) float DoorwayLandingDistance=150.f;
+ /** Room-only clamp of the existing ThirdPerson POV; exterior pitch, zoom and input stay unchanged. */
+ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Interior Camera") bool bConstrainThirdPersonToRoom=false;
+ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Interior Camera",meta=(ClampMin="0")) float InteriorCameraBoundaryMargin=85.f;
+ void ConstrainThirdPersonView(FMinimalViewInfo& View)const;
+ UFUNCTION(BlueprintPure,Category="Building") bool IsDoorwayTransitionActive()const{return bStableMovementFrozen||bMidpointArmed||(CutawayAmount>0.f&&CutawayAmount<1.f);}
 	/** Optional same-map room. Both doors must share their inward orientation and unit scale. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Building|Relocated Interior") bool bUseRelocatedInterior = false;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Building|Relocated Interior") TObjectPtr<UBoxComponent> RelocatedInteriorArea;
@@ -77,7 +85,13 @@ private:
 	struct FViewerLightState { FLightingChannels Channels; bool bCastShadow = false; };
 	TMap<TWeakObjectPtr<UPrimitiveComponent>, FViewerLightState> OriginalViewerLighting;
 	TWeakObjectPtr<APawn> LightingViewer;
-	void UpdateRelocation(APawn* Player, bool bInside, float DeltaSeconds);
+ void FreezeDoorwayMovement(APawn* Player);
+ void RestoreDoorwayMovement();
+ TWeakObjectPtr<APokeMonsterPlayerCharacter> StableViewer;
+ FVector StableVelocity=FVector::ZeroVector;
+ uint8 StableMovementMode=0,StableCustomMode=0;
+ bool bStableMovementFrozen=false;
+ void UpdateRelocation(APawn* Player, bool bInside, float DeltaSeconds);
 	void ApplyRelocationMask(APawn* Player);
 	void ApplyVisibility();
 	TMap<TWeakObjectPtr<AActor>, bool> OriginalHiddenStates;

@@ -439,7 +439,7 @@ bool UPokeMonsterSaveSubsystem::CanAccessWorldState(bool bRecovery) const
  if (Player->GetCharacterMovement()->IsFalling()
   && (!bRecovery || !SafeLocation(const_cast<APokeMonsterPlayerCharacter*>(Player), CapturePlayerLocation(GetWorld())))) return false;
  for (TActorIterator<APokeMonsterBuildingCutaway> It(GetWorld()); It; ++It)
-  if (It->GetRelocationMask() > .001f) return false;
+  if (It->GetRelocationMask() > .001f || (It->bStableDoorwayTransition && It->IsDoorwayTransitionActive())) return false;
  return true;
 }
 

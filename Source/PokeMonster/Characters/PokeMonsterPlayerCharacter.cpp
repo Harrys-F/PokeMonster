@@ -361,8 +361,12 @@ void APokeMonsterPlayerCharacter::Tick(float DeltaSeconds)
 void APokeMonsterPlayerCharacter::CalcCamera(float DeltaTime, FMinimalViewInfo& OutResult)
 {
 	Super::CalcCamera(DeltaTime, OutResult);
- if(bThirdPersonCamera)return;
-	const APokeMonsterBuildingCutaway* Building = InteriorCameraSource.Get();
+ if(bThirdPersonCamera)
+ {
+  if(const auto* Room=InteriorCameraSource.Get())Room->ConstrainThirdPersonView(OutResult);
+  return;
+ }
+ const APokeMonsterBuildingCutaway* Building = InteriorCameraSource.Get();
 	if (!IsValid(Building) || !Building->bUseInteriorCamera) return;
 	const float Progress = FMath::Clamp(Building->GetCutawayAmount(), 0.f, 1.f);
 	if (Progress <= 0.f) return;

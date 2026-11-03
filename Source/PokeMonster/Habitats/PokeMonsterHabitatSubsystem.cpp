@@ -89,6 +89,7 @@ void UPokeMonsterHabitatSubsystem::OnWorldBeginPlay(UWorld& W)
  }
  // Keep authored gallery identities in the map/save data, but not as an all-species wild exhibition.
  if(APokeMonsterGameMode::IsIntegratedRegion(W.GetName()))for(TActorIterator<APokeMonsterVisibleWildCreatureActor> I(&W);I;++I)I->SuspendForHabitatPopulation();
+ if(auto* GI=W.GetGameInstance())if(auto* E=GI->GetSubsystem<UPokeMonsterEncounterSubsystem>())E->OnEncounterEnded.AddUniqueDynamic(this,&UPokeMonsterHabitatSubsystem::HandleBushEncounterFinished);
  bEnabled=true;W.OnWorldBeginPlay.AddUObject(this,&UPokeMonsterHabitatSubsystem::SeedInitialPopulation);
  W.GetTimerManager().SetTimer(UpdateTimer,this,&UPokeMonsterHabitatSubsystem::RefreshPopulation,S->UpdateSeconds,true,3.f);
  UE_LOG(LogTemp,Display,TEXT("PM_HABITATS %d zones, %d registered models, population cap %d"),Zones.Num(),Registered.Num(),S->MaximumPopulation);
@@ -263,6 +264,7 @@ bool UPokeMonsterHabitatSubsystem::TryPopulate(APokeMonsterHabitatZone* Z)
 }
 void UPokeMonsterHabitatSubsystem::Deinitialize()
 {
+ if(auto* GI=GetWorld()?GetWorld()->GetGameInstance():nullptr)if(auto* E=GI->GetSubsystem<UPokeMonsterEncounterSubsystem>())E->OnEncounterEnded.RemoveDynamic(this,&UPokeMonsterHabitatSubsystem::HandleBushEncounterFinished);
  if(GetWorld()){GetWorld()->GetTimerManager().ClearTimer(UpdateTimer);GetWorld()->OnWorldBeginPlay.RemoveAll(this);}
  for(auto A:Population)if(IsValid(A))A->OverworldMovement->SetMovementPaused(true);
  Population.Reset();Zones.Reset();Registered.Reset();Profiles.Reset();BirthTimes.Reset();Super::Deinitialize();

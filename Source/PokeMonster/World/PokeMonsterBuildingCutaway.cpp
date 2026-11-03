@@ -94,7 +94,10 @@ FVector APokeMonsterBuildingCutaway::MapDoorwayPosition(FVector WorldLocation, b
 {
 	const FTransform From = (bEntering ? DoorThreshold : RelocatedDoorThreshold)->GetComponentTransform();
 	const FTransform To = (bEntering ? RelocatedDoorThreshold : DoorThreshold)->GetComponentTransform();
-	return To.TransformPosition(From.InverseTransformPosition(WorldLocation));
+	FVector Local=From.InverseTransformPosition(WorldLocation);
+ if(bStableDoorwayTransition)
+  Local.X=bEntering?FMath::Max(Local.X,DoorwayLandingDistance):FMath::Min(Local.X,-DoorwayLandingDistance);
+ return To.TransformPosition(Local);
 }
 
 float APokeMonsterBuildingCutaway::GetRelocationMask() const
@@ -123,8 +126,9 @@ void APokeMonsterBuildingCutaway::ApplyRelocationMask(APawn* Player)
 
 void APokeMonsterBuildingCutaway::UpdateRelocation(APawn* Player, bool bInside, float DeltaSeconds)
 {
-	const float Target = bInside ? 1.f : 0.f;
-	const float Next = FMath::FInterpConstantTo(CutawayAmount, Target,
+	if(bStableDoorwayTransition&&bInside!=bViewerRelocated&&!bStableMovementFrozen)FreezeDoorwayMovement(Player);
+ const float Target = bInside ? 1.f : 0.f;
+ const float Next = FMath::FInterpConstantTo(CutawayAmount, Target,
 		FMath::Max(DeltaSeconds, 0.f), 1.f / FMath::Max(FadeDuration, .05f));
 	if (bMidpointArmed)
 	{
@@ -165,6 +169,7 @@ void APokeMonsterBuildingCutaway::UpdateRelocation(APawn* Player, bool bInside, 
 				UE_LOG(LogTemp, Warning, TEXT("Building %s: relocation destination blocked; remaining on current side."), *GetName());
 				bCutawayActive = bViewerRelocated;
 				bRelocationRejected = true;
+    RestoreDoorwayMovement();
 				CutawayAmount = bViewerRelocated ? 1.f : 0.f;
 			}
 		}
@@ -176,7 +181,8 @@ void APokeMonsterBuildingCutaway::UpdateRelocation(APawn* Player, bool bInside, 
 		bMidpointArmed = true;
 	}
 	else CutawayAmount = Next;
-	ApplyRelocationMask(Player);
+ ApplyRelocationMask(Player);
+ if(bStableMovementFrozen&&!bMidpointArmed&&bInside==bViewerRelocated&&FMath::IsNearlyEqual(CutawayAmount,Target))RestoreDoorwayMovement();
 }
 
 bool APokeMonsterBuildingCutaway::IsViewerInDoorway(FVector WorldLocation) const
@@ -208,6 +214,7 @@ void APokeMonsterBuildingCutaway::Tick(float DeltaSeconds)
 
 void APokeMonsterBuildingCutaway::SynchronizeViewerAfterLoad()
 {
+ RestoreDoorwayMovement();
  bViewerInitialized = false;
  bMidpointArmed = bRelocationRejected = false;
  RefreshVisibility(0.f);
@@ -350,6 +357,7 @@ void APokeMonsterBuildingCutaway::ApplyVisibility()
 
 void APokeMonsterBuildingCutaway::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
+ RestoreDoorwayMovement();
 	if (bOwnsCameraMask)
 		if (auto* Viewer = CameraViewer.Get())
 			if (auto* Controller = Cast<APlayerController>(Viewer->GetController()))
@@ -365,4 +373,27 @@ void APokeMonsterBuildingCutaway::EndPlay(const EEndPlayReason::Type EndPlayReas
 	OriginalFadeData.Reset();
 	OriginalHiddenStates.Reset();
 	Super::EndPlay(EndPlayReason);
+}
+
+void APokeMonsterBuildingCutaway::FreezeDoorwayMovement(APawn* Pawn)
+{
+ auto* P=Cast<APokeMonsterPlayerCharacter>(Pawn);if(!P||bStableMovementFrozen)return;
+ auto* M=P->GetCharacterMovement();StableViewer=P;StableVelocity=M->Velocity;StableMovementMode=uint8(M->MovementMode);StableCustomMode=M->CustomMovementMode;
+ bStableMovementFrozen=true;M->DisableMovement(); // Enhanced Input still records the held direction.
+}
+void APokeMonsterBuildingCutaway::RestoreDoorwayMovement()
+{
+ if(bStableMovementFrozen)if(auto* P=StableViewer.Get();P&&!P->IsActorBeingDestroyed())
+ {
+  auto* M=P->GetCharacterMovement();M->SetMovementMode(EMovementMode(StableMovementMode),StableCustomMode);M->Velocity=StableVelocity;M->bForceNextFloorCheck=true;
+ }
+ bStableMovementFrozen=false;StableViewer.Reset();StableVelocity=FVector::ZeroVector;
+}
+void APokeMonsterBuildingCutaway::ConstrainThirdPersonView(FMinimalViewInfo& View)const
+{
+ if(!bConstrainThirdPersonToRoom||!bUseRelocatedInterior||!bViewerRelocated)return;
+ const FTransform Transform=RelocatedInteriorArea->GetComponentTransform();FVector Local=Transform.InverseTransformPosition(View.Location);const FVector Extent=RelocatedInteriorArea->GetUnscaledBoxExtent();
+ const float Margin=FMath::Clamp(InteriorCameraBoundaryMargin,0.f,FMath::Min(Extent.X,Extent.Y)*.45f);
+ Local.X=FMath::Clamp(Local.X,-Extent.X+Margin,Extent.X-Margin);Local.Y=FMath::Clamp(Local.Y,-Extent.Y+Margin,Extent.Y-Margin);
+ View.Location=Transform.TransformPosition(Local); // Preserve the actual height, rotation, FOV and exterior boom settings.
 }
