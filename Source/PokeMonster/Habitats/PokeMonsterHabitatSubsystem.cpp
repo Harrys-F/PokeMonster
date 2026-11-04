@@ -253,7 +253,8 @@ bool UPokeMonsterHabitatSubsystem::TryPopulate(APokeMonsterHabitatZone* Z)
    if(Z->Medium==EPokeMonsterBiomeMedium::WaterOnly)M->ActivityOverride.ForageWeight=0.f;
   }
   if(R.bOverrideActivities){M->bOverrideActivities=true;M->ActivityOverride=R.Activities;}
-  M->bExploreWholeWaterHabitat=R.bVisualV2WaterExploration&&IsVisualV2(GetWorld()->GetMapName())&&Z->Medium==EPokeMonsterBiomeMedium::WaterOnly;
+  // Retain the serialized V7 opt-in; roll out the same checked water behavior only to the two integrated maps.
+  M->bExploreWholeWaterHabitat=R.bVisualV2WaterExploration&&APokeMonsterGameMode::IsIntegratedRegion(GetWorld()->GetMapName())&&Z->Medium==EPokeMonsterBiomeMedium::WaterOnly;
   FPokeMonsterCreatureRhythm Existing;
   if(!GetDefault<UPokeMonsterCreatureRhythmSettings>()->Find(R.Species,Existing)){M->bOverrideRhythm=true;M->RhythmOverride.Rhythm=R.Rhythm;}
   UGameplayStatics::FinishSpawningActor(A,Transform);
